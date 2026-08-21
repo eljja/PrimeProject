@@ -239,6 +239,7 @@ TICKET232_SCHEMA = (
 TICKET233_SCHEMA = "primeproject.ticket233-logarithmic-frame-density-shell-entropy.v1"
 TICKET234_SCHEMA = "primeproject.ticket234-operator-kernel-density-minor-cesaro.v1"
 TICKET235_SCHEMA = "primeproject.ticket235-schur-primepower-phase-overlap.v1"
+TICKET236_SCHEMA = "primeproject.ticket236-contraction-order-phase-degree2.v1"
 
 
 def fail(message: str) -> int:
@@ -19931,6 +19932,159 @@ def main() -> int:
         or machine235.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket235 proof boundary changed")
+
+    path236 = Path(
+        "data/open-problem/ticket236-contraction-order-phase-degree2.json"
+    )
+    if not path236.exists():
+        return fail("missing ticket236 contraction/order/phase/degree-two audit")
+    ticket236 = read_json(path236)
+    if (
+        ticket236.get("schema") != TICKET236_SCHEMA
+        or ticket236.get("status") != "open_not_proven"
+    ):
+        return fail("ticket236 schema or status changed")
+    audit236 = ticket236.get("contraction_order_phase_degree2_audit", {})
+    machine236 = audit236.get("machine_audit", {})
+    if machine236 != {
+        "exact_partial_or_no_go_theorem_count": 4,
+        "refuted_or_reduced_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket236 global machine audit changed")
+
+    theorem_names236 = {
+        "riemann": "NormalizedCrossBlockContractionCriterionAndLocalMinorNoGo",
+        "collatz": "BinaryRunBlockThreePrimeOrderWitnessOutside28826Multiples",
+        "goldbach": "ActualPrimeReflectedPhaseDefectIdentityAndUncoupledMarginNoGo",
+        "twin-prime": "DegreeTwoCesaroEnergyControlsEveryFixedDegree",
+    }
+    next_lemmas236 = {
+        "riemann": "ArithmeticWeilNormalizedCrossBlockContractionBelowOneOnCofinalLogarithmicFrames",
+        "collatz": "UniformBinaryDensityBandFreshOrderSeparatedPrimeWitnessBeyondFinitePalettes",
+        "goldbach": "TargetCoupledDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack",
+        "twin-prime": "PrimeWeightedDegreeTwoCRTOverlapEnergyDecayAtTwinScale",
+    }
+    track_paths236 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-236-normalized-contraction-no-go.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-236-three-prime-order-witness.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-236-reflected-phase-defect.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-236-degree-two-reduction.json"),
+    }
+    audit_sections236 = {
+        "riemann": audit236.get("riemann", {}),
+        "collatz": audit236.get("collatz", {}),
+        "goldbach": audit236.get("goldbach", {}),
+        "twin-prime": audit236.get("twin_prime", {}),
+    }
+    attempts236 = {
+        row.get("problem_id"): row for row in ticket236.get("attempts", [])
+    }
+    if set(attempts236) != EXPECTED_PROBLEMS:
+        return fail("ticket236 attempts missing problems")
+    for problem_id, attempt in attempts236.items():
+        track_path = track_paths236[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket236 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections236[problem_id]
+        dag = attempt.get("proof_dag", {})
+        nodes = dag.get("nodes", [])
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names236[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas236[problem_id]
+            or not attempt.get("declared_proposition")
+            or not attempt.get("mathematical_argument")
+            or not attempt.get("discarded_route")
+            or not attempt.get("remaining_gap")
+            or attempt.get("bounded_result", {}).get("failure_count") != 0
+            or sum(node.get("status") == "highest_risk_open" for node in nodes) != 1
+            or not any(node.get("status") == "open_not_proven" for node in nodes)
+            or not any(node.get("status") == "refuted_or_limited" for node in nodes)
+            or not dag.get("edges")
+            or section.get("theorem_name") != theorem_names236[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas236[problem_id]
+            or track.get("schema") != TICKET236_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("problem_id") != problem_id
+            or track.get("theorem_name") != theorem_names236[problem_id]
+            or track.get("reproducible_computation", {}).get("failure_count") != 0
+        ):
+            return fail(f"{problem_id}: ticket236 contract changed")
+
+    rh236 = audit_sections236["riemann"].get("reproducible_computation", {})
+    if (
+        len(rh236.get("exact_coherent_rank_one_rows", [])) != 6
+        or any(
+            row.get("certificate_verified") is not True
+            or Fraction(row.get("every_coordinate_two_by_two_minor", {}).get("exact", "-1")) < 0
+            or Fraction(row.get("unsafe_normalized_operator_norm", {}).get("exact", "0")) != 2
+            or Fraction(row.get("unsafe_full_block_minimum_eigenvalue", {}).get("exact", "0")) != -1
+            for row in rh236.get("exact_coherent_rank_one_rows", [])
+        )
+        or rh236.get("transcript_sha256") != "8c6817245d62ebd56cd2bb1ebdc09c556f14ded2b8084a777f177ba27811b2c3"
+        or rh236.get("aggregate", {}).get("normalized_cross_block_contraction_iff_proved") is not True
+        or rh236.get("aggregate", {}).get("coordinatewise_relative_minor_sufficiency_refuted") is not True
+        or rh236.get("aggregate", {}).get("arithmetic_weil_normalized_contraction_proved") is not False
+        or rh236.get("aggregate", {}).get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket236 RH contraction boundary changed")
+
+    collatz236 = audit_sections236["collatz"].get("reproducible_computation", {})
+    period236 = collatz236.get("complete_residue_period_audit", {})
+    order_rows236 = collatz236.get("witness_order_rows", [])
+    if (
+        [(row.get("prime_q"), row.get("order_q_32_over_27"), row.get("order_q_3_over_2"), row.get("order_q_4")) for row in order_rows236]
+        != [(5, 1, 2, 2), (59, 2, 58, 29), (57653, 29, 28826, 28826)]
+        or period236.get("period") != 28826
+        or period236.get("coverage_counts") != {"q_5": 14413, "q_59": 13916, "q_57653": 496, "uncovered": 1}
+        or period236.get("residue_failure_count") != 0
+        or period236.get("transcript_sha256") != "9b23e815a83ae737cc71af674f66b2e4c44954a72b188862c7c429e18d08b197"
+        or collatz236.get("aggregate", {}).get("run_block_order_separated_witness_outside_28826_multiples_proved") is not True
+        or collatz236.get("aggregate", {}).get("fixed_three_prime_palette_universal_sufficiency_refuted") is not True
+        or collatz236.get("aggregate", {}).get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket236 Collatz order boundary changed")
+
+    goldbach236 = audit_sections236["goldbach"].get("reproducible_computation", {})
+    if (
+        [(row.get("cutoff_X"), row.get("prime_count_pi_X"), row.get("normalized_phase_margin_g_over_pi", {}).get("exact")) for row in goldbach236.get("exact_actual_prime_rows", [])]
+        != [(100, 25, "1/25"), (1000, 168, "1/168"), (10000, 1229, "1/1229"), (100000, 9592, "1/9592")]
+        or len(goldbach236.get("direct_complex_dft_rows", [])) != 3
+        or any(row.get("certificate_verified") is not True or row.get("absolute_complex_error", 1) >= 5e-10 for row in goldbach236.get("direct_complex_dft_rows", []))
+        or goldbach236.get("transcript_sha256") != "d075449ac3bca0bbf0a4edff052588b95a7a38047d7b245dbb2bf02ac4f4cffc"
+        or goldbach236.get("aggregate", {}).get("reflected_phase_defect_identity_proved") is not True
+        or goldbach236.get("aggregate", {}).get("uncoupled_inverse_log_uniform_margin_refuted") is not True
+        or goldbach236.get("aggregate", {}).get("target_coupled_prime_phase_gain_proved") is not False
+        or goldbach236.get("aggregate", {}).get("strong_goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket236 Goldbach phase boundary changed")
+
+    twin236 = audit_sections236["twin-prime"].get("reproducible_computation", {})
+    twin_rows236 = twin236.get("actual_twin_start_diagnostic_rows", [])
+    if (
+        [(row.get("cutoff_X"), row.get("active_prime_count_m"), row.get("twin_start_count")) for row in twin_rows236]
+        != [(10000, 4, 202), (100000, 6, 1220), (1000000, 8, 8164)]
+        or any(row.get("certificate_verified") is not True or row.get("degree_one_from_degree_two_squared_bound_verified") is not True or not all(bound.get("bound_verified") is True for bound in row.get("higher_degree_bound_rows", [])) for row in twin_rows236)
+        or twin236.get("transcript_sha256") != "c1ba12041bd9e671f97ab24ac2534baab627f2e177502c20a375455450035c98"
+        or twin236.get("aggregate", {}).get("degree_two_controls_every_fixed_degree_proved") is not True
+        or twin236.get("aggregate", {}).get("independent_all_degree_hierarchy_required_refuted") is not True
+        or twin236.get("aggregate", {}).get("actual_prime_degree_two_decay_proved") is not False
+        or twin236.get("aggregate", {}).get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket236 Twin degree-two boundary changed")
+
+    if (
+        "resolves none" not in str(audit236.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket236.get("claim_boundary", "")).lower()
+        or machine236.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket236 proof boundary changed")
 
     path233 = Path(
         "data/open-problem/ticket233-logarithmic-frame-density-shell-entropy.json"

@@ -15,7 +15,36 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-235
+## Current research boundary: TICKET-236
+
+The current machine-readable boundary is
+`data/open-problem/ticket236-contraction-order-phase-degree2.json`.
+
+TICKET-236 proves four exact partial, reduction, or no-go theorems and resolves
+none of the parent conjectures:
+
+- normalized RH block positivity is exactly an operator-contraction condition,
+  while every coordinate minor can pass with vanishing entries even though the
+  full block has a fixed negative eigenvalue;
+- three explicit primes certify the Collatz binary run-block nondivisibility
+  target on every exponent class except multiples of `28,826`, and the same
+  order calculation proves that this fixed palette cannot cover that residue;
+- the actual-prime reflected Goldbach phase defect is exactly complementary to
+  the representation count, while the target `N=4` refutes every uncoupled
+  uniform inverse-log margin over growing cutoffs;
+- degree-two Twin CRT Cesaro energy controls degree one and every fixed higher
+  degree, so the independent all-degree hierarchy reduces to a single
+  degree-two estimate.
+
+The remaining decisive targets are arithmetic Weil normalized cross-block
+contraction below one; a fresh order-separated Collatz prime beyond every
+fixed palette; target-coupled dyadic Goldbach reflected phase gain; and
+prime-weighted degree-two CRT overlap-energy decay at twin scale.
+
+English report: [TICKET-236](contraction-order-phase-degree2.md).
+한국어 보고서: [TICKET-236](contraction-order-phase-degree2.ko.md).
+
+## Preserved research boundary: TICKET-235
 
 The current machine-readable boundary is
 `data/open-problem/ticket235-schur-primepower-phase-overlap.json`.
@@ -90,7 +119,7 @@ TICKET-229 remains available in
 [한국어](band-frame-semilinear-character-barriers.ko.md). Its finite-band,
 semilinear-cover, target-period, and character-parity results are inputs to
 TICKET-230, but its four successor lemmas no longer override the corrected
-TICKET-231 targets.
+TICKET-231 targets. These results are direct inputs to TICKET-236.
 
 ## Preserved research boundary: TICKET-221
 

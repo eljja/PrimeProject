@@ -1,0 +1,184 @@
+{
+  "schema": "primeproject.ticket236-contraction-order-phase-degree2.v1",
+  "generated_at": "2026-08-22T02:10:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-236",
+  "theorem_name": "BinaryRunBlockThreePrimeOrderWitnessOutside28826Multiples",
+  "declared_proposition": "For the primitive binary run block w_k=1^k2^(2k), let D_k=32^k-27^k and B_k=32^k+27^k-2*18^k. If 28826 does not divide k, there is an explicit order-separated prime q dividing D_k but not B_k: take q=5 for odd k, q=59 for even k not divisible by 58, and q=57653 for 58|k but 28826 not dividing k. At every multiple of 28826 all three primes divide both D_k and B_k, so this fixed three-prime palette is not a universal adaptive witness.",
+  "mathematical_argument": "TICKET-235 proved q|gcd(D_k,B_k) iff ord_q(3/2)|k and ord_q(4)|k, while q|D_k iff ord_q(32/27)|k. The exact order triples (ord(32/27),ord(3/2),ord(4)) are (1,2,2) at q=5, (2,58,29) at q=59, and (29,28826,28826) at q=57653. The three divisibility cases therefore give a denominator divisor and fail the numerator common-order condition. At 28826|k every common-order condition holds.",
+  "reproducible_computation": {
+    "theorem": "For the primitive binary run block w_k=1^k2^(2k), let D_k=32^k-27^k and B_k=32^k+27^k-2*18^k. If 28826 does not divide k, there is an explicit order-separated prime q dividing D_k but not B_k: take q=5 for odd k, q=59 for even k not divisible by 58, and q=57653 for 58|k but 28826 not dividing k. At every multiple of 28826 all three primes divide both D_k and B_k, so this fixed three-prime palette is not a universal adaptive witness.",
+    "proof": "TICKET-235 proved q|gcd(D_k,B_k) iff ord_q(3/2)|k and ord_q(4)|k, while q|D_k iff ord_q(32/27)|k. The exact order triples (ord(32/27),ord(3/2),ord(4)) are (1,2,2) at q=5, (2,58,29) at q=59, and (29,28826,28826) at q=57653. The three divisibility cases therefore give a denominator divisor and fail the numerator common-order condition. At 28826|k every common-order condition holds.",
+    "witness_order_rows": [
+      {
+        "prime_q": 5,
+        "order_q_32_over_27": 1,
+        "order_q_3_over_2": 2,
+        "order_q_4": 2,
+        "common_divisor_period": 2,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 59,
+        "order_q_32_over_27": 2,
+        "order_q_3_over_2": 58,
+        "order_q_4": 29,
+        "common_divisor_period": 58,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 57653,
+        "order_q_32_over_27": 29,
+        "order_q_3_over_2": 28826,
+        "order_q_4": 28826,
+        "common_divisor_period": 28826,
+        "certificate_verified": true
+      }
+    ],
+    "complete_residue_period_audit": {
+      "period": 28826,
+      "coverage_counts": {
+        "q_5": 14413,
+        "q_59": 13916,
+        "q_57653": 496,
+        "uncovered": 1
+      },
+      "coverage_verified": true,
+      "residue_failure_count": 0,
+      "anchor_rows": [
+        {
+          "one_count_k": 1,
+          "selected_prime_q": 5,
+          "all_three_common_at_exception": false
+        },
+        {
+          "one_count_k": 2,
+          "selected_prime_q": 59,
+          "all_three_common_at_exception": false
+        },
+        {
+          "one_count_k": 57,
+          "selected_prime_q": 5,
+          "all_three_common_at_exception": false
+        },
+        {
+          "one_count_k": 58,
+          "selected_prime_q": 57653,
+          "all_three_common_at_exception": false
+        },
+        {
+          "one_count_k": 116,
+          "selected_prime_q": 57653,
+          "all_three_common_at_exception": false
+        },
+        {
+          "one_count_k": 28768,
+          "selected_prime_q": 57653,
+          "all_three_common_at_exception": false
+        },
+        {
+          "one_count_k": 28825,
+          "selected_prime_q": 5,
+          "all_three_common_at_exception": false
+        },
+        {
+          "one_count_k": 28826,
+          "selected_prime_q": null,
+          "all_three_common_at_exception": true
+        }
+      ],
+      "transcript_sha256": "9b23e815a83ae737cc71af674f66b2e4c44954a72b188862c7c429e18d08b197"
+    },
+    "aggregate": {
+      "run_block_order_separated_witness_outside_28826_multiples_proved": true,
+      "fixed_three_prime_palette_universal_sufficiency_refuted": true,
+      "run_block_nondivisibility_newly_proved": false,
+      "all_binary_density_band_words_excluded": false,
+      "all_periodic_collatz_cycles_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "TICKET-197 already excludes D_k|B_k for every run block; the new result is the explicit prime-presence witness on 28825 of 28826 residue classes. It leaves multiples of 28826, general primitive binary necklaces, valuations at least three, and aperiodic divergence open. The finite residue loop is exhaustive only because the proved order conditions are periodic modulo 28826.",
+    "failure_count": 0
+  },
+  "logical_limit": "TICKET-197 already excludes D_k|B_k for every run block; the new result is the explicit prime-presence witness on 28825 of 28826 residue classes. It leaves multiples of 28826, general primitive binary necklaces, valuations at least three, and aperiodic divergence open. The finite residue loop is exhaustive only because the proved order conditions are periodic modulo 28826.",
+  "route_decision": {
+    "discard": "a fixed three-prime palette as a universal binary run-block witness",
+    "retain": "select fresh word-dependent order-separated primes beyond every fixed palette",
+    "next_single_lemma": "UniformBinaryDensityBandFreshOrderSeparatedPrimeWitnessBeyondFinitePalettes"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T197",
+        "label": "ContiguousOneTwoRunNondivisibility",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T235",
+        "label": "BinaryRunBlockPrimitiveDivisorOrderCharacterizationAndSelectionNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T236",
+        "label": "RunBlockThreePrimeWitnessOutside28826Multiples",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N236",
+        "label": "FixedThreePrimePaletteCoversEveryRunBlock",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN236",
+        "label": "UniformBinaryDensityBandFreshOrderSeparatedPrimeWitnessBeyondFinitePalettes",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO-PERIODIC",
+        "label": "AllPeriodicValuationWords",
+        "status": "open_not_proven"
+      },
+      {
+        "id": "CO-APERIODIC",
+        "label": "AperiodicDescentOrTermination",
+        "status": "open_not_proven"
+      },
+      {
+        "id": "CO",
+        "label": "CollatzConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T197",
+        "CO-T236"
+      ],
+      [
+        "CO-T235",
+        "CO-T236"
+      ],
+      [
+        "CO-T236",
+        "CO-N236"
+      ],
+      [
+        "CO-T236",
+        "CO-OPEN236"
+      ],
+      [
+        "CO-OPEN236",
+        "CO-PERIODIC"
+      ],
+      [
+        "CO-PERIODIC",
+        "CO"
+      ],
+      [
+        "CO-APERIODIC",
+        "CO"
+      ]
+    ]
+  }
+}

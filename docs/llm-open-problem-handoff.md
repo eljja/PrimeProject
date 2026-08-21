@@ -62,7 +62,36 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-235
+## Current continuation: TICKET-236
+
+The current machine-readable boundary is
+`data/open-problem/ticket236-contraction-order-phase-degree2.json`.
+It records four exact partial, reduction, or no-go theorems, zero machine
+failures, and zero parent-conjecture resolutions.
+
+| Problem | Newly closed lemma | Current single open lemma |
+|---|---|---|
+| Riemann | `NormalizedCrossBlockContractionCriterionAndLocalMinorNoGo` | `ArithmeticWeilNormalizedCrossBlockContractionBelowOneOnCofinalLogarithmicFrames` |
+| Collatz | `BinaryRunBlockThreePrimeOrderWitnessOutside28826Multiples` | `UniformBinaryDensityBandFreshOrderSeparatedPrimeWitnessBeyondFinitePalettes` |
+| Goldbach | `ActualPrimeReflectedPhaseDefectIdentityAndUncoupledMarginNoGo` | `TargetCoupledDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack` |
+| Twin Prime | `DegreeTwoCesaroEnergyControlsEveryFixedDegree` | `PrimeWeightedDegreeTwoCRTOverlapEnergyDecayAtTwinScale` |
+
+The RH result gives the exact normalized contraction gate and an infinite
+coordinate-minor counterfamily, but not the arithmetic contraction. The
+Collatz result is an all-exponent order theorem outside one residue class, not
+a finite trend; fixed multiples of `28,826` remain uncovered. The Goldbach
+identity is exact for actual primes, but its no-go uses a fixed small target
+and therefore does not settle target-coupled dyadic estimates. The Twin result
+collapses all fixed-degree CRT tests to degree two, but does not prove the
+needed prime-weighted Type-II decay or positive twin mass.
+
+Reports: [English](contraction-order-phase-degree2.md),
+[한국어](contraction-order-phase-degree2.ko.md).
+
+All older "latest" or "current" headings below are preserved historical
+snapshots and must not override this TICKET-236 boundary.
+
+## Preserved continuation: TICKET-235
 
 The current machine-readable boundary is
 `data/open-problem/ticket235-schur-primepower-phase-overlap.json`.
@@ -87,8 +116,8 @@ but does not prove Type-II overlap concentration or positive mass.
 Reports: [English](schur-primepower-phase-overlap.md),
 [한국어](schur-primepower-phase-overlap.ko.md).
 
-All older "latest" or "current" headings below are preserved historical
-snapshots and must not override this TICKET-235 boundary.
+This exact Schur/order/phase/overlap boundary is the direct input to
+TICKET-236.
 
 ## Preserved continuation: TICKET-234
 

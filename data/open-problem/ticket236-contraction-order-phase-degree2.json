@@ -1,0 +1,1307 @@
+{
+  "schema": "primeproject.ticket236-contraction-order-phase-degree2.v1",
+  "generated_at": "2026-08-22T02:10:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-236 proves four exact partial or no-go results and resolves none of the four parent conjectures.",
+  "contraction_order_phase_degree2_audit": {
+    "theorem_name": "FourConjectureContractionOrderPhaseDegreeTwoAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-236 proves four exact partial or no-go results: the global normalized contraction criterion and a local-minor no-go; a three-prime Collatz run-block witness outside multiples of 28826; an actual-prime reflected phase-defect identity and uncoupled inverse-log no-go; and a degree-two reduction controlling every fixed CRT Cesaro degree. It resolves none of the four parent conjectures.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-236",
+      "theorem_name": "NormalizedCrossBlockContractionCriterionAndLocalMinorNoGo",
+      "declared_proposition": "Let A and C be positive definite and H=[[A,B],[B*,C]]. Put K=A^(-1/2)BC^(-1/2). Then H is positive semidefinite if and only if the normalized cross block is a contraction, ||K||_op<=1. Coordinatewise relative two-by-two minor inequalities do not suffice: for A=C=I_m and B=(2/m)J_m, every coordinate minor is 1-4/m^2>=0 and every entry tends to zero, but ||B||_op=2 and the full block has minimum eigenvalue -1.",
+      "mathematical_argument": "Congruence by diag(A^(-1/2),C^(-1/2)) reduces H to [[I,K],[K*,I]]. The Schur complement is I-K*K, which is positive semidefinite exactly when every singular value of K is at most one. In the counterfamily J_m has one singular value m, so (2/m)J_m has norm two even though each coordinate pair passes its local minor test. Replacing 2/m by 1/(2m) gives norm one half and full minimum eigenvalue one half.",
+      "reproducible_computation": {
+        "theorem": "Let A and C be positive definite and H=[[A,B],[B*,C]]. Put K=A^(-1/2)BC^(-1/2). Then H is positive semidefinite if and only if the normalized cross block is a contraction, ||K||_op<=1. Coordinatewise relative two-by-two minor inequalities do not suffice: for A=C=I_m and B=(2/m)J_m, every coordinate minor is 1-4/m^2>=0 and every entry tends to zero, but ||B||_op=2 and the full block has minimum eigenvalue -1.",
+        "proof": "Congruence by diag(A^(-1/2),C^(-1/2)) reduces H to [[I,K],[K*,I]]. The Schur complement is I-K*K, which is positive semidefinite exactly when every singular value of K is at most one. In the counterfamily J_m has one singular value m, so (2/m)J_m has norm two even though each coordinate pair passes its local minor test. Replacing 2/m by 1/(2m) gives norm one half and full minimum eigenvalue one half.",
+        "exact_coherent_rank_one_rows": [
+          {
+            "block_dimension_m": 4,
+            "unsafe_cross_entry_2_over_m": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "every_coordinate_two_by_two_minor": {
+              "exact": "3/4",
+              "float": 0.75
+            },
+            "unsafe_normalized_operator_norm": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "unsafe_full_block_minimum_eigenvalue": {
+              "exact": "-1",
+              "float": -1.0
+            },
+            "safe_cross_entry_1_over_2m": {
+              "exact": "1/8",
+              "float": 0.125
+            },
+            "safe_normalized_operator_norm": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "safe_full_block_minimum_eigenvalue": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "block_dimension_m": 8,
+            "unsafe_cross_entry_2_over_m": {
+              "exact": "1/4",
+              "float": 0.25
+            },
+            "every_coordinate_two_by_two_minor": {
+              "exact": "15/16",
+              "float": 0.9375
+            },
+            "unsafe_normalized_operator_norm": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "unsafe_full_block_minimum_eigenvalue": {
+              "exact": "-1",
+              "float": -1.0
+            },
+            "safe_cross_entry_1_over_2m": {
+              "exact": "1/16",
+              "float": 0.0625
+            },
+            "safe_normalized_operator_norm": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "safe_full_block_minimum_eigenvalue": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "block_dimension_m": 16,
+            "unsafe_cross_entry_2_over_m": {
+              "exact": "1/8",
+              "float": 0.125
+            },
+            "every_coordinate_two_by_two_minor": {
+              "exact": "63/64",
+              "float": 0.984375
+            },
+            "unsafe_normalized_operator_norm": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "unsafe_full_block_minimum_eigenvalue": {
+              "exact": "-1",
+              "float": -1.0
+            },
+            "safe_cross_entry_1_over_2m": {
+              "exact": "1/32",
+              "float": 0.03125
+            },
+            "safe_normalized_operator_norm": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "safe_full_block_minimum_eigenvalue": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "block_dimension_m": 32,
+            "unsafe_cross_entry_2_over_m": {
+              "exact": "1/16",
+              "float": 0.0625
+            },
+            "every_coordinate_two_by_two_minor": {
+              "exact": "255/256",
+              "float": 0.99609375
+            },
+            "unsafe_normalized_operator_norm": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "unsafe_full_block_minimum_eigenvalue": {
+              "exact": "-1",
+              "float": -1.0
+            },
+            "safe_cross_entry_1_over_2m": {
+              "exact": "1/64",
+              "float": 0.015625
+            },
+            "safe_normalized_operator_norm": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "safe_full_block_minimum_eigenvalue": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "block_dimension_m": 64,
+            "unsafe_cross_entry_2_over_m": {
+              "exact": "1/32",
+              "float": 0.03125
+            },
+            "every_coordinate_two_by_two_minor": {
+              "exact": "1023/1024",
+              "float": 0.9990234375
+            },
+            "unsafe_normalized_operator_norm": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "unsafe_full_block_minimum_eigenvalue": {
+              "exact": "-1",
+              "float": -1.0
+            },
+            "safe_cross_entry_1_over_2m": {
+              "exact": "1/128",
+              "float": 0.0078125
+            },
+            "safe_normalized_operator_norm": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "safe_full_block_minimum_eigenvalue": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "block_dimension_m": 128,
+            "unsafe_cross_entry_2_over_m": {
+              "exact": "1/64",
+              "float": 0.015625
+            },
+            "every_coordinate_two_by_two_minor": {
+              "exact": "4095/4096",
+              "float": 0.999755859375
+            },
+            "unsafe_normalized_operator_norm": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "unsafe_full_block_minimum_eigenvalue": {
+              "exact": "-1",
+              "float": -1.0
+            },
+            "safe_cross_entry_1_over_2m": {
+              "exact": "1/256",
+              "float": 0.00390625
+            },
+            "safe_normalized_operator_norm": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "safe_full_block_minimum_eigenvalue": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "8c6817245d62ebd56cd2bb1ebdc09c556f14ded2b8084a777f177ba27811b2c3",
+        "aggregate": {
+          "normalized_cross_block_contraction_iff_proved": true,
+          "coordinatewise_relative_minor_sufficiency_refuted": true,
+          "coherent_cross_block_accumulation_exhibited": true,
+          "arithmetic_weil_normalized_contraction_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "This is an exact finite-dimensional operator theorem and counterfamily, not an estimate for the actual Guinand-Weil arithmetic cross block. It identifies the required global normalized operator norm and refutes pairwise local certification only. No zeta zero is tested.",
+        "failure_count": 0
+      },
+      "logical_limit": "This is an exact finite-dimensional operator theorem and counterfamily, not an estimate for the actual Guinand-Weil arithmetic cross block. It identifies the required global normalized operator norm and refutes pairwise local certification only. No zeta zero is tested.",
+      "route_decision": {
+        "discard": "coordinatewise relative two-by-two minors as a certificate for the full Weil truncation",
+        "retain": "bound the global normalized arithmetic cross-block operator below one",
+        "next_single_lemma": "ArithmeticWeilNormalizedCrossBlockContractionBelowOneOnCofinalLogarithmicFrames"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T235",
+            "label": "ExactKernelSchurComplementCriterionAndCrossBlockNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T236",
+            "label": "NormalizedCrossBlockContractionAndLocalMinorNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N236",
+            "label": "CoordinatewiseRelativeMinorsSufficeForFullPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN236",
+            "label": "ArithmeticWeilNormalizedCrossBlockContractionBelowOneOnCofinalLogarithmicFrames",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T235",
+            "RH-T236"
+          ],
+          [
+            "RH-T236",
+            "RH-N236"
+          ],
+          [
+            "RH-T236",
+            "RH-OPEN236"
+          ],
+          [
+            "RH-OPEN236",
+            "RH"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-236",
+      "theorem_name": "BinaryRunBlockThreePrimeOrderWitnessOutside28826Multiples",
+      "declared_proposition": "For the primitive binary run block w_k=1^k2^(2k), let D_k=32^k-27^k and B_k=32^k+27^k-2*18^k. If 28826 does not divide k, there is an explicit order-separated prime q dividing D_k but not B_k: take q=5 for odd k, q=59 for even k not divisible by 58, and q=57653 for 58|k but 28826 not dividing k. At every multiple of 28826 all three primes divide both D_k and B_k, so this fixed three-prime palette is not a universal adaptive witness.",
+      "mathematical_argument": "TICKET-235 proved q|gcd(D_k,B_k) iff ord_q(3/2)|k and ord_q(4)|k, while q|D_k iff ord_q(32/27)|k. The exact order triples (ord(32/27),ord(3/2),ord(4)) are (1,2,2) at q=5, (2,58,29) at q=59, and (29,28826,28826) at q=57653. The three divisibility cases therefore give a denominator divisor and fail the numerator common-order condition. At 28826|k every common-order condition holds.",
+      "reproducible_computation": {
+        "theorem": "For the primitive binary run block w_k=1^k2^(2k), let D_k=32^k-27^k and B_k=32^k+27^k-2*18^k. If 28826 does not divide k, there is an explicit order-separated prime q dividing D_k but not B_k: take q=5 for odd k, q=59 for even k not divisible by 58, and q=57653 for 58|k but 28826 not dividing k. At every multiple of 28826 all three primes divide both D_k and B_k, so this fixed three-prime palette is not a universal adaptive witness.",
+        "proof": "TICKET-235 proved q|gcd(D_k,B_k) iff ord_q(3/2)|k and ord_q(4)|k, while q|D_k iff ord_q(32/27)|k. The exact order triples (ord(32/27),ord(3/2),ord(4)) are (1,2,2) at q=5, (2,58,29) at q=59, and (29,28826,28826) at q=57653. The three divisibility cases therefore give a denominator divisor and fail the numerator common-order condition. At 28826|k every common-order condition holds.",
+        "witness_order_rows": [
+          {
+            "prime_q": 5,
+            "order_q_32_over_27": 1,
+            "order_q_3_over_2": 2,
+            "order_q_4": 2,
+            "common_divisor_period": 2,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 59,
+            "order_q_32_over_27": 2,
+            "order_q_3_over_2": 58,
+            "order_q_4": 29,
+            "common_divisor_period": 58,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 57653,
+            "order_q_32_over_27": 29,
+            "order_q_3_over_2": 28826,
+            "order_q_4": 28826,
+            "common_divisor_period": 28826,
+            "certificate_verified": true
+          }
+        ],
+        "complete_residue_period_audit": {
+          "period": 28826,
+          "coverage_counts": {
+            "q_5": 14413,
+            "q_59": 13916,
+            "q_57653": 496,
+            "uncovered": 1
+          },
+          "coverage_verified": true,
+          "residue_failure_count": 0,
+          "anchor_rows": [
+            {
+              "one_count_k": 1,
+              "selected_prime_q": 5,
+              "all_three_common_at_exception": false
+            },
+            {
+              "one_count_k": 2,
+              "selected_prime_q": 59,
+              "all_three_common_at_exception": false
+            },
+            {
+              "one_count_k": 57,
+              "selected_prime_q": 5,
+              "all_three_common_at_exception": false
+            },
+            {
+              "one_count_k": 58,
+              "selected_prime_q": 57653,
+              "all_three_common_at_exception": false
+            },
+            {
+              "one_count_k": 116,
+              "selected_prime_q": 57653,
+              "all_three_common_at_exception": false
+            },
+            {
+              "one_count_k": 28768,
+              "selected_prime_q": 57653,
+              "all_three_common_at_exception": false
+            },
+            {
+              "one_count_k": 28825,
+              "selected_prime_q": 5,
+              "all_three_common_at_exception": false
+            },
+            {
+              "one_count_k": 28826,
+              "selected_prime_q": null,
+              "all_three_common_at_exception": true
+            }
+          ],
+          "transcript_sha256": "9b23e815a83ae737cc71af674f66b2e4c44954a72b188862c7c429e18d08b197"
+        },
+        "aggregate": {
+          "run_block_order_separated_witness_outside_28826_multiples_proved": true,
+          "fixed_three_prime_palette_universal_sufficiency_refuted": true,
+          "run_block_nondivisibility_newly_proved": false,
+          "all_binary_density_band_words_excluded": false,
+          "all_periodic_collatz_cycles_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "TICKET-197 already excludes D_k|B_k for every run block; the new result is the explicit prime-presence witness on 28825 of 28826 residue classes. It leaves multiples of 28826, general primitive binary necklaces, valuations at least three, and aperiodic divergence open. The finite residue loop is exhaustive only because the proved order conditions are periodic modulo 28826.",
+        "failure_count": 0
+      },
+      "logical_limit": "TICKET-197 already excludes D_k|B_k for every run block; the new result is the explicit prime-presence witness on 28825 of 28826 residue classes. It leaves multiples of 28826, general primitive binary necklaces, valuations at least three, and aperiodic divergence open. The finite residue loop is exhaustive only because the proved order conditions are periodic modulo 28826.",
+      "route_decision": {
+        "discard": "a fixed three-prime palette as a universal binary run-block witness",
+        "retain": "select fresh word-dependent order-separated primes beyond every fixed palette",
+        "next_single_lemma": "UniformBinaryDensityBandFreshOrderSeparatedPrimeWitnessBeyondFinitePalettes"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T197",
+            "label": "ContiguousOneTwoRunNondivisibility",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T235",
+            "label": "BinaryRunBlockPrimitiveDivisorOrderCharacterizationAndSelectionNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T236",
+            "label": "RunBlockThreePrimeWitnessOutside28826Multiples",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N236",
+            "label": "FixedThreePrimePaletteCoversEveryRunBlock",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN236",
+            "label": "UniformBinaryDensityBandFreshOrderSeparatedPrimeWitnessBeyondFinitePalettes",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO-PERIODIC",
+            "label": "AllPeriodicValuationWords",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO-APERIODIC",
+            "label": "AperiodicDescentOrTermination",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T197",
+            "CO-T236"
+          ],
+          [
+            "CO-T235",
+            "CO-T236"
+          ],
+          [
+            "CO-T236",
+            "CO-N236"
+          ],
+          [
+            "CO-T236",
+            "CO-OPEN236"
+          ],
+          [
+            "CO-OPEN236",
+            "CO-PERIODIC"
+          ],
+          [
+            "CO-PERIODIC",
+            "CO"
+          ],
+          [
+            "CO-APERIODIC",
+            "CO"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-236",
+      "theorem_name": "ActualPrimeReflectedPhaseDefectIdentityAndUncoupledMarginNoGo",
+      "declared_proposition": "Let x_X be the prime indicator on Z/qZ with q>2X, let Xhat(a) be its Fourier transform, M_X=sum_a|Xhat(a)|^2=q*pi(X), and define the target-reflected phase defect Delta_X(N)=sum_a |Xhat(a)|^2 [1-cos(2 arg Xhat(a)-2*pi*a*N/q)]. Then for 0<=N<=2X, q*g_X(N)=M_X-Delta_X(N), where g_X(N) is the ordered prime-pair count. Hence Delta_X(N)<M_X is exactly equivalent to g_X(N)>0. Moreover an uncoupled uniform inverse-log fractional margin is false for actual prime weights: at fixed target N=4 the normalized margin is 1/pi(X)=o(1/log X).",
+      "mathematical_argument": "Fourier inversion of the cyclic convolution x_X*x_X gives q*g_X(N) as sum_a Xhat(a)^2 exp(-2*pi*i*a*N/q). Taking real parts and writing each square by magnitude and doubled phase yields M_X-Delta_X(N). Parseval gives M_X=q*pi(X). Because q>2X there is no wraparound. For N=4 only the ordered pair (2,2) contributes, so the fractional gap is exactly 1/pi(X); the prime number theorem makes this asymptotic to log(X)/X.",
+      "reproducible_computation": {
+        "theorem": "Let x_X be the prime indicator on Z/qZ with q>2X, let Xhat(a) be its Fourier transform, M_X=sum_a|Xhat(a)|^2=q*pi(X), and define the target-reflected phase defect Delta_X(N)=sum_a |Xhat(a)|^2 [1-cos(2 arg Xhat(a)-2*pi*a*N/q)]. Then for 0<=N<=2X, q*g_X(N)=M_X-Delta_X(N), where g_X(N) is the ordered prime-pair count. Hence Delta_X(N)<M_X is exactly equivalent to g_X(N)>0. Moreover an uncoupled uniform inverse-log fractional margin is false for actual prime weights: at fixed target N=4 the normalized margin is 1/pi(X)=o(1/log X).",
+        "proof": "Fourier inversion of the cyclic convolution x_X*x_X gives q*g_X(N) as sum_a Xhat(a)^2 exp(-2*pi*i*a*N/q). Taking real parts and writing each square by magnitude and doubled phase yields M_X-Delta_X(N). Parseval gives M_X=q*pi(X). Because q>2X there is no wraparound. For N=4 only the ordered pair (2,2) contributes, so the fractional gap is exactly 1/pi(X); the prime number theorem makes this asymptotic to log(X)/X.",
+        "exact_actual_prime_rows": [
+          {
+            "cutoff_X": 100,
+            "prime_modulus_q": 211,
+            "prime_count_pi_X": 25,
+            "fixed_target_N": 4,
+            "ordered_representation_count_g_X_4": 1,
+            "total_spectral_power_M_X": 5275,
+            "reflected_phase_defect_Delta_X_4": 5064,
+            "normalized_phase_margin_g_over_pi": {
+              "exact": "1/25",
+              "float": 0.04
+            },
+            "inverse_log_X": 0.21714724095162588,
+            "margin_below_inverse_log_X": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 1000,
+            "prime_modulus_q": 2003,
+            "prime_count_pi_X": 168,
+            "fixed_target_N": 4,
+            "ordered_representation_count_g_X_4": 1,
+            "total_spectral_power_M_X": 336504,
+            "reflected_phase_defect_Delta_X_4": 334501,
+            "normalized_phase_margin_g_over_pi": {
+              "exact": "1/168",
+              "float": 0.005952380952380952
+            },
+            "inverse_log_X": 0.14476482730108395,
+            "margin_below_inverse_log_X": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 10000,
+            "prime_modulus_q": 20011,
+            "prime_count_pi_X": 1229,
+            "fixed_target_N": 4,
+            "ordered_representation_count_g_X_4": 1,
+            "total_spectral_power_M_X": 24593519,
+            "reflected_phase_defect_Delta_X_4": 24573508,
+            "normalized_phase_margin_g_over_pi": {
+              "exact": "1/1229",
+              "float": 0.0008136696501220504
+            },
+            "inverse_log_X": 0.10857362047581294,
+            "margin_below_inverse_log_X": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "prime_modulus_q": 200003,
+            "prime_count_pi_X": 9592,
+            "fixed_target_N": 4,
+            "ordered_representation_count_g_X_4": 1,
+            "total_spectral_power_M_X": 1918428776,
+            "reflected_phase_defect_Delta_X_4": 1918228773,
+            "normalized_phase_margin_g_over_pi": {
+              "exact": "1/9592",
+              "float": 0.0001042535446205171
+            },
+            "inverse_log_X": 0.08685889638065036,
+            "margin_below_inverse_log_X": true,
+            "certificate_verified": true
+          }
+        ],
+        "direct_complex_dft_rows": [
+          {
+            "cutoff_X": 30,
+            "prime_modulus_q": 61,
+            "prime_count_pi_X": 10,
+            "target_N": 4,
+            "ordered_representation_count": 1,
+            "dft_inversion_real": 60.99999999999937,
+            "dft_inversion_imag": 1.3216094885137863e-12,
+            "expected_q_times_count": 61,
+            "absolute_complex_error": 1.4651143105116517e-12,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 100,
+            "prime_modulus_q": 211,
+            "prime_count_pi_X": 25,
+            "target_N": 4,
+            "ordered_representation_count": 1,
+            "dft_inversion_real": 210.99999999999747,
+            "dft_inversion_imag": 5.968558980384842e-13,
+            "expected_q_times_count": 211,
+            "absolute_complex_error": 2.5989939989936672e-12,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 300,
+            "prime_modulus_q": 601,
+            "prime_count_pi_X": 62,
+            "target_N": 4,
+            "ordered_representation_count": 1,
+            "dft_inversion_real": 601.0000000003549,
+            "dft_inversion_imag": 2.602291715447791e-10,
+            "expected_q_times_count": 601,
+            "absolute_complex_error": 4.401076513881958e-10,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "d075449ac3bca0bbf0a4edff052588b95a7a38047d7b245dbb2bf02ac4f4cffc",
+        "aggregate": {
+          "reflected_phase_defect_identity_proved": true,
+          "strict_phase_defect_margin_endpoint_equivalent": true,
+          "uncoupled_inverse_log_uniform_margin_refuted": true,
+          "target_coupled_prime_phase_gain_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The asymptotic no-go uses actual prime indicators and the prime number theorem, but exploits a fixed small target while the cutoff grows. It does not refute a target-coupled dyadic estimate with N comparable to X. The strict defect inequality by itself is endpoint-equivalent to the Goldbach coefficient and supplies no independent minor-arc saving.",
+        "failure_count": 0
+      },
+      "logical_limit": "The asymptotic no-go uses actual prime indicators and the prime number theorem, but exploits a fixed small target while the cutoff grows. It does not refute a target-coupled dyadic estimate with N comparable to X. The strict defect inequality by itself is endpoint-equivalent to the Goldbach coefficient and supplies no independent minor-arc saving.",
+      "route_decision": {
+        "discard": "an uncoupled all-target inverse-log phase margin, or the raw strict phase inequality as a smaller auxiliary lemma",
+        "retain": "couple cutoff to target and derive a quantitative cross-phase gain from independent major/minor arithmetic",
+        "next_single_lemma": "TargetCoupledDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T235",
+            "label": "CompleteMarginalPowerSpectrumPhaseRetrievalNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T236",
+            "label": "ReflectedPhaseDefectIdentityAndUncoupledMarginNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N236",
+            "label": "UncoupledUniformInverseLogPhaseMargin",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN236",
+            "label": "TargetCoupledDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T235",
+            "GB-T236"
+          ],
+          [
+            "GB-T236",
+            "GB-N236"
+          ],
+          [
+            "GB-T236",
+            "GB-OPEN236"
+          ],
+          [
+            "GB-OPEN236",
+            "GB"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-236",
+      "theorem_name": "DegreeTwoCesaroEnergyControlsEveryFixedDegree",
+      "declared_proposition": "Under the TICKET-235 normalized CRT hypotheses |psi_i|^2<=2, let E_(m,k) be the degree-k Cesaro coefficient energy. Then E_(m,1)<=sqrt(4/m+((m-1)/m)E_(m,2)), and for every fixed k>=2, E_(m,k)<=2^(k-2)E_(m,2)+2^k(1+k(k-1))/m. Consequently the single condition E_(m,2)->0 forces E_(m,k)->0 for every fixed k, including k=1. Proving a separate hierarchy of all fixed overlap moments is therefore unnecessary.",
+      "mathematical_argument": "Let b=(E psi_i)_i and M=(E psi_i psi_j)_(i,j). Covariance positivity gives M>=bb*, so ||b||^2<=||M||_op<=||M||_F. The diagonal entries of M are at most two and the averaged squared off-diagonal entries equal R=m^(-1)sum psi_i(X)psi_i(Y). Then E[R^2]<=4/m+E_2 and |R|<=2, so |E[R^k]|<=2^(k-2)(4/m+E_2). Combine this with the TICKET-235 with/without-replacement estimate |E_(m,k)-E[R^k]|<=2^k k(k-1)/m.",
+      "reproducible_computation": {
+        "theorem": "Under the TICKET-235 normalized CRT hypotheses |psi_i|^2<=2, let E_(m,k) be the degree-k Cesaro coefficient energy. Then E_(m,1)<=sqrt(4/m+((m-1)/m)E_(m,2)), and for every fixed k>=2, E_(m,k)<=2^(k-2)E_(m,2)+2^k(1+k(k-1))/m. Consequently the single condition E_(m,2)->0 forces E_(m,k)->0 for every fixed k, including k=1. Proving a separate hierarchy of all fixed overlap moments is therefore unnecessary.",
+        "proof": "Let b=(E psi_i)_i and M=(E psi_i psi_j)_(i,j). Covariance positivity gives M>=bb*, so ||b||^2<=||M||_op<=||M||_F. The diagonal entries of M are at most two and the averaged squared off-diagonal entries equal R=m^(-1)sum psi_i(X)psi_i(Y). Then E[R^2]<=4/m+E_2 and |R|<=2, so |E[R^k]|<=2^(k-2)(4/m+E_2). Combine this with the TICKET-235 with/without-replacement estimate |E_(m,k)-E[R^k]|<=2^k k(k-1)/m.",
+        "actual_twin_start_diagnostic_rows": [
+          {
+            "cutoff_X": 10000,
+            "active_prime_count_m": 4,
+            "active_primes": [
+              5,
+              7,
+              11,
+              13
+            ],
+            "twin_start_count": 202,
+            "fixed_degree_cesaro_energies": [
+              {
+                "exact": "3257/1958592",
+                "float": 0.0016629292879783027
+              },
+              {
+                "exact": "9265/5875776",
+                "float": 0.0015768130030824866
+              },
+              {
+                "exact": "6301/3917184",
+                "float": 0.0016085534914877626
+              },
+              {
+                "exact": "9/81608",
+                "float": 0.0001102833055582786
+              }
+            ],
+            "degree_one_squared_from_degree_two_upper_bound": {
+              "exact": "7843633/7834368",
+              "float": 1.0011826097523118
+            },
+            "degree_one_from_degree_two_squared_bound_verified": true,
+            "higher_degree_bound_rows": [
+              {
+                "degree_k": 3,
+                "energy_E_m_k": {
+                  "exact": "6301/3917184",
+                  "float": 0.0016085534914877626
+                },
+                "degree_two_upper_bound": {
+                  "exact": "35263921/2937888",
+                  "float": 12.003153626006165
+                },
+                "bound_verified": true
+              },
+              {
+                "degree_k": 4,
+                "energy_E_m_k": {
+                  "exact": "9/81608",
+                  "float": 0.0001102833055582786
+                },
+                "degree_two_upper_bound": {
+                  "exact": "48484417/1468944",
+                  "float": 33.00630725201233
+                },
+                "bound_verified": true
+              }
+            ],
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "active_prime_count_m": 6,
+            "active_primes": [
+              5,
+              7,
+              11,
+              13,
+              17,
+              19
+            ],
+            "twin_start_count": 1220,
+            "fixed_degree_cesaro_energies": [
+              {
+                "exact": "4537949/22504608000",
+                "float": 0.00020164532525960907
+              },
+              {
+                "exact": "991770511/1125230400000",
+                "float": 0.0008813932782121778
+              },
+              {
+                "exact": "1729489087/4320884736000",
+                "float": 0.0004002627222592961
+              },
+              {
+                "exact": "31611592289/54011059200000",
+                "float": 0.0005852799918613705
+              },
+              {
+                "exact": "655071383/2880589824000",
+                "float": 0.00022740876800375729
+              },
+              {
+                "exact": "7129944721/43208847360000",
+                "float": 0.00016501122239146905
+              }
+            ],
+            "degree_one_squared_from_degree_two_upper_bound": {
+              "exact": "901176090511/1350276480000",
+              "float": 0.6674011610651768
+            },
+            "degree_one_from_degree_two_squared_bound_verified": true,
+            "higher_degree_bound_rows": [
+              {
+                "degree_k": 3,
+                "energy_E_m_k": {
+                  "exact": "1729489087/4320884736000",
+                  "float": 0.0004002627222592961
+                },
+                "degree_two_upper_bound": {
+                  "exact": "4751964570511/562615200000",
+                  "float": 8.44620723100087
+                },
+                "bound_verified": true
+              },
+              {
+                "degree_k": 4,
+                "energy_E_m_k": {
+                  "exact": "31611592289/54011059200000",
+                  "float": 0.0005852799918613705
+                },
+                "degree_two_upper_bound": {
+                  "exact": "7252476570511/281307600000",
+                  "float": 25.781303350890628
+                },
+                "bound_verified": true
+              },
+              {
+                "degree_k": 5,
+                "energy_E_m_k": {
+                  "exact": "655071383/2880589824000",
+                  "float": 0.00022740876800375729
+                },
+                "degree_two_upper_bound": {
+                  "exact": "8919484570511/140653800000",
+                  "float": 63.414458553633104
+                },
+                "bound_verified": true
+              },
+              {
+                "degree_k": 6,
+                "energy_E_m_k": {
+                  "exact": "7129944721/43208847360000",
+                  "float": 0.00016501122239146905
+                },
+                "degree_two_upper_bound": {
+                  "exact": "28842213711533/210980700000",
+                  "float": 136.70546031714275
+                },
+                "bound_verified": true
+              }
+            ],
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 1000000,
+            "active_prime_count_m": 8,
+            "active_primes": [
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23,
+              29
+            ],
+            "twin_start_count": 8164,
+            "fixed_degree_cesaro_energies": [
+              {
+                "exact": "360314897/10674807503360",
+                "float": 3.375376060754139e-05
+              },
+              {
+                "exact": "3565245870223/47075901089817600",
+                "float": 7.573399101635367e-05
+              },
+              {
+                "exact": "388849654603057/3766072087185408000",
+                "float": 0.0001032507200077696
+              },
+              {
+                "exact": "880372088373607/9415180217963520000",
+                "float": 9.350560137913423e-05
+              },
+              {
+                "exact": "2988060948288833/30128576697483264000",
+                "float": 9.917697003384947e-05
+              },
+              {
+                "exact": "270111452870323/1158791411441664000",
+                "float": 0.00023309756199718
+              },
+              {
+                "exact": "86046733421629/1565120867401728000",
+                "float": 5.4977692275278395e-05
+              },
+              {
+                "exact": "12439610089/65675085225750",
+                "float": 0.00018941140382597717
+              }
+            ],
+            "degree_one_squared_from_degree_two_upper_bound": {
+              "exact": "26904080154337423/53801029816934400",
+              "float": 0.5000662672421393
+            },
+            "degree_one_from_degree_two_squared_bound_verified": true,
+            "higher_degree_bound_rows": [
+              {
+                "degree_k": 3,
+                "energy_E_m_k": {
+                  "exact": "388849654603057/3766072087185408000",
+                  "float": 0.0001032507200077696
+                },
+                "degree_two_upper_bound": {
+                  "exact": "153000243787777423/23537950544908800",
+                  "float": 6.5001514679820325
+                },
+                "bound_verified": true
+              },
+              {
+                "degree_k": 4,
+                "energy_E_m_k": {
+                  "exact": "880372088373607/9415180217963520000",
+                  "float": 9.350560137913423e-05
+                },
+                "degree_two_upper_bound": {
+                  "exact": "245680924058355823/11768975272454400",
+                  "float": 20.875302935964065
+                },
+                "bound_verified": true
+              },
+              {
+                "degree_k": 5,
+                "energy_E_m_k": {
+                  "exact": "2988060948288833/30128576697483264000",
+                  "float": 9.917697003384947e-05
+                },
+                "degree_two_upper_bound": {
+                  "exact": "322914824283837823/5884487636227200",
+                  "float": 54.87560587192813
+                },
+                "bound_verified": true
+              },
+              {
+                "degree_k": 6,
+                "energy_E_m_k": {
+                  "exact": "270111452870323/1158791411441664000",
+                  "float": 0.00023309756199718
+                },
+                "degree_two_upper_bound": {
+                  "exact": "371186011924764073/2942243818113600",
+                  "float": 126.15746174385626
+                },
+                "bound_verified": true
+              },
+              {
+                "degree_k": 7,
+                "energy_E_m_k": {
+                  "exact": "86046733421629/1565120867401728000",
+                  "float": 5.4977692275278395e-05
+                },
+                "degree_two_upper_bound": {
+                  "exact": "785816092726361771/2942243818113600",
+                  "float": 267.0805484877125
+                },
+                "bound_verified": true
+              },
+              {
+                "degree_k": 8,
+                "energy_E_m_k": {
+                  "exact": "12439610089/65675085225750",
+                  "float": 0.00018941140382597717
+                },
+                "degree_two_upper_bound": {
+                  "exact": "6387898235856839293/11768975272454400",
+                  "float": 542.774378225425
+                },
+                "bound_verified": true
+              }
+            ],
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "c1ba12041bd9e671f97ab24ac2534baab627f2e177502c20a375455450035c98",
+        "aggregate": {
+          "degree_two_controls_degree_one_proved": true,
+          "degree_two_controls_every_fixed_degree_proved": true,
+          "independent_all_degree_hierarchy_required_refuted": true,
+          "actual_prime_degree_two_decay_proved": false,
+          "positive_twin_main_mass_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The inequalities are universal and exact, but the three prime rows condition on already existing twin starts and are finite diagnostics. They do not prove E_(m,2)->0 for Type-II prime weights, construct positive total mass, or cross the parity barrier.",
+        "failure_count": 0
+      },
+      "logical_limit": "The inequalities are universal and exact, but the three prime rows condition on already existing twin starts and are finite diagnostics. They do not prove E_(m,2)->0 for Type-II prime weights, construct positive total mass, or cross the parity barrier.",
+      "route_decision": {
+        "discard": "proving a separate arithmetic concentration estimate for every fixed CRT interaction degree",
+        "retain": "prove only the degree-two prime-weighted overlap energy decay, then invoke the universal reduction",
+        "next_single_lemma": "PrimeWeightedDegreeTwoCRTOverlapEnergyDecayAtTwinScale"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T235",
+            "label": "FixedDegreeCesaroOverlapMomentReductionAndDegreeOneNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T236",
+            "label": "DegreeTwoCesaroControlsAllFixedDegrees",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N236",
+            "label": "EveryFixedDegreeRequiresAnIndependentEstimate",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN236",
+            "label": "PrimeWeightedDegreeTwoCRTOverlapEnergyDecayAtTwinScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP-PARITY",
+            "label": "ParityRetainingTransferAndPositivePrincipalMass",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T235",
+            "TP-T236"
+          ],
+          [
+            "TP-T236",
+            "TP-N236"
+          ],
+          [
+            "TP-T236",
+            "TP-OPEN236"
+          ],
+          [
+            "TP-OPEN236",
+            "TP-PARITY"
+          ],
+          [
+            "TP-PARITY",
+            "TP"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_partial_or_no_go_theorem_count": 4,
+      "refuted_or_reduced_route_count": 4,
+      "next_single_lemma_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "ticket_id": "RH-TICKET-236",
+      "problem_id": "riemann",
+      "status": "open_not_proven",
+      "declared_proposition": "Let A and C be positive definite and H=[[A,B],[B*,C]]. Put K=A^(-1/2)BC^(-1/2). Then H is positive semidefinite if and only if the normalized cross block is a contraction, ||K||_op<=1. Coordinatewise relative two-by-two minor inequalities do not suffice: for A=C=I_m and B=(2/m)J_m, every coordinate minor is 1-4/m^2>=0 and every entry tends to zero, but ||B||_op=2 and the full block has minimum eigenvalue -1.",
+      "mathematical_argument": "Congruence by diag(A^(-1/2),C^(-1/2)) reduces H to [[I,K],[K*,I]]. The Schur complement is I-K*K, which is positive semidefinite exactly when every singular value of K is at most one. In the counterfamily J_m has one singular value m, so (2/m)J_m has norm two even though each coordinate pair passes its local minor test. Replacing 2/m by 1/(2m) gives norm one half and full minimum eigenvalue one half.",
+      "new_result": "NormalizedCrossBlockContractionCriterionAndLocalMinorNoGo",
+      "discarded_route": "coordinatewise relative two-by-two minors as a certificate for the full Weil truncation",
+      "remaining_gap": "This is an exact finite-dimensional operator theorem and counterfamily, not an estimate for the actual Guinand-Weil arithmetic cross block. It identifies the required global normalized operator norm and refutes pairwise local certification only. No zeta zero is tested.",
+      "candidate_theorem": "ArithmeticWeilNormalizedCrossBlockContractionBelowOneOnCofinalLogarithmicFrames",
+      "claim_boundary": "This is an exact finite-dimensional operator theorem and counterfamily, not an estimate for the actual Guinand-Weil arithmetic cross block. It identifies the required global normalized operator norm and refutes pairwise local certification only. No zeta zero is tested.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T235",
+            "label": "ExactKernelSchurComplementCriterionAndCrossBlockNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-T236",
+            "label": "NormalizedCrossBlockContractionAndLocalMinorNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N236",
+            "label": "CoordinatewiseRelativeMinorsSufficeForFullPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN236",
+            "label": "ArithmeticWeilNormalizedCrossBlockContractionBelowOneOnCofinalLogarithmicFrames",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T235",
+            "RH-T236"
+          ],
+          [
+            "RH-T236",
+            "RH-N236"
+          ],
+          [
+            "RH-T236",
+            "RH-OPEN236"
+          ],
+          [
+            "RH-OPEN236",
+            "RH"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/contraction_order_phase_degree2_audit/riemann",
+        "failure_count": 0
+      }
+    },
+    {
+      "ticket_id": "CO-TICKET-236",
+      "problem_id": "collatz",
+      "status": "open_not_proven",
+      "declared_proposition": "For the primitive binary run block w_k=1^k2^(2k), let D_k=32^k-27^k and B_k=32^k+27^k-2*18^k. If 28826 does not divide k, there is an explicit order-separated prime q dividing D_k but not B_k: take q=5 for odd k, q=59 for even k not divisible by 58, and q=57653 for 58|k but 28826 not dividing k. At every multiple of 28826 all three primes divide both D_k and B_k, so this fixed three-prime palette is not a universal adaptive witness.",
+      "mathematical_argument": "TICKET-235 proved q|gcd(D_k,B_k) iff ord_q(3/2)|k and ord_q(4)|k, while q|D_k iff ord_q(32/27)|k. The exact order triples (ord(32/27),ord(3/2),ord(4)) are (1,2,2) at q=5, (2,58,29) at q=59, and (29,28826,28826) at q=57653. The three divisibility cases therefore give a denominator divisor and fail the numerator common-order condition. At 28826|k every common-order condition holds.",
+      "new_result": "BinaryRunBlockThreePrimeOrderWitnessOutside28826Multiples",
+      "discarded_route": "a fixed three-prime palette as a universal binary run-block witness",
+      "remaining_gap": "TICKET-197 already excludes D_k|B_k for every run block; the new result is the explicit prime-presence witness on 28825 of 28826 residue classes. It leaves multiples of 28826, general primitive binary necklaces, valuations at least three, and aperiodic divergence open. The finite residue loop is exhaustive only because the proved order conditions are periodic modulo 28826.",
+      "candidate_theorem": "UniformBinaryDensityBandFreshOrderSeparatedPrimeWitnessBeyondFinitePalettes",
+      "claim_boundary": "TICKET-197 already excludes D_k|B_k for every run block; the new result is the explicit prime-presence witness on 28825 of 28826 residue classes. It leaves multiples of 28826, general primitive binary necklaces, valuations at least three, and aperiodic divergence open. The finite residue loop is exhaustive only because the proved order conditions are periodic modulo 28826.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T197",
+            "label": "ContiguousOneTwoRunNondivisibility",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T235",
+            "label": "BinaryRunBlockPrimitiveDivisorOrderCharacterizationAndSelectionNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "CO-T236",
+            "label": "RunBlockThreePrimeWitnessOutside28826Multiples",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N236",
+            "label": "FixedThreePrimePaletteCoversEveryRunBlock",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN236",
+            "label": "UniformBinaryDensityBandFreshOrderSeparatedPrimeWitnessBeyondFinitePalettes",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO-PERIODIC",
+            "label": "AllPeriodicValuationWords",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO-APERIODIC",
+            "label": "AperiodicDescentOrTermination",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T197",
+            "CO-T236"
+          ],
+          [
+            "CO-T235",
+            "CO-T236"
+          ],
+          [
+            "CO-T236",
+            "CO-N236"
+          ],
+          [
+            "CO-T236",
+            "CO-OPEN236"
+          ],
+          [
+            "CO-OPEN236",
+            "CO-PERIODIC"
+          ],
+          [
+            "CO-PERIODIC",
+            "CO"
+          ],
+          [
+            "CO-APERIODIC",
+            "CO"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/contraction_order_phase_degree2_audit/collatz",
+        "failure_count": 0
+      }
+    },
+    {
+      "ticket_id": "GB-TICKET-236",
+      "problem_id": "goldbach",
+      "status": "open_not_proven",
+      "declared_proposition": "Let x_X be the prime indicator on Z/qZ with q>2X, let Xhat(a) be its Fourier transform, M_X=sum_a|Xhat(a)|^2=q*pi(X), and define the target-reflected phase defect Delta_X(N)=sum_a |Xhat(a)|^2 [1-cos(2 arg Xhat(a)-2*pi*a*N/q)]. Then for 0<=N<=2X, q*g_X(N)=M_X-Delta_X(N), where g_X(N) is the ordered prime-pair count. Hence Delta_X(N)<M_X is exactly equivalent to g_X(N)>0. Moreover an uncoupled uniform inverse-log fractional margin is false for actual prime weights: at fixed target N=4 the normalized margin is 1/pi(X)=o(1/log X).",
+      "mathematical_argument": "Fourier inversion of the cyclic convolution x_X*x_X gives q*g_X(N) as sum_a Xhat(a)^2 exp(-2*pi*i*a*N/q). Taking real parts and writing each square by magnitude and doubled phase yields M_X-Delta_X(N). Parseval gives M_X=q*pi(X). Because q>2X there is no wraparound. For N=4 only the ordered pair (2,2) contributes, so the fractional gap is exactly 1/pi(X); the prime number theorem makes this asymptotic to log(X)/X.",
+      "new_result": "ActualPrimeReflectedPhaseDefectIdentityAndUncoupledMarginNoGo",
+      "discarded_route": "an uncoupled all-target inverse-log phase margin, or the raw strict phase inequality as a smaller auxiliary lemma",
+      "remaining_gap": "The asymptotic no-go uses actual prime indicators and the prime number theorem, but exploits a fixed small target while the cutoff grows. It does not refute a target-coupled dyadic estimate with N comparable to X. The strict defect inequality by itself is endpoint-equivalent to the Goldbach coefficient and supplies no independent minor-arc saving.",
+      "candidate_theorem": "TargetCoupledDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack",
+      "claim_boundary": "The asymptotic no-go uses actual prime indicators and the prime number theorem, but exploits a fixed small target while the cutoff grows. It does not refute a target-coupled dyadic estimate with N comparable to X. The strict defect inequality by itself is endpoint-equivalent to the Goldbach coefficient and supplies no independent minor-arc saving.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T235",
+            "label": "CompleteMarginalPowerSpectrumPhaseRetrievalNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-T236",
+            "label": "ReflectedPhaseDefectIdentityAndUncoupledMarginNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N236",
+            "label": "UncoupledUniformInverseLogPhaseMargin",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN236",
+            "label": "TargetCoupledDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T235",
+            "GB-T236"
+          ],
+          [
+            "GB-T236",
+            "GB-N236"
+          ],
+          [
+            "GB-T236",
+            "GB-OPEN236"
+          ],
+          [
+            "GB-OPEN236",
+            "GB"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/contraction_order_phase_degree2_audit/goldbach",
+        "failure_count": 0
+      }
+    },
+    {
+      "ticket_id": "TP-TICKET-236",
+      "problem_id": "twin-prime",
+      "status": "open_not_proven",
+      "declared_proposition": "Under the TICKET-235 normalized CRT hypotheses |psi_i|^2<=2, let E_(m,k) be the degree-k Cesaro coefficient energy. Then E_(m,1)<=sqrt(4/m+((m-1)/m)E_(m,2)), and for every fixed k>=2, E_(m,k)<=2^(k-2)E_(m,2)+2^k(1+k(k-1))/m. Consequently the single condition E_(m,2)->0 forces E_(m,k)->0 for every fixed k, including k=1. Proving a separate hierarchy of all fixed overlap moments is therefore unnecessary.",
+      "mathematical_argument": "Let b=(E psi_i)_i and M=(E psi_i psi_j)_(i,j). Covariance positivity gives M>=bb*, so ||b||^2<=||M||_op<=||M||_F. The diagonal entries of M are at most two and the averaged squared off-diagonal entries equal R=m^(-1)sum psi_i(X)psi_i(Y). Then E[R^2]<=4/m+E_2 and |R|<=2, so |E[R^k]|<=2^(k-2)(4/m+E_2). Combine this with the TICKET-235 with/without-replacement estimate |E_(m,k)-E[R^k]|<=2^k k(k-1)/m.",
+      "new_result": "DegreeTwoCesaroEnergyControlsEveryFixedDegree",
+      "discarded_route": "proving a separate arithmetic concentration estimate for every fixed CRT interaction degree",
+      "remaining_gap": "The inequalities are universal and exact, but the three prime rows condition on already existing twin starts and are finite diagnostics. They do not prove E_(m,2)->0 for Type-II prime weights, construct positive total mass, or cross the parity barrier.",
+      "candidate_theorem": "PrimeWeightedDegreeTwoCRTOverlapEnergyDecayAtTwinScale",
+      "claim_boundary": "The inequalities are universal and exact, but the three prime rows condition on already existing twin starts and are finite diagnostics. They do not prove E_(m,2)->0 for Type-II prime weights, construct positive total mass, or cross the parity barrier.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T235",
+            "label": "FixedDegreeCesaroOverlapMomentReductionAndDegreeOneNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-T236",
+            "label": "DegreeTwoCesaroControlsAllFixedDegrees",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N236",
+            "label": "EveryFixedDegreeRequiresAnIndependentEstimate",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN236",
+            "label": "PrimeWeightedDegreeTwoCRTOverlapEnergyDecayAtTwinScale",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP-PARITY",
+            "label": "ParityRetainingTransferAndPositivePrincipalMass",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T235",
+            "TP-T236"
+          ],
+          [
+            "TP-T236",
+            "TP-N236"
+          ],
+          [
+            "TP-T236",
+            "TP-OPEN236"
+          ],
+          [
+            "TP-OPEN236",
+            "TP-PARITY"
+          ],
+          [
+            "TP-PARITY",
+            "TP"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/contraction_order_phase_degree2_audit/twin_prime",
+        "failure_count": 0
+      }
+    }
+  ]
+}

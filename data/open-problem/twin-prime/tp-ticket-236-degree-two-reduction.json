@@ -1,0 +1,374 @@
+{
+  "schema": "primeproject.ticket236-contraction-order-phase-degree2.v1",
+  "generated_at": "2026-08-22T02:10:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-236",
+  "theorem_name": "DegreeTwoCesaroEnergyControlsEveryFixedDegree",
+  "declared_proposition": "Under the TICKET-235 normalized CRT hypotheses |psi_i|^2<=2, let E_(m,k) be the degree-k Cesaro coefficient energy. Then E_(m,1)<=sqrt(4/m+((m-1)/m)E_(m,2)), and for every fixed k>=2, E_(m,k)<=2^(k-2)E_(m,2)+2^k(1+k(k-1))/m. Consequently the single condition E_(m,2)->0 forces E_(m,k)->0 for every fixed k, including k=1. Proving a separate hierarchy of all fixed overlap moments is therefore unnecessary.",
+  "mathematical_argument": "Let b=(E psi_i)_i and M=(E psi_i psi_j)_(i,j). Covariance positivity gives M>=bb*, so ||b||^2<=||M||_op<=||M||_F. The diagonal entries of M are at most two and the averaged squared off-diagonal entries equal R=m^(-1)sum psi_i(X)psi_i(Y). Then E[R^2]<=4/m+E_2 and |R|<=2, so |E[R^k]|<=2^(k-2)(4/m+E_2). Combine this with the TICKET-235 with/without-replacement estimate |E_(m,k)-E[R^k]|<=2^k k(k-1)/m.",
+  "reproducible_computation": {
+    "theorem": "Under the TICKET-235 normalized CRT hypotheses |psi_i|^2<=2, let E_(m,k) be the degree-k Cesaro coefficient energy. Then E_(m,1)<=sqrt(4/m+((m-1)/m)E_(m,2)), and for every fixed k>=2, E_(m,k)<=2^(k-2)E_(m,2)+2^k(1+k(k-1))/m. Consequently the single condition E_(m,2)->0 forces E_(m,k)->0 for every fixed k, including k=1. Proving a separate hierarchy of all fixed overlap moments is therefore unnecessary.",
+    "proof": "Let b=(E psi_i)_i and M=(E psi_i psi_j)_(i,j). Covariance positivity gives M>=bb*, so ||b||^2<=||M||_op<=||M||_F. The diagonal entries of M are at most two and the averaged squared off-diagonal entries equal R=m^(-1)sum psi_i(X)psi_i(Y). Then E[R^2]<=4/m+E_2 and |R|<=2, so |E[R^k]|<=2^(k-2)(4/m+E_2). Combine this with the TICKET-235 with/without-replacement estimate |E_(m,k)-E[R^k]|<=2^k k(k-1)/m.",
+    "actual_twin_start_diagnostic_rows": [
+      {
+        "cutoff_X": 10000,
+        "active_prime_count_m": 4,
+        "active_primes": [
+          5,
+          7,
+          11,
+          13
+        ],
+        "twin_start_count": 202,
+        "fixed_degree_cesaro_energies": [
+          {
+            "exact": "3257/1958592",
+            "float": 0.0016629292879783027
+          },
+          {
+            "exact": "9265/5875776",
+            "float": 0.0015768130030824866
+          },
+          {
+            "exact": "6301/3917184",
+            "float": 0.0016085534914877626
+          },
+          {
+            "exact": "9/81608",
+            "float": 0.0001102833055582786
+          }
+        ],
+        "degree_one_squared_from_degree_two_upper_bound": {
+          "exact": "7843633/7834368",
+          "float": 1.0011826097523118
+        },
+        "degree_one_from_degree_two_squared_bound_verified": true,
+        "higher_degree_bound_rows": [
+          {
+            "degree_k": 3,
+            "energy_E_m_k": {
+              "exact": "6301/3917184",
+              "float": 0.0016085534914877626
+            },
+            "degree_two_upper_bound": {
+              "exact": "35263921/2937888",
+              "float": 12.003153626006165
+            },
+            "bound_verified": true
+          },
+          {
+            "degree_k": 4,
+            "energy_E_m_k": {
+              "exact": "9/81608",
+              "float": 0.0001102833055582786
+            },
+            "degree_two_upper_bound": {
+              "exact": "48484417/1468944",
+              "float": 33.00630725201233
+            },
+            "bound_verified": true
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 100000,
+        "active_prime_count_m": 6,
+        "active_primes": [
+          5,
+          7,
+          11,
+          13,
+          17,
+          19
+        ],
+        "twin_start_count": 1220,
+        "fixed_degree_cesaro_energies": [
+          {
+            "exact": "4537949/22504608000",
+            "float": 0.00020164532525960907
+          },
+          {
+            "exact": "991770511/1125230400000",
+            "float": 0.0008813932782121778
+          },
+          {
+            "exact": "1729489087/4320884736000",
+            "float": 0.0004002627222592961
+          },
+          {
+            "exact": "31611592289/54011059200000",
+            "float": 0.0005852799918613705
+          },
+          {
+            "exact": "655071383/2880589824000",
+            "float": 0.00022740876800375729
+          },
+          {
+            "exact": "7129944721/43208847360000",
+            "float": 0.00016501122239146905
+          }
+        ],
+        "degree_one_squared_from_degree_two_upper_bound": {
+          "exact": "901176090511/1350276480000",
+          "float": 0.6674011610651768
+        },
+        "degree_one_from_degree_two_squared_bound_verified": true,
+        "higher_degree_bound_rows": [
+          {
+            "degree_k": 3,
+            "energy_E_m_k": {
+              "exact": "1729489087/4320884736000",
+              "float": 0.0004002627222592961
+            },
+            "degree_two_upper_bound": {
+              "exact": "4751964570511/562615200000",
+              "float": 8.44620723100087
+            },
+            "bound_verified": true
+          },
+          {
+            "degree_k": 4,
+            "energy_E_m_k": {
+              "exact": "31611592289/54011059200000",
+              "float": 0.0005852799918613705
+            },
+            "degree_two_upper_bound": {
+              "exact": "7252476570511/281307600000",
+              "float": 25.781303350890628
+            },
+            "bound_verified": true
+          },
+          {
+            "degree_k": 5,
+            "energy_E_m_k": {
+              "exact": "655071383/2880589824000",
+              "float": 0.00022740876800375729
+            },
+            "degree_two_upper_bound": {
+              "exact": "8919484570511/140653800000",
+              "float": 63.414458553633104
+            },
+            "bound_verified": true
+          },
+          {
+            "degree_k": 6,
+            "energy_E_m_k": {
+              "exact": "7129944721/43208847360000",
+              "float": 0.00016501122239146905
+            },
+            "degree_two_upper_bound": {
+              "exact": "28842213711533/210980700000",
+              "float": 136.70546031714275
+            },
+            "bound_verified": true
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 1000000,
+        "active_prime_count_m": 8,
+        "active_primes": [
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29
+        ],
+        "twin_start_count": 8164,
+        "fixed_degree_cesaro_energies": [
+          {
+            "exact": "360314897/10674807503360",
+            "float": 3.375376060754139e-05
+          },
+          {
+            "exact": "3565245870223/47075901089817600",
+            "float": 7.573399101635367e-05
+          },
+          {
+            "exact": "388849654603057/3766072087185408000",
+            "float": 0.0001032507200077696
+          },
+          {
+            "exact": "880372088373607/9415180217963520000",
+            "float": 9.350560137913423e-05
+          },
+          {
+            "exact": "2988060948288833/30128576697483264000",
+            "float": 9.917697003384947e-05
+          },
+          {
+            "exact": "270111452870323/1158791411441664000",
+            "float": 0.00023309756199718
+          },
+          {
+            "exact": "86046733421629/1565120867401728000",
+            "float": 5.4977692275278395e-05
+          },
+          {
+            "exact": "12439610089/65675085225750",
+            "float": 0.00018941140382597717
+          }
+        ],
+        "degree_one_squared_from_degree_two_upper_bound": {
+          "exact": "26904080154337423/53801029816934400",
+          "float": 0.5000662672421393
+        },
+        "degree_one_from_degree_two_squared_bound_verified": true,
+        "higher_degree_bound_rows": [
+          {
+            "degree_k": 3,
+            "energy_E_m_k": {
+              "exact": "388849654603057/3766072087185408000",
+              "float": 0.0001032507200077696
+            },
+            "degree_two_upper_bound": {
+              "exact": "153000243787777423/23537950544908800",
+              "float": 6.5001514679820325
+            },
+            "bound_verified": true
+          },
+          {
+            "degree_k": 4,
+            "energy_E_m_k": {
+              "exact": "880372088373607/9415180217963520000",
+              "float": 9.350560137913423e-05
+            },
+            "degree_two_upper_bound": {
+              "exact": "245680924058355823/11768975272454400",
+              "float": 20.875302935964065
+            },
+            "bound_verified": true
+          },
+          {
+            "degree_k": 5,
+            "energy_E_m_k": {
+              "exact": "2988060948288833/30128576697483264000",
+              "float": 9.917697003384947e-05
+            },
+            "degree_two_upper_bound": {
+              "exact": "322914824283837823/5884487636227200",
+              "float": 54.87560587192813
+            },
+            "bound_verified": true
+          },
+          {
+            "degree_k": 6,
+            "energy_E_m_k": {
+              "exact": "270111452870323/1158791411441664000",
+              "float": 0.00023309756199718
+            },
+            "degree_two_upper_bound": {
+              "exact": "371186011924764073/2942243818113600",
+              "float": 126.15746174385626
+            },
+            "bound_verified": true
+          },
+          {
+            "degree_k": 7,
+            "energy_E_m_k": {
+              "exact": "86046733421629/1565120867401728000",
+              "float": 5.4977692275278395e-05
+            },
+            "degree_two_upper_bound": {
+              "exact": "785816092726361771/2942243818113600",
+              "float": 267.0805484877125
+            },
+            "bound_verified": true
+          },
+          {
+            "degree_k": 8,
+            "energy_E_m_k": {
+              "exact": "12439610089/65675085225750",
+              "float": 0.00018941140382597717
+            },
+            "degree_two_upper_bound": {
+              "exact": "6387898235856839293/11768975272454400",
+              "float": 542.774378225425
+            },
+            "bound_verified": true
+          }
+        ],
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "c1ba12041bd9e671f97ab24ac2534baab627f2e177502c20a375455450035c98",
+    "aggregate": {
+      "degree_two_controls_degree_one_proved": true,
+      "degree_two_controls_every_fixed_degree_proved": true,
+      "independent_all_degree_hierarchy_required_refuted": true,
+      "actual_prime_degree_two_decay_proved": false,
+      "positive_twin_main_mass_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The inequalities are universal and exact, but the three prime rows condition on already existing twin starts and are finite diagnostics. They do not prove E_(m,2)->0 for Type-II prime weights, construct positive total mass, or cross the parity barrier.",
+    "failure_count": 0
+  },
+  "logical_limit": "The inequalities are universal and exact, but the three prime rows condition on already existing twin starts and are finite diagnostics. They do not prove E_(m,2)->0 for Type-II prime weights, construct positive total mass, or cross the parity barrier.",
+  "route_decision": {
+    "discard": "proving a separate arithmetic concentration estimate for every fixed CRT interaction degree",
+    "retain": "prove only the degree-two prime-weighted overlap energy decay, then invoke the universal reduction",
+    "next_single_lemma": "PrimeWeightedDegreeTwoCRTOverlapEnergyDecayAtTwinScale"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T235",
+        "label": "FixedDegreeCesaroOverlapMomentReductionAndDegreeOneNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T236",
+        "label": "DegreeTwoCesaroControlsAllFixedDegrees",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N236",
+        "label": "EveryFixedDegreeRequiresAnIndependentEstimate",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN236",
+        "label": "PrimeWeightedDegreeTwoCRTOverlapEnergyDecayAtTwinScale",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP-PARITY",
+        "label": "ParityRetainingTransferAndPositivePrincipalMass",
+        "status": "open_not_proven"
+      },
+      {
+        "id": "TP",
+        "label": "TwinPrimeConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T235",
+        "TP-T236"
+      ],
+      [
+        "TP-T236",
+        "TP-N236"
+      ],
+      [
+        "TP-T236",
+        "TP-OPEN236"
+      ],
+      [
+        "TP-OPEN236",
+        "TP-PARITY"
+      ],
+      [
+        "TP-PARITY",
+        "TP"
+      ]
+    ]
+  }
+}

@@ -62,12 +62,12 @@
       ko: "네 미해결 문제, 상대적·위상 민감 장벽을 드러내다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-235 proves four exact Schur, divisor-order, phase-retrieval, or overlap-moment results.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-235는 Schur 보완·Collatz divisor order·위상 복원·overlap moment에 관한 네 개의 정확한 결과를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-236 proves four exact contraction, order-witness, phase-defect, or degree-two-reduction results.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-236은 정규화 수축·Collatz 차수 증인·위상 결손·CRT 2차 환원에 관한 네 개의 정확한 결과를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-235 proves four exact partial or no-go theorems and preserves a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-235는 네 개의 정확한 부분·no-go 정리를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-236 proves four exact partial, reduction, or no-go theorems and preserves a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-236은 네 개의 정확한 부분·환원·no-go 정리를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

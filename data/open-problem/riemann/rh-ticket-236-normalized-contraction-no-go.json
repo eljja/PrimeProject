@@ -1,0 +1,271 @@
+{
+  "schema": "primeproject.ticket236-contraction-order-phase-degree2.v1",
+  "generated_at": "2026-08-22T02:10:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-236",
+  "theorem_name": "NormalizedCrossBlockContractionCriterionAndLocalMinorNoGo",
+  "declared_proposition": "Let A and C be positive definite and H=[[A,B],[B*,C]]. Put K=A^(-1/2)BC^(-1/2). Then H is positive semidefinite if and only if the normalized cross block is a contraction, ||K||_op<=1. Coordinatewise relative two-by-two minor inequalities do not suffice: for A=C=I_m and B=(2/m)J_m, every coordinate minor is 1-4/m^2>=0 and every entry tends to zero, but ||B||_op=2 and the full block has minimum eigenvalue -1.",
+  "mathematical_argument": "Congruence by diag(A^(-1/2),C^(-1/2)) reduces H to [[I,K],[K*,I]]. The Schur complement is I-K*K, which is positive semidefinite exactly when every singular value of K is at most one. In the counterfamily J_m has one singular value m, so (2/m)J_m has norm two even though each coordinate pair passes its local minor test. Replacing 2/m by 1/(2m) gives norm one half and full minimum eigenvalue one half.",
+  "reproducible_computation": {
+    "theorem": "Let A and C be positive definite and H=[[A,B],[B*,C]]. Put K=A^(-1/2)BC^(-1/2). Then H is positive semidefinite if and only if the normalized cross block is a contraction, ||K||_op<=1. Coordinatewise relative two-by-two minor inequalities do not suffice: for A=C=I_m and B=(2/m)J_m, every coordinate minor is 1-4/m^2>=0 and every entry tends to zero, but ||B||_op=2 and the full block has minimum eigenvalue -1.",
+    "proof": "Congruence by diag(A^(-1/2),C^(-1/2)) reduces H to [[I,K],[K*,I]]. The Schur complement is I-K*K, which is positive semidefinite exactly when every singular value of K is at most one. In the counterfamily J_m has one singular value m, so (2/m)J_m has norm two even though each coordinate pair passes its local minor test. Replacing 2/m by 1/(2m) gives norm one half and full minimum eigenvalue one half.",
+    "exact_coherent_rank_one_rows": [
+      {
+        "block_dimension_m": 4,
+        "unsafe_cross_entry_2_over_m": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "every_coordinate_two_by_two_minor": {
+          "exact": "3/4",
+          "float": 0.75
+        },
+        "unsafe_normalized_operator_norm": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "unsafe_full_block_minimum_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "safe_cross_entry_1_over_2m": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "safe_normalized_operator_norm": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "safe_full_block_minimum_eigenvalue": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "certificate_verified": true
+      },
+      {
+        "block_dimension_m": 8,
+        "unsafe_cross_entry_2_over_m": {
+          "exact": "1/4",
+          "float": 0.25
+        },
+        "every_coordinate_two_by_two_minor": {
+          "exact": "15/16",
+          "float": 0.9375
+        },
+        "unsafe_normalized_operator_norm": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "unsafe_full_block_minimum_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "safe_cross_entry_1_over_2m": {
+          "exact": "1/16",
+          "float": 0.0625
+        },
+        "safe_normalized_operator_norm": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "safe_full_block_minimum_eigenvalue": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "certificate_verified": true
+      },
+      {
+        "block_dimension_m": 16,
+        "unsafe_cross_entry_2_over_m": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "every_coordinate_two_by_two_minor": {
+          "exact": "63/64",
+          "float": 0.984375
+        },
+        "unsafe_normalized_operator_norm": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "unsafe_full_block_minimum_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "safe_cross_entry_1_over_2m": {
+          "exact": "1/32",
+          "float": 0.03125
+        },
+        "safe_normalized_operator_norm": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "safe_full_block_minimum_eigenvalue": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "certificate_verified": true
+      },
+      {
+        "block_dimension_m": 32,
+        "unsafe_cross_entry_2_over_m": {
+          "exact": "1/16",
+          "float": 0.0625
+        },
+        "every_coordinate_two_by_two_minor": {
+          "exact": "255/256",
+          "float": 0.99609375
+        },
+        "unsafe_normalized_operator_norm": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "unsafe_full_block_minimum_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "safe_cross_entry_1_over_2m": {
+          "exact": "1/64",
+          "float": 0.015625
+        },
+        "safe_normalized_operator_norm": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "safe_full_block_minimum_eigenvalue": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "certificate_verified": true
+      },
+      {
+        "block_dimension_m": 64,
+        "unsafe_cross_entry_2_over_m": {
+          "exact": "1/32",
+          "float": 0.03125
+        },
+        "every_coordinate_two_by_two_minor": {
+          "exact": "1023/1024",
+          "float": 0.9990234375
+        },
+        "unsafe_normalized_operator_norm": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "unsafe_full_block_minimum_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "safe_cross_entry_1_over_2m": {
+          "exact": "1/128",
+          "float": 0.0078125
+        },
+        "safe_normalized_operator_norm": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "safe_full_block_minimum_eigenvalue": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "certificate_verified": true
+      },
+      {
+        "block_dimension_m": 128,
+        "unsafe_cross_entry_2_over_m": {
+          "exact": "1/64",
+          "float": 0.015625
+        },
+        "every_coordinate_two_by_two_minor": {
+          "exact": "4095/4096",
+          "float": 0.999755859375
+        },
+        "unsafe_normalized_operator_norm": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "unsafe_full_block_minimum_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "safe_cross_entry_1_over_2m": {
+          "exact": "1/256",
+          "float": 0.00390625
+        },
+        "safe_normalized_operator_norm": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "safe_full_block_minimum_eigenvalue": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "8c6817245d62ebd56cd2bb1ebdc09c556f14ded2b8084a777f177ba27811b2c3",
+    "aggregate": {
+      "normalized_cross_block_contraction_iff_proved": true,
+      "coordinatewise_relative_minor_sufficiency_refuted": true,
+      "coherent_cross_block_accumulation_exhibited": true,
+      "arithmetic_weil_normalized_contraction_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "This is an exact finite-dimensional operator theorem and counterfamily, not an estimate for the actual Guinand-Weil arithmetic cross block. It identifies the required global normalized operator norm and refutes pairwise local certification only. No zeta zero is tested.",
+    "failure_count": 0
+  },
+  "logical_limit": "This is an exact finite-dimensional operator theorem and counterfamily, not an estimate for the actual Guinand-Weil arithmetic cross block. It identifies the required global normalized operator norm and refutes pairwise local certification only. No zeta zero is tested.",
+  "route_decision": {
+    "discard": "coordinatewise relative two-by-two minors as a certificate for the full Weil truncation",
+    "retain": "bound the global normalized arithmetic cross-block operator below one",
+    "next_single_lemma": "ArithmeticWeilNormalizedCrossBlockContractionBelowOneOnCofinalLogarithmicFrames"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T235",
+        "label": "ExactKernelSchurComplementCriterionAndCrossBlockNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-T236",
+        "label": "NormalizedCrossBlockContractionAndLocalMinorNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N236",
+        "label": "CoordinatewiseRelativeMinorsSufficeForFullPositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN236",
+        "label": "ArithmeticWeilNormalizedCrossBlockContractionBelowOneOnCofinalLogarithmicFrames",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RiemannHypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T235",
+        "RH-T236"
+      ],
+      [
+        "RH-T236",
+        "RH-N236"
+      ],
+      [
+        "RH-T236",
+        "RH-OPEN236"
+      ],
+      [
+        "RH-OPEN236",
+        "RH"
+      ]
+    ]
+  }
+}

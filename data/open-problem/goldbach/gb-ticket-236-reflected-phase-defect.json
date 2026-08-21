@@ -1,0 +1,181 @@
+{
+  "schema": "primeproject.ticket236-contraction-order-phase-degree2.v1",
+  "generated_at": "2026-08-22T02:10:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-236",
+  "theorem_name": "ActualPrimeReflectedPhaseDefectIdentityAndUncoupledMarginNoGo",
+  "declared_proposition": "Let x_X be the prime indicator on Z/qZ with q>2X, let Xhat(a) be its Fourier transform, M_X=sum_a|Xhat(a)|^2=q*pi(X), and define the target-reflected phase defect Delta_X(N)=sum_a |Xhat(a)|^2 [1-cos(2 arg Xhat(a)-2*pi*a*N/q)]. Then for 0<=N<=2X, q*g_X(N)=M_X-Delta_X(N), where g_X(N) is the ordered prime-pair count. Hence Delta_X(N)<M_X is exactly equivalent to g_X(N)>0. Moreover an uncoupled uniform inverse-log fractional margin is false for actual prime weights: at fixed target N=4 the normalized margin is 1/pi(X)=o(1/log X).",
+  "mathematical_argument": "Fourier inversion of the cyclic convolution x_X*x_X gives q*g_X(N) as sum_a Xhat(a)^2 exp(-2*pi*i*a*N/q). Taking real parts and writing each square by magnitude and doubled phase yields M_X-Delta_X(N). Parseval gives M_X=q*pi(X). Because q>2X there is no wraparound. For N=4 only the ordered pair (2,2) contributes, so the fractional gap is exactly 1/pi(X); the prime number theorem makes this asymptotic to log(X)/X.",
+  "reproducible_computation": {
+    "theorem": "Let x_X be the prime indicator on Z/qZ with q>2X, let Xhat(a) be its Fourier transform, M_X=sum_a|Xhat(a)|^2=q*pi(X), and define the target-reflected phase defect Delta_X(N)=sum_a |Xhat(a)|^2 [1-cos(2 arg Xhat(a)-2*pi*a*N/q)]. Then for 0<=N<=2X, q*g_X(N)=M_X-Delta_X(N), where g_X(N) is the ordered prime-pair count. Hence Delta_X(N)<M_X is exactly equivalent to g_X(N)>0. Moreover an uncoupled uniform inverse-log fractional margin is false for actual prime weights: at fixed target N=4 the normalized margin is 1/pi(X)=o(1/log X).",
+    "proof": "Fourier inversion of the cyclic convolution x_X*x_X gives q*g_X(N) as sum_a Xhat(a)^2 exp(-2*pi*i*a*N/q). Taking real parts and writing each square by magnitude and doubled phase yields M_X-Delta_X(N). Parseval gives M_X=q*pi(X). Because q>2X there is no wraparound. For N=4 only the ordered pair (2,2) contributes, so the fractional gap is exactly 1/pi(X); the prime number theorem makes this asymptotic to log(X)/X.",
+    "exact_actual_prime_rows": [
+      {
+        "cutoff_X": 100,
+        "prime_modulus_q": 211,
+        "prime_count_pi_X": 25,
+        "fixed_target_N": 4,
+        "ordered_representation_count_g_X_4": 1,
+        "total_spectral_power_M_X": 5275,
+        "reflected_phase_defect_Delta_X_4": 5064,
+        "normalized_phase_margin_g_over_pi": {
+          "exact": "1/25",
+          "float": 0.04
+        },
+        "inverse_log_X": 0.21714724095162588,
+        "margin_below_inverse_log_X": true,
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 1000,
+        "prime_modulus_q": 2003,
+        "prime_count_pi_X": 168,
+        "fixed_target_N": 4,
+        "ordered_representation_count_g_X_4": 1,
+        "total_spectral_power_M_X": 336504,
+        "reflected_phase_defect_Delta_X_4": 334501,
+        "normalized_phase_margin_g_over_pi": {
+          "exact": "1/168",
+          "float": 0.005952380952380952
+        },
+        "inverse_log_X": 0.14476482730108395,
+        "margin_below_inverse_log_X": true,
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 10000,
+        "prime_modulus_q": 20011,
+        "prime_count_pi_X": 1229,
+        "fixed_target_N": 4,
+        "ordered_representation_count_g_X_4": 1,
+        "total_spectral_power_M_X": 24593519,
+        "reflected_phase_defect_Delta_X_4": 24573508,
+        "normalized_phase_margin_g_over_pi": {
+          "exact": "1/1229",
+          "float": 0.0008136696501220504
+        },
+        "inverse_log_X": 0.10857362047581294,
+        "margin_below_inverse_log_X": true,
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 100000,
+        "prime_modulus_q": 200003,
+        "prime_count_pi_X": 9592,
+        "fixed_target_N": 4,
+        "ordered_representation_count_g_X_4": 1,
+        "total_spectral_power_M_X": 1918428776,
+        "reflected_phase_defect_Delta_X_4": 1918228773,
+        "normalized_phase_margin_g_over_pi": {
+          "exact": "1/9592",
+          "float": 0.0001042535446205171
+        },
+        "inverse_log_X": 0.08685889638065036,
+        "margin_below_inverse_log_X": true,
+        "certificate_verified": true
+      }
+    ],
+    "direct_complex_dft_rows": [
+      {
+        "cutoff_X": 30,
+        "prime_modulus_q": 61,
+        "prime_count_pi_X": 10,
+        "target_N": 4,
+        "ordered_representation_count": 1,
+        "dft_inversion_real": 60.99999999999937,
+        "dft_inversion_imag": 1.3216094885137863e-12,
+        "expected_q_times_count": 61,
+        "absolute_complex_error": 1.4651143105116517e-12,
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 100,
+        "prime_modulus_q": 211,
+        "prime_count_pi_X": 25,
+        "target_N": 4,
+        "ordered_representation_count": 1,
+        "dft_inversion_real": 210.99999999999747,
+        "dft_inversion_imag": 5.968558980384842e-13,
+        "expected_q_times_count": 211,
+        "absolute_complex_error": 2.5989939989936672e-12,
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 300,
+        "prime_modulus_q": 601,
+        "prime_count_pi_X": 62,
+        "target_N": 4,
+        "ordered_representation_count": 1,
+        "dft_inversion_real": 601.0000000003549,
+        "dft_inversion_imag": 2.602291715447791e-10,
+        "expected_q_times_count": 601,
+        "absolute_complex_error": 4.401076513881958e-10,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "d075449ac3bca0bbf0a4edff052588b95a7a38047d7b245dbb2bf02ac4f4cffc",
+    "aggregate": {
+      "reflected_phase_defect_identity_proved": true,
+      "strict_phase_defect_margin_endpoint_equivalent": true,
+      "uncoupled_inverse_log_uniform_margin_refuted": true,
+      "target_coupled_prime_phase_gain_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The asymptotic no-go uses actual prime indicators and the prime number theorem, but exploits a fixed small target while the cutoff grows. It does not refute a target-coupled dyadic estimate with N comparable to X. The strict defect inequality by itself is endpoint-equivalent to the Goldbach coefficient and supplies no independent minor-arc saving.",
+    "failure_count": 0
+  },
+  "logical_limit": "The asymptotic no-go uses actual prime indicators and the prime number theorem, but exploits a fixed small target while the cutoff grows. It does not refute a target-coupled dyadic estimate with N comparable to X. The strict defect inequality by itself is endpoint-equivalent to the Goldbach coefficient and supplies no independent minor-arc saving.",
+  "route_decision": {
+    "discard": "an uncoupled all-target inverse-log phase margin, or the raw strict phase inequality as a smaller auxiliary lemma",
+    "retain": "couple cutoff to target and derive a quantitative cross-phase gain from independent major/minor arithmetic",
+    "next_single_lemma": "TargetCoupledDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T235",
+        "label": "CompleteMarginalPowerSpectrumPhaseRetrievalNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T236",
+        "label": "ReflectedPhaseDefectIdentityAndUncoupledMarginNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N236",
+        "label": "UncoupledUniformInverseLogPhaseMargin",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN236",
+        "label": "TargetCoupledDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "StrongGoldbachConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T235",
+        "GB-T236"
+      ],
+      [
+        "GB-T236",
+        "GB-N236"
+      ],
+      [
+        "GB-T236",
+        "GB-OPEN236"
+      ],
+      [
+        "GB-OPEN236",
+        "GB"
+      ]
+    ]
+  }
+}

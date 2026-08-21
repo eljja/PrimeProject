@@ -8530,3 +8530,37 @@ failures.
 
 English report: [TICKET-230 quantitative recurrence, necklace invariance, Fourier aggregation, and local centering](quantitative-recurrence-necklace-fourier-centering.md).
 한국어 보고서: [TICKET-230 정량 재귀·목걸이 불변성·푸리에 합산·국소 중심화](quantitative-recurrence-necklace-fourier-centering.ko.md).
+
+## TICKET-236 continuation: normalized contractions, order witnesses, reflected phase defects, and degree-two CRT reduction
+
+TICKET-236 attacks the four TICKET-235 successor lemmas and keeps the
+parent-conjecture resolution count at zero:
+
+1. RH: for positive diagonal blocks, full block positivity is exactly the
+   normalized cross-block contraction condition. The family
+   `A=C=I_m`, `B=(2/m)J_m` has every coordinate minor positive and entries
+   tending to zero, but minimum eigenvalue `-1`; local-minor certification is
+   therefore refuted. Arithmetic contraction on actual Weil frames is open.
+2. Collatz: the primes `5`, `59`, and `57,653` give order-separated witnesses
+   for every binary run-block exponent not divisible by `28,826`. At multiples
+   of `28,826` all three divide both denominator and numerator, so this fixed
+   palette is rigorously exhausted. A fresh adaptive witness beyond every
+   finite palette is open.
+3. Goldbach: for the actual prime indicator, reflected phase defect and the
+   Goldbach representation count obey the exact complementary identity
+   `q g_X(N)=q pi(X)-Delta_X(N)`. The fixed target `N=4` has normalized margin
+   `1/pi(X)`, refuting an uncoupled inverse-log margin. Target-coupled dyadic
+   phase gain remains open.
+4. Twin Prime: covariance positivity gives
+   `E_{m,1} <= sqrt(4/m+(m-1)E_{m,2}/m)`, and a collision estimate bounds every
+   fixed `E_{m,k}` by degree two plus `O_k(1/m)`. Independent all-degree proof
+   obligations are reduced to prime-weighted degree-two decay, which is open.
+
+Each proof DAG has a declared target, exact symbolic or order argument,
+reproducible finite audit, explicit finite-computation boundary, discarded
+route, and one successor lemma. Machine audit: four exact partial/reduction/
+no-go theorems, four discarded or reduced routes, four proof DAGs, zero
+conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-236 normalized contractions, order witnesses, reflected phase defects, and degree-two reduction](contraction-order-phase-degree2.md).
+한국어 보고서(`parent conjecture claims blocked · open_not_proven`): [TICKET-236 정규화 수축·차수 증인·반사 위상 결손·2차 환원](contraction-order-phase-degree2.ko.md).

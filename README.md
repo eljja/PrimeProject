@@ -31,16 +31,17 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-235: Schur Complements, Prime-Power Deficits, Phase Retrieval, and CRT Overlaps](docs/schur-primepower-phase-overlap.md),
-with a separate [Korean report](docs/schur-primepower-phase-overlap.ko.md).
-It proves four narrower results: full Weil-truncation positivity has an exact
-relative Schur-complement criterion; binary run-block common divisors have an
-exact order characterization and an arbitrary primitive divisor can still
-divide the numerator (the general prime-power witness is correctly attributed
-to TICKET-224); complete separate Goldbach marginal powers do
-not recover target cross phase; and fixed-degree CRT Cesaro energies are exact
-pair-overlap elementary moments while degree one is insufficient. These are
-partial and no-go lemmas, not parent-problem resolutions. TICKET-234 is
+[TICKET-236: Normalized Contractions, Order Witnesses, Reflected Phase Defects, and Degree-Two CRT Reduction](docs/contraction-order-phase-degree2.md),
+with a separate [Korean report](docs/contraction-order-phase-degree2.ko.md).
+It proves four narrower results: full block positivity is exactly a normalized
+cross-block contraction and coordinate minors are insufficient; three explicit
+primes certify every binary run block outside multiples of 28826; actual-prime
+reflected phase defect is exactly the Goldbach coefficient and an uncoupled
+inverse-log margin is false; and degree-two CRT Cesaro energy controls every
+fixed degree. These are partial and no-go lemmas, not parent-problem
+resolutions. TICKET-235 is preserved in
+[English](docs/schur-primepower-phase-overlap.md) and
+[Korean](docs/schur-primepower-phase-overlap.ko.md). TICKET-234 is
 preserved in [English](docs/operator-kernel-density-minor-cesaro.md) and
 [Korean](docs/operator-kernel-density-minor-cesaro.ko.md). TICKET-233 is preserved in
 [English](docs/logarithmic-frame-density-shell-entropy.md) and
@@ -375,7 +376,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-235 boundary, four exact partial/no-go lemmas, four discarded routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-236 boundary, four exact partial/no-go lemmas, four discarded or reduced routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -392,16 +393,17 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-235. The RH track gives the exact
-relative Schur criterion and refutes absolute cross-block smallness. Collatz
-exhibits a prime-power-only deficit and refutes arbitrary primitive-divisor
-selection after correcting the prime-power counterexample to its TICKET-224
-lineage. Goldbach proves that even complete marginal power spectra lose the
-target-reflected phase. Twin reduces fixed-degree Cesaro energies to overlap
-moments and refutes degree-one sufficiency. These are exact partial and no-go
+The latest proof-search track is TICKET-236. The RH track proves the normalized
+cross-block contraction criterion and refutes coordinate-minor sufficiency.
+Collatz gives an explicit three-prime witness for every binary run block outside
+multiples of 28826. Goldbach proves the exact actual-prime reflected phase-defect
+identity and refutes an uncoupled inverse-log margin. Twin proves that degree-two
+Cesaro energy controls every fixed degree. These are exact partial and no-go
 theorems, not solutions. All
 four parent conjectures remain open and the machine resolution count is zero.
-See [TICKET235 EN](docs/schur-primepower-phase-overlap.md),
+See [TICKET236 EN](docs/contraction-order-phase-degree2.md),
+[TICKET236 KO](docs/contraction-order-phase-degree2.ko.md),
+[TICKET235 EN](docs/schur-primepower-phase-overlap.md),
 [TICKET235 KO](docs/schur-primepower-phase-overlap.ko.md),
 [TICKET234 EN](docs/operator-kernel-density-minor-cesaro.md),
 [TICKET234 KO](docs/operator-kernel-density-minor-cesaro.ko.md),
@@ -560,12 +562,13 @@ See [TICKET235 EN](docs/schur-primepower-phase-overlap.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-235입니다. 리만 트랙은 정확한 상대
-Schur 조건과 절대 소량성 no-go를 증명했습니다. 콜라츠는 prime-power 결손
-반례와 arbitrary primitive-divisor 선택 no-go를 증명했습니다. 골드바흐는
-완전한 주변 power가 target cross phase를 잃는다는 것을 증명했습니다.
-쌍둥이 소수는 CRT Cesaro energy를 overlap moment로 환원하고 degree-one
-충분성을 반증했습니다. 네 상위 문제의 해결 수는 여전히 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-236입니다. 리만 트랙은 normalized
+cross-block contraction 동치와 coordinate-minor no-go를 증명했습니다.
+콜라츠는 28826의 배수가 아닌 모든 binary run-block에 세 소수 중 하나를
+명시적으로 배정했습니다. 골드바흐는 actual-prime reflected phase defect의
+정확한 항등식과 uncoupled inverse-log margin no-go를 증명했습니다. 쌍둥이
+소수는 degree-two CRT Cesaro energy 하나가 모든 고정 차수를 지배함을
+증명했습니다. 네 상위 문제의 해결 수는 여전히 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -585,18 +588,18 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-235입니다.
-[Schur 보완·prime-power 결손·위상 복원·CRT overlap 한국어 보고서 (`parent conjecture claims blocked · open_not_proven`)](docs/schur-primepower-phase-overlap.ko.md)와
-[영문 보고서](docs/schur-primepower-phase-overlap.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-236입니다.
+[정규화 contraction·위수 증인·phase defect·degree-two 환원 한국어 보고서 (`parent conjecture claims blocked · open_not_proven`)](docs/contraction-order-phase-degree2.ko.md)와
+[영문 보고서](docs/contraction-order-phase-degree2.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-현재 결정적 미해결 보조정리는 Weil-tail 상대 cross-block Schur 지배,
-Collatz order-separated adaptive 소수 witness, 골드바흐 actual-prime reflected
-phase locking, 쌍둥이 소수의 CRT pair-overlap moment concentration입니다.
+현재 결정적 미해결 보조정리는 Weil normalized contraction,
+고정 palette를 벗어나는 Collatz fresh order witness, target-coupled Goldbach
+cross-phase gain, 쌍둥이 소수의 degree-two CRT overlap energy decay입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-235의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 235개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-236의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 236개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 
