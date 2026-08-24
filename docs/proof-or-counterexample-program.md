@@ -8531,6 +8531,36 @@ failures.
 English report: [TICKET-230 quantitative recurrence, necklace invariance, Fourier aggregation, and local centering](quantitative-recurrence-necklace-fourier-centering.md).
 한국어 보고서: [TICKET-230 정량 재귀·목걸이 불변성·푸리에 합산·국소 중심화](quantitative-recurrence-necklace-fourier-centering.ko.md).
 
+## TICKET-237 continuation: principal angles, finite palettes, dyadic endpoints, and Welch floors
+
+TICKET-237 attacks the four TICKET-236 successor lemmas and keeps the
+parent-conjecture resolution count at zero:
+
+1. RH: the normalized Gram cross block is the principal-angle matrix.
+   Strict contraction is equivalent to disjoint spans with positive angle;
+   nested cofinal spans have norm one. The open target is an arithmetic
+   innovation-angle gap after quotienting common logarithmic modes.
+2. Collatz: for every finite prime palette, an lcm of the relevant
+   multiplicative orders disables every palette prime at infinitely many
+   binary run blocks. A word-dependent valuation-gap witness on general
+   primitive density-band necklaces remains open.
+3. Goldbach: truncation at `X` gives the exact endpoint identity
+   `g_X(2X)=1_P(X)`. A closed dyadic window containing `2X` cannot support
+   a uniform inverse-log phase margin. A buffered bulk phase gain remains
+   open.
+4. Twin Prime: a support-rank argument gives the sharp Welch floor
+   `E_(m,2)>=(m-r)/(r(m-1))`. Degree-two decay with nondegenerate diagonals
+   forces growing support, but the prime-weighted decay, positive mass, and
+   parity transfer remain open.
+
+Each proof DAG declares the exact theorem, reproducible rational or modular
+audit, no-go scope, discarded route, and one successor lemma. Machine audit:
+four exact partial/no-go theorems, four discarded routes, four proof DAGs,
+zero conjecture resolutions, and zero computational failures.
+
+English report: [TICKET-237 principal angles, finite palettes, dyadic endpoints, and Welch floors](angle-palette-endpoint-welch.md).
+한국어 보고서(`parent conjecture claims blocked · open_not_proven`): [TICKET-237 principal angle·유한 palette·dyadic endpoint·Welch floor](angle-palette-endpoint-welch.ko.md).
+
 ## TICKET-236 continuation: normalized contractions, order witnesses, reflected phase defects, and degree-two CRT reduction
 
 TICKET-236 attacks the four TICKET-235 successor lemmas and keeps the

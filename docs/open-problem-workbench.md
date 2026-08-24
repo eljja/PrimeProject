@@ -15,9 +15,34 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-236
+## Current research boundary: TICKET-237
 
 The current machine-readable boundary is
+`data/open-problem/ticket237-angle-palette-endpoint-welch.json`.
+
+TICKET-237 proves four exact partial or no-go theorems and resolves none of
+the parent conjectures:
+
+- strict RH normalized cross contraction is a positive-principal-angle
+  condition, and nonzero nested cofinal frames have norm one;
+- every fixed finite Collatz prime palette is simultaneously disabled at
+  infinitely many binary run-block exponents;
+- the truncated Goldbach endpoint satisfies `g_X(2X)=1_P(X)`, ruling out a
+  uniform inverse-log margin on a closed window containing `2X`;
+- finite-support degree-two CRT energy obeys a sharp Welch rank floor, so
+  decay with nondegenerate diagonals forces support growth.
+
+The next single lemmas are the arithmetic Weil innovation angle gap, a
+word-dependent Collatz prime valuation gap, buffered dyadic Goldbach phase
+gain, and prime-weighted degree-two CRT decay with growing support and
+uniform diagonal control.
+
+English report: [TICKET-237](angle-palette-endpoint-welch.md).
+한국어 보고서: [TICKET-237](angle-palette-endpoint-welch.ko.md).
+
+## Preserved research boundary: TICKET-236
+
+The preserved machine-readable boundary is
 `data/open-problem/ticket236-contraction-order-phase-degree2.json`.
 
 TICKET-236 proves four exact partial, reduction, or no-go theorems and resolves

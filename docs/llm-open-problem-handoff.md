@@ -62,9 +62,36 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-236
+## Current continuation: TICKET-237
 
 The current machine-readable boundary is
+`data/open-problem/ticket237-angle-palette-endpoint-welch.json`.
+It records four exact partial or no-go theorems, zero machine failures,
+and zero parent-conjecture resolutions.
+
+| Problem | Newly closed lemma | Current single open lemma |
+|---|---|---|
+| Riemann | `PrincipalAngleCriterionAndNestedCofinalFrameNoGo` | `ArithmeticWeilInnovationCrossBlockAngleGapOnDisjointLogarithmicShells` |
+| Collatz | `NoFinitePrimePaletteUniversallySeparatesBinaryRunBlocks` | `WordDependentPrimeValuationGapForEveryPrimitiveBinaryDensityBandNecklace` |
+| Goldbach | `TruncatedDyadicUpperEndpointObstructionAndBulkWindowNecessity` | `BufferedDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack` |
+| Twin Prime | `FiniteSupportWelchFloorForDegreeTwoCRTOverlap` | `PrimeWeightedDegreeTwoCRTDecayWithGrowingSupportAndUniformDiagonalControl` |
+
+The RH theorem forces common frame modes to be quotiented before a strict
+angle gap is possible. The Collatz theorem proves that every fixed finite
+prime palette fails infinitely often. The Goldbach theorem removes the
+truncated endpoint `N=2X` from any uniform dyadic margin. The Twin theorem
+shows that degree-two decay with nondegenerate diagonals already forces
+the prime-weight support to grow.
+
+Reports: [English](angle-palette-endpoint-welch.md),
+[한국어](angle-palette-endpoint-welch.ko.md).
+
+All older current/latest headings below are historical snapshots and must
+not override this TICKET-237 boundary.
+
+## Preserved continuation: TICKET-236
+
+The preserved machine-readable boundary is
 `data/open-problem/ticket236-contraction-order-phase-degree2.json`.
 It records four exact partial, reduction, or no-go theorems, zero machine
 failures, and zero parent-conjecture resolutions.
@@ -89,7 +116,7 @@ Reports: [English](contraction-order-phase-degree2.md),
 [한국어](contraction-order-phase-degree2.ko.md).
 
 All older "latest" or "current" headings below are preserved historical
-snapshots and must not override this TICKET-236 boundary.
+snapshots and must not override this TICKET-237 boundary.
 
 ## Preserved continuation: TICKET-235
 

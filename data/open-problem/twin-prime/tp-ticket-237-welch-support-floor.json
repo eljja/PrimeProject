@@ -1,0 +1,217 @@
+{
+  "schema": "primeproject.ticket237-angle-palette-endpoint-welch.v1",
+  "generated_at": "2026-08-24T02:10:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-237",
+  "theorem_name": "FiniteSupportWelchFloorForDegreeTwoCRTOverlap",
+  "declared_proposition": "Let nu be supported on s atoms and let phi_1,...,phi_m be real functions with E_nu phi_i^2=1. Put C_ij=E_nu(phi_i phi_j) and E_(m,2)=C(m,2)^(-1)sum_(i<j) C_ij^2. With r=min(m,s), E_(m,2)>=(m-r)/(r(m-1)); if all phi_i are centered, one may instead take r=min(m,s-1). More generally, if every diagonal second moment lies in [alpha,beta], then E_(m,2)>=max(0,(m*alpha^2/r-beta^2)/(m-1)). Thus degree-two decay along m->infinity with nondegenerate diagonals is impossible on uniformly bounded support; it forces the prime-weight support size to grow.",
+  "mathematical_argument": "C is a positive semidefinite Gram matrix of rank at most s. If its nonzero eigenvalues are lambda_j, Cauchy-Schwarz gives ||C||_F^2=sum lambda_j^2>=(tr C)^2/r. In the unit-diagonal case, tr C=m and ||C||_F^2=m+m(m-1)E_(m,2), which rearranges to the stated Welch bound. Centering places every column in the codimension-one mean-zero subspace, giving rank at most s-1. The alpha-beta form follows from tr C>=m alpha and the diagonal-square sum <=m beta^2. Repeated nonconstant Walsh columns attain the centered bound exactly.",
+  "reproducible_computation": {
+    "theorem": "Let nu be supported on s atoms and let phi_1,...,phi_m be real functions with E_nu phi_i^2=1. Put C_ij=E_nu(phi_i phi_j) and E_(m,2)=C(m,2)^(-1)sum_(i<j) C_ij^2. With r=min(m,s), E_(m,2)>=(m-r)/(r(m-1)); if all phi_i are centered, one may instead take r=min(m,s-1). More generally, if every diagonal second moment lies in [alpha,beta], then E_(m,2)>=max(0,(m*alpha^2/r-beta^2)/(m-1)). Thus degree-two decay along m->infinity with nondegenerate diagonals is impossible on uniformly bounded support; it forces the prime-weight support size to grow.",
+    "proof": "C is a positive semidefinite Gram matrix of rank at most s. If its nonzero eigenvalues are lambda_j, Cauchy-Schwarz gives ||C||_F^2=sum lambda_j^2>=(tr C)^2/r. In the unit-diagonal case, tr C=m and ||C||_F^2=m+m(m-1)E_(m,2), which rearranges to the stated Welch bound. Centering places every column in the codimension-one mean-zero subspace, giving rank at most s-1. The alpha-beta form follows from tr C>=m alpha and the diagonal-square sum <=m beta^2. Repeated nonconstant Walsh columns attain the centered bound exactly.",
+    "exact_sharp_walsh_rows": [
+      {
+        "support_size_s": 4,
+        "centered_function_rank_r": 3,
+        "coordinate_count_m": 6,
+        "repetitions_per_nonconstant_walsh_coordinate": 2,
+        "degree_two_energy_E_m_2": {
+          "exact": "1/5",
+          "float": 0.2
+        },
+        "welch_lower_bound": {
+          "exact": "1/5",
+          "float": 0.2
+        },
+        "bound_attained_exactly": true,
+        "certificate_verified": true
+      },
+      {
+        "support_size_s": 4,
+        "centered_function_rank_r": 3,
+        "coordinate_count_m": 12,
+        "repetitions_per_nonconstant_walsh_coordinate": 4,
+        "degree_two_energy_E_m_2": {
+          "exact": "3/11",
+          "float": 0.2727272727272727
+        },
+        "welch_lower_bound": {
+          "exact": "3/11",
+          "float": 0.2727272727272727
+        },
+        "bound_attained_exactly": true,
+        "certificate_verified": true
+      },
+      {
+        "support_size_s": 8,
+        "centered_function_rank_r": 7,
+        "coordinate_count_m": 14,
+        "repetitions_per_nonconstant_walsh_coordinate": 2,
+        "degree_two_energy_E_m_2": {
+          "exact": "1/13",
+          "float": 0.07692307692307693
+        },
+        "welch_lower_bound": {
+          "exact": "1/13",
+          "float": 0.07692307692307693
+        },
+        "bound_attained_exactly": true,
+        "certificate_verified": true
+      },
+      {
+        "support_size_s": 8,
+        "centered_function_rank_r": 7,
+        "coordinate_count_m": 28,
+        "repetitions_per_nonconstant_walsh_coordinate": 4,
+        "degree_two_energy_E_m_2": {
+          "exact": "1/9",
+          "float": 0.1111111111111111
+        },
+        "welch_lower_bound": {
+          "exact": "1/9",
+          "float": 0.1111111111111111
+        },
+        "bound_attained_exactly": true,
+        "certificate_verified": true
+      },
+      {
+        "support_size_s": 16,
+        "centered_function_rank_r": 15,
+        "coordinate_count_m": 30,
+        "repetitions_per_nonconstant_walsh_coordinate": 2,
+        "degree_two_energy_E_m_2": {
+          "exact": "1/29",
+          "float": 0.034482758620689655
+        },
+        "welch_lower_bound": {
+          "exact": "1/29",
+          "float": 0.034482758620689655
+        },
+        "bound_attained_exactly": true,
+        "certificate_verified": true
+      }
+    ],
+    "actual_twin_start_support_rows": [
+      {
+        "cutoff_X": 100,
+        "active_prime_count_m": 6,
+        "maximum_active_prime": 19,
+        "twin_start_count_s": 4,
+        "gram_rank_cap_r": 4,
+        "empirically_standardized_degree_two_energy": {
+          "exact": "188448187/897454740",
+          "float": 0.20998071390207376
+        },
+        "welch_support_lower_bound": {
+          "exact": "1/10",
+          "float": 0.1
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 200,
+        "active_prime_count_m": 12,
+        "maximum_active_prime": 43,
+        "twin_start_count_s": 9,
+        "gram_rank_cap_r": 9,
+        "empirically_standardized_degree_two_energy": {
+          "exact": "205776833486930548773931997/2239091641660971534702471360",
+          "float": 0.09190192561046052
+        },
+        "welch_support_lower_bound": {
+          "exact": "1/33",
+          "float": 0.030303030303030304
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 300,
+        "active_prime_count_m": 18,
+        "maximum_active_prime": 71,
+        "twin_start_count_s": 11,
+        "gram_rank_cap_r": 11,
+        "empirically_standardized_degree_two_energy": {
+          "exact": "63718146899091718016340973779104622120322073/681857560650664130324709705427288788296628528",
+          "float": 0.09344788497804224
+        },
+        "welch_support_lower_bound": {
+          "exact": "7/187",
+          "float": 0.0374331550802139
+        },
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "dbc58d3770c892e560789a49d7d929199bddacd9709e9977fcff9836ab78fd8f",
+    "aggregate": {
+      "finite_support_welch_floor_proved": true,
+      "degree_two_decay_forces_growing_support_proved": true,
+      "welch_floor_sharpness_proved": true,
+      "prime_weighted_degree_two_decay_proved": false,
+      "positive_twin_main_mass_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The sharp theorem is linear algebra. The actual rows condition on already observed twin starts and empirically rescale each coordinate; they cannot prove support growth. Passing from the local CRT normalization to uniform diagonal control, proving arithmetic E_2 decay, positive mass, and breaking parity all remain open.",
+    "failure_count": 0
+  },
+  "discarded_route": "bounded-support finite samples as evidence that degree-two CRT energy can decay",
+  "remaining_gap": "The sharp theorem is linear algebra. The actual rows condition on already observed twin starts and empirically rescale each coordinate; they cannot prove support growth. Passing from the local CRT normalization to uniform diagonal control, proving arithmetic E_2 decay, positive mass, and breaking parity all remain open.",
+  "next_single_lemma": "PrimeWeightedDegreeTwoCRTDecayWithGrowingSupportAndUniformDiagonalControl",
+  "claim_boundary": "The sharp theorem is linear algebra. The actual rows condition on already observed twin starts and empirically rescale each coordinate; they cannot prove support growth. Passing from the local CRT normalization to uniform diagonal control, proving arithmetic E_2 decay, positive mass, and breaking parity all remain open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T236",
+        "label": "DegreeTwoCesaroControlsAllFixedDegrees",
+        "status": "closed"
+      },
+      {
+        "id": "TP-T237",
+        "label": "FiniteSupportWelchFloorForDegreeTwoCRTOverlap",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N237",
+        "label": "BoundedSupportCanCertifyDegreeTwoDecay",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN237",
+        "label": "PrimeWeightedDegreeTwoCRTDecayWithGrowingSupportAndUniformDiagonalControl",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP-PARITY",
+        "label": "ParityRetainingTransferAndPositivePrincipalMass",
+        "status": "open_not_proven"
+      },
+      {
+        "id": "TP",
+        "label": "TwinPrimeConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T236",
+        "TP-T237"
+      ],
+      [
+        "TP-T237",
+        "TP-N237"
+      ],
+      [
+        "TP-T237",
+        "TP-OPEN237"
+      ],
+      [
+        "TP-OPEN237",
+        "TP-PARITY"
+      ],
+      [
+        "TP-PARITY",
+        "TP"
+      ]
+    ]
+  }
+}

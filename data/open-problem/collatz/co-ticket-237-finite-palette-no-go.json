@@ -1,0 +1,794 @@
+{
+  "schema": "primeproject.ticket237-angle-palette-endpoint-welch.v1",
+  "generated_at": "2026-08-24T02:10:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-237",
+  "theorem_name": "NoFinitePrimePaletteUniversallySeparatesBinaryRunBlocks",
+  "declared_proposition": "No finite prime palette universally supplies a prime-presence witness for the binary run blocks w_k=1^k 2^(2k). Precisely, for every finite set S of primes there is an integer L>=1 such that for every multiple k of L and every q in S, either q does not divide D_k=32^k-27^k or q also divides B_k=32^k+27^k-2*18^k. One may take L to be the lcm of ord_q(32/27) and ord_q(3/2) over q in S with q>3. Thus any universal prime-presence certificate must use primes that escape every fixed finite palette.",
+  "mathematical_argument": "The primes 2 and 3 never divide D_k. For q>3, if k is a multiple of ord_q(32/27), then D_k is zero modulo q. If it is also a multiple of ord_q(3/2), divide B_k by 27^k: the result is (32/27)^k+1-2(2/3)^k=1+1-2=0. Taking the lcm simultaneously disables every q in S, and every positive multiple of that lcm gives another such k. This proves an infinite obstruction for each finite palette.",
+  "reproducible_computation": {
+    "theorem": "No finite prime palette universally supplies a prime-presence witness for the binary run blocks w_k=1^k 2^(2k). Precisely, for every finite set S of primes there is an integer L>=1 such that for every multiple k of L and every q in S, either q does not divide D_k=32^k-27^k or q also divides B_k=32^k+27^k-2*18^k. One may take L to be the lcm of ord_q(32/27) and ord_q(3/2) over q in S with q>3. Thus any universal prime-presence certificate must use primes that escape every fixed finite palette.",
+    "proof": "The primes 2 and 3 never divide D_k. For q>3, if k is a multiple of ord_q(32/27), then D_k is zero modulo q. If it is also a multiple of ord_q(3/2), divide B_k by 27^k: the result is (32/27)^k+1-2(2/3)^k=1+1-2=0. Taking the lcm simultaneously disables every q in S, and every positive multiple of that lcm gives another such k. This proves an infinite obstruction for each finite palette.",
+    "finite_palette_rows": [
+      {
+        "finite_prime_palette": [
+          5
+        ],
+        "palette_period_L": 2,
+        "order_rows": [
+          {
+            "prime_q": 5,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 1,
+            "order_q_3_over_2": 2
+          }
+        ],
+        "first_three_common_multiple_checks": [
+          {
+            "multiple_of_palette_period": 1,
+            "one_count_k": 2,
+            "prime_checks": [
+              {
+                "prime_q": 5,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              }
+            ],
+            "all_palette_witnesses_disabled": true
+          },
+          {
+            "multiple_of_palette_period": 2,
+            "one_count_k": 4,
+            "prime_checks": [
+              {
+                "prime_q": 5,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              }
+            ],
+            "all_palette_witnesses_disabled": true
+          },
+          {
+            "multiple_of_palette_period": 3,
+            "one_count_k": 6,
+            "prime_checks": [
+              {
+                "prime_q": 5,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              }
+            ],
+            "all_palette_witnesses_disabled": true
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "finite_prime_palette": [
+          2,
+          3,
+          5,
+          7,
+          59
+        ],
+        "palette_period_L": 174,
+        "order_rows": [
+          {
+            "prime_q": 2,
+            "never_divides_D_k": true,
+            "order_q_32_over_27": null,
+            "order_q_3_over_2": null
+          },
+          {
+            "prime_q": 3,
+            "never_divides_D_k": true,
+            "order_q_32_over_27": null,
+            "order_q_3_over_2": null
+          },
+          {
+            "prime_q": 5,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 1,
+            "order_q_3_over_2": 2
+          },
+          {
+            "prime_q": 7,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 6,
+            "order_q_3_over_2": 6
+          },
+          {
+            "prime_q": 59,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 2,
+            "order_q_3_over_2": 58
+          }
+        ],
+        "first_three_common_multiple_checks": [
+          {
+            "multiple_of_palette_period": 1,
+            "one_count_k": 174,
+            "prime_checks": [
+              {
+                "prime_q": 2,
+                "D_k_mod_q": 1,
+                "B_k_mod_q": 1,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 3,
+                "D_k_mod_q": 1,
+                "B_k_mod_q": 1,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 5,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 7,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 59,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              }
+            ],
+            "all_palette_witnesses_disabled": true
+          },
+          {
+            "multiple_of_palette_period": 2,
+            "one_count_k": 348,
+            "prime_checks": [
+              {
+                "prime_q": 2,
+                "D_k_mod_q": 1,
+                "B_k_mod_q": 1,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 3,
+                "D_k_mod_q": 1,
+                "B_k_mod_q": 1,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 5,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 7,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 59,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              }
+            ],
+            "all_palette_witnesses_disabled": true
+          },
+          {
+            "multiple_of_palette_period": 3,
+            "one_count_k": 522,
+            "prime_checks": [
+              {
+                "prime_q": 2,
+                "D_k_mod_q": 1,
+                "B_k_mod_q": 1,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 3,
+                "D_k_mod_q": 1,
+                "B_k_mod_q": 1,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 5,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 7,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 59,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              }
+            ],
+            "all_palette_witnesses_disabled": true
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "finite_prime_palette": [
+          5,
+          7,
+          13,
+          19,
+          31,
+          37,
+          59
+        ],
+        "palette_period_L": 5220,
+        "order_rows": [
+          {
+            "prime_q": 5,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 1,
+            "order_q_3_over_2": 2
+          },
+          {
+            "prime_q": 7,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 6,
+            "order_q_3_over_2": 6
+          },
+          {
+            "prime_q": 13,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 12,
+            "order_q_3_over_2": 4
+          },
+          {
+            "prime_q": 19,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 9,
+            "order_q_3_over_2": 3
+          },
+          {
+            "prime_q": 31,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 10,
+            "order_q_3_over_2": 30
+          },
+          {
+            "prime_q": 37,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 36,
+            "order_q_3_over_2": 36
+          },
+          {
+            "prime_q": 59,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 2,
+            "order_q_3_over_2": 58
+          }
+        ],
+        "first_three_common_multiple_checks": [
+          {
+            "multiple_of_palette_period": 1,
+            "one_count_k": 5220,
+            "prime_checks": [
+              {
+                "prime_q": 5,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 7,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 13,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 19,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 31,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 37,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 59,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              }
+            ],
+            "all_palette_witnesses_disabled": true
+          },
+          {
+            "multiple_of_palette_period": 2,
+            "one_count_k": 10440,
+            "prime_checks": [
+              {
+                "prime_q": 5,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 7,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 13,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 19,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 31,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 37,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 59,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              }
+            ],
+            "all_palette_witnesses_disabled": true
+          },
+          {
+            "multiple_of_palette_period": 3,
+            "one_count_k": 15660,
+            "prime_checks": [
+              {
+                "prime_q": 5,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 7,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 13,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 19,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 31,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 37,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 59,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              }
+            ],
+            "all_palette_witnesses_disabled": true
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "finite_prime_palette": [
+          2,
+          3,
+          5,
+          7,
+          13,
+          19,
+          31,
+          37,
+          59,
+          57653
+        ],
+        "palette_period_L": 2594340,
+        "order_rows": [
+          {
+            "prime_q": 2,
+            "never_divides_D_k": true,
+            "order_q_32_over_27": null,
+            "order_q_3_over_2": null
+          },
+          {
+            "prime_q": 3,
+            "never_divides_D_k": true,
+            "order_q_32_over_27": null,
+            "order_q_3_over_2": null
+          },
+          {
+            "prime_q": 5,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 1,
+            "order_q_3_over_2": 2
+          },
+          {
+            "prime_q": 7,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 6,
+            "order_q_3_over_2": 6
+          },
+          {
+            "prime_q": 13,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 12,
+            "order_q_3_over_2": 4
+          },
+          {
+            "prime_q": 19,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 9,
+            "order_q_3_over_2": 3
+          },
+          {
+            "prime_q": 31,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 10,
+            "order_q_3_over_2": 30
+          },
+          {
+            "prime_q": 37,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 36,
+            "order_q_3_over_2": 36
+          },
+          {
+            "prime_q": 59,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 2,
+            "order_q_3_over_2": 58
+          },
+          {
+            "prime_q": 57653,
+            "never_divides_D_k": false,
+            "order_q_32_over_27": 29,
+            "order_q_3_over_2": 28826
+          }
+        ],
+        "first_three_common_multiple_checks": [
+          {
+            "multiple_of_palette_period": 1,
+            "one_count_k": 2594340,
+            "prime_checks": [
+              {
+                "prime_q": 2,
+                "D_k_mod_q": 1,
+                "B_k_mod_q": 1,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 3,
+                "D_k_mod_q": 1,
+                "B_k_mod_q": 1,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 5,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 7,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 13,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 19,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 31,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 37,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 59,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 57653,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              }
+            ],
+            "all_palette_witnesses_disabled": true
+          },
+          {
+            "multiple_of_palette_period": 2,
+            "one_count_k": 5188680,
+            "prime_checks": [
+              {
+                "prime_q": 2,
+                "D_k_mod_q": 1,
+                "B_k_mod_q": 1,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 3,
+                "D_k_mod_q": 1,
+                "B_k_mod_q": 1,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 5,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 7,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 13,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 19,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 31,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 37,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 59,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 57653,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              }
+            ],
+            "all_palette_witnesses_disabled": true
+          },
+          {
+            "multiple_of_palette_period": 3,
+            "one_count_k": 7783020,
+            "prime_checks": [
+              {
+                "prime_q": 2,
+                "D_k_mod_q": 1,
+                "B_k_mod_q": 1,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 3,
+                "D_k_mod_q": 1,
+                "B_k_mod_q": 1,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 5,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 7,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 13,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 19,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 31,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 37,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 59,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              },
+              {
+                "prime_q": 57653,
+                "D_k_mod_q": 0,
+                "B_k_mod_q": 0,
+                "cannot_separate_D_from_B": true
+              }
+            ],
+            "all_palette_witnesses_disabled": true
+          }
+        ],
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "49967e87d8f554e67eb9eda00554ae3530f6556d81de89d706c206fefd6a0ecc",
+    "aggregate": {
+      "arbitrary_finite_prime_palette_universality_refuted": true,
+      "infinitely_many_palette_disabling_run_blocks_proved": true,
+      "fresh_prime_necessity_for_presence_certificates_proved": true,
+      "fresh_prime_existence_for_general_necklaces_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem is uniform over every fixed finite palette but remains inside the already-excluded run-block family. It proves necessity of fresh primes, not existence of a prime q with q|D and q not |B for every k, and says nothing about general valuation words or aperiodic Collatz trajectories.",
+    "failure_count": 0
+  },
+  "discarded_route": "any fixed finite prime palette as a universal prime-presence certificate",
+  "remaining_gap": "The theorem is uniform over every fixed finite palette but remains inside the already-excluded run-block family. It proves necessity of fresh primes, not existence of a prime q with q|D and q not |B for every k, and says nothing about general valuation words or aperiodic Collatz trajectories.",
+  "next_single_lemma": "WordDependentPrimeValuationGapForEveryPrimitiveBinaryDensityBandNecklace",
+  "claim_boundary": "The theorem is uniform over every fixed finite palette but remains inside the already-excluded run-block family. It proves necessity of fresh primes, not existence of a prime q with q|D and q not |B for every k, and says nothing about general valuation words or aperiodic Collatz trajectories.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T197",
+        "label": "ContiguousOneTwoRunNondivisibility",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T236",
+        "label": "RunBlockThreePrimeWitnessOutside28826Multiples",
+        "status": "closed"
+      },
+      {
+        "id": "CO-T237",
+        "label": "NoFinitePrimePaletteUniversallySeparatesRunBlocks",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N237",
+        "label": "SomeFixedFinitePrimePaletteIsUniversal",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN237",
+        "label": "WordDependentPrimeValuationGapForEveryPrimitiveBinaryDensityBandNecklace",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO-PERIODIC",
+        "label": "AllPeriodicValuationWords",
+        "status": "open_not_proven"
+      },
+      {
+        "id": "CO",
+        "label": "CollatzConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T197",
+        "CO-T237"
+      ],
+      [
+        "CO-T236",
+        "CO-T237"
+      ],
+      [
+        "CO-T237",
+        "CO-N237"
+      ],
+      [
+        "CO-T237",
+        "CO-OPEN237"
+      ],
+      [
+        "CO-OPEN237",
+        "CO-PERIODIC"
+      ],
+      [
+        "CO-PERIODIC",
+        "CO"
+      ]
+    ]
+  }
+}

@@ -31,15 +31,17 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-236: Normalized Contractions, Order Witnesses, Reflected Phase Defects, and Degree-Two CRT Reduction](docs/contraction-order-phase-degree2.md),
-with a separate [Korean report](docs/contraction-order-phase-degree2.ko.md).
-It proves four narrower results: full block positivity is exactly a normalized
-cross-block contraction and coordinate minors are insufficient; three explicit
-primes certify every binary run block outside multiples of 28826; actual-prime
-reflected phase defect is exactly the Goldbach coefficient and an uncoupled
-inverse-log margin is false; and degree-two CRT Cesaro energy controls every
-fixed degree. These are partial and no-go lemmas, not parent-problem
-resolutions. TICKET-235 is preserved in
+[TICKET-237: Principal Angles, Finite-Palette No-Go, Dyadic Endpoints, and Welch Floors](docs/angle-palette-endpoint-welch.md),
+with a separate [Korean report](docs/angle-palette-endpoint-welch.ko.md).
+It proves four narrower results: strict normalized cross contraction is a
+positive-principal-angle condition and nested frames cannot supply it; every
+fixed finite Collatz prime palette fails on infinitely many binary run blocks;
+the truncated Goldbach endpoint obeys the exact obstruction
+g_X(2X)=1_P(X); and degree-two CRT energy has a sharp finite-support Welch
+floor. These are partial and no-go lemmas, not parent-problem resolutions.
+TICKET-236 is preserved in
+[English](docs/contraction-order-phase-degree2.md) and
+[Korean](docs/contraction-order-phase-degree2.ko.md). TICKET-235 is preserved in
 [English](docs/schur-primepower-phase-overlap.md) and
 [Korean](docs/schur-primepower-phase-overlap.ko.md). TICKET-234 is
 preserved in [English](docs/operator-kernel-density-minor-cesaro.md) and

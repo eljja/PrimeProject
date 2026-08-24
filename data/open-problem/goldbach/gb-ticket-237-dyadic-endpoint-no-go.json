@@ -1,0 +1,205 @@
+{
+  "schema": "primeproject.ticket237-angle-palette-endpoint-welch.v1",
+  "generated_at": "2026-08-24T02:10:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-237",
+  "theorem_name": "TruncatedDyadicUpperEndpointObstructionAndBulkWindowNecessity",
+  "declared_proposition": "Let x_X be the prime indicator truncated to primes at most X and let g_X(N) be its ordered additive convolution. At the moving dyadic upper endpoint one has the exact identity g_X(2X)=1_P(X). Hence the TICKET-236 normalized reflected-phase margin at N=2X is either zero or 1/pi(X), and is always o(1/log X). Therefore no fixed positive inverse-log margin, and not even strict positivity for composite X, can hold uniformly on a target interval that includes N=2X. A valid target-coupled lemma must buffer the upper endpoint or enlarge the prime cutoff relative to the target.",
+  "mathematical_argument": "If p and q are at most X and p+q=2X, then p<X would force q>X and vice versa. Thus p=q=X is the only possible ordered pair, proving g_X(2X)=1_P(X). TICKET-236 gives q_mod*g_X(N)=M_X-Delta_X(N), so the fractional phase margin is exactly g_X(2X)/pi(X). The prime number theorem gives 1/pi(X)=o(1/log X), while the infinitely many composite cutoffs already give exact zero margin.",
+  "reproducible_computation": {
+    "theorem": "Let x_X be the prime indicator truncated to primes at most X and let g_X(N) be its ordered additive convolution. At the moving dyadic upper endpoint one has the exact identity g_X(2X)=1_P(X). Hence the TICKET-236 normalized reflected-phase margin at N=2X is either zero or 1/pi(X), and is always o(1/log X). Therefore no fixed positive inverse-log margin, and not even strict positivity for composite X, can hold uniformly on a target interval that includes N=2X. A valid target-coupled lemma must buffer the upper endpoint or enlarge the prime cutoff relative to the target.",
+    "proof": "If p and q are at most X and p+q=2X, then p<X would force q>X and vice versa. Thus p=q=X is the only possible ordered pair, proving g_X(2X)=1_P(X). TICKET-236 gives q_mod*g_X(N)=M_X-Delta_X(N), so the fractional phase margin is exactly g_X(2X)/pi(X). The prime number theorem gives 1/pi(X)=o(1/log X), while the infinitely many composite cutoffs already give exact zero margin.",
+    "exact_upper_endpoint_rows": [
+      {
+        "cutoff_X": 30,
+        "cutoff_is_prime": false,
+        "upper_endpoint_target_N": 60,
+        "prime_modulus_q": 61,
+        "prime_count_pi_X": 10,
+        "ordered_representation_count_g_X_2X": 0,
+        "total_spectral_power_M_X": 610,
+        "reflected_phase_defect_Delta_X_2X": 610,
+        "normalized_phase_margin_g_over_pi": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "inverse_log_X": 0.29401410379520604,
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 31,
+        "cutoff_is_prime": true,
+        "upper_endpoint_target_N": 62,
+        "prime_modulus_q": 67,
+        "prime_count_pi_X": 11,
+        "ordered_representation_count_g_X_2X": 1,
+        "total_spectral_power_M_X": 737,
+        "reflected_phase_defect_Delta_X_2X": 670,
+        "normalized_phase_margin_g_over_pi": {
+          "exact": "1/11",
+          "float": 0.09090909090909091
+        },
+        "inverse_log_X": 0.29120667621996243,
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 100,
+        "cutoff_is_prime": false,
+        "upper_endpoint_target_N": 200,
+        "prime_modulus_q": 211,
+        "prime_count_pi_X": 25,
+        "ordered_representation_count_g_X_2X": 0,
+        "total_spectral_power_M_X": 5275,
+        "reflected_phase_defect_Delta_X_2X": 5275,
+        "normalized_phase_margin_g_over_pi": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "inverse_log_X": 0.21714724095162588,
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 101,
+        "cutoff_is_prime": true,
+        "upper_endpoint_target_N": 202,
+        "prime_modulus_q": 211,
+        "prime_count_pi_X": 26,
+        "ordered_representation_count_g_X_2X": 1,
+        "total_spectral_power_M_X": 5486,
+        "reflected_phase_defect_Delta_X_2X": 5275,
+        "normalized_phase_margin_g_over_pi": {
+          "exact": "1/26",
+          "float": 0.038461538461538464
+        },
+        "inverse_log_X": 0.21667906533553166,
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 1000,
+        "cutoff_is_prime": false,
+        "upper_endpoint_target_N": 2000,
+        "prime_modulus_q": 2003,
+        "prime_count_pi_X": 168,
+        "ordered_representation_count_g_X_2X": 0,
+        "total_spectral_power_M_X": 336504,
+        "reflected_phase_defect_Delta_X_2X": 336504,
+        "normalized_phase_margin_g_over_pi": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "inverse_log_X": 0.14476482730108395,
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 1009,
+        "cutoff_is_prime": true,
+        "upper_endpoint_target_N": 2018,
+        "prime_modulus_q": 2027,
+        "prime_count_pi_X": 169,
+        "ordered_representation_count_g_X_2X": 1,
+        "total_spectral_power_M_X": 342563,
+        "reflected_phase_defect_Delta_X_2X": 340536,
+        "normalized_phase_margin_g_over_pi": {
+          "exact": "1/169",
+          "float": 0.005917159763313609
+        },
+        "inverse_log_X": 0.14457730252834333,
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 10000,
+        "cutoff_is_prime": false,
+        "upper_endpoint_target_N": 20000,
+        "prime_modulus_q": 20011,
+        "prime_count_pi_X": 1229,
+        "ordered_representation_count_g_X_2X": 0,
+        "total_spectral_power_M_X": 24593519,
+        "reflected_phase_defect_Delta_X_2X": 24593519,
+        "normalized_phase_margin_g_over_pi": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "inverse_log_X": 0.10857362047581294,
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 10007,
+        "cutoff_is_prime": true,
+        "upper_endpoint_target_N": 20014,
+        "prime_modulus_q": 20021,
+        "prime_count_pi_X": 1230,
+        "ordered_representation_count_g_X_2X": 1,
+        "total_spectral_power_M_X": 24625830,
+        "reflected_phase_defect_Delta_X_2X": 24605809,
+        "normalized_phase_margin_g_over_pi": {
+          "exact": "1/1230",
+          "float": 0.0008130081300813008
+        },
+        "inverse_log_X": 0.10856537222749846,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "eab7e70119f64a68bb7710865a84a7e3ae22e83f9209416ed682e7c87b9ab9f9",
+    "aggregate": {
+      "truncated_upper_endpoint_identity_proved": true,
+      "closed_dyadic_interval_inverse_log_margin_refuted": true,
+      "composite_cutoff_strict_endpoint_gain_refuted": true,
+      "buffered_bulk_prime_phase_gain_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "The obstruction is caused by truncating both prime variables at X while allowing the target to reach 2X. It does not refute a fixed bulk window N<=(2-eta)X, a cutoff at least N, or a target-specific major/minor-arc argument. No unbounded Goldbach counterexample is exhibited.",
+    "failure_count": 0
+  },
+  "discarded_route": "a uniform inverse-log reflected-phase margin on a closed target window including N=2X",
+  "remaining_gap": "The obstruction is caused by truncating both prime variables at X while allowing the target to reach 2X. It does not refute a fixed bulk window N<=(2-eta)X, a cutoff at least N, or a target-specific major/minor-arc argument. No unbounded Goldbach counterexample is exhibited.",
+  "next_single_lemma": "BufferedDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack",
+  "claim_boundary": "The obstruction is caused by truncating both prime variables at X while allowing the target to reach 2X. It does not refute a fixed bulk window N<=(2-eta)X, a cutoff at least N, or a target-specific major/minor-arc argument. No unbounded Goldbach counterexample is exhibited.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T236",
+        "label": "ReflectedPhaseDefectIdentityAndUncoupledMarginNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "GB-T237",
+        "label": "TruncatedDyadicUpperEndpointObstruction",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N237",
+        "label": "ClosedDyadicWindowUniformInverseLogMargin",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN237",
+        "label": "BufferedDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "StrongGoldbachConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T236",
+        "GB-T237"
+      ],
+      [
+        "GB-T237",
+        "GB-N237"
+      ],
+      [
+        "GB-T237",
+        "GB-OPEN237"
+      ],
+      [
+        "GB-OPEN237",
+        "GB"
+      ]
+    ]
+  }
+}
