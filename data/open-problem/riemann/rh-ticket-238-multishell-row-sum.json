@@ -1,0 +1,349 @@
+{
+  "schema": "primeproject.ticket238-multishell-valuation-buffer-effectiverank.v1",
+  "generated_at": "2026-08-25T14:20:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-238",
+  "theorem_name": "MultishellNormalizedCrossRowSumCriterionAndPairwiseAngleNoGo",
+  "declared_proposition": "Let H be a Hermitian J-by-J block matrix with identity diagonal and off-diagonal blocks K_ij=K_ji*. If eta=max_i sum_(j!=i)||K_ij||_op<1, then H is bounded below by (1-eta)I. Pairwise positive principal angle data are not sufficient for a strict global lower bound: at rho=1/3 and J=4, every two-shell principal block has minimum eigenvalue 2/3, while the full positive-semidefinite regular-simplex Gram matrix has eigenvalue zero. For the same abstract algebraic family, the constant eigenvalue is 1-(J-1)rho and becomes negative once (J-1)rho>1. Thus the TICKET-237 two-shell angle target must be strengthened to a summable multishell interaction estimate.",
+  "mathematical_argument": "For a block vector x, bound each cross term by 2||K_ij||||x_i||||x_j|| and use 2ab<=a^2+b^2. The total cross loss is at most eta sum_i||x_i||^2, proving the lower bound. In the scalar counterfamily the constant vector has eigenvalue 1-(J-1)rho and its orthogonal complement has eigenvalue 1+rho. At rho=1/3 and J=4 this is the jointly realizable Gram matrix of a regular simplex; it is singular and already refutes strict global positivity. Rows J>=5 are abstract block-matrix accumulation examples, not joint Gram realizations. A comparison family with K_ij=1/(4J) has row sum (J-1)/(4J)<1 and verifies the sufficient certificate.",
+  "reproducible_computation": {
+    "theorem": "Let H be a Hermitian J-by-J block matrix with identity diagonal and off-diagonal blocks K_ij=K_ji*. If eta=max_i sum_(j!=i)||K_ij||_op<1, then H is bounded below by (1-eta)I. Pairwise positive principal angle data are not sufficient for a strict global lower bound: at rho=1/3 and J=4, every two-shell principal block has minimum eigenvalue 2/3, while the full positive-semidefinite regular-simplex Gram matrix has eigenvalue zero. For the same abstract algebraic family, the constant eigenvalue is 1-(J-1)rho and becomes negative once (J-1)rho>1. Thus the TICKET-237 two-shell angle target must be strengthened to a summable multishell interaction estimate.",
+    "proof": "For a block vector x, bound each cross term by 2||K_ij||||x_i||||x_j|| and use 2ab<=a^2+b^2. The total cross loss is at most eta sum_i||x_i||^2, proving the lower bound. In the scalar counterfamily the constant vector has eigenvalue 1-(J-1)rho and its orthogonal complement has eigenvalue 1+rho. At rho=1/3 and J=4 this is the jointly realizable Gram matrix of a regular simplex; it is singular and already refutes strict global positivity. Rows J>=5 are abstract block-matrix accumulation examples, not joint Gram realizations. A comparison family with K_ij=1/(4J) has row sum (J-1)/(4J)<1 and verifies the sufficient certificate.",
+    "exact_multishell_rows": [
+      {
+        "shell_count_J": 2,
+        "pairwise_cross_norm_rho": {
+          "exact": "1/3",
+          "float": 0.3333333333333333
+        },
+        "every_two_shell_minimum_eigenvalue": {
+          "exact": "2/3",
+          "float": 0.6666666666666666
+        },
+        "adverse_global_constant_mode_eigenvalue": {
+          "exact": "2/3",
+          "float": 0.6666666666666666
+        },
+        "adverse_global_orthogonal_mode_eigenvalue": {
+          "exact": "4/3",
+          "float": 1.3333333333333333
+        },
+        "adverse_global_block_is_positive_semidefinite": true,
+        "adverse_global_block_is_joint_gram_realizable": true,
+        "joint_gram_strict_positivity_counterexample": false,
+        "summable_family_cross_norm": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "summable_family_maximum_row_sum_eta": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "row_sum_certified_lower_bound": {
+          "exact": "7/8",
+          "float": 0.875
+        },
+        "summable_family_actual_minimum_eigenvalue": {
+          "exact": "7/8",
+          "float": 0.875
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 3,
+        "pairwise_cross_norm_rho": {
+          "exact": "1/3",
+          "float": 0.3333333333333333
+        },
+        "every_two_shell_minimum_eigenvalue": {
+          "exact": "2/3",
+          "float": 0.6666666666666666
+        },
+        "adverse_global_constant_mode_eigenvalue": {
+          "exact": "1/3",
+          "float": 0.3333333333333333
+        },
+        "adverse_global_orthogonal_mode_eigenvalue": {
+          "exact": "4/3",
+          "float": 1.3333333333333333
+        },
+        "adverse_global_block_is_positive_semidefinite": true,
+        "adverse_global_block_is_joint_gram_realizable": true,
+        "joint_gram_strict_positivity_counterexample": false,
+        "summable_family_cross_norm": {
+          "exact": "1/12",
+          "float": 0.08333333333333333
+        },
+        "summable_family_maximum_row_sum_eta": {
+          "exact": "1/6",
+          "float": 0.16666666666666666
+        },
+        "row_sum_certified_lower_bound": {
+          "exact": "5/6",
+          "float": 0.8333333333333334
+        },
+        "summable_family_actual_minimum_eigenvalue": {
+          "exact": "11/12",
+          "float": 0.9166666666666666
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 4,
+        "pairwise_cross_norm_rho": {
+          "exact": "1/3",
+          "float": 0.3333333333333333
+        },
+        "every_two_shell_minimum_eigenvalue": {
+          "exact": "2/3",
+          "float": 0.6666666666666666
+        },
+        "adverse_global_constant_mode_eigenvalue": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "adverse_global_orthogonal_mode_eigenvalue": {
+          "exact": "4/3",
+          "float": 1.3333333333333333
+        },
+        "adverse_global_block_is_positive_semidefinite": true,
+        "adverse_global_block_is_joint_gram_realizable": true,
+        "joint_gram_strict_positivity_counterexample": true,
+        "summable_family_cross_norm": {
+          "exact": "1/16",
+          "float": 0.0625
+        },
+        "summable_family_maximum_row_sum_eta": {
+          "exact": "3/16",
+          "float": 0.1875
+        },
+        "row_sum_certified_lower_bound": {
+          "exact": "13/16",
+          "float": 0.8125
+        },
+        "summable_family_actual_minimum_eigenvalue": {
+          "exact": "15/16",
+          "float": 0.9375
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 5,
+        "pairwise_cross_norm_rho": {
+          "exact": "1/3",
+          "float": 0.3333333333333333
+        },
+        "every_two_shell_minimum_eigenvalue": {
+          "exact": "2/3",
+          "float": 0.6666666666666666
+        },
+        "adverse_global_constant_mode_eigenvalue": {
+          "exact": "-1/3",
+          "float": -0.3333333333333333
+        },
+        "adverse_global_orthogonal_mode_eigenvalue": {
+          "exact": "4/3",
+          "float": 1.3333333333333333
+        },
+        "adverse_global_block_is_positive_semidefinite": false,
+        "adverse_global_block_is_joint_gram_realizable": false,
+        "joint_gram_strict_positivity_counterexample": false,
+        "summable_family_cross_norm": {
+          "exact": "1/20",
+          "float": 0.05
+        },
+        "summable_family_maximum_row_sum_eta": {
+          "exact": "1/5",
+          "float": 0.2
+        },
+        "row_sum_certified_lower_bound": {
+          "exact": "4/5",
+          "float": 0.8
+        },
+        "summable_family_actual_minimum_eigenvalue": {
+          "exact": "19/20",
+          "float": 0.95
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 6,
+        "pairwise_cross_norm_rho": {
+          "exact": "1/3",
+          "float": 0.3333333333333333
+        },
+        "every_two_shell_minimum_eigenvalue": {
+          "exact": "2/3",
+          "float": 0.6666666666666666
+        },
+        "adverse_global_constant_mode_eigenvalue": {
+          "exact": "-2/3",
+          "float": -0.6666666666666666
+        },
+        "adverse_global_orthogonal_mode_eigenvalue": {
+          "exact": "4/3",
+          "float": 1.3333333333333333
+        },
+        "adverse_global_block_is_positive_semidefinite": false,
+        "adverse_global_block_is_joint_gram_realizable": false,
+        "joint_gram_strict_positivity_counterexample": false,
+        "summable_family_cross_norm": {
+          "exact": "1/24",
+          "float": 0.041666666666666664
+        },
+        "summable_family_maximum_row_sum_eta": {
+          "exact": "5/24",
+          "float": 0.20833333333333334
+        },
+        "row_sum_certified_lower_bound": {
+          "exact": "19/24",
+          "float": 0.7916666666666666
+        },
+        "summable_family_actual_minimum_eigenvalue": {
+          "exact": "23/24",
+          "float": 0.9583333333333334
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 7,
+        "pairwise_cross_norm_rho": {
+          "exact": "1/3",
+          "float": 0.3333333333333333
+        },
+        "every_two_shell_minimum_eigenvalue": {
+          "exact": "2/3",
+          "float": 0.6666666666666666
+        },
+        "adverse_global_constant_mode_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "adverse_global_orthogonal_mode_eigenvalue": {
+          "exact": "4/3",
+          "float": 1.3333333333333333
+        },
+        "adverse_global_block_is_positive_semidefinite": false,
+        "adverse_global_block_is_joint_gram_realizable": false,
+        "joint_gram_strict_positivity_counterexample": false,
+        "summable_family_cross_norm": {
+          "exact": "1/28",
+          "float": 0.03571428571428571
+        },
+        "summable_family_maximum_row_sum_eta": {
+          "exact": "3/14",
+          "float": 0.21428571428571427
+        },
+        "row_sum_certified_lower_bound": {
+          "exact": "11/14",
+          "float": 0.7857142857142857
+        },
+        "summable_family_actual_minimum_eigenvalue": {
+          "exact": "27/28",
+          "float": 0.9642857142857143
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 8,
+        "pairwise_cross_norm_rho": {
+          "exact": "1/3",
+          "float": 0.3333333333333333
+        },
+        "every_two_shell_minimum_eigenvalue": {
+          "exact": "2/3",
+          "float": 0.6666666666666666
+        },
+        "adverse_global_constant_mode_eigenvalue": {
+          "exact": "-4/3",
+          "float": -1.3333333333333333
+        },
+        "adverse_global_orthogonal_mode_eigenvalue": {
+          "exact": "4/3",
+          "float": 1.3333333333333333
+        },
+        "adverse_global_block_is_positive_semidefinite": false,
+        "adverse_global_block_is_joint_gram_realizable": false,
+        "joint_gram_strict_positivity_counterexample": false,
+        "summable_family_cross_norm": {
+          "exact": "1/32",
+          "float": 0.03125
+        },
+        "summable_family_maximum_row_sum_eta": {
+          "exact": "7/32",
+          "float": 0.21875
+        },
+        "row_sum_certified_lower_bound": {
+          "exact": "25/32",
+          "float": 0.78125
+        },
+        "summable_family_actual_minimum_eigenvalue": {
+          "exact": "31/32",
+          "float": 0.96875
+        },
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "3563f552974b807acc38ed860ec593b99e8c48ff50de4edf57e55fa0043b521f",
+    "aggregate": {
+      "normalized_cross_row_sum_criterion_proved": true,
+      "pairwise_principal_angle_sufficiency_refuted": true,
+      "arithmetic_weil_multishell_row_sum_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The counterfamily and row-sum theorem are abstract finite block linear algebra. The J=4 row is a jointly realizable singular regular-simplex Gram matrix; the negative J>=5 rows are only abstract block systems. The result does not identify actual Guinand-Weil shell innovations, prove arithmetic decay of their normalized cross blocks, or locate a zeta zero. Pairwise angle estimates remain useful inputs but cannot alone certify a cofinal global form.",
+    "failure_count": 0
+  },
+  "discarded_route": "pairwise positive principal angles as a sufficient cofinal global positivity certificate",
+  "remaining_gap": "The counterfamily and row-sum theorem are abstract finite block linear algebra. The J=4 row is a jointly realizable singular regular-simplex Gram matrix; the negative J>=5 rows are only abstract block systems. The result does not identify actual Guinand-Weil shell innovations, prove arithmetic decay of their normalized cross blocks, or locate a zeta zero. Pairwise angle estimates remain useful inputs but cannot alone certify a cofinal global form.",
+  "next_single_lemma": "ArithmeticWeilInnovationNormalizedCrossRowSumBelowOneOnCofinalDisjointLogarithmicShells",
+  "claim_boundary": "The counterfamily and row-sum theorem are abstract finite block linear algebra. The J=4 row is a jointly realizable singular regular-simplex Gram matrix; the negative J>=5 rows are only abstract block systems. The result does not identify actual Guinand-Weil shell innovations, prove arithmetic decay of their normalized cross blocks, or locate a zeta zero. Pairwise angle estimates remain useful inputs but cannot alone certify a cofinal global form.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T237",
+        "label": "PrincipalAngleCriterionAndNestedCofinalFrameNoGo",
+        "status": "closed_input"
+      },
+      {
+        "id": "RH-T238",
+        "label": "MultishellNormalizedCrossRowSumCriterionAndPairwiseAngleNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N238",
+        "label": "PairwiseAngleGapAloneImpliesGlobalCofinalPositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN238",
+        "label": "ArithmeticWeilInnovationNormalizedCrossRowSumBelowOneOnCofinalDisjointLogarithmicShells",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RiemannHypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T237",
+        "RH-T238"
+      ],
+      [
+        "RH-T238",
+        "RH-N238"
+      ],
+      [
+        "RH-T238",
+        "RH-OPEN238"
+      ],
+      [
+        "RH-OPEN238",
+        "RH"
+      ]
+    ]
+  }
+}

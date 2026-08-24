@@ -62,9 +62,37 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-237
+## Current continuation: TICKET-238
 
 The current machine-readable boundary is
+`data/open-problem/ticket238-multishell-valuation-buffer-effectiverank.json`.
+It records four exact partial or no-go theorems, zero machine failures, and zero
+parent-conjecture resolutions.
+
+| Problem | Newly closed lemma | Current single open lemma |
+|---|---|---|
+| Riemann | `MultishellNormalizedCrossRowSumCriterionAndPairwiseAngleNoGo` | `ArithmeticWeilInnovationNormalizedCrossRowSumBelowOneOnCofinalDisjointLogarithmicShells` |
+| Collatz | `AdaptiveValuationCriterionEquivalenceAndRunBlockClosure` | `RunBlockValuationWitnessEscapesEveryFixedFinitePrimePalette` |
+| Goldbach | `MesoscopicBufferWidthNecessaryForInverseLogReflectedMargin` | `MesoscopicBufferedDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack` |
+| Twin Prime | `DegreeTwoEnergyEffectiveRankEquivalenceAndSupportGrowthNoGo` | `PrimeWeightedDegreeTwoCRTGramEffectiveRankDivergesWithUniformDiagonalControl` |
+
+The RH frontier now requires summable interaction across all shells, not only
+pairwise angles. The Collatz valuation formulation is a certificate equivalent
+to nondivisibility, so the next target is finite-palette escape on the already
+closed run blocks. The Goldbach endpoint buffer must reach at least the
+`X/(log X)^2` scale before an inverse-log margin is geometrically possible. The
+Twin support condition is replaced by the exact effective-rank divergence
+criterion.
+
+Reports: [English](multishell-valuation-buffer-effectiverank.md),
+[한국어](multishell-valuation-buffer-effectiverank.ko.md).
+
+All older current/latest headings below are historical snapshots and must not
+override this TICKET-238 boundary.
+
+## Preserved continuation: TICKET-237
+
+The preserved machine-readable boundary is
 `data/open-problem/ticket237-angle-palette-endpoint-welch.json`.
 It records four exact partial or no-go theorems, zero machine failures,
 and zero parent-conjecture resolutions.
@@ -87,7 +115,7 @@ Reports: [English](angle-palette-endpoint-welch.md),
 [한국어](angle-palette-endpoint-welch.ko.md).
 
 All older current/latest headings below are historical snapshots and must
-not override this TICKET-237 boundary.
+not override this TICKET-238 boundary.
 
 ## Preserved continuation: TICKET-236
 
@@ -116,7 +144,7 @@ Reports: [English](contraction-order-phase-degree2.md),
 [한국어](contraction-order-phase-degree2.ko.md).
 
 All older "latest" or "current" headings below are preserved historical
-snapshots and must not override this TICKET-237 boundary.
+snapshots and must not override this TICKET-238 boundary.
 
 ## Preserved continuation: TICKET-235
 

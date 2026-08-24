@@ -287,3 +287,16 @@ English: A paper submission may present PrimeProject as a reproducible, defensiv
 - Re-run `node scripts/verify_pages.cjs` before publishing GitHub Pages changes.
 - Confirm that `data/claim_language_audit.json`, `data/evidence_pack.json`, `data/claim_ledger.json`, `data/artifact_lineage.json`, `data/decision_protocol.json`, `data/falsification_battery.json`, and `data/publication_consistency.json` are regenerated after public wording changes.
 - Confirm that open-problem pages remain `open_not_proven` until an independently checkable infinite theorem is supplied.
+
+## TICKET-238 publication boundary
+
+TICKET-238 adds four exact and reproducible route corrections: multishell
+normalized cross-row-sum positivity with a jointly realizable singular
+regular-simplex pairwise-angle counterfamily;
+adaptive valuation equivalence plus all-run-block witness closure; the
+`X/(log X)^2` necessary Goldbach endpoint-buffer scale; and degree-two CRT
+energy/effective-rank equivalence with a growing-support counterfamily. The
+machine resolution count remains zero. These results may be presented as
+partial or no-go theorems only; none is a proof or counterexample for a parent
+conjecture, and no novelty or priority claim is made before independent expert
+review.

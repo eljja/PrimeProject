@@ -8594,3 +8594,34 @@ conjecture resolutions, and zero computational failures.
 
 English report: [TICKET-236 normalized contractions, order witnesses, reflected phase defects, and degree-two reduction](contraction-order-phase-degree2.md).
 한국어 보고서(`parent conjecture claims blocked · open_not_proven`): [TICKET-236 정규화 수축·차수 증인·반사 위상 결손·2차 환원](contraction-order-phase-degree2.ko.md).
+
+## TICKET-238 continuation: multishell accumulation, valuation quantifiers, mesoscopic buffers, and effective rank
+
+TICKET-238 audits the four TICKET-237 successors without claiming a parent
+solution.
+
+1. **Riemann:** a normalized cross-block row sum below one is sufficient for
+   multishell positivity. Uniform pairwise angle gaps do not force a strict
+   global lower bound: at `rho=1/3,J=4`, `K_ij=-rho` is the jointly
+   realizable regular-simplex Gram matrix with positive two-shell blocks but
+   zero global eigenvalue. Larger `J` rows are abstract block systems. The
+   next obligation is
+   `ArithmeticWeilInnovationNormalizedCrossRowSumBelowOneOnCofinalDisjointLogarithmicShells`.
+2. **Collatz:** `D not dividing B` is exactly equivalent to an adaptive prime
+   valuation deficit. TICKET-197 therefore closes this certificate for every
+   run block, but the all-necklace version is not weaker than universal affine
+   nondivisibility. The next obligation is
+   `RunBlockValuationWitnessEscapesEveryFixedFinitePrimePalette`.
+3. **Goldbach:** `g_X(2X-h)<=h+1`, so an inverse-log normalized margin requires
+   `h` at least on the `X/(log X)^2` scale. The next obligation is
+   `MesoscopicBufferedDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack`.
+4. **Twin Prime:** degree-two energy tends to zero exactly when normalized Gram
+   effective rank diverges. A growing-support, fixed-effective-rank family
+   refutes support growth as sufficient. The next obligation is
+   `PrimeWeightedDegreeTwoCRTGramEffectiveRankDivergesWithUniformDiagonalControl`.
+
+Machine audit: four exact theorems, four rejected routes, four proof DAGs, zero
+machine failures, and zero conjecture resolutions.
+
+English report: [TICKET-238 multishell, valuation, buffer, and effective-rank audit](multishell-valuation-buffer-effectiverank.md).
+한국어 보고서: [TICKET-238 다중 shell·valuation·buffer·유효랭크 감사](multishell-valuation-buffer-effectiverank.ko.md).

@@ -15,9 +15,34 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-237
+## Current research boundary: TICKET-238
 
 The current machine-readable boundary is
+`data/open-problem/ticket238-multishell-valuation-buffer-effectiverank.json`.
+
+TICKET-238 proves four exact partial or no-go theorems and resolves none of the
+parent conjectures:
+
+- pairwise RH principal-angle gaps do not force a strict global lower bound,
+  while a normalized multishell cross-block row sum below one is sufficient;
+- valuation-gap witnesses are exactly equivalent to affine nondivisibility,
+  and every TICKET-197 binary run block therefore has an adaptive witness;
+- an inverse-log Goldbach margin near `2X` requires endpoint buffer width at
+  least on the mesoscopic `X/(log X)^2` scale;
+- Twin degree-two CRT energy decays exactly when normalized Gram effective rank
+  diverges, and growing support alone is insufficient.
+
+The next single lemmas are an arithmetic Weil multishell row-sum estimate,
+finite-palette escape for run-block valuation witnesses, mesoscopic buffered
+Goldbach phase gain with independent minor slack, and prime-weighted CRT Gram
+effective-rank divergence with uniform diagonal control.
+
+English report: [TICKET-238](multishell-valuation-buffer-effectiverank.md).
+한국어 보고서: [TICKET-238](multishell-valuation-buffer-effectiverank.ko.md).
+
+## Preserved research boundary: TICKET-237
+
+The preserved machine-readable boundary is
 `data/open-problem/ticket237-angle-palette-endpoint-welch.json`.
 
 TICKET-237 proves four exact partial or no-go theorems and resolves none of

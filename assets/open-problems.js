@@ -41,6 +41,7 @@ let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
 let ticket236AttemptGlobal = null;
 let ticket237AttemptGlobal = null;
+let ticket238AttemptGlobal = null;
 let ticket235AttemptGlobal = null;
 let ticket234AttemptGlobal = null;
 let ticket233AttemptGlobal = null;
@@ -10033,6 +10034,63 @@ function renderTicket136ScaleSensitiveObstructions(attempt) {
   `;
 }
 
+function renderTicket238MultishellValuationBufferEffectiveRank(attempt) {
+  if (!attempt) return "";
+  const audit = attempt.bounded_result?.multishell_valuation_buffer_effective_rank_audit || {};
+  const problemKey = attempt.problem_id || problemId;
+  const sectionMap = { riemann: audit.riemann || {}, collatz: audit.collatz || {}, goldbach: audit.goldbach || {}, "twin-prime": audit.twin_prime || {} };
+  const section = sectionMap[problemKey] || {};
+  const computation = section.reproducible_computation || {};
+  const aggregate = computation.aggregate || {};
+  const dag = section.proof_dag || attempt.proof_dag || {};
+  let detail = "";
+  if (problemKey === "riemann") {
+    const rows = computation.exact_multishell_rows || [];
+    detail = [
+      '<div class="poc-equation">η=max<sub>i</sub>Σ<sub>j≠i</sub>||K<sub>ij</sub>||<sub>op</sub>&lt;1 certifies H⪰(1−η)I. Pairwise positive angles alone do not force a strict global bound; the J=4 regular simplex is singular.</div>',
+      table(["shells J", "pair minimum", "global constant mode", "row-sum η", "certified lower bound"], rows.map((row) => [row.shell_count_J, row.every_two_shell_minimum_eigenvalue?.exact, row.adverse_global_constant_mode_eigenvalue?.exact, row.summable_family_maximum_row_sum_eta?.exact, row.row_sum_certified_lower_bound?.exact])),
+      '<div class="poc-head"><div><span>Row-sum criterion</span><strong>' + (aggregate.normalized_cross_row_sum_criterion_proved ? "proved" : "open") + '</strong></div><div><span>Pairwise sufficiency</span><strong>' + (aggregate.pairwise_principal_angle_sufficiency_refuted ? "refuted" : "open") + '</strong></div><div><span>Arithmetic row sum</span><strong>' + (aggregate.arithmetic_weil_multishell_row_sum_proved ? "proved" : "open") + '</strong></div></div>',
+    ].join("");
+  } else if (problemKey === "collatz") {
+    const rows = computation.exact_run_block_valuation_rows || [];
+    detail = [
+      '<div class="poc-equation">D∤B iff ∃ prime q with v<sub>q</sub>(D)&gt;v<sub>q</sub>(B). TICKET-197 therefore gives an adaptive valuation witness for every binary run block.</div>',
+      table(["k", "witness q", "v_q(D)", "v_q(B)", "presence?"], rows.map((row) => [row.one_count_k, row.witness_prime_q, row.v_q_D_k, row.v_q_B_k, row.presence_witness_in_this_row ? "yes" : "no"])),
+      '<div class="poc-head"><div><span>Valuation equivalence</span><strong>' + (aggregate.valuation_gap_divisibility_equivalence_proved ? "proved" : "open") + '</strong></div><div><span>Run-block witnesses</span><strong>' + (aggregate.all_run_blocks_have_adaptive_valuation_witness_proved ? "proved" : "open") + '</strong></div><div><span>Palette escape</span><strong>' + (aggregate.valuation_witness_escapes_every_finite_palette_proved ? "proved" : "open") + '</strong></div></div>',
+    ].join("");
+  } else if (problemKey === "goldbach") {
+    const rows = computation.exact_buffer_rows || [];
+    detail = [
+      '<div class="poc-equation">g<sub>X</sub>(2X−h)≤h+1. An inverse-log normalized margin requires h≳X/(log X)<sup>2</sup>; a merely diverging buffer is not enough.</div>',
+      table(["X", "buffer h", "target", "gX(N)", "h+1", "normalized ceiling"], rows.map((row) => [formatter.format(row.cutoff_X || 0), row.upper_endpoint_buffer_h, formatter.format(row.target_N || 0), row.ordered_prime_representation_count_g_X_N, row.geometric_representation_ceiling_h_plus_1, row.normalized_geometric_ceiling?.exact])),
+      '<div class="poc-head"><div><span>Buffer ceiling</span><strong>' + (aggregate.geometric_buffer_ceiling_proved ? "proved" : "open") + '</strong></div><div><span>Thin-buffer margin</span><strong>' + (aggregate.sub_x_over_log_squared_inverse_log_margin_refuted ? "refuted" : "open") + '</strong></div><div><span>Mesoscopic gain</span><strong>' + (aggregate.mesoscopic_buffered_prime_phase_gain_proved ? "proved" : "open") + '</strong></div></div>',
+    ].join("");
+  } else {
+    const rows = computation.exact_fixed_effective_rank_rows || [];
+    detail = [
+      '<div class="poc-equation">r<sub>eff</sub>=m/[1+(m−1)E<sub>m,2</sub>]. Degree-two decay is equivalent to effective-rank divergence; growing support alone is insufficient.</div>',
+      table(["support s", "m", "effective rank", "E(m,2)", "support grows"], rows.map((row) => [row.support_size_s, row.coordinate_count_m, row.gram_effective_rank?.exact, row.degree_two_energy_E_m_2?.exact, row.support_grows_with_m ? "yes" : "no"])),
+      '<div class="poc-head"><div><span>Effective-rank identity</span><strong>' + (aggregate.degree_two_effective_rank_identity_proved ? "proved" : "open") + '</strong></div><div><span>Support sufficiency</span><strong>' + (aggregate.support_growth_sufficiency_refuted ? "refuted" : "open") + '</strong></div><div><span>Prime effective rank</span><strong>' + (aggregate.prime_weighted_effective_rank_divergence_proved ? "proved" : "open") + '</strong></div></div>',
+    ].join("");
+  }
+  return [
+    '<div id="ticket238-multishell-valuation-buffer-effectiverank" class="poc-ticket17 poc-ticket128">',
+    '<div class="poc-latest-label">LATEST / 최신 연구 경계</div>',
+    '<h3>Ticket 238 multishell accumulation, valuation quantifiers, mesoscopic buffers, and effective rank</h3>',
+    '<div class="poc-head"><div><span>Status</span><strong>four exact partial/no-go theorems; conjectures open</strong></div><div><span>Next lemmas</span><strong>' + (audit.machine_audit?.next_single_lemma_count ?? 0) + '</strong></div><div><span>Resolution count</span><strong>' + (audit.machine_audit?.conjecture_resolution_count ?? 0) + '</strong></div></div>',
+    '<div class="ticket161-audit-table ticket236-audit-table">' + table(["TICKET238 audit", "Value"], [["ticket", attempt.ticket_id || "missing"], ["exact theorem / 정확한 정리", section.theorem_name || attempt.new_result || "missing"], ["declared proposition / 선언 명제", section.declared_proposition || attempt.declared_proposition || "missing"], ["next theorem / 다음 정리", attempt.candidate_theorem || "missing"]]) + '</div>',
+    detail,
+    '<h3>Proof DAG / 증명 의존성</h3>',
+    table(["node", "theorem", "status"], (dag.nodes || []).map((node) => [node.id, node.label, node.status])),
+    table(["from", "to"], (dag.edges || []).map((edge) => edge)),
+    '<div class="poc-route-decision"><section><span>DISCARD / 폐기</span><strong>' + escapeHtml(section.route_decision?.discard || attempt.discarded_route || "") + '</strong></section><section><span>KEEP / 유지</span><strong>' + escapeHtml(section.route_decision?.retain || "") + '</strong></section></div>',
+    '<div class="poc-bridge"><section><h3>Established / 확립</h3><p>' + escapeHtml(section.mathematical_argument || computation.proof || "") + '</p></section><section><h3>Remaining proof gap / 남은 증명 간극</h3><p>' + escapeHtml(section.logical_limit || attempt.remaining_gap || "") + '</p><p><strong>Next:</strong> ' + escapeHtml(attempt.candidate_theorem || "") + '</p></section></div>',
+    '<p class="proof-boundary">' + escapeHtml(audit.proof_boundary || "All four parent conjectures remain open.") + '</p>',
+    '<p><a href="../docs/multishell-valuation-buffer-effectiverank.ko.md">한국어 보고서</a> · <a href="../docs/multishell-valuation-buffer-effectiverank.md">English report</a> · <a href="../data/open-problem/ticket238-multishell-valuation-buffer-effectiverank.json">machine JSON</a></p>',
+    '</div>',
+  ].join("");
+}
+
 function renderTicket237AnglePaletteEndpointWelch(attempt) {
   if (!attempt) return "";
   const audit = attempt.bounded_result?.angle_palette_endpoint_welch_audit || {};
@@ -17971,7 +18029,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket237AnglePaletteEndpointWelch(ticket237AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket238MultishellValuationBufferEffectiveRank(ticket238AttemptGlobal) ||
+      renderTicket237AnglePaletteEndpointWelch(ticket237AttemptGlobal) ||
       renderTicket236ContractionOrderPhaseDegree2(ticket236AttemptGlobal) ||
       renderTicket235SchurPrimePowerPhaseOverlap(ticket235AttemptGlobal) ||
       renderTicket234OperatorKernelDensityMinorCesaro(ticket234AttemptGlobal) ||
@@ -18528,6 +18587,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket238Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket238-multishell-valuation-buffer-effectiverank.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket238AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket238AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket238AttemptGlobal) {
+      ticket238AttemptGlobal.bounded_result = ticket238AttemptGlobal.bounded_result || {};
+      ticket238AttemptGlobal.bounded_result.multishell_valuation_buffer_effective_rank_audit = payload.multishell_valuation_buffer_effective_rank_audit || {};
+    }
+    return Boolean(ticket238AttemptGlobal);
+  } catch (_error) {
+    ticket238AttemptGlobal = null;
     return false;
   }
 }
@@ -20461,6 +20540,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket238Loaded = await loadTicket238Attempt();
   const ticket237Loaded = await loadTicket237Attempt();
   const ticket236Loaded = await loadTicket236Attempt();
   const ticket235Loaded = await loadTicket235Attempt();
@@ -20480,7 +20560,7 @@ async function main() {
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket237-current";
+  document.documentElement.dataset.openProblemCache = "ticket238-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -20533,8 +20613,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket237Loaded || !ticket236Loaded || !ticket235Loaded || !ticket234Loaded || !ticket233Loaded || !ticket232Loaded || !ticket231Loaded || !ticket230Loaded || !ticket229Loaded || !ticket228Loaded || !ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket238Loaded || !ticket237Loaded || !ticket236Loaded || !ticket235Loaded || !ticket234Loaded || !ticket233Loaded || !ticket232Loaded || !ticket231Loaded || !ticket230Loaded || !ticket229Loaded || !ticket228Loaded || !ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket238AttemptGlobal) await loadTicket238Attempt();
     if (!ticket237AttemptGlobal) await loadTicket237Attempt();
     if (!ticket236AttemptGlobal) await loadTicket236Attempt();
     if (!ticket235AttemptGlobal) await loadTicket235Attempt();
@@ -20650,7 +20731,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket237-current";
+  document.documentElement.dataset.openProblemCache = "ticket238-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

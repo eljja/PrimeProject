@@ -31,14 +31,16 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-237: Principal Angles, Finite-Palette No-Go, Dyadic Endpoints, and Welch Floors](docs/angle-palette-endpoint-welch.md),
-with a separate [Korean report](docs/angle-palette-endpoint-welch.ko.md).
-It proves four narrower results: strict normalized cross contraction is a
-positive-principal-angle condition and nested frames cannot supply it; every
-fixed finite Collatz prime palette fails on infinitely many binary run blocks;
-the truncated Goldbach endpoint obeys the exact obstruction
-g_X(2X)=1_P(X); and degree-two CRT energy has a sharp finite-support Welch
-floor. These are partial and no-go lemmas, not parent-problem resolutions.
+[TICKET-238: Multishell Accumulation, Valuation Quantifiers, Mesoscopic Buffers, and Effective Rank](docs/multishell-valuation-buffer-effectiverank.md),
+with a separate [Korean report](docs/multishell-valuation-buffer-effectiverank.ko.md).
+It proves four exact partial or no-go results: a normalized multishell cross-row-sum
+positivity criterion and pairwise-angle countermodel; valuation-gap equivalence
+with affine nondivisibility and adaptive witnesses for every binary run block; the
+necessary Goldbach endpoint-buffer scale `X/(log X)^2`; and the exact equivalence
+between degree-two CRT energy decay and Gram effective-rank divergence. These are
+not parent-problem resolutions. TICKET-237 is preserved in
+[English](docs/angle-palette-endpoint-welch.md) and
+[Korean](docs/angle-palette-endpoint-welch.ko.md).
 TICKET-236 is preserved in
 [English](docs/contraction-order-phase-degree2.md) and
 [Korean](docs/contraction-order-phase-degree2.ko.md). TICKET-235 is preserved in
@@ -378,7 +380,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-236 boundary, four exact partial/no-go lemmas, four discarded or reduced routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-238 boundary, four exact partial/no-go lemmas, four discarded or reduced routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -395,7 +397,7 @@ The Research Atlas and Project Evolution panels read `data/project_evolution.jso
 
 The Open Problem Proof Workbench provides four subpages for the Riemann Hypothesis, Collatz conjecture, Goldbach conjecture, and Twin Prime conjecture. Each page leads with the current exact theorem, discarded route, proof DAG, and remaining gap. The complete machinery remains available in five semantic groups: core status, reproducible evidence, proof program, formal review, and the historical ticket archive. No conjecture is presented as solved until an independently checkable infinite argument survives formal and peer review.
 
-The latest proof-search track is TICKET-236. The RH track proves the normalized
+The preserved TICKET-236 proof-search track established the following earlier boundary. The RH track proves the normalized
 cross-block contraction criterion and refutes coordinate-minor sufficiency.
 Collatz gives an explicit three-prime witness for every binary run block outside
 multiples of 28826. Goldbach proves the exact actual-prime reflected phase-defect
@@ -564,13 +566,14 @@ See [TICKET236 EN](docs/contraction-order-phase-degree2.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-236입니다. 리만 트랙은 normalized
-cross-block contraction 동치와 coordinate-minor no-go를 증명했습니다.
-콜라츠는 28826의 배수가 아닌 모든 binary run-block에 세 소수 중 하나를
-명시적으로 배정했습니다. 골드바흐는 actual-prime reflected phase defect의
-정확한 항등식과 uncoupled inverse-log margin no-go를 증명했습니다. 쌍둥이
-소수는 degree-two CRT Cesaro energy 하나가 모든 고정 차수를 지배함을
-증명했습니다. 네 상위 문제의 해결 수는 여전히 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-238입니다. 리만 트랙은 다중 shell의
+정규화 교차 행합 조건을 증명하고 쌍별 각도만으로 충분하다는 경로를
+반례로 폐기했습니다. 콜라츠 트랙은 valuation gap과 affine 비가분성의
+동치를 증명하고 모든 binary run block을 닫았습니다. 골드바흐 트랙은
+역로그 여유에 필요한 endpoint buffer가 최소 `X/(log X)^2` 규모임을
+증명했습니다. 쌍둥이 소수 트랙은 degree-two CRT energy 감소와 Gram
+유효랭크 발산의 정확한 동치를 증명했습니다. 네 상위 문제의 해결 수는
+여전히 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -590,18 +593,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-236입니다.
-[정규화 contraction·위수 증인·phase defect·degree-two 환원 한국어 보고서 (`parent conjecture claims blocked · open_not_proven`)](docs/contraction-order-phase-degree2.ko.md)와
-[영문 보고서](docs/contraction-order-phase-degree2.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-238입니다.
+[다중 shell·valuation 양화사·중간 규모 buffer·유효랭크 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/multishell-valuation-buffer-effectiverank.ko.md)와
+[영문 보고서](docs/multishell-valuation-buffer-effectiverank.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-현재 결정적 미해결 보조정리는 Weil normalized contraction,
-고정 palette를 벗어나는 Collatz fresh order witness, target-coupled Goldbach
-cross-phase gain, 쌍둥이 소수의 degree-two CRT overlap energy decay입니다.
+현재 결정적 미해결 보조정리는 arithmetic Weil multishell row-sum,
+모든 고정 유한 palette를 벗어나는 run-block valuation witness,
+mesoscopic buffered Goldbach cross-phase gain, prime-weighted CRT Gram
+유효랭크 발산입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-236의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 236개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-238의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 238개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

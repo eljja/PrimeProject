@@ -241,6 +241,7 @@ TICKET234_SCHEMA = "primeproject.ticket234-operator-kernel-density-minor-cesaro.
 TICKET235_SCHEMA = "primeproject.ticket235-schur-primepower-phase-overlap.v1"
 TICKET236_SCHEMA = "primeproject.ticket236-contraction-order-phase-degree2.v1"
 TICKET237_SCHEMA = "primeproject.ticket237-angle-palette-endpoint-welch.v1"
+TICKET238_SCHEMA = "primeproject.ticket238-multishell-valuation-buffer-effectiverank.v1"
 
 
 def fail(message: str) -> int:
@@ -20243,6 +20244,156 @@ def main() -> int:
     ):
         return fail("ticket237 proof boundary changed")
 
+
+    path238 = Path(
+        "data/open-problem/ticket238-multishell-valuation-buffer-effectiverank.json"
+    )
+    if not path238.exists():
+        return fail("missing ticket238 multishell/valuation/buffer/effective-rank audit")
+    ticket238 = read_json(path238)
+    if (
+        ticket238.get("schema") != TICKET238_SCHEMA
+        or ticket238.get("status") != "open_not_proven"
+    ):
+        return fail("ticket238 schema or status changed")
+    audit238 = ticket238.get("multishell_valuation_buffer_effective_rank_audit", {})
+    machine238 = audit238.get("machine_audit", {})
+    if machine238 != {
+        "exact_partial_or_no_go_theorem_count": 4,
+        "refuted_or_reduced_route_count": 4,
+        "next_single_lemma_count": 4,
+        "proof_dag_count": 4,
+        "conjecture_resolution_count": 0,
+        "total_failure_count": 0,
+    }:
+        return fail("ticket238 global machine audit changed")
+
+    theorem_names238 = {
+        "riemann": "MultishellNormalizedCrossRowSumCriterionAndPairwiseAngleNoGo",
+        "collatz": "AdaptiveValuationCriterionEquivalenceAndRunBlockClosure",
+        "goldbach": "MesoscopicBufferWidthNecessaryForInverseLogReflectedMargin",
+        "twin-prime": "DegreeTwoEnergyEffectiveRankEquivalenceAndSupportGrowthNoGo",
+    }
+    next_lemmas238 = {
+        "riemann": "ArithmeticWeilInnovationNormalizedCrossRowSumBelowOneOnCofinalDisjointLogarithmicShells",
+        "collatz": "RunBlockValuationWitnessEscapesEveryFixedFinitePrimePalette",
+        "goldbach": "MesoscopicBufferedDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack",
+        "twin-prime": "PrimeWeightedDegreeTwoCRTGramEffectiveRankDivergesWithUniformDiagonalControl",
+    }
+    track_paths238 = {
+        "riemann": Path("data/open-problem/riemann/rh-ticket-238-multishell-row-sum.json"),
+        "collatz": Path("data/open-problem/collatz/co-ticket-238-valuation-equivalence.json"),
+        "goldbach": Path("data/open-problem/goldbach/gb-ticket-238-mesoscopic-buffer.json"),
+        "twin-prime": Path("data/open-problem/twin-prime/tp-ticket-238-effective-rank.json"),
+    }
+    audit_sections238 = {
+        "riemann": audit238.get("riemann", {}),
+        "collatz": audit238.get("collatz", {}),
+        "goldbach": audit238.get("goldbach", {}),
+        "twin-prime": audit238.get("twin_prime", {}),
+    }
+    attempts238 = {
+        row.get("problem_id"): row for row in ticket238.get("attempts", [])
+    }
+    if set(attempts238) != EXPECTED_PROBLEMS:
+        return fail("ticket238 attempts missing problems")
+    for problem_id, attempt in attempts238.items():
+        track_path = track_paths238[problem_id]
+        if not track_path.exists():
+            return fail(f"{problem_id}: ticket238 artifact missing")
+        track = read_json(track_path)
+        section = audit_sections238[problem_id]
+        statuses = {
+            node.get("status") for node in section.get("proof_dag", {}).get("nodes", [])
+        }
+        if (
+            attempt.get("status") != "open_not_proven"
+            or attempt.get("new_result") != theorem_names238[problem_id]
+            or attempt.get("candidate_theorem") != next_lemmas238[problem_id]
+            or attempt.get("bounded_result", {}).get("failure_count") != 0
+            or section.get("theorem_name") != theorem_names238[problem_id]
+            or section.get("route_decision", {}).get("next_single_lemma")
+            != next_lemmas238[problem_id]
+            or track.get("schema") != TICKET238_SCHEMA
+            or track.get("status") != "open_not_proven"
+            or track.get("theorem_name") != theorem_names238[problem_id]
+            or track.get("next_single_lemma") != next_lemmas238[problem_id]
+            or not {"closed", "refuted_or_limited", "highest_risk_open", "open_not_proven"}.issubset(statuses)
+        ):
+            return fail(f"{problem_id}: ticket238 contract changed")
+
+    rh238 = audit_sections238["riemann"].get("reproducible_computation", {})
+    rh_rows238 = rh238.get("exact_multishell_rows", [])
+    if (
+        [row.get("shell_count_J") for row in rh_rows238] != list(range(2, 9))
+        or any(row.get("certificate_verified") is not True for row in rh_rows238)
+        or rh_rows238[2].get("adverse_global_constant_mode_eigenvalue", {}).get("exact") != "0"
+        or rh_rows238[2].get("adverse_global_block_is_joint_gram_realizable") is not True
+        or rh_rows238[2].get("joint_gram_strict_positivity_counterexample") is not True
+        or rh_rows238[3].get("adverse_global_constant_mode_eigenvalue", {}).get("exact") != "-1/3"
+        or rh_rows238[3].get("adverse_global_block_is_joint_gram_realizable") is not False
+        or rh238.get("transcript_sha256") != "3563f552974b807acc38ed860ec593b99e8c48ff50de4edf57e55fa0043b521f"
+        or rh238.get("aggregate", {}).get("pairwise_principal_angle_sufficiency_refuted") is not True
+        or rh238.get("aggregate", {}).get("arithmetic_weil_multishell_row_sum_proved") is not False
+        or rh238.get("aggregate", {}).get("riemann_hypothesis_resolved") is not False
+    ):
+        return fail("ticket238 RH multishell boundary changed")
+
+    collatz238 = audit_sections238["collatz"].get("reproducible_computation", {})
+    valuation_rows238 = collatz238.get("exact_run_block_valuation_rows", [])
+    if (
+        [row.get("one_count_k") for row in valuation_rows238] != list(range(1, 21))
+        or any(
+            row.get("certificate_verified") is not True
+            or int(row.get("v_q_D_k", -1)) <= int(row.get("v_q_B_k", -1))
+            for row in valuation_rows238
+        )
+        or collatz238.get("transcript_sha256") != "e4386137ff680af56fb0f21a815b3a84439cecdfc4af1b53e956241455c524c0"
+        or collatz238.get("aggregate", {}).get("all_run_blocks_have_adaptive_valuation_witness_proved") is not True
+        or collatz238.get("aggregate", {}).get("valuation_witness_escapes_every_finite_palette_proved") is not False
+        or collatz238.get("aggregate", {}).get("collatz_conjecture_resolved") is not False
+    ):
+        return fail("ticket238 Collatz valuation boundary changed")
+
+    goldbach238 = audit_sections238["goldbach"].get("reproducible_computation", {})
+    buffer_rows238 = goldbach238.get("exact_buffer_rows", [])
+    if (
+        len(buffer_rows238) != 12
+        or any(
+            row.get("certificate_verified") is not True
+            or int(row.get("ordered_prime_representation_count_g_X_N", -1))
+            > int(row.get("geometric_representation_ceiling_h_plus_1", -1))
+            for row in buffer_rows238
+        )
+        or goldbach238.get("transcript_sha256") != "f2dfe3cbb2aea013212bbc3619458e2c1beee59b250d7ac32630f4591b6cc9e7"
+        or goldbach238.get("aggregate", {}).get("sub_x_over_log_squared_inverse_log_margin_refuted") is not True
+        or goldbach238.get("aggregate", {}).get("mesoscopic_buffered_prime_phase_gain_proved") is not False
+        or goldbach238.get("aggregate", {}).get("strong_goldbach_conjecture_resolved") is not False
+    ):
+        return fail("ticket238 Goldbach buffer boundary changed")
+
+    twin238 = audit_sections238["twin-prime"].get("reproducible_computation", {})
+    rank_rows238 = twin238.get("exact_fixed_effective_rank_rows", [])
+    if (
+        [row.get("coordinate_count_m") for row in rank_rows238] != [4, 8, 16, 32, 64]
+        or any(
+            row.get("certificate_verified") is not True
+            or row.get("gram_effective_rank", {}).get("exact") != "2"
+            for row in rank_rows238
+        )
+        or twin238.get("transcript_sha256") != "132e8be30c1106559623c1f351d9fd7ab5755eb318617bbb5384960bd1c09148"
+        or twin238.get("aggregate", {}).get("support_growth_sufficiency_refuted") is not True
+        or twin238.get("aggregate", {}).get("prime_weighted_effective_rank_divergence_proved") is not False
+        or twin238.get("aggregate", {}).get("twin_prime_conjecture_resolved") is not False
+    ):
+        return fail("ticket238 Twin effective-rank boundary changed")
+
+    if (
+        "resolves none" not in str(audit238.get("proof_boundary", "")).lower()
+        or "resolves none" not in str(ticket238.get("claim_boundary", "")).lower()
+        or machine238.get("conjecture_resolution_count") != 0
+    ):
+        return fail("ticket238 proof boundary changed")
 
     path233 = Path(
         "data/open-problem/ticket233-logarithmic-frame-density-shell-entropy.json"

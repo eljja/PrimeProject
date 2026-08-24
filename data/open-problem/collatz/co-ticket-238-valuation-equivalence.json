@@ -1,0 +1,295 @@
+{
+  "schema": "primeproject.ticket238-multishell-valuation-buffer-effectiverank.v1",
+  "generated_at": "2026-08-25T14:20:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-238",
+  "theorem_name": "AdaptiveValuationCriterionEquivalenceAndRunBlockClosure",
+  "declared_proposition": "For positive integers D and B, D does not divide B if and only if there exists a prime q with v_q(D)>v_q(B). Consequently TICKET-197's all-k nondivisibility theorem for D_k=32^k-27^k and B_k=32^k+27^k-2*18^k already implies a word-dependent prime-power valuation witness for every binary run block. Conversely, demanding such a witness for every primitive binary density-band necklace is exactly equivalent to universal affine nondivisibility on that class; it is not a weaker bridge toward that periodic-cycle exclusion.",
+  "mathematical_argument": "Unique factorization gives D|B exactly when v_q(D)<=v_q(B) for every prime q. Negating this statement proves the equivalence. TICKET-197 proved D_k does not divide B_k for every k>=1 by reducing divisibility to the impossible inequality D_k<=3^k-2^k. Applying the valuation equivalence yields the run-block witness. The exact audit records one such prime for k=1,...,20 and checks both valuations directly.",
+  "reproducible_computation": {
+    "theorem": "For positive integers D and B, D does not divide B if and only if there exists a prime q with v_q(D)>v_q(B). Consequently TICKET-197's all-k nondivisibility theorem for D_k=32^k-27^k and B_k=32^k+27^k-2*18^k already implies a word-dependent prime-power valuation witness for every binary run block. Conversely, demanding such a witness for every primitive binary density-band necklace is exactly equivalent to universal affine nondivisibility on that class; it is not a weaker bridge toward that periodic-cycle exclusion.",
+    "proof": "Unique factorization gives D|B exactly when v_q(D)<=v_q(B) for every prime q. Negating this statement proves the equivalence. TICKET-197 proved D_k does not divide B_k for every k>=1 by reducing divisibility to the impossible inequality D_k<=3^k-2^k. Applying the valuation equivalence yields the run-block witness. The exact audit records one such prime for k=1,...,20 and checks both valuations directly.",
+    "exact_run_block_valuation_rows": [
+      {
+        "one_count_k": 1,
+        "run_block_word": "1^1 2^2",
+        "witness_prime_q": 5,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "3",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 2,
+        "run_block_word": "1^2 2^4",
+        "witness_prime_q": 59,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "220",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 3,
+        "run_block_word": "1^3 2^6",
+        "witness_prime_q": 5,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "1532",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 4,
+        "run_block_word": "1^4 2^8",
+        "witness_prime_q": 59,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "335795",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 5,
+        "run_block_word": "1^5 2^10",
+        "witness_prime_q": 5,
+        "v_q_D_k": 2,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "5713153",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 6,
+        "run_block_word": "1^6 2^12",
+        "witness_prime_q": 59,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "20495195",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 7,
+        "run_block_word": "1^7 2^14",
+        "witness_prime_q": 5,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "19696266342",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 8,
+        "run_block_word": "1^8 2^16",
+        "witness_prime_q": 41,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "542819151810",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 9,
+        "run_block_word": "1^9 2^18",
+        "witness_prime_q": 5,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "14854476389238",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 10,
+        "run_block_word": "1^10 2^20",
+        "witness_prime_q": 31,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "404641329736050",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 11,
+        "run_block_word": "1^11 2^22",
+        "witness_prime_q": 5,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "10989584312952582",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 12,
+        "run_block_word": "1^12 2^24",
+        "witness_prime_q": 59,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "297875607831145890",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 13,
+        "run_block_word": "1^13 2^26",
+        "witness_prime_q": 5,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "8063464376306610198",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 14,
+        "run_block_word": "1^14 2^28",
+        "witness_prime_q": 43,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "218088351527860556370",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 15,
+        "run_block_word": "1^15 2^30",
+        "witness_prime_q": 5,
+        "v_q_D_k": 2,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "5895132131868712480422",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 16,
+        "run_block_word": "1^16 2^32",
+        "witness_prime_q": 41,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "159290007091551831223170",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 17,
+        "run_block_word": "1^17 2^34",
+        "witness_prime_q": 5,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "4303016103031638139557558",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 18,
+        "run_block_word": "1^18 2^36",
+        "witness_prime_q": 59,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "116220781189929526305629490",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 19,
+        "run_block_word": "1^19 2^38",
+        "witness_prime_q": 5,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "3138669327473452547928353862",
+        "certificate_verified": true
+      },
+      {
+        "one_count_k": 20,
+        "run_block_word": "1^20 2^40",
+        "witness_prime_q": 31,
+        "v_q_D_k": 1,
+        "v_q_B_k": 0,
+        "presence_witness_in_this_row": true,
+        "B_k_mod_D_k": "84756820077999614872239991650",
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "e4386137ff680af56fb0f21a815b3a84439cecdfc4af1b53e956241455c524c0",
+    "aggregate": {
+      "valuation_gap_divisibility_equivalence_proved": true,
+      "all_run_blocks_have_adaptive_valuation_witness_proved": true,
+      "general_necklace_valuation_gap_is_weaker_bridge_refuted": true,
+      "valuation_witness_escapes_every_finite_palette_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The universal equivalence does not prove nondivisibility for general necklaces; it only shows that the proposed valuation-gap statement has the same missing quantifier. TICKET-197 supplies that input only for one run-block family. Valuations above two, other periodic words, and aperiodic divergence remain open.",
+    "failure_count": 0
+  },
+  "discarded_route": "the all-necklace valuation-gap target as a weaker intermediate statement than affine nondivisibility",
+  "remaining_gap": "The universal equivalence does not prove nondivisibility for general necklaces; it only shows that the proposed valuation-gap statement has the same missing quantifier. TICKET-197 supplies that input only for one run-block family. Valuations above two, other periodic words, and aperiodic divergence remain open.",
+  "next_single_lemma": "RunBlockValuationWitnessEscapesEveryFixedFinitePrimePalette",
+  "claim_boundary": "The universal equivalence does not prove nondivisibility for general necklaces; it only shows that the proposed valuation-gap statement has the same missing quantifier. TICKET-197 supplies that input only for one run-block family. Valuations above two, other periodic words, and aperiodic divergence remain open.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T197",
+        "label": "ContiguousOneTwoRunNondivisibility",
+        "status": "closed_input"
+      },
+      {
+        "id": "CO-T237",
+        "label": "NoFinitePrimePaletteUniversallySeparatesRunBlocks",
+        "status": "closed_input"
+      },
+      {
+        "id": "CO-T238",
+        "label": "AdaptiveValuationCriterionEquivalenceAndRunBlockClosure",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N238",
+        "label": "GeneralNecklaceValuationGapIsAWeakerIntermediateLemma",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN238",
+        "label": "RunBlockValuationWitnessEscapesEveryFixedFinitePrimePalette",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO-PERIODIC",
+        "label": "AllPeriodicValuationWords",
+        "status": "open_not_proven"
+      },
+      {
+        "id": "CO",
+        "label": "CollatzConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T197",
+        "CO-T238"
+      ],
+      [
+        "CO-T237",
+        "CO-T238"
+      ],
+      [
+        "CO-T238",
+        "CO-N238"
+      ],
+      [
+        "CO-T238",
+        "CO-OPEN238"
+      ],
+      [
+        "CO-OPEN238",
+        "CO-PERIODIC"
+      ],
+      [
+        "CO-PERIODIC",
+        "CO"
+      ]
+    ]
+  }
+}

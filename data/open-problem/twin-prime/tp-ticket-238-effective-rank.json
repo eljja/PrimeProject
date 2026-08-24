@@ -1,0 +1,171 @@
+{
+  "schema": "primeproject.ticket238-multishell-valuation-buffer-effectiverank.v1",
+  "generated_at": "2026-08-25T14:20:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-238",
+  "theorem_name": "DegreeTwoEnergyEffectiveRankEquivalenceAndSupportGrowthNoGo",
+  "declared_proposition": "Let C be the Gram matrix of m centered, variance-one coordinates and let E_(m,2) be the average squared off-diagonal correlation. With effective rank r_eff(C)=(tr C)^2/||C||_F^2, one has the exact identity r_eff=m/(1+(m-1)E_(m,2)), or equivalently E_(m,2)=(m/r_eff-1)/(m-1). Hence along m tending to infinity, E_(m,2) tends to zero if and only if r_eff tends to infinity. Growing sample support alone is insufficient: repeating two orthonormal centered modes while support and m grow keeps r_eff=2 and makes E_(m,2) tend to 1/2.",
+  "mathematical_argument": "Because C_ii=1, ||C||_F^2=m+2 sum_(i<j)|C_ij|^2=m+m(m-1)E_(m,2), while tr C=m. Substitution gives both identities. They show E_(m,2)->0 iff 1/r_eff=1/m+(1-1/m)E_(m,2)->0. For the counterfamily, repeat each of two orthonormal modes m/2 times. Its only nonzero Gram eigenvalues are m/2,m/2, so r_eff=2 and exactly E_(m,2)=(m/2-1)/(m-1), regardless of the larger ambient support.",
+  "reproducible_computation": {
+    "theorem": "Let C be the Gram matrix of m centered, variance-one coordinates and let E_(m,2) be the average squared off-diagonal correlation. With effective rank r_eff(C)=(tr C)^2/||C||_F^2, one has the exact identity r_eff=m/(1+(m-1)E_(m,2)), or equivalently E_(m,2)=(m/r_eff-1)/(m-1). Hence along m tending to infinity, E_(m,2) tends to zero if and only if r_eff tends to infinity. Growing sample support alone is insufficient: repeating two orthonormal centered modes while support and m grow keeps r_eff=2 and makes E_(m,2) tend to 1/2.",
+    "proof": "Because C_ii=1, ||C||_F^2=m+2 sum_(i<j)|C_ij|^2=m+m(m-1)E_(m,2), while tr C=m. Substitution gives both identities. They show E_(m,2)->0 iff 1/r_eff=1/m+(1-1/m)E_(m,2)->0. For the counterfamily, repeat each of two orthonormal modes m/2 times. Its only nonzero Gram eigenvalues are m/2,m/2, so r_eff=2 and exactly E_(m,2)=(m/2-1)/(m-1), regardless of the larger ambient support.",
+    "exact_fixed_effective_rank_rows": [
+      {
+        "support_size_s": 5,
+        "coordinate_count_m": 4,
+        "latent_centered_rank_r": 2,
+        "repetitions_per_latent_mode": 2,
+        "gram_effective_rank": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "degree_two_energy_E_m_2": {
+          "exact": "1/3",
+          "float": 0.3333333333333333
+        },
+        "support_grows_with_m": true,
+        "degree_two_energy_stays_at_least_one_third": true,
+        "certificate_verified": true
+      },
+      {
+        "support_size_s": 9,
+        "coordinate_count_m": 8,
+        "latent_centered_rank_r": 2,
+        "repetitions_per_latent_mode": 4,
+        "gram_effective_rank": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "degree_two_energy_E_m_2": {
+          "exact": "3/7",
+          "float": 0.42857142857142855
+        },
+        "support_grows_with_m": true,
+        "degree_two_energy_stays_at_least_one_third": true,
+        "certificate_verified": true
+      },
+      {
+        "support_size_s": 17,
+        "coordinate_count_m": 16,
+        "latent_centered_rank_r": 2,
+        "repetitions_per_latent_mode": 8,
+        "gram_effective_rank": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "degree_two_energy_E_m_2": {
+          "exact": "7/15",
+          "float": 0.4666666666666667
+        },
+        "support_grows_with_m": true,
+        "degree_two_energy_stays_at_least_one_third": true,
+        "certificate_verified": true
+      },
+      {
+        "support_size_s": 33,
+        "coordinate_count_m": 32,
+        "latent_centered_rank_r": 2,
+        "repetitions_per_latent_mode": 16,
+        "gram_effective_rank": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "degree_two_energy_E_m_2": {
+          "exact": "15/31",
+          "float": 0.4838709677419355
+        },
+        "support_grows_with_m": true,
+        "degree_two_energy_stays_at_least_one_third": true,
+        "certificate_verified": true
+      },
+      {
+        "support_size_s": 65,
+        "coordinate_count_m": 64,
+        "latent_centered_rank_r": 2,
+        "repetitions_per_latent_mode": 32,
+        "gram_effective_rank": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "degree_two_energy_E_m_2": {
+          "exact": "31/63",
+          "float": 0.49206349206349204
+        },
+        "support_grows_with_m": true,
+        "degree_two_energy_stays_at_least_one_third": true,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "132e8be30c1106559623c1f351d9fd7ab5755eb318617bbb5384960bd1c09148",
+    "aggregate": {
+      "degree_two_effective_rank_identity_proved": true,
+      "degree_two_decay_iff_effective_rank_divergence_proved": true,
+      "support_growth_sufficiency_refuted": true,
+      "prime_weighted_effective_rank_divergence_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The identity is exact for normalized Gram matrices, and the counterfamily is synthetic. It does not prove effective-rank growth for actual prime-weighted CRT coordinates, uniform diagonal nondegeneracy, a positive twin main term, or any parity-breaking transfer.",
+    "failure_count": 0
+  },
+  "discarded_route": "growing prime-weight support as sufficient for degree-two CRT correlation decay",
+  "remaining_gap": "The identity is exact for normalized Gram matrices, and the counterfamily is synthetic. It does not prove effective-rank growth for actual prime-weighted CRT coordinates, uniform diagonal nondegeneracy, a positive twin main term, or any parity-breaking transfer.",
+  "next_single_lemma": "PrimeWeightedDegreeTwoCRTGramEffectiveRankDivergesWithUniformDiagonalControl",
+  "claim_boundary": "The identity is exact for normalized Gram matrices, and the counterfamily is synthetic. It does not prove effective-rank growth for actual prime-weighted CRT coordinates, uniform diagonal nondegeneracy, a positive twin main term, or any parity-breaking transfer.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T237",
+        "label": "FiniteSupportWelchFloorForDegreeTwoCRTOverlap",
+        "status": "closed_input"
+      },
+      {
+        "id": "TP-T238",
+        "label": "DegreeTwoEnergyEffectiveRankEquivalenceAndSupportGrowthNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N238",
+        "label": "GrowingSupportAloneImpliesDegreeTwoDecay",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN238",
+        "label": "PrimeWeightedDegreeTwoCRTGramEffectiveRankDivergesWithUniformDiagonalControl",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP-PARITY",
+        "label": "ParityRetainingTransferAndPositivePrincipalMass",
+        "status": "open_not_proven"
+      },
+      {
+        "id": "TP",
+        "label": "TwinPrimeConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T237",
+        "TP-T238"
+      ],
+      [
+        "TP-T238",
+        "TP-N238"
+      ],
+      [
+        "TP-T238",
+        "TP-OPEN238"
+      ],
+      [
+        "TP-OPEN238",
+        "TP-PARITY"
+      ],
+      [
+        "TP-PARITY",
+        "TP"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,293 @@
+{
+  "schema": "primeproject.ticket238-multishell-valuation-buffer-effectiverank.v1",
+  "generated_at": "2026-08-25T14:20:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-238",
+  "theorem_name": "MesoscopicBufferWidthNecessaryForInverseLogReflectedMargin",
+  "declared_proposition": "Let g_X be the ordered convolution of the prime indicator truncated at X. For every integer h with 0<=h<=X-2, g_X(2X-h)<=h+1. Therefore a normalized margin g_X(2X-h)/pi(X)>=c/log X forces h+1>=c*pi(X)/log X=(c+o(1))X/(log X)^2. In particular every buffer h=o(X/(log X)^2) is too thin for a uniform positive inverse-log margin, independently of any major/minor-arc estimate.",
+  "mathematical_argument": "If p,q<=X and p+q=2X-h, then X-h<=p<=X. There are at most h+1 possible integers p, hence at most h+1 ordered prime pairs. Divide by pi(X) for the exact normalized ceiling. The stated necessary buffer scale follows from the prime number theorem pi(X)~X/log X. The finite audit checks the exact count and ceiling for three buffer widths at each of four cutoffs.",
+  "reproducible_computation": {
+    "theorem": "Let g_X be the ordered convolution of the prime indicator truncated at X. For every integer h with 0<=h<=X-2, g_X(2X-h)<=h+1. Therefore a normalized margin g_X(2X-h)/pi(X)>=c/log X forces h+1>=c*pi(X)/log X=(c+o(1))X/(log X)^2. In particular every buffer h=o(X/(log X)^2) is too thin for a uniform positive inverse-log margin, independently of any major/minor-arc estimate.",
+    "proof": "If p,q<=X and p+q=2X-h, then X-h<=p<=X. There are at most h+1 possible integers p, hence at most h+1 ordered prime pairs. Divide by pi(X) for the exact normalized ceiling. The stated necessary buffer scale follows from the prime number theorem pi(X)~X/log X. The finite audit checks the exact count and ceiling for three buffer widths at each of four cutoffs.",
+    "exact_buffer_rows": [
+      {
+        "cutoff_X": 100,
+        "upper_endpoint_buffer_h": 0,
+        "target_N": 200,
+        "prime_count_pi_X": 25,
+        "available_left_integer_count": 1,
+        "ordered_prime_representation_count_g_X_N": 0,
+        "geometric_representation_ceiling_h_plus_1": 1,
+        "normalized_actual_margin": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "normalized_geometric_ceiling": {
+          "exact": "1/25",
+          "float": 0.04
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 100,
+        "upper_endpoint_buffer_h": 1,
+        "target_N": 199,
+        "prime_count_pi_X": 25,
+        "available_left_integer_count": 2,
+        "ordered_prime_representation_count_g_X_N": 0,
+        "geometric_representation_ceiling_h_plus_1": 2,
+        "normalized_actual_margin": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "normalized_geometric_ceiling": {
+          "exact": "2/25",
+          "float": 0.08
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 100,
+        "upper_endpoint_buffer_h": 10,
+        "target_N": 190,
+        "prime_count_pi_X": 25,
+        "available_left_integer_count": 11,
+        "ordered_prime_representation_count_g_X_N": 0,
+        "geometric_representation_ceiling_h_plus_1": 11,
+        "normalized_actual_margin": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "normalized_geometric_ceiling": {
+          "exact": "11/25",
+          "float": 0.44
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 1000,
+        "upper_endpoint_buffer_h": 0,
+        "target_N": 2000,
+        "prime_count_pi_X": 168,
+        "available_left_integer_count": 1,
+        "ordered_prime_representation_count_g_X_N": 0,
+        "geometric_representation_ceiling_h_plus_1": 1,
+        "normalized_actual_margin": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "normalized_geometric_ceiling": {
+          "exact": "1/168",
+          "float": 0.005952380952380952
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 1000,
+        "upper_endpoint_buffer_h": 1,
+        "target_N": 1999,
+        "prime_count_pi_X": 168,
+        "available_left_integer_count": 2,
+        "ordered_prime_representation_count_g_X_N": 0,
+        "geometric_representation_ceiling_h_plus_1": 2,
+        "normalized_actual_margin": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "normalized_geometric_ceiling": {
+          "exact": "1/84",
+          "float": 0.011904761904761904
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 1000,
+        "upper_endpoint_buffer_h": 31,
+        "target_N": 1969,
+        "prime_count_pi_X": 168,
+        "available_left_integer_count": 32,
+        "ordered_prime_representation_count_g_X_N": 0,
+        "geometric_representation_ceiling_h_plus_1": 32,
+        "normalized_actual_margin": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "normalized_geometric_ceiling": {
+          "exact": "4/21",
+          "float": 0.19047619047619047
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 10000,
+        "upper_endpoint_buffer_h": 0,
+        "target_N": 20000,
+        "prime_count_pi_X": 1229,
+        "available_left_integer_count": 1,
+        "ordered_prime_representation_count_g_X_N": 0,
+        "geometric_representation_ceiling_h_plus_1": 1,
+        "normalized_actual_margin": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "normalized_geometric_ceiling": {
+          "exact": "1/1229",
+          "float": 0.0008136696501220504
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 10000,
+        "upper_endpoint_buffer_h": 1,
+        "target_N": 19999,
+        "prime_count_pi_X": 1229,
+        "available_left_integer_count": 2,
+        "ordered_prime_representation_count_g_X_N": 0,
+        "geometric_representation_ceiling_h_plus_1": 2,
+        "normalized_actual_margin": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "normalized_geometric_ceiling": {
+          "exact": "2/1229",
+          "float": 0.0016273393002441008
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 10000,
+        "upper_endpoint_buffer_h": 100,
+        "target_N": 19900,
+        "prime_count_pi_X": 1229,
+        "available_left_integer_count": 101,
+        "ordered_prime_representation_count_g_X_N": 0,
+        "geometric_representation_ceiling_h_plus_1": 101,
+        "normalized_actual_margin": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "normalized_geometric_ceiling": {
+          "exact": "101/1229",
+          "float": 0.0821806346623271
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 100000,
+        "upper_endpoint_buffer_h": 0,
+        "target_N": 200000,
+        "prime_count_pi_X": 9592,
+        "available_left_integer_count": 1,
+        "ordered_prime_representation_count_g_X_N": 0,
+        "geometric_representation_ceiling_h_plus_1": 1,
+        "normalized_actual_margin": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "normalized_geometric_ceiling": {
+          "exact": "1/9592",
+          "float": 0.0001042535446205171
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 100000,
+        "upper_endpoint_buffer_h": 1,
+        "target_N": 199999,
+        "prime_count_pi_X": 9592,
+        "available_left_integer_count": 2,
+        "ordered_prime_representation_count_g_X_N": 0,
+        "geometric_representation_ceiling_h_plus_1": 2,
+        "normalized_actual_margin": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "normalized_geometric_ceiling": {
+          "exact": "1/4796",
+          "float": 0.0002085070892410342
+        },
+        "certificate_verified": true
+      },
+      {
+        "cutoff_X": 100000,
+        "upper_endpoint_buffer_h": 316,
+        "target_N": 199684,
+        "prime_count_pi_X": 9592,
+        "available_left_integer_count": 317,
+        "ordered_prime_representation_count_g_X_N": 4,
+        "geometric_representation_ceiling_h_plus_1": 317,
+        "normalized_actual_margin": {
+          "exact": "1/2398",
+          "float": 0.0004170141784820684
+        },
+        "normalized_geometric_ceiling": {
+          "exact": "317/9592",
+          "float": 0.03304837364470392
+        },
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "f2dfe3cbb2aea013212bbc3619458e2c1beee59b250d7ac32630f4591b6cc9e7",
+    "aggregate": {
+      "geometric_buffer_ceiling_proved": true,
+      "sub_x_over_log_squared_inverse_log_margin_refuted": true,
+      "mesoscopic_buffer_scale_necessity_proved": true,
+      "mesoscopic_buffered_prime_phase_gain_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "This is a necessary support-geometry condition near the truncated upper endpoint. It does not show that a buffer of order X/(log X)^2 is sufficient, estimate the actual reflected minor term there, or produce a Goldbach counterexample. Fixed positive-fraction bulk windows are not refuted.",
+    "failure_count": 0
+  },
+  "discarded_route": "any diverging upper-endpoint buffer as sufficient geometry for an inverse-log phase margin",
+  "remaining_gap": "This is a necessary support-geometry condition near the truncated upper endpoint. It does not show that a buffer of order X/(log X)^2 is sufficient, estimate the actual reflected minor term there, or produce a Goldbach counterexample. Fixed positive-fraction bulk windows are not refuted.",
+  "next_single_lemma": "MesoscopicBufferedDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack",
+  "claim_boundary": "This is a necessary support-geometry condition near the truncated upper endpoint. It does not show that a buffer of order X/(log X)^2 is sufficient, estimate the actual reflected minor term there, or produce a Goldbach counterexample. Fixed positive-fraction bulk windows are not refuted.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T237",
+        "label": "TruncatedDyadicUpperEndpointObstruction",
+        "status": "closed_input"
+      },
+      {
+        "id": "GB-T238",
+        "label": "MesoscopicBufferWidthNecessaryForInverseLogReflectedMargin",
+        "status": "closed"
+      },
+      {
+        "id": "GB-N238",
+        "label": "AnyDivergingUpperEndpointBufferSupportsInverseLogMargin",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-OPEN238",
+        "label": "MesoscopicBufferedDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "GB",
+        "label": "StrongGoldbachConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T237",
+        "GB-T238"
+      ],
+      [
+        "GB-T238",
+        "GB-N238"
+      ],
+      [
+        "GB-T238",
+        "GB-OPEN238"
+      ],
+      [
+        "GB-OPEN238",
+        "GB"
+      ]
+    ]
+  }
+}
