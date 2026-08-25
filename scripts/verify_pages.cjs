@@ -3782,7 +3782,7 @@ async function main() {
     !metrics.atlasPanel.includes("Evidence ladder") ||
     !metrics.atlasPanel.includes("Proof workbench") ||
     !metrics.atlasPanel.includes("TICKET-242") ||
-    !metrics.atlasPanel.includes("SignedGuinandWeilFiniteSectionsConvergeWithoutArtificialDiagonalForEveryAdmissibleTestFamily") ||
+    !metrics.atlasPanel.includes("UniformSignedGuinandWeilTailBoundOnFrequencyTightNormalizedAdmissibleTestClasses") ||
     !metrics.atlasPanel.includes("Riemann Hypothesis") ||
     !metrics.atlasPanel.includes("Twin Prime Conjecture") ||
     !metrics.atlasPanel.includes("Next academic work")
