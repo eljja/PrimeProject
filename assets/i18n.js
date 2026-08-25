@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, accumulation and scale barriers exposed",
-      ko: "네 미해결 문제, 누적·규모 장벽을 드러내다",
+      en: "Four open problems, transfer barriers isolated",
+      ko: "네 미해결 문제, 전달 장벽을 분리하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-238 proves four exact multishell, valuation, mesoscopic-buffer, or effective-rank results.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-238은 다중 shell 누적·Collatz valuation·Goldbach 중간 규모 buffer·CRT 유효랭크에 관한 네 개의 정확한 결과를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-239 proves four exact partial or no-go results about cancellation, local lifting, signed Fourier phase, and CRT locality.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-239는 소거·국소 lifting·부호 있는 푸리에 위상·CRT 국소성에 관한 네 개의 정확한 부분·불가능성 결과를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-238 proves four exact partial or no-go theorems and preserves a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-238은 네 개의 정확한 부분·no-go 정리를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-239 proves four exact partial or no-go theorems and preserves a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-239는 네 개의 정확한 부분·불가능성 정리를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

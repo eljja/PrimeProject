@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260825-ticket238-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260825-ticket239-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-238 · CURRENT RESEARCH BOUNDARY</p>
-                <h1 data-i18n="brief.title">Four open problems, accumulation and scale barriers exposed</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-238 proves four exact multishell, valuation, mesoscopic-buffer, or effective-rank results.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-238은 다중 shell 누적·Collatz valuation 양화사·Goldbach 중간 규모 buffer·CRT 유효랭크에 관한 네 개의 정확한 부분·no-go 정리를 증명했습니다.</p>
+                <p class="brief-kicker">TICKET-239 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, transfer barriers isolated</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-239 proves four exact partial or no-go results about cancellation, local lifting, signed Fourier phase, and CRT locality.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-239는 소거가 필요한 스펙트럼 결합, 콜라츠의 국소 lifting 결함, 골드바흐의 부호 있는 푸리에 위상, 쌍둥이 소수의 국소 CRT 정보 한계에 관한 네 개의 정확한 부분·불가능성 정리를 증명했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>238</strong><small>2026-08-25</small></div>
+              <div><span>Latest ticket</span><strong>239</strong><small>2026-08-25</small></div>
               <div><span>Exact results</span><strong>4</strong><small>partial·no-go</small></div>
-              <div><span>Routes corrected</span><strong>4</strong><small>pairwise angles·valuation shortcut·thin buffer·support-only</small></div>
+              <div><span>Routes corrected</span><strong>4</strong><small>absolute sum·mod-q lifting·L2 positivity·local CRT rank</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 다중 shell의 정규화 교차 block 행합이 1보다 작으면 엄격한 전역 양성 하한이 보장됩니다.</p>
-                <p><strong>폐기:</strong> 모든 쌍별 principal angle 간격만으로 엄격한 cofinal 전역 양성 하한을 얻는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>ArithmeticWeilInnovationNormalizedCrossRowSumBelowOneOnCofinalDisjointLogarithmicShells</code>.</p>
+                <p><strong>확립:</strong> α&gt;1, 2Cζ(α)&lt;1인 거듭제곱 감소는 균일 양성을 보장하지만 절대 행합 가능성은 필요조건이 아닙니다.</p>
+                <p><strong>폐기:</strong> TICKET-238의 절대 행합 검사를 Weil 형식 양성의 필요조건으로 해석하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ArithmeticWeilCrossBlockCotlarSteinCancellationBoundOnCofinalLogarithmicShells</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> valuation gap은 affine 비가분성과 동치이며 모든 TICKET-197 run block에 적응형 증인이 존재합니다.</p>
-                <p><strong>폐기:</strong> 모든 necklace의 valuation-gap 명제를 universal affine 비가분성보다 약한 중간정리로 취급하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>RunBlockValuationWitnessEscapesEveryFixedFinitePrimePalette</code>.</p>
+                <p><strong>확립:</strong> 각 홀수 소수의 공통 주기 배수에서 valuation 증인 여부는 하나의 고정 lifting 결함 부호로 완전히 결정됩니다.</p>
+                <p><strong>폐기:</strong> mod-q 해의 존재가 자동으로 필요한 valuation 부등식을 준다는 경로. q≤200,000의 17,982개 홀수 소수에서는 양의 결함이 없었습니다.</p>
+                <p><strong>다음 핵심:</strong> <code>RunBlockLocalLiftingDefectNonpositiveForEveryOddPrime</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> <em>g</em><sub>X</sub>(2X−h)≤h+1이므로 역로그 여유에는 최소 X/(log X)<sup>2</sup> 규모의 buffer가 필요합니다.</p>
-                <p><strong>폐기:</strong> 발산하기만 하는 임의의 endpoint buffer가 inverse-log phase margin에 충분하다는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>MesoscopicBufferedDyadicReflectedPrimeCrossPhaseGainWithIndependentMinorSlack</code>.</p>
+                <p><strong>확립:</strong> 중간 규모 소수 창의 반사 표현수는 정확한 부호 있는 푸리에 계수이며, Parseval 에너지와 원소 수만으로 양성을 강제할 수 없습니다.</p>
+                <p><strong>폐기:</strong> L2 에너지 또는 창의 밀도만으로 모든 목표의 Goldbach 표현을 얻는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>MesoscopicPrimeWindowSignedFourierRemainderExceedsNegativeDCWithUniformSlack</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> degree-two CRT energy decay는 정규화 Gram 유효랭크 발산과 정확히 동치입니다.</p>
-                <p><strong>폐기:</strong> support 크기 증가만으로 degree-two decorrelation을 인증하는 해석.</p>
-                <p><strong>다음 핵심:</strong> <code>PrimeWeightedDegreeTwoCRTGramEffectiveRankDivergesWithUniformDiagonalControl</code>.</p>
+                <p><strong>확립:</strong> 균일 CRT 표본에서는 국소 허용성 좌표의 Gram 행렬이 항등행렬이어도 같은 허용 잉여류에 합성수 쌍이 무한히 존재합니다.</p>
+                <p><strong>폐기:</strong> 국소 CRT 직교성 또는 유효랭크 발산만으로 실제 쌍둥이 소수의 양의 질량을 추론하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ParitySensitiveTransferFromPrimeWeightedCRTOrthogonalityToPositiveTwinPrincipalMass</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>238개 티켓의 연구를 “증명됨 / 폐기됨 / 남은 간극”으로 분리합니다. TICKET-238은 Weil multishell row sum, run-block valuation palette escape, mesoscopic Goldbach phase gain, prime-weighted CRT effective-rank divergence를 정확한 다음 경계로 고정합니다.</p>
+                <p>239개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. 이번 티켓은 네 트랙 모두에서 국소·무부호 정보만으로 전역 산술 결론을 얻는 경로를 차단하고, 실제로 필요한 부호 있는 소거·valuation·parity 전달 명제를 고정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,11 +140,10 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/multishell-valuation-buffer-effectiverank.ko.md">최신 한국어 보고서</a>
-              <a href="docs/multishell-valuation-buffer-effectiverank.md">Latest English report</a>
+              <a href="docs/cancellation-lifting-fourier-crt.ko.md">최신 한국어 보고서</a>
+              <a href="docs/cancellation-lifting-fourier-crt.md">Latest English report</a>
             </div>
           </section>
-
           <section id="overview-panel" class="overview-grid">
             <section class="panel main-panel">
               <div class="panel-heading">
@@ -659,8 +658,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-238</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-238 proves four exact partial or no-go theorems and preserves a resolution count of zero.</p>
+              <strong>TICKET-239</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-239 proves four exact partial or no-go theorems and preserves a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -796,8 +795,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260825-ticket238"></script>
-    <script src="assets/app.js?v=20260825-ticket238"></script>
+    <script src="assets/i18n.js?v=20260825-ticket239"></script>
+    <script src="assets/app.js?v=20260825-ticket239"></script>
   </body>
 </html>
 

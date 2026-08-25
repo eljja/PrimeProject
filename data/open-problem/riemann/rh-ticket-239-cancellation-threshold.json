@@ -1,0 +1,254 @@
+{
+  "schema": "primeproject.ticket239-cancellation-lifting-fourier-crt.v1",
+  "generated_at": "2026-08-25T18:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-239",
+  "theorem_name": "PowerDecaySchurThresholdAndNonsummablePositiveGramNoGo",
+  "declared_proposition": "Let H_J be a Hermitian shell-block matrix with identity diagonal. If ||K_ij||_op<=C|i-j|^{-alpha}, alpha>1, and 2C zeta(alpha)<1, then H_J>=(1-2C zeta(alpha))I uniformly in J. Absolute summability is sufficient but not necessary: for every 0<C<1 and 0<alpha<=1, the scalar matrices G_J=(1-C)I+C[(1+|i-j|)^{-alpha}] are normalized Gram matrices with G_J>=(1-C)I, while their maximum absolute off-diagonal row sums diverge. Therefore failure of the TICKET-238 row-sum test cannot be used as evidence against Weil-form positivity.",
+  "mathematical_argument": "The first statement follows from the block Schur estimate and sum_{d>=1}d^{-alpha}=zeta(alpha). For the second, use (n+1)^{-alpha}=Gamma(alpha)^{-1} integral_0^1 t^n(-log t)^{alpha-1}dt. Each kernel [t^{|i-j|}] is positive semidefinite, so their positive mixture R_J is positive semidefinite with unit diagonal. Hence (1-C)I+C R_J has lower bound 1-C. Its central off-diagonal row sum dominates a constant multiple of sum_{d<=J/2}(d+1)^{-alpha}, which diverges for alpha<=1. The exact rows instantiate alpha=2,C=1/8 and the non-summable positive family alpha=1,C=1/2.",
+  "reproducible_computation": {
+    "theorem": "Let H_J be a Hermitian shell-block matrix with identity diagonal. If ||K_ij||_op<=C|i-j|^{-alpha}, alpha>1, and 2C zeta(alpha)<1, then H_J>=(1-2C zeta(alpha))I uniformly in J. Absolute summability is sufficient but not necessary: for every 0<C<1 and 0<alpha<=1, the scalar matrices G_J=(1-C)I+C[(1+|i-j|)^{-alpha}] are normalized Gram matrices with G_J>=(1-C)I, while their maximum absolute off-diagonal row sums diverge. Therefore failure of the TICKET-238 row-sum test cannot be used as evidence against Weil-form positivity.",
+    "proof": "The first statement follows from the block Schur estimate and sum_{d>=1}d^{-alpha}=zeta(alpha). For the second, use (n+1)^{-alpha}=Gamma(alpha)^{-1} integral_0^1 t^n(-log t)^{alpha-1}dt. Each kernel [t^{|i-j|}] is positive semidefinite, so their positive mixture R_J is positive semidefinite with unit diagonal. Hence (1-C)I+C R_J has lower bound 1-C. Its central off-diagonal row sum dominates a constant multiple of sum_{d<=J/2}(d+1)^{-alpha}, which diverges for alpha<=1. The exact rows instantiate alpha=2,C=1/8 and the non-summable positive family alpha=1,C=1/2.",
+    "exact_summable_power_decay_rows": [
+      {
+        "shell_count_J": 4,
+        "power_decay_alpha": 2,
+        "interaction_constant_C": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "maximum_absolute_cross_row_sum_eta_J": {
+          "exact": "9/32",
+          "float": 0.28125
+        },
+        "row_sum_certified_lower_bound": {
+          "exact": "23/32",
+          "float": 0.71875
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 8,
+        "power_decay_alpha": 2,
+        "interaction_constant_C": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "maximum_absolute_cross_row_sum_eta_J": {
+          "exact": "401/1152",
+          "float": 0.3480902777777778
+        },
+        "row_sum_certified_lower_bound": {
+          "exact": "751/1152",
+          "float": 0.6519097222222222
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 16,
+        "power_decay_alpha": 2,
+        "interaction_constant_C": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "maximum_absolute_cross_row_sum_eta_J": {
+          "exact": "2144473/5644800",
+          "float": 0.37990238803854876
+        },
+        "row_sum_certified_lower_bound": {
+          "exact": "3500327/5644800",
+          "float": 0.6200976119614513
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 32,
+        "power_decay_alpha": 2,
+        "interaction_constant_C": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "maximum_absolute_cross_row_sum_eta_J": {
+          "exact": "1643908377473/4155498547200",
+          "float": 0.3955983521112468
+        },
+        "row_sum_certified_lower_bound": {
+          "exact": "2511590169727/4155498547200",
+          "float": 0.6044016478887533
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 64,
+        "power_decay_alpha": 2,
+        "interaction_constant_C": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "maximum_absolute_cross_row_sum_eta_J": {
+          "exact": "67298114292858244533383442497/166819088706357863463367680000",
+          "float": 0.4034197453944811
+        },
+        "row_sum_certified_lower_bound": {
+          "exact": "99520974413499618929984237503/166819088706357863463367680000",
+          "float": 0.5965802546055189
+        },
+        "certificate_verified": true
+      }
+    ],
+    "exact_nonsummable_positive_mixture_rows": [
+      {
+        "shell_count_J": 4,
+        "power_decay_alpha": 1,
+        "mixture_constant_C": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "maximum_absolute_cross_row_sum_eta_J": {
+          "exact": "2/3",
+          "float": 0.6666666666666666
+        },
+        "absolute_row_sum_certificate_passes": true,
+        "integral_mixture_uniform_lower_bound": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 8,
+        "power_decay_alpha": 1,
+        "mixture_constant_C": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "maximum_absolute_cross_row_sum_eta_J": {
+          "exact": "71/60",
+          "float": 1.1833333333333333
+        },
+        "absolute_row_sum_certificate_passes": false,
+        "integral_mixture_uniform_lower_bound": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 16,
+        "power_decay_alpha": 1,
+        "mixture_constant_C": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "maximum_absolute_cross_row_sum_eta_J": {
+          "exact": "4469/2520",
+          "float": 1.7734126984126983
+        },
+        "absolute_row_sum_certificate_passes": false,
+        "integral_mixture_uniform_lower_bound": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 32,
+        "power_decay_alpha": 1,
+        "mixture_constant_C": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "maximum_absolute_cross_row_sum_eta_J": {
+          "exact": "29529623/12252240",
+          "float": 2.4101407579348755
+        },
+        "absolute_row_sum_certificate_passes": false,
+        "integral_mixture_uniform_lower_bound": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "certificate_verified": true
+      },
+      {
+        "shell_count_J": 64,
+        "power_decay_alpha": 1,
+        "mixture_constant_C": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "maximum_absolute_cross_row_sum_eta_J": {
+          "exact": "443845505348639/144403552893600",
+          "float": 3.073646710588035
+        },
+        "absolute_row_sum_certificate_passes": false,
+        "integral_mixture_uniform_lower_bound": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "1ec85f2a1658cc80e59e119ada9b9b9980264355e18f5e9103318f2ba66e19e5",
+    "aggregate": {
+      "power_decay_schur_threshold_proved": true,
+      "absolute_row_sum_necessity_refuted": true,
+      "nonsummable_uniformly_positive_gram_family_constructed": true,
+      "arithmetic_weil_cancellation_bound_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The matrices are exact abstract Gram families, not arithmetic Guinand-Weil shell blocks. The theorem proves that absolute row-sum control is a sufficient route and that its failure is non-diagnostic; it supplies no signed or operator cancellation estimate for the actual Weil kernel and locates no zeta zero.",
+    "failure_count": 0
+  },
+  "discarded_route": "absolute cross-row summability as a necessary condition for cofinal Weil positivity",
+  "remaining_gap": "The matrices are exact abstract Gram families, not arithmetic Guinand-Weil shell blocks. The theorem proves that absolute row-sum control is a sufficient route and that its failure is non-diagnostic; it supplies no signed or operator cancellation estimate for the actual Weil kernel and locates no zeta zero.",
+  "next_single_lemma": "ArithmeticWeilCrossBlockCotlarSteinCancellationBoundOnCofinalLogarithmicShells",
+  "claim_boundary": "The matrices are exact abstract Gram families, not arithmetic Guinand-Weil shell blocks. The theorem proves that absolute row-sum control is a sufficient route and that its failure is non-diagnostic; it supplies no signed or operator cancellation estimate for the actual Weil kernel and locates no zeta zero.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T238",
+        "label": "MultishellNormalizedCrossRowSumCriterionAndPairwiseAngleNoGo",
+        "status": "closed_input"
+      },
+      {
+        "id": "RH-T239",
+        "label": "PowerDecaySchurThresholdAndNonsummablePositiveGramNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "RH-N239",
+        "label": "AbsoluteCrossRowSummabilityIsNecessaryForWeilPositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-OPEN239",
+        "label": "ArithmeticWeilCrossBlockCotlarSteinCancellationBoundOnCofinalLogarithmicShells",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "RH",
+        "label": "RiemannHypothesis",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T238",
+        "RH-T239"
+      ],
+      [
+        "RH-T239",
+        "RH-N239"
+      ],
+      [
+        "RH-T239",
+        "RH-OPEN239"
+      ],
+      [
+        "RH-OPEN239",
+        "RH"
+      ]
+    ]
+  }
+}

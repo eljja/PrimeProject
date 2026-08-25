@@ -6,6 +6,8 @@ import sys
 from fractions import Fraction
 from pathlib import Path
 
+from verify_ticket239_structure import verify_ticket239_structure
+
 
 FORBIDDEN_FORMAL_TOKENS = ["sorry", "admit", "axiom "]
 EXPECTED_PROBLEMS = {"riemann", "collatz", "goldbach", "twin-prime"}
@@ -22349,6 +22351,10 @@ def main() -> int:
         or machine223.get("conjecture_resolution_count") != 0
     ):
         return fail("ticket223 proof boundary changed")
+
+    ticket239_error = verify_ticket239_structure()
+    if ticket239_error:
+        return fail(ticket239_error)
 
     print("open problem structure verified")
     return 0

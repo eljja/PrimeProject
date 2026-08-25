@@ -8625,3 +8625,30 @@ machine failures, and zero conjecture resolutions.
 
 English report: [TICKET-238 multishell, valuation, buffer, and effective-rank audit](multishell-valuation-buffer-effectiverank.md).
 한국어 보고서: [TICKET-238 다중 shell·valuation·buffer·유효랭크 감사](multishell-valuation-buffer-effectiverank.ko.md).
+## TICKET-239 continuation: cancellation, lifting, Fourier reflection, and CRT parity
+
+TICKET-239 attacks the four TICKET-238 successors without claiming a parent
+solution.
+
+1. **Riemann.** Proved a power-decay Schur threshold and constructed a
+   uniformly positive normalized Gram family with divergent absolute row sums.
+   This refutes absolute summability as a necessary Weil-positivity condition.
+2. **Collatz.** Proved the exact local lifting-defect dichotomy controlling
+   valuation witnesses on common multiples. The scan of 17,982 odd primes
+   through 200,000 found no positive defect but remains finite evidence.
+3. **Goldbach.** Proved the exact mesoscopic reflection Fourier identity and a
+   same-cardinality, same-Parseval-energy zero-reflection counterfamily.
+4. **Twin prime.** Proved the uniform CRT admissibility Gram matrix is the
+   identity while every admissible residue class still contains infinitely
+   many pairs with both entries composite.
+
+The four next nodes require arithmetic or signed transfer: Weil cross-block
+Cotlar-Stein cancellation, nonpositive run-block lifting defect for every odd
+prime, mesoscopic signed Fourier slack above negative DC, and parity-sensitive
+prime-weighted CRT transfer to positive twin mass.
+
+Machine audit: four exact theorems, four rejected routes, four proof DAGs, zero
+machine failures, and zero conjecture resolutions.
+
+English report: [TICKET-239 cancellation, lifting, Fourier, and CRT audit](cancellation-lifting-fourier-crt.md).
+한국어 보고서: [TICKET-239 상쇄·lifting·Fourier·CRT 감사](cancellation-lifting-fourier-crt.ko.md).

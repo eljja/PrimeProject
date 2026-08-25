@@ -1,0 +1,623 @@
+{
+  "schema": "primeproject.ticket239-cancellation-lifting-fourier-crt.v1",
+  "generated_at": "2026-08-25T18:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-239",
+  "theorem_name": "UniformCRTGramIdentityAndCompositeProgressionNoGo",
+  "declared_proposition": "Let Q be a finite set of odd primes, W=product_{q in Q}q, and sample r uniformly modulo W. The centered variance-normalized local twin admissibility coordinates 1_{r not congruent to 0,-2 mod q} are mutually orthogonal. Their Gram matrix is I_{|Q|} and has maximal effective rank |Q|. Nevertheless every Q-admissible residue class r mod W contains infinitely many n for which both n and n+2 are composite. Thus even perfect uniform-CRT effective-rank divergence does not imply the twin-prime conjecture.",
+  "mathematical_argument": "CRT makes the residue coordinates independent; each coordinate has admissible probability (q-2)/q, so centering and normalization give the identity Gram matrix. Fix an admissible r and distinct primes ell_1,ell_2 outside Q. Because W is invertible modulo both, impose r+kW=0 mod ell_1 and r+kW+2=0 mod ell_2. CRT gives one class of k mod ell_1 ell_2 and therefore infinitely many positive k. For all large representatives both numbers exceed their displayed proper factors and are composite, while retaining every local Q condition.",
+  "reproducible_computation": {
+    "theorem": "Let Q be a finite set of odd primes, W=product_{q in Q}q, and sample r uniformly modulo W. The centered variance-normalized local twin admissibility coordinates 1_{r not congruent to 0,-2 mod q} are mutually orthogonal. Their Gram matrix is I_{|Q|} and has maximal effective rank |Q|. Nevertheless every Q-admissible residue class r mod W contains infinitely many n for which both n and n+2 are composite. Thus even perfect uniform-CRT effective-rank divergence does not imply the twin-prime conjecture.",
+    "proof": "CRT makes the residue coordinates independent; each coordinate has admissible probability (q-2)/q, so centering and normalization give the identity Gram matrix. Fix an admissible r and distinct primes ell_1,ell_2 outside Q. Because W is invertible modulo both, impose r+kW=0 mod ell_1 and r+kW+2=0 mod ell_2. CRT gives one class of k mod ell_1 ell_2 and therefore infinitely many positive k. For all large representatives both numbers exceed their displayed proper factors and are composite, while retaining every local Q condition.",
+    "exact_uniform_crt_rows": [
+      {
+        "coordinate_count_m": 2,
+        "odd_prime_palette": [
+          3,
+          5
+        ],
+        "wheel_modulus_W": 15,
+        "uniform_crt_gram_is_identity": true,
+        "uniform_crt_effective_rank": 2,
+        "chosen_admissible_residue_r": 11,
+        "outside_composite_factors": [
+          7,
+          11
+        ],
+        "constructed_progression_index_k": 38,
+        "constructed_composite_pair": [
+          581,
+          583
+        ],
+        "pairwise_independence_checks": [
+          {
+            "prime_pair": [
+              3,
+              5
+            ],
+            "joint_admissible_residue_count": 3,
+            "independence_count": {
+              "exact": "3",
+              "float": 3.0
+            },
+            "centered_covariance_zero": true
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "coordinate_count_m": 3,
+        "odd_prime_palette": [
+          3,
+          5,
+          7
+        ],
+        "wheel_modulus_W": 105,
+        "uniform_crt_gram_is_identity": true,
+        "uniform_crt_effective_rank": 3,
+        "chosen_admissible_residue_r": 71,
+        "outside_composite_factors": [
+          11,
+          13
+        ],
+        "constructed_progression_index_k": 122,
+        "constructed_composite_pair": [
+          12881,
+          12883
+        ],
+        "pairwise_independence_checks": [
+          {
+            "prime_pair": [
+              3,
+              5
+            ],
+            "joint_admissible_residue_count": 21,
+            "independence_count": {
+              "exact": "21",
+              "float": 21.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              3,
+              7
+            ],
+            "joint_admissible_residue_count": 25,
+            "independence_count": {
+              "exact": "25",
+              "float": 25.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              5,
+              7
+            ],
+            "joint_admissible_residue_count": 45,
+            "independence_count": {
+              "exact": "45",
+              "float": 45.0
+            },
+            "centered_covariance_zero": true
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "coordinate_count_m": 4,
+        "odd_prime_palette": [
+          3,
+          5,
+          7,
+          11
+        ],
+        "wheel_modulus_W": 1155,
+        "uniform_crt_gram_is_identity": true,
+        "uniform_crt_effective_rank": 4,
+        "chosen_admissible_residue_r": 386,
+        "outside_composite_factors": [
+          13,
+          17
+        ],
+        "constructed_progression_index_k": 167,
+        "constructed_composite_pair": [
+          193271,
+          193273
+        ],
+        "pairwise_independence_checks": [
+          {
+            "prime_pair": [
+              3,
+              5
+            ],
+            "joint_admissible_residue_count": 231,
+            "independence_count": {
+              "exact": "231",
+              "float": 231.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              3,
+              7
+            ],
+            "joint_admissible_residue_count": 275,
+            "independence_count": {
+              "exact": "275",
+              "float": 275.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              3,
+              11
+            ],
+            "joint_admissible_residue_count": 315,
+            "independence_count": {
+              "exact": "315",
+              "float": 315.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              5,
+              7
+            ],
+            "joint_admissible_residue_count": 495,
+            "independence_count": {
+              "exact": "495",
+              "float": 495.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              5,
+              11
+            ],
+            "joint_admissible_residue_count": 567,
+            "independence_count": {
+              "exact": "567",
+              "float": 567.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              7,
+              11
+            ],
+            "joint_admissible_residue_count": 675,
+            "independence_count": {
+              "exact": "675",
+              "float": 675.0
+            },
+            "centered_covariance_zero": true
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "coordinate_count_m": 5,
+        "odd_prime_palette": [
+          3,
+          5,
+          7,
+          11,
+          13
+        ],
+        "wheel_modulus_W": 15015,
+        "uniform_crt_gram_is_identity": true,
+        "uniform_crt_effective_rank": 5,
+        "chosen_admissible_residue_r": 5006,
+        "outside_composite_factors": [
+          17,
+          19
+        ],
+        "constructed_progression_index_k": 32,
+        "constructed_composite_pair": [
+          485486,
+          485488
+        ],
+        "pairwise_independence_checks": [
+          {
+            "prime_pair": [
+              3,
+              5
+            ],
+            "joint_admissible_residue_count": 3003,
+            "independence_count": {
+              "exact": "3003",
+              "float": 3003.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              3,
+              7
+            ],
+            "joint_admissible_residue_count": 3575,
+            "independence_count": {
+              "exact": "3575",
+              "float": 3575.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              3,
+              11
+            ],
+            "joint_admissible_residue_count": 4095,
+            "independence_count": {
+              "exact": "4095",
+              "float": 4095.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              3,
+              13
+            ],
+            "joint_admissible_residue_count": 4235,
+            "independence_count": {
+              "exact": "4235",
+              "float": 4235.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              5,
+              7
+            ],
+            "joint_admissible_residue_count": 6435,
+            "independence_count": {
+              "exact": "6435",
+              "float": 6435.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              5,
+              11
+            ],
+            "joint_admissible_residue_count": 7371,
+            "independence_count": {
+              "exact": "7371",
+              "float": 7371.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              5,
+              13
+            ],
+            "joint_admissible_residue_count": 7623,
+            "independence_count": {
+              "exact": "7623",
+              "float": 7623.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              7,
+              11
+            ],
+            "joint_admissible_residue_count": 8775,
+            "independence_count": {
+              "exact": "8775",
+              "float": 8775.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              7,
+              13
+            ],
+            "joint_admissible_residue_count": 9075,
+            "independence_count": {
+              "exact": "9075",
+              "float": 9075.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              11,
+              13
+            ],
+            "joint_admissible_residue_count": 10395,
+            "independence_count": {
+              "exact": "10395",
+              "float": 10395.0
+            },
+            "centered_covariance_zero": true
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "coordinate_count_m": 6,
+        "odd_prime_palette": [
+          3,
+          5,
+          7,
+          11,
+          13,
+          17
+        ],
+        "wheel_modulus_W": 255255,
+        "uniform_crt_gram_is_identity": true,
+        "uniform_crt_effective_rank": 6,
+        "chosen_admissible_residue_r": 170171,
+        "outside_composite_factors": [
+          19,
+          23
+        ],
+        "constructed_progression_index_k": 280,
+        "constructed_composite_pair": [
+          71641571,
+          71641573
+        ],
+        "pairwise_independence_checks": [
+          {
+            "prime_pair": [
+              3,
+              5
+            ],
+            "joint_admissible_residue_count": 51051,
+            "independence_count": {
+              "exact": "51051",
+              "float": 51051.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              3,
+              7
+            ],
+            "joint_admissible_residue_count": 60775,
+            "independence_count": {
+              "exact": "60775",
+              "float": 60775.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              3,
+              11
+            ],
+            "joint_admissible_residue_count": 69615,
+            "independence_count": {
+              "exact": "69615",
+              "float": 69615.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              3,
+              13
+            ],
+            "joint_admissible_residue_count": 71995,
+            "independence_count": {
+              "exact": "71995",
+              "float": 71995.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              3,
+              17
+            ],
+            "joint_admissible_residue_count": 75075,
+            "independence_count": {
+              "exact": "75075",
+              "float": 75075.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              5,
+              7
+            ],
+            "joint_admissible_residue_count": 109395,
+            "independence_count": {
+              "exact": "109395",
+              "float": 109395.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              5,
+              11
+            ],
+            "joint_admissible_residue_count": 125307,
+            "independence_count": {
+              "exact": "125307",
+              "float": 125307.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              5,
+              13
+            ],
+            "joint_admissible_residue_count": 129591,
+            "independence_count": {
+              "exact": "129591",
+              "float": 129591.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              5,
+              17
+            ],
+            "joint_admissible_residue_count": 135135,
+            "independence_count": {
+              "exact": "135135",
+              "float": 135135.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              7,
+              11
+            ],
+            "joint_admissible_residue_count": 149175,
+            "independence_count": {
+              "exact": "149175",
+              "float": 149175.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              7,
+              13
+            ],
+            "joint_admissible_residue_count": 154275,
+            "independence_count": {
+              "exact": "154275",
+              "float": 154275.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              7,
+              17
+            ],
+            "joint_admissible_residue_count": 160875,
+            "independence_count": {
+              "exact": "160875",
+              "float": 160875.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              11,
+              13
+            ],
+            "joint_admissible_residue_count": 176715,
+            "independence_count": {
+              "exact": "176715",
+              "float": 176715.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              11,
+              17
+            ],
+            "joint_admissible_residue_count": 184275,
+            "independence_count": {
+              "exact": "184275",
+              "float": 184275.0
+            },
+            "centered_covariance_zero": true
+          },
+          {
+            "prime_pair": [
+              13,
+              17
+            ],
+            "joint_admissible_residue_count": 190575,
+            "independence_count": {
+              "exact": "190575",
+              "float": 190575.0
+            },
+            "centered_covariance_zero": true
+          }
+        ],
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "3de4a619fbaef65ad33c039cc93022074b8e5de4206246a8ae4e8aaf716de379",
+    "aggregate": {
+      "uniform_crt_gram_identity_proved": true,
+      "uniform_crt_effective_rank_divergence_proved": true,
+      "local_effective_rank_sufficiency_refuted": true,
+      "admissible_classes_with_infinite_composite_pairs_constructed": true,
+      "prime_weighted_parity_sensitive_transfer_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem concerns the uniform product measure on finite CRT residues. It proves that the strongest possible local Gram-rank signal is compatible with infinitely many composite pairs. It does not estimate prime-weighted coordinates, produce positive twin principal mass, or cross the sieve parity barrier.",
+    "failure_count": 0
+  },
+  "discarded_route": "uniform local CRT effective-rank divergence as sufficient evidence for positive twin-prime mass",
+  "remaining_gap": "The theorem concerns the uniform product measure on finite CRT residues. It proves that the strongest possible local Gram-rank signal is compatible with infinitely many composite pairs. It does not estimate prime-weighted coordinates, produce positive twin principal mass, or cross the sieve parity barrier.",
+  "next_single_lemma": "ParitySensitiveTransferFromPrimeWeightedCRTOrthogonalityToPositiveTwinPrincipalMass",
+  "claim_boundary": "The theorem concerns the uniform product measure on finite CRT residues. It proves that the strongest possible local Gram-rank signal is compatible with infinitely many composite pairs. It does not estimate prime-weighted coordinates, produce positive twin principal mass, or cross the sieve parity barrier.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T238",
+        "label": "DegreeTwoEnergyEffectiveRankEquivalenceAndSupportGrowthNoGo",
+        "status": "closed_input"
+      },
+      {
+        "id": "TP-T239",
+        "label": "UniformCRTGramIdentityAndCompositeProgressionNoGo",
+        "status": "closed"
+      },
+      {
+        "id": "TP-N239",
+        "label": "UniformLocalEffectiveRankImpliesTwinPrimeMass",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-OPEN239",
+        "label": "ParitySensitiveTransferFromPrimeWeightedCRTOrthogonalityToPositiveTwinPrincipalMass",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "TP",
+        "label": "TwinPrimeConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T238",
+        "TP-T239"
+      ],
+      [
+        "TP-T239",
+        "TP-N239"
+      ],
+      [
+        "TP-T239",
+        "TP-OPEN239"
+      ],
+      [
+        "TP-OPEN239",
+        "TP"
+      ]
+    ]
+  }
+}

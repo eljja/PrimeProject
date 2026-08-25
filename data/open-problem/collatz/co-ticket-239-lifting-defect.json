@@ -1,0 +1,408 @@
+{
+  "schema": "primeproject.ticket239-cancellation-lifting-fourier-crt.v1",
+  "generated_at": "2026-08-25T18:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-239",
+  "theorem_name": "LocalLiftingDefectDichotomyAndPaletteCriterion",
+  "declared_proposition": "For an odd prime q>3 put ell_q=lcm(ord_q(32/27),ord_q(2/3)), a_q=v_q(32^{ell_q}-27^{ell_q}), and c_q=v_q(2^{ell_q}-3^{ell_q}). For every n>=1, q is a valuation witness v_q(D_{ell_q n})>v_q(B_{ell_q n}) exactly when a_q>c_q. If a_q<=c_q, q is disabled on every such multiple. Consequently, a finite palette S is simultaneously disabled on every multiple of L=lcm_{q in S}ell_q whenever all its local lifting defects delta_q=a_q-c_q are nonpositive.",
+  "mathematical_argument": "Write x=32/27 and y=2/3 in the q-adic units. LTE gives v_q(x^{ell_q n}-1)=a_q+v_q(n) and v_q(y^{ell_q n}-1)=c_q+v_q(n). After division by 27^k, B_k=(x^k-1)-2(y^k-1). If the two displayed valuations differ, the valuation of B_k is their minimum; if they are equal, it is at least that common value. This proves the dichotomy. Replacing ell_q by the global common multiple adds the same q-adic valuation to both depths and preserves their ordering.",
+  "reproducible_computation": {
+    "theorem": "For an odd prime q>3 put ell_q=lcm(ord_q(32/27),ord_q(2/3)), a_q=v_q(32^{ell_q}-27^{ell_q}), and c_q=v_q(2^{ell_q}-3^{ell_q}). For every n>=1, q is a valuation witness v_q(D_{ell_q n})>v_q(B_{ell_q n}) exactly when a_q>c_q. If a_q<=c_q, q is disabled on every such multiple. Consequently, a finite palette S is simultaneously disabled on every multiple of L=lcm_{q in S}ell_q whenever all its local lifting defects delta_q=a_q-c_q are nonpositive.",
+    "proof": "Write x=32/27 and y=2/3 in the q-adic units. LTE gives v_q(x^{ell_q n}-1)=a_q+v_q(n) and v_q(y^{ell_q n}-1)=c_q+v_q(n). After division by 27^k, B_k=(x^k-1)-2(y^k-1). If the two displayed valuations differ, the valuation of B_k is their minimum; if they are equal, it is at least that common value. This proves the dichotomy. Replacing ell_q by the global common multiple adds the same q-adic valuation to both depths and preserves their ordering.",
+    "representative_local_lifting_rows": [
+      {
+        "prime_q": 5,
+        "order_q_32_over_27": 1,
+        "order_q_2_over_3": 2,
+        "local_common_period_ell_q": 2,
+        "depth_a_q": 1,
+        "depth_c_q": 1,
+        "lifting_defect_delta_q": 0,
+        "positive_defect": false
+      },
+      {
+        "prime_q": 7,
+        "order_q_32_over_27": 6,
+        "order_q_2_over_3": 6,
+        "local_common_period_ell_q": 6,
+        "depth_a_q": 1,
+        "depth_c_q": 1,
+        "lifting_defect_delta_q": 0,
+        "positive_defect": false
+      },
+      {
+        "prime_q": 13,
+        "order_q_32_over_27": 12,
+        "order_q_2_over_3": 4,
+        "local_common_period_ell_q": 12,
+        "depth_a_q": 1,
+        "depth_c_q": 1,
+        "lifting_defect_delta_q": 0,
+        "positive_defect": false
+      },
+      {
+        "prime_q": 19,
+        "order_q_32_over_27": 9,
+        "order_q_2_over_3": 3,
+        "local_common_period_ell_q": 9,
+        "depth_a_q": 1,
+        "depth_c_q": 1,
+        "lifting_defect_delta_q": 0,
+        "positive_defect": false
+      },
+      {
+        "prime_q": 31,
+        "order_q_32_over_27": 10,
+        "order_q_2_over_3": 30,
+        "local_common_period_ell_q": 30,
+        "depth_a_q": 1,
+        "depth_c_q": 1,
+        "lifting_defect_delta_q": 0,
+        "positive_defect": false
+      },
+      {
+        "prime_q": 37,
+        "order_q_32_over_27": 36,
+        "order_q_2_over_3": 36,
+        "local_common_period_ell_q": 36,
+        "depth_a_q": 1,
+        "depth_c_q": 1,
+        "lifting_defect_delta_q": 0,
+        "positive_defect": false
+      },
+      {
+        "prime_q": 41,
+        "order_q_32_over_27": 8,
+        "order_q_2_over_3": 40,
+        "local_common_period_ell_q": 40,
+        "depth_a_q": 1,
+        "depth_c_q": 1,
+        "lifting_defect_delta_q": 0,
+        "positive_defect": false
+      },
+      {
+        "prime_q": 43,
+        "order_q_32_over_27": 7,
+        "order_q_2_over_3": 21,
+        "local_common_period_ell_q": 21,
+        "depth_a_q": 1,
+        "depth_c_q": 1,
+        "lifting_defect_delta_q": 0,
+        "positive_defect": false
+      },
+      {
+        "prime_q": 59,
+        "order_q_32_over_27": 2,
+        "order_q_2_over_3": 58,
+        "local_common_period_ell_q": 58,
+        "depth_a_q": 1,
+        "depth_c_q": 1,
+        "lifting_defect_delta_q": 0,
+        "positive_defect": false
+      },
+      {
+        "prime_q": 97,
+        "order_q_32_over_27": 12,
+        "order_q_2_over_3": 8,
+        "local_common_period_ell_q": 24,
+        "depth_a_q": 1,
+        "depth_c_q": 1,
+        "lifting_defect_delta_q": 0,
+        "positive_defect": false
+      },
+      {
+        "prime_q": 101,
+        "order_q_32_over_27": 50,
+        "order_q_2_over_3": 25,
+        "local_common_period_ell_q": 50,
+        "depth_a_q": 1,
+        "depth_c_q": 1,
+        "lifting_defect_delta_q": 0,
+        "positive_defect": false
+      },
+      {
+        "prime_q": 109,
+        "order_q_32_over_27": 36,
+        "order_q_2_over_3": 108,
+        "local_common_period_ell_q": 108,
+        "depth_a_q": 1,
+        "depth_c_q": 1,
+        "lifting_defect_delta_q": 0,
+        "positive_defect": false
+      }
+    ],
+    "exact_palette_rows": [
+      {
+        "finite_prime_palette": [
+          5
+        ],
+        "common_period_L": 2,
+        "all_local_lifting_defects_nonpositive": true,
+        "prime_checks": [
+          {
+            "prime_q": 5,
+            "local_period_ell_q": 2,
+            "global_period_multiplier": 1,
+            "predicted_v_q_D_L": 1,
+            "predicted_v_q_y_L_minus_1": 1,
+            "direct_v_q_D_L": 1,
+            "direct_v_q_B_L": 1,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          }
+        ],
+        "all_palette_valuation_witnesses_disabled": true
+      },
+      {
+        "finite_prime_palette": [
+          5,
+          7,
+          59
+        ],
+        "common_period_L": 174,
+        "all_local_lifting_defects_nonpositive": true,
+        "prime_checks": [
+          {
+            "prime_q": 5,
+            "local_period_ell_q": 2,
+            "global_period_multiplier": 87,
+            "predicted_v_q_D_L": 1,
+            "predicted_v_q_y_L_minus_1": 1,
+            "direct_v_q_D_L": 1,
+            "direct_v_q_B_L": 1,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 7,
+            "local_period_ell_q": 6,
+            "global_period_multiplier": 29,
+            "predicted_v_q_D_L": 1,
+            "predicted_v_q_y_L_minus_1": 1,
+            "direct_v_q_D_L": 1,
+            "direct_v_q_B_L": 2,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 59,
+            "local_period_ell_q": 58,
+            "global_period_multiplier": 3,
+            "predicted_v_q_D_L": 1,
+            "predicted_v_q_y_L_minus_1": 1,
+            "direct_v_q_D_L": 1,
+            "direct_v_q_B_L": 1,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          }
+        ],
+        "all_palette_valuation_witnesses_disabled": true
+      },
+      {
+        "finite_prime_palette": [
+          5,
+          7,
+          13,
+          19,
+          31,
+          37,
+          41,
+          43,
+          59
+        ],
+        "common_period_L": 73080,
+        "all_local_lifting_defects_nonpositive": true,
+        "prime_checks": [
+          {
+            "prime_q": 5,
+            "local_period_ell_q": 2,
+            "global_period_multiplier": 36540,
+            "predicted_v_q_D_L": 2,
+            "predicted_v_q_y_L_minus_1": 2,
+            "direct_v_q_D_L": 2,
+            "direct_v_q_B_L": 2,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 7,
+            "local_period_ell_q": 6,
+            "global_period_multiplier": 12180,
+            "predicted_v_q_D_L": 2,
+            "predicted_v_q_y_L_minus_1": 2,
+            "direct_v_q_D_L": 2,
+            "direct_v_q_B_L": 3,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 13,
+            "local_period_ell_q": 12,
+            "global_period_multiplier": 6090,
+            "predicted_v_q_D_L": 1,
+            "predicted_v_q_y_L_minus_1": 1,
+            "direct_v_q_D_L": 1,
+            "direct_v_q_B_L": 1,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 19,
+            "local_period_ell_q": 9,
+            "global_period_multiplier": 8120,
+            "predicted_v_q_D_L": 1,
+            "predicted_v_q_y_L_minus_1": 1,
+            "direct_v_q_D_L": 1,
+            "direct_v_q_B_L": 1,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 31,
+            "local_period_ell_q": 30,
+            "global_period_multiplier": 2436,
+            "predicted_v_q_D_L": 1,
+            "predicted_v_q_y_L_minus_1": 1,
+            "direct_v_q_D_L": 1,
+            "direct_v_q_B_L": 1,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 37,
+            "local_period_ell_q": 36,
+            "global_period_multiplier": 2030,
+            "predicted_v_q_D_L": 1,
+            "predicted_v_q_y_L_minus_1": 1,
+            "direct_v_q_D_L": 1,
+            "direct_v_q_B_L": 1,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 41,
+            "local_period_ell_q": 40,
+            "global_period_multiplier": 1827,
+            "predicted_v_q_D_L": 1,
+            "predicted_v_q_y_L_minus_1": 1,
+            "direct_v_q_D_L": 1,
+            "direct_v_q_B_L": 1,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 43,
+            "local_period_ell_q": 21,
+            "global_period_multiplier": 3480,
+            "predicted_v_q_D_L": 1,
+            "predicted_v_q_y_L_minus_1": 1,
+            "direct_v_q_D_L": 1,
+            "direct_v_q_B_L": 1,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 59,
+            "local_period_ell_q": 58,
+            "global_period_multiplier": 1260,
+            "predicted_v_q_D_L": 1,
+            "predicted_v_q_y_L_minus_1": 1,
+            "direct_v_q_D_L": 1,
+            "direct_v_q_B_L": 1,
+            "valuation_witness_disabled": true,
+            "certificate_verified": true
+          }
+        ],
+        "all_palette_valuation_witnesses_disabled": true
+      }
+    ],
+    "bounded_exception_scan": {
+      "prime_limit": 200000,
+      "odd_primes_scanned": 17982,
+      "positive_lifting_defect_count": 0,
+      "positive_lifting_defects": [],
+      "valuation_cap_censored_count": 0,
+      "scope": "This finite scan is reproducible evidence only. Zero observed positive defects does not prove their global absence."
+    },
+    "transcript_sha256": "f9bb7522f8a4e115e11571ec70625a7a7201f7cc05311a74fbb32401be28dfe3",
+    "aggregate": {
+      "local_lifting_defect_dichotomy_proved": true,
+      "finite_palette_common_multiple_criterion_proved": true,
+      "mod_q_presence_automatically_controls_valuations_refuted": true,
+      "all_odd_prime_lifting_defects_nonpositive_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "Common divisibility modulo q does not by itself compare q-adic depths; a positive local defect would defeat the TICKET-237 common-multiple construction at valuation level. The bounded scan found no such prime through 200,000 but cannot remove the universal prime quantifier, address general necklaces, or prove aperiodic Collatz descent.",
+    "failure_count": 0
+  },
+  "discarded_route": "lifting TICKET-237 modulo-prime palette separation to valuation depth without a local q-adic comparison",
+  "remaining_gap": "Common divisibility modulo q does not by itself compare q-adic depths; a positive local defect would defeat the TICKET-237 common-multiple construction at valuation level. The bounded scan found no such prime through 200,000 but cannot remove the universal prime quantifier, address general necklaces, or prove aperiodic Collatz descent.",
+  "next_single_lemma": "RunBlockLocalLiftingDefectNonpositiveForEveryOddPrime",
+  "claim_boundary": "Common divisibility modulo q does not by itself compare q-adic depths; a positive local defect would defeat the TICKET-237 common-multiple construction at valuation level. The bounded scan found no such prime through 200,000 but cannot remove the universal prime quantifier, address general necklaces, or prove aperiodic Collatz descent.",
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T237",
+        "label": "NoFinitePrimePaletteUniversallySeparatesBinaryRunBlocks",
+        "status": "closed_input"
+      },
+      {
+        "id": "CO-T238",
+        "label": "AdaptiveValuationCriterionEquivalenceAndRunBlockClosure",
+        "status": "closed_input"
+      },
+      {
+        "id": "CO-T239",
+        "label": "LocalLiftingDefectDichotomyAndPaletteCriterion",
+        "status": "closed"
+      },
+      {
+        "id": "CO-N239",
+        "label": "ModuloPrimePresenceAutomaticallyControlsValuationDepth",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-OPEN239",
+        "label": "RunBlockLocalLiftingDefectNonpositiveForEveryOddPrime",
+        "status": "highest_risk_open"
+      },
+      {
+        "id": "CO-PERIODIC",
+        "label": "AllPeriodicValuationWords",
+        "status": "open_not_proven"
+      },
+      {
+        "id": "CO",
+        "label": "CollatzConjecture",
+        "status": "open_not_proven"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T237",
+        "CO-T239"
+      ],
+      [
+        "CO-T238",
+        "CO-T239"
+      ],
+      [
+        "CO-T239",
+        "CO-N239"
+      ],
+      [
+        "CO-T239",
+        "CO-OPEN239"
+      ],
+      [
+        "CO-OPEN239",
+        "CO-PERIODIC"
+      ],
+      [
+        "CO-PERIODIC",
+        "CO"
+      ]
+    ]
+  }
+}

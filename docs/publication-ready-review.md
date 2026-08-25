@@ -300,3 +300,25 @@ machine resolution count remains zero. These results may be presented as
 partial or no-go theorems only; none is a proof or counterexample for a parent
 conjecture, and no novelty or priority claim is made before independent expert
 review.
+## TICKET-239 publication boundary
+
+TICKET-239 adds four exact route corrections: a power-decay Schur threshold
+with a non-summable positive Gram no-go; a local Collatz q-adic lifting-defect
+criterion; a Goldbach reflection Fourier identity with an L2 insufficiency
+counterfamily; and a uniform-CRT identity compatible with infinite composite
+pairs.
+
+Allowed claims:
+
+- the four declared finite-dimensional or local arithmetic propositions are
+  proved by the supplied arguments and reproduced by the JSON generator;
+- the Collatz prime scan stops at 200,000 and the Goldbach prime-window audit
+  stops at 1,000,000;
+- every parent conjecture remains `open_not_proven`.
+
+Blocked claims:
+
+- that non-summable Weil interactions imply failure of RH positivity;
+- that zero observed Collatz lifting defects proves the all-prime statement;
+- that Goldbach density or Parseval energy forces every reflected coefficient;
+- that uniform CRT effective rank is a prime-weighted twin-prime lower bound.

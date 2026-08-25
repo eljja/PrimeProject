@@ -1,0 +1,1889 @@
+{
+  "schema": "primeproject.ticket239-cancellation-lifting-fourier-crt.v1",
+  "generated_at": "2026-08-25T18:00:00+09:00",
+  "status": "open_not_proven",
+  "claim_boundary": "TICKET-239 proves four exact partial or no-go results and resolves none of the four parent conjectures.",
+  "cancellation_lifting_fourier_crt_audit": {
+    "theorem_name": "FourConjectureCancellationLiftingFourierCRTAudit",
+    "status": "open_not_proven",
+    "proof_boundary": "TICKET-239 proves four exact partial or no-go results: a power-decay Schur threshold with a nonsummable positive Gram family; a Collatz local lifting-defect dichotomy; a mesoscopic reflection Fourier identity with an L2 insufficiency counterfamily; and a uniform-CRT Gram identity compatible with infinitely many composite pairs. It resolves none of the four parent conjectures.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-239",
+      "theorem_name": "PowerDecaySchurThresholdAndNonsummablePositiveGramNoGo",
+      "declared_proposition": "Let H_J be a Hermitian shell-block matrix with identity diagonal. If ||K_ij||_op<=C|i-j|^{-alpha}, alpha>1, and 2C zeta(alpha)<1, then H_J>=(1-2C zeta(alpha))I uniformly in J. Absolute summability is sufficient but not necessary: for every 0<C<1 and 0<alpha<=1, the scalar matrices G_J=(1-C)I+C[(1+|i-j|)^{-alpha}] are normalized Gram matrices with G_J>=(1-C)I, while their maximum absolute off-diagonal row sums diverge. Therefore failure of the TICKET-238 row-sum test cannot be used as evidence against Weil-form positivity.",
+      "mathematical_argument": "The first statement follows from the block Schur estimate and sum_{d>=1}d^{-alpha}=zeta(alpha). For the second, use (n+1)^{-alpha}=Gamma(alpha)^{-1} integral_0^1 t^n(-log t)^{alpha-1}dt. Each kernel [t^{|i-j|}] is positive semidefinite, so their positive mixture R_J is positive semidefinite with unit diagonal. Hence (1-C)I+C R_J has lower bound 1-C. Its central off-diagonal row sum dominates a constant multiple of sum_{d<=J/2}(d+1)^{-alpha}, which diverges for alpha<=1. The exact rows instantiate alpha=2,C=1/8 and the non-summable positive family alpha=1,C=1/2.",
+      "reproducible_computation": {
+        "theorem": "Let H_J be a Hermitian shell-block matrix with identity diagonal. If ||K_ij||_op<=C|i-j|^{-alpha}, alpha>1, and 2C zeta(alpha)<1, then H_J>=(1-2C zeta(alpha))I uniformly in J. Absolute summability is sufficient but not necessary: for every 0<C<1 and 0<alpha<=1, the scalar matrices G_J=(1-C)I+C[(1+|i-j|)^{-alpha}] are normalized Gram matrices with G_J>=(1-C)I, while their maximum absolute off-diagonal row sums diverge. Therefore failure of the TICKET-238 row-sum test cannot be used as evidence against Weil-form positivity.",
+        "proof": "The first statement follows from the block Schur estimate and sum_{d>=1}d^{-alpha}=zeta(alpha). For the second, use (n+1)^{-alpha}=Gamma(alpha)^{-1} integral_0^1 t^n(-log t)^{alpha-1}dt. Each kernel [t^{|i-j|}] is positive semidefinite, so their positive mixture R_J is positive semidefinite with unit diagonal. Hence (1-C)I+C R_J has lower bound 1-C. Its central off-diagonal row sum dominates a constant multiple of sum_{d<=J/2}(d+1)^{-alpha}, which diverges for alpha<=1. The exact rows instantiate alpha=2,C=1/8 and the non-summable positive family alpha=1,C=1/2.",
+        "exact_summable_power_decay_rows": [
+          {
+            "shell_count_J": 4,
+            "power_decay_alpha": 2,
+            "interaction_constant_C": {
+              "exact": "1/8",
+              "float": 0.125
+            },
+            "maximum_absolute_cross_row_sum_eta_J": {
+              "exact": "9/32",
+              "float": 0.28125
+            },
+            "row_sum_certified_lower_bound": {
+              "exact": "23/32",
+              "float": 0.71875
+            },
+            "certificate_verified": true
+          },
+          {
+            "shell_count_J": 8,
+            "power_decay_alpha": 2,
+            "interaction_constant_C": {
+              "exact": "1/8",
+              "float": 0.125
+            },
+            "maximum_absolute_cross_row_sum_eta_J": {
+              "exact": "401/1152",
+              "float": 0.3480902777777778
+            },
+            "row_sum_certified_lower_bound": {
+              "exact": "751/1152",
+              "float": 0.6519097222222222
+            },
+            "certificate_verified": true
+          },
+          {
+            "shell_count_J": 16,
+            "power_decay_alpha": 2,
+            "interaction_constant_C": {
+              "exact": "1/8",
+              "float": 0.125
+            },
+            "maximum_absolute_cross_row_sum_eta_J": {
+              "exact": "2144473/5644800",
+              "float": 0.37990238803854876
+            },
+            "row_sum_certified_lower_bound": {
+              "exact": "3500327/5644800",
+              "float": 0.6200976119614513
+            },
+            "certificate_verified": true
+          },
+          {
+            "shell_count_J": 32,
+            "power_decay_alpha": 2,
+            "interaction_constant_C": {
+              "exact": "1/8",
+              "float": 0.125
+            },
+            "maximum_absolute_cross_row_sum_eta_J": {
+              "exact": "1643908377473/4155498547200",
+              "float": 0.3955983521112468
+            },
+            "row_sum_certified_lower_bound": {
+              "exact": "2511590169727/4155498547200",
+              "float": 0.6044016478887533
+            },
+            "certificate_verified": true
+          },
+          {
+            "shell_count_J": 64,
+            "power_decay_alpha": 2,
+            "interaction_constant_C": {
+              "exact": "1/8",
+              "float": 0.125
+            },
+            "maximum_absolute_cross_row_sum_eta_J": {
+              "exact": "67298114292858244533383442497/166819088706357863463367680000",
+              "float": 0.4034197453944811
+            },
+            "row_sum_certified_lower_bound": {
+              "exact": "99520974413499618929984237503/166819088706357863463367680000",
+              "float": 0.5965802546055189
+            },
+            "certificate_verified": true
+          }
+        ],
+        "exact_nonsummable_positive_mixture_rows": [
+          {
+            "shell_count_J": 4,
+            "power_decay_alpha": 1,
+            "mixture_constant_C": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "maximum_absolute_cross_row_sum_eta_J": {
+              "exact": "2/3",
+              "float": 0.6666666666666666
+            },
+            "absolute_row_sum_certificate_passes": true,
+            "integral_mixture_uniform_lower_bound": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "shell_count_J": 8,
+            "power_decay_alpha": 1,
+            "mixture_constant_C": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "maximum_absolute_cross_row_sum_eta_J": {
+              "exact": "71/60",
+              "float": 1.1833333333333333
+            },
+            "absolute_row_sum_certificate_passes": false,
+            "integral_mixture_uniform_lower_bound": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "shell_count_J": 16,
+            "power_decay_alpha": 1,
+            "mixture_constant_C": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "maximum_absolute_cross_row_sum_eta_J": {
+              "exact": "4469/2520",
+              "float": 1.7734126984126983
+            },
+            "absolute_row_sum_certificate_passes": false,
+            "integral_mixture_uniform_lower_bound": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "shell_count_J": 32,
+            "power_decay_alpha": 1,
+            "mixture_constant_C": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "maximum_absolute_cross_row_sum_eta_J": {
+              "exact": "29529623/12252240",
+              "float": 2.4101407579348755
+            },
+            "absolute_row_sum_certificate_passes": false,
+            "integral_mixture_uniform_lower_bound": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "shell_count_J": 64,
+            "power_decay_alpha": 1,
+            "mixture_constant_C": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "maximum_absolute_cross_row_sum_eta_J": {
+              "exact": "443845505348639/144403552893600",
+              "float": 3.073646710588035
+            },
+            "absolute_row_sum_certificate_passes": false,
+            "integral_mixture_uniform_lower_bound": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "1ec85f2a1658cc80e59e119ada9b9b9980264355e18f5e9103318f2ba66e19e5",
+        "aggregate": {
+          "power_decay_schur_threshold_proved": true,
+          "absolute_row_sum_necessity_refuted": true,
+          "nonsummable_uniformly_positive_gram_family_constructed": true,
+          "arithmetic_weil_cancellation_bound_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The matrices are exact abstract Gram families, not arithmetic Guinand-Weil shell blocks. The theorem proves that absolute row-sum control is a sufficient route and that its failure is non-diagnostic; it supplies no signed or operator cancellation estimate for the actual Weil kernel and locates no zeta zero.",
+        "failure_count": 0
+      },
+      "logical_limit": "The matrices are exact abstract Gram families, not arithmetic Guinand-Weil shell blocks. The theorem proves that absolute row-sum control is a sufficient route and that its failure is non-diagnostic; it supplies no signed or operator cancellation estimate for the actual Weil kernel and locates no zeta zero.",
+      "route_decision": {
+        "discard": "absolute cross-row summability as a necessary condition for cofinal Weil positivity",
+        "retain": "replace the failed necessity claim by a signed almost-orthogonality or Cotlar-Stein cancellation estimate for actual arithmetic shell blocks",
+        "next_single_lemma": "ArithmeticWeilCrossBlockCotlarSteinCancellationBoundOnCofinalLogarithmicShells"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T238",
+            "label": "MultishellNormalizedCrossRowSumCriterionAndPairwiseAngleNoGo",
+            "status": "closed_input"
+          },
+          {
+            "id": "RH-T239",
+            "label": "PowerDecaySchurThresholdAndNonsummablePositiveGramNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N239",
+            "label": "AbsoluteCrossRowSummabilityIsNecessaryForWeilPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN239",
+            "label": "ArithmeticWeilCrossBlockCotlarSteinCancellationBoundOnCofinalLogarithmicShells",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T238",
+            "RH-T239"
+          ],
+          [
+            "RH-T239",
+            "RH-N239"
+          ],
+          [
+            "RH-T239",
+            "RH-OPEN239"
+          ],
+          [
+            "RH-OPEN239",
+            "RH"
+          ]
+        ]
+      }
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-239",
+      "theorem_name": "LocalLiftingDefectDichotomyAndPaletteCriterion",
+      "declared_proposition": "For an odd prime q>3 put ell_q=lcm(ord_q(32/27),ord_q(2/3)), a_q=v_q(32^{ell_q}-27^{ell_q}), and c_q=v_q(2^{ell_q}-3^{ell_q}). For every n>=1, q is a valuation witness v_q(D_{ell_q n})>v_q(B_{ell_q n}) exactly when a_q>c_q. If a_q<=c_q, q is disabled on every such multiple. Consequently, a finite palette S is simultaneously disabled on every multiple of L=lcm_{q in S}ell_q whenever all its local lifting defects delta_q=a_q-c_q are nonpositive.",
+      "mathematical_argument": "Write x=32/27 and y=2/3 in the q-adic units. LTE gives v_q(x^{ell_q n}-1)=a_q+v_q(n) and v_q(y^{ell_q n}-1)=c_q+v_q(n). After division by 27^k, B_k=(x^k-1)-2(y^k-1). If the two displayed valuations differ, the valuation of B_k is their minimum; if they are equal, it is at least that common value. This proves the dichotomy. Replacing ell_q by the global common multiple adds the same q-adic valuation to both depths and preserves their ordering.",
+      "reproducible_computation": {
+        "theorem": "For an odd prime q>3 put ell_q=lcm(ord_q(32/27),ord_q(2/3)), a_q=v_q(32^{ell_q}-27^{ell_q}), and c_q=v_q(2^{ell_q}-3^{ell_q}). For every n>=1, q is a valuation witness v_q(D_{ell_q n})>v_q(B_{ell_q n}) exactly when a_q>c_q. If a_q<=c_q, q is disabled on every such multiple. Consequently, a finite palette S is simultaneously disabled on every multiple of L=lcm_{q in S}ell_q whenever all its local lifting defects delta_q=a_q-c_q are nonpositive.",
+        "proof": "Write x=32/27 and y=2/3 in the q-adic units. LTE gives v_q(x^{ell_q n}-1)=a_q+v_q(n) and v_q(y^{ell_q n}-1)=c_q+v_q(n). After division by 27^k, B_k=(x^k-1)-2(y^k-1). If the two displayed valuations differ, the valuation of B_k is their minimum; if they are equal, it is at least that common value. This proves the dichotomy. Replacing ell_q by the global common multiple adds the same q-adic valuation to both depths and preserves their ordering.",
+        "representative_local_lifting_rows": [
+          {
+            "prime_q": 5,
+            "order_q_32_over_27": 1,
+            "order_q_2_over_3": 2,
+            "local_common_period_ell_q": 2,
+            "depth_a_q": 1,
+            "depth_c_q": 1,
+            "lifting_defect_delta_q": 0,
+            "positive_defect": false
+          },
+          {
+            "prime_q": 7,
+            "order_q_32_over_27": 6,
+            "order_q_2_over_3": 6,
+            "local_common_period_ell_q": 6,
+            "depth_a_q": 1,
+            "depth_c_q": 1,
+            "lifting_defect_delta_q": 0,
+            "positive_defect": false
+          },
+          {
+            "prime_q": 13,
+            "order_q_32_over_27": 12,
+            "order_q_2_over_3": 4,
+            "local_common_period_ell_q": 12,
+            "depth_a_q": 1,
+            "depth_c_q": 1,
+            "lifting_defect_delta_q": 0,
+            "positive_defect": false
+          },
+          {
+            "prime_q": 19,
+            "order_q_32_over_27": 9,
+            "order_q_2_over_3": 3,
+            "local_common_period_ell_q": 9,
+            "depth_a_q": 1,
+            "depth_c_q": 1,
+            "lifting_defect_delta_q": 0,
+            "positive_defect": false
+          },
+          {
+            "prime_q": 31,
+            "order_q_32_over_27": 10,
+            "order_q_2_over_3": 30,
+            "local_common_period_ell_q": 30,
+            "depth_a_q": 1,
+            "depth_c_q": 1,
+            "lifting_defect_delta_q": 0,
+            "positive_defect": false
+          },
+          {
+            "prime_q": 37,
+            "order_q_32_over_27": 36,
+            "order_q_2_over_3": 36,
+            "local_common_period_ell_q": 36,
+            "depth_a_q": 1,
+            "depth_c_q": 1,
+            "lifting_defect_delta_q": 0,
+            "positive_defect": false
+          },
+          {
+            "prime_q": 41,
+            "order_q_32_over_27": 8,
+            "order_q_2_over_3": 40,
+            "local_common_period_ell_q": 40,
+            "depth_a_q": 1,
+            "depth_c_q": 1,
+            "lifting_defect_delta_q": 0,
+            "positive_defect": false
+          },
+          {
+            "prime_q": 43,
+            "order_q_32_over_27": 7,
+            "order_q_2_over_3": 21,
+            "local_common_period_ell_q": 21,
+            "depth_a_q": 1,
+            "depth_c_q": 1,
+            "lifting_defect_delta_q": 0,
+            "positive_defect": false
+          },
+          {
+            "prime_q": 59,
+            "order_q_32_over_27": 2,
+            "order_q_2_over_3": 58,
+            "local_common_period_ell_q": 58,
+            "depth_a_q": 1,
+            "depth_c_q": 1,
+            "lifting_defect_delta_q": 0,
+            "positive_defect": false
+          },
+          {
+            "prime_q": 97,
+            "order_q_32_over_27": 12,
+            "order_q_2_over_3": 8,
+            "local_common_period_ell_q": 24,
+            "depth_a_q": 1,
+            "depth_c_q": 1,
+            "lifting_defect_delta_q": 0,
+            "positive_defect": false
+          },
+          {
+            "prime_q": 101,
+            "order_q_32_over_27": 50,
+            "order_q_2_over_3": 25,
+            "local_common_period_ell_q": 50,
+            "depth_a_q": 1,
+            "depth_c_q": 1,
+            "lifting_defect_delta_q": 0,
+            "positive_defect": false
+          },
+          {
+            "prime_q": 109,
+            "order_q_32_over_27": 36,
+            "order_q_2_over_3": 108,
+            "local_common_period_ell_q": 108,
+            "depth_a_q": 1,
+            "depth_c_q": 1,
+            "lifting_defect_delta_q": 0,
+            "positive_defect": false
+          }
+        ],
+        "exact_palette_rows": [
+          {
+            "finite_prime_palette": [
+              5
+            ],
+            "common_period_L": 2,
+            "all_local_lifting_defects_nonpositive": true,
+            "prime_checks": [
+              {
+                "prime_q": 5,
+                "local_period_ell_q": 2,
+                "global_period_multiplier": 1,
+                "predicted_v_q_D_L": 1,
+                "predicted_v_q_y_L_minus_1": 1,
+                "direct_v_q_D_L": 1,
+                "direct_v_q_B_L": 1,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              }
+            ],
+            "all_palette_valuation_witnesses_disabled": true
+          },
+          {
+            "finite_prime_palette": [
+              5,
+              7,
+              59
+            ],
+            "common_period_L": 174,
+            "all_local_lifting_defects_nonpositive": true,
+            "prime_checks": [
+              {
+                "prime_q": 5,
+                "local_period_ell_q": 2,
+                "global_period_multiplier": 87,
+                "predicted_v_q_D_L": 1,
+                "predicted_v_q_y_L_minus_1": 1,
+                "direct_v_q_D_L": 1,
+                "direct_v_q_B_L": 1,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              },
+              {
+                "prime_q": 7,
+                "local_period_ell_q": 6,
+                "global_period_multiplier": 29,
+                "predicted_v_q_D_L": 1,
+                "predicted_v_q_y_L_minus_1": 1,
+                "direct_v_q_D_L": 1,
+                "direct_v_q_B_L": 2,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              },
+              {
+                "prime_q": 59,
+                "local_period_ell_q": 58,
+                "global_period_multiplier": 3,
+                "predicted_v_q_D_L": 1,
+                "predicted_v_q_y_L_minus_1": 1,
+                "direct_v_q_D_L": 1,
+                "direct_v_q_B_L": 1,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              }
+            ],
+            "all_palette_valuation_witnesses_disabled": true
+          },
+          {
+            "finite_prime_palette": [
+              5,
+              7,
+              13,
+              19,
+              31,
+              37,
+              41,
+              43,
+              59
+            ],
+            "common_period_L": 73080,
+            "all_local_lifting_defects_nonpositive": true,
+            "prime_checks": [
+              {
+                "prime_q": 5,
+                "local_period_ell_q": 2,
+                "global_period_multiplier": 36540,
+                "predicted_v_q_D_L": 2,
+                "predicted_v_q_y_L_minus_1": 2,
+                "direct_v_q_D_L": 2,
+                "direct_v_q_B_L": 2,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              },
+              {
+                "prime_q": 7,
+                "local_period_ell_q": 6,
+                "global_period_multiplier": 12180,
+                "predicted_v_q_D_L": 2,
+                "predicted_v_q_y_L_minus_1": 2,
+                "direct_v_q_D_L": 2,
+                "direct_v_q_B_L": 3,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              },
+              {
+                "prime_q": 13,
+                "local_period_ell_q": 12,
+                "global_period_multiplier": 6090,
+                "predicted_v_q_D_L": 1,
+                "predicted_v_q_y_L_minus_1": 1,
+                "direct_v_q_D_L": 1,
+                "direct_v_q_B_L": 1,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              },
+              {
+                "prime_q": 19,
+                "local_period_ell_q": 9,
+                "global_period_multiplier": 8120,
+                "predicted_v_q_D_L": 1,
+                "predicted_v_q_y_L_minus_1": 1,
+                "direct_v_q_D_L": 1,
+                "direct_v_q_B_L": 1,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              },
+              {
+                "prime_q": 31,
+                "local_period_ell_q": 30,
+                "global_period_multiplier": 2436,
+                "predicted_v_q_D_L": 1,
+                "predicted_v_q_y_L_minus_1": 1,
+                "direct_v_q_D_L": 1,
+                "direct_v_q_B_L": 1,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              },
+              {
+                "prime_q": 37,
+                "local_period_ell_q": 36,
+                "global_period_multiplier": 2030,
+                "predicted_v_q_D_L": 1,
+                "predicted_v_q_y_L_minus_1": 1,
+                "direct_v_q_D_L": 1,
+                "direct_v_q_B_L": 1,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              },
+              {
+                "prime_q": 41,
+                "local_period_ell_q": 40,
+                "global_period_multiplier": 1827,
+                "predicted_v_q_D_L": 1,
+                "predicted_v_q_y_L_minus_1": 1,
+                "direct_v_q_D_L": 1,
+                "direct_v_q_B_L": 1,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              },
+              {
+                "prime_q": 43,
+                "local_period_ell_q": 21,
+                "global_period_multiplier": 3480,
+                "predicted_v_q_D_L": 1,
+                "predicted_v_q_y_L_minus_1": 1,
+                "direct_v_q_D_L": 1,
+                "direct_v_q_B_L": 1,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              },
+              {
+                "prime_q": 59,
+                "local_period_ell_q": 58,
+                "global_period_multiplier": 1260,
+                "predicted_v_q_D_L": 1,
+                "predicted_v_q_y_L_minus_1": 1,
+                "direct_v_q_D_L": 1,
+                "direct_v_q_B_L": 1,
+                "valuation_witness_disabled": true,
+                "certificate_verified": true
+              }
+            ],
+            "all_palette_valuation_witnesses_disabled": true
+          }
+        ],
+        "bounded_exception_scan": {
+          "prime_limit": 200000,
+          "odd_primes_scanned": 17982,
+          "positive_lifting_defect_count": 0,
+          "positive_lifting_defects": [],
+          "valuation_cap_censored_count": 0,
+          "scope": "This finite scan is reproducible evidence only. Zero observed positive defects does not prove their global absence."
+        },
+        "transcript_sha256": "f9bb7522f8a4e115e11571ec70625a7a7201f7cc05311a74fbb32401be28dfe3",
+        "aggregate": {
+          "local_lifting_defect_dichotomy_proved": true,
+          "finite_palette_common_multiple_criterion_proved": true,
+          "mod_q_presence_automatically_controls_valuations_refuted": true,
+          "all_odd_prime_lifting_defects_nonpositive_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "Common divisibility modulo q does not by itself compare q-adic depths; a positive local defect would defeat the TICKET-237 common-multiple construction at valuation level. The bounded scan found no such prime through 200,000 but cannot remove the universal prime quantifier, address general necklaces, or prove aperiodic Collatz descent.",
+        "failure_count": 0
+      },
+      "logical_limit": "Common divisibility modulo q does not by itself compare q-adic depths; a positive local defect would defeat the TICKET-237 common-multiple construction at valuation level. The bounded scan found no such prime through 200,000 but cannot remove the universal prime quantifier, address general necklaces, or prove aperiodic Collatz descent.",
+      "route_decision": {
+        "discard": "lifting TICKET-237 modulo-prime palette separation to valuation depth without a local q-adic comparison",
+        "retain": "classify the sign of every local lifting defect delta_q before extending the run-block mechanism to general necklaces",
+        "next_single_lemma": "RunBlockLocalLiftingDefectNonpositiveForEveryOddPrime"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T237",
+            "label": "NoFinitePrimePaletteUniversallySeparatesBinaryRunBlocks",
+            "status": "closed_input"
+          },
+          {
+            "id": "CO-T238",
+            "label": "AdaptiveValuationCriterionEquivalenceAndRunBlockClosure",
+            "status": "closed_input"
+          },
+          {
+            "id": "CO-T239",
+            "label": "LocalLiftingDefectDichotomyAndPaletteCriterion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N239",
+            "label": "ModuloPrimePresenceAutomaticallyControlsValuationDepth",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN239",
+            "label": "RunBlockLocalLiftingDefectNonpositiveForEveryOddPrime",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO-PERIODIC",
+            "label": "AllPeriodicValuationWords",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T237",
+            "CO-T239"
+          ],
+          [
+            "CO-T238",
+            "CO-T239"
+          ],
+          [
+            "CO-T239",
+            "CO-N239"
+          ],
+          [
+            "CO-T239",
+            "CO-OPEN239"
+          ],
+          [
+            "CO-OPEN239",
+            "CO-PERIODIC"
+          ],
+          [
+            "CO-PERIODIC",
+            "CO"
+          ]
+        ]
+      }
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-239",
+      "theorem_name": "MesoscopicReflectionFourierIdentityAndL2NoGo",
+      "declared_proposition": "For A subset {0,...,h}, M>2h, and P_A(z)=sum_{a in A}z^a, the reflected representation count R_A(h)=#{(a,b) in A^2:a+b=h} satisfies the exact identity R_A(h)=M^{-1}sum_{j=0}^{M-1}P_A(omega^j)^2 omega^{-jh}. Its DC term is |A|^2/M. Cardinality and global Fourier L2 energy cannot force R_A(h)>0: Parseval always gives sum_j|P_A(omega^j)|^2=M|A|, while whenever 2|A|-2<h the initial segment {0,...,|A|-1} has the same cardinality and Parseval energy but R_A(h)=0.",
+      "mathematical_argument": "Root-of-unity orthogonality extracts the coefficient of z^h in P_A(z)^2; M>2h prevents cyclic wraparound. The j=0 summand is |A|^2. Parseval gives the stated L2 identity. For the initial segment, every pair sum is at most 2|A|-2<h, so the reflected coefficient vanishes. The finite rows apply the identity to primes in [X-h,X] at three multiples of X/(log X)^2 and record the exact signed nonzero-phase contribution.",
+      "reproducible_computation": {
+        "theorem": "For A subset {0,...,h}, M>2h, and P_A(z)=sum_{a in A}z^a, the reflected representation count R_A(h)=#{(a,b) in A^2:a+b=h} satisfies the exact identity R_A(h)=M^{-1}sum_{j=0}^{M-1}P_A(omega^j)^2 omega^{-jh}. Its DC term is |A|^2/M. Cardinality and global Fourier L2 energy cannot force R_A(h)>0: Parseval always gives sum_j|P_A(omega^j)|^2=M|A|, while whenever 2|A|-2<h the initial segment {0,...,|A|-1} has the same cardinality and Parseval energy but R_A(h)=0.",
+        "proof": "Root-of-unity orthogonality extracts the coefficient of z^h in P_A(z)^2; M>2h prevents cyclic wraparound. The j=0 summand is |A|^2. Parseval gives the stated L2 identity. For the initial segment, every pair sum is at most 2|A|-2<h, so the reflected coefficient vanishes. The finite rows apply the identity to primes in [X-h,X] at three multiples of X/(log X)^2 and record the exact signed nonzero-phase contribution.",
+        "exact_mesoscopic_prime_window_rows": [
+          {
+            "cutoff_X": 1000,
+            "buffer_scale_multiplier": 1,
+            "even_buffer_h": 22,
+            "target_N": 1978,
+            "fourier_modulus_M": 45,
+            "prime_window_cardinality_m": 3,
+            "ordered_reflection_count_R_A_h": 0,
+            "dc_phase_term_m_squared_over_M": {
+              "exact": "1/5",
+              "float": 0.2
+            },
+            "signed_nonzero_phase_term": {
+              "exact": "-1/5",
+              "float": -0.2
+            },
+            "parseval_energy_M_times_m": 135,
+            "same_size_initial_segment_has_zero_reflection": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 1000,
+            "buffer_scale_multiplier": 2,
+            "even_buffer_h": 42,
+            "target_N": 1958,
+            "fourier_modulus_M": 85,
+            "prime_window_cardinality_m": 6,
+            "ordered_reflection_count_R_A_h": 2,
+            "dc_phase_term_m_squared_over_M": {
+              "exact": "36/85",
+              "float": 0.4235294117647059
+            },
+            "signed_nonzero_phase_term": {
+              "exact": "134/85",
+              "float": 1.576470588235294
+            },
+            "parseval_energy_M_times_m": 510,
+            "same_size_initial_segment_has_zero_reflection": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 1000,
+            "buffer_scale_multiplier": 4,
+            "even_buffer_h": 84,
+            "target_N": 1916,
+            "fourier_modulus_M": 169,
+            "prime_window_cardinality_m": 12,
+            "ordered_reflection_count_R_A_h": 2,
+            "dc_phase_term_m_squared_over_M": {
+              "exact": "144/169",
+              "float": 0.8520710059171598
+            },
+            "signed_nonzero_phase_term": {
+              "exact": "194/169",
+              "float": 1.1479289940828403
+            },
+            "parseval_energy_M_times_m": 2028,
+            "same_size_initial_segment_has_zero_reflection": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 10000,
+            "buffer_scale_multiplier": 1,
+            "even_buffer_h": 118,
+            "target_N": 19882,
+            "fourier_modulus_M": 237,
+            "prime_window_cardinality_m": 11,
+            "ordered_reflection_count_R_A_h": 1,
+            "dc_phase_term_m_squared_over_M": {
+              "exact": "121/237",
+              "float": 0.510548523206751
+            },
+            "signed_nonzero_phase_term": {
+              "exact": "116/237",
+              "float": 0.48945147679324896
+            },
+            "parseval_energy_M_times_m": 2607,
+            "same_size_initial_segment_has_zero_reflection": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 10000,
+            "buffer_scale_multiplier": 2,
+            "even_buffer_h": 236,
+            "target_N": 19764,
+            "fourier_modulus_M": 473,
+            "prime_window_cardinality_m": 26,
+            "ordered_reflection_count_R_A_h": 6,
+            "dc_phase_term_m_squared_over_M": {
+              "exact": "676/473",
+              "float": 1.4291754756871036
+            },
+            "signed_nonzero_phase_term": {
+              "exact": "2162/473",
+              "float": 4.570824524312896
+            },
+            "parseval_energy_M_times_m": 12298,
+            "same_size_initial_segment_has_zero_reflection": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 10000,
+            "buffer_scale_multiplier": 4,
+            "even_buffer_h": 472,
+            "target_N": 19528,
+            "fourier_modulus_M": 945,
+            "prime_window_cardinality_m": 50,
+            "ordered_reflection_count_R_A_h": 6,
+            "dc_phase_term_m_squared_over_M": {
+              "exact": "500/189",
+              "float": 2.6455026455026456
+            },
+            "signed_nonzero_phase_term": {
+              "exact": "634/189",
+              "float": 3.3544973544973544
+            },
+            "parseval_energy_M_times_m": 47250,
+            "same_size_initial_segment_has_zero_reflection": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "buffer_scale_multiplier": 1,
+            "even_buffer_h": 756,
+            "target_N": 199244,
+            "fourier_modulus_M": 1513,
+            "prime_window_cardinality_m": 65,
+            "ordered_reflection_count_R_A_h": 6,
+            "dc_phase_term_m_squared_over_M": {
+              "exact": "4225/1513",
+              "float": 2.7924653007270326
+            },
+            "signed_nonzero_phase_term": {
+              "exact": "4853/1513",
+              "float": 3.2075346992729674
+            },
+            "parseval_energy_M_times_m": 98345,
+            "same_size_initial_segment_has_zero_reflection": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "buffer_scale_multiplier": 2,
+            "even_buffer_h": 1510,
+            "target_N": 198490,
+            "fourier_modulus_M": 3021,
+            "prime_window_cardinality_m": 134,
+            "ordered_reflection_count_R_A_h": 28,
+            "dc_phase_term_m_squared_over_M": {
+              "exact": "17956/3021",
+              "float": 5.943727242634889
+            },
+            "signed_nonzero_phase_term": {
+              "exact": "66632/3021",
+              "float": 22.05627275736511
+            },
+            "parseval_energy_M_times_m": 404814,
+            "same_size_initial_segment_has_zero_reflection": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "buffer_scale_multiplier": 4,
+            "even_buffer_h": 3018,
+            "target_N": 196982,
+            "fourier_modulus_M": 6037,
+            "prime_window_cardinality_m": 258,
+            "ordered_reflection_count_R_A_h": 27,
+            "dc_phase_term_m_squared_over_M": {
+              "exact": "66564/6037",
+              "float": 11.026006294517144
+            },
+            "signed_nonzero_phase_term": {
+              "exact": "96435/6037",
+              "float": 15.973993705482856
+            },
+            "parseval_energy_M_times_m": 1557546,
+            "same_size_initial_segment_has_zero_reflection": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 1000000,
+            "buffer_scale_multiplier": 1,
+            "even_buffer_h": 5240,
+            "target_N": 1994760,
+            "fourier_modulus_M": 10481,
+            "prime_window_cardinality_m": 380,
+            "ordered_reflection_count_R_A_h": 106,
+            "dc_phase_term_m_squared_over_M": {
+              "exact": "144400/10481",
+              "float": 13.777311325255225
+            },
+            "signed_nonzero_phase_term": {
+              "exact": "966586/10481",
+              "float": 92.22268867474477
+            },
+            "parseval_energy_M_times_m": 3982780,
+            "same_size_initial_segment_has_zero_reflection": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 1000000,
+            "buffer_scale_multiplier": 2,
+            "even_buffer_h": 10480,
+            "target_N": 1989520,
+            "fourier_modulus_M": 20961,
+            "prime_window_cardinality_m": 760,
+            "ordered_reflection_count_R_A_h": 100,
+            "dc_phase_term_m_squared_over_M": {
+              "exact": "577600/20961",
+              "float": 27.555937216735842
+            },
+            "signed_nonzero_phase_term": {
+              "exact": "1518500/20961",
+              "float": 72.44406278326416
+            },
+            "parseval_energy_M_times_m": 15930360,
+            "same_size_initial_segment_has_zero_reflection": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 1000000,
+            "buffer_scale_multiplier": 4,
+            "even_buffer_h": 20958,
+            "target_N": 1979042,
+            "fourier_modulus_M": 41917,
+            "prime_window_cardinality_m": 1492,
+            "ordered_reflection_count_R_A_h": 174,
+            "dc_phase_term_m_squared_over_M": {
+              "exact": "2226064/41917",
+              "float": 53.10647231433547
+            },
+            "signed_nonzero_phase_term": {
+              "exact": "5067494/41917",
+              "float": 120.89352768566452
+            },
+            "parseval_energy_M_times_m": 62540164,
+            "same_size_initial_segment_has_zero_reflection": true,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "47c1899be5b94434d7253c6ce7edd7ed7227aa8377ce3b8665c8adfd5159aec7",
+        "aggregate": {
+          "reflection_fourier_identity_proved": true,
+          "cardinality_and_parseval_sufficiency_refuted": true,
+          "same_size_zero_reflection_counterfamily_constructed": true,
+          "prime_window_signed_phase_slack_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The identity is exact and the counterfamily rules out arguments using only local prime count and global L2 energy. The bounded prime rows do not prove eventual positivity, control the signed nonzero phases uniformly, or produce a full Goldbach counterexample. A pointwise lower bound on the signed phase sum is still missing.",
+        "failure_count": 0
+      },
+      "logical_limit": "The identity is exact and the counterfamily rules out arguments using only local prime count and global L2 energy. The bounded prime rows do not prove eventual positivity, control the signed nonzero phases uniformly, or produce a full Goldbach counterexample. A pointwise lower bound on the signed phase sum is still missing.",
+      "route_decision": {
+        "discard": "mesoscopic window cardinality and global Parseval energy as sufficient for reflected Goldbach positivity",
+        "retain": "control the signed nonzero Fourier phases relative to the DC term at every even mesoscopic buffer",
+        "next_single_lemma": "MesoscopicPrimeWindowSignedFourierRemainderExceedsNegativeDCWithUniformSlack"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T238",
+            "label": "MesoscopicBufferWidthNecessaryForInverseLogReflectedMargin",
+            "status": "closed_input"
+          },
+          {
+            "id": "GB-T239",
+            "label": "MesoscopicReflectionFourierIdentityAndL2NoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N239",
+            "label": "WindowCardinalityAndParsevalEnergyForceReflectedPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN239",
+            "label": "MesoscopicPrimeWindowSignedFourierRemainderExceedsNegativeDCWithUniformSlack",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T238",
+            "GB-T239"
+          ],
+          [
+            "GB-T239",
+            "GB-N239"
+          ],
+          [
+            "GB-T239",
+            "GB-OPEN239"
+          ],
+          [
+            "GB-OPEN239",
+            "GB"
+          ]
+        ]
+      }
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-239",
+      "theorem_name": "UniformCRTGramIdentityAndCompositeProgressionNoGo",
+      "declared_proposition": "Let Q be a finite set of odd primes, W=product_{q in Q}q, and sample r uniformly modulo W. The centered variance-normalized local twin admissibility coordinates 1_{r not congruent to 0,-2 mod q} are mutually orthogonal. Their Gram matrix is I_{|Q|} and has maximal effective rank |Q|. Nevertheless every Q-admissible residue class r mod W contains infinitely many n for which both n and n+2 are composite. Thus even perfect uniform-CRT effective-rank divergence does not imply the twin-prime conjecture.",
+      "mathematical_argument": "CRT makes the residue coordinates independent; each coordinate has admissible probability (q-2)/q, so centering and normalization give the identity Gram matrix. Fix an admissible r and distinct primes ell_1,ell_2 outside Q. Because W is invertible modulo both, impose r+kW=0 mod ell_1 and r+kW+2=0 mod ell_2. CRT gives one class of k mod ell_1 ell_2 and therefore infinitely many positive k. For all large representatives both numbers exceed their displayed proper factors and are composite, while retaining every local Q condition.",
+      "reproducible_computation": {
+        "theorem": "Let Q be a finite set of odd primes, W=product_{q in Q}q, and sample r uniformly modulo W. The centered variance-normalized local twin admissibility coordinates 1_{r not congruent to 0,-2 mod q} are mutually orthogonal. Their Gram matrix is I_{|Q|} and has maximal effective rank |Q|. Nevertheless every Q-admissible residue class r mod W contains infinitely many n for which both n and n+2 are composite. Thus even perfect uniform-CRT effective-rank divergence does not imply the twin-prime conjecture.",
+        "proof": "CRT makes the residue coordinates independent; each coordinate has admissible probability (q-2)/q, so centering and normalization give the identity Gram matrix. Fix an admissible r and distinct primes ell_1,ell_2 outside Q. Because W is invertible modulo both, impose r+kW=0 mod ell_1 and r+kW+2=0 mod ell_2. CRT gives one class of k mod ell_1 ell_2 and therefore infinitely many positive k. For all large representatives both numbers exceed their displayed proper factors and are composite, while retaining every local Q condition.",
+        "exact_uniform_crt_rows": [
+          {
+            "coordinate_count_m": 2,
+            "odd_prime_palette": [
+              3,
+              5
+            ],
+            "wheel_modulus_W": 15,
+            "uniform_crt_gram_is_identity": true,
+            "uniform_crt_effective_rank": 2,
+            "chosen_admissible_residue_r": 11,
+            "outside_composite_factors": [
+              7,
+              11
+            ],
+            "constructed_progression_index_k": 38,
+            "constructed_composite_pair": [
+              581,
+              583
+            ],
+            "pairwise_independence_checks": [
+              {
+                "prime_pair": [
+                  3,
+                  5
+                ],
+                "joint_admissible_residue_count": 3,
+                "independence_count": {
+                  "exact": "3",
+                  "float": 3.0
+                },
+                "centered_covariance_zero": true
+              }
+            ],
+            "certificate_verified": true
+          },
+          {
+            "coordinate_count_m": 3,
+            "odd_prime_palette": [
+              3,
+              5,
+              7
+            ],
+            "wheel_modulus_W": 105,
+            "uniform_crt_gram_is_identity": true,
+            "uniform_crt_effective_rank": 3,
+            "chosen_admissible_residue_r": 71,
+            "outside_composite_factors": [
+              11,
+              13
+            ],
+            "constructed_progression_index_k": 122,
+            "constructed_composite_pair": [
+              12881,
+              12883
+            ],
+            "pairwise_independence_checks": [
+              {
+                "prime_pair": [
+                  3,
+                  5
+                ],
+                "joint_admissible_residue_count": 21,
+                "independence_count": {
+                  "exact": "21",
+                  "float": 21.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  3,
+                  7
+                ],
+                "joint_admissible_residue_count": 25,
+                "independence_count": {
+                  "exact": "25",
+                  "float": 25.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  5,
+                  7
+                ],
+                "joint_admissible_residue_count": 45,
+                "independence_count": {
+                  "exact": "45",
+                  "float": 45.0
+                },
+                "centered_covariance_zero": true
+              }
+            ],
+            "certificate_verified": true
+          },
+          {
+            "coordinate_count_m": 4,
+            "odd_prime_palette": [
+              3,
+              5,
+              7,
+              11
+            ],
+            "wheel_modulus_W": 1155,
+            "uniform_crt_gram_is_identity": true,
+            "uniform_crt_effective_rank": 4,
+            "chosen_admissible_residue_r": 386,
+            "outside_composite_factors": [
+              13,
+              17
+            ],
+            "constructed_progression_index_k": 167,
+            "constructed_composite_pair": [
+              193271,
+              193273
+            ],
+            "pairwise_independence_checks": [
+              {
+                "prime_pair": [
+                  3,
+                  5
+                ],
+                "joint_admissible_residue_count": 231,
+                "independence_count": {
+                  "exact": "231",
+                  "float": 231.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  3,
+                  7
+                ],
+                "joint_admissible_residue_count": 275,
+                "independence_count": {
+                  "exact": "275",
+                  "float": 275.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  3,
+                  11
+                ],
+                "joint_admissible_residue_count": 315,
+                "independence_count": {
+                  "exact": "315",
+                  "float": 315.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  5,
+                  7
+                ],
+                "joint_admissible_residue_count": 495,
+                "independence_count": {
+                  "exact": "495",
+                  "float": 495.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  5,
+                  11
+                ],
+                "joint_admissible_residue_count": 567,
+                "independence_count": {
+                  "exact": "567",
+                  "float": 567.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  7,
+                  11
+                ],
+                "joint_admissible_residue_count": 675,
+                "independence_count": {
+                  "exact": "675",
+                  "float": 675.0
+                },
+                "centered_covariance_zero": true
+              }
+            ],
+            "certificate_verified": true
+          },
+          {
+            "coordinate_count_m": 5,
+            "odd_prime_palette": [
+              3,
+              5,
+              7,
+              11,
+              13
+            ],
+            "wheel_modulus_W": 15015,
+            "uniform_crt_gram_is_identity": true,
+            "uniform_crt_effective_rank": 5,
+            "chosen_admissible_residue_r": 5006,
+            "outside_composite_factors": [
+              17,
+              19
+            ],
+            "constructed_progression_index_k": 32,
+            "constructed_composite_pair": [
+              485486,
+              485488
+            ],
+            "pairwise_independence_checks": [
+              {
+                "prime_pair": [
+                  3,
+                  5
+                ],
+                "joint_admissible_residue_count": 3003,
+                "independence_count": {
+                  "exact": "3003",
+                  "float": 3003.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  3,
+                  7
+                ],
+                "joint_admissible_residue_count": 3575,
+                "independence_count": {
+                  "exact": "3575",
+                  "float": 3575.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  3,
+                  11
+                ],
+                "joint_admissible_residue_count": 4095,
+                "independence_count": {
+                  "exact": "4095",
+                  "float": 4095.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  3,
+                  13
+                ],
+                "joint_admissible_residue_count": 4235,
+                "independence_count": {
+                  "exact": "4235",
+                  "float": 4235.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  5,
+                  7
+                ],
+                "joint_admissible_residue_count": 6435,
+                "independence_count": {
+                  "exact": "6435",
+                  "float": 6435.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  5,
+                  11
+                ],
+                "joint_admissible_residue_count": 7371,
+                "independence_count": {
+                  "exact": "7371",
+                  "float": 7371.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  5,
+                  13
+                ],
+                "joint_admissible_residue_count": 7623,
+                "independence_count": {
+                  "exact": "7623",
+                  "float": 7623.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  7,
+                  11
+                ],
+                "joint_admissible_residue_count": 8775,
+                "independence_count": {
+                  "exact": "8775",
+                  "float": 8775.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  7,
+                  13
+                ],
+                "joint_admissible_residue_count": 9075,
+                "independence_count": {
+                  "exact": "9075",
+                  "float": 9075.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  11,
+                  13
+                ],
+                "joint_admissible_residue_count": 10395,
+                "independence_count": {
+                  "exact": "10395",
+                  "float": 10395.0
+                },
+                "centered_covariance_zero": true
+              }
+            ],
+            "certificate_verified": true
+          },
+          {
+            "coordinate_count_m": 6,
+            "odd_prime_palette": [
+              3,
+              5,
+              7,
+              11,
+              13,
+              17
+            ],
+            "wheel_modulus_W": 255255,
+            "uniform_crt_gram_is_identity": true,
+            "uniform_crt_effective_rank": 6,
+            "chosen_admissible_residue_r": 170171,
+            "outside_composite_factors": [
+              19,
+              23
+            ],
+            "constructed_progression_index_k": 280,
+            "constructed_composite_pair": [
+              71641571,
+              71641573
+            ],
+            "pairwise_independence_checks": [
+              {
+                "prime_pair": [
+                  3,
+                  5
+                ],
+                "joint_admissible_residue_count": 51051,
+                "independence_count": {
+                  "exact": "51051",
+                  "float": 51051.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  3,
+                  7
+                ],
+                "joint_admissible_residue_count": 60775,
+                "independence_count": {
+                  "exact": "60775",
+                  "float": 60775.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  3,
+                  11
+                ],
+                "joint_admissible_residue_count": 69615,
+                "independence_count": {
+                  "exact": "69615",
+                  "float": 69615.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  3,
+                  13
+                ],
+                "joint_admissible_residue_count": 71995,
+                "independence_count": {
+                  "exact": "71995",
+                  "float": 71995.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  3,
+                  17
+                ],
+                "joint_admissible_residue_count": 75075,
+                "independence_count": {
+                  "exact": "75075",
+                  "float": 75075.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  5,
+                  7
+                ],
+                "joint_admissible_residue_count": 109395,
+                "independence_count": {
+                  "exact": "109395",
+                  "float": 109395.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  5,
+                  11
+                ],
+                "joint_admissible_residue_count": 125307,
+                "independence_count": {
+                  "exact": "125307",
+                  "float": 125307.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  5,
+                  13
+                ],
+                "joint_admissible_residue_count": 129591,
+                "independence_count": {
+                  "exact": "129591",
+                  "float": 129591.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  5,
+                  17
+                ],
+                "joint_admissible_residue_count": 135135,
+                "independence_count": {
+                  "exact": "135135",
+                  "float": 135135.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  7,
+                  11
+                ],
+                "joint_admissible_residue_count": 149175,
+                "independence_count": {
+                  "exact": "149175",
+                  "float": 149175.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  7,
+                  13
+                ],
+                "joint_admissible_residue_count": 154275,
+                "independence_count": {
+                  "exact": "154275",
+                  "float": 154275.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  7,
+                  17
+                ],
+                "joint_admissible_residue_count": 160875,
+                "independence_count": {
+                  "exact": "160875",
+                  "float": 160875.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  11,
+                  13
+                ],
+                "joint_admissible_residue_count": 176715,
+                "independence_count": {
+                  "exact": "176715",
+                  "float": 176715.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  11,
+                  17
+                ],
+                "joint_admissible_residue_count": 184275,
+                "independence_count": {
+                  "exact": "184275",
+                  "float": 184275.0
+                },
+                "centered_covariance_zero": true
+              },
+              {
+                "prime_pair": [
+                  13,
+                  17
+                ],
+                "joint_admissible_residue_count": 190575,
+                "independence_count": {
+                  "exact": "190575",
+                  "float": 190575.0
+                },
+                "centered_covariance_zero": true
+              }
+            ],
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "3de4a619fbaef65ad33c039cc93022074b8e5de4206246a8ae4e8aaf716de379",
+        "aggregate": {
+          "uniform_crt_gram_identity_proved": true,
+          "uniform_crt_effective_rank_divergence_proved": true,
+          "local_effective_rank_sufficiency_refuted": true,
+          "admissible_classes_with_infinite_composite_pairs_constructed": true,
+          "prime_weighted_parity_sensitive_transfer_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The theorem concerns the uniform product measure on finite CRT residues. It proves that the strongest possible local Gram-rank signal is compatible with infinitely many composite pairs. It does not estimate prime-weighted coordinates, produce positive twin principal mass, or cross the sieve parity barrier.",
+        "failure_count": 0
+      },
+      "logical_limit": "The theorem concerns the uniform product measure on finite CRT residues. It proves that the strongest possible local Gram-rank signal is compatible with infinitely many composite pairs. It does not estimate prime-weighted coordinates, produce positive twin principal mass, or cross the sieve parity barrier.",
+      "route_decision": {
+        "discard": "uniform local CRT effective-rank divergence as sufficient evidence for positive twin-prime mass",
+        "retain": "separate uniform local independence from prime-weighted parity-sensitive mass and prove a transfer that retains positivity",
+        "next_single_lemma": "ParitySensitiveTransferFromPrimeWeightedCRTOrthogonalityToPositiveTwinPrincipalMass"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T238",
+            "label": "DegreeTwoEnergyEffectiveRankEquivalenceAndSupportGrowthNoGo",
+            "status": "closed_input"
+          },
+          {
+            "id": "TP-T239",
+            "label": "UniformCRTGramIdentityAndCompositeProgressionNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N239",
+            "label": "UniformLocalEffectiveRankImpliesTwinPrimeMass",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN239",
+            "label": "ParitySensitiveTransferFromPrimeWeightedCRTOrthogonalityToPositiveTwinPrincipalMass",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T238",
+            "TP-T239"
+          ],
+          [
+            "TP-T239",
+            "TP-N239"
+          ],
+          [
+            "TP-T239",
+            "TP-OPEN239"
+          ],
+          [
+            "TP-OPEN239",
+            "TP"
+          ]
+        ]
+      }
+    },
+    "machine_audit": {
+      "exact_partial_or_no_go_theorem_count": 4,
+      "refuted_or_reduced_route_count": 4,
+      "next_single_lemma_count": 4,
+      "proof_dag_count": 4,
+      "conjecture_resolution_count": 0,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "ticket_id": "RH-TICKET-239",
+      "problem_id": "riemann",
+      "status": "open_not_proven",
+      "declared_proposition": "Let H_J be a Hermitian shell-block matrix with identity diagonal. If ||K_ij||_op<=C|i-j|^{-alpha}, alpha>1, and 2C zeta(alpha)<1, then H_J>=(1-2C zeta(alpha))I uniformly in J. Absolute summability is sufficient but not necessary: for every 0<C<1 and 0<alpha<=1, the scalar matrices G_J=(1-C)I+C[(1+|i-j|)^{-alpha}] are normalized Gram matrices with G_J>=(1-C)I, while their maximum absolute off-diagonal row sums diverge. Therefore failure of the TICKET-238 row-sum test cannot be used as evidence against Weil-form positivity.",
+      "mathematical_argument": "The first statement follows from the block Schur estimate and sum_{d>=1}d^{-alpha}=zeta(alpha). For the second, use (n+1)^{-alpha}=Gamma(alpha)^{-1} integral_0^1 t^n(-log t)^{alpha-1}dt. Each kernel [t^{|i-j|}] is positive semidefinite, so their positive mixture R_J is positive semidefinite with unit diagonal. Hence (1-C)I+C R_J has lower bound 1-C. Its central off-diagonal row sum dominates a constant multiple of sum_{d<=J/2}(d+1)^{-alpha}, which diverges for alpha<=1. The exact rows instantiate alpha=2,C=1/8 and the non-summable positive family alpha=1,C=1/2.",
+      "new_result": "PowerDecaySchurThresholdAndNonsummablePositiveGramNoGo",
+      "discarded_route": "absolute cross-row summability as a necessary condition for cofinal Weil positivity",
+      "remaining_gap": "The matrices are exact abstract Gram families, not arithmetic Guinand-Weil shell blocks. The theorem proves that absolute row-sum control is a sufficient route and that its failure is non-diagnostic; it supplies no signed or operator cancellation estimate for the actual Weil kernel and locates no zeta zero.",
+      "candidate_theorem": "ArithmeticWeilCrossBlockCotlarSteinCancellationBoundOnCofinalLogarithmicShells",
+      "claim_boundary": "The matrices are exact abstract Gram families, not arithmetic Guinand-Weil shell blocks. The theorem proves that absolute row-sum control is a sufficient route and that its failure is non-diagnostic; it supplies no signed or operator cancellation estimate for the actual Weil kernel and locates no zeta zero.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T238",
+            "label": "MultishellNormalizedCrossRowSumCriterionAndPairwiseAngleNoGo",
+            "status": "closed_input"
+          },
+          {
+            "id": "RH-T239",
+            "label": "PowerDecaySchurThresholdAndNonsummablePositiveGramNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "RH-N239",
+            "label": "AbsoluteCrossRowSummabilityIsNecessaryForWeilPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-OPEN239",
+            "label": "ArithmeticWeilCrossBlockCotlarSteinCancellationBoundOnCofinalLogarithmicShells",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "RH",
+            "label": "RiemannHypothesis",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T238",
+            "RH-T239"
+          ],
+          [
+            "RH-T239",
+            "RH-N239"
+          ],
+          [
+            "RH-T239",
+            "RH-OPEN239"
+          ],
+          [
+            "RH-OPEN239",
+            "RH"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/cancellation_lifting_fourier_crt_audit/riemann",
+        "failure_count": 0
+      }
+    },
+    {
+      "ticket_id": "CO-TICKET-239",
+      "problem_id": "collatz",
+      "status": "open_not_proven",
+      "declared_proposition": "For an odd prime q>3 put ell_q=lcm(ord_q(32/27),ord_q(2/3)), a_q=v_q(32^{ell_q}-27^{ell_q}), and c_q=v_q(2^{ell_q}-3^{ell_q}). For every n>=1, q is a valuation witness v_q(D_{ell_q n})>v_q(B_{ell_q n}) exactly when a_q>c_q. If a_q<=c_q, q is disabled on every such multiple. Consequently, a finite palette S is simultaneously disabled on every multiple of L=lcm_{q in S}ell_q whenever all its local lifting defects delta_q=a_q-c_q are nonpositive.",
+      "mathematical_argument": "Write x=32/27 and y=2/3 in the q-adic units. LTE gives v_q(x^{ell_q n}-1)=a_q+v_q(n) and v_q(y^{ell_q n}-1)=c_q+v_q(n). After division by 27^k, B_k=(x^k-1)-2(y^k-1). If the two displayed valuations differ, the valuation of B_k is their minimum; if they are equal, it is at least that common value. This proves the dichotomy. Replacing ell_q by the global common multiple adds the same q-adic valuation to both depths and preserves their ordering.",
+      "new_result": "LocalLiftingDefectDichotomyAndPaletteCriterion",
+      "discarded_route": "lifting TICKET-237 modulo-prime palette separation to valuation depth without a local q-adic comparison",
+      "remaining_gap": "Common divisibility modulo q does not by itself compare q-adic depths; a positive local defect would defeat the TICKET-237 common-multiple construction at valuation level. The bounded scan found no such prime through 200,000 but cannot remove the universal prime quantifier, address general necklaces, or prove aperiodic Collatz descent.",
+      "candidate_theorem": "RunBlockLocalLiftingDefectNonpositiveForEveryOddPrime",
+      "claim_boundary": "Common divisibility modulo q does not by itself compare q-adic depths; a positive local defect would defeat the TICKET-237 common-multiple construction at valuation level. The bounded scan found no such prime through 200,000 but cannot remove the universal prime quantifier, address general necklaces, or prove aperiodic Collatz descent.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T237",
+            "label": "NoFinitePrimePaletteUniversallySeparatesBinaryRunBlocks",
+            "status": "closed_input"
+          },
+          {
+            "id": "CO-T238",
+            "label": "AdaptiveValuationCriterionEquivalenceAndRunBlockClosure",
+            "status": "closed_input"
+          },
+          {
+            "id": "CO-T239",
+            "label": "LocalLiftingDefectDichotomyAndPaletteCriterion",
+            "status": "closed"
+          },
+          {
+            "id": "CO-N239",
+            "label": "ModuloPrimePresenceAutomaticallyControlsValuationDepth",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-OPEN239",
+            "label": "RunBlockLocalLiftingDefectNonpositiveForEveryOddPrime",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "CO-PERIODIC",
+            "label": "AllPeriodicValuationWords",
+            "status": "open_not_proven"
+          },
+          {
+            "id": "CO",
+            "label": "CollatzConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T237",
+            "CO-T239"
+          ],
+          [
+            "CO-T238",
+            "CO-T239"
+          ],
+          [
+            "CO-T239",
+            "CO-N239"
+          ],
+          [
+            "CO-T239",
+            "CO-OPEN239"
+          ],
+          [
+            "CO-OPEN239",
+            "CO-PERIODIC"
+          ],
+          [
+            "CO-PERIODIC",
+            "CO"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/cancellation_lifting_fourier_crt_audit/collatz",
+        "failure_count": 0
+      }
+    },
+    {
+      "ticket_id": "GB-TICKET-239",
+      "problem_id": "goldbach",
+      "status": "open_not_proven",
+      "declared_proposition": "For A subset {0,...,h}, M>2h, and P_A(z)=sum_{a in A}z^a, the reflected representation count R_A(h)=#{(a,b) in A^2:a+b=h} satisfies the exact identity R_A(h)=M^{-1}sum_{j=0}^{M-1}P_A(omega^j)^2 omega^{-jh}. Its DC term is |A|^2/M. Cardinality and global Fourier L2 energy cannot force R_A(h)>0: Parseval always gives sum_j|P_A(omega^j)|^2=M|A|, while whenever 2|A|-2<h the initial segment {0,...,|A|-1} has the same cardinality and Parseval energy but R_A(h)=0.",
+      "mathematical_argument": "Root-of-unity orthogonality extracts the coefficient of z^h in P_A(z)^2; M>2h prevents cyclic wraparound. The j=0 summand is |A|^2. Parseval gives the stated L2 identity. For the initial segment, every pair sum is at most 2|A|-2<h, so the reflected coefficient vanishes. The finite rows apply the identity to primes in [X-h,X] at three multiples of X/(log X)^2 and record the exact signed nonzero-phase contribution.",
+      "new_result": "MesoscopicReflectionFourierIdentityAndL2NoGo",
+      "discarded_route": "mesoscopic window cardinality and global Parseval energy as sufficient for reflected Goldbach positivity",
+      "remaining_gap": "The identity is exact and the counterfamily rules out arguments using only local prime count and global L2 energy. The bounded prime rows do not prove eventual positivity, control the signed nonzero phases uniformly, or produce a full Goldbach counterexample. A pointwise lower bound on the signed phase sum is still missing.",
+      "candidate_theorem": "MesoscopicPrimeWindowSignedFourierRemainderExceedsNegativeDCWithUniformSlack",
+      "claim_boundary": "The identity is exact and the counterfamily rules out arguments using only local prime count and global L2 energy. The bounded prime rows do not prove eventual positivity, control the signed nonzero phases uniformly, or produce a full Goldbach counterexample. A pointwise lower bound on the signed phase sum is still missing.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T238",
+            "label": "MesoscopicBufferWidthNecessaryForInverseLogReflectedMargin",
+            "status": "closed_input"
+          },
+          {
+            "id": "GB-T239",
+            "label": "MesoscopicReflectionFourierIdentityAndL2NoGo",
+            "status": "closed"
+          },
+          {
+            "id": "GB-N239",
+            "label": "WindowCardinalityAndParsevalEnergyForceReflectedPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-OPEN239",
+            "label": "MesoscopicPrimeWindowSignedFourierRemainderExceedsNegativeDCWithUniformSlack",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "GB",
+            "label": "StrongGoldbachConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T238",
+            "GB-T239"
+          ],
+          [
+            "GB-T239",
+            "GB-N239"
+          ],
+          [
+            "GB-T239",
+            "GB-OPEN239"
+          ],
+          [
+            "GB-OPEN239",
+            "GB"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/cancellation_lifting_fourier_crt_audit/goldbach",
+        "failure_count": 0
+      }
+    },
+    {
+      "ticket_id": "TP-TICKET-239",
+      "problem_id": "twin-prime",
+      "status": "open_not_proven",
+      "declared_proposition": "Let Q be a finite set of odd primes, W=product_{q in Q}q, and sample r uniformly modulo W. The centered variance-normalized local twin admissibility coordinates 1_{r not congruent to 0,-2 mod q} are mutually orthogonal. Their Gram matrix is I_{|Q|} and has maximal effective rank |Q|. Nevertheless every Q-admissible residue class r mod W contains infinitely many n for which both n and n+2 are composite. Thus even perfect uniform-CRT effective-rank divergence does not imply the twin-prime conjecture.",
+      "mathematical_argument": "CRT makes the residue coordinates independent; each coordinate has admissible probability (q-2)/q, so centering and normalization give the identity Gram matrix. Fix an admissible r and distinct primes ell_1,ell_2 outside Q. Because W is invertible modulo both, impose r+kW=0 mod ell_1 and r+kW+2=0 mod ell_2. CRT gives one class of k mod ell_1 ell_2 and therefore infinitely many positive k. For all large representatives both numbers exceed their displayed proper factors and are composite, while retaining every local Q condition.",
+      "new_result": "UniformCRTGramIdentityAndCompositeProgressionNoGo",
+      "discarded_route": "uniform local CRT effective-rank divergence as sufficient evidence for positive twin-prime mass",
+      "remaining_gap": "The theorem concerns the uniform product measure on finite CRT residues. It proves that the strongest possible local Gram-rank signal is compatible with infinitely many composite pairs. It does not estimate prime-weighted coordinates, produce positive twin principal mass, or cross the sieve parity barrier.",
+      "candidate_theorem": "ParitySensitiveTransferFromPrimeWeightedCRTOrthogonalityToPositiveTwinPrincipalMass",
+      "claim_boundary": "The theorem concerns the uniform product measure on finite CRT residues. It proves that the strongest possible local Gram-rank signal is compatible with infinitely many composite pairs. It does not estimate prime-weighted coordinates, produce positive twin principal mass, or cross the sieve parity barrier.",
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T238",
+            "label": "DegreeTwoEnergyEffectiveRankEquivalenceAndSupportGrowthNoGo",
+            "status": "closed_input"
+          },
+          {
+            "id": "TP-T239",
+            "label": "UniformCRTGramIdentityAndCompositeProgressionNoGo",
+            "status": "closed"
+          },
+          {
+            "id": "TP-N239",
+            "label": "UniformLocalEffectiveRankImpliesTwinPrimeMass",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-OPEN239",
+            "label": "ParitySensitiveTransferFromPrimeWeightedCRTOrthogonalityToPositiveTwinPrincipalMass",
+            "status": "highest_risk_open"
+          },
+          {
+            "id": "TP",
+            "label": "TwinPrimeConjecture",
+            "status": "open_not_proven"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T238",
+            "TP-T239"
+          ],
+          [
+            "TP-T239",
+            "TP-N239"
+          ],
+          [
+            "TP-T239",
+            "TP-OPEN239"
+          ],
+          [
+            "TP-OPEN239",
+            "TP"
+          ]
+        ]
+      },
+      "bounded_result": {
+        "audit_ref": "#/cancellation_lifting_fourier_crt_audit/twin_prime",
+        "failure_count": 0
+      }
+    }
+  ]
+}

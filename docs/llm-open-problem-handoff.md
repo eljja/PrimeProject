@@ -62,7 +62,34 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-238
+## Current continuation: TICKET-239
+
+The current machine-readable boundary is
+`data/open-problem/ticket239-cancellation-lifting-fourier-crt.json`.
+It records four exact partial or no-go theorems, zero machine failures, and zero
+parent-conjecture resolutions.
+
+| Problem | Newly closed lemma | Current single open lemma |
+|---|---|---|
+| Riemann | `PowerDecaySchurThresholdAndNonsummablePositiveGramNoGo` | `ArithmeticWeilCrossBlockCotlarSteinCancellationBoundOnCofinalLogarithmicShells` |
+| Collatz | `LocalLiftingDefectDichotomyAndPaletteCriterion` | `RunBlockLocalLiftingDefectNonpositiveForEveryOddPrime` |
+| Goldbach | `MesoscopicReflectionFourierIdentityAndL2NoGo` | `MesoscopicPrimeWindowSignedFourierRemainderExceedsNegativeDCWithUniformSlack` |
+| Twin Prime | `UniformCRTGramIdentityAndCompositeProgressionNoGo` | `ParitySensitiveTransferFromPrimeWeightedCRTOrthogonalityToPositiveTwinPrincipalMass` |
+
+The RH route must now exploit signed operator cancellation rather than treat
+absolute row-sum convergence as necessary. The Collatz common-multiple route is
+reduced to the sign of one q-adic lifting defect per prime; the scan through
+200,000 is not a universal proof. The Goldbach route must bound the signed
+nonzero Fourier phases, not just density or L2 energy. The Twin route must
+transfer from a uniform local product model to prime-weighted positive mass
+without losing parity information.
+
+Reports: [English](cancellation-lifting-fourier-crt.md),
+[한국어](cancellation-lifting-fourier-crt.ko.md).
+
+All older current/latest headings below are historical snapshots and must not
+override this TICKET-239 boundary.
+## Preserved continuation: TICKET-238
 
 The current machine-readable boundary is
 `data/open-problem/ticket238-multishell-valuation-buffer-effectiverank.json`.
@@ -88,7 +115,7 @@ Reports: [English](multishell-valuation-buffer-effectiverank.md),
 [한국어](multishell-valuation-buffer-effectiverank.ko.md).
 
 All older current/latest headings below are historical snapshots and must not
-override this TICKET-238 boundary.
+override this TICKET-239 boundary.
 
 ## Preserved continuation: TICKET-237
 
@@ -115,7 +142,7 @@ Reports: [English](angle-palette-endpoint-welch.md),
 [한국어](angle-palette-endpoint-welch.ko.md).
 
 All older current/latest headings below are historical snapshots and must
-not override this TICKET-238 boundary.
+not override this TICKET-239 boundary.
 
 ## Preserved continuation: TICKET-236
 
@@ -144,7 +171,7 @@ Reports: [English](contraction-order-phase-degree2.md),
 [한국어](contraction-order-phase-degree2.ko.md).
 
 All older "latest" or "current" headings below are preserved historical
-snapshots and must not override this TICKET-238 boundary.
+snapshots and must not override this TICKET-239 boundary.
 
 ## Preserved continuation: TICKET-235
 
