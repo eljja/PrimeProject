@@ -1,0 +1,145 @@
+{
+  "schema": "primeproject.ticket242-quantifier-order-parseval-diagonal-crt.v1",
+  "generated_at": "2026-08-25T23:59:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-242",
+  "theorem_name": "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
+  "declared_proposition": "For S_X(alpha)=sum_(p<=X)e(p alpha), Parseval gives integral_0^1 |S_X|^2=pi(X). For every measurable minor-arc set m and even N, |integral_m S_X(alpha)^2 e(-N alpha)dalpha| is at most the minor L2 energy and hence at most pi(X). Therefore any fixed binary-arc certificate whose only minor estimate is the global Parseval bound cannot close against a proposed main term M_X(N)=o(pi(X)). In particular X/log^2 X=o(pi(X)) by the prime number theorem, so an L2-only minor bound misses the natural binary scale by a factor of order log X.",
+  "mathematical_argument": "Apply the triangle inequality to the minor Fourier coefficient and then enlarge the integral to the full circle. Parseval supplies pi(X). If M_X=o(pi(X)), then M_X-pi(X)<0 eventually. The PNT gives pi(X)~X/log X, so pi(X)/(X/log^2 X)~log X.",
+  "reproducible_computation": {
+    "theorem": "For S_X(alpha)=sum_(p<=X)e(p alpha), Parseval gives integral_0^1 |S_X|^2=pi(X). For every measurable minor-arc set m and even N, |integral_m S_X(alpha)^2 e(-N alpha)dalpha| is at most the minor L2 energy and hence at most pi(X). Therefore any fixed binary-arc certificate whose only minor estimate is the global Parseval bound cannot close against a proposed main term M_X(N)=o(pi(X)). In particular X/log^2 X=o(pi(X)) by the prime number theorem, so an L2-only minor bound misses the natural binary scale by a factor of order log X.",
+    "proof": "Apply the triangle inequality to the minor Fourier coefficient and then enlarge the integral to the full circle. Parseval supplies pi(X). If M_X=o(pi(X)), then M_X-pi(X)<0 eventually. The PNT gives pi(X)~X/log X, so pi(X)/(X/log^2 X)~log X.",
+    "parseval_scale_rows": [
+      {
+        "prime_cutoff_X": 1000,
+        "parseval_global_L2_energy_pi_X": 168,
+        "sample_even_target_N": 1000,
+        "ordered_representation_count_R_X_N": 56,
+        "binary_natural_scale_X_over_log_squared_X": 20.95685522351266,
+        "parseval_to_natural_scale_ratio": 8.016469943043337,
+        "global_L2_bound_at_least_entire_representation_count": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 3000,
+        "parseval_global_L2_energy_pi_X": 430,
+        "sample_even_target_N": 3000,
+        "ordered_representation_count_R_X_N": 208,
+        "binary_natural_scale_X_over_log_squared_X": 46.8004690622961,
+        "parseval_to_natural_scale_ratio": 9.187942100059447,
+        "global_L2_bound_at_least_entire_representation_count": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 10000,
+        "parseval_global_L2_energy_pi_X": 1229,
+        "sample_even_target_N": 10000,
+        "ordered_representation_count_R_X_N": 254,
+        "binary_natural_scale_X_over_log_squared_X": 117.88231063225868,
+        "parseval_to_natural_scale_ratio": 10.425652444444724,
+        "global_L2_bound_at_least_entire_representation_count": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 30000,
+        "parseval_global_L2_energy_pi_X": 3245,
+        "sample_even_target_N": 30000,
+        "ordered_representation_count_R_X_N": 1204,
+        "binary_natural_scale_X_over_log_squared_X": 282.2878357463012,
+        "parseval_to_natural_scale_ratio": 11.495358953108978,
+        "global_L2_bound_at_least_entire_representation_count": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 100000,
+        "parseval_global_L2_energy_pi_X": 9592,
+        "sample_even_target_N": 100000,
+        "ordered_representation_count_R_X_N": 1620,
+        "binary_natural_scale_X_over_log_squared_X": 754.4467880464557,
+        "parseval_to_natural_scale_ratio": 12.713951668927198,
+        "global_L2_bound_at_least_entire_representation_count": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 300000,
+        "parseval_global_L2_energy_pi_X": 25997,
+        "sample_even_target_N": 300000,
+        "ordered_representation_count_R_X_N": 7830,
+        "binary_natural_scale_X_over_log_squared_X": 1886.18881888967,
+        "parseval_to_natural_scale_ratio": 13.782819482146797,
+        "global_L2_bound_at_least_entire_representation_count": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 1000000,
+        "parseval_global_L2_energy_pi_X": 78498,
+        "sample_even_target_N": 1000000,
+        "ordered_representation_count_R_X_N": 10804,
+        "binary_natural_scale_X_over_log_squared_X": 5239.213805878165,
+        "parseval_to_natural_scale_ratio": 14.982782323547998,
+        "global_L2_bound_at_least_entire_representation_count": true,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "fa85d668b1b025ab2a81b01ed957cc2ada5f4758a99e0a39874434521ac05280",
+    "aggregate": {
+      "global_parseval_minor_bound_proved": true,
+      "l2_only_natural_scale_certificate_refuted": true,
+      "signed_minor_fourier_coefficient_saving_proved": false,
+      "uniform_binary_goldbach_lower_bound_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "no_go_scope": "This rejects only a global L2 or triangle-inequality minor-arc certificate. A fixed decomposition with targetwise signed cancellation, restriction estimates, or Type I/II information can be much sharper. No Goldbach counterexample is produced.",
+    "failure_count": 0
+  },
+  "logical_limit": "No signed targetwise minor-arc saving or uniform positive binary-prime main-minus-error certificate is proved.",
+  "route_decision": {
+    "discard": "closing a natural-scale binary Goldbach lower certificate using only global L2 Parseval energy and triangle inequality",
+    "retain": "a fixed arc decomposition with targetwise signed minor Fourier-coefficient cancellation below the singular-series main term",
+    "next_single_lemma": "FixedBinaryPrimeMinorArcCoefficientIsLittleOOfTargetMainUniformlyOnBufferedEvenTargets"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T241",
+        "label": "CanonicalErrorContractAndRefinementInstabilityNoGo",
+        "status": "closed_input"
+      },
+      {
+        "id": "GB-N242",
+        "label": "GlobalParsevalEnergyControlsBinaryMinorArcsAtTheNaturalMainScale",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "GB-T242",
+        "label": "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
+        "status": "proved_exact"
+      },
+      {
+        "id": "GB-OPEN242",
+        "label": "FixedBinaryPrimeMinorArcCoefficientIsLittleOOfTargetMainUniformlyOnBufferedEvenTargets",
+        "status": "highest_risk_open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T241",
+        "GB-N242"
+      ],
+      [
+        "GB-T241",
+        "GB-T242"
+      ],
+      [
+        "GB-N242",
+        "GB-T242"
+      ],
+      [
+        "GB-T242",
+        "GB-OPEN242"
+      ]
+    ]
+  },
+  "claim_boundary": "No Goldbach proof or counterexample; one exact norm-scale no-go and seven finite scale rows only."
+}

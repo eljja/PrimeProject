@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260825-ticket241-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260825-ticket242-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-241 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-242 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, false intermediate targets removed</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-241 proves four information-boundary theorems: a finite prime-cosine rank no-go, a principal-unit Fermat-line countermodel with a 10^8 fixed-base scan, a canonical-error contract, and a finite-periodic fingerprint no-go.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-241은 RH의 유한 prime-cosine 자동 양성, Collatz 주단위원 대수의 한계와 1억 범위 실제 탐색, Goldbach 오차 계약의 분해 의존성, Twin 유한 주기 fingerprint의 한계를 정확한 정리로 확정했습니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-242 proves four exact boundary theorems: a moving-vector quantifier no-go, an order-core reduction with unbounded-order obstruction, a Parseval-scale no-go, and growing-period diagonal-CRT mimicry.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-242는 RH의 점별/균일 양화사, Collatz의 무계 order core, Goldbach의 Parseval 척도 손실, Twin의 증가 주기 diagonal CRT 모방 경계를 정확히 확정했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>241</strong><small>2026-08-25</small></div>
+              <div><span>Latest ticket</span><strong>242</strong><small>2026-08-25</small></div>
               <div><span>Exact results</span><strong>4</strong><small>partial·no-go</small></div>
-              <div><span>Routes corrected</span><strong>4</strong><small>finite rank·Fermat line·error contract·periodic fingerprint</small></div>
+              <div><span>Routes corrected</span><strong>4</strong><small>quantifier·order core·Parseval scale·diagonal CRT</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 유한 무부호 prime-cosine 핵은 소수 지지 크기의 두 배 이하 계수를 갖는 자동 Gram 행렬이며, 공통 모드 제거 뒤에도 강제 영공간이 남습니다.</p>
-                <p><strong>폐기:</strong> 인위적 대각 정규화가 만든 양의 하한을 실제 부호 있는 Guinand-Weil 양성 또는 제타 영점 배제의 증거로 해석하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>SignedGuinandWeilFiniteSectionsConvergeWithoutArtificialDiagonalForEveryAdmissibleTestFamily</code>.</p>
+                <p><strong>확립:</strong> 각 고정 test의 유한절단 수렴과 종국 양성은 증가 test family의 균일 양성을 함의하지 않으며, compact class의 균일 수렴과 양의 margin은 이를 전달합니다.</p>
+                <p><strong>폐기:</strong> 점별 수렴만으로 움직이는 음의 방향을 배제하여 실제 signed Weil test class의 양성을 인증하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>UniformSignedGuinandWeilTailBoundOnFrequencyTightNormalizedAdmissibleTestClasses</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 주단위원 대수에는 양의 깊이 결함 패턴이 존재하지만, 실제 고정 밑수는 1억 이하 소수 5,761,453개에서 후보가 없었습니다.</p>
-                <p><strong>폐기:</strong> LTE와 주단위원 선형대수만으로 고정 밑수 Fermat quotient 쌍의 전 소수 함의를 증명하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>FixedBaseFermatQuotientLineAvoidanceFor5Fq2Equals3Fq3UnlessFq2EqualsFq3</code>.</p>
+                <p><strong>확립:</strong> 나쁜 Fermat 직선은 d=ord_q(32/27)에 대한 order core 32^d−27^d의 q² 나눗셈으로 정확히 환원되고, 이 order들은 무계입니다.</p>
+                <p><strong>폐기:</strong> 유계 multiplicative order core만 검사하거나 제어하여 전 소수 회피를 증명하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>UniformOrderCoreSquareDivisorTransferFrom32Over27To2Over3</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 부호 오차 합은 표현 존재와 정확히 동치이고, 절댓값 오차 인증은 충분조건일 뿐이며 상쇄 오차의 재분할에 따라 달라집니다.</p>
-                <p><strong>폐기:</strong> 사전에 고정된 arc 분해와 노름 없이 “모든 명시적 오차”를 분해 불변 중간 목표로 취급하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>FixedBinaryPrimeArcDecompositionHasUniformTargetwisePositiveLowerCertificate</code>.</p>
+                <p><strong>확립:</strong> Parseval의 전역 L2 에너지 π(X)는 o(π(X))인 이항 주항 척도에 비해 너무 커서 L2와 삼각부등식만으로 minor arc 인증을 닫지 못합니다.</p>
+                <p><strong>폐기:</strong> 전역 L2 경계만으로 자연 척도 X/log²X의 targetwise 하한을 얻는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>FixedBinaryPrimeMinorArcCoefficientIsLittleOOfTargetMainUniformlyOnBufferedEvenTargets</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 유한 주기 fingerprint에는 같은 특징을 갖는 소수 p와 합성수 p+2의 모방자가 무한히 존재합니다.</p>
-                <p><strong>폐기:</strong> p가 소수이고 p+2가 국소적으로 admissible이라는 조건 뒤에도 고정 유한 주기 classifier로 p+2의 소수성을 인증하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>GrowingModulusParitySensitiveTypeIIBoundForShiftTwoLambdaOnInfinitelyManyDyadicBlocks</code>.</p>
+                <p><strong>확립:</strong> 임의의 증가 주기 feature 열에도 각 단계에서 같은 특징을 가지며 p+2가 강제 합성인 소수 p의 diagonal CRT 모방자가 존재합니다.</p>
+                <p><strong>폐기:</strong> 척도 국소화나 부호 있는 Type II 정보 없이 법의 성장 자체를 쌍둥이 소수 인증으로 해석하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>241개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-241은 유한 prime-cosine rank, 고정 밑수 Fermat quotient, canonical error contract, 유한 주기 fingerprint의 경계를 확정했습니다.</p>
+                <p>242개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-242는 점별/균일 양화사, 무계 order core, Parseval 척도 손실, 증가 주기 diagonal CRT의 경계를 확정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/finite-information-canonical-errors.ko.md">최신 한국어 보고서</a>
-              <a href="docs/finite-information-canonical-errors.md">Latest English report</a>
+              <a href="docs/quantifier-order-parseval-diagonal-crt.ko.md">최신 한국어 보고서</a>
+              <a href="docs/quantifier-order-parseval-diagonal-crt.md">Latest English report</a>
             </div>
           </section>
           <section id="overview-panel" class="overview-grid">
@@ -658,8 +658,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-241</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-241 proves four exact information-boundary theorems and preserves a resolution count of zero.</p>
+              <strong>TICKET-242</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-242 proves four exact boundary theorems and preserves a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -795,8 +795,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260825-ticket241"></script>
-    <script src="assets/app.js?v=20260825-ticket241"></script>
+    <script src="assets/i18n.js?v=20260825-ticket242"></script>
+    <script src="assets/app.js?v=20260825-ticket242"></script>
   </body>
 </html>
 

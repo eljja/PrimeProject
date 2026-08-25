@@ -1,0 +1,191 @@
+{
+  "schema": "primeproject.ticket242-quantifier-order-parseval-diagonal-crt.v1",
+  "generated_at": "2026-08-25T23:59:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-242",
+  "theorem_name": "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
+  "declared_proposition": "Let q>5 be prime and d=ord_q(32/27). Then v_q(32^(q-1)-27^(q-1))=v_q(32^d-27^d). In particular the bad Fermat-quotient line 5F_q(2)=3F_q(3) is equivalent to q^2 dividing the order core 32^d-27^d. The orders d are unbounded as q varies: otherwise every prime q>5 would divide the fixed nonzero product over 1<=d<=D of 32^d-27^d. Hence checking or controlling only bounded order cores cannot prove the all-prime fixed-base line avoidance.",
+  "mathematical_argument": "Write q-1=dk. Since 1<=k<q, q does not divide k. LTE applied to (32^d)^k-(27^d)^k gives the valuation identity. If all orders were at most D, each prime q>5 would divide one member of a finite list of fixed nonzero integers, contradicting the infinitude of primes.",
+  "reproducible_computation": {
+    "theorem": "Let q>5 be prime and d=ord_q(32/27). Then v_q(32^(q-1)-27^(q-1))=v_q(32^d-27^d). In particular the bad Fermat-quotient line 5F_q(2)=3F_q(3) is equivalent to q^2 dividing the order core 32^d-27^d. The orders d are unbounded as q varies: otherwise every prime q>5 would divide the fixed nonzero product over 1<=d<=D of 32^d-27^d. Hence checking or controlling only bounded order cores cannot prove the all-prime fixed-base line avoidance.",
+    "proof": "Write q-1=dk. Since 1<=k<q, q does not divide k. LTE applied to (32^d)^k-(27^d)^k gives the valuation identity. If all orders were at most D, each prime q>5 would divide one member of a finite list of fixed nonzero integers, contradicting the infinitude of primes.",
+    "selected_order_core_rows": [
+      {
+        "prime_q": 7,
+        "order_d_of_32_over_27": 6,
+        "q_squared_divides_order_core": false,
+        "q_squared_divides_full_fermat_power": false,
+        "q_squared_divides_2_power_minus_3_power": false,
+        "order_core_lifting_identity_verified": true
+      },
+      {
+        "prime_q": 11,
+        "order_d_of_32_over_27": 10,
+        "q_squared_divides_order_core": false,
+        "q_squared_divides_full_fermat_power": false,
+        "q_squared_divides_2_power_minus_3_power": false,
+        "order_core_lifting_identity_verified": true
+      },
+      {
+        "prime_q": 13,
+        "order_d_of_32_over_27": 12,
+        "q_squared_divides_order_core": false,
+        "q_squared_divides_full_fermat_power": false,
+        "q_squared_divides_2_power_minus_3_power": false,
+        "order_core_lifting_identity_verified": true
+      },
+      {
+        "prime_q": 17,
+        "order_d_of_32_over_27": 16,
+        "q_squared_divides_order_core": false,
+        "q_squared_divides_full_fermat_power": false,
+        "q_squared_divides_2_power_minus_3_power": false,
+        "order_core_lifting_identity_verified": true
+      },
+      {
+        "prime_q": 29,
+        "order_d_of_32_over_27": 14,
+        "q_squared_divides_order_core": false,
+        "q_squared_divides_full_fermat_power": false,
+        "q_squared_divides_2_power_minus_3_power": false,
+        "order_core_lifting_identity_verified": true
+      },
+      {
+        "prime_q": 59,
+        "order_d_of_32_over_27": 2,
+        "q_squared_divides_order_core": false,
+        "q_squared_divides_full_fermat_power": false,
+        "q_squared_divides_2_power_minus_3_power": false,
+        "order_core_lifting_identity_verified": true
+      },
+      {
+        "prime_q": 109,
+        "order_d_of_32_over_27": 36,
+        "q_squared_divides_order_core": false,
+        "q_squared_divides_full_fermat_power": false,
+        "q_squared_divides_2_power_minus_3_power": false,
+        "order_core_lifting_identity_verified": true
+      },
+      {
+        "prime_q": 1009,
+        "order_d_of_32_over_27": 252,
+        "q_squared_divides_order_core": false,
+        "q_squared_divides_full_fermat_power": false,
+        "q_squared_divides_2_power_minus_3_power": false,
+        "order_core_lifting_identity_verified": true
+      },
+      {
+        "prime_q": 10007,
+        "order_d_of_32_over_27": 5003,
+        "q_squared_divides_order_core": false,
+        "q_squared_divides_full_fermat_power": false,
+        "q_squared_divides_2_power_minus_3_power": false,
+        "order_core_lifting_identity_verified": true
+      },
+      {
+        "prime_q": 100003,
+        "order_d_of_32_over_27": 50001,
+        "q_squared_divides_order_core": false,
+        "q_squared_divides_full_fermat_power": false,
+        "q_squared_divides_2_power_minus_3_power": false,
+        "order_core_lifting_identity_verified": true
+      }
+    ],
+    "order_growth_rows": [
+      {
+        "prime_cutoff": 100,
+        "largest_order_seen": 82,
+        "order_witness_prime": 83
+      },
+      {
+        "prime_cutoff": 1000,
+        "largest_order_seen": 990,
+        "order_witness_prime": 991
+      },
+      {
+        "prime_cutoff": 10000,
+        "largest_order_seen": 9966,
+        "order_witness_prime": 9967
+      },
+      {
+        "prime_cutoff": 100000,
+        "largest_order_seen": 99970,
+        "order_witness_prime": 99971
+      },
+      {
+        "prime_cutoff": 200000,
+        "largest_order_seen": 199998,
+        "order_witness_prime": 199999
+      }
+    ],
+    "bounded_identity_scan": {
+      "prime_limit": 200000,
+      "odd_primes_scanned": 17981,
+      "order_core_lifting_identity_failures": 0,
+      "bad_line_candidate_count": 0,
+      "bad_line_candidates_also_on_good_line": 0,
+      "largest_order_seen": 199998,
+      "order_witness_prime": 199999
+    },
+    "transcript_sha256": "ede3279e2ec7d5e375ec2e3ea65349459e401f9174c8eee13b7b697aacc70fec",
+    "aggregate": {
+      "order_core_lte_reduction_proved": true,
+      "multiplicative_orders_unbounded_proved": true,
+      "bounded_order_core_route_sufficient_refuted": true,
+      "all_prime_order_core_square_divisor_transfer_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The exact reduction does not exclude a rational Wieferich prime on an unbounded order core. The bounded scan is smaller than the TICKET-241 search and is used only to replay the LTE identity. General necklaces and aperiodic Collatz descent remain open.",
+    "failure_count": 0
+  },
+  "logical_limit": "Unbounded-order rational Wieferich square divisors, general necklaces, and aperiodic descent remain open.",
+  "route_decision": {
+    "discard": "proving fixed-base Fermat-quotient line avoidance by checking or controlling only bounded multiplicative orders",
+    "retain": "an all-order square-divisor transfer from the 32/27 order core to the 2/3 Fermat core",
+    "next_single_lemma": "UniformOrderCoreSquareDivisorTransferFrom32Over27To2Over3"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T241",
+        "label": "PrincipalUnitFermatLineIndependenceNoGoAndHundredMillionAudit",
+        "status": "closed_input"
+      },
+      {
+        "id": "CO-N242",
+        "label": "BoundedMultiplicativeOrderCoresSufficeForAllPrimeLineAvoidance",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-T242",
+        "label": "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-OPEN242",
+        "label": "UniformOrderCoreSquareDivisorTransferFrom32Over27To2Over3",
+        "status": "highest_risk_open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T241",
+        "CO-N242"
+      ],
+      [
+        "CO-T241",
+        "CO-T242"
+      ],
+      [
+        "CO-N242",
+        "CO-T242"
+      ],
+      [
+        "CO-T242",
+        "CO-OPEN242"
+      ]
+    ]
+  },
+  "claim_boundary": "No Collatz proof or cycle; one exact LTE/order theorem and a bounded identity replay only."
+}

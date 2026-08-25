@@ -1,0 +1,208 @@
+{
+  "schema": "primeproject.ticket242-quantifier-order-parseval-diagonal-crt.v1",
+  "generated_at": "2026-08-25T23:59:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-242",
+  "theorem_name": "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
+  "declared_proposition": "On H=l2(N), let A_n=I-2<.,e_n>e_n. For every fixed x in H, <A_n x,x>=||x||^2-2|x_n|^2 tends to ||x||^2 and is eventually positive when x is nonzero. Nevertheless inf_(||x||=1)<A_n x,x>=-1 for every n, attained by the moving vector e_n. Thus pointwise finite-section convergence, even with eventual positivity for every fixed test, does not imply uniform positivity on a growing test family. Conversely, if K is a compact normalized test class, q_n converges uniformly to q on K, and inf_K q>=delta>0, then inf_K q_n>=delta/2 eventually.",
+  "mathematical_argument": "Every l2 sequence has x_n->0, which proves fixed-test convergence and eventual positivity. Direct substitution of e_n gives -1, while A_n is diagonal with one entry -1 and all other entries 1. For the compact transfer statement, choose n so that sup_K|q_n-q|<delta/2 and subtract this uniform error from the lower margin.",
+  "reproducible_computation": {
+    "theorem": "On H=l2(N), let A_n=I-2<.,e_n>e_n. For every fixed x in H, <A_n x,x>=||x||^2-2|x_n|^2 tends to ||x||^2 and is eventually positive when x is nonzero. Nevertheless inf_(||x||=1)<A_n x,x>=-1 for every n, attained by the moving vector e_n. Thus pointwise finite-section convergence, even with eventual positivity for every fixed test, does not imply uniform positivity on a growing test family. Conversely, if K is a compact normalized test class, q_n converges uniformly to q on K, and inf_K q>=delta>0, then inf_K q_n>=delta/2 eventually.",
+    "proof": "Every l2 sequence has x_n->0, which proves fixed-test convergence and eventual positivity. Direct substitution of e_n gives -1, while A_n is diagonal with one entry -1 and all other entries 1. For the compact transfer statement, choose n so that sup_K|q_n-q|<delta/2 and subtract this uniform error from the lower margin.",
+    "moving_vector_rows": [
+      {
+        "finite_section_dimension_n": 4,
+        "moving_negative_coordinate_index": 4,
+        "smallest_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "fixed_early_coordinate_probe_value": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "normalized_trace": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "operator_norm_distance_from_identity": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "negative_eigenvalue_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "finite_section_dimension_n": 8,
+        "moving_negative_coordinate_index": 8,
+        "smallest_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "fixed_early_coordinate_probe_value": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "normalized_trace": {
+          "exact": "3/4",
+          "float": 0.75
+        },
+        "operator_norm_distance_from_identity": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "negative_eigenvalue_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "finite_section_dimension_n": 16,
+        "moving_negative_coordinate_index": 16,
+        "smallest_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "fixed_early_coordinate_probe_value": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "normalized_trace": {
+          "exact": "7/8",
+          "float": 0.875
+        },
+        "operator_norm_distance_from_identity": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "negative_eigenvalue_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "finite_section_dimension_n": 32,
+        "moving_negative_coordinate_index": 32,
+        "smallest_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "fixed_early_coordinate_probe_value": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "normalized_trace": {
+          "exact": "15/16",
+          "float": 0.9375
+        },
+        "operator_norm_distance_from_identity": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "negative_eigenvalue_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "finite_section_dimension_n": 64,
+        "moving_negative_coordinate_index": 64,
+        "smallest_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "fixed_early_coordinate_probe_value": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "normalized_trace": {
+          "exact": "31/32",
+          "float": 0.96875
+        },
+        "operator_norm_distance_from_identity": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "negative_eigenvalue_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "finite_section_dimension_n": 128,
+        "moving_negative_coordinate_index": 128,
+        "smallest_eigenvalue": {
+          "exact": "-1",
+          "float": -1.0
+        },
+        "fixed_early_coordinate_probe_value": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "normalized_trace": {
+          "exact": "63/64",
+          "float": 0.984375
+        },
+        "operator_norm_distance_from_identity": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "negative_eigenvalue_count": 1,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "f694cbcb62bd7a5fbe6cb3ade6516ceddb753012675f000aa9970cad15226e4f",
+    "aggregate": {
+      "fixed_test_pointwise_convergence_proved": true,
+      "fixed_test_eventual_positivity_proved": true,
+      "growing_family_uniform_positivity_refuted": true,
+      "compact_uniform_transfer_criterion_proved": true,
+      "signed_guinand_weil_uniform_tail_bound_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The diagonal forms are an abstract quantifier countermodel, not the Guinand-Weil form. They prove that fixed-test convergence is logically insufficient; they do not show that an arithmetic uniform tail estimate or a compact admissible class is impossible.",
+    "failure_count": 0
+  },
+  "logical_limit": "No compactness or uniform tail estimate is proved for the actual signed Guinand-Weil admissible class.",
+  "route_decision": {
+    "discard": "fixed-test finite-section convergence or eventual positivity as a uniform signed Weil positivity proof",
+    "retain": "a compact normalized admissible class together with a uniform arithmetic truncation error and positive limit margin",
+    "next_single_lemma": "UniformSignedGuinandWeilTailBoundOnFrequencyTightNormalizedAdmissibleTestClasses"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T241",
+        "label": "FinitePrimeCosineRankNoGoForRegularizedWeilPositivity",
+        "status": "closed_input"
+      },
+      {
+        "id": "RH-N242",
+        "label": "PointwiseSignedWeilFiniteSectionConvergenceImpliesGrowingFamilyPositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-T242",
+        "label": "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-OPEN242",
+        "label": "UniformSignedGuinandWeilTailBoundOnFrequencyTightNormalizedAdmissibleTestClasses",
+        "status": "highest_risk_open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T241",
+        "RH-N242"
+      ],
+      [
+        "RH-T241",
+        "RH-T242"
+      ],
+      [
+        "RH-N242",
+        "RH-T242"
+      ],
+      [
+        "RH-T242",
+        "RH-OPEN242"
+      ]
+    ]
+  },
+  "claim_boundary": "No RH proof, disproof, or zero exclusion; one exact quantifier countermodel and a compact transfer criterion only."
+}

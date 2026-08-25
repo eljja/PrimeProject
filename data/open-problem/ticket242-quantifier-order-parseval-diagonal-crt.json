@@ -1,0 +1,764 @@
+{
+  "schema": "primeproject.ticket242-quantifier-order-parseval-diagonal-crt.v1",
+  "generated_at": "2026-08-25T23:59:00+09:00",
+  "status": "open_not_proven",
+  "quantifier_order_parseval_diagonal_crt_audit": {
+    "theorem_name": "FourConjectureQuantifierOrderParsevalDiagonalCRTAudit",
+    "summary": "TICKET-242 proves four exact quantifier, order-core, norm-scale, or diagonal-CRT boundary theorems and leaves all four parent conjectures open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-242",
+      "theorem_name": "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
+      "declared_proposition": "On H=l2(N), let A_n=I-2<.,e_n>e_n. For every fixed x in H, <A_n x,x>=||x||^2-2|x_n|^2 tends to ||x||^2 and is eventually positive when x is nonzero. Nevertheless inf_(||x||=1)<A_n x,x>=-1 for every n, attained by the moving vector e_n. Thus pointwise finite-section convergence, even with eventual positivity for every fixed test, does not imply uniform positivity on a growing test family. Conversely, if K is a compact normalized test class, q_n converges uniformly to q on K, and inf_K q>=delta>0, then inf_K q_n>=delta/2 eventually.",
+      "mathematical_argument": "Every l2 sequence has x_n->0, which proves fixed-test convergence and eventual positivity. Direct substitution of e_n gives -1, while A_n is diagonal with one entry -1 and all other entries 1. For the compact transfer statement, choose n so that sup_K|q_n-q|<delta/2 and subtract this uniform error from the lower margin.",
+      "reproducible_computation": {
+        "theorem": "On H=l2(N), let A_n=I-2<.,e_n>e_n. For every fixed x in H, <A_n x,x>=||x||^2-2|x_n|^2 tends to ||x||^2 and is eventually positive when x is nonzero. Nevertheless inf_(||x||=1)<A_n x,x>=-1 for every n, attained by the moving vector e_n. Thus pointwise finite-section convergence, even with eventual positivity for every fixed test, does not imply uniform positivity on a growing test family. Conversely, if K is a compact normalized test class, q_n converges uniformly to q on K, and inf_K q>=delta>0, then inf_K q_n>=delta/2 eventually.",
+        "proof": "Every l2 sequence has x_n->0, which proves fixed-test convergence and eventual positivity. Direct substitution of e_n gives -1, while A_n is diagonal with one entry -1 and all other entries 1. For the compact transfer statement, choose n so that sup_K|q_n-q|<delta/2 and subtract this uniform error from the lower margin.",
+        "moving_vector_rows": [
+          {
+            "finite_section_dimension_n": 4,
+            "moving_negative_coordinate_index": 4,
+            "smallest_eigenvalue": {
+              "exact": "-1",
+              "float": -1.0
+            },
+            "fixed_early_coordinate_probe_value": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "normalized_trace": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "operator_norm_distance_from_identity": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "negative_eigenvalue_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "finite_section_dimension_n": 8,
+            "moving_negative_coordinate_index": 8,
+            "smallest_eigenvalue": {
+              "exact": "-1",
+              "float": -1.0
+            },
+            "fixed_early_coordinate_probe_value": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "normalized_trace": {
+              "exact": "3/4",
+              "float": 0.75
+            },
+            "operator_norm_distance_from_identity": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "negative_eigenvalue_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "finite_section_dimension_n": 16,
+            "moving_negative_coordinate_index": 16,
+            "smallest_eigenvalue": {
+              "exact": "-1",
+              "float": -1.0
+            },
+            "fixed_early_coordinate_probe_value": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "normalized_trace": {
+              "exact": "7/8",
+              "float": 0.875
+            },
+            "operator_norm_distance_from_identity": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "negative_eigenvalue_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "finite_section_dimension_n": 32,
+            "moving_negative_coordinate_index": 32,
+            "smallest_eigenvalue": {
+              "exact": "-1",
+              "float": -1.0
+            },
+            "fixed_early_coordinate_probe_value": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "normalized_trace": {
+              "exact": "15/16",
+              "float": 0.9375
+            },
+            "operator_norm_distance_from_identity": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "negative_eigenvalue_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "finite_section_dimension_n": 64,
+            "moving_negative_coordinate_index": 64,
+            "smallest_eigenvalue": {
+              "exact": "-1",
+              "float": -1.0
+            },
+            "fixed_early_coordinate_probe_value": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "normalized_trace": {
+              "exact": "31/32",
+              "float": 0.96875
+            },
+            "operator_norm_distance_from_identity": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "negative_eigenvalue_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "finite_section_dimension_n": 128,
+            "moving_negative_coordinate_index": 128,
+            "smallest_eigenvalue": {
+              "exact": "-1",
+              "float": -1.0
+            },
+            "fixed_early_coordinate_probe_value": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "normalized_trace": {
+              "exact": "63/64",
+              "float": 0.984375
+            },
+            "operator_norm_distance_from_identity": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "negative_eigenvalue_count": 1,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "f694cbcb62bd7a5fbe6cb3ade6516ceddb753012675f000aa9970cad15226e4f",
+        "aggregate": {
+          "fixed_test_pointwise_convergence_proved": true,
+          "fixed_test_eventual_positivity_proved": true,
+          "growing_family_uniform_positivity_refuted": true,
+          "compact_uniform_transfer_criterion_proved": true,
+          "signed_guinand_weil_uniform_tail_bound_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The diagonal forms are an abstract quantifier countermodel, not the Guinand-Weil form. They prove that fixed-test convergence is logically insufficient; they do not show that an arithmetic uniform tail estimate or a compact admissible class is impossible.",
+        "failure_count": 0
+      },
+      "logical_limit": "No compactness or uniform tail estimate is proved for the actual signed Guinand-Weil admissible class.",
+      "route_decision": {
+        "discard": "fixed-test finite-section convergence or eventual positivity as a uniform signed Weil positivity proof",
+        "retain": "a compact normalized admissible class together with a uniform arithmetic truncation error and positive limit margin",
+        "next_single_lemma": "UniformSignedGuinandWeilTailBoundOnFrequencyTightNormalizedAdmissibleTestClasses"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T241",
+            "label": "FinitePrimeCosineRankNoGoForRegularizedWeilPositivity",
+            "status": "closed_input"
+          },
+          {
+            "id": "RH-N242",
+            "label": "PointwiseSignedWeilFiniteSectionConvergenceImpliesGrowingFamilyPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-T242",
+            "label": "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-OPEN242",
+            "label": "UniformSignedGuinandWeilTailBoundOnFrequencyTightNormalizedAdmissibleTestClasses",
+            "status": "highest_risk_open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T241",
+            "RH-N242"
+          ],
+          [
+            "RH-T241",
+            "RH-T242"
+          ],
+          [
+            "RH-N242",
+            "RH-T242"
+          ],
+          [
+            "RH-T242",
+            "RH-OPEN242"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof, disproof, or zero exclusion; one exact quantifier countermodel and a compact transfer criterion only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-242",
+      "theorem_name": "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
+      "declared_proposition": "Let q>5 be prime and d=ord_q(32/27). Then v_q(32^(q-1)-27^(q-1))=v_q(32^d-27^d). In particular the bad Fermat-quotient line 5F_q(2)=3F_q(3) is equivalent to q^2 dividing the order core 32^d-27^d. The orders d are unbounded as q varies: otherwise every prime q>5 would divide the fixed nonzero product over 1<=d<=D of 32^d-27^d. Hence checking or controlling only bounded order cores cannot prove the all-prime fixed-base line avoidance.",
+      "mathematical_argument": "Write q-1=dk. Since 1<=k<q, q does not divide k. LTE applied to (32^d)^k-(27^d)^k gives the valuation identity. If all orders were at most D, each prime q>5 would divide one member of a finite list of fixed nonzero integers, contradicting the infinitude of primes.",
+      "reproducible_computation": {
+        "theorem": "Let q>5 be prime and d=ord_q(32/27). Then v_q(32^(q-1)-27^(q-1))=v_q(32^d-27^d). In particular the bad Fermat-quotient line 5F_q(2)=3F_q(3) is equivalent to q^2 dividing the order core 32^d-27^d. The orders d are unbounded as q varies: otherwise every prime q>5 would divide the fixed nonzero product over 1<=d<=D of 32^d-27^d. Hence checking or controlling only bounded order cores cannot prove the all-prime fixed-base line avoidance.",
+        "proof": "Write q-1=dk. Since 1<=k<q, q does not divide k. LTE applied to (32^d)^k-(27^d)^k gives the valuation identity. If all orders were at most D, each prime q>5 would divide one member of a finite list of fixed nonzero integers, contradicting the infinitude of primes.",
+        "selected_order_core_rows": [
+          {
+            "prime_q": 7,
+            "order_d_of_32_over_27": 6,
+            "q_squared_divides_order_core": false,
+            "q_squared_divides_full_fermat_power": false,
+            "q_squared_divides_2_power_minus_3_power": false,
+            "order_core_lifting_identity_verified": true
+          },
+          {
+            "prime_q": 11,
+            "order_d_of_32_over_27": 10,
+            "q_squared_divides_order_core": false,
+            "q_squared_divides_full_fermat_power": false,
+            "q_squared_divides_2_power_minus_3_power": false,
+            "order_core_lifting_identity_verified": true
+          },
+          {
+            "prime_q": 13,
+            "order_d_of_32_over_27": 12,
+            "q_squared_divides_order_core": false,
+            "q_squared_divides_full_fermat_power": false,
+            "q_squared_divides_2_power_minus_3_power": false,
+            "order_core_lifting_identity_verified": true
+          },
+          {
+            "prime_q": 17,
+            "order_d_of_32_over_27": 16,
+            "q_squared_divides_order_core": false,
+            "q_squared_divides_full_fermat_power": false,
+            "q_squared_divides_2_power_minus_3_power": false,
+            "order_core_lifting_identity_verified": true
+          },
+          {
+            "prime_q": 29,
+            "order_d_of_32_over_27": 14,
+            "q_squared_divides_order_core": false,
+            "q_squared_divides_full_fermat_power": false,
+            "q_squared_divides_2_power_minus_3_power": false,
+            "order_core_lifting_identity_verified": true
+          },
+          {
+            "prime_q": 59,
+            "order_d_of_32_over_27": 2,
+            "q_squared_divides_order_core": false,
+            "q_squared_divides_full_fermat_power": false,
+            "q_squared_divides_2_power_minus_3_power": false,
+            "order_core_lifting_identity_verified": true
+          },
+          {
+            "prime_q": 109,
+            "order_d_of_32_over_27": 36,
+            "q_squared_divides_order_core": false,
+            "q_squared_divides_full_fermat_power": false,
+            "q_squared_divides_2_power_minus_3_power": false,
+            "order_core_lifting_identity_verified": true
+          },
+          {
+            "prime_q": 1009,
+            "order_d_of_32_over_27": 252,
+            "q_squared_divides_order_core": false,
+            "q_squared_divides_full_fermat_power": false,
+            "q_squared_divides_2_power_minus_3_power": false,
+            "order_core_lifting_identity_verified": true
+          },
+          {
+            "prime_q": 10007,
+            "order_d_of_32_over_27": 5003,
+            "q_squared_divides_order_core": false,
+            "q_squared_divides_full_fermat_power": false,
+            "q_squared_divides_2_power_minus_3_power": false,
+            "order_core_lifting_identity_verified": true
+          },
+          {
+            "prime_q": 100003,
+            "order_d_of_32_over_27": 50001,
+            "q_squared_divides_order_core": false,
+            "q_squared_divides_full_fermat_power": false,
+            "q_squared_divides_2_power_minus_3_power": false,
+            "order_core_lifting_identity_verified": true
+          }
+        ],
+        "order_growth_rows": [
+          {
+            "prime_cutoff": 100,
+            "largest_order_seen": 82,
+            "order_witness_prime": 83
+          },
+          {
+            "prime_cutoff": 1000,
+            "largest_order_seen": 990,
+            "order_witness_prime": 991
+          },
+          {
+            "prime_cutoff": 10000,
+            "largest_order_seen": 9966,
+            "order_witness_prime": 9967
+          },
+          {
+            "prime_cutoff": 100000,
+            "largest_order_seen": 99970,
+            "order_witness_prime": 99971
+          },
+          {
+            "prime_cutoff": 200000,
+            "largest_order_seen": 199998,
+            "order_witness_prime": 199999
+          }
+        ],
+        "bounded_identity_scan": {
+          "prime_limit": 200000,
+          "odd_primes_scanned": 17981,
+          "order_core_lifting_identity_failures": 0,
+          "bad_line_candidate_count": 0,
+          "bad_line_candidates_also_on_good_line": 0,
+          "largest_order_seen": 199998,
+          "order_witness_prime": 199999
+        },
+        "transcript_sha256": "ede3279e2ec7d5e375ec2e3ea65349459e401f9174c8eee13b7b697aacc70fec",
+        "aggregate": {
+          "order_core_lte_reduction_proved": true,
+          "multiplicative_orders_unbounded_proved": true,
+          "bounded_order_core_route_sufficient_refuted": true,
+          "all_prime_order_core_square_divisor_transfer_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The exact reduction does not exclude a rational Wieferich prime on an unbounded order core. The bounded scan is smaller than the TICKET-241 search and is used only to replay the LTE identity. General necklaces and aperiodic Collatz descent remain open.",
+        "failure_count": 0
+      },
+      "logical_limit": "Unbounded-order rational Wieferich square divisors, general necklaces, and aperiodic descent remain open.",
+      "route_decision": {
+        "discard": "proving fixed-base Fermat-quotient line avoidance by checking or controlling only bounded multiplicative orders",
+        "retain": "an all-order square-divisor transfer from the 32/27 order core to the 2/3 Fermat core",
+        "next_single_lemma": "UniformOrderCoreSquareDivisorTransferFrom32Over27To2Over3"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T241",
+            "label": "PrincipalUnitFermatLineIndependenceNoGoAndHundredMillionAudit",
+            "status": "closed_input"
+          },
+          {
+            "id": "CO-N242",
+            "label": "BoundedMultiplicativeOrderCoresSufficeForAllPrimeLineAvoidance",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-T242",
+            "label": "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-OPEN242",
+            "label": "UniformOrderCoreSquareDivisorTransferFrom32Over27To2Over3",
+            "status": "highest_risk_open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T241",
+            "CO-N242"
+          ],
+          [
+            "CO-T241",
+            "CO-T242"
+          ],
+          [
+            "CO-N242",
+            "CO-T242"
+          ],
+          [
+            "CO-T242",
+            "CO-OPEN242"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or cycle; one exact LTE/order theorem and a bounded identity replay only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-242",
+      "theorem_name": "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
+      "declared_proposition": "For S_X(alpha)=sum_(p<=X)e(p alpha), Parseval gives integral_0^1 |S_X|^2=pi(X). For every measurable minor-arc set m and even N, |integral_m S_X(alpha)^2 e(-N alpha)dalpha| is at most the minor L2 energy and hence at most pi(X). Therefore any fixed binary-arc certificate whose only minor estimate is the global Parseval bound cannot close against a proposed main term M_X(N)=o(pi(X)). In particular X/log^2 X=o(pi(X)) by the prime number theorem, so an L2-only minor bound misses the natural binary scale by a factor of order log X.",
+      "mathematical_argument": "Apply the triangle inequality to the minor Fourier coefficient and then enlarge the integral to the full circle. Parseval supplies pi(X). If M_X=o(pi(X)), then M_X-pi(X)<0 eventually. The PNT gives pi(X)~X/log X, so pi(X)/(X/log^2 X)~log X.",
+      "reproducible_computation": {
+        "theorem": "For S_X(alpha)=sum_(p<=X)e(p alpha), Parseval gives integral_0^1 |S_X|^2=pi(X). For every measurable minor-arc set m and even N, |integral_m S_X(alpha)^2 e(-N alpha)dalpha| is at most the minor L2 energy and hence at most pi(X). Therefore any fixed binary-arc certificate whose only minor estimate is the global Parseval bound cannot close against a proposed main term M_X(N)=o(pi(X)). In particular X/log^2 X=o(pi(X)) by the prime number theorem, so an L2-only minor bound misses the natural binary scale by a factor of order log X.",
+        "proof": "Apply the triangle inequality to the minor Fourier coefficient and then enlarge the integral to the full circle. Parseval supplies pi(X). If M_X=o(pi(X)), then M_X-pi(X)<0 eventually. The PNT gives pi(X)~X/log X, so pi(X)/(X/log^2 X)~log X.",
+        "parseval_scale_rows": [
+          {
+            "prime_cutoff_X": 1000,
+            "parseval_global_L2_energy_pi_X": 168,
+            "sample_even_target_N": 1000,
+            "ordered_representation_count_R_X_N": 56,
+            "binary_natural_scale_X_over_log_squared_X": 20.95685522351266,
+            "parseval_to_natural_scale_ratio": 8.016469943043337,
+            "global_L2_bound_at_least_entire_representation_count": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 3000,
+            "parseval_global_L2_energy_pi_X": 430,
+            "sample_even_target_N": 3000,
+            "ordered_representation_count_R_X_N": 208,
+            "binary_natural_scale_X_over_log_squared_X": 46.8004690622961,
+            "parseval_to_natural_scale_ratio": 9.187942100059447,
+            "global_L2_bound_at_least_entire_representation_count": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 10000,
+            "parseval_global_L2_energy_pi_X": 1229,
+            "sample_even_target_N": 10000,
+            "ordered_representation_count_R_X_N": 254,
+            "binary_natural_scale_X_over_log_squared_X": 117.88231063225868,
+            "parseval_to_natural_scale_ratio": 10.425652444444724,
+            "global_L2_bound_at_least_entire_representation_count": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 30000,
+            "parseval_global_L2_energy_pi_X": 3245,
+            "sample_even_target_N": 30000,
+            "ordered_representation_count_R_X_N": 1204,
+            "binary_natural_scale_X_over_log_squared_X": 282.2878357463012,
+            "parseval_to_natural_scale_ratio": 11.495358953108978,
+            "global_L2_bound_at_least_entire_representation_count": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 100000,
+            "parseval_global_L2_energy_pi_X": 9592,
+            "sample_even_target_N": 100000,
+            "ordered_representation_count_R_X_N": 1620,
+            "binary_natural_scale_X_over_log_squared_X": 754.4467880464557,
+            "parseval_to_natural_scale_ratio": 12.713951668927198,
+            "global_L2_bound_at_least_entire_representation_count": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 300000,
+            "parseval_global_L2_energy_pi_X": 25997,
+            "sample_even_target_N": 300000,
+            "ordered_representation_count_R_X_N": 7830,
+            "binary_natural_scale_X_over_log_squared_X": 1886.18881888967,
+            "parseval_to_natural_scale_ratio": 13.782819482146797,
+            "global_L2_bound_at_least_entire_representation_count": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 1000000,
+            "parseval_global_L2_energy_pi_X": 78498,
+            "sample_even_target_N": 1000000,
+            "ordered_representation_count_R_X_N": 10804,
+            "binary_natural_scale_X_over_log_squared_X": 5239.213805878165,
+            "parseval_to_natural_scale_ratio": 14.982782323547998,
+            "global_L2_bound_at_least_entire_representation_count": true,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "fa85d668b1b025ab2a81b01ed957cc2ada5f4758a99e0a39874434521ac05280",
+        "aggregate": {
+          "global_parseval_minor_bound_proved": true,
+          "l2_only_natural_scale_certificate_refuted": true,
+          "signed_minor_fourier_coefficient_saving_proved": false,
+          "uniform_binary_goldbach_lower_bound_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "This rejects only a global L2 or triangle-inequality minor-arc certificate. A fixed decomposition with targetwise signed cancellation, restriction estimates, or Type I/II information can be much sharper. No Goldbach counterexample is produced.",
+        "failure_count": 0
+      },
+      "logical_limit": "No signed targetwise minor-arc saving or uniform positive binary-prime main-minus-error certificate is proved.",
+      "route_decision": {
+        "discard": "closing a natural-scale binary Goldbach lower certificate using only global L2 Parseval energy and triangle inequality",
+        "retain": "a fixed arc decomposition with targetwise signed minor Fourier-coefficient cancellation below the singular-series main term",
+        "next_single_lemma": "FixedBinaryPrimeMinorArcCoefficientIsLittleOOfTargetMainUniformlyOnBufferedEvenTargets"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T241",
+            "label": "CanonicalErrorContractAndRefinementInstabilityNoGo",
+            "status": "closed_input"
+          },
+          {
+            "id": "GB-N242",
+            "label": "GlobalParsevalEnergyControlsBinaryMinorArcsAtTheNaturalMainScale",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-T242",
+            "label": "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-OPEN242",
+            "label": "FixedBinaryPrimeMinorArcCoefficientIsLittleOOfTargetMainUniformlyOnBufferedEvenTargets",
+            "status": "highest_risk_open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T241",
+            "GB-N242"
+          ],
+          [
+            "GB-T241",
+            "GB-T242"
+          ],
+          [
+            "GB-N242",
+            "GB-T242"
+          ],
+          [
+            "GB-T242",
+            "GB-OPEN242"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample; one exact norm-scale no-go and seven finite scale rows only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-242",
+      "theorem_name": "GrowingPeriodDiagonalCRTMimicryForShiftTwo",
+      "declared_proposition": "Let (M_j) be any sequence of positive periods and choose a_j modulo M_j with gcd(a_j,M_j)=gcd(a_j+2,M_j)=1. For every j let F_j be any feature periodic modulo M_j. There is a strictly increasing sequence of primes p_j such that F_j(p_j,p_j+2)=F_j(a_j,a_j+2) while p_j+2 is composite. For each j choose a prime ell_j not dividing 2M_j, impose p_j=a_j mod M_j and p_j=-2 mod ell_j, and choose a Dirichlet prime in the reduced CRT class above p_(j-1). Thus modulus growth by itself does not defeat periodic mimicry.",
+      "mathematical_argument": "CRT gives a reduced class modulo M_j ell_j. Dirichlet supplies infinitely many primes in it, so one may exceed the preceding witness. Periodicity preserves F_j, while ell_j divides p_j+2; choosing p_j>ell_j makes the successor a proper composite multiple.",
+      "reproducible_computation": {
+        "theorem": "Let (M_j) be any sequence of positive periods and choose a_j modulo M_j with gcd(a_j,M_j)=gcd(a_j+2,M_j)=1. For every j let F_j be any feature periodic modulo M_j. There is a strictly increasing sequence of primes p_j such that F_j(p_j,p_j+2)=F_j(a_j,a_j+2) while p_j+2 is composite. For each j choose a prime ell_j not dividing 2M_j, impose p_j=a_j mod M_j and p_j=-2 mod ell_j, and choose a Dirichlet prime in the reduced CRT class above p_(j-1). Thus modulus growth by itself does not defeat periodic mimicry.",
+        "proof": "CRT gives a reduced class modulo M_j ell_j. Dirichlet supplies infinitely many primes in it, so one may exceed the preceding witness. Periodicity preserves F_j, while ell_j divides p_j+2; choosing p_j>ell_j makes the successor a proper composite multiple.",
+        "growing_modulus_diagonal_crt_rows": [
+          {
+            "stage_j": 1,
+            "growing_period_M_j": 30,
+            "admissible_residue_a_j": 11,
+            "outside_prime_ell_j": 7,
+            "combined_crt_residue": 131,
+            "combined_modulus_M_j_ell_j": 210,
+            "strictly_increasing_prime_witness_p_j": 131,
+            "forced_composite_successor_p_j_plus_2": 133,
+            "successor_cofactor": 19,
+            "certificate_verified": true
+          },
+          {
+            "stage_j": 2,
+            "growing_period_M_j": 210,
+            "admissible_residue_a_j": 11,
+            "outside_prime_ell_j": 11,
+            "combined_crt_residue": 1901,
+            "combined_modulus_M_j_ell_j": 2310,
+            "strictly_increasing_prime_witness_p_j": 1901,
+            "forced_composite_successor_p_j_plus_2": 1903,
+            "successor_cofactor": 173,
+            "certificate_verified": true
+          },
+          {
+            "stage_j": 3,
+            "growing_period_M_j": 2310,
+            "admissible_residue_a_j": 17,
+            "outside_prime_ell_j": 13,
+            "combined_crt_residue": 18497,
+            "combined_modulus_M_j_ell_j": 30030,
+            "strictly_increasing_prime_witness_p_j": 48527,
+            "forced_composite_successor_p_j_plus_2": 48529,
+            "successor_cofactor": 3733,
+            "certificate_verified": true
+          },
+          {
+            "stage_j": 4,
+            "growing_period_M_j": 30030,
+            "admissible_residue_a_j": 17,
+            "outside_prime_ell_j": 17,
+            "combined_crt_residue": 120137,
+            "combined_modulus_M_j_ell_j": 510510,
+            "strictly_increasing_prime_witness_p_j": 1651667,
+            "forced_composite_successor_p_j_plus_2": 1651669,
+            "successor_cofactor": 97157,
+            "certificate_verified": true
+          },
+          {
+            "stage_j": 5,
+            "growing_period_M_j": 510510,
+            "admissible_residue_a_j": 29,
+            "outside_prime_ell_j": 19,
+            "combined_crt_residue": 6126149,
+            "combined_modulus_M_j_ell_j": 9699690,
+            "strictly_increasing_prime_witness_p_j": 6126149,
+            "forced_composite_successor_p_j_plus_2": 6126151,
+            "successor_cofactor": 322429,
+            "certificate_verified": true
+          },
+          {
+            "stage_j": 6,
+            "growing_period_M_j": 9699690,
+            "admissible_residue_a_j": 29,
+            "outside_prime_ell_j": 23,
+            "combined_crt_residue": 9699719,
+            "combined_modulus_M_j_ell_j": 223092870,
+            "strictly_increasing_prime_witness_p_j": 902071199,
+            "forced_composite_successor_p_j_plus_2": 902071201,
+            "successor_cofactor": 39220487,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "5cc91d6440bc282199fd9b5f348d758fa23b256a593c890d2199e49f75c1ed79",
+        "aggregate": {
+          "arbitrary_growing_period_diagonal_mimicry_proved": true,
+          "strictly_increasing_prime_mimics_proved": true,
+          "modulus_growth_alone_sufficient_refuted": true,
+          "predeclared_dyadic_block_mimicry_proved": false,
+          "scale_local_type_ii_cancellation_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The scales are selected after the CRT classes: no witness is placed in a predeclared dyadic block, and no quantitative least-prime estimate is claimed. The theorem does not touch genuinely nonperiodic signed Type II information or disprove twin primes.",
+        "failure_count": 0
+      },
+      "logical_limit": "No mimic is placed in a prescribed dyadic block and no parity-sensitive Lambda correlation lower bound is proved.",
+      "route_decision": {
+        "discard": "modulus growth alone, without scale localization or signed Type II information, as a twin-prime certificate",
+        "retain": "a predeclared-scale growing-modulus Type II estimate with positive shift-two prime mass",
+        "next_single_lemma": "ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T241",
+            "label": "FinitePeriodicPrimeFingerprintMimicryForShiftTwo",
+            "status": "closed_input"
+          },
+          {
+            "id": "TP-N242",
+            "label": "ArbitraryGrowingPeriodicFeatureEnrichmentEventuallySeparatesTwinPairs",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-T242",
+            "label": "GrowingPeriodDiagonalCRTMimicryForShiftTwo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-OPEN242",
+            "label": "ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass",
+            "status": "highest_risk_open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T241",
+            "TP-N242"
+          ],
+          [
+            "TP-T241",
+            "TP-T242"
+          ],
+          [
+            "TP-N242",
+            "TP-T242"
+          ],
+          [
+            "TP-T242",
+            "TP-OPEN242"
+          ]
+        ]
+      },
+      "claim_boundary": "No twin-prime proof or counterexample; one exact diagonal CRT no-go and six finite witnesses only."
+    },
+    "research_baselines": {
+      "riemann": "https://arxiv.org/abs/1910.14368",
+      "collatz": "https://arxiv.org/abs/1909.03562",
+      "fermat_quotient": "https://arxiv.org/abs/1110.3113",
+      "goldbach_minor": "https://arxiv.org/abs/1205.5252",
+      "goldbach_major": "https://arxiv.org/abs/1305.2897",
+      "twin_prime_parity": "https://arxiv.org/abs/1407.4897"
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "route_correction_count": 4,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "conjecture_resolution_count": 0,
+      "bounded_order_scan_limit": 200000,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-242",
+      "declared_proposition": "On H=l2(N), let A_n=I-2<.,e_n>e_n. For every fixed x in H, <A_n x,x>=||x||^2-2|x_n|^2 tends to ||x||^2 and is eventually positive when x is nonzero. Nevertheless inf_(||x||=1)<A_n x,x>=-1 for every n, attained by the moving vector e_n. Thus pointwise finite-section convergence, even with eventual positivity for every fixed test, does not imply uniform positivity on a growing test family. Conversely, if K is a compact normalized test class, q_n converges uniformly to q on K, and inf_K q>=delta>0, then inf_K q_n>=delta/2 eventually.",
+      "new_result": "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/quantifier_order_parseval_diagonal_crt_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "fixed-test finite-section convergence or eventual positivity as a uniform signed Weil positivity proof",
+      "remaining_gap": "No compactness or uniform tail estimate is proved for the actual signed Guinand-Weil admissible class.",
+      "candidate_theorem": "UniformSignedGuinandWeilTailBoundOnFrequencyTightNormalizedAdmissibleTestClasses"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-242",
+      "declared_proposition": "Let q>5 be prime and d=ord_q(32/27). Then v_q(32^(q-1)-27^(q-1))=v_q(32^d-27^d). In particular the bad Fermat-quotient line 5F_q(2)=3F_q(3) is equivalent to q^2 dividing the order core 32^d-27^d. The orders d are unbounded as q varies: otherwise every prime q>5 would divide the fixed nonzero product over 1<=d<=D of 32^d-27^d. Hence checking or controlling only bounded order cores cannot prove the all-prime fixed-base line avoidance.",
+      "new_result": "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/quantifier_order_parseval_diagonal_crt_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "proving fixed-base Fermat-quotient line avoidance by checking or controlling only bounded multiplicative orders",
+      "remaining_gap": "Unbounded-order rational Wieferich square divisors, general necklaces, and aperiodic descent remain open.",
+      "candidate_theorem": "UniformOrderCoreSquareDivisorTransferFrom32Over27To2Over3"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-242",
+      "declared_proposition": "For S_X(alpha)=sum_(p<=X)e(p alpha), Parseval gives integral_0^1 |S_X|^2=pi(X). For every measurable minor-arc set m and even N, |integral_m S_X(alpha)^2 e(-N alpha)dalpha| is at most the minor L2 energy and hence at most pi(X). Therefore any fixed binary-arc certificate whose only minor estimate is the global Parseval bound cannot close against a proposed main term M_X(N)=o(pi(X)). In particular X/log^2 X=o(pi(X)) by the prime number theorem, so an L2-only minor bound misses the natural binary scale by a factor of order log X.",
+      "new_result": "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/quantifier_order_parseval_diagonal_crt_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "closing a natural-scale binary Goldbach lower certificate using only global L2 Parseval energy and triangle inequality",
+      "remaining_gap": "No signed targetwise minor-arc saving or uniform positive binary-prime main-minus-error certificate is proved.",
+      "candidate_theorem": "FixedBinaryPrimeMinorArcCoefficientIsLittleOOfTargetMainUniformlyOnBufferedEvenTargets"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-242",
+      "declared_proposition": "Let (M_j) be any sequence of positive periods and choose a_j modulo M_j with gcd(a_j,M_j)=gcd(a_j+2,M_j)=1. For every j let F_j be any feature periodic modulo M_j. There is a strictly increasing sequence of primes p_j such that F_j(p_j,p_j+2)=F_j(a_j,a_j+2) while p_j+2 is composite. For each j choose a prime ell_j not dividing 2M_j, impose p_j=a_j mod M_j and p_j=-2 mod ell_j, and choose a Dirichlet prime in the reduced CRT class above p_(j-1). Thus modulus growth by itself does not defeat periodic mimicry.",
+      "new_result": "GrowingPeriodDiagonalCRTMimicryForShiftTwo",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/quantifier_order_parseval_diagonal_crt_audit/twin-prime",
+        "failure_count": 0
+      },
+      "discarded_route": "modulus growth alone, without scale localization or signed Type II information, as a twin-prime certificate",
+      "remaining_gap": "No mimic is placed in a prescribed dyadic block and no parity-sensitive Lambda correlation lower bound is proved.",
+      "candidate_theorem": "ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass"
+    }
+  ]
+}

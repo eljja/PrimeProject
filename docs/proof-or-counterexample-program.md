@@ -8704,3 +8704,27 @@ DAGs, zero machine failures, and zero conjecture resolutions.
 
 English report: [TICKET-241 finite information, canonical errors, and fixed-base search](finite-information-canonical-errors.md).
 한국어 보고서: [TICKET-241 유한 정보·정규 오차·고정 밑수 탐색](finite-information-canonical-errors.ko.md).
+
+## TICKET-242 continuation: quantifiers, order cores, Parseval scale, and diagonal CRT
+
+TICKET-242 attacks the four TICKET-241 successors and closes four strictly
+weaker boundary statements without resolving any parent conjecture.
+
+| Track | Exact theorem now closed | Route discarded | Next single lemma |
+|---|---|---|---|
+| RH | PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer | pointwise fixed-test convergence as growing-family positivity | UniformSignedGuinandWeilTailBoundOnFrequencyTightNormalizedAdmissibleTestClasses |
+| Collatz | RationalWieferichOrderCoreReductionAndBoundedOrderNoGo | bounded multiplicative orders as an all-prime proof | UniformOrderCoreSquareDivisorTransferFrom32Over27To2Over3 |
+| Goldbach | ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates | global L2 plus triangle inequality at the natural binary scale | FixedBinaryPrimeMinorArcCoefficientIsLittleOOfTargetMainUniformlyOnBufferedEvenTargets |
+| Twin | GrowingPeriodDiagonalCRTMimicryForShiftTwo | modulus growth alone as a parity-breaking certificate | ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass |
+
+The RH moving-vector model is an abstract quantifier counterexample, not an
+actual Guinand-Weil finite section. The Collatz scan through 200,000 only
+replays the exact LTE identity; TICKET-241 contains the larger 100,000,000
+candidate search. The Goldbach table illustrates the Parseval scale mismatch
+but proves no targetwise signed saving. The Twin witnesses are not placed in
+predeclared dyadic blocks and give no quantitative least-prime bound.
+
+Machine artifact:
+data/open-problem/ticket242-quantifier-order-parseval-diagonal-crt.json.
+Reports: [English](quantifier-order-parseval-diagonal-crt.md) and
+[한국어](quantifier-order-parseval-diagonal-crt.ko.md).

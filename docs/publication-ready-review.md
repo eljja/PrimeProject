@@ -378,3 +378,30 @@ Blocked claims:
   proves strong Goldbach;
 - that finite periodic fingerprint failure rules out growing-modulus,
   nonperiodic, parity-sensitive Type II methods.
+
+## TICKET-242 publication boundary
+
+TICKET-242 adds four exact boundary theorems: a moving-vector counterexample to
+pointwise-to-uniform positivity together with a compact uniform transfer
+criterion; an exact rational-Wieferich order-core reduction and unbounded-order
+no-go; a Parseval-scale obstruction to L2-only binary minor-arc certificates;
+and a growing-period diagonal-CRT mimicry theorem.
+
+Allowed claims:
+
+- the declared propositions, calculations, proof DAGs, and transcript hashes
+  are reproducible from the generator and focused tests;
+- the Collatz order-core identity is exact, while the 200,000-prime replay is
+  bounded verification and smaller than the preserved TICKET-241 scan;
+- the four named shortcut routes are refuted only at their stated scope;
+- every parent conjecture remains open_not_proven.
+
+Blocked claims:
+
+- that the abstract moving-vector example settles an actual signed
+  Guinand-Weil tail estimate or the Riemann Hypothesis;
+- that bounded computation proves all-prime rational-Wieferich avoidance or
+  the Collatz conjecture;
+- that Parseval alone proves any uniform binary Goldbach lower bound;
+- that diagonal CRT mimicry supplies a scale-local Type II estimate or says
+  twin primes are finite.

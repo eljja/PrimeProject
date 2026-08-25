@@ -62,7 +62,32 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-241
+## Current continuation: TICKET-242
+
+The current machine-readable boundary is
+data/open-problem/ticket242-quantifier-order-parseval-diagonal-crt.json.
+It records four exact boundary theorems, zero machine failures, and zero
+parent-problem resolutions.
+
+| Problem | Newly closed result | Current single open lemma |
+|---|---|---|
+| Riemann | PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer | UniformSignedGuinandWeilTailBoundOnFrequencyTightNormalizedAdmissibleTestClasses |
+| Collatz | RationalWieferichOrderCoreReductionAndBoundedOrderNoGo | UniformOrderCoreSquareDivisorTransferFrom32Over27To2Over3 |
+| Goldbach | ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates | FixedBinaryPrimeMinorArcCoefficientIsLittleOOfTargetMainUniformlyOnBufferedEvenTargets |
+| Twin Prime | GrowingPeriodDiagonalCRTMimicryForShiftTwo | ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass |
+
+Do not repeat the discarded routes. Pointwise convergence is not uniform
+positivity; bounded order cores do not cover unbounded orders; global L2 plus
+triangle inequality does not supply targetwise signed cancellation; modulus
+growth without scale localization does not defeat diagonal CRT mimicry.
+
+Reports: [English](quantifier-order-parseval-diagonal-crt.md),
+[한국어](quantifier-order-parseval-diagonal-crt.ko.md).
+
+All older current/latest headings below are historical snapshots and must not
+override this TICKET-242 boundary.
+
+## Preserved continuation: TICKET-241
 
 The current machine-readable boundary is
 `data/open-problem/ticket241-finite-information-canonical-errors.json`.
@@ -87,7 +112,7 @@ Reports: [English](finite-information-canonical-errors.md),
 [한국어](finite-information-canonical-errors.ko.md).
 
 All older current/latest headings below are historical snapshots and must not
-override this TICKET-241 boundary.
+override the current TICKET-242 boundary.
 
 ## Preserved continuation: TICKET-240
 
@@ -112,7 +137,7 @@ Reports: [English](route-corrections-wieferich-prime-crt.md),
 [한국어](route-corrections-wieferich-prime-crt.ko.md).
 
 All older current/latest headings below are historical snapshots and must not
-override the current TICKET-241 boundary.
+override the current TICKET-242 boundary.
 
 ## Preserved continuation: TICKET-239
 
@@ -140,7 +165,7 @@ Reports: [English](cancellation-lifting-fourier-crt.md),
 [한국어](cancellation-lifting-fourier-crt.ko.md).
 
 All older current/latest headings below are historical snapshots and must not
-override the current TICKET-241 boundary.
+override the current TICKET-242 boundary.
 
 ## Preserved continuation: TICKET-238
 
@@ -168,7 +193,7 @@ Reports: [English](multishell-valuation-buffer-effectiverank.md),
 [한국어](multishell-valuation-buffer-effectiverank.ko.md).
 
 All older current/latest headings below are historical snapshots and must not
-override the current TICKET-241 boundary.
+override the current TICKET-242 boundary.
 
 ## Preserved continuation: TICKET-237
 

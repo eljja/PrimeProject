@@ -15,7 +15,36 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-241
+## Current research boundary: TICKET-242
+
+The current machine-readable boundary is
+data/open-problem/ticket242-quantifier-order-parseval-diagonal-crt.json.
+TICKET-242 proves four exact boundary theorems and resolves none of the parent
+conjectures:
+
+- pointwise finite-section convergence and fixed-test eventual positivity do
+  not imply uniform positivity on a growing test family; compact uniform
+  convergence with a positive margin is a sufficient transfer condition;
+- the Collatz bad Fermat line has an exact multiplicative-order-core reduction,
+  and the relevant orders are unbounded, refuting bounded-order sufficiency;
+- global Parseval L2 energy plus triangle inequality is too large for a
+  natural-scale binary Goldbach minor-arc certificate;
+- arbitrary growing periodic feature systems still admit stagewise
+  prime/composite-successor diagonal-CRT mimics.
+
+The next single lemmas are a uniform signed Guinand-Weil tail bound on a
+frequency-tight normalized class, an all-order square-divisor transfer, a
+targetwise signed binary minor-arc saving, and a scale-local growing-modulus
+Type II estimate with positive shift-two prime mass.
+
+한국어: 네 정리는 양화사·order core·노름 척도·diagonal CRT 지름길을
+정확히 닫지만 상위 난제를 해결하지 않습니다. 유한 계산은 지정 범위의
+재현 증거이며 해결 수는 0입니다.
+
+Reports: [English](quantifier-order-parseval-diagonal-crt.md),
+[한국어](quantifier-order-parseval-diagonal-crt.ko.md).
+
+## Preserved research boundary: TICKET-241
 
 The current machine-readable boundary is
 `data/open-problem/ticket241-finite-information-canonical-errors.json`.
