@@ -1,0 +1,216 @@
+{
+  "schema": "primeproject.ticket243-bandlimit-principal-unit-half-arc-dyadic-mimicry.v1",
+  "generated_at": "2026-08-26T07:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-243",
+  "theorem_name": "UnboundedOrderPrincipalUnitTransferCountermodels",
+  "declared_proposition": "For every prime q>5 choose a primitive root t modulo q and its Teichmuller lift T=t^q modulo q^2. Put A=T(1+3q), B=T(1+5q), U=A/B, and V=A^5/B^3 modulo q^2. Then ord_q(V)=(q-1)/2 and V^((q-1)/2)=1 modulo q^2, whereas ord_q(U)=1 but U is not 1 modulo q^2; indeed U=1-2q modulo q^2. Thus the square-depth condition for the (5,-3) order core does not universally transfer to the (1,-1) core, even along an unbounded sequence of exact orders.",
+  "mathematical_argument": "The lift T has order q-1 modulo q^2 because T^(q-1)=1 and its reduction has order q-1. Binomial expansion modulo q^2 gives (1+3q)^5(1+5q)^(-3)=1, hence V=T^2, of order (q-1)/2 and depth at least two at that order. The same expansion gives U=(1+3q)/(1+5q)=1-2q, which has exact q-depth one. Since (q-1)/2 is unbounded, the countermodels are not confined to bounded orders.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every prime q>5 choose a primitive root t modulo q and its Teichmuller lift T=t^q modulo q^2. Put A=T(1+3q), B=T(1+5q), U=A/B, and V=A^5/B^3 modulo q^2. Then ord_q(V)=(q-1)/2 and V^((q-1)/2)=1 modulo q^2, whereas ord_q(U)=1 but U is not 1 modulo q^2; indeed U=1-2q modulo q^2. Thus the square-depth condition for the (5,-3) order core does not universally transfer to the (1,-1) core, even along an unbounded sequence of exact orders.",
+    "proof": "The lift T has order q-1 modulo q^2 because T^(q-1)=1 and its reduction has order q-1. Binomial expansion modulo q^2 gives (1+3q)^5(1+5q)^(-3)=1, hence V=T^2, of order (q-1)/2 and depth at least two at that order. The same expansion gives U=(1+3q)/(1+5q)=1-2q, which has exact q-depth one. Since (q-1)/2 is unbounded, the countermodels are not confined to bounded orders.",
+    "selected_principal_unit_rows": [
+      {
+        "prime_q": 7,
+        "primitive_root_t": 3,
+        "teichmuller_lift_T_mod_q_squared": 31,
+        "A_mod_q_squared": 45,
+        "B_mod_q_squared": 38,
+        "U_equals_A_over_B_mod_q_squared": 36,
+        "V_equals_A_power_5_over_B_power_3_mod_q_squared": 30,
+        "order_d_of_V_mod_q": 3,
+        "q_squared_divides_V_power_d_minus_1": true,
+        "q_exactly_divides_U_minus_1": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "primitive_root_t": 2,
+        "teichmuller_lift_T_mod_q_squared": 112,
+        "A_mod_q_squared": 57,
+        "B_mod_q_squared": 101,
+        "U_equals_A_over_B_mod_q_squared": 100,
+        "V_equals_A_power_5_over_B_power_3_mod_q_squared": 81,
+        "order_d_of_V_mod_q": 5,
+        "q_squared_divides_V_power_d_minus_1": true,
+        "q_exactly_divides_U_minus_1": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 13,
+        "primitive_root_t": 2,
+        "teichmuller_lift_T_mod_q_squared": 80,
+        "A_mod_q_squared": 158,
+        "B_mod_q_squared": 41,
+        "U_equals_A_over_B_mod_q_squared": 144,
+        "V_equals_A_power_5_over_B_power_3_mod_q_squared": 147,
+        "order_d_of_V_mod_q": 6,
+        "q_squared_divides_V_power_d_minus_1": true,
+        "q_exactly_divides_U_minus_1": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 17,
+        "primitive_root_t": 3,
+        "teichmuller_lift_T_mod_q_squared": 224,
+        "A_mod_q_squared": 88,
+        "B_mod_q_squared": 190,
+        "U_equals_A_over_B_mod_q_squared": 256,
+        "V_equals_A_power_5_over_B_power_3_mod_q_squared": 179,
+        "order_d_of_V_mod_q": 8,
+        "q_squared_divides_V_power_d_minus_1": true,
+        "q_exactly_divides_U_minus_1": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 29,
+        "primitive_root_t": 2,
+        "teichmuller_lift_T_mod_q_squared": 60,
+        "A_mod_q_squared": 234,
+        "B_mod_q_squared": 350,
+        "U_equals_A_over_B_mod_q_squared": 784,
+        "V_equals_A_power_5_over_B_power_3_mod_q_squared": 236,
+        "order_d_of_V_mod_q": 14,
+        "q_squared_divides_V_power_d_minus_1": true,
+        "q_exactly_divides_U_minus_1": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 59,
+        "primitive_root_t": 2,
+        "teichmuller_lift_T_mod_q_squared": 946,
+        "A_mod_q_squared": 1300,
+        "B_mod_q_squared": 1536,
+        "U_equals_A_over_B_mod_q_squared": 3364,
+        "V_equals_A_power_5_over_B_power_3_mod_q_squared": 299,
+        "order_d_of_V_mod_q": 29,
+        "q_squared_divides_V_power_d_minus_1": true,
+        "q_exactly_divides_U_minus_1": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 109,
+        "primitive_root_t": 6,
+        "teichmuller_lift_T_mod_q_squared": 2949,
+        "A_mod_q_squared": 4911,
+        "B_mod_q_squared": 6219,
+        "U_equals_A_over_B_mod_q_squared": 11664,
+        "V_equals_A_power_5_over_B_power_3_mod_q_squared": 11590,
+        "order_d_of_V_mod_q": 54,
+        "q_squared_divides_V_power_d_minus_1": true,
+        "q_exactly_divides_U_minus_1": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 1009,
+        "primitive_root_t": 11,
+        "teichmuller_lift_T_mod_q_squared": 670996,
+        "A_mod_q_squared": 704293,
+        "B_mod_q_squared": 726491,
+        "U_equals_A_over_B_mod_q_squared": 1016064,
+        "V_equals_A_power_5_over_B_power_3_mod_q_squared": 508657,
+        "order_d_of_V_mod_q": 504,
+        "q_squared_divides_V_power_d_minus_1": true,
+        "q_exactly_divides_U_minus_1": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 10007,
+        "primitive_root_t": 5,
+        "teichmuller_lift_T_mod_q_squared": 44901414,
+        "A_mod_q_squared": 45051519,
+        "B_mod_q_squared": 45151589,
+        "U_equals_A_over_B_mod_q_squared": 100120036,
+        "V_equals_A_power_5_over_B_power_3_mod_q_squared": 48453919,
+        "order_d_of_V_mod_q": 5003,
+        "q_squared_divides_V_power_d_minus_1": true,
+        "q_exactly_divides_U_minus_1": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 49999,
+        "primitive_root_t": 3,
+        "teichmuller_lift_T_mod_q_squared": 1905711888,
+        "A_mod_q_squared": 1906161879,
+        "B_mod_q_squared": 1906461873,
+        "U_equals_A_over_B_mod_q_squared": 2499800004,
+        "V_equals_A_power_5_over_B_power_3_mod_q_squared": 1434671315,
+        "order_d_of_V_mod_q": 24999,
+        "q_squared_divides_V_power_d_minus_1": true,
+        "q_exactly_divides_U_minus_1": true,
+        "certificate_verified": true
+      }
+    ],
+    "bounded_universal_model_replay": {
+      "prime_limit": 50000,
+      "primes_scanned": 5130,
+      "failure_count": 0,
+      "largest_countermodel_order": 24999,
+      "largest_order_witness_prime": 49999
+    },
+    "transcript_sha256": "fa66801a2a9d21ff3f873a7ac22501d9e8193aea8a9404b42e2e318fdbdff59f",
+    "aggregate": {
+      "unbounded_order_local_countermodel_family_proved": true,
+      "universal_local_order_core_transfer_refuted": true,
+      "fixed_base_32_over_27_exception_excluded": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "A and B vary with q and are not the fixed integers 2 and 3. The theorem closes only deductions valid for arbitrary q-adic units using order, LTE, and principal-unit algebra. Special arithmetic of the fixed bases, general necklaces, and aperiodic Collatz descent remain open.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "All 5,130 primes 5<q<=50,000 replayed with exact modular arithmetic; the theorem covers every q>5 independently of the scan.",
+  "logical_limit": "The countermodels vary with q; the fixed-base order-core exception and general Collatz dynamics remain open.",
+  "route_decision": {
+    "discard": "deducing the fixed-base 32/27 to 2/3 square-depth transfer from universal order, LTE, and principal-unit algebra",
+    "parked": [],
+    "retain": "special arithmetic excluding rational-Wieferich order cores for the fixed integers 32 and 27",
+    "next_single_lemma": "FixedBaseRationalWieferichExclusionFor32Over27OnAllPrimeOrderCores"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T242",
+        "label": "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-N243",
+        "label": "UniversalLocalOrderCoreSquareDivisorTransferFromFiveMinusThreeToOneMinusOne",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-T243",
+        "label": "UnboundedOrderPrincipalUnitTransferCountermodels",
+        "status": "proved"
+      },
+      {
+        "id": "CO-OPEN243",
+        "label": "FixedBaseRationalWieferichExclusionFor32Over27OnAllPrimeOrderCores",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T242",
+        "CO-N243"
+      ],
+      [
+        "CO-T242",
+        "CO-T243"
+      ],
+      [
+        "CO-N243",
+        "CO-T243"
+      ],
+      [
+        "CO-T243",
+        "CO-OPEN243"
+      ]
+    ]
+  },
+  "claim_boundary": "No Collatz proof or cycle; an exact all-prime local countermodel family separates universal algebra from fixed-base arithmetic."
+}

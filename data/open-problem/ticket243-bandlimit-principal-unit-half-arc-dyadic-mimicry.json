@@ -1,0 +1,982 @@
+{
+  "schema": "primeproject.ticket243-bandlimit-principal-unit-half-arc-dyadic-mimicry.v1",
+  "generated_at": "2026-08-26T07:30:00+09:00",
+  "status": "open_not_proven",
+  "iteration_complete": true,
+  "program_complete": false,
+  "bandlimit_principal_unit_half_arc_dyadic_mimicry_audit": {
+    "theorem_name": "FourConjectureBandlimitPrincipalUnitHalfArcDyadicMimicryAudit",
+    "summary": "TICKET-243 proves three exact route no-go theorems and one dyadic partial theorem while leaving all four parent conjectures open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-243",
+      "theorem_name": "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
+      "declared_proposition": "Let g_n(xi)=pi^(-1/2) cos(n xi) in L2([-pi,pi]) for n>=1, and let f_n be its inverse Fourier transform. Then every f_n is normalized, real, even, and bandlimited to the same interval, while <f_n,f_m>=delta_nm. Hence fixed frequency support and L2 normalization do not make an even test family relatively compact. Moreover, replacing the sharp cutoff by a nonzero real even phi in C_c^infinity and taking normalized inverse transforms of phi(xi)cos(t xi) gives a smooth bandlimited non-precompact subsequence. Therefore frequency tightness alone cannot supply the compactness premise in the TICKET-242 uniform positivity transfer criterion.",
+      "mathematical_argument": "Cosine orthogonality gives integral from -pi to pi of cos(n xi)cos(m xi) equal to pi delta_nm; Plancherel transfers this Gram matrix to the inverse transforms, whose pairwise squared distance is two. For smooth phi, products of two modulated copies reduce to Fourier coefficients of |phi|^2 at t-s and t+s. Riemann-Lebesgue makes those coefficients tend to zero, so a separated subsequence exists.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let g_n(xi)=pi^(-1/2) cos(n xi) in L2([-pi,pi]) for n>=1, and let f_n be its inverse Fourier transform. Then every f_n is normalized, real, even, and bandlimited to the same interval, while <f_n,f_m>=delta_nm. Hence fixed frequency support and L2 normalization do not make an even test family relatively compact. Moreover, replacing the sharp cutoff by a nonzero real even phi in C_c^infinity and taking normalized inverse transforms of phi(xi)cos(t xi) gives a smooth bandlimited non-precompact subsequence. Therefore frequency tightness alone cannot supply the compactness premise in the TICKET-242 uniform positivity transfer criterion.",
+        "proof": "Cosine orthogonality gives integral from -pi to pi of cos(n xi)cos(m xi) equal to pi delta_nm; Plancherel transfers this Gram matrix to the inverse transforms, whose pairwise squared distance is two. For smooth phi, products of two modulated copies reduce to Fourier coefficients of |phi|^2 at t-s and t+s. Riemann-Lebesgue makes those coefficients tend to zero, so a separated subsequence exists.",
+        "exact_cosine_gram_rows": [
+          {
+            "orthonormal_family_size": 4,
+            "fourier_support": "[-pi,pi]",
+            "real_even": true,
+            "gram_diagonal": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "maximum_off_diagonal_absolute_value": {
+              "exact": "0",
+              "float": 0.0
+            },
+            "minimum_pair_distance_squared": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "orthonormal_family_size": 8,
+            "fourier_support": "[-pi,pi]",
+            "real_even": true,
+            "gram_diagonal": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "maximum_off_diagonal_absolute_value": {
+              "exact": "0",
+              "float": 0.0
+            },
+            "minimum_pair_distance_squared": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "orthonormal_family_size": 16,
+            "fourier_support": "[-pi,pi]",
+            "real_even": true,
+            "gram_diagonal": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "maximum_off_diagonal_absolute_value": {
+              "exact": "0",
+              "float": 0.0
+            },
+            "minimum_pair_distance_squared": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "orthonormal_family_size": 32,
+            "fourier_support": "[-pi,pi]",
+            "real_even": true,
+            "gram_diagonal": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "maximum_off_diagonal_absolute_value": {
+              "exact": "0",
+              "float": 0.0
+            },
+            "minimum_pair_distance_squared": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "orthonormal_family_size": 64,
+            "fourier_support": "[-pi,pi]",
+            "real_even": true,
+            "gram_diagonal": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "maximum_off_diagonal_absolute_value": {
+              "exact": "0",
+              "float": 0.0
+            },
+            "minimum_pair_distance_squared": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "6b52e81598d394e05fffe373733e2a7638a9de662610abd8f1b63c59e46e90cf",
+        "aggregate": {
+          "fixed_frequency_support_proved": true,
+          "real_even_normalization_proved": true,
+          "relative_compactness_refuted": true,
+          "smooth_bandlimited_noncompact_subsequence_proved": true,
+          "uniform_signed_guinand_weil_tail_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The examples are functional-analytic test families, not a proof that the actual Guinand-Weil admissible class contains them or that its arithmetic tail fails. They refute frequency tightness alone as a compactness argument; joint physical tightness, admissibility, a uniform arithmetic tail, and a positive margin remain open.",
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Five exact symbolic Gram certificates, sizes 4 through 64; the infinite theorem is analytic and does not depend on those rows.",
+      "logical_limit": "No compactness or uniform signed Guinand-Weil tail is proved for the actual admissible class.",
+      "route_decision": {
+        "discard": "frequency support or frequency tightness alone as compactness of a normalized even Weil-test family",
+        "parked": [],
+        "retain": "joint physical and frequency tightness plus a uniform arithmetic tail and positive limiting margin",
+        "next_single_lemma": "JointPhysicalFrequencyTightnessAndUniformSignedGuinandWeilTailWithPositiveMargin"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T242",
+            "label": "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
+            "status": "proved"
+          },
+          {
+            "id": "RH-EXT243",
+            "label": "Riemann-Lebesgue lemma and Plancherel theorem",
+            "status": "external_theorem"
+          },
+          {
+            "id": "RH-N243",
+            "label": "FrequencyTightNormalizedEvenTestFamiliesAreAutomaticallyCompact",
+            "status": "disproved"
+          },
+          {
+            "id": "RH-T243",
+            "label": "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "RH-OPEN243",
+            "label": "JointPhysicalFrequencyTightnessAndUniformSignedGuinandWeilTailWithPositiveMargin",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T242",
+            "RH-N243"
+          ],
+          [
+            "RH-EXT243",
+            "RH-T243"
+          ],
+          [
+            "RH-T242",
+            "RH-T243"
+          ],
+          [
+            "RH-N243",
+            "RH-T243"
+          ],
+          [
+            "RH-T243",
+            "RH-OPEN243"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof, disproof, or zero exclusion; one exact bandlimit compactness no-go only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-243",
+      "theorem_name": "UnboundedOrderPrincipalUnitTransferCountermodels",
+      "declared_proposition": "For every prime q>5 choose a primitive root t modulo q and its Teichmuller lift T=t^q modulo q^2. Put A=T(1+3q), B=T(1+5q), U=A/B, and V=A^5/B^3 modulo q^2. Then ord_q(V)=(q-1)/2 and V^((q-1)/2)=1 modulo q^2, whereas ord_q(U)=1 but U is not 1 modulo q^2; indeed U=1-2q modulo q^2. Thus the square-depth condition for the (5,-3) order core does not universally transfer to the (1,-1) core, even along an unbounded sequence of exact orders.",
+      "mathematical_argument": "The lift T has order q-1 modulo q^2 because T^(q-1)=1 and its reduction has order q-1. Binomial expansion modulo q^2 gives (1+3q)^5(1+5q)^(-3)=1, hence V=T^2, of order (q-1)/2 and depth at least two at that order. The same expansion gives U=(1+3q)/(1+5q)=1-2q, which has exact q-depth one. Since (q-1)/2 is unbounded, the countermodels are not confined to bounded orders.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "For every prime q>5 choose a primitive root t modulo q and its Teichmuller lift T=t^q modulo q^2. Put A=T(1+3q), B=T(1+5q), U=A/B, and V=A^5/B^3 modulo q^2. Then ord_q(V)=(q-1)/2 and V^((q-1)/2)=1 modulo q^2, whereas ord_q(U)=1 but U is not 1 modulo q^2; indeed U=1-2q modulo q^2. Thus the square-depth condition for the (5,-3) order core does not universally transfer to the (1,-1) core, even along an unbounded sequence of exact orders.",
+        "proof": "The lift T has order q-1 modulo q^2 because T^(q-1)=1 and its reduction has order q-1. Binomial expansion modulo q^2 gives (1+3q)^5(1+5q)^(-3)=1, hence V=T^2, of order (q-1)/2 and depth at least two at that order. The same expansion gives U=(1+3q)/(1+5q)=1-2q, which has exact q-depth one. Since (q-1)/2 is unbounded, the countermodels are not confined to bounded orders.",
+        "selected_principal_unit_rows": [
+          {
+            "prime_q": 7,
+            "primitive_root_t": 3,
+            "teichmuller_lift_T_mod_q_squared": 31,
+            "A_mod_q_squared": 45,
+            "B_mod_q_squared": 38,
+            "U_equals_A_over_B_mod_q_squared": 36,
+            "V_equals_A_power_5_over_B_power_3_mod_q_squared": 30,
+            "order_d_of_V_mod_q": 3,
+            "q_squared_divides_V_power_d_minus_1": true,
+            "q_exactly_divides_U_minus_1": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "primitive_root_t": 2,
+            "teichmuller_lift_T_mod_q_squared": 112,
+            "A_mod_q_squared": 57,
+            "B_mod_q_squared": 101,
+            "U_equals_A_over_B_mod_q_squared": 100,
+            "V_equals_A_power_5_over_B_power_3_mod_q_squared": 81,
+            "order_d_of_V_mod_q": 5,
+            "q_squared_divides_V_power_d_minus_1": true,
+            "q_exactly_divides_U_minus_1": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 13,
+            "primitive_root_t": 2,
+            "teichmuller_lift_T_mod_q_squared": 80,
+            "A_mod_q_squared": 158,
+            "B_mod_q_squared": 41,
+            "U_equals_A_over_B_mod_q_squared": 144,
+            "V_equals_A_power_5_over_B_power_3_mod_q_squared": 147,
+            "order_d_of_V_mod_q": 6,
+            "q_squared_divides_V_power_d_minus_1": true,
+            "q_exactly_divides_U_minus_1": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 17,
+            "primitive_root_t": 3,
+            "teichmuller_lift_T_mod_q_squared": 224,
+            "A_mod_q_squared": 88,
+            "B_mod_q_squared": 190,
+            "U_equals_A_over_B_mod_q_squared": 256,
+            "V_equals_A_power_5_over_B_power_3_mod_q_squared": 179,
+            "order_d_of_V_mod_q": 8,
+            "q_squared_divides_V_power_d_minus_1": true,
+            "q_exactly_divides_U_minus_1": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 29,
+            "primitive_root_t": 2,
+            "teichmuller_lift_T_mod_q_squared": 60,
+            "A_mod_q_squared": 234,
+            "B_mod_q_squared": 350,
+            "U_equals_A_over_B_mod_q_squared": 784,
+            "V_equals_A_power_5_over_B_power_3_mod_q_squared": 236,
+            "order_d_of_V_mod_q": 14,
+            "q_squared_divides_V_power_d_minus_1": true,
+            "q_exactly_divides_U_minus_1": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 59,
+            "primitive_root_t": 2,
+            "teichmuller_lift_T_mod_q_squared": 946,
+            "A_mod_q_squared": 1300,
+            "B_mod_q_squared": 1536,
+            "U_equals_A_over_B_mod_q_squared": 3364,
+            "V_equals_A_power_5_over_B_power_3_mod_q_squared": 299,
+            "order_d_of_V_mod_q": 29,
+            "q_squared_divides_V_power_d_minus_1": true,
+            "q_exactly_divides_U_minus_1": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 109,
+            "primitive_root_t": 6,
+            "teichmuller_lift_T_mod_q_squared": 2949,
+            "A_mod_q_squared": 4911,
+            "B_mod_q_squared": 6219,
+            "U_equals_A_over_B_mod_q_squared": 11664,
+            "V_equals_A_power_5_over_B_power_3_mod_q_squared": 11590,
+            "order_d_of_V_mod_q": 54,
+            "q_squared_divides_V_power_d_minus_1": true,
+            "q_exactly_divides_U_minus_1": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 1009,
+            "primitive_root_t": 11,
+            "teichmuller_lift_T_mod_q_squared": 670996,
+            "A_mod_q_squared": 704293,
+            "B_mod_q_squared": 726491,
+            "U_equals_A_over_B_mod_q_squared": 1016064,
+            "V_equals_A_power_5_over_B_power_3_mod_q_squared": 508657,
+            "order_d_of_V_mod_q": 504,
+            "q_squared_divides_V_power_d_minus_1": true,
+            "q_exactly_divides_U_minus_1": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 10007,
+            "primitive_root_t": 5,
+            "teichmuller_lift_T_mod_q_squared": 44901414,
+            "A_mod_q_squared": 45051519,
+            "B_mod_q_squared": 45151589,
+            "U_equals_A_over_B_mod_q_squared": 100120036,
+            "V_equals_A_power_5_over_B_power_3_mod_q_squared": 48453919,
+            "order_d_of_V_mod_q": 5003,
+            "q_squared_divides_V_power_d_minus_1": true,
+            "q_exactly_divides_U_minus_1": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 49999,
+            "primitive_root_t": 3,
+            "teichmuller_lift_T_mod_q_squared": 1905711888,
+            "A_mod_q_squared": 1906161879,
+            "B_mod_q_squared": 1906461873,
+            "U_equals_A_over_B_mod_q_squared": 2499800004,
+            "V_equals_A_power_5_over_B_power_3_mod_q_squared": 1434671315,
+            "order_d_of_V_mod_q": 24999,
+            "q_squared_divides_V_power_d_minus_1": true,
+            "q_exactly_divides_U_minus_1": true,
+            "certificate_verified": true
+          }
+        ],
+        "bounded_universal_model_replay": {
+          "prime_limit": 50000,
+          "primes_scanned": 5130,
+          "failure_count": 0,
+          "largest_countermodel_order": 24999,
+          "largest_order_witness_prime": 49999
+        },
+        "transcript_sha256": "fa66801a2a9d21ff3f873a7ac22501d9e8193aea8a9404b42e2e318fdbdff59f",
+        "aggregate": {
+          "unbounded_order_local_countermodel_family_proved": true,
+          "universal_local_order_core_transfer_refuted": true,
+          "fixed_base_32_over_27_exception_excluded": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "A and B vary with q and are not the fixed integers 2 and 3. The theorem closes only deductions valid for arbitrary q-adic units using order, LTE, and principal-unit algebra. Special arithmetic of the fixed bases, general necklaces, and aperiodic Collatz descent remain open.",
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "All 5,130 primes 5<q<=50,000 replayed with exact modular arithmetic; the theorem covers every q>5 independently of the scan.",
+      "logical_limit": "The countermodels vary with q; the fixed-base order-core exception and general Collatz dynamics remain open.",
+      "route_decision": {
+        "discard": "deducing the fixed-base 32/27 to 2/3 square-depth transfer from universal order, LTE, and principal-unit algebra",
+        "parked": [],
+        "retain": "special arithmetic excluding rational-Wieferich order cores for the fixed integers 32 and 27",
+        "next_single_lemma": "FixedBaseRationalWieferichExclusionFor32Over27OnAllPrimeOrderCores"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T242",
+            "label": "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "CO-N243",
+            "label": "UniversalLocalOrderCoreSquareDivisorTransferFromFiveMinusThreeToOneMinusOne",
+            "status": "disproved"
+          },
+          {
+            "id": "CO-T243",
+            "label": "UnboundedOrderPrincipalUnitTransferCountermodels",
+            "status": "proved"
+          },
+          {
+            "id": "CO-OPEN243",
+            "label": "FixedBaseRationalWieferichExclusionFor32Over27OnAllPrimeOrderCores",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T242",
+            "CO-N243"
+          ],
+          [
+            "CO-T242",
+            "CO-T243"
+          ],
+          [
+            "CO-N243",
+            "CO-T243"
+          ],
+          [
+            "CO-T243",
+            "CO-OPEN243"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or cycle; an exact all-prime local countermodel family separates universal algebra from fixed-base arithmetic."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-243",
+      "theorem_name": "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
+      "declared_proposition": "Let S_X(alpha)=sum_(p<=X) exp(2 pi i p alpha). For X>=5 and |beta|<=1/(6X), one has |S_X(1/2+beta)| >= (pi(X)-3)/2. Therefore the interval I_X=[1/2-1/(6X),1/2+1/(6X)] satisfies integral over I_X of |S_X(alpha)|^2 d alpha >= (pi(X)-3)^2/(12X), which is asymptotic to X/(12 log^2 X). Any absolute-energy minor-arc budget of size o(X/log^2 X) must exclude this half-frequency neighborhood.",
+      "mathematical_argument": "Write alpha=1/2+beta. Every odd prime contributes -exp(2 pi i p beta). Since |2 pi p beta|<=pi/3, its cosine is at least 1/2. After multiplying S_X by -1, the odd-prime real parts contribute at least (pi(X)-1)/2, while the p=2 term costs at most one. This gives the pointwise floor. Squaring and integrating over length 1/(3X) gives the exact energy floor; the prime number theorem gives its asymptotic.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let S_X(alpha)=sum_(p<=X) exp(2 pi i p alpha). For X>=5 and |beta|<=1/(6X), one has |S_X(1/2+beta)| >= (pi(X)-3)/2. Therefore the interval I_X=[1/2-1/(6X),1/2+1/(6X)] satisfies integral over I_X of |S_X(alpha)|^2 d alpha >= (pi(X)-3)^2/(12X), which is asymptotic to X/(12 log^2 X). Any absolute-energy minor-arc budget of size o(X/log^2 X) must exclude this half-frequency neighborhood.",
+        "proof": "Write alpha=1/2+beta. Every odd prime contributes -exp(2 pi i p beta). Since |2 pi p beta|<=pi/3, its cosine is at least 1/2. After multiplying S_X by -1, the odd-prime real parts contribute at least (pi(X)-1)/2, while the p=2 term costs at most one. This gives the pointwise floor. Squaring and integrating over length 1/(3X) gives the exact energy floor; the prime number theorem gives its asymptotic.",
+        "exact_half_frequency_rows": [
+          {
+            "prime_cutoff_X": 1000,
+            "prime_count_pi_X": 168,
+            "half_frequency_arc_half_width": {
+              "exact": "1/6000",
+              "float": 0.00016666666666666666
+            },
+            "pointwise_absolute_S_floor": {
+              "exact": "165/2",
+              "float": 82.5
+            },
+            "exact_integrated_energy_floor": {
+              "exact": "363/160",
+              "float": 2.26875
+            },
+            "energy_floor_over_X_log_squared_X": 0.10825813204333076,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 3000,
+            "prime_count_pi_X": 430,
+            "half_frequency_arc_half_width": {
+              "exact": "1/18000",
+              "float": 5.555555555555556e-05
+            },
+            "pointwise_absolute_S_floor": {
+              "exact": "427/2",
+              "float": 213.5
+            },
+            "exact_integrated_energy_floor": {
+              "exact": "182329/36000",
+              "float": 5.064694444444444
+            },
+            "energy_floor_over_X_log_squared_X": 0.10821888211639138,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 10000,
+            "prime_count_pi_X": 1229,
+            "half_frequency_arc_half_width": {
+              "exact": "1/60000",
+              "float": 1.6666666666666667e-05
+            },
+            "pointwise_absolute_S_floor": {
+              "exact": "613",
+              "float": 613.0
+            },
+            "exact_integrated_energy_floor": {
+              "exact": "375769/30000",
+              "float": 12.525633333333333
+            },
+            "energy_floor_over_X_log_squared_X": 0.10625541072407241,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 30000,
+            "prime_count_pi_X": 3245,
+            "half_frequency_arc_half_width": {
+              "exact": "1/180000",
+              "float": 5.555555555555556e-06
+            },
+            "pointwise_absolute_S_floor": {
+              "exact": "1621",
+              "float": 1621.0
+            },
+            "exact_integrated_energy_floor": {
+              "exact": "2627641/90000",
+              "float": 29.196011111111112
+            },
+            "energy_floor_over_X_log_squared_X": 0.10342638758742075,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 100000,
+            "prime_count_pi_X": 9592,
+            "half_frequency_arc_half_width": {
+              "exact": "1/600000",
+              "float": 1.6666666666666667e-06
+            },
+            "pointwise_absolute_S_floor": {
+              "exact": "9589/2",
+              "float": 4794.5
+            },
+            "exact_integrated_energy_floor": {
+              "exact": "91948921/1200000",
+              "float": 76.62410083333333
+            },
+            "energy_floor_over_X_log_squared_X": 0.10156329385633905,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 300000,
+            "prime_count_pi_X": 25997,
+            "half_frequency_arc_half_width": {
+              "exact": "1/1800000",
+              "float": 5.555555555555555e-07
+            },
+            "pointwise_absolute_S_floor": {
+              "exact": "12997",
+              "float": 12997.0
+            },
+            "exact_integrated_energy_floor": {
+              "exact": "168922009/900000",
+              "float": 187.6911211111111
+            },
+            "energy_floor_over_X_log_squared_X": 0.09950812942555665,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 1000000,
+            "prime_count_pi_X": 78498,
+            "half_frequency_arc_half_width": {
+              "exact": "1/6000000",
+              "float": 1.6666666666666668e-07
+            },
+            "pointwise_absolute_S_floor": {
+              "exact": "78495/2",
+              "float": 39247.5
+            },
+            "exact_integrated_energy_floor": {
+              "exact": "82152867/160000",
+              "float": 513.45541875
+            },
+            "energy_floor_over_X_log_squared_X": 0.0980023793214787,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "db3723c1a9cdabd673471f1564af46489235e620f7384d6dcae6f3d3f1446392",
+        "aggregate": {
+          "half_frequency_pointwise_floor_proved": true,
+          "natural_binary_scale_local_energy_proved": true,
+          "minor_arc_omission_route_refuted": true,
+          "signed_targetwise_residual_saving_proved": false,
+          "strong_goldbach_resolved": false
+        },
+        "no_go_scope": "The theorem forces the parity rational neighborhood into the major arcs for absolute-energy arguments. It does not estimate the signed Fourier coefficient on the correctly defined residual minor arcs, and it proves no Goldbach representation lower bound.",
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Seven exact prime-count/energy-floor rows for 1,000<=X<=1,000,000; the asymptotic uses the prime number theorem.",
+      "logical_limit": "No signed residual minor coefficient or positive representation lower bound is proved.",
+      "route_decision": {
+        "discard": "placing the parity rational neighborhood around one half in a minor set while demanding an absolute-energy o(X/log^2 X) budget",
+        "parked": [],
+        "retain": "a complete fixed major-arc cover followed by signed targetwise cancellation on the residual minor arcs",
+        "next_single_lemma": "CompleteSmallDenominatorMajorArcCoverageAndSignedResidualBinaryCoefficientSaving"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T242",
+            "label": "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
+            "status": "proved"
+          },
+          {
+            "id": "GB-EXT243",
+            "label": "Prime number theorem",
+            "status": "external_theorem"
+          },
+          {
+            "id": "GB-N243",
+            "label": "AnAbsoluteMinorEnergyBudgetCanOmitTheHalfFrequencyNeighborhood",
+            "status": "disproved"
+          },
+          {
+            "id": "GB-T243",
+            "label": "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
+            "status": "proved"
+          },
+          {
+            "id": "GB-OPEN243",
+            "label": "CompleteSmallDenominatorMajorArcCoverageAndSignedResidualBinaryCoefficientSaving",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T242",
+            "GB-N243"
+          ],
+          [
+            "GB-EXT243",
+            "GB-T243"
+          ],
+          [
+            "GB-T242",
+            "GB-T243"
+          ],
+          [
+            "GB-N243",
+            "GB-T243"
+          ],
+          [
+            "GB-T243",
+            "GB-OPEN243"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample; one exact local energy lower bound and seven finite prime-count rows only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-243",
+      "theorem_name": "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock",
+      "declared_proposition": "Fix M>=1, a modulo M with gcd(a,M)=gcd(a+2,M)=1, and any feature F periodic modulo M. Choose a prime ell not dividing 2M and let r be the reduced CRT class r=a modulo M, r=-2 modulo ell. Then there is X_0 such that every dyadic interval [X,2X] with X>=X_0 contains a prime p congruent to r modulo M ell. Consequently F(p,p+2)=F(a,a+2) while p+2 is composite in every sufficiently large dyadic block.",
+      "mathematical_argument": "CRT gives gcd(r,M ell)=1. The prime number theorem in arithmetic progressions for the fixed modulus Q=M ell gives pi(2X;Q,r)-pi(X;Q,r) asymptotic to X/(phi(Q) log X), hence positive for every sufficiently large X. Taking X_0>ell makes ell a proper divisor of p+2, and periodicity preserves F.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Fix M>=1, a modulo M with gcd(a,M)=gcd(a+2,M)=1, and any feature F periodic modulo M. Choose a prime ell not dividing 2M and let r be the reduced CRT class r=a modulo M, r=-2 modulo ell. Then there is X_0 such that every dyadic interval [X,2X] with X>=X_0 contains a prime p congruent to r modulo M ell. Consequently F(p,p+2)=F(a,a+2) while p+2 is composite in every sufficiently large dyadic block.",
+        "proof": "CRT gives gcd(r,M ell)=1. The prime number theorem in arithmetic progressions for the fixed modulus Q=M ell gives pi(2X;Q,r)-pi(X;Q,r) asymptotic to X/(phi(Q) log X), hence positive for every sufficiently large X. Taking X_0>ell makes ell a proper divisor of p+2, and periodicity preserves F.",
+        "finite_dyadic_witness_rows": [
+          {
+            "fixed_period_M": 30,
+            "admissible_residue_a": 11,
+            "outside_prime_ell": 7,
+            "combined_crt_residue": 131,
+            "combined_modulus_Q": 210,
+            "dyadic_block_start_X": 21000,
+            "prime_mimic_p": 21341,
+            "forced_composite_successor_p_plus_2": 21343,
+            "successor_cofactor": 3049,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 30,
+            "admissible_residue_a": 11,
+            "outside_prime_ell": 7,
+            "combined_crt_residue": 131,
+            "combined_modulus_Q": 210,
+            "dyadic_block_start_X": 42000,
+            "prime_mimic_p": 42131,
+            "forced_composite_successor_p_plus_2": 42133,
+            "successor_cofactor": 6019,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 30,
+            "admissible_residue_a": 11,
+            "outside_prime_ell": 7,
+            "combined_crt_residue": 131,
+            "combined_modulus_Q": 210,
+            "dyadic_block_start_X": 84000,
+            "prime_mimic_p": 84131,
+            "forced_composite_successor_p_plus_2": 84133,
+            "successor_cofactor": 12019,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 30,
+            "admissible_residue_a": 11,
+            "outside_prime_ell": 7,
+            "combined_crt_residue": 131,
+            "combined_modulus_Q": 210,
+            "dyadic_block_start_X": 168000,
+            "prime_mimic_p": 168761,
+            "forced_composite_successor_p_plus_2": 168763,
+            "successor_cofactor": 24109,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 210,
+            "admissible_residue_a": 11,
+            "outside_prime_ell": 11,
+            "combined_crt_residue": 1901,
+            "combined_modulus_Q": 2310,
+            "dyadic_block_start_X": 231000,
+            "prime_mimic_p": 232901,
+            "forced_composite_successor_p_plus_2": 232903,
+            "successor_cofactor": 21173,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 210,
+            "admissible_residue_a": 11,
+            "outside_prime_ell": 11,
+            "combined_crt_residue": 1901,
+            "combined_modulus_Q": 2310,
+            "dyadic_block_start_X": 462000,
+            "prime_mimic_p": 470831,
+            "forced_composite_successor_p_plus_2": 470833,
+            "successor_cofactor": 42803,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 210,
+            "admissible_residue_a": 11,
+            "outside_prime_ell": 11,
+            "combined_crt_residue": 1901,
+            "combined_modulus_Q": 2310,
+            "dyadic_block_start_X": 924000,
+            "prime_mimic_p": 925901,
+            "forced_composite_successor_p_plus_2": 925903,
+            "successor_cofactor": 84173,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 210,
+            "admissible_residue_a": 11,
+            "outside_prime_ell": 11,
+            "combined_crt_residue": 1901,
+            "combined_modulus_Q": 2310,
+            "dyadic_block_start_X": 1848000,
+            "prime_mimic_p": 1852211,
+            "forced_composite_successor_p_plus_2": 1852213,
+            "successor_cofactor": 168383,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 2310,
+            "admissible_residue_a": 17,
+            "outside_prime_ell": 13,
+            "combined_crt_residue": 18497,
+            "combined_modulus_Q": 30030,
+            "dyadic_block_start_X": 3003000,
+            "prime_mimic_p": 3021497,
+            "forced_composite_successor_p_plus_2": 3021499,
+            "successor_cofactor": 232423,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 2310,
+            "admissible_residue_a": 17,
+            "outside_prime_ell": 13,
+            "combined_crt_residue": 18497,
+            "combined_modulus_Q": 30030,
+            "dyadic_block_start_X": 6006000,
+            "prime_mimic_p": 6024497,
+            "forced_composite_successor_p_plus_2": 6024499,
+            "successor_cofactor": 463423,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 2310,
+            "admissible_residue_a": 17,
+            "outside_prime_ell": 13,
+            "combined_crt_residue": 18497,
+            "combined_modulus_Q": 30030,
+            "dyadic_block_start_X": 12012000,
+            "prime_mimic_p": 12060527,
+            "forced_composite_successor_p_plus_2": 12060529,
+            "successor_cofactor": 927733,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 2310,
+            "admissible_residue_a": 17,
+            "outside_prime_ell": 13,
+            "combined_crt_residue": 18497,
+            "combined_modulus_Q": 30030,
+            "dyadic_block_start_X": 24024000,
+            "prime_mimic_p": 24162617,
+            "forced_composite_successor_p_plus_2": 24162619,
+            "successor_cofactor": 1858663,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 30030,
+            "admissible_residue_a": 17,
+            "outside_prime_ell": 17,
+            "combined_crt_residue": 120137,
+            "combined_modulus_Q": 510510,
+            "dyadic_block_start_X": 51051000,
+            "prime_mimic_p": 51171137,
+            "forced_composite_successor_p_plus_2": 51171139,
+            "successor_cofactor": 3010067,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 30030,
+            "admissible_residue_a": 17,
+            "outside_prime_ell": 17,
+            "combined_crt_residue": 120137,
+            "combined_modulus_Q": 510510,
+            "dyadic_block_start_X": 102102000,
+            "prime_mimic_p": 105285197,
+            "forced_composite_successor_p_plus_2": 105285199,
+            "successor_cofactor": 6193247,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 30030,
+            "admissible_residue_a": 17,
+            "outside_prime_ell": 17,
+            "combined_crt_residue": 120137,
+            "combined_modulus_Q": 510510,
+            "dyadic_block_start_X": 204204000,
+            "prime_mimic_p": 204324137,
+            "forced_composite_successor_p_plus_2": 204324139,
+            "successor_cofactor": 12019067,
+            "certificate_verified": true
+          },
+          {
+            "fixed_period_M": 30030,
+            "admissible_residue_a": 17,
+            "outside_prime_ell": 17,
+            "combined_crt_residue": 120137,
+            "combined_modulus_Q": 510510,
+            "dyadic_block_start_X": 408408000,
+            "prime_mimic_p": 411591197,
+            "forced_composite_successor_p_plus_2": 411591199,
+            "successor_cofactor": 24211247,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "3858c95f26b5cf54bc5873b288814a47c38add509e0adf65068b79cf85f8fadd",
+        "aggregate": {
+          "fixed_period_every_large_dyadic_mimicry_proved": true,
+          "finite_witness_rows_verified": true,
+          "growing_modulus_uniformity_proved": false,
+          "scale_local_type_ii_cancellation_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The threshold X_0 depends on the fixed modulus M ell. The proof is not uniform when M grows with X and supplies no signed Type II Lambda correlation. It neither proves nor disproves twin primes.",
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Sixteen exact dyadic witnesses for four fixed periods; the all-large-block theorem relies on fixed-modulus PNT in arithmetic progressions.",
+      "logical_limit": "The PNT-AP threshold depends on the fixed modulus; growing moduli and Type II cancellation remain open.",
+      "route_decision": {
+        "discard": "using fixed periodic features even with eventual per-dyadic-scale sampling as a twin-prime certificate",
+        "parked": [],
+        "retain": "uniform control for moduli growing with scale and genuinely parity-sensitive signed Type II information",
+        "next_single_lemma": "ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T242",
+            "label": "GrowingPeriodDiagonalCRTMimicryForShiftTwo",
+            "status": "proved"
+          },
+          {
+            "id": "TP-EXT243",
+            "label": "Prime number theorem in arithmetic progressions for a fixed modulus",
+            "status": "external_theorem"
+          },
+          {
+            "id": "TP-N243",
+            "label": "FixedPeriodicPrimeCompositeSuccessorMimicsDisappearOnSomeArbitrarilyLargeDyadicBlocks",
+            "status": "disproved"
+          },
+          {
+            "id": "TP-T243",
+            "label": "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock",
+            "status": "proved"
+          },
+          {
+            "id": "TP-OPEN243",
+            "label": "ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T242",
+            "TP-N243"
+          ],
+          [
+            "TP-EXT243",
+            "TP-T243"
+          ],
+          [
+            "TP-T242",
+            "TP-T243"
+          ],
+          [
+            "TP-N243",
+            "TP-T243"
+          ],
+          [
+            "TP-T243",
+            "TP-OPEN243"
+          ]
+        ]
+      },
+      "claim_boundary": "No twin-prime proof or counterexample; fixed-period mimicry is upgraded to every sufficiently large dyadic block."
+    },
+    "research_baselines": {
+      "riemann_status": "https://www.claymath.org/millennium/Riemann-Hypothesis/",
+      "compactness": "https://arxiv.org/abs/2204.14237",
+      "collatz": "https://arxiv.org/abs/1909.03562",
+      "goldbach_minor": "https://arxiv.org/abs/1205.5252",
+      "pnt_arithmetic_progressions": "https://arxiv.org/abs/2108.10878",
+      "twin_prime_parity": "https://arxiv.org/abs/1407.4897"
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "partial_theorem_count": 1,
+      "exact_no_go_count": 3,
+      "candidate_resolution_count": 0,
+      "conjecture_resolution_count": 0,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "deep_focus_problem": "collatz",
+      "stagnated_problem_count": 0,
+      "local_model_scan_limit": 50000,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-243",
+      "declared_proposition": "Let g_n(xi)=pi^(-1/2) cos(n xi) in L2([-pi,pi]) for n>=1, and let f_n be its inverse Fourier transform. Then every f_n is normalized, real, even, and bandlimited to the same interval, while <f_n,f_m>=delta_nm. Hence fixed frequency support and L2 normalization do not make an even test family relatively compact. Moreover, replacing the sharp cutoff by a nonzero real even phi in C_c^infinity and taking normalized inverse transforms of phi(xi)cos(t xi) gives a smooth bandlimited non-precompact subsequence. Therefore frequency tightness alone cannot supply the compactness premise in the TICKET-242 uniform positivity transfer criterion.",
+      "new_result": "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/bandlimit_principal_unit_half_arc_dyadic_mimicry_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "frequency support or frequency tightness alone as compactness of a normalized even Weil-test family",
+      "parked_routes": [],
+      "remaining_gap": "No compactness or uniform signed Guinand-Weil tail is proved for the actual admissible class.",
+      "stagnation_count": 0,
+      "candidate_theorem": "JointPhysicalFrequencyTightnessAndUniformSignedGuinandWeilTailWithPositiveMargin"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-243",
+      "declared_proposition": "For every prime q>5 choose a primitive root t modulo q and its Teichmuller lift T=t^q modulo q^2. Put A=T(1+3q), B=T(1+5q), U=A/B, and V=A^5/B^3 modulo q^2. Then ord_q(V)=(q-1)/2 and V^((q-1)/2)=1 modulo q^2, whereas ord_q(U)=1 but U is not 1 modulo q^2; indeed U=1-2q modulo q^2. Thus the square-depth condition for the (5,-3) order core does not universally transfer to the (1,-1) core, even along an unbounded sequence of exact orders.",
+      "new_result": "UnboundedOrderPrincipalUnitTransferCountermodels",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/bandlimit_principal_unit_half_arc_dyadic_mimicry_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "deducing the fixed-base 32/27 to 2/3 square-depth transfer from universal order, LTE, and principal-unit algebra",
+      "parked_routes": [],
+      "remaining_gap": "The countermodels vary with q; the fixed-base order-core exception and general Collatz dynamics remain open.",
+      "stagnation_count": 0,
+      "candidate_theorem": "FixedBaseRationalWieferichExclusionFor32Over27OnAllPrimeOrderCores"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-243",
+      "declared_proposition": "Let S_X(alpha)=sum_(p<=X) exp(2 pi i p alpha). For X>=5 and |beta|<=1/(6X), one has |S_X(1/2+beta)| >= (pi(X)-3)/2. Therefore the interval I_X=[1/2-1/(6X),1/2+1/(6X)] satisfies integral over I_X of |S_X(alpha)|^2 d alpha >= (pi(X)-3)^2/(12X), which is asymptotic to X/(12 log^2 X). Any absolute-energy minor-arc budget of size o(X/log^2 X) must exclude this half-frequency neighborhood.",
+      "new_result": "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/bandlimit_principal_unit_half_arc_dyadic_mimicry_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "placing the parity rational neighborhood around one half in a minor set while demanding an absolute-energy o(X/log^2 X) budget",
+      "parked_routes": [],
+      "remaining_gap": "No signed residual minor coefficient or positive representation lower bound is proved.",
+      "stagnation_count": 0,
+      "candidate_theorem": "CompleteSmallDenominatorMajorArcCoverageAndSignedResidualBinaryCoefficientSaving"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-243",
+      "declared_proposition": "Fix M>=1, a modulo M with gcd(a,M)=gcd(a+2,M)=1, and any feature F periodic modulo M. Choose a prime ell not dividing 2M and let r be the reduced CRT class r=a modulo M, r=-2 modulo ell. Then there is X_0 such that every dyadic interval [X,2X] with X>=X_0 contains a prime p congruent to r modulo M ell. Consequently F(p,p+2)=F(a,a+2) while p+2 is composite in every sufficiently large dyadic block.",
+      "new_result": "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/bandlimit_principal_unit_half_arc_dyadic_mimicry_audit/twin-prime",
+        "failure_count": 0
+      },
+      "discarded_route": "using fixed periodic features even with eventual per-dyadic-scale sampling as a twin-prime certificate",
+      "parked_routes": [],
+      "remaining_gap": "The PNT-AP threshold depends on the fixed modulus; growing moduli and Type II cancellation remain open.",
+      "stagnation_count": 0,
+      "candidate_theorem": "ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass"
+    }
+  ]
+}

@@ -8728,3 +8728,32 @@ Machine artifact:
 data/open-problem/ticket242-quantifier-order-parseval-diagonal-crt.json.
 Reports: [English](quantifier-order-parseval-diagonal-crt.md) and
 [한국어](quantifier-order-parseval-diagonal-crt.ko.md).
+
+## TICKET-243 continuation: bandlimit, principal units, half-arc energy, and dyadic mimicry
+
+This iteration attacks exactly one successor lemma per problem and resolves no
+parent conjecture.
+
+1. **Riemann.** `BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo`
+   constructs a normalized real-even orthonormal family with one fixed Fourier
+   support, plus a smooth separated subsequence. Frequency tightness alone is
+   therefore not the compactness premise required by TICKET-242.
+2. **Collatz (deep focus).** `UnboundedOrderPrincipalUnitTransferCountermodels`
+   uses Teichm�ller lifts to construct, for every prime `q>5`, a local model
+   of order `(q-1)/2` in which the `(5,-3)` square-depth condition holds
+   but the `(1,-1)` condition fails. This refutes universal local transfer,
+   not the special fixed bases `32,27`.
+3. **Strong Goldbach.** `OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy`
+   proves an absolute energy floor `(pi(X)-3)^2/(12X)` on the parity-frequency
+   arc. A circle-method decomposition must cover that arc as major or exploit
+   signed targetwise cancellation.
+4. **Twin Prime.** `FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock`
+   combines CRT with fixed-modulus PNT in arithmetic progressions. Its
+   threshold depends on the fixed modulus, so growing-modulus Type II
+   cancellation remains open.
+
+The bounded replay scans 5,130 primes through `q=50,000`, with zero model
+certificate failures. The analytic theorems do not depend on that finite
+range. The machine-readable audit, four proof DAGs, exact next lemmas, and
+claim boundaries are in
+`data/open-problem/ticket243-bandlimit-principal-unit-half-arc-dyadic-mimicry.json`.

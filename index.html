@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260825-ticket242-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260826-ticket243-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-242 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-243 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, false intermediate targets removed</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-242 proves four exact boundary theorems: a moving-vector quantifier no-go, an order-core reduction with unbounded-order obstruction, a Parseval-scale no-go, and growing-period diagonal-CRT mimicry.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-242는 RH의 점별/균일 양화사, Collatz의 무계 order core, Goldbach의 Parseval 척도 손실, Twin의 증가 주기 diagonal CRT 모방 경계를 정확히 확정했습니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-243 proves three exact route no-go theorems and one partial theorem: bandlimit noncompactness, unbounded-order principal-unit countermodels, half-frequency natural energy, and eventual dyadic fixed-period mimicry.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-243은 bandlimit-only compactness, universal principal-unit transfer, parity-frequency arc 누락을 반증하고, 고정 주기 Twin 모방을 충분히 큰 모든 dyadic block으로 강화했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,38 +89,38 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>242</strong><small>2026-08-25</small></div>
-              <div><span>Exact results</span><strong>4</strong><small>partial·no-go</small></div>
-              <div><span>Routes corrected</span><strong>4</strong><small>quantifier·order core·Parseval scale·diagonal CRT</small></div>
+              <div><span>Latest ticket</span><strong>243</strong><small>2026-08-26</small></div>
+              <div><span>Exact no-go</span><strong>3</strong><small>route scoped</small></div>
+              <div><span>Partial theorems</span><strong>1</strong><small>dyadic fixed-period mimicry</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 각 고정 test의 유한절단 수렴과 종국 양성은 증가 test family의 균일 양성을 함의하지 않으며, compact class의 균일 수렴과 양의 margin은 이를 전달합니다.</p>
-                <p><strong>폐기:</strong> 점별 수렴만으로 움직이는 음의 방향을 배제하여 실제 signed Weil test class의 양성을 인증하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>UniformSignedGuinandWeilTailBoundOnFrequencyTightNormalizedAdmissibleTestClasses</code>.</p>
+                <p><strong>확립:</strong> 고정 Fourier support 안에도 normalized real-even orthonormal family가 있어 bandlimit만으로 compactness가 나오지 않습니다.</p>
+                <p><strong>폐기:</strong> frequency support 또는 frequency tightness만으로 실제 Weil-test family의 compactness를 얻는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>JointPhysicalFrequencyTightnessAndUniformSignedGuinandWeilTailWithPositiveMargin</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 나쁜 Fermat 직선은 d=ord_q(32/27)에 대한 order core 32^d−27^d의 q² 나눗셈으로 정확히 환원되고, 이 order들은 무계입니다.</p>
-                <p><strong>폐기:</strong> 유계 multiplicative order core만 검사하거나 제어하여 전 소수 회피를 증명하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>UniformOrderCoreSquareDivisorTransferFrom32Over27To2Over3</code>.</p>
+                <p><strong>확립:</strong> 모든 q&gt;5에 대해 order (q−1)/2인 명시적 Teichmüller/principal-unit 반례 모델이 universal local transfer를 깨뜨립니다.</p>
+                <p><strong>폐기:</strong> 변하는 local units에서 (5,−3) core의 square depth를 (1,−1) core로 보편 전달하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>FixedBaseRationalWieferichExclusionFor32Over27OnAllPrimeOrderCores</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> Parseval의 전역 L2 에너지 π(X)는 o(π(X))인 이항 주항 척도에 비해 너무 커서 L2와 삼각부등식만으로 minor arc 인증을 닫지 못합니다.</p>
-                <p><strong>폐기:</strong> 전역 L2 경계만으로 자연 척도 X/log²X의 targetwise 하한을 얻는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>FixedBinaryPrimeMinorArcCoefficientIsLittleOOfTargetMainUniformlyOnBufferedEvenTargets</code>.</p>
+                <p><strong>확립:</strong> 1/2 주변 폭 1/(3X)의 arc는 적어도 (π(X)−3)²/(12X)의 절대 에너지를 가져 자연 이항 척도와 같습니다.</p>
+                <p><strong>폐기:</strong> 이 parity-frequency arc 전체를 minor로 분류한 뒤 절대 little-o budget으로 처리하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>CompleteSmallDenominatorMajorArcCoverageAndSignedResidualBinaryCoefficientSaving</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 임의의 증가 주기 feature 열에도 각 단계에서 같은 특징을 가지며 p+2가 강제 합성인 소수 p의 diagonal CRT 모방자가 존재합니다.</p>
-                <p><strong>폐기:</strong> 척도 국소화나 부호 있는 Type II 정보 없이 법의 성장 자체를 쌍둥이 소수 인증으로 해석하는 경로.</p>
+                <p><strong>확립:</strong> 각 고정 admissible periodic fingerprint는 충분히 큰 모든 [X,2X]에서 p+2가 합성인 소수 모방자를 가집니다.</p>
+                <p><strong>폐기:</strong> fixed periodic feature를 dyadic scale에서 반복 검사하면 Twin 질량을 인증할 수 있다는 경로.</p>
                 <p><strong>다음 핵심:</strong> <code>ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>242개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-242는 점별/균일 양화사, 무계 order core, Parseval 척도 손실, 증가 주기 diagonal CRT의 경계를 확정했습니다.</p>
+                <p>243개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-243은 bandlimit compactness, principal-unit transfer, parity-frequency arc coverage, dyadic periodic mimicry의 경계를 확정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/quantifier-order-parseval-diagonal-crt.ko.md">최신 한국어 보고서</a>
-              <a href="docs/quantifier-order-parseval-diagonal-crt.md">Latest English report</a>
+              <a href="docs/bandlimit-principal-unit-half-arc-dyadic-mimicry.ko.md">최신 한국어 보고서</a>
+              <a href="docs/bandlimit-principal-unit-half-arc-dyadic-mimicry.md">Latest English report</a>
             </div>
           </section>
           <section id="overview-panel" class="overview-grid">
@@ -658,8 +658,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-242</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-242 proves four exact boundary theorems and preserves a resolution count of zero.</p>
+              <strong>TICKET-243</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-243 proves three exact route no-go theorems and one partial theorem, with a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -795,8 +795,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260825-ticket242"></script>
-    <script src="assets/app.js?v=20260825-ticket242"></script>
+    <script src="assets/i18n.js?v=20260826-ticket243"></script>
+    <script src="assets/app.js?v=20260826-ticket243"></script>
   </body>
 </html>
 

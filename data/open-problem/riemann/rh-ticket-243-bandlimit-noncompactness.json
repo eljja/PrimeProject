@@ -1,0 +1,180 @@
+{
+  "schema": "primeproject.ticket243-bandlimit-principal-unit-half-arc-dyadic-mimicry.v1",
+  "generated_at": "2026-08-26T07:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-243",
+  "theorem_name": "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
+  "declared_proposition": "Let g_n(xi)=pi^(-1/2) cos(n xi) in L2([-pi,pi]) for n>=1, and let f_n be its inverse Fourier transform. Then every f_n is normalized, real, even, and bandlimited to the same interval, while <f_n,f_m>=delta_nm. Hence fixed frequency support and L2 normalization do not make an even test family relatively compact. Moreover, replacing the sharp cutoff by a nonzero real even phi in C_c^infinity and taking normalized inverse transforms of phi(xi)cos(t xi) gives a smooth bandlimited non-precompact subsequence. Therefore frequency tightness alone cannot supply the compactness premise in the TICKET-242 uniform positivity transfer criterion.",
+  "mathematical_argument": "Cosine orthogonality gives integral from -pi to pi of cos(n xi)cos(m xi) equal to pi delta_nm; Plancherel transfers this Gram matrix to the inverse transforms, whose pairwise squared distance is two. For smooth phi, products of two modulated copies reduce to Fourier coefficients of |phi|^2 at t-s and t+s. Riemann-Lebesgue makes those coefficients tend to zero, so a separated subsequence exists.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let g_n(xi)=pi^(-1/2) cos(n xi) in L2([-pi,pi]) for n>=1, and let f_n be its inverse Fourier transform. Then every f_n is normalized, real, even, and bandlimited to the same interval, while <f_n,f_m>=delta_nm. Hence fixed frequency support and L2 normalization do not make an even test family relatively compact. Moreover, replacing the sharp cutoff by a nonzero real even phi in C_c^infinity and taking normalized inverse transforms of phi(xi)cos(t xi) gives a smooth bandlimited non-precompact subsequence. Therefore frequency tightness alone cannot supply the compactness premise in the TICKET-242 uniform positivity transfer criterion.",
+    "proof": "Cosine orthogonality gives integral from -pi to pi of cos(n xi)cos(m xi) equal to pi delta_nm; Plancherel transfers this Gram matrix to the inverse transforms, whose pairwise squared distance is two. For smooth phi, products of two modulated copies reduce to Fourier coefficients of |phi|^2 at t-s and t+s. Riemann-Lebesgue makes those coefficients tend to zero, so a separated subsequence exists.",
+    "exact_cosine_gram_rows": [
+      {
+        "orthonormal_family_size": 4,
+        "fourier_support": "[-pi,pi]",
+        "real_even": true,
+        "gram_diagonal": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "maximum_off_diagonal_absolute_value": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "minimum_pair_distance_squared": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "orthonormal_family_size": 8,
+        "fourier_support": "[-pi,pi]",
+        "real_even": true,
+        "gram_diagonal": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "maximum_off_diagonal_absolute_value": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "minimum_pair_distance_squared": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "orthonormal_family_size": 16,
+        "fourier_support": "[-pi,pi]",
+        "real_even": true,
+        "gram_diagonal": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "maximum_off_diagonal_absolute_value": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "minimum_pair_distance_squared": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "orthonormal_family_size": 32,
+        "fourier_support": "[-pi,pi]",
+        "real_even": true,
+        "gram_diagonal": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "maximum_off_diagonal_absolute_value": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "minimum_pair_distance_squared": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "orthonormal_family_size": 64,
+        "fourier_support": "[-pi,pi]",
+        "real_even": true,
+        "gram_diagonal": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "maximum_off_diagonal_absolute_value": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "minimum_pair_distance_squared": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "6b52e81598d394e05fffe373733e2a7638a9de662610abd8f1b63c59e46e90cf",
+    "aggregate": {
+      "fixed_frequency_support_proved": true,
+      "real_even_normalization_proved": true,
+      "relative_compactness_refuted": true,
+      "smooth_bandlimited_noncompact_subsequence_proved": true,
+      "uniform_signed_guinand_weil_tail_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The examples are functional-analytic test families, not a proof that the actual Guinand-Weil admissible class contains them or that its arithmetic tail fails. They refute frequency tightness alone as a compactness argument; joint physical tightness, admissibility, a uniform arithmetic tail, and a positive margin remain open.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Five exact symbolic Gram certificates, sizes 4 through 64; the infinite theorem is analytic and does not depend on those rows.",
+  "logical_limit": "No compactness or uniform signed Guinand-Weil tail is proved for the actual admissible class.",
+  "route_decision": {
+    "discard": "frequency support or frequency tightness alone as compactness of a normalized even Weil-test family",
+    "parked": [],
+    "retain": "joint physical and frequency tightness plus a uniform arithmetic tail and positive limiting margin",
+    "next_single_lemma": "JointPhysicalFrequencyTightnessAndUniformSignedGuinandWeilTailWithPositiveMargin"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T242",
+        "label": "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
+        "status": "proved"
+      },
+      {
+        "id": "RH-EXT243",
+        "label": "Riemann-Lebesgue lemma and Plancherel theorem",
+        "status": "external_theorem"
+      },
+      {
+        "id": "RH-N243",
+        "label": "FrequencyTightNormalizedEvenTestFamiliesAreAutomaticallyCompact",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-T243",
+        "label": "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-OPEN243",
+        "label": "JointPhysicalFrequencyTightnessAndUniformSignedGuinandWeilTailWithPositiveMargin",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T242",
+        "RH-N243"
+      ],
+      [
+        "RH-EXT243",
+        "RH-T243"
+      ],
+      [
+        "RH-T242",
+        "RH-T243"
+      ],
+      [
+        "RH-N243",
+        "RH-T243"
+      ],
+      [
+        "RH-T243",
+        "RH-OPEN243"
+      ]
+    ]
+  },
+  "claim_boundary": "No RH proof, disproof, or zero exclusion; one exact bandlimit compactness no-go only."
+}

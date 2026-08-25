@@ -15,7 +15,38 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-242
+## Current research boundary: TICKET-243
+
+The current machine-readable boundary is
+`data/open-problem/ticket243-bandlimit-principal-unit-half-arc-dyadic-mimicry.json`.
+TICKET-243 proves three exact route no-go theorems and one partial theorem,
+while resolving none of the parent conjectures:
+
+- a normalized real-even orthonormal family can share one fixed Fourier
+  support, so frequency tightness alone is not Weil-test compactness;
+- an explicit Teichmüller/principal-unit family breaks the proposed universal
+  local order-core transfer at the unbounded orders `(q-1)/2`;
+- a width `1/(3X)` neighborhood of the half frequency carries at least
+  `(pi(X)-3)^2/(12X)` absolute energy, so omitting it from the major arcs
+  prevents an absolute little-o natural-scale budget;
+- every fixed admissible periodic Twin fingerprint has a prime with composite
+  successor in every sufficiently large dyadic block.
+
+The next single lemmas are joint physical-frequency tightness and a uniform
+signed Guinand-Weil tail with positive margin; fixed-base rational-Wieferich
+exclusion for `32/27`; complete small-denominator major-arc coverage plus
+signed residual saving; and scale-local growing-modulus Type II cancellation
+with positive shift-two prime mass.
+
+한국어: 세 no-go 정리는 bandlimit-only compactness, universal local
+principal-unit transfer, half-frequency arc 누락 경로를 폐기합니다. Twin
+부분정리는 고정 주기 모방을 충분히 큰 모든 dyadic block으로 강화하지만
+증가하는 법에 대한 uniformity는 주지 않습니다. 네 난제의 해결 수는 0입니다.
+
+Reports: [English](bandlimit-principal-unit-half-arc-dyadic-mimicry.md),
+[한국어](bandlimit-principal-unit-half-arc-dyadic-mimicry.ko.md).
+
+## Preserved research boundary: TICKET-242
 
 The current machine-readable boundary is
 data/open-problem/ticket242-quantifier-order-parseval-diagonal-crt.json.

@@ -1,0 +1,215 @@
+{
+  "schema": "primeproject.ticket243-bandlimit-principal-unit-half-arc-dyadic-mimicry.v1",
+  "generated_at": "2026-08-26T07:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-243",
+  "theorem_name": "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
+  "declared_proposition": "Let S_X(alpha)=sum_(p<=X) exp(2 pi i p alpha). For X>=5 and |beta|<=1/(6X), one has |S_X(1/2+beta)| >= (pi(X)-3)/2. Therefore the interval I_X=[1/2-1/(6X),1/2+1/(6X)] satisfies integral over I_X of |S_X(alpha)|^2 d alpha >= (pi(X)-3)^2/(12X), which is asymptotic to X/(12 log^2 X). Any absolute-energy minor-arc budget of size o(X/log^2 X) must exclude this half-frequency neighborhood.",
+  "mathematical_argument": "Write alpha=1/2+beta. Every odd prime contributes -exp(2 pi i p beta). Since |2 pi p beta|<=pi/3, its cosine is at least 1/2. After multiplying S_X by -1, the odd-prime real parts contribute at least (pi(X)-1)/2, while the p=2 term costs at most one. This gives the pointwise floor. Squaring and integrating over length 1/(3X) gives the exact energy floor; the prime number theorem gives its asymptotic.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let S_X(alpha)=sum_(p<=X) exp(2 pi i p alpha). For X>=5 and |beta|<=1/(6X), one has |S_X(1/2+beta)| >= (pi(X)-3)/2. Therefore the interval I_X=[1/2-1/(6X),1/2+1/(6X)] satisfies integral over I_X of |S_X(alpha)|^2 d alpha >= (pi(X)-3)^2/(12X), which is asymptotic to X/(12 log^2 X). Any absolute-energy minor-arc budget of size o(X/log^2 X) must exclude this half-frequency neighborhood.",
+    "proof": "Write alpha=1/2+beta. Every odd prime contributes -exp(2 pi i p beta). Since |2 pi p beta|<=pi/3, its cosine is at least 1/2. After multiplying S_X by -1, the odd-prime real parts contribute at least (pi(X)-1)/2, while the p=2 term costs at most one. This gives the pointwise floor. Squaring and integrating over length 1/(3X) gives the exact energy floor; the prime number theorem gives its asymptotic.",
+    "exact_half_frequency_rows": [
+      {
+        "prime_cutoff_X": 1000,
+        "prime_count_pi_X": 168,
+        "half_frequency_arc_half_width": {
+          "exact": "1/6000",
+          "float": 0.00016666666666666666
+        },
+        "pointwise_absolute_S_floor": {
+          "exact": "165/2",
+          "float": 82.5
+        },
+        "exact_integrated_energy_floor": {
+          "exact": "363/160",
+          "float": 2.26875
+        },
+        "energy_floor_over_X_log_squared_X": 0.10825813204333076,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 3000,
+        "prime_count_pi_X": 430,
+        "half_frequency_arc_half_width": {
+          "exact": "1/18000",
+          "float": 5.555555555555556e-05
+        },
+        "pointwise_absolute_S_floor": {
+          "exact": "427/2",
+          "float": 213.5
+        },
+        "exact_integrated_energy_floor": {
+          "exact": "182329/36000",
+          "float": 5.064694444444444
+        },
+        "energy_floor_over_X_log_squared_X": 0.10821888211639138,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 10000,
+        "prime_count_pi_X": 1229,
+        "half_frequency_arc_half_width": {
+          "exact": "1/60000",
+          "float": 1.6666666666666667e-05
+        },
+        "pointwise_absolute_S_floor": {
+          "exact": "613",
+          "float": 613.0
+        },
+        "exact_integrated_energy_floor": {
+          "exact": "375769/30000",
+          "float": 12.525633333333333
+        },
+        "energy_floor_over_X_log_squared_X": 0.10625541072407241,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 30000,
+        "prime_count_pi_X": 3245,
+        "half_frequency_arc_half_width": {
+          "exact": "1/180000",
+          "float": 5.555555555555556e-06
+        },
+        "pointwise_absolute_S_floor": {
+          "exact": "1621",
+          "float": 1621.0
+        },
+        "exact_integrated_energy_floor": {
+          "exact": "2627641/90000",
+          "float": 29.196011111111112
+        },
+        "energy_floor_over_X_log_squared_X": 0.10342638758742075,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 100000,
+        "prime_count_pi_X": 9592,
+        "half_frequency_arc_half_width": {
+          "exact": "1/600000",
+          "float": 1.6666666666666667e-06
+        },
+        "pointwise_absolute_S_floor": {
+          "exact": "9589/2",
+          "float": 4794.5
+        },
+        "exact_integrated_energy_floor": {
+          "exact": "91948921/1200000",
+          "float": 76.62410083333333
+        },
+        "energy_floor_over_X_log_squared_X": 0.10156329385633905,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 300000,
+        "prime_count_pi_X": 25997,
+        "half_frequency_arc_half_width": {
+          "exact": "1/1800000",
+          "float": 5.555555555555555e-07
+        },
+        "pointwise_absolute_S_floor": {
+          "exact": "12997",
+          "float": 12997.0
+        },
+        "exact_integrated_energy_floor": {
+          "exact": "168922009/900000",
+          "float": 187.6911211111111
+        },
+        "energy_floor_over_X_log_squared_X": 0.09950812942555665,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 1000000,
+        "prime_count_pi_X": 78498,
+        "half_frequency_arc_half_width": {
+          "exact": "1/6000000",
+          "float": 1.6666666666666668e-07
+        },
+        "pointwise_absolute_S_floor": {
+          "exact": "78495/2",
+          "float": 39247.5
+        },
+        "exact_integrated_energy_floor": {
+          "exact": "82152867/160000",
+          "float": 513.45541875
+        },
+        "energy_floor_over_X_log_squared_X": 0.0980023793214787,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "db3723c1a9cdabd673471f1564af46489235e620f7384d6dcae6f3d3f1446392",
+    "aggregate": {
+      "half_frequency_pointwise_floor_proved": true,
+      "natural_binary_scale_local_energy_proved": true,
+      "minor_arc_omission_route_refuted": true,
+      "signed_targetwise_residual_saving_proved": false,
+      "strong_goldbach_resolved": false
+    },
+    "no_go_scope": "The theorem forces the parity rational neighborhood into the major arcs for absolute-energy arguments. It does not estimate the signed Fourier coefficient on the correctly defined residual minor arcs, and it proves no Goldbach representation lower bound.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Seven exact prime-count/energy-floor rows for 1,000<=X<=1,000,000; the asymptotic uses the prime number theorem.",
+  "logical_limit": "No signed residual minor coefficient or positive representation lower bound is proved.",
+  "route_decision": {
+    "discard": "placing the parity rational neighborhood around one half in a minor set while demanding an absolute-energy o(X/log^2 X) budget",
+    "parked": [],
+    "retain": "a complete fixed major-arc cover followed by signed targetwise cancellation on the residual minor arcs",
+    "next_single_lemma": "CompleteSmallDenominatorMajorArcCoverageAndSignedResidualBinaryCoefficientSaving"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T242",
+        "label": "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
+        "status": "proved"
+      },
+      {
+        "id": "GB-EXT243",
+        "label": "Prime number theorem",
+        "status": "external_theorem"
+      },
+      {
+        "id": "GB-N243",
+        "label": "AnAbsoluteMinorEnergyBudgetCanOmitTheHalfFrequencyNeighborhood",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-T243",
+        "label": "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
+        "status": "proved"
+      },
+      {
+        "id": "GB-OPEN243",
+        "label": "CompleteSmallDenominatorMajorArcCoverageAndSignedResidualBinaryCoefficientSaving",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T242",
+        "GB-N243"
+      ],
+      [
+        "GB-EXT243",
+        "GB-T243"
+      ],
+      [
+        "GB-T242",
+        "GB-T243"
+      ],
+      [
+        "GB-N243",
+        "GB-T243"
+      ],
+      [
+        "GB-T243",
+        "GB-OPEN243"
+      ]
+    ]
+  },
+  "claim_boundary": "No Goldbach proof or counterexample; one exact local energy lower bound and seven finite prime-count rows only."
+}

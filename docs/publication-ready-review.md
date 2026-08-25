@@ -405,3 +405,31 @@ Blocked claims:
 - that Parseval alone proves any uniform binary Goldbach lower bound;
 - that diagonal CRT mimicry supplies a scale-local Type II estimate or says
   twin primes are finite.
+
+## TICKET-243 publication boundary
+
+TICKET-243 adds three exact route no-go theorems and one partial theorem:
+bandlimit alone does not compactify a normalized even test family; universal
+principal-unit order-core transfer fails on an explicit unbounded-order local
+family; the half-frequency neighborhood carries natural binary energy; and a
+fixed periodic Twin fingerprint has a prime/composite-successor mimic in every
+sufficiently large dyadic block.
+
+Allowed claims:
+
+- the declared propositions, proof DAGs, exact certificates, and transcript
+  hashes are reproducible from the generator and focused tests;
+- the three no-go results close only the named shortcuts;
+- the Twin theorem is an eventual statement for each fixed modulus, with a
+  modulus-dependent threshold;
+- all four parent conjectures remain `open_not_proven`.
+
+Blocked claims:
+
+- that the bandlimited family belongs to the actual Guinand-Weil admissible
+  class or proves a uniform arithmetic tail;
+- that varying local bases `A,B` prove anything universal about the fixed
+  bases `32,27` in the Collatz track;
+- that an absolute half-arc energy floor settles a signed Goldbach coefficient;
+- that fixed-modulus PNT in progressions supplies growing-modulus Type II
+  uniformity or proves infinitely many twin primes.

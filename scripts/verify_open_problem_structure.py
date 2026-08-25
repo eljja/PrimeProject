@@ -10,6 +10,7 @@ from verify_ticket239_structure import verify_ticket239_structure
 from verify_ticket240_structure import verify_ticket240_structure
 from verify_ticket241_structure import verify_ticket241_structure
 from verify_ticket242_structure import verify_ticket242_structure
+from verify_ticket243_structure import verify_ticket243_structure
 
 
 FORBIDDEN_FORMAL_TOKENS = ["sorry", "admit", "axiom "]
@@ -22366,6 +22367,10 @@ def main() -> int:
     ticket241_error = verify_ticket241_structure()
     if ticket241_error:
         return fail(ticket241_error)
+
+    ticket243_error = verify_ticket243_structure()
+    if ticket243_error:
+        return fail(ticket243_error)
 
     ticket242_error = verify_ticket242_structure()
     if ticket242_error:
