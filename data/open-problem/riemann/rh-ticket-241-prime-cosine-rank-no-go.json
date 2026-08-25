@@ -1,0 +1,124 @@
+{
+  "schema": "primeproject.ticket241-finite-information-canonical-errors.v1",
+  "generated_at": "2026-08-25T23:58:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-241",
+  "theorem_name": "FinitePrimeCosineRankNoGoForRegularizedWeilPositivity",
+  "declared_proposition": "Let P be a finite prime set, a_p>=0, and t_1,...,t_J be real. The kernel K_jk=sum_(p in P) a_p cos((t_j-t_k)log p) is positive semidefinite and has rank at most 2|P|. Its compression to the orthogonal complement of the common vector has the same rank cap; therefore it is singular whenever J-1>2|P|. Adding epsilon I makes the compressed lower bound exactly epsilon on the forced nullspace. Thus finite unsigned prime-cosine Gram positivity, including a lower bound supplied only by diagonal regularization, is automatic and cannot by itself establish the signed Guinand-Weil positivity equivalent to the Riemann Hypothesis.",
+  "mathematical_argument": "Use cos(x-y)=cos(x)cos(y)+sin(x)sin(y). K is the Gram matrix of the 2|P|-dimensional real feature vectors with coordinates sqrt(a_p)cos(t_j log p) and sqrt(a_p)sin(t_j log p). Hence K is positive semidefinite with rank at most 2|P|. Compression cannot increase rank, so rank-nullity gives a kernel of dimension at least J-1-2|P| on the common-mode complement. On that kernel, K+epsilon I acts as epsilon I. None of these steps uses zeta zeros, the gamma factor, trivial zeros, or the signed prime-power term of the explicit formula.",
+  "reproducible_computation": {
+    "theorem": "Let P be a finite prime set, a_p>=0, and t_1,...,t_J be real. The kernel K_jk=sum_(p in P) a_p cos((t_j-t_k)log p) is positive semidefinite and has rank at most 2|P|. Its compression to the orthogonal complement of the common vector has the same rank cap; therefore it is singular whenever J-1>2|P|. Adding epsilon I makes the compressed lower bound exactly epsilon on the forced nullspace. Thus finite unsigned prime-cosine Gram positivity, including a lower bound supplied only by diagonal regularization, is automatic and cannot by itself establish the signed Guinand-Weil positivity equivalent to the Riemann Hypothesis.",
+    "proof": "Use cos(x-y)=cos(x)cos(y)+sin(x)sin(y). K is the Gram matrix of the 2|P|-dimensional real feature vectors with coordinates sqrt(a_p)cos(t_j log p) and sqrt(a_p)sin(t_j log p). Hence K is positive semidefinite with rank at most 2|P|. Compression cannot increase rank, so rank-nullity gives a kernel of dimension at least J-1-2|P| on the common-mode complement. On that kernel, K+epsilon I acts as epsilon I. None of these steps uses zeta zeros, the gamma factor, trivial zeros, or the signed prime-power term of the explicit formula.",
+    "prime_cosine_rank_rows": [
+      {
+        "prime_support_size_m": 3,
+        "sample_dimension_J": 10,
+        "feature_rank_cap_2m": 6,
+        "forced_nullity_on_common_mode_complement": 3,
+        "numerical_rank": 6,
+        "numerical_nullity": 3,
+        "smallest_unregularized_eigenvalue": -7.515122900667166e-16,
+        "diagonal_regularizer_epsilon": 0.0009765625,
+        "smallest_regularized_eigenvalue": 0.0009765624999993536,
+        "certificate_verified": true
+      },
+      {
+        "prime_support_size_m": 5,
+        "sample_dimension_J": 14,
+        "feature_rank_cap_2m": 10,
+        "forced_nullity_on_common_mode_complement": 3,
+        "numerical_rank": 10,
+        "numerical_nullity": 3,
+        "smallest_unregularized_eigenvalue": -2.5958906172363323e-15,
+        "diagonal_regularizer_epsilon": 0.0009765625,
+        "smallest_regularized_eigenvalue": 0.0009765624999992832,
+        "certificate_verified": true
+      },
+      {
+        "prime_support_size_m": 8,
+        "sample_dimension_J": 20,
+        "feature_rank_cap_2m": 16,
+        "forced_nullity_on_common_mode_complement": 3,
+        "numerical_rank": 12,
+        "numerical_nullity": 7,
+        "smallest_unregularized_eigenvalue": -4.304105837299518e-15,
+        "diagonal_regularizer_epsilon": 0.0009765625,
+        "smallest_regularized_eigenvalue": 0.000976562499996947,
+        "certificate_verified": true
+      },
+      {
+        "prime_support_size_m": 12,
+        "sample_dimension_J": 28,
+        "feature_rank_cap_2m": 24,
+        "forced_nullity_on_common_mode_complement": 3,
+        "numerical_rank": 13,
+        "numerical_nullity": 14,
+        "smallest_unregularized_eigenvalue": -7.978657446652281e-15,
+        "diagonal_regularizer_epsilon": 0.0009765625,
+        "smallest_regularized_eigenvalue": 0.0009765624999963082,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "f3540439617fe2eb3e8a671d70f1493e55daa30ea54c5b21b024ed97d7fb5ad0",
+    "aggregate": {
+      "finite_prime_cosine_kernel_psd_proved": true,
+      "finite_support_rank_cap_proved": true,
+      "common_mode_removal_does_not_remove_forced_nullspace": true,
+      "regularized_lower_bound_is_tautological": true,
+      "signed_guinand_weil_lower_bound_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "This theorem rejects only unsigned finite prime-cosine Gram positivity and artificial diagonal regularization as RH evidence. It does not analyze the complete signed Guinand-Weil form.",
+    "failure_count": 0
+  },
+  "logical_limit": "No lower bound is proved for the complete signed Guinand-Weil quadratic form over every admissible test function.",
+  "route_decision": {
+    "discard": "finite unsigned prime-cosine Gram positivity or an artificial diagonal floor as evidence for RH",
+    "retain": "the complete signed Guinand-Weil form with archimedean and prime-power terms and no artificial floor",
+    "next_single_lemma": "SignedGuinandWeilFiniteSectionsConvergeWithoutArtificialDiagonalForEveryAdmissibleTestFamily"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T240",
+        "label": "CotlarNormSummabilityNoGoForUniformGramLowerBounds",
+        "status": "closed_input"
+      },
+      {
+        "id": "RH-N241",
+        "label": "UnsignedPrimeCosineGramLowerBoundRepresentsSignedWeilPositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-T241",
+        "label": "FinitePrimeCosineRankNoGoForRegularizedWeilPositivity",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-OPEN241",
+        "label": "SignedGuinandWeilFiniteSectionsConvergeWithoutArtificialDiagonalForEveryAdmissibleTestFamily",
+        "status": "highest_risk_open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T240",
+        "RH-N241"
+      ],
+      [
+        "RH-T240",
+        "RH-T241"
+      ],
+      [
+        "RH-N241",
+        "RH-T241"
+      ],
+      [
+        "RH-T241",
+        "RH-OPEN241"
+      ]
+    ]
+  },
+  "claim_boundary": "No RH proof, disproof, or zero exclusion; one exact finite-support rank theorem and four numerical rank audits only."
+}

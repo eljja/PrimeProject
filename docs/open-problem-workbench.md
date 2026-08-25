@@ -15,7 +15,38 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-240
+## Current research boundary: TICKET-241
+
+The current machine-readable boundary is
+`data/open-problem/ticket241-finite-information-canonical-errors.json`.
+TICKET-241 proves four exact information-boundary theorems and resolves none of
+the parent conjectures:
+
+- finite unsigned prime-cosine kernels are PSD with rank at most `2|P|`, so a
+  lower floor supplied only by diagonal regularization is not signed
+  Guinand-Weil evidence;
+- principal-unit algebra admits the bad Collatz Fermat line, while an exhaustive
+  fixed-base scan of all 5,761,453 primes through 100,000,000 finds no actual
+  candidate; this is bounded evidence only;
+- signed Goldbach errors restate representation existence, while an absolute
+  error certificate depends on a decomposition and norm fixed in advance;
+- every finite periodic Twin fingerprint has infinitely many primes `p` with
+  the same fingerprint and composite `p+2`.
+
+The next single lemmas are convergence of signed Guinand-Weil finite sections
+without an artificial diagonal, fixed-base Fermat-quotient line avoidance, a
+fixed binary-prime arc decomposition with a uniform targetwise positive
+certificate, and a growing-modulus parity-sensitive Type II bound for shift
+two.
+
+한국어: TICKET-241은 유한 정보만으로 생기는 네 가지 거짓 양성 경로를
+정확히 닫았습니다. Collatz의 1억 소수 탐색을 포함한 계산은 명시한
+유한 범위의 증거일 뿐이며, 네 난제의 해결 수는 여전히 0입니다.
+
+English report: [TICKET-241](finite-information-canonical-errors.md).
+한국어 보고서: [TICKET-241](finite-information-canonical-errors.ko.md).
+
+## Preserved research boundary: TICKET-240
 
 The current machine-readable boundary is
 `data/open-problem/ticket240-route-corrections-wieferich-prime-crt.json`.

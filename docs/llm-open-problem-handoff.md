@@ -62,7 +62,34 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-240
+## Current continuation: TICKET-241
+
+The current machine-readable boundary is
+`data/open-problem/ticket241-finite-information-canonical-errors.json`.
+It records four exact information-boundary theorems, zero machine failures, and
+zero parent-problem resolutions.
+
+| Problem | Newly closed result | Current single open lemma |
+|---|---|---|
+| Riemann | `FinitePrimeCosineRankNoGoForRegularizedWeilPositivity` | `SignedGuinandWeilFiniteSectionsConvergeWithoutArtificialDiagonalForEveryAdmissibleTestFamily` |
+| Collatz | `PrincipalUnitFermatLineIndependenceNoGoAndHundredMillionAudit` | `FixedBaseFermatQuotientLineAvoidanceFor5Fq2Equals3Fq3UnlessFq2EqualsFq3` |
+| Goldbach | `CanonicalErrorContractAndRefinementInstabilityNoGo` | `FixedBinaryPrimeArcDecompositionHasUniformTargetwisePositiveLowerCertificate` |
+| Twin Prime | `FinitePeriodicPrimeFingerprintMimicryForShiftTwo` | `GrowingModulusParitySensitiveTypeIIBoundForShiftTwoLambdaOnInfinitelyManyDyadicBlocks` |
+
+Do not repeat the discarded routes. In particular, do not present finite
+unsigned prime-cosine PSD or an artificial diagonal floor as signed Weil
+positivity, principal-unit algebra or the 100,000,000-prime Collatz scan as a
+universal fixed-base theorem, an unspecified Goldbach error budget as a
+canonical intermediate target, or any fixed finite periodic fingerprint as a
+twin-prime certificate.
+
+Reports: [English](finite-information-canonical-errors.md),
+[한국어](finite-information-canonical-errors.ko.md).
+
+All older current/latest headings below are historical snapshots and must not
+override this TICKET-241 boundary.
+
+## Preserved continuation: TICKET-240
 
 The current machine-readable boundary is
 `data/open-problem/ticket240-route-corrections-wieferich-prime-crt.json`.
@@ -85,7 +112,8 @@ Reports: [English](route-corrections-wieferich-prime-crt.md),
 [한국어](route-corrections-wieferich-prime-crt.ko.md).
 
 All older current/latest headings below are historical snapshots and must not
-override this TICKET-240 boundary.
+override the current TICKET-241 boundary.
+
 ## Preserved continuation: TICKET-239
 
 The preserved machine-readable snapshot is
@@ -112,7 +140,8 @@ Reports: [English](cancellation-lifting-fourier-crt.md),
 [한국어](cancellation-lifting-fourier-crt.ko.md).
 
 All older current/latest headings below are historical snapshots and must not
-override the current TICKET-240 boundary.
+override the current TICKET-241 boundary.
+
 ## Preserved continuation: TICKET-238
 
 The preserved machine-readable snapshot is
@@ -139,7 +168,7 @@ Reports: [English](multishell-valuation-buffer-effectiverank.md),
 [한국어](multishell-valuation-buffer-effectiverank.ko.md).
 
 All older current/latest headings below are historical snapshots and must not
-override the current TICKET-240 boundary.
+override the current TICKET-241 boundary.
 
 ## Preserved continuation: TICKET-237
 

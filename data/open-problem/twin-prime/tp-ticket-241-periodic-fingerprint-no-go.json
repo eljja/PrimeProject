@@ -1,0 +1,140 @@
+{
+  "schema": "primeproject.ticket241-finite-information-canonical-errors.v1",
+  "generated_at": "2026-08-25T23:58:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-241",
+  "theorem_name": "FinitePeriodicPrimeFingerprintMimicryForShiftTwo",
+  "declared_proposition": "Let F be any finite collection of features of (n,n+2), each periodic with a fixed modulus, and let M be a common period. For every residue a mod M with gcd(a,M)=gcd(a+2,M)=1, there are infinitely many primes p for which F(p,p+2)=F(a,a+2) while p+2 is composite. Choose a prime ell not dividing 2M, impose p=a mod M and p=-2 mod ell, and apply Dirichlet to the resulting reduced CRT class. Therefore no finite periodic fingerprint, even conditioned on p being prime and local admissibility of p+2, can certify twin-prime mass.",
+  "mathematical_argument": "CRT gives b modulo M ell. Since a is reduced modulo M and -2 is nonzero modulo ell, gcd(b,M ell)=1. Dirichlet's theorem gives infinitely many primes p=b mod M ell. Periodicity gives the same feature vector as a modulo M, while ell divides p+2; for all sufficiently large such primes, p+2 is a proper composite multiple of ell. A finite family of periods is replaced by their lcm.",
+  "reproducible_computation": {
+    "theorem": "Let F be any finite collection of features of (n,n+2), each periodic with a fixed modulus, and let M be a common period. For every residue a mod M with gcd(a,M)=gcd(a+2,M)=1, there are infinitely many primes p for which F(p,p+2)=F(a,a+2) while p+2 is composite. Choose a prime ell not dividing 2M, impose p=a mod M and p=-2 mod ell, and apply Dirichlet to the resulting reduced CRT class. Therefore no finite periodic fingerprint, even conditioned on p being prime and local admissibility of p+2, can certify twin-prime mass.",
+    "proof": "CRT gives b modulo M ell. Since a is reduced modulo M and -2 is nonzero modulo ell, gcd(b,M ell)=1. Dirichlet's theorem gives infinitely many primes p=b mod M ell. Periodicity gives the same feature vector as a modulo M, while ell divides p+2; for all sufficiently large such primes, p+2 is a proper composite multiple of ell. A finite family of periods is replaced by their lcm.",
+    "periodic_fingerprint_crt_rows": [
+      {
+        "period_M": 30,
+        "admissible_residue_a": 11,
+        "outside_prime_ell": 7,
+        "combined_crt_residue_b": 131,
+        "combined_modulus_M_ell": 210,
+        "prime_witness_p": 761,
+        "forced_composite_successor_p_plus_2": 763,
+        "successor_cofactor": 109,
+        "periodic_feature_hash_before": "7262464d5dec7b99",
+        "periodic_feature_hash_at_witness": "7262464d5dec7b99",
+        "certificate_verified": true
+      },
+      {
+        "period_M": 210,
+        "admissible_residue_a": 11,
+        "outside_prime_ell": 11,
+        "combined_crt_residue_b": 1901,
+        "combined_modulus_M_ell": 2310,
+        "prime_witness_p": 6521,
+        "forced_composite_successor_p_plus_2": 6523,
+        "successor_cofactor": 593,
+        "periodic_feature_hash_before": "37e3679a29361718",
+        "periodic_feature_hash_at_witness": "37e3679a29361718",
+        "certificate_verified": true
+      },
+      {
+        "period_M": 2310,
+        "admissible_residue_a": 17,
+        "outside_prime_ell": 13,
+        "combined_crt_residue_b": 18497,
+        "combined_modulus_M_ell": 30030,
+        "prime_witness_p": 108587,
+        "forced_composite_successor_p_plus_2": 108589,
+        "successor_cofactor": 8353,
+        "periodic_feature_hash_before": "dce548383d6ee143",
+        "periodic_feature_hash_at_witness": "dce548383d6ee143",
+        "certificate_verified": true
+      },
+      {
+        "period_M": 30030,
+        "admissible_residue_a": 17,
+        "outside_prime_ell": 17,
+        "combined_crt_residue_b": 120137,
+        "combined_modulus_M_ell": 510510,
+        "prime_witness_p": 1651667,
+        "forced_composite_successor_p_plus_2": 1651669,
+        "successor_cofactor": 97157,
+        "periodic_feature_hash_before": "48efec99a8cda4b3",
+        "periodic_feature_hash_at_witness": "48efec99a8cda4b3",
+        "certificate_verified": true
+      },
+      {
+        "period_M": 510510,
+        "admissible_residue_a": 29,
+        "outside_prime_ell": 19,
+        "combined_crt_residue_b": 6126149,
+        "combined_modulus_M_ell": 9699690,
+        "prime_witness_p": 25525529,
+        "forced_composite_successor_p_plus_2": 25525531,
+        "successor_cofactor": 1343449,
+        "periodic_feature_hash_before": "c5ee89cb81e0b19f",
+        "periodic_feature_hash_at_witness": "c5ee89cb81e0b19f",
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "cdee2719a3e34195db0e0be49ce77b964242db1ca4a1c5c9602ab86911e3e662",
+    "aggregate": {
+      "arbitrary_finite_periodic_fingerprint_mimicry_proved": true,
+      "prime_conditioned_composite_successor_mimicry_proved": true,
+      "finite_periodic_twin_classifier_sufficiency_refuted": true,
+      "growing_nonperiodic_parity_sensitive_bound_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem does not show that twins are finite. It excludes only fixed finite periodic features as a sufficient certificate. Growing moduli and signed Type II information remain outside it.",
+    "failure_count": 0
+  },
+  "logical_limit": "No growing-modulus signed Type II lower bound for Lambda(n)Lambda(n+2) is proved.",
+  "route_decision": {
+    "discard": "any fixed finite periodic fingerprint, even after conditioning the first entry to be prime, as a twin certificate",
+    "retain": "growing nonperiodic parity-sensitive bilinear information for the actual shift-two Lambda correlation",
+    "next_single_lemma": "GrowingModulusParitySensitiveTypeIIBoundForShiftTwoLambdaOnInfinitelyManyDyadicBlocks"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T240",
+        "label": "OneSidedPrimeWeightedCRTFullSupportAndCompositeSuccessorNoGo",
+        "status": "closed_input"
+      },
+      {
+        "id": "TP-N241",
+        "label": "FinitePeriodicFeatureEnrichmentEventuallySeparatesTwinPairs",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-T241",
+        "label": "FinitePeriodicPrimeFingerprintMimicryForShiftTwo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-OPEN241",
+        "label": "GrowingModulusParitySensitiveTypeIIBoundForShiftTwoLambdaOnInfinitelyManyDyadicBlocks",
+        "status": "highest_risk_open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T240",
+        "TP-N241"
+      ],
+      [
+        "TP-T240",
+        "TP-T241"
+      ],
+      [
+        "TP-N241",
+        "TP-T241"
+      ],
+      [
+        "TP-T241",
+        "TP-OPEN241"
+      ]
+    ]
+  },
+  "claim_boundary": "No twin-prime proof or counterexample; one exact periodic-feature no-go theorem and five CRT witnesses only."
+}

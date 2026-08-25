@@ -31,6 +31,19 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-241: Finite Information, Canonical Errors, and Fixed-Base Search](docs/finite-information-canonical-errors.md),
+with a separate [Korean report](docs/finite-information-canonical-errors.ko.md).
+It proves four exact information-boundary results: finite unsigned prime-cosine
+kernels are positive semidefinite with rank at most twice their prime support,
+so an artificial diagonal floor is not signed Weil evidence; principal-unit
+algebra alone cannot prove the Collatz fixed-base Fermat-quotient implication,
+while all 5,761,453 primes through 100,000,000 were checked with no actual
+candidate; an unspecified Goldbach error budget is tautological or
+decomposition-dependent; and every finite periodic Twin fingerprint has
+infinitely many prime/composite-successor mimics. These statements close
+shortcuts, not the parent conjectures. All four remain `open_not_proven`.
+
+The preserved TICKET-240 continuation is
 [TICKET-240: Route Corrections, Wieferich Depths, and Prime-Weighted CRT](docs/route-corrections-wieferich-prime-crt.md),
 with a separate [Korean report](docs/route-corrections-wieferich-prime-crt.ko.md).
 It proves four exact route-correction or reduction results: divergent Cotlar
@@ -402,7 +415,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-240 boundary, four exact partial/no-go lemmas, four discarded or reduced routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-241 boundary, four exact information-boundary lemmas, four discarded or narrowed routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -588,15 +601,18 @@ See [TICKET236 EN](docs/contraction-order-phase-degree2.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-240입니다. 리만 트랙은 균일한
-Gram 양성과 Cotlar 절대합 발산이 공존할 수 있음을 증명해, Cotlar 합을
-부호 상쇄의 필요조건으로 보는 경로를 교정했습니다. 콜라츠 트랙은
-run-block lifting defect를 유리수 Wieferich 깊이 비교로 정확히 환원했고
-20,000,000 이하 소수 1,270,605개에서 양의 후보를 찾지 못했지만 이를 전
-소수 정리로 주장하지 않습니다. 골드바흐 트랙은 음의 DC를 넘는 signed
-remainder가 정수성 때문에 이미 표현 존재와 동치임을 증명했습니다.
-쌍둥이 소수 트랙은 모든 유한 CRT 패턴에 p는 소수지만 p+2는 합성수인
-수가 무한히 존재함을 증명했습니다. 네 상위 문제의 해결 수는 0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-241입니다. 리만 트랙은 유한
+무부호 prime-cosine 핵의 양성이 계수 제한과 인공 대각 하한에서 자동으로
+나오므로 signed Guinand-Weil 양성의 증거가 아님을 증명했습니다. 콜라츠
+트랙은 주단위원 대수만으로 고정 밑수 Fermat quotient 직선 회피를 증명할
+수 없음을 정확한 국소 반례모형으로 보였고, 100,000,000 이하 실제 소수
+5,761,453개에서는 후보를 찾지 못했습니다. 골드바흐 트랙은 부호 오차
+합은 표현 존재를 다시 쓰는 동어반복이고, 절대오차 예산은 미리 고정한
+분해와 노름에 의존함을 증명했습니다. 쌍둥이 소수 트랙은 모든 유한 주기
+fingerprint가 p는 소수지만 p+2는 합성수인 경우에 무한히 모방됨을
+증명했습니다. 이들은 잘못된 지름길을 닫은 부분정리이며, 네 상위 문제의
+해결 수는 0입니다.
+
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
 The Attribution Grid panel displays a bundled paired benchmark from `data/attribution_confound_grid.json`, `data/null_calibration.json`, and `data/replication_audit.json`, highlighting which fingerprint profiles survive bit-length control, which ones are likely range confounds, whether the strongest controlled profiles survive random-label null simulation after family-wise profile selection, and whether those profiles replicate across settings.
@@ -615,19 +631,20 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-240입니다.
-[경로 교정·Wieferich 깊이·소수 가중 CRT 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/route-corrections-wieferich-prime-crt.ko.md)와
-[영문 보고서](docs/route-corrections-wieferich-prime-crt.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-241입니다.
+[유한 정보·정규 오차·고정 밑수 탐색 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/finite-information-canonical-errors.ko.md)와
+[영문 보고서](docs/finite-information-canonical-errors.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-현재 결정적 미해결 보조정리는 실제 Weil signed block operator 하한,
-모든 홀수 소수에서 두 유리수 Wieferich 깊이의 지배, 모든 큰 짝수에서
-binary-prime 주항이 명시적 오차를 이기는 부등식, 성장 CRT support에서
-양의 two-sided Lambda(n)Lambda(n+2) 주항을 보장하는 parity-breaking
-추정입니다.
+현재 결정적 미해결 보조정리는 인공 대각 없이 signed Guinand-Weil
+유한 절단이 수렴한다는 정리, 실제 고정 밑수 Fermat quotient 쌍의 직선
+회피, 고정 binary-prime arc 분해에서 모든 충분히 큰 짝수에 대한 양의
+targetwise 하한, 무한히 많은 dyadic block에서 성장 modulus를 허용하는
+shift-two parity-sensitive Type II 추정입니다.
+
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-240의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 240개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-241의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 241개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

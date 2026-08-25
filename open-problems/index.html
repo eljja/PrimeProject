@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260825-ticket240-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260825-ticket241-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-240</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-241</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-240 actually changed</h2>
-          <p>TICKET-240 did not solve a parent conjecture. It refutes absolute Cotlar summability as a necessary or sign-sensitive RH bridge, reduces the Collatz defect to rational Wieferich depths and audits every odd prime through 20,000,000, proves that the proposed Goldbach signed-slack target is exactly equivalent to representation existence, and proves that every finite one-sided CRT pattern contains infinitely many prime/composite successor pairs.</p>
-          <p class="proof-boundary">TICKET-240은 상위 난제를 해결하지 않았습니다. RH에서는 절대 Cotlar 합가능성이 필요조건도 부호 소거의 모형도 아님을 증명했고, Collatz 결함을 유리 Wieferich 깊이 비교로 환원해 2천만까지 검사했으며, Goldbach의 기존 부호 여유 목표가 표현 존재와 정확히 동치임을 밝혔고, 모든 유한 단측 CRT 패턴에 소수 p와 합성수 p+2가 무한히 존재함을 증명했습니다.</p>
+          <h2>What TICKET-241 actually changed</h2>
+          <p>TICKET-241 did not solve a parent conjecture. It proves that finite unsigned prime-cosine positivity is rank-limited and regularizer-dependent, refutes principal-unit algebra as sufficient for the Collatz fixed-base depth implication while scanning every prime through 100,000,000, proves that unspecified Goldbach error budgets are tautological or refinement-dependent, and generalizes the Twin no-go to every finite periodic fingerprint.</p>
+          <p class="proof-boundary">TICKET-241은 상위 난제를 해결하지 않았습니다. RH에서는 유한 무부호 소수 코사인 양성이 계수 제한과 정규화에 의한 자동 성질임을 증명했고, Collatz에서는 주단위원 대수만으로 깊이 지배가 나오지 않음을 증명한 뒤 1억까지 실제 밑수를 검사했습니다. Goldbach에서는 오차 계약의 분해 의존성을, Twin에서는 모든 유한 주기 fingerprint의 소수·합성 후속항 모방 가능성을 증명했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,58 +55,58 @@
           <header><span>01 · SIGNED CANCELLATION</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>A uniformly positive Gram family can have divergent Cotlar square-root overlap sums; absolute Cotlar control is not necessary and does not preserve signed cancellation.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Divergent absolute Cotlar sums neither refute a Gram lower bound nor encode the arithmetic signs needed by the Weil form.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ArithmeticWeilSignedBlockOperatorSymbolHasUniformPositiveLowerBoundAfterCommonModeRemoval</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every finite unsigned prime-cosine kernel is an automatic Gram matrix of rank at most twice its prime support; common-mode removal leaves a forced nullspace.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>A positive floor created by diagonal regularization does not encode the signed Guinand-Weil form or any zeta-zero exclusion.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>SignedGuinandWeilFiniteSectionsConvergeWithoutArtificialDiagonalForEveryAdmissibleTestFamily</code></dd></div>
           </dl>
-          <p class="workbench-ko">절댓값 Cotlar 합을 목표로 삼는 경로를 폐기했습니다. 공통 모드를 제거한 실제 Weil 블록 연산자의 부호 있는 기호에 대해 직접 양의 하한을 증명해야 합니다.</p>
+          <p class="workbench-ko">유한 prime-cosine PSD와 인위적 대각 하한을 RH 증거로 사용하는 경로를 폐기했습니다. 완전한 부호 있는 Guinand-Weil 형식을 정규화 없이 다뤄야 합니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · LOCAL LIFTING</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>The local defect equals a comparison of rational Wieferich depths for 32/27 and 2/3; all 1,270,605 odd primes through 20,000,000 were audited.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The bounded scan found no positive defect, but finite absence cannot establish the universal depth domination.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>RationalWieferichDepthDominationFor32Over27Versus2Over3AtEveryOddPrime</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Principal-unit algebra permits positive depth defect, while all 5,761,453 actual fixed-base primes through 100,000,000 have no candidate.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>LTE and principal-unit linearization alone cannot prove the fixed-base implication; the finite scan cannot establish all-prime avoidance.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>FixedBaseFermatQuotientLineAvoidanceFor5Fq2Equals3Fq3UnlessFq2EqualsFq3</code></dd></div>
           </dl>
-          <p class="workbench-ko">q≤20,000,000의 1,270,605개 홀수 소수에서 양의 결함은 없었습니다. 이는 유한 증거이며, 두 유리 Wieferich 깊이의 전 소수 지배 정리가 핵심입니다.</p>
+          <p class="workbench-ko">실제 고정 밑수는 q≤100,000,000의 5,761,453개 소수에서 후보가 없었지만, 국소 대수에는 나쁜 패턴이 존재합니다. 고정 밑수 Fermat quotient 쌍의 특별한 전 소수 정리가 필요합니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED FOURIER PHASE</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>For a prime window, signed Fourier slack above negative DC is equivalent, by nonnegative integrality, to the existence of a reflected representation.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The previous uniform signed-slack target is not an intermediate lemma: it already restates pointwise Goldbach existence.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>BinaryPrimeMajorArcMainTermMinusAllExplicitErrorsIsAtLeastOneForEverySufficientlyLargeEvenTarget</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Signed error aggregation is exactly representation existence; absolute aggregation is sufficient only and changes under canceling error refinements.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>An unspecified collection of explicit errors is not a stable theorem target until a canonical arc split and norm are fixed in advance.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>FixedBinaryPrimeArcDecompositionHasUniformTargetwisePositiveLowerCertificate</code></dd></div>
           </dl>
-          <p class="workbench-ko">정수성 때문에 기존 부호 여유 목표는 표현 존재 그 자체였습니다. 충분히 큰 모든 짝수에서 이진 소수 원호법의 주항이 모든 명시적 오차보다 최소 1 크게 남는 정량 정리가 필요합니다.</p>
+          <p class="workbench-ko">부호 오차 합은 표현 존재 그 자체이고 절댓값 오차 합은 분할 방식에 따라 달라집니다. 사전에 고정된 이항 소수 arc 분해에서 균일한 양의 하한을 증명해야 합니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PARITY-SENSITIVE TRANSFER</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd>Every complete finite CRT bit pattern occurs for infinitely many primes p whose successor p+2 is forced composite by one outside prime.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Even one-sided prime weighting plus full finite local support cannot force p+2 to be prime.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ParityBreakingTwoSidedLambdaLambdaMainTermDominatesGrowingCRTErrorOnCofinalDyadicBlocks</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd>Every finite periodic fingerprint occurs for infinitely many primes p whose successor p+2 is forced composite by one outside prime.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>No fixed finite periodic classifier can certify p+2 primality, even after conditioning p to be prime and p+2 to be locally admissible.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>GrowingModulusParitySensitiveTypeIIBoundForShiftTwoLambdaOnInfinitelyManyDyadicBlocks</code></dd></div>
           </dl>
-          <p class="workbench-ko">단측 소수 가중치와 모든 유한 CRT 패턴만으로는 부족합니다. 양쪽 von Mangoldt 가중치를 결합한 주항이 증가하는 CRT 오차를 이기는 parity-breaking 정리가 필요합니다.</p>
+          <p class="workbench-ko">모든 유한 주기 fingerprint는 prime/composite successor를 구분하지 못합니다. 증가하는 법과 실제 shift-two Lambda 상관을 사용하는 parity-sensitive Type II 정리가 필요합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>240 tickets reduced to four meaningful eras</h2>
+          <h2>241 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–240 · Signed transfer barriers and route correction</strong><p>절대값 연산이 잃는 부호, 유리 Wieferich 깊이, Goldbach의 정수성 동치, 단측 CRT 정보의 한계를 분리해 다음 무한 추정의 정확한 대상을 다시 설정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–241 · Signed transfer barriers and route correction</strong><p>유한 prime-cosine rank, 고정 밑수 Fermat quotient, canonical error contract, 유한 주기 fingerprint의 한계를 분리해 다음 무한 추정의 정확한 대상을 다시 설정했습니다.</p></li>
         </ol>
       </section>
 
@@ -116,6 +116,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/finite-information-canonical-errors.ko.md">TICKET-241 한국어 보고서</a>
+          <a href="../docs/finite-information-canonical-errors.md">TICKET-241 English report</a>
+          <a href="../data/open-problem/ticket241-finite-information-canonical-errors.json">TICKET-241 machine JSON</a>
           <a href="../docs/route-corrections-wieferich-prime-crt.ko.md">TICKET-240 한국어 보고서</a>
           <a href="../docs/route-corrections-wieferich-prime-crt.md">TICKET-240 English report</a>
           <a href="../data/open-problem/ticket240-route-corrections-wieferich-prime-crt.json">TICKET-240 machine JSON</a>
@@ -204,7 +207,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260825-ticket240"></script>
+    <script src="../assets/i18n.js?v=20260825-ticket241"></script>
   </body>
 </html>
 

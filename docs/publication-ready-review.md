@@ -349,3 +349,32 @@ Blocked claims:
   without a separately controlled arithmetic main/error decomposition;
 - that one-sided prime weighting, finite CRT full support, or finite empirical
   rank implies infinitely many twin primes.
+
+## TICKET-241 publication boundary
+
+TICKET-241 adds four exact information-boundary theorems: a finite
+prime-cosine rank and regularizer no-go; a principal-unit countermodel plus an
+exhaustive actual fixed-base scan through 100,000,000; a canonical Goldbach
+error-contract and refinement-instability theorem; and a Dirichlet-CRT theorem
+for every finite periodic Twin fingerprint.
+
+Allowed claims:
+
+- the four declared propositions and proof DAG transitions are reproduced by
+  the generator and targeted tests;
+- the Collatz local countermodel is universal for principal units, while the
+  fixed-base absence result is bounded to 5,761,453 primes at q<=100,000,000;
+- the Goldbach theorem diagnoses decomposition dependence and does not refute
+  any fixed classical major/minor-arc decomposition;
+- every parent conjecture remains `open_not_proven`.
+
+Blocked claims:
+
+- that finite unsigned prime-cosine PSD, numerical eigenvalues, or an artificial
+  diagonal regularizer proves signed Guinand-Weil positivity;
+- that the Collatz local countermodel is an exceptional fixed-base prime, or
+  that the finite scan proves all-prime avoidance;
+- that a tautological signed identity or an unspecified absolute-error budget
+  proves strong Goldbach;
+- that finite periodic fingerprint failure rules out growing-modulus,
+  nonperiodic, parity-sensitive Type II methods.

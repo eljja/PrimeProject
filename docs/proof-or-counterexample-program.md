@@ -8677,3 +8677,30 @@ zero machine failures, and zero conjecture resolutions.
 
 English report: [TICKET-240 route corrections, Wieferich depths, and prime-weighted CRT](route-corrections-wieferich-prime-crt.md).
 한국어 보고서: [TICKET-240 경로 교정·Wieferich 깊이·소수 가중 CRT](route-corrections-wieferich-prime-crt.ko.md).
+
+## TICKET-241 continuation: finite information, canonical errors, and fixed-base search
+
+TICKET-241 audits the four TICKET-240 successors and removes four finite or
+decomposition-dependent signals that cannot carry the required infinite
+arithmetic content.
+
+1. **Riemann.** Proved that every finite unsigned prime-cosine kernel is PSD
+   with rank at most twice its prime support. Any lower floor on the forced
+   nullspace comes exactly from an added diagonal and does not establish the
+   complete signed Guinand-Weil form.
+2. **Collatz.** Constructed an exact principal-unit countermodel to the desired
+   Fermat-line implication for every odd prime q>5. Separately scanned all
+   5,761,453 primes through 100,000,000 for the actual bases, with zero
+   candidates; the universal fixed-base implication remains open.
+3. **Goldbach.** Proved that signed error control is the target identity itself,
+   while absolute-error control is only sufficient and can be made arbitrarily
+   bad by a canceling refinement unless the arc contract and norm are fixed.
+4. **Twin prime.** Proved by CRT and Dirichlet that every finite periodic
+   fingerprint has infinitely many prime inputs with a composite shift-two
+   successor, so fixed finite feature enrichment cannot break parity.
+
+Machine audit: four exact theorems, four rejected or narrowed routes, four proof
+DAGs, zero machine failures, and zero conjecture resolutions.
+
+English report: [TICKET-241 finite information, canonical errors, and fixed-base search](finite-information-canonical-errors.md).
+한국어 보고서: [TICKET-241 유한 정보·정규 오차·고정 밑수 탐색](finite-information-canonical-errors.ko.md).

@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, false intermediate targets removed",
-      ko: "네 미해결 문제, 잘못된 중간 목표를 제거하다",
+      en: "Four open problems, finite-information shortcuts removed",
+      ko: "네 미해결 문제, 유한 정보의 한계를 분리하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-240 proves four route-correction theorems: a Cotlar necessity no-go, a rational Wieferich reduction, a Goldbach integrality equivalence, and a one-sided prime CRT no-go.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-240은 Cotlar 필요조건 반례, 유리 Wieferich 환원, Goldbach 정수성 동치, 단측 소수 CRT 불가능성이라는 네 개의 경로 교정 정리를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-241 proves four exact information-boundary theorems for finite prime-cosine rank, fixed-base Fermat search, canonical Goldbach error contracts, and finite periodic Twin fingerprints.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-241은 유한 소수 코사인 계수, 고정 밑수 Fermat 탐색, Goldbach 정규 오차 계약, Twin 유한 주기 fingerprint에 대한 네 개의 정확한 정보 경계 정리를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-240 proves four exact route-correction theorems and preserves a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-240은 네 개의 정확한 경로 교정 정리를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-241 proves four exact information-boundary theorems and preserves a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-241은 네 개의 정확한 정보 경계 정리를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

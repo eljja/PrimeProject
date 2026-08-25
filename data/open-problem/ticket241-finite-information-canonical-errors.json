@@ -1,0 +1,999 @@
+{
+  "schema": "primeproject.ticket241-finite-information-canonical-errors.v1",
+  "generated_at": "2026-08-25T23:58:00+09:00",
+  "status": "open_not_proven",
+  "finite_information_canonical_error_audit": {
+    "theorem_name": "FourConjectureFiniteInformationCanonicalErrorAudit",
+    "summary": "TICKET-241 proves four exact information-boundary theorems, extends the actual Collatz fixed-base search to 10^8, and leaves all four parent conjectures open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-241",
+      "theorem_name": "FinitePrimeCosineRankNoGoForRegularizedWeilPositivity",
+      "declared_proposition": "Let P be a finite prime set, a_p>=0, and t_1,...,t_J be real. The kernel K_jk=sum_(p in P) a_p cos((t_j-t_k)log p) is positive semidefinite and has rank at most 2|P|. Its compression to the orthogonal complement of the common vector has the same rank cap; therefore it is singular whenever J-1>2|P|. Adding epsilon I makes the compressed lower bound exactly epsilon on the forced nullspace. Thus finite unsigned prime-cosine Gram positivity, including a lower bound supplied only by diagonal regularization, is automatic and cannot by itself establish the signed Guinand-Weil positivity equivalent to the Riemann Hypothesis.",
+      "mathematical_argument": "Use cos(x-y)=cos(x)cos(y)+sin(x)sin(y). K is the Gram matrix of the 2|P|-dimensional real feature vectors with coordinates sqrt(a_p)cos(t_j log p) and sqrt(a_p)sin(t_j log p). Hence K is positive semidefinite with rank at most 2|P|. Compression cannot increase rank, so rank-nullity gives a kernel of dimension at least J-1-2|P| on the common-mode complement. On that kernel, K+epsilon I acts as epsilon I. None of these steps uses zeta zeros, the gamma factor, trivial zeros, or the signed prime-power term of the explicit formula.",
+      "reproducible_computation": {
+        "theorem": "Let P be a finite prime set, a_p>=0, and t_1,...,t_J be real. The kernel K_jk=sum_(p in P) a_p cos((t_j-t_k)log p) is positive semidefinite and has rank at most 2|P|. Its compression to the orthogonal complement of the common vector has the same rank cap; therefore it is singular whenever J-1>2|P|. Adding epsilon I makes the compressed lower bound exactly epsilon on the forced nullspace. Thus finite unsigned prime-cosine Gram positivity, including a lower bound supplied only by diagonal regularization, is automatic and cannot by itself establish the signed Guinand-Weil positivity equivalent to the Riemann Hypothesis.",
+        "proof": "Use cos(x-y)=cos(x)cos(y)+sin(x)sin(y). K is the Gram matrix of the 2|P|-dimensional real feature vectors with coordinates sqrt(a_p)cos(t_j log p) and sqrt(a_p)sin(t_j log p). Hence K is positive semidefinite with rank at most 2|P|. Compression cannot increase rank, so rank-nullity gives a kernel of dimension at least J-1-2|P| on the common-mode complement. On that kernel, K+epsilon I acts as epsilon I. None of these steps uses zeta zeros, the gamma factor, trivial zeros, or the signed prime-power term of the explicit formula.",
+        "prime_cosine_rank_rows": [
+          {
+            "prime_support_size_m": 3,
+            "sample_dimension_J": 10,
+            "feature_rank_cap_2m": 6,
+            "forced_nullity_on_common_mode_complement": 3,
+            "numerical_rank": 6,
+            "numerical_nullity": 3,
+            "smallest_unregularized_eigenvalue": -7.515122900667166e-16,
+            "diagonal_regularizer_epsilon": 0.0009765625,
+            "smallest_regularized_eigenvalue": 0.0009765624999993536,
+            "certificate_verified": true
+          },
+          {
+            "prime_support_size_m": 5,
+            "sample_dimension_J": 14,
+            "feature_rank_cap_2m": 10,
+            "forced_nullity_on_common_mode_complement": 3,
+            "numerical_rank": 10,
+            "numerical_nullity": 3,
+            "smallest_unregularized_eigenvalue": -2.5958906172363323e-15,
+            "diagonal_regularizer_epsilon": 0.0009765625,
+            "smallest_regularized_eigenvalue": 0.0009765624999992832,
+            "certificate_verified": true
+          },
+          {
+            "prime_support_size_m": 8,
+            "sample_dimension_J": 20,
+            "feature_rank_cap_2m": 16,
+            "forced_nullity_on_common_mode_complement": 3,
+            "numerical_rank": 12,
+            "numerical_nullity": 7,
+            "smallest_unregularized_eigenvalue": -4.304105837299518e-15,
+            "diagonal_regularizer_epsilon": 0.0009765625,
+            "smallest_regularized_eigenvalue": 0.000976562499996947,
+            "certificate_verified": true
+          },
+          {
+            "prime_support_size_m": 12,
+            "sample_dimension_J": 28,
+            "feature_rank_cap_2m": 24,
+            "forced_nullity_on_common_mode_complement": 3,
+            "numerical_rank": 13,
+            "numerical_nullity": 14,
+            "smallest_unregularized_eigenvalue": -7.978657446652281e-15,
+            "diagonal_regularizer_epsilon": 0.0009765625,
+            "smallest_regularized_eigenvalue": 0.0009765624999963082,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "f3540439617fe2eb3e8a671d70f1493e55daa30ea54c5b21b024ed97d7fb5ad0",
+        "aggregate": {
+          "finite_prime_cosine_kernel_psd_proved": true,
+          "finite_support_rank_cap_proved": true,
+          "common_mode_removal_does_not_remove_forced_nullspace": true,
+          "regularized_lower_bound_is_tautological": true,
+          "signed_guinand_weil_lower_bound_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "This theorem rejects only unsigned finite prime-cosine Gram positivity and artificial diagonal regularization as RH evidence. It does not analyze the complete signed Guinand-Weil form.",
+        "failure_count": 0
+      },
+      "logical_limit": "No lower bound is proved for the complete signed Guinand-Weil quadratic form over every admissible test function.",
+      "route_decision": {
+        "discard": "finite unsigned prime-cosine Gram positivity or an artificial diagonal floor as evidence for RH",
+        "retain": "the complete signed Guinand-Weil form with archimedean and prime-power terms and no artificial floor",
+        "next_single_lemma": "SignedGuinandWeilFiniteSectionsConvergeWithoutArtificialDiagonalForEveryAdmissibleTestFamily"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T240",
+            "label": "CotlarNormSummabilityNoGoForUniformGramLowerBounds",
+            "status": "closed_input"
+          },
+          {
+            "id": "RH-N241",
+            "label": "UnsignedPrimeCosineGramLowerBoundRepresentsSignedWeilPositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-T241",
+            "label": "FinitePrimeCosineRankNoGoForRegularizedWeilPositivity",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-OPEN241",
+            "label": "SignedGuinandWeilFiniteSectionsConvergeWithoutArtificialDiagonalForEveryAdmissibleTestFamily",
+            "status": "highest_risk_open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T240",
+            "RH-N241"
+          ],
+          [
+            "RH-T240",
+            "RH-T241"
+          ],
+          [
+            "RH-N241",
+            "RH-T241"
+          ],
+          [
+            "RH-T241",
+            "RH-OPEN241"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof, disproof, or zero exclusion; one exact finite-support rank theorem and four numerical rank audits only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-241",
+      "theorem_name": "PrincipalUnitFermatLineIndependenceNoGoAndHundredMillionAudit",
+      "declared_proposition": "For every odd prime q>5 the principal-unit residues A=1+3q and B=1+5q satisfy A^5=B^3 mod q^2 but A!=B mod q^2, with v_q(A^5-B^3)>=2 and v_q(A-B)=1. Consequently the first-order relation 5u=3v mod q does not imply u=v mod q inside the local principal-unit group. The desired fixed-base implication for A=2^(q-1), B=3^(q-1) therefore cannot follow from principal-unit algebra alone; it requires special arithmetic information about the Fermat-quotient pair (F_q(2),F_q(3)).",
+      "mathematical_argument": "The binomial theorem gives (1+3q)^5=1+15q mod q^2 and (1+5q)^3=1+15q mod q^2. Their difference is divisible by q^2, whereas A-B=-2q has q-adic valuation one. This is an exact local countermodel to the implication between the two linear forms, but not an actual fixed-base exceptional prime. The bounded scan tests the actual residues 32^(q-1) and 27^(q-1) for every prime through 10^8.",
+      "reproducible_computation": {
+        "theorem": "For every odd prime q>5 the principal-unit residues A=1+3q and B=1+5q satisfy A^5=B^3 mod q^2 but A!=B mod q^2, with v_q(A^5-B^3)>=2 and v_q(A-B)=1. Consequently the first-order relation 5u=3v mod q does not imply u=v mod q inside the local principal-unit group. The desired fixed-base implication for A=2^(q-1), B=3^(q-1) therefore cannot follow from principal-unit algebra alone; it requires special arithmetic information about the Fermat-quotient pair (F_q(2),F_q(3)).",
+        "proof": "The binomial theorem gives (1+3q)^5=1+15q mod q^2 and (1+5q)^3=1+15q mod q^2. Their difference is divisible by q^2, whereas A-B=-2q has q-adic valuation one. This is an exact local countermodel to the implication between the two linear forms, but not an actual fixed-base exceptional prime. The bounded scan tests the actual residues 32^(q-1) and 27^(q-1) for every prime through 10^8.",
+        "principal_unit_countermodel_rows": [
+          {
+            "prime_q": 7,
+            "unit_A_1_plus_3q": 22,
+            "unit_B_1_plus_5q": 36,
+            "A5_equals_B3_mod_q2": true,
+            "A_not_equal_B_mod_q2": true,
+            "v_q_A5_minus_B3": 2,
+            "v_q_A_minus_B": 1,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "unit_A_1_plus_3q": 34,
+            "unit_B_1_plus_5q": 56,
+            "A5_equals_B3_mod_q2": true,
+            "A_not_equal_B_mod_q2": true,
+            "v_q_A5_minus_B3": 2,
+            "v_q_A_minus_B": 1,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 13,
+            "unit_A_1_plus_3q": 40,
+            "unit_B_1_plus_5q": 66,
+            "A5_equals_B3_mod_q2": true,
+            "A_not_equal_B_mod_q2": true,
+            "v_q_A5_minus_B3": 2,
+            "v_q_A_minus_B": 1,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 17,
+            "unit_A_1_plus_3q": 52,
+            "unit_B_1_plus_5q": 86,
+            "A5_equals_B3_mod_q2": true,
+            "A_not_equal_B_mod_q2": true,
+            "v_q_A5_minus_B3": 2,
+            "v_q_A_minus_B": 1,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 19,
+            "unit_A_1_plus_3q": 58,
+            "unit_B_1_plus_5q": 96,
+            "A5_equals_B3_mod_q2": true,
+            "A_not_equal_B_mod_q2": true,
+            "v_q_A5_minus_B3": 2,
+            "v_q_A_minus_B": 1,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "unit_A_1_plus_3q": 70,
+            "unit_B_1_plus_5q": 116,
+            "A5_equals_B3_mod_q2": true,
+            "A_not_equal_B_mod_q2": true,
+            "v_q_A5_minus_B3": 2,
+            "v_q_A_minus_B": 1,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 29,
+            "unit_A_1_plus_3q": 88,
+            "unit_B_1_plus_5q": 146,
+            "A5_equals_B3_mod_q2": true,
+            "A_not_equal_B_mod_q2": true,
+            "v_q_A5_minus_B3": 2,
+            "v_q_A_minus_B": 1,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 31,
+            "unit_A_1_plus_3q": 94,
+            "unit_B_1_plus_5q": 156,
+            "A5_equals_B3_mod_q2": true,
+            "A_not_equal_B_mod_q2": true,
+            "v_q_A5_minus_B3": 2,
+            "v_q_A_minus_B": 1,
+            "certificate_verified": true
+          }
+        ],
+        "bounded_fixed_base_scan": {
+          "prime_limit": 100000000,
+          "odd_primes_scanned": 5761453,
+          "odd_primes_through_twenty_million": 1270605,
+          "x_depth_at_least_two_count": 0,
+          "x_depth_at_least_two_primes": [],
+          "positive_defect_candidate_count": 0,
+          "positive_defect_candidates": [],
+          "rolling_checksum_u64": "2091770629127620786",
+          "scope": "This finite scan does not exclude an exceptional prime above 100,000,000 and does not prove the all-prime statement."
+        },
+        "aggregate": {
+          "principal_unit_implication_refuted": true,
+          "fixed_base_scan_extended_to_one_hundred_million": true,
+          "bounded_scan_has_no_positive_defect": true,
+          "all_prime_fixed_base_line_avoidance_proved": false,
+          "general_necklace_descent_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The local countermodel shows that LTE and principal-unit algebra alone cannot prove depth domination. It is not a Collatz cycle or an actual exceptional prime. The 10^8 search is bounded evidence.",
+        "failure_count": 0
+      },
+      "logical_limit": "The fixed-base all-prime line avoidance, general necklaces, and aperiodic descent remain open.",
+      "route_decision": {
+        "discard": "deriving fixed-base rational Wieferich-depth domination from principal-unit algebra or LTE alone",
+        "retain": "special arithmetic control of the actual Fermat quotient pair, with bounded searches labeled finite",
+        "next_single_lemma": "FixedBaseFermatQuotientLineAvoidanceFor5Fq2Equals3Fq3UnlessFq2EqualsFq3"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T240",
+            "label": "RunBlockDefectFermatQuotientReductionAndTwentyMillionAudit",
+            "status": "closed_input"
+          },
+          {
+            "id": "CO-N241",
+            "label": "PrincipalUnitLinearizationForcesFixedBaseDepthDomination",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-T241",
+            "label": "PrincipalUnitFermatLineIndependenceNoGoAndHundredMillionAudit",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-OPEN241",
+            "label": "FixedBaseFermatQuotientLineAvoidanceFor5Fq2Equals3Fq3UnlessFq2EqualsFq3",
+            "status": "highest_risk_open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T240",
+            "CO-N241"
+          ],
+          [
+            "CO-T240",
+            "CO-T241"
+          ],
+          [
+            "CO-N241",
+            "CO-T241"
+          ],
+          [
+            "CO-T241",
+            "CO-OPEN241"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof or cycle; one local principal-unit countermodel and an actual fixed-base scan through one hundred million only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-241",
+      "theorem_name": "CanonicalErrorContractAndRefinementInstabilityNoGo",
+      "declared_proposition": "Let an integer representation count be decomposed as R(N)=M(N)+sum_i E_i(N), with M(N)>0. The signed inequality M+sum_i E_i>=1 is exactly R>=1 and is therefore not an intermediate result. The triangle certificate M-sum_i|E_i|>=1 is sufficient but not necessary, and is not invariant under algebraically harmless refinement: replacing E by (E+L)+(-L) preserves R while increasing the absolute budget arbitrarily. Hence a binary-Goldbach error theorem must freeze an arithmetic arc decomposition and its norm before any data are inspected; an unspecified 'all explicit errors' target is either tautological or decomposition-dependent.",
+      "mathematical_argument": "The signed claim follows by substitution. The triangle inequality gives R>=M-sum|E_i|, proving sufficiency of the absolute certificate. For any L, E=(E+L)+(-L); taking |L| large makes |E+L|+|L| arbitrarily large without changing R. Thus absolute error budgets have mathematical content only after a canonical decomposition and norm are fixed independently. The finite rows use the exact prime window DFT identity from TICKET-240 and exhibit represented targets where the DC absolute certificate fails.",
+      "reproducible_computation": {
+        "theorem": "Let an integer representation count be decomposed as R(N)=M(N)+sum_i E_i(N), with M(N)>0. The signed inequality M+sum_i E_i>=1 is exactly R>=1 and is therefore not an intermediate result. The triangle certificate M-sum_i|E_i|>=1 is sufficient but not necessary, and is not invariant under algebraically harmless refinement: replacing E by (E+L)+(-L) preserves R while increasing the absolute budget arbitrarily. Hence a binary-Goldbach error theorem must freeze an arithmetic arc decomposition and its norm before any data are inspected; an unspecified 'all explicit errors' target is either tautological or decomposition-dependent.",
+        "proof": "The signed claim follows by substitution. The triangle inequality gives R>=M-sum|E_i|, proving sufficiency of the absolute certificate. For any L, E=(E+L)+(-L); taking |L| large makes |E+L|+|L| arbitrarily large without changing R. Thus absolute error budgets have mathematical content only after a canonical decomposition and norm are fixed independently. The finite rows use the exact prime window DFT identity from TICKET-240 and exhibit represented targets where the DC absolute certificate fails.",
+        "prime_window_error_contract_rows": [
+          {
+            "cutoff_X": 1000,
+            "buffer_scale_multiplier": 1,
+            "target_N": 1978,
+            "representation_count_R": 0,
+            "dc_main_M": {
+              "exact": "1/5",
+              "float": 0.2
+            },
+            "signed_error_E": {
+              "exact": "-1/5",
+              "float": -0.2
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": false,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": false,
+            "canceling_split_E1": {
+              "exact": "6/5",
+              "float": 1.2
+            },
+            "canceling_split_E2": {
+              "exact": "-7/5",
+              "float": -1.4
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 1000,
+            "buffer_scale_multiplier": 2,
+            "target_N": 1958,
+            "representation_count_R": 2,
+            "dc_main_M": {
+              "exact": "36/85",
+              "float": 0.4235294117647059
+            },
+            "signed_error_E": {
+              "exact": "134/85",
+              "float": 1.576470588235294
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "559/85",
+              "float": 6.576470588235294
+            },
+            "canceling_split_E2": {
+              "exact": "-5",
+              "float": -5.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 1000,
+            "buffer_scale_multiplier": 4,
+            "target_N": 1916,
+            "representation_count_R": 2,
+            "dc_main_M": {
+              "exact": "144/169",
+              "float": 0.8520710059171598
+            },
+            "signed_error_E": {
+              "exact": "194/169",
+              "float": 1.1479289940828403
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "1039/169",
+              "float": 6.14792899408284
+            },
+            "canceling_split_E2": {
+              "exact": "-5",
+              "float": -5.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 10000,
+            "buffer_scale_multiplier": 1,
+            "target_N": 19882,
+            "representation_count_R": 1,
+            "dc_main_M": {
+              "exact": "121/237",
+              "float": 0.510548523206751
+            },
+            "signed_error_E": {
+              "exact": "116/237",
+              "float": 0.48945147679324896
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "827/237",
+              "float": 3.4894514767932487
+            },
+            "canceling_split_E2": {
+              "exact": "-3",
+              "float": -3.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 10000,
+            "buffer_scale_multiplier": 2,
+            "target_N": 19764,
+            "representation_count_R": 6,
+            "dc_main_M": {
+              "exact": "676/473",
+              "float": 1.4291754756871036
+            },
+            "signed_error_E": {
+              "exact": "2162/473",
+              "float": 4.570824524312896
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "8311/473",
+              "float": 17.570824524312897
+            },
+            "canceling_split_E2": {
+              "exact": "-13",
+              "float": -13.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 10000,
+            "buffer_scale_multiplier": 4,
+            "target_N": 19528,
+            "representation_count_R": 6,
+            "dc_main_M": {
+              "exact": "500/189",
+              "float": 2.6455026455026456
+            },
+            "signed_error_E": {
+              "exact": "634/189",
+              "float": 3.3544973544973544
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "3091/189",
+              "float": 16.354497354497354
+            },
+            "canceling_split_E2": {
+              "exact": "-13",
+              "float": -13.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "buffer_scale_multiplier": 1,
+            "target_N": 199244,
+            "representation_count_R": 6,
+            "dc_main_M": {
+              "exact": "4225/1513",
+              "float": 2.7924653007270326
+            },
+            "signed_error_E": {
+              "exact": "4853/1513",
+              "float": 3.2075346992729674
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "24522/1513",
+              "float": 16.20753469927297
+            },
+            "canceling_split_E2": {
+              "exact": "-13",
+              "float": -13.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "buffer_scale_multiplier": 2,
+            "target_N": 198490,
+            "representation_count_R": 28,
+            "dc_main_M": {
+              "exact": "17956/3021",
+              "float": 5.943727242634889
+            },
+            "signed_error_E": {
+              "exact": "66632/3021",
+              "float": 22.05627275736511
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "238829/3021",
+              "float": 79.05627275736511
+            },
+            "canceling_split_E2": {
+              "exact": "-57",
+              "float": -57.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "buffer_scale_multiplier": 4,
+            "target_N": 196982,
+            "representation_count_R": 27,
+            "dc_main_M": {
+              "exact": "66564/6037",
+              "float": 11.026006294517144
+            },
+            "signed_error_E": {
+              "exact": "96435/6037",
+              "float": 15.973993705482856
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "428470/6037",
+              "float": 70.97399370548285
+            },
+            "canceling_split_E2": {
+              "exact": "-55",
+              "float": -55.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 1000000,
+            "buffer_scale_multiplier": 1,
+            "target_N": 1994760,
+            "representation_count_R": 106,
+            "dc_main_M": {
+              "exact": "144400/10481",
+              "float": 13.777311325255225
+            },
+            "signed_error_E": {
+              "exact": "966586/10481",
+              "float": 92.22268867474477
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "3199039/10481",
+              "float": 305.2226886747448
+            },
+            "canceling_split_E2": {
+              "exact": "-213",
+              "float": -213.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 1000000,
+            "buffer_scale_multiplier": 2,
+            "target_N": 1989520,
+            "representation_count_R": 100,
+            "dc_main_M": {
+              "exact": "577600/20961",
+              "float": 27.555937216735842
+            },
+            "signed_error_E": {
+              "exact": "1518500/20961",
+              "float": 72.44406278326416
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "5731661/20961",
+              "float": 273.44406278326414
+            },
+            "canceling_split_E2": {
+              "exact": "-201",
+              "float": -201.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 1000000,
+            "buffer_scale_multiplier": 4,
+            "target_N": 1979042,
+            "representation_count_R": 174,
+            "dc_main_M": {
+              "exact": "2226064/41917",
+              "float": 53.10647231433547
+            },
+            "signed_error_E": {
+              "exact": "5067494/41917",
+              "float": 120.89352768566452
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "19696527/41917",
+              "float": 469.89352768566454
+            },
+            "canceling_split_E2": {
+              "exact": "-349",
+              "float": -349.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 10000000,
+            "buffer_scale_multiplier": 1,
+            "target_N": 19961506,
+            "representation_count_R": 206,
+            "dc_main_M": {
+              "exact": "1843968/25663",
+              "float": 71.85317383002767
+            },
+            "signed_error_E": {
+              "exact": "3442610/25663",
+              "float": 134.14682616997234
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "14041429/25663",
+              "float": 547.1468261699723
+            },
+            "canceling_split_E2": {
+              "exact": "-413",
+              "float": -413.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 10000000,
+            "buffer_scale_multiplier": 2,
+            "target_N": 19923014,
+            "representation_count_R": 446,
+            "dc_main_M": {
+              "exact": "22372900/153973",
+              "float": 145.30404681340235
+            },
+            "signed_error_E": {
+              "exact": "46299058/153973",
+              "float": 300.69595318659765
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "183796947/153973",
+              "float": 1193.6959531865978
+            },
+            "canceling_split_E2": {
+              "exact": "-893",
+              "float": -893.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          },
+          {
+            "cutoff_X": 10000000,
+            "buffer_scale_multiplier": 4,
+            "target_N": 19846030,
+            "representation_count_R": 984,
+            "dc_main_M": {
+              "exact": "89680900/307941",
+              "float": 291.2275403405198
+            },
+            "signed_error_E": {
+              "exact": "213333044/307941",
+              "float": 692.7724596594802
+            },
+            "signed_identity_certificate_M_plus_E_at_least_one": true,
+            "absolute_certificate_M_minus_abs_E_at_least_one": false,
+            "representation_exists": true,
+            "canceling_split_E1": {
+              "exact": "819668873/307941",
+              "float": 2661.7724596594803
+            },
+            "canceling_split_E2": {
+              "exact": "-1969",
+              "float": -1969.0
+            },
+            "split_preserves_total_error": true,
+            "split_strictly_increases_absolute_budget": true,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "6fc502441105b9ce653ea0ea13943ed2b2b525175d5878a1490295420dc94032",
+        "aggregate": {
+          "signed_error_target_is_exact_representation_claim": true,
+          "absolute_error_certificate_is_sufficient_not_necessary": true,
+          "absolute_budget_refinement_invariance_refuted": true,
+          "represented_rows_failing_absolute_certificate": 14,
+          "row_count": 15,
+          "canonical_binary_arc_lower_bound_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "This does not refute a fixed classical major/minor-arc proof. It rejects only an unspecified or adaptively refined absolute-error target. Restricted-window zeros are not Goldbach counterexamples.",
+        "failure_count": 0
+      },
+      "logical_limit": "No canonical target-uniform binary-prime major/minor-arc lower certificate is proved.",
+      "route_decision": {
+        "discard": "an unspecified signed or absolute collection of 'all explicit errors' as a decomposition-independent milestone",
+        "retain": "a canonical arithmetic major/minor-arc split and norm fixed before target data, followed by a uniform lower certificate",
+        "next_single_lemma": "FixedBinaryPrimeArcDecompositionHasUniformTargetwisePositiveLowerCertificate"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T240",
+            "label": "SignedFourierSlackIntegralityEquivalenceAndIntermediateTargetNoGo",
+            "status": "closed_input"
+          },
+          {
+            "id": "GB-N241",
+            "label": "AnyExplicitErrorDecompositionDefinesAStableIntermediateGoldbachTarget",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-T241",
+            "label": "CanonicalErrorContractAndRefinementInstabilityNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-OPEN241",
+            "label": "FixedBinaryPrimeArcDecompositionHasUniformTargetwisePositiveLowerCertificate",
+            "status": "highest_risk_open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T240",
+            "GB-N241"
+          ],
+          [
+            "GB-T240",
+            "GB-T241"
+          ],
+          [
+            "GB-N241",
+            "GB-T241"
+          ],
+          [
+            "GB-T241",
+            "GB-OPEN241"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample; one exact decomposition theorem and fifteen restricted-window audits only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-241",
+      "theorem_name": "FinitePeriodicPrimeFingerprintMimicryForShiftTwo",
+      "declared_proposition": "Let F be any finite collection of features of (n,n+2), each periodic with a fixed modulus, and let M be a common period. For every residue a mod M with gcd(a,M)=gcd(a+2,M)=1, there are infinitely many primes p for which F(p,p+2)=F(a,a+2) while p+2 is composite. Choose a prime ell not dividing 2M, impose p=a mod M and p=-2 mod ell, and apply Dirichlet to the resulting reduced CRT class. Therefore no finite periodic fingerprint, even conditioned on p being prime and local admissibility of p+2, can certify twin-prime mass.",
+      "mathematical_argument": "CRT gives b modulo M ell. Since a is reduced modulo M and -2 is nonzero modulo ell, gcd(b,M ell)=1. Dirichlet's theorem gives infinitely many primes p=b mod M ell. Periodicity gives the same feature vector as a modulo M, while ell divides p+2; for all sufficiently large such primes, p+2 is a proper composite multiple of ell. A finite family of periods is replaced by their lcm.",
+      "reproducible_computation": {
+        "theorem": "Let F be any finite collection of features of (n,n+2), each periodic with a fixed modulus, and let M be a common period. For every residue a mod M with gcd(a,M)=gcd(a+2,M)=1, there are infinitely many primes p for which F(p,p+2)=F(a,a+2) while p+2 is composite. Choose a prime ell not dividing 2M, impose p=a mod M and p=-2 mod ell, and apply Dirichlet to the resulting reduced CRT class. Therefore no finite periodic fingerprint, even conditioned on p being prime and local admissibility of p+2, can certify twin-prime mass.",
+        "proof": "CRT gives b modulo M ell. Since a is reduced modulo M and -2 is nonzero modulo ell, gcd(b,M ell)=1. Dirichlet's theorem gives infinitely many primes p=b mod M ell. Periodicity gives the same feature vector as a modulo M, while ell divides p+2; for all sufficiently large such primes, p+2 is a proper composite multiple of ell. A finite family of periods is replaced by their lcm.",
+        "periodic_fingerprint_crt_rows": [
+          {
+            "period_M": 30,
+            "admissible_residue_a": 11,
+            "outside_prime_ell": 7,
+            "combined_crt_residue_b": 131,
+            "combined_modulus_M_ell": 210,
+            "prime_witness_p": 761,
+            "forced_composite_successor_p_plus_2": 763,
+            "successor_cofactor": 109,
+            "periodic_feature_hash_before": "7262464d5dec7b99",
+            "periodic_feature_hash_at_witness": "7262464d5dec7b99",
+            "certificate_verified": true
+          },
+          {
+            "period_M": 210,
+            "admissible_residue_a": 11,
+            "outside_prime_ell": 11,
+            "combined_crt_residue_b": 1901,
+            "combined_modulus_M_ell": 2310,
+            "prime_witness_p": 6521,
+            "forced_composite_successor_p_plus_2": 6523,
+            "successor_cofactor": 593,
+            "periodic_feature_hash_before": "37e3679a29361718",
+            "periodic_feature_hash_at_witness": "37e3679a29361718",
+            "certificate_verified": true
+          },
+          {
+            "period_M": 2310,
+            "admissible_residue_a": 17,
+            "outside_prime_ell": 13,
+            "combined_crt_residue_b": 18497,
+            "combined_modulus_M_ell": 30030,
+            "prime_witness_p": 108587,
+            "forced_composite_successor_p_plus_2": 108589,
+            "successor_cofactor": 8353,
+            "periodic_feature_hash_before": "dce548383d6ee143",
+            "periodic_feature_hash_at_witness": "dce548383d6ee143",
+            "certificate_verified": true
+          },
+          {
+            "period_M": 30030,
+            "admissible_residue_a": 17,
+            "outside_prime_ell": 17,
+            "combined_crt_residue_b": 120137,
+            "combined_modulus_M_ell": 510510,
+            "prime_witness_p": 1651667,
+            "forced_composite_successor_p_plus_2": 1651669,
+            "successor_cofactor": 97157,
+            "periodic_feature_hash_before": "48efec99a8cda4b3",
+            "periodic_feature_hash_at_witness": "48efec99a8cda4b3",
+            "certificate_verified": true
+          },
+          {
+            "period_M": 510510,
+            "admissible_residue_a": 29,
+            "outside_prime_ell": 19,
+            "combined_crt_residue_b": 6126149,
+            "combined_modulus_M_ell": 9699690,
+            "prime_witness_p": 25525529,
+            "forced_composite_successor_p_plus_2": 25525531,
+            "successor_cofactor": 1343449,
+            "periodic_feature_hash_before": "c5ee89cb81e0b19f",
+            "periodic_feature_hash_at_witness": "c5ee89cb81e0b19f",
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "cdee2719a3e34195db0e0be49ce77b964242db1ca4a1c5c9602ab86911e3e662",
+        "aggregate": {
+          "arbitrary_finite_periodic_fingerprint_mimicry_proved": true,
+          "prime_conditioned_composite_successor_mimicry_proved": true,
+          "finite_periodic_twin_classifier_sufficiency_refuted": true,
+          "growing_nonperiodic_parity_sensitive_bound_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The theorem does not show that twins are finite. It excludes only fixed finite periodic features as a sufficient certificate. Growing moduli and signed Type II information remain outside it.",
+        "failure_count": 0
+      },
+      "logical_limit": "No growing-modulus signed Type II lower bound for Lambda(n)Lambda(n+2) is proved.",
+      "route_decision": {
+        "discard": "any fixed finite periodic fingerprint, even after conditioning the first entry to be prime, as a twin certificate",
+        "retain": "growing nonperiodic parity-sensitive bilinear information for the actual shift-two Lambda correlation",
+        "next_single_lemma": "GrowingModulusParitySensitiveTypeIIBoundForShiftTwoLambdaOnInfinitelyManyDyadicBlocks"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T240",
+            "label": "OneSidedPrimeWeightedCRTFullSupportAndCompositeSuccessorNoGo",
+            "status": "closed_input"
+          },
+          {
+            "id": "TP-N241",
+            "label": "FinitePeriodicFeatureEnrichmentEventuallySeparatesTwinPairs",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-T241",
+            "label": "FinitePeriodicPrimeFingerprintMimicryForShiftTwo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-OPEN241",
+            "label": "GrowingModulusParitySensitiveTypeIIBoundForShiftTwoLambdaOnInfinitelyManyDyadicBlocks",
+            "status": "highest_risk_open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T240",
+            "TP-N241"
+          ],
+          [
+            "TP-T240",
+            "TP-T241"
+          ],
+          [
+            "TP-N241",
+            "TP-T241"
+          ],
+          [
+            "TP-T241",
+            "TP-OPEN241"
+          ]
+        ]
+      },
+      "claim_boundary": "No twin-prime proof or counterexample; one exact periodic-feature no-go theorem and five CRT witnesses only."
+    },
+    "research_baselines": {
+      "riemann": "https://arxiv.org/abs/1910.14368",
+      "collatz": "https://arxiv.org/abs/1909.03562",
+      "fermat_quotient": "https://arxiv.org/abs/1110.3113",
+      "goldbach_minor": "https://arxiv.org/abs/1205.5252",
+      "goldbach_major": "https://arxiv.org/abs/1305.2897",
+      "twin_prime_parity": "https://arxiv.org/abs/1407.4897"
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "route_correction_count": 4,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "conjecture_resolution_count": 0,
+      "bounded_prime_scan_limit": 100000000,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-241",
+      "declared_proposition": "Let P be a finite prime set, a_p>=0, and t_1,...,t_J be real. The kernel K_jk=sum_(p in P) a_p cos((t_j-t_k)log p) is positive semidefinite and has rank at most 2|P|. Its compression to the orthogonal complement of the common vector has the same rank cap; therefore it is singular whenever J-1>2|P|. Adding epsilon I makes the compressed lower bound exactly epsilon on the forced nullspace. Thus finite unsigned prime-cosine Gram positivity, including a lower bound supplied only by diagonal regularization, is automatic and cannot by itself establish the signed Guinand-Weil positivity equivalent to the Riemann Hypothesis.",
+      "new_result": "FinitePrimeCosineRankNoGoForRegularizedWeilPositivity",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/finite_information_canonical_error_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "finite unsigned prime-cosine Gram positivity or an artificial diagonal floor as evidence for RH",
+      "remaining_gap": "No lower bound is proved for the complete signed Guinand-Weil quadratic form over every admissible test function.",
+      "candidate_theorem": "SignedGuinandWeilFiniteSectionsConvergeWithoutArtificialDiagonalForEveryAdmissibleTestFamily"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-241",
+      "declared_proposition": "For every odd prime q>5 the principal-unit residues A=1+3q and B=1+5q satisfy A^5=B^3 mod q^2 but A!=B mod q^2, with v_q(A^5-B^3)>=2 and v_q(A-B)=1. Consequently the first-order relation 5u=3v mod q does not imply u=v mod q inside the local principal-unit group. The desired fixed-base implication for A=2^(q-1), B=3^(q-1) therefore cannot follow from principal-unit algebra alone; it requires special arithmetic information about the Fermat-quotient pair (F_q(2),F_q(3)).",
+      "new_result": "PrincipalUnitFermatLineIndependenceNoGoAndHundredMillionAudit",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/finite_information_canonical_error_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "deriving fixed-base rational Wieferich-depth domination from principal-unit algebra or LTE alone",
+      "remaining_gap": "The fixed-base all-prime line avoidance, general necklaces, and aperiodic descent remain open.",
+      "candidate_theorem": "FixedBaseFermatQuotientLineAvoidanceFor5Fq2Equals3Fq3UnlessFq2EqualsFq3"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-241",
+      "declared_proposition": "Let an integer representation count be decomposed as R(N)=M(N)+sum_i E_i(N), with M(N)>0. The signed inequality M+sum_i E_i>=1 is exactly R>=1 and is therefore not an intermediate result. The triangle certificate M-sum_i|E_i|>=1 is sufficient but not necessary, and is not invariant under algebraically harmless refinement: replacing E by (E+L)+(-L) preserves R while increasing the absolute budget arbitrarily. Hence a binary-Goldbach error theorem must freeze an arithmetic arc decomposition and its norm before any data are inspected; an unspecified 'all explicit errors' target is either tautological or decomposition-dependent.",
+      "new_result": "CanonicalErrorContractAndRefinementInstabilityNoGo",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/finite_information_canonical_error_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "an unspecified signed or absolute collection of 'all explicit errors' as a decomposition-independent milestone",
+      "remaining_gap": "No canonical target-uniform binary-prime major/minor-arc lower certificate is proved.",
+      "candidate_theorem": "FixedBinaryPrimeArcDecompositionHasUniformTargetwisePositiveLowerCertificate"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-241",
+      "declared_proposition": "Let F be any finite collection of features of (n,n+2), each periodic with a fixed modulus, and let M be a common period. For every residue a mod M with gcd(a,M)=gcd(a+2,M)=1, there are infinitely many primes p for which F(p,p+2)=F(a,a+2) while p+2 is composite. Choose a prime ell not dividing 2M, impose p=a mod M and p=-2 mod ell, and apply Dirichlet to the resulting reduced CRT class. Therefore no finite periodic fingerprint, even conditioned on p being prime and local admissibility of p+2, can certify twin-prime mass.",
+      "new_result": "FinitePeriodicPrimeFingerprintMimicryForShiftTwo",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/finite_information_canonical_error_audit/twin-prime",
+        "failure_count": 0
+      },
+      "discarded_route": "any fixed finite periodic fingerprint, even after conditioning the first entry to be prime, as a twin certificate",
+      "remaining_gap": "No growing-modulus signed Type II lower bound for Lambda(n)Lambda(n+2) is proved.",
+      "candidate_theorem": "GrowingModulusParitySensitiveTypeIIBoundForShiftTwoLambdaOnInfinitelyManyDyadicBlocks"
+    }
+  ]
+}

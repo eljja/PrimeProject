@@ -1,0 +1,166 @@
+{
+  "schema": "primeproject.ticket241-finite-information-canonical-errors.v1",
+  "generated_at": "2026-08-25T23:58:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-241",
+  "theorem_name": "PrincipalUnitFermatLineIndependenceNoGoAndHundredMillionAudit",
+  "declared_proposition": "For every odd prime q>5 the principal-unit residues A=1+3q and B=1+5q satisfy A^5=B^3 mod q^2 but A!=B mod q^2, with v_q(A^5-B^3)>=2 and v_q(A-B)=1. Consequently the first-order relation 5u=3v mod q does not imply u=v mod q inside the local principal-unit group. The desired fixed-base implication for A=2^(q-1), B=3^(q-1) therefore cannot follow from principal-unit algebra alone; it requires special arithmetic information about the Fermat-quotient pair (F_q(2),F_q(3)).",
+  "mathematical_argument": "The binomial theorem gives (1+3q)^5=1+15q mod q^2 and (1+5q)^3=1+15q mod q^2. Their difference is divisible by q^2, whereas A-B=-2q has q-adic valuation one. This is an exact local countermodel to the implication between the two linear forms, but not an actual fixed-base exceptional prime. The bounded scan tests the actual residues 32^(q-1) and 27^(q-1) for every prime through 10^8.",
+  "reproducible_computation": {
+    "theorem": "For every odd prime q>5 the principal-unit residues A=1+3q and B=1+5q satisfy A^5=B^3 mod q^2 but A!=B mod q^2, with v_q(A^5-B^3)>=2 and v_q(A-B)=1. Consequently the first-order relation 5u=3v mod q does not imply u=v mod q inside the local principal-unit group. The desired fixed-base implication for A=2^(q-1), B=3^(q-1) therefore cannot follow from principal-unit algebra alone; it requires special arithmetic information about the Fermat-quotient pair (F_q(2),F_q(3)).",
+    "proof": "The binomial theorem gives (1+3q)^5=1+15q mod q^2 and (1+5q)^3=1+15q mod q^2. Their difference is divisible by q^2, whereas A-B=-2q has q-adic valuation one. This is an exact local countermodel to the implication between the two linear forms, but not an actual fixed-base exceptional prime. The bounded scan tests the actual residues 32^(q-1) and 27^(q-1) for every prime through 10^8.",
+    "principal_unit_countermodel_rows": [
+      {
+        "prime_q": 7,
+        "unit_A_1_plus_3q": 22,
+        "unit_B_1_plus_5q": 36,
+        "A5_equals_B3_mod_q2": true,
+        "A_not_equal_B_mod_q2": true,
+        "v_q_A5_minus_B3": 2,
+        "v_q_A_minus_B": 1,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "unit_A_1_plus_3q": 34,
+        "unit_B_1_plus_5q": 56,
+        "A5_equals_B3_mod_q2": true,
+        "A_not_equal_B_mod_q2": true,
+        "v_q_A5_minus_B3": 2,
+        "v_q_A_minus_B": 1,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 13,
+        "unit_A_1_plus_3q": 40,
+        "unit_B_1_plus_5q": 66,
+        "A5_equals_B3_mod_q2": true,
+        "A_not_equal_B_mod_q2": true,
+        "v_q_A5_minus_B3": 2,
+        "v_q_A_minus_B": 1,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 17,
+        "unit_A_1_plus_3q": 52,
+        "unit_B_1_plus_5q": 86,
+        "A5_equals_B3_mod_q2": true,
+        "A_not_equal_B_mod_q2": true,
+        "v_q_A5_minus_B3": 2,
+        "v_q_A_minus_B": 1,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 19,
+        "unit_A_1_plus_3q": 58,
+        "unit_B_1_plus_5q": 96,
+        "A5_equals_B3_mod_q2": true,
+        "A_not_equal_B_mod_q2": true,
+        "v_q_A5_minus_B3": 2,
+        "v_q_A_minus_B": 1,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "unit_A_1_plus_3q": 70,
+        "unit_B_1_plus_5q": 116,
+        "A5_equals_B3_mod_q2": true,
+        "A_not_equal_B_mod_q2": true,
+        "v_q_A5_minus_B3": 2,
+        "v_q_A_minus_B": 1,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 29,
+        "unit_A_1_plus_3q": 88,
+        "unit_B_1_plus_5q": 146,
+        "A5_equals_B3_mod_q2": true,
+        "A_not_equal_B_mod_q2": true,
+        "v_q_A5_minus_B3": 2,
+        "v_q_A_minus_B": 1,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 31,
+        "unit_A_1_plus_3q": 94,
+        "unit_B_1_plus_5q": 156,
+        "A5_equals_B3_mod_q2": true,
+        "A_not_equal_B_mod_q2": true,
+        "v_q_A5_minus_B3": 2,
+        "v_q_A_minus_B": 1,
+        "certificate_verified": true
+      }
+    ],
+    "bounded_fixed_base_scan": {
+      "prime_limit": 100000000,
+      "odd_primes_scanned": 5761453,
+      "odd_primes_through_twenty_million": 1270605,
+      "x_depth_at_least_two_count": 0,
+      "x_depth_at_least_two_primes": [],
+      "positive_defect_candidate_count": 0,
+      "positive_defect_candidates": [],
+      "rolling_checksum_u64": "2091770629127620786",
+      "scope": "This finite scan does not exclude an exceptional prime above 100,000,000 and does not prove the all-prime statement."
+    },
+    "aggregate": {
+      "principal_unit_implication_refuted": true,
+      "fixed_base_scan_extended_to_one_hundred_million": true,
+      "bounded_scan_has_no_positive_defect": true,
+      "all_prime_fixed_base_line_avoidance_proved": false,
+      "general_necklace_descent_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The local countermodel shows that LTE and principal-unit algebra alone cannot prove depth domination. It is not a Collatz cycle or an actual exceptional prime. The 10^8 search is bounded evidence.",
+    "failure_count": 0
+  },
+  "logical_limit": "The fixed-base all-prime line avoidance, general necklaces, and aperiodic descent remain open.",
+  "route_decision": {
+    "discard": "deriving fixed-base rational Wieferich-depth domination from principal-unit algebra or LTE alone",
+    "retain": "special arithmetic control of the actual Fermat quotient pair, with bounded searches labeled finite",
+    "next_single_lemma": "FixedBaseFermatQuotientLineAvoidanceFor5Fq2Equals3Fq3UnlessFq2EqualsFq3"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T240",
+        "label": "RunBlockDefectFermatQuotientReductionAndTwentyMillionAudit",
+        "status": "closed_input"
+      },
+      {
+        "id": "CO-N241",
+        "label": "PrincipalUnitLinearizationForcesFixedBaseDepthDomination",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-T241",
+        "label": "PrincipalUnitFermatLineIndependenceNoGoAndHundredMillionAudit",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-OPEN241",
+        "label": "FixedBaseFermatQuotientLineAvoidanceFor5Fq2Equals3Fq3UnlessFq2EqualsFq3",
+        "status": "highest_risk_open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T240",
+        "CO-N241"
+      ],
+      [
+        "CO-T240",
+        "CO-T241"
+      ],
+      [
+        "CO-N241",
+        "CO-T241"
+      ],
+      [
+        "CO-T241",
+        "CO-OPEN241"
+      ]
+    ]
+  },
+  "claim_boundary": "No Collatz proof or cycle; one local principal-unit countermodel and an actual fixed-base scan through one hundred million only."
+}
