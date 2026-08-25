@@ -1,0 +1,1143 @@
+{
+  "schema": "primeproject.ticket240-route-corrections-wieferich-prime-crt.v1",
+  "generated_at": "2026-08-25T23:40:00+09:00",
+  "status": "open_not_proven",
+  "route_corrections_wieferich_prime_crt_audit": {
+    "theorem_name": "FourConjectureRouteCorrectionWieferichPrimeCRTAudit",
+    "summary": "TICKET-240 corrects three overstrong intermediate routes and reduces the Collatz run-block defect to an exact rational Wieferich-depth comparison. All four parent conjectures remain open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-240",
+      "theorem_name": "CotlarNormSummabilityNoGoForUniformGramLowerBounds",
+      "declared_proposition": "For 0<C<1 let R_ij=(1+|i-j|)^(-1) and G=(1-C)I+C R. Every finite section G_J is a Gram matrix with G_J>=(1-C)I. It can be realized by unit vectors w_j. For their rank-one projections P_j, ||P_i P_j||^(1/2)=sqrt(C)(1+|i-j|)^(-1/2) when i!=j, so the Cotlar-Stein row sums diverge. Thus absolute Cotlar norm summability is not necessary for a uniform Gram lower bound and cannot, by itself, encode signed cross-shell cancellation.",
+      "mathematical_argument": "The identity (n+1)^(-1)=integral_0^1 t^n dt writes R as a positive mixture of the kernels [t^|i-j|]. For 0<=t<1, the quadratic form of this Toeplitz kernel is the integral of |sum_j z_j exp(ijtheta)|^2 against the nonnegative Poisson kernel (1-t^2)/(1-2t cos(theta)+t^2); the endpoint t=1 follows by a limit. Hence R is positive semidefinite with unit diagonal. Therefore G_J>=(1-C)I and a Gram realization by unit vectors exists. For rank-one orthogonal projections, ||P_iP_j||=|<w_i,w_j>|=C/(1+|i-j|). A central row of the square-root overlap sum dominates two constant multiples of sum_(d<=J/2)d^(-1/2), which diverges. Projection norms are invariant under inner-product phase changes, so they do not by themselves record signed cancellation.",
+      "reproducible_computation": {
+        "theorem": "For 0<C<1 let R_ij=(1+|i-j|)^(-1) and G=(1-C)I+C R. Every finite section G_J is a Gram matrix with G_J>=(1-C)I. It can be realized by unit vectors w_j. For their rank-one projections P_j, ||P_i P_j||^(1/2)=sqrt(C)(1+|i-j|)^(-1/2) when i!=j, so the Cotlar-Stein row sums diverge. Thus absolute Cotlar norm summability is not necessary for a uniform Gram lower bound and cannot, by itself, encode signed cross-shell cancellation.",
+        "proof": "The identity (n+1)^(-1)=integral_0^1 t^n dt writes R as a positive mixture of the kernels [t^|i-j|]. For 0<=t<1, the quadratic form of this Toeplitz kernel is the integral of |sum_j z_j exp(ijtheta)|^2 against the nonnegative Poisson kernel (1-t^2)/(1-2t cos(theta)+t^2); the endpoint t=1 follows by a limit. Hence R is positive semidefinite with unit diagonal. Therefore G_J>=(1-C)I and a Gram realization by unit vectors exists. For rank-one orthogonal projections, ||P_iP_j||=|<w_i,w_j>|=C/(1+|i-j|). A central row of the square-root overlap sum dominates two constant multiples of sum_(d<=J/2)d^(-1/2), which diverges. Projection norms are invariant under inner-product phase changes, so they do not by themselves record signed cancellation.",
+        "exact_model_rows": [
+          {
+            "dimension_J": 16,
+            "mixture_constant_C": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "maximum_absolute_gram_cross_row_sum": {
+              "exact": "4469/2520",
+              "float": 1.7734126984126983
+            },
+            "maximum_cotlar_sqrt_overlap_row_sum": 5.003633907557941,
+            "uniform_gram_lower_bound": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "cotlar_sum_increases": true,
+            "certificate_verified": true
+          },
+          {
+            "dimension_J": 32,
+            "mixture_constant_C": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "maximum_absolute_gram_cross_row_sum": {
+              "exact": "29529623/12252240",
+              "float": 2.4101407579348755
+            },
+            "maximum_cotlar_sqrt_overlap_row_sum": 8.181596577319988,
+            "uniform_gram_lower_bound": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "cotlar_sum_increases": true,
+            "certificate_verified": true
+          },
+          {
+            "dimension_J": 64,
+            "mixture_constant_C": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "maximum_absolute_gram_cross_row_sum": {
+              "exact": "443845505348639/144403552893600",
+              "float": 3.073646710588035
+            },
+            "maximum_cotlar_sqrt_overlap_row_sum": 12.768299275402628,
+            "uniform_gram_lower_bound": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "cotlar_sum_increases": true,
+            "certificate_verified": true
+          },
+          {
+            "dimension_J": 128,
+            "mixture_constant_C": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "maximum_absolute_gram_cross_row_sum": {
+              "exact": "492819177088007081989671419/131362987122535807501262400",
+              "float": 3.751583211398077
+            },
+            "maximum_cotlar_sqrt_overlap_row_sum": 19.323929345705842,
+            "uniform_gram_lower_bound": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "cotlar_sum_increases": true,
+            "certificate_verified": true
+          },
+          {
+            "dimension_J": 256,
+            "mixture_constant_C": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "maximum_absolute_gram_cross_row_sum": {
+              "exact": "59250923734488876395327667085206060579563335937302920701/13353756090997411579403749204440236542538872688049072000",
+              "float": 4.437023061581421
+            },
+            "maximum_cotlar_sqrt_overlap_row_sum": 28.645249876083195,
+            "uniform_gram_lower_bound": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "cotlar_sum_increases": true,
+            "certificate_verified": true
+          },
+          {
+            "dimension_J": 512,
+            "mixture_constant_C": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "maximum_absolute_gram_cross_row_sum": {
+              "exact": "21967918889685406305780122187021995318423446310492187669335660279417841699587699243683297369757051367576675865769/4285344137372231566616365249206531035019473398789780525438551598725494569614018464395658307122505077932281312000",
+              "float": 5.12629048810911
+            },
+            "maximum_cotlar_sqrt_overlap_row_sum": 41.86365517818739,
+            "uniform_gram_lower_bound": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "cotlar_sum_increases": true,
+            "certificate_verified": true
+          },
+          {
+            "dimension_J": 1024,
+            "mixture_constant_C": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "maximum_absolute_gram_cross_row_sum": {
+              "exact": "126476108432143397869109564886681140415109153862414625108821859877629001424900037995662731685235896818276781330060589116380683570968815875031825619619067008027429304889340459054084870967338030826330405760966920728814100613/21740661777918307773782244871289092918825862201116330580706833712449378318870854874445858972066454230791061184628837309243191474651184976378255688400921540258339974541246061176481780015767107271195429147937526199418539520",
+              "float": 5.8174911934191185
+            },
+            "maximum_cotlar_sqrt_overlap_row_sum": 60.58299772618655,
+            "uniform_gram_lower_bound": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "cotlar_sum_increases": true,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "7e3469b1e574d6b5e37c6c140cf8b2204ecac131a282daca458aed7a57e2849a",
+        "aggregate": {
+          "uniform_positive_gram_family_proved": true,
+          "cotlar_sqrt_overlap_summability_necessity_refuted": true,
+          "cotlar_norms_do_not_encode_signed_cancellation": true,
+          "arithmetic_weil_signed_operator_lower_bound_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "This does not refute the possibility that the actual arithmetic Weil shell operators satisfy a useful Cotlar estimate. It refutes only treating absolute Cotlar summability as a necessary or sign-sensitive bridge. The model contains no zeta-zero data.",
+        "failure_count": 0
+      },
+      "logical_limit": "No signed lower bound is proved for the actual Guinand-Weil operator.",
+      "route_decision": {
+        "discard": "absolute Cotlar-Stein overlap summability as the necessary or uniquely sign-sensitive RH bridge",
+        "retain": "a signed arithmetic block symbol or direct operator lower bound after common-mode removal",
+        "next_single_lemma": "ArithmeticWeilSignedBlockOperatorSymbolHasUniformPositiveLowerBoundAfterCommonModeRemoval"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T239",
+            "label": "PowerDecaySchurThresholdAndNonsummablePositiveGramNoGo",
+            "status": "closed_input"
+          },
+          {
+            "id": "RH-N240",
+            "label": "CotlarNormSummabilityCapturesSignedWeilCancellation",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "RH-T240",
+            "label": "CotlarNormSummabilityNoGoForUniformGramLowerBounds",
+            "status": "proved_exact"
+          },
+          {
+            "id": "RH-OPEN240",
+            "label": "ArithmeticWeilSignedBlockOperatorSymbolHasUniformPositiveLowerBoundAfterCommonModeRemoval",
+            "status": "highest_risk_open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T239",
+            "RH-N240"
+          ],
+          [
+            "RH-T239",
+            "RH-T240"
+          ],
+          [
+            "RH-N240",
+            "RH-T240"
+          ],
+          [
+            "RH-T240",
+            "RH-OPEN240"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof, disproof, or zeta-zero exclusion; one exact route-correction theorem and seven model rows only."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-240",
+      "theorem_name": "RunBlockDefectFermatQuotientReductionAndTwentyMillionAudit",
+      "declared_proposition": "For every prime q>3, let ell_q=lcm(ord_q(32/27),ord_q(2/3)) and define a_q and c_q as in TICKET-239. Since ell_q divides q-1 and q does not divide (q-1)/ell_q, LTE gives the exact reduction a_q=v_q(32^(q-1)-27^(q-1)) and c_q=v_q(2^(q-1)-3^(q-1)). Hence the global nonpositive-defect claim is exactly a rational Wieferich-depth domination problem. At first depth, writing F_q(b)=(b^(q-1)-1)/q mod q, a_q>=2 iff 5F_q(2)-3F_q(3)=0 mod q, while c_q>=2 iff F_q(2)-F_q(3)=0 mod q.",
+      "mathematical_argument": "Put r=(q-1)/ell_q. For (U,V)=(32^ell_q,27^ell_q) and (2^ell_q,3^ell_q), q is odd, q divides U-V, q does not divide UV, and q does not divide r because 1<=r<q. LTE gives v_q(U^r-V^r)=v_q(U-V)+v_q(r)=v_q(U-V), proving both equalities. Modulo q^2, b^(q-1)=1+qF_q(b). Multiplication and inversion give the first quotient of (2^5/3^3)^(q-1)-1 as 5F_q(2)-3F_q(3), and that of (2/3)^(q-1)-1 as F_q(2)-F_q(3).",
+      "reproducible_computation": {
+        "theorem": "For every prime q>3, let ell_q=lcm(ord_q(32/27),ord_q(2/3)) and define a_q and c_q as in TICKET-239. Since ell_q divides q-1 and q does not divide (q-1)/ell_q, LTE gives the exact reduction a_q=v_q(32^(q-1)-27^(q-1)) and c_q=v_q(2^(q-1)-3^(q-1)). Hence the global nonpositive-defect claim is exactly a rational Wieferich-depth domination problem. At first depth, writing F_q(b)=(b^(q-1)-1)/q mod q, a_q>=2 iff 5F_q(2)-3F_q(3)=0 mod q, while c_q>=2 iff F_q(2)-F_q(3)=0 mod q.",
+        "proof": "Put r=(q-1)/ell_q. For (U,V)=(32^ell_q,27^ell_q) and (2^ell_q,3^ell_q), q is odd, q divides U-V, q does not divide UV, and q does not divide r because 1<=r<q. LTE gives v_q(U^r-V^r)=v_q(U-V)+v_q(r)=v_q(U-V), proving both equalities. Modulo q^2, b^(q-1)=1+qF_q(b). Multiplication and inversion give the first quotient of (2^5/3^3)^(q-1)-1 as 5F_q(2)-3F_q(3), and that of (2/3)^(q-1)-1 as F_q(2)-F_q(3).",
+        "representative_depth_reduction_rows": [
+          {
+            "prime_q": 5,
+            "local_period_ell_q": 2,
+            "q_minus_one_multiplier": 2,
+            "local_x_depth_a_q": 1,
+            "fermat_x_depth_W_q_32_over_27": 1,
+            "local_y_depth_c_q": 1,
+            "fermat_y_depth_W_q_2_over_3": 1,
+            "fermat_quotient_linear_form_x": 2,
+            "fermat_quotient_linear_form_y": 2,
+            "depth_reduction_verified": true
+          },
+          {
+            "prime_q": 7,
+            "local_period_ell_q": 6,
+            "q_minus_one_multiplier": 1,
+            "local_x_depth_a_q": 1,
+            "fermat_x_depth_W_q_32_over_27": 1,
+            "local_y_depth_c_q": 1,
+            "fermat_y_depth_W_q_2_over_3": 1,
+            "fermat_quotient_linear_form_x": 6,
+            "fermat_quotient_linear_form_y": 3,
+            "depth_reduction_verified": true
+          },
+          {
+            "prime_q": 23,
+            "local_period_ell_q": 11,
+            "q_minus_one_multiplier": 2,
+            "local_x_depth_a_q": 1,
+            "fermat_x_depth_W_q_32_over_27": 1,
+            "local_y_depth_c_q": 2,
+            "fermat_y_depth_W_q_2_over_3": 2,
+            "fermat_quotient_linear_form_x": 11,
+            "fermat_quotient_linear_form_y": 0,
+            "depth_reduction_verified": true
+          },
+          {
+            "prime_q": 29,
+            "local_period_ell_q": 14,
+            "q_minus_one_multiplier": 2,
+            "local_x_depth_a_q": 1,
+            "fermat_x_depth_W_q_32_over_27": 1,
+            "local_y_depth_c_q": 1,
+            "fermat_y_depth_W_q_2_over_3": 1,
+            "fermat_quotient_linear_form_x": 18,
+            "fermat_quotient_linear_form_y": 15,
+            "depth_reduction_verified": true
+          },
+          {
+            "prime_q": 59,
+            "local_period_ell_q": 58,
+            "q_minus_one_multiplier": 1,
+            "local_x_depth_a_q": 1,
+            "fermat_x_depth_W_q_32_over_27": 1,
+            "local_y_depth_c_q": 1,
+            "fermat_y_depth_W_q_2_over_3": 1,
+            "fermat_quotient_linear_form_x": 35,
+            "fermat_quotient_linear_form_y": 26,
+            "depth_reduction_verified": true
+          },
+          {
+            "prime_q": 109,
+            "local_period_ell_q": 108,
+            "q_minus_one_multiplier": 1,
+            "local_x_depth_a_q": 1,
+            "fermat_x_depth_W_q_32_over_27": 1,
+            "local_y_depth_c_q": 1,
+            "fermat_y_depth_W_q_2_over_3": 1,
+            "fermat_quotient_linear_form_x": 32,
+            "fermat_quotient_linear_form_y": 75,
+            "depth_reduction_verified": true
+          },
+          {
+            "prime_q": 487,
+            "local_period_ell_q": 486,
+            "q_minus_one_multiplier": 1,
+            "local_x_depth_a_q": 1,
+            "fermat_x_depth_W_q_32_over_27": 1,
+            "local_y_depth_c_q": 1,
+            "fermat_y_depth_W_q_2_over_3": 1,
+            "fermat_quotient_linear_form_x": 378,
+            "fermat_quotient_linear_form_y": 394,
+            "depth_reduction_verified": true
+          },
+          {
+            "prime_q": 1009,
+            "local_period_ell_q": 252,
+            "q_minus_one_multiplier": 4,
+            "local_x_depth_a_q": 1,
+            "fermat_x_depth_W_q_32_over_27": 1,
+            "local_y_depth_c_q": 1,
+            "fermat_y_depth_W_q_2_over_3": 1,
+            "fermat_quotient_linear_form_x": 131,
+            "fermat_quotient_linear_form_y": 658,
+            "depth_reduction_verified": true
+          },
+          {
+            "prime_q": 10007,
+            "local_period_ell_q": 5003,
+            "q_minus_one_multiplier": 2,
+            "local_x_depth_a_q": 1,
+            "fermat_x_depth_W_q_32_over_27": 1,
+            "local_y_depth_c_q": 1,
+            "fermat_y_depth_W_q_2_over_3": 1,
+            "fermat_quotient_linear_form_x": 7302,
+            "fermat_quotient_linear_form_y": 6077,
+            "depth_reduction_verified": true
+          }
+        ],
+        "bounded_rational_wieferich_scan": {
+          "prime_limit": 20000000,
+          "odd_primes_scanned": 1270605,
+          "x_depth_at_least_two_count": 0,
+          "x_depth_at_least_two_primes": [],
+          "y_depth_at_least_two_count": 1,
+          "y_depth_at_least_two_primes": [
+            23
+          ],
+          "ambiguous_higher_depth_count": 0,
+          "first_order_positive_defect_candidate_count": 0,
+          "first_order_positive_defect_candidates": [],
+          "scope": "The absence of an x-depth-two prime through this finite limit proves nonpositive defect only in the scanned range. It does not prove rational Wieferich-depth domination for all primes."
+        },
+        "transcript_sha256": "62ceb482705cc10622248ff68094c27b4ff33cb3d49bb47faa25cba2a3f2960a",
+        "aggregate": {
+          "local_defect_fermat_depth_reduction_proved": true,
+          "first_order_fermat_quotient_criterion_proved": true,
+          "bounded_scan_has_no_positive_defect": true,
+          "all_prime_depth_domination_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The reduction replaces an opaque order scan by a precise rational Wieferich comparison, but no known argument excludes exceptional primes above the bound. Even global domination would settle only the run-block finite-palette route, not general necklaces or aperiodic Collatz descent.",
+        "failure_count": 0
+      },
+      "logical_limit": "The all-prime rational Wieferich-depth domination, general necklace exclusion, and aperiodic descent remain open.",
+      "route_decision": {
+        "discard": "bounded absence of positive lifting defects as an all-prime proof",
+        "retain": "the exact rational Wieferich-depth comparison, with finite scans labeled only as bounded evidence",
+        "next_single_lemma": "RationalWieferichDepthDominationFor32Over27Versus2Over3AtEveryOddPrime"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T239",
+            "label": "LocalLiftingDefectDichotomyAndPaletteCriterion",
+            "status": "closed_input"
+          },
+          {
+            "id": "CO-N240",
+            "label": "FiniteLiftingDefectScanProvesGlobalNonpositivity",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "CO-T240",
+            "label": "RunBlockDefectFermatQuotientReductionAndTwentyMillionAudit",
+            "status": "proved_exact"
+          },
+          {
+            "id": "CO-OPEN240",
+            "label": "RationalWieferichDepthDominationFor32Over27Versus2Over3AtEveryOddPrime",
+            "status": "highest_risk_open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T239",
+            "CO-N240"
+          ],
+          [
+            "CO-T239",
+            "CO-T240"
+          ],
+          [
+            "CO-N240",
+            "CO-T240"
+          ],
+          [
+            "CO-T240",
+            "CO-OPEN240"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial-cycle exclusion; one exact depth reduction and a finite scan through twenty million only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-240",
+      "theorem_name": "SignedFourierSlackIntegralityEquivalenceAndIntermediateTargetNoGo",
+      "declared_proposition": "For every finite A and target h in the non-wrapping Fourier model of TICKET-239, write R_A(h)=DC_A+S_A(h), where DC_A=|A|^2/M and R_A(h) is a nonnegative integer. Then S_A(h)>-DC_A iff R_A(h)>=1; equivalently, for every fixed 0<eta<=1, S_A(h)>=eta-DC_A iff R_A(h)>=1. Therefore a uniform signed-remainder slack above negative DC is exactly the pointwise representation claim, not a weaker intermediate lemma.",
+      "mathematical_argument": "Substitution gives S_A(h)+DC_A=R_A(h). The strict inequality is R_A(h)>0, which is equivalent to R_A(h)>=1 by integrality. For 0<eta<=1, R_A(h)>=eta is equivalent to the same integer condition.",
+      "reproducible_computation": {
+        "theorem": "For every finite A and target h in the non-wrapping Fourier model of TICKET-239, write R_A(h)=DC_A+S_A(h), where DC_A=|A|^2/M and R_A(h) is a nonnegative integer. Then S_A(h)>-DC_A iff R_A(h)>=1; equivalently, for every fixed 0<eta<=1, S_A(h)>=eta-DC_A iff R_A(h)>=1. Therefore a uniform signed-remainder slack above negative DC is exactly the pointwise representation claim, not a weaker intermediate lemma.",
+        "proof": "Substitution gives S_A(h)+DC_A=R_A(h). The strict inequality is R_A(h)>0, which is equivalent to R_A(h)>=1 by integrality. For 0<eta<=1, R_A(h)>=eta is equivalent to the same integer condition.",
+        "prime_window_signed_slack_rows": [
+          {
+            "cutoff_X": 1000,
+            "buffer_scale_multiplier": 1,
+            "even_buffer_h": 22,
+            "target_N": 1978,
+            "fourier_modulus_M": 45,
+            "prime_window_cardinality_m": 3,
+            "ordered_reflection_count_R_A_h": 0,
+            "dc_term_m_squared_over_M": {
+              "exact": "1/5",
+              "float": 0.2
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "-1/5",
+              "float": -0.2
+            },
+            "strict_negative_dc_threshold_passes": false,
+            "integral_unit_slack_threshold_passes": false,
+            "restricted_prime_window_representation_exists": false,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 1000,
+            "buffer_scale_multiplier": 2,
+            "even_buffer_h": 42,
+            "target_N": 1958,
+            "fourier_modulus_M": 85,
+            "prime_window_cardinality_m": 6,
+            "ordered_reflection_count_R_A_h": 2,
+            "dc_term_m_squared_over_M": {
+              "exact": "36/85",
+              "float": 0.4235294117647059
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "134/85",
+              "float": 1.576470588235294
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 1000,
+            "buffer_scale_multiplier": 4,
+            "even_buffer_h": 84,
+            "target_N": 1916,
+            "fourier_modulus_M": 169,
+            "prime_window_cardinality_m": 12,
+            "ordered_reflection_count_R_A_h": 2,
+            "dc_term_m_squared_over_M": {
+              "exact": "144/169",
+              "float": 0.8520710059171598
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "194/169",
+              "float": 1.1479289940828403
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 10000,
+            "buffer_scale_multiplier": 1,
+            "even_buffer_h": 118,
+            "target_N": 19882,
+            "fourier_modulus_M": 237,
+            "prime_window_cardinality_m": 11,
+            "ordered_reflection_count_R_A_h": 1,
+            "dc_term_m_squared_over_M": {
+              "exact": "121/237",
+              "float": 0.510548523206751
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "116/237",
+              "float": 0.48945147679324896
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 10000,
+            "buffer_scale_multiplier": 2,
+            "even_buffer_h": 236,
+            "target_N": 19764,
+            "fourier_modulus_M": 473,
+            "prime_window_cardinality_m": 26,
+            "ordered_reflection_count_R_A_h": 6,
+            "dc_term_m_squared_over_M": {
+              "exact": "676/473",
+              "float": 1.4291754756871036
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "2162/473",
+              "float": 4.570824524312896
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 10000,
+            "buffer_scale_multiplier": 4,
+            "even_buffer_h": 472,
+            "target_N": 19528,
+            "fourier_modulus_M": 945,
+            "prime_window_cardinality_m": 50,
+            "ordered_reflection_count_R_A_h": 6,
+            "dc_term_m_squared_over_M": {
+              "exact": "500/189",
+              "float": 2.6455026455026456
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "634/189",
+              "float": 3.3544973544973544
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "buffer_scale_multiplier": 1,
+            "even_buffer_h": 756,
+            "target_N": 199244,
+            "fourier_modulus_M": 1513,
+            "prime_window_cardinality_m": 65,
+            "ordered_reflection_count_R_A_h": 6,
+            "dc_term_m_squared_over_M": {
+              "exact": "4225/1513",
+              "float": 2.7924653007270326
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "4853/1513",
+              "float": 3.2075346992729674
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "buffer_scale_multiplier": 2,
+            "even_buffer_h": 1510,
+            "target_N": 198490,
+            "fourier_modulus_M": 3021,
+            "prime_window_cardinality_m": 134,
+            "ordered_reflection_count_R_A_h": 28,
+            "dc_term_m_squared_over_M": {
+              "exact": "17956/3021",
+              "float": 5.943727242634889
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "66632/3021",
+              "float": 22.05627275736511
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 100000,
+            "buffer_scale_multiplier": 4,
+            "even_buffer_h": 3018,
+            "target_N": 196982,
+            "fourier_modulus_M": 6037,
+            "prime_window_cardinality_m": 258,
+            "ordered_reflection_count_R_A_h": 27,
+            "dc_term_m_squared_over_M": {
+              "exact": "66564/6037",
+              "float": 11.026006294517144
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "96435/6037",
+              "float": 15.973993705482856
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 1000000,
+            "buffer_scale_multiplier": 1,
+            "even_buffer_h": 5240,
+            "target_N": 1994760,
+            "fourier_modulus_M": 10481,
+            "prime_window_cardinality_m": 380,
+            "ordered_reflection_count_R_A_h": 106,
+            "dc_term_m_squared_over_M": {
+              "exact": "144400/10481",
+              "float": 13.777311325255225
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "966586/10481",
+              "float": 92.22268867474477
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 1000000,
+            "buffer_scale_multiplier": 2,
+            "even_buffer_h": 10480,
+            "target_N": 1989520,
+            "fourier_modulus_M": 20961,
+            "prime_window_cardinality_m": 760,
+            "ordered_reflection_count_R_A_h": 100,
+            "dc_term_m_squared_over_M": {
+              "exact": "577600/20961",
+              "float": 27.555937216735842
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "1518500/20961",
+              "float": 72.44406278326416
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 1000000,
+            "buffer_scale_multiplier": 4,
+            "even_buffer_h": 20958,
+            "target_N": 1979042,
+            "fourier_modulus_M": 41917,
+            "prime_window_cardinality_m": 1492,
+            "ordered_reflection_count_R_A_h": 174,
+            "dc_term_m_squared_over_M": {
+              "exact": "2226064/41917",
+              "float": 53.10647231433547
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "5067494/41917",
+              "float": 120.89352768566452
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 10000000,
+            "buffer_scale_multiplier": 1,
+            "even_buffer_h": 38494,
+            "target_N": 19961506,
+            "fourier_modulus_M": 76989,
+            "prime_window_cardinality_m": 2352,
+            "ordered_reflection_count_R_A_h": 206,
+            "dc_term_m_squared_over_M": {
+              "exact": "1843968/25663",
+              "float": 71.85317383002767
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "3442610/25663",
+              "float": 134.14682616997234
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 10000000,
+            "buffer_scale_multiplier": 2,
+            "even_buffer_h": 76986,
+            "target_N": 19923014,
+            "fourier_modulus_M": 153973,
+            "prime_window_cardinality_m": 4730,
+            "ordered_reflection_count_R_A_h": 446,
+            "dc_term_m_squared_over_M": {
+              "exact": "22372900/153973",
+              "float": 145.30404681340235
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "46299058/153973",
+              "float": 300.69595318659765
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          },
+          {
+            "cutoff_X": 10000000,
+            "buffer_scale_multiplier": 4,
+            "even_buffer_h": 153970,
+            "target_N": 19846030,
+            "fourier_modulus_M": 307941,
+            "prime_window_cardinality_m": 9470,
+            "ordered_reflection_count_R_A_h": 984,
+            "dc_term_m_squared_over_M": {
+              "exact": "89680900/307941",
+              "float": 291.2275403405198
+            },
+            "signed_nonzero_frequency_remainder": {
+              "exact": "213333044/307941",
+              "float": 692.7724596594802
+            },
+            "strict_negative_dc_threshold_passes": true,
+            "integral_unit_slack_threshold_passes": true,
+            "restricted_prime_window_representation_exists": true,
+            "equivalence_verified": true
+          }
+        ],
+        "transcript_sha256": "68e048fffafc15fddd1a7f032ebeb025ac57e3e8e1ab732783ec2e13a72eb252",
+        "aggregate": {
+          "signed_slack_integrality_equivalence_proved": true,
+          "negative_dc_uniform_slack_is_not_weaker_than_positivity": true,
+          "prime_window_row_count": 15,
+          "zero_restricted_window_row_count": 1,
+          "pointwise_major_minor_error_bound_proved": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "no_go_scope": "The equivalence does not say that the required inequality is false. It says that naming it as the next lemma makes no logical progress unless the signed sum is decomposed into an independently positive arithmetic main term and explicit major/minor-arc errors. A zero in a restricted prime window is not a Goldbach counterexample.",
+        "failure_count": 0
+      },
+      "logical_limit": "No target-uniform binary-prime major/minor error estimate is proved.",
+      "route_decision": {
+        "discard": "negative-DC signed slack as a weaker intermediate target than pointwise Goldbach positivity",
+        "retain": "a targetwise positive arithmetic main term with separately bounded major- and minor-arc errors",
+        "next_single_lemma": "BinaryPrimeMajorArcMainTermMinusAllExplicitErrorsIsAtLeastOneForEverySufficientlyLargeEvenTarget"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T239",
+            "label": "MesoscopicReflectionFourierIdentityAndL2NoGo",
+            "status": "closed_input"
+          },
+          {
+            "id": "GB-N240",
+            "label": "UniformSignedRemainderSlackIsAWeakerGoldbachMilestone",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "GB-T240",
+            "label": "SignedFourierSlackIntegralityEquivalenceAndIntermediateTargetNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "GB-OPEN240",
+            "label": "BinaryPrimeMajorArcMainTermMinusAllExplicitErrorsIsAtLeastOneForEverySufficientlyLargeEvenTarget",
+            "status": "highest_risk_open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T239",
+            "GB-N240"
+          ],
+          [
+            "GB-T239",
+            "GB-T240"
+          ],
+          [
+            "GB-N240",
+            "GB-T240"
+          ],
+          [
+            "GB-T240",
+            "GB-OPEN240"
+          ]
+        ]
+      },
+      "claim_boundary": "No Goldbach proof or counterexample; one exact integrality equivalence and fifteen restricted-window rows only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-240",
+      "theorem_name": "OneSidedPrimeWeightedCRTFullSupportAndCompositeSuccessorNoGo",
+      "declared_proposition": "Let Q be any finite set of primes greater than 3 and prescribe every binary pattern epsilon_q for the coordinates 1_(q does not divide p+2). There are infinitely many primes p realizing that complete pattern while p+2 is composite. Choose residues p=-2 mod q for a zero coordinate and p=1 mod q for a one coordinate, and also impose p=-2 mod ell for one new prime ell outside Q. CRT gives a reduced class modulo ell product(Q); Dirichlet's theorem supplies infinitely many primes in it, and every sufficiently large successor is divisible by ell. Thus even full finite-CRT support under one-sided prime weighting cannot certify twin-prime mass.",
+      "mathematical_argument": "All prescribed residues are nonzero modulo their primes, so the CRT class is coprime to the product modulus. Dirichlet's theorem applies. The selected residues realize the requested local bits exactly. The extra congruence makes p+2 a proper multiple of ell once p is large. The empirical Gram identity is independent: after centering and variance normalization its trace is m, and if every off-diagonal correlation has magnitude at most mu, then tr(G^2)<=m+m(m-1)mu^2, so r_eff=(tr G)^2/tr(G^2)>=m/(1+(m-1)mu^2).",
+      "reproducible_computation": {
+        "theorem": "Let Q be any finite set of primes greater than 3 and prescribe every binary pattern epsilon_q for the coordinates 1_(q does not divide p+2). There are infinitely many primes p realizing that complete pattern while p+2 is composite. Choose residues p=-2 mod q for a zero coordinate and p=1 mod q for a one coordinate, and also impose p=-2 mod ell for one new prime ell outside Q. CRT gives a reduced class modulo ell product(Q); Dirichlet's theorem supplies infinitely many primes in it, and every sufficiently large successor is divisible by ell. Thus even full finite-CRT support under one-sided prime weighting cannot certify twin-prime mass.",
+        "proof": "All prescribed residues are nonzero modulo their primes, so the CRT class is coprime to the product modulus. Dirichlet's theorem applies. The selected residues realize the requested local bits exactly. The extra congruence makes p+2 a proper multiple of ell once p is large. The empirical Gram identity is independent: after centering and variance normalization its trace is m, and if every off-diagonal correlation has magnitude at most mu, then tr(G^2)<=m+m(m-1)mu^2, so r_eff=(tr G)^2/tr(G^2)>=m/(1+(m-1)mu^2).",
+        "exact_all_pattern_crt_rows": [
+          {
+            "local_admissibility_bits": [
+              0,
+              0,
+              0
+            ],
+            "crt_residue_r": 16553,
+            "crt_modulus_M": 16555,
+            "gcd_r_M": 1,
+            "first_prime_witness_p": 49663,
+            "forced_composite_successor_p_plus_2": 49665,
+            "outside_prime_factor": 43,
+            "successor_cofactor": 1155,
+            "certificate_verified": true
+          },
+          {
+            "local_admissibility_bits": [
+              0,
+              0,
+              1
+            ],
+            "crt_residue_r": 6018,
+            "crt_modulus_M": 16555,
+            "gcd_r_M": 1,
+            "first_prime_witness_p": 88793,
+            "forced_composite_successor_p_plus_2": 88795,
+            "outside_prime_factor": 43,
+            "successor_cofactor": 2065,
+            "certificate_verified": true
+          },
+          {
+            "local_admissibility_bits": [
+              0,
+              1,
+              0
+            ],
+            "crt_residue_r": 9458,
+            "crt_modulus_M": 16555,
+            "gcd_r_M": 1,
+            "first_prime_witness_p": 59123,
+            "forced_composite_successor_p_plus_2": 59125,
+            "outside_prime_factor": 43,
+            "successor_cofactor": 1375,
+            "certificate_verified": true
+          },
+          {
+            "local_admissibility_bits": [
+              0,
+              1,
+              1
+            ],
+            "crt_residue_r": 15478,
+            "crt_modulus_M": 16555,
+            "gcd_r_M": 1,
+            "first_prime_witness_p": 131363,
+            "forced_composite_successor_p_plus_2": 131365,
+            "outside_prime_factor": 43,
+            "successor_cofactor": 3055,
+            "certificate_verified": true
+          },
+          {
+            "local_admissibility_bits": [
+              1,
+              0,
+              0
+            ],
+            "crt_residue_r": 9931,
+            "crt_modulus_M": 16555,
+            "gcd_r_M": 1,
+            "first_prime_witness_p": 175481,
+            "forced_composite_successor_p_plus_2": 175483,
+            "outside_prime_factor": 43,
+            "successor_cofactor": 4081,
+            "certificate_verified": true
+          },
+          {
+            "local_admissibility_bits": [
+              1,
+              0,
+              1
+            ],
+            "crt_residue_r": 15951,
+            "crt_modulus_M": 16555,
+            "gcd_r_M": 1,
+            "first_prime_witness_p": 82171,
+            "forced_composite_successor_p_plus_2": 82173,
+            "outside_prime_factor": 43,
+            "successor_cofactor": 1911,
+            "certificate_verified": true
+          },
+          {
+            "local_admissibility_bits": [
+              1,
+              1,
+              0
+            ],
+            "crt_residue_r": 2836,
+            "crt_modulus_M": 16555,
+            "gcd_r_M": 1,
+            "first_prime_witness_p": 52501,
+            "forced_composite_successor_p_plus_2": 52503,
+            "outside_prime_factor": 43,
+            "successor_cofactor": 1221,
+            "certificate_verified": true
+          },
+          {
+            "local_admissibility_bits": [
+              1,
+              1,
+              1
+            ],
+            "crt_residue_r": 8856,
+            "crt_modulus_M": 16555,
+            "gcd_r_M": 1,
+            "first_prime_witness_p": 91631,
+            "forced_composite_successor_p_plus_2": 91633,
+            "outside_prime_factor": 43,
+            "successor_cofactor": 2131,
+            "certificate_verified": true
+          }
+        ],
+        "actual_one_sided_prime_weighted_gram_rows": [
+          {
+            "upper_scale_X": 100000,
+            "prime_sample_interval": [
+              50000,
+              99998
+            ],
+            "prime_sample_count": 4459,
+            "coordinate_primes_Q": [
+              5,
+              7,
+              11,
+              13
+            ],
+            "coordinate_count_m": 4,
+            "maximum_absolute_pair_correlation_mu": 0.013068073239269508,
+            "gram_effective_rank": 3.9994316072221627,
+            "coherence_effective_rank_lower_bound": 3.997951754906087,
+            "finite_twin_pair_count_in_sample": 519,
+            "checks": {
+              "gram_diagonal_is_one": true,
+              "effective_rank_obeys_coherence_bound": true,
+              "effective_rank_does_not_exceed_dimension": true
+            }
+          },
+          {
+            "upper_scale_X": 1000000,
+            "prime_sample_interval": [
+              500000,
+              999998
+            ],
+            "prime_sample_count": 36960,
+            "coordinate_primes_Q": [
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23,
+              29
+            ],
+            "coordinate_count_m": 8,
+            "maximum_absolute_pair_correlation_mu": 0.008909109049926443,
+            "gram_effective_rank": 7.9993892963692765,
+            "coherence_effective_rank_lower_bound": 7.995557623661476,
+            "finite_twin_pair_count_in_sample": 3604,
+            "checks": {
+              "gram_diagonal_is_one": true,
+              "effective_rank_obeys_coherence_bound": true,
+              "effective_rank_does_not_exceed_dimension": true
+            }
+          },
+          {
+            "upper_scale_X": 10000000,
+            "prime_sample_interval": [
+              5000000,
+              9999998
+            ],
+            "prime_sample_count": 316066,
+            "coordinate_primes_Q": [
+              5,
+              7,
+              11,
+              13,
+              17,
+              19,
+              23,
+              29,
+              31,
+              37,
+              41,
+              43
+            ],
+            "coordinate_count_m": 12,
+            "maximum_absolute_pair_correlation_mu": 0.0023230258802740883,
+            "gram_effective_rank": 11.999892440695557,
+            "coherence_effective_rank_lower_bound": 11.999287710982411,
+            "finite_twin_pair_count_in_sample": 26517,
+            "checks": {
+              "gram_diagonal_is_one": true,
+              "effective_rank_obeys_coherence_bound": true,
+              "effective_rank_does_not_exceed_dimension": true
+            }
+          }
+        ],
+        "transcript_sha256": "08d1196f0adb94bb693842d1c0a962715ac434e266a690306e0fdcb96f7f8937",
+        "aggregate": {
+          "all_finite_crt_patterns_have_infinite_prime_composite_successors": true,
+          "one_sided_prime_weighted_finite_crt_sufficiency_refuted": true,
+          "empirical_gram_coherence_bound_proved": true,
+          "largest_empirical_scale": 10000000,
+          "largest_empirical_effective_rank": 11.999892440695557,
+          "two_sided_parity_breaking_main_term_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "Dirichlet's theorem proves infinite prime/composite successors in each fixed local pattern, not the absence of twins. The empirical rows are finite observations and their twin counts cannot establish an infinite lower bound. A genuinely two-sided prime correlation with parity-breaking error control remains missing.",
+        "failure_count": 0
+      },
+      "logical_limit": "No two-sided Lambda(n)Lambda(n+2) lower bound is proved on any cofinal family of blocks.",
+      "route_decision": {
+        "discard": "one-sided prime weighting plus any finite CRT feature hierarchy as sufficient for twin-prime mass",
+        "retain": "a genuinely two-sided prime correlation with parity-breaking error control on growing CRT support",
+        "next_single_lemma": "ParityBreakingTwoSidedLambdaLambdaMainTermDominatesGrowingCRTErrorOnCofinalDyadicBlocks"
+      },
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T239",
+            "label": "UniformCRTGramIdentityAndCompositeProgressionNoGo",
+            "status": "closed_input"
+          },
+          {
+            "id": "TP-N240",
+            "label": "OneSidedPrimeWeightedCRTOrthogonalityImpliesTwinMass",
+            "status": "refuted_or_limited"
+          },
+          {
+            "id": "TP-T240",
+            "label": "OneSidedPrimeWeightedCRTFullSupportAndCompositeSuccessorNoGo",
+            "status": "proved_exact"
+          },
+          {
+            "id": "TP-OPEN240",
+            "label": "ParityBreakingTwoSidedLambdaLambdaMainTermDominatesGrowingCRTErrorOnCofinalDyadicBlocks",
+            "status": "highest_risk_open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T239",
+            "TP-N240"
+          ],
+          [
+            "TP-T239",
+            "TP-T240"
+          ],
+          [
+            "TP-N240",
+            "TP-T240"
+          ],
+          [
+            "TP-T240",
+            "TP-OPEN240"
+          ]
+        ]
+      },
+      "claim_boundary": "No twin-prime proof or counterexample; one exact Dirichlet-CRT no-go theorem, eight pattern certificates, and three finite empirical Gram rows only."
+    },
+    "research_baselines": {
+      "riemann": "https://www.claymath.org/millennium/riemann-hypothesis/",
+      "collatz": "https://arxiv.org/abs/1909.03562",
+      "fermat_quotient": "https://arxiv.org/abs/1110.3113",
+      "goldbach": "https://arxiv.org/abs/1501.05438",
+      "twin_prime": "https://arxiv.org/abs/1311.4600"
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "route_correction_count": 4,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "conjecture_resolution_count": 0,
+      "bounded_prime_scan_limit": 20000000,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-240",
+      "declared_proposition": "For 0<C<1 let R_ij=(1+|i-j|)^(-1) and G=(1-C)I+C R. Every finite section G_J is a Gram matrix with G_J>=(1-C)I. It can be realized by unit vectors w_j. For their rank-one projections P_j, ||P_i P_j||^(1/2)=sqrt(C)(1+|i-j|)^(-1/2) when i!=j, so the Cotlar-Stein row sums diverge. Thus absolute Cotlar norm summability is not necessary for a uniform Gram lower bound and cannot, by itself, encode signed cross-shell cancellation.",
+      "new_result": "CotlarNormSummabilityNoGoForUniformGramLowerBounds",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/route_corrections_wieferich_prime_crt_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "absolute Cotlar-Stein overlap summability as the necessary or uniquely sign-sensitive RH bridge",
+      "remaining_gap": "No signed lower bound is proved for the actual Guinand-Weil operator.",
+      "candidate_theorem": "ArithmeticWeilSignedBlockOperatorSymbolHasUniformPositiveLowerBoundAfterCommonModeRemoval"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-240",
+      "declared_proposition": "For every prime q>3, let ell_q=lcm(ord_q(32/27),ord_q(2/3)) and define a_q and c_q as in TICKET-239. Since ell_q divides q-1 and q does not divide (q-1)/ell_q, LTE gives the exact reduction a_q=v_q(32^(q-1)-27^(q-1)) and c_q=v_q(2^(q-1)-3^(q-1)). Hence the global nonpositive-defect claim is exactly a rational Wieferich-depth domination problem. At first depth, writing F_q(b)=(b^(q-1)-1)/q mod q, a_q>=2 iff 5F_q(2)-3F_q(3)=0 mod q, while c_q>=2 iff F_q(2)-F_q(3)=0 mod q.",
+      "new_result": "RunBlockDefectFermatQuotientReductionAndTwentyMillionAudit",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/route_corrections_wieferich_prime_crt_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "bounded absence of positive lifting defects as an all-prime proof",
+      "remaining_gap": "The all-prime rational Wieferich-depth domination, general necklace exclusion, and aperiodic descent remain open.",
+      "candidate_theorem": "RationalWieferichDepthDominationFor32Over27Versus2Over3AtEveryOddPrime"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-240",
+      "declared_proposition": "For every finite A and target h in the non-wrapping Fourier model of TICKET-239, write R_A(h)=DC_A+S_A(h), where DC_A=|A|^2/M and R_A(h) is a nonnegative integer. Then S_A(h)>-DC_A iff R_A(h)>=1; equivalently, for every fixed 0<eta<=1, S_A(h)>=eta-DC_A iff R_A(h)>=1. Therefore a uniform signed-remainder slack above negative DC is exactly the pointwise representation claim, not a weaker intermediate lemma.",
+      "new_result": "SignedFourierSlackIntegralityEquivalenceAndIntermediateTargetNoGo",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/route_corrections_wieferich_prime_crt_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "negative-DC signed slack as a weaker intermediate target than pointwise Goldbach positivity",
+      "remaining_gap": "No target-uniform binary-prime major/minor error estimate is proved.",
+      "candidate_theorem": "BinaryPrimeMajorArcMainTermMinusAllExplicitErrorsIsAtLeastOneForEverySufficientlyLargeEvenTarget"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-240",
+      "declared_proposition": "Let Q be any finite set of primes greater than 3 and prescribe every binary pattern epsilon_q for the coordinates 1_(q does not divide p+2). There are infinitely many primes p realizing that complete pattern while p+2 is composite. Choose residues p=-2 mod q for a zero coordinate and p=1 mod q for a one coordinate, and also impose p=-2 mod ell for one new prime ell outside Q. CRT gives a reduced class modulo ell product(Q); Dirichlet's theorem supplies infinitely many primes in it, and every sufficiently large successor is divisible by ell. Thus even full finite-CRT support under one-sided prime weighting cannot certify twin-prime mass.",
+      "new_result": "OneSidedPrimeWeightedCRTFullSupportAndCompositeSuccessorNoGo",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/route_corrections_wieferich_prime_crt_audit/twin-prime",
+        "failure_count": 0
+      },
+      "discarded_route": "one-sided prime weighting plus any finite CRT feature hierarchy as sufficient for twin-prime mass",
+      "remaining_gap": "No two-sided Lambda(n)Lambda(n+2) lower bound is proved on any cofinal family of blocks.",
+      "candidate_theorem": "ParityBreakingTwoSidedLambdaLambdaMainTermDominatesGrowingCRTErrorOnCofinalDyadicBlocks"
+    }
+  ]
+}

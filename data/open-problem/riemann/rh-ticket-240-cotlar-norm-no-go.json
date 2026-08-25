@@ -1,0 +1,201 @@
+{
+  "schema": "primeproject.ticket240-route-corrections-wieferich-prime-crt.v1",
+  "generated_at": "2026-08-25T23:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-240",
+  "theorem_name": "CotlarNormSummabilityNoGoForUniformGramLowerBounds",
+  "declared_proposition": "For 0<C<1 let R_ij=(1+|i-j|)^(-1) and G=(1-C)I+C R. Every finite section G_J is a Gram matrix with G_J>=(1-C)I. It can be realized by unit vectors w_j. For their rank-one projections P_j, ||P_i P_j||^(1/2)=sqrt(C)(1+|i-j|)^(-1/2) when i!=j, so the Cotlar-Stein row sums diverge. Thus absolute Cotlar norm summability is not necessary for a uniform Gram lower bound and cannot, by itself, encode signed cross-shell cancellation.",
+  "mathematical_argument": "The identity (n+1)^(-1)=integral_0^1 t^n dt writes R as a positive mixture of the kernels [t^|i-j|]. For 0<=t<1, the quadratic form of this Toeplitz kernel is the integral of |sum_j z_j exp(ijtheta)|^2 against the nonnegative Poisson kernel (1-t^2)/(1-2t cos(theta)+t^2); the endpoint t=1 follows by a limit. Hence R is positive semidefinite with unit diagonal. Therefore G_J>=(1-C)I and a Gram realization by unit vectors exists. For rank-one orthogonal projections, ||P_iP_j||=|<w_i,w_j>|=C/(1+|i-j|). A central row of the square-root overlap sum dominates two constant multiples of sum_(d<=J/2)d^(-1/2), which diverges. Projection norms are invariant under inner-product phase changes, so they do not by themselves record signed cancellation.",
+  "reproducible_computation": {
+    "theorem": "For 0<C<1 let R_ij=(1+|i-j|)^(-1) and G=(1-C)I+C R. Every finite section G_J is a Gram matrix with G_J>=(1-C)I. It can be realized by unit vectors w_j. For their rank-one projections P_j, ||P_i P_j||^(1/2)=sqrt(C)(1+|i-j|)^(-1/2) when i!=j, so the Cotlar-Stein row sums diverge. Thus absolute Cotlar norm summability is not necessary for a uniform Gram lower bound and cannot, by itself, encode signed cross-shell cancellation.",
+    "proof": "The identity (n+1)^(-1)=integral_0^1 t^n dt writes R as a positive mixture of the kernels [t^|i-j|]. For 0<=t<1, the quadratic form of this Toeplitz kernel is the integral of |sum_j z_j exp(ijtheta)|^2 against the nonnegative Poisson kernel (1-t^2)/(1-2t cos(theta)+t^2); the endpoint t=1 follows by a limit. Hence R is positive semidefinite with unit diagonal. Therefore G_J>=(1-C)I and a Gram realization by unit vectors exists. For rank-one orthogonal projections, ||P_iP_j||=|<w_i,w_j>|=C/(1+|i-j|). A central row of the square-root overlap sum dominates two constant multiples of sum_(d<=J/2)d^(-1/2), which diverges. Projection norms are invariant under inner-product phase changes, so they do not by themselves record signed cancellation.",
+    "exact_model_rows": [
+      {
+        "dimension_J": 16,
+        "mixture_constant_C": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "maximum_absolute_gram_cross_row_sum": {
+          "exact": "4469/2520",
+          "float": 1.7734126984126983
+        },
+        "maximum_cotlar_sqrt_overlap_row_sum": 5.003633907557941,
+        "uniform_gram_lower_bound": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "cotlar_sum_increases": true,
+        "certificate_verified": true
+      },
+      {
+        "dimension_J": 32,
+        "mixture_constant_C": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "maximum_absolute_gram_cross_row_sum": {
+          "exact": "29529623/12252240",
+          "float": 2.4101407579348755
+        },
+        "maximum_cotlar_sqrt_overlap_row_sum": 8.181596577319988,
+        "uniform_gram_lower_bound": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "cotlar_sum_increases": true,
+        "certificate_verified": true
+      },
+      {
+        "dimension_J": 64,
+        "mixture_constant_C": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "maximum_absolute_gram_cross_row_sum": {
+          "exact": "443845505348639/144403552893600",
+          "float": 3.073646710588035
+        },
+        "maximum_cotlar_sqrt_overlap_row_sum": 12.768299275402628,
+        "uniform_gram_lower_bound": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "cotlar_sum_increases": true,
+        "certificate_verified": true
+      },
+      {
+        "dimension_J": 128,
+        "mixture_constant_C": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "maximum_absolute_gram_cross_row_sum": {
+          "exact": "492819177088007081989671419/131362987122535807501262400",
+          "float": 3.751583211398077
+        },
+        "maximum_cotlar_sqrt_overlap_row_sum": 19.323929345705842,
+        "uniform_gram_lower_bound": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "cotlar_sum_increases": true,
+        "certificate_verified": true
+      },
+      {
+        "dimension_J": 256,
+        "mixture_constant_C": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "maximum_absolute_gram_cross_row_sum": {
+          "exact": "59250923734488876395327667085206060579563335937302920701/13353756090997411579403749204440236542538872688049072000",
+          "float": 4.437023061581421
+        },
+        "maximum_cotlar_sqrt_overlap_row_sum": 28.645249876083195,
+        "uniform_gram_lower_bound": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "cotlar_sum_increases": true,
+        "certificate_verified": true
+      },
+      {
+        "dimension_J": 512,
+        "mixture_constant_C": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "maximum_absolute_gram_cross_row_sum": {
+          "exact": "21967918889685406305780122187021995318423446310492187669335660279417841699587699243683297369757051367576675865769/4285344137372231566616365249206531035019473398789780525438551598725494569614018464395658307122505077932281312000",
+          "float": 5.12629048810911
+        },
+        "maximum_cotlar_sqrt_overlap_row_sum": 41.86365517818739,
+        "uniform_gram_lower_bound": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "cotlar_sum_increases": true,
+        "certificate_verified": true
+      },
+      {
+        "dimension_J": 1024,
+        "mixture_constant_C": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "maximum_absolute_gram_cross_row_sum": {
+          "exact": "126476108432143397869109564886681140415109153862414625108821859877629001424900037995662731685235896818276781330060589116380683570968815875031825619619067008027429304889340459054084870967338030826330405760966920728814100613/21740661777918307773782244871289092918825862201116330580706833712449378318870854874445858972066454230791061184628837309243191474651184976378255688400921540258339974541246061176481780015767107271195429147937526199418539520",
+          "float": 5.8174911934191185
+        },
+        "maximum_cotlar_sqrt_overlap_row_sum": 60.58299772618655,
+        "uniform_gram_lower_bound": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "cotlar_sum_increases": true,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "7e3469b1e574d6b5e37c6c140cf8b2204ecac131a282daca458aed7a57e2849a",
+    "aggregate": {
+      "uniform_positive_gram_family_proved": true,
+      "cotlar_sqrt_overlap_summability_necessity_refuted": true,
+      "cotlar_norms_do_not_encode_signed_cancellation": true,
+      "arithmetic_weil_signed_operator_lower_bound_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "This does not refute the possibility that the actual arithmetic Weil shell operators satisfy a useful Cotlar estimate. It refutes only treating absolute Cotlar summability as a necessary or sign-sensitive bridge. The model contains no zeta-zero data.",
+    "failure_count": 0
+  },
+  "logical_limit": "No signed lower bound is proved for the actual Guinand-Weil operator.",
+  "route_decision": {
+    "discard": "absolute Cotlar-Stein overlap summability as the necessary or uniquely sign-sensitive RH bridge",
+    "retain": "a signed arithmetic block symbol or direct operator lower bound after common-mode removal",
+    "next_single_lemma": "ArithmeticWeilSignedBlockOperatorSymbolHasUniformPositiveLowerBoundAfterCommonModeRemoval"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T239",
+        "label": "PowerDecaySchurThresholdAndNonsummablePositiveGramNoGo",
+        "status": "closed_input"
+      },
+      {
+        "id": "RH-N240",
+        "label": "CotlarNormSummabilityCapturesSignedWeilCancellation",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "RH-T240",
+        "label": "CotlarNormSummabilityNoGoForUniformGramLowerBounds",
+        "status": "proved_exact"
+      },
+      {
+        "id": "RH-OPEN240",
+        "label": "ArithmeticWeilSignedBlockOperatorSymbolHasUniformPositiveLowerBoundAfterCommonModeRemoval",
+        "status": "highest_risk_open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T239",
+        "RH-N240"
+      ],
+      [
+        "RH-T239",
+        "RH-T240"
+      ],
+      [
+        "RH-N240",
+        "RH-T240"
+      ],
+      [
+        "RH-T240",
+        "RH-OPEN240"
+      ]
+    ]
+  },
+  "claim_boundary": "No RH proof, disproof, or zeta-zero exclusion; one exact route-correction theorem and seven model rows only."
+}

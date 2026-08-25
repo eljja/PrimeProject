@@ -322,3 +322,30 @@ Blocked claims:
 - that zero observed Collatz lifting defects proves the all-prime statement;
 - that Goldbach density or Parseval energy forces every reflected coefficient;
 - that uniform CRT effective rank is a prime-weighted twin-prime lower bound.
+
+## TICKET-240 publication boundary
+
+TICKET-240 adds four exact route corrections: a positive Gram/Cotlar
+non-necessity theorem; an exact Collatz reduction to rational Wieferich-depth
+domination with a bounded scan through 20,000,000; a Goldbach signed-slack
+integrality equivalence; and a Dirichlet-CRT theorem placing infinitely many
+prime/composite-successor pairs in every finite local pattern.
+
+Allowed claims:
+
+- the four declared propositions and proof DAG transitions are exactly
+  reproduced by the generator and targeted tests;
+- the Collatz result is universal only as a reduction; its no-positive-defect
+  observation is bounded to 1,270,605 primes at q<=20,000,000;
+- the actual one-sided prime-weighted CRT Gram at X=10^7 has empirical
+  effective rank 11.9998924 for twelve coordinates;
+- every parent conjecture remains open_not_proven.
+
+Blocked claims:
+
+- that divergent Cotlar sums say anything negative about RH;
+- that the Collatz finite scan proves all-prime depth domination;
+- that the Goldbach signed-slack reformulation is progress toward positivity
+  without a separately controlled arithmetic main/error decomposition;
+- that one-sided prime weighting, finite CRT full support, or finite empirical
+  rank implies infinitely many twin primes.

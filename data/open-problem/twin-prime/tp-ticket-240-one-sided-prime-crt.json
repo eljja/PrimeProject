@@ -1,0 +1,283 @@
+{
+  "schema": "primeproject.ticket240-route-corrections-wieferich-prime-crt.v1",
+  "generated_at": "2026-08-25T23:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-240",
+  "theorem_name": "OneSidedPrimeWeightedCRTFullSupportAndCompositeSuccessorNoGo",
+  "declared_proposition": "Let Q be any finite set of primes greater than 3 and prescribe every binary pattern epsilon_q for the coordinates 1_(q does not divide p+2). There are infinitely many primes p realizing that complete pattern while p+2 is composite. Choose residues p=-2 mod q for a zero coordinate and p=1 mod q for a one coordinate, and also impose p=-2 mod ell for one new prime ell outside Q. CRT gives a reduced class modulo ell product(Q); Dirichlet's theorem supplies infinitely many primes in it, and every sufficiently large successor is divisible by ell. Thus even full finite-CRT support under one-sided prime weighting cannot certify twin-prime mass.",
+  "mathematical_argument": "All prescribed residues are nonzero modulo their primes, so the CRT class is coprime to the product modulus. Dirichlet's theorem applies. The selected residues realize the requested local bits exactly. The extra congruence makes p+2 a proper multiple of ell once p is large. The empirical Gram identity is independent: after centering and variance normalization its trace is m, and if every off-diagonal correlation has magnitude at most mu, then tr(G^2)<=m+m(m-1)mu^2, so r_eff=(tr G)^2/tr(G^2)>=m/(1+(m-1)mu^2).",
+  "reproducible_computation": {
+    "theorem": "Let Q be any finite set of primes greater than 3 and prescribe every binary pattern epsilon_q for the coordinates 1_(q does not divide p+2). There are infinitely many primes p realizing that complete pattern while p+2 is composite. Choose residues p=-2 mod q for a zero coordinate and p=1 mod q for a one coordinate, and also impose p=-2 mod ell for one new prime ell outside Q. CRT gives a reduced class modulo ell product(Q); Dirichlet's theorem supplies infinitely many primes in it, and every sufficiently large successor is divisible by ell. Thus even full finite-CRT support under one-sided prime weighting cannot certify twin-prime mass.",
+    "proof": "All prescribed residues are nonzero modulo their primes, so the CRT class is coprime to the product modulus. Dirichlet's theorem applies. The selected residues realize the requested local bits exactly. The extra congruence makes p+2 a proper multiple of ell once p is large. The empirical Gram identity is independent: after centering and variance normalization its trace is m, and if every off-diagonal correlation has magnitude at most mu, then tr(G^2)<=m+m(m-1)mu^2, so r_eff=(tr G)^2/tr(G^2)>=m/(1+(m-1)mu^2).",
+    "exact_all_pattern_crt_rows": [
+      {
+        "local_admissibility_bits": [
+          0,
+          0,
+          0
+        ],
+        "crt_residue_r": 16553,
+        "crt_modulus_M": 16555,
+        "gcd_r_M": 1,
+        "first_prime_witness_p": 49663,
+        "forced_composite_successor_p_plus_2": 49665,
+        "outside_prime_factor": 43,
+        "successor_cofactor": 1155,
+        "certificate_verified": true
+      },
+      {
+        "local_admissibility_bits": [
+          0,
+          0,
+          1
+        ],
+        "crt_residue_r": 6018,
+        "crt_modulus_M": 16555,
+        "gcd_r_M": 1,
+        "first_prime_witness_p": 88793,
+        "forced_composite_successor_p_plus_2": 88795,
+        "outside_prime_factor": 43,
+        "successor_cofactor": 2065,
+        "certificate_verified": true
+      },
+      {
+        "local_admissibility_bits": [
+          0,
+          1,
+          0
+        ],
+        "crt_residue_r": 9458,
+        "crt_modulus_M": 16555,
+        "gcd_r_M": 1,
+        "first_prime_witness_p": 59123,
+        "forced_composite_successor_p_plus_2": 59125,
+        "outside_prime_factor": 43,
+        "successor_cofactor": 1375,
+        "certificate_verified": true
+      },
+      {
+        "local_admissibility_bits": [
+          0,
+          1,
+          1
+        ],
+        "crt_residue_r": 15478,
+        "crt_modulus_M": 16555,
+        "gcd_r_M": 1,
+        "first_prime_witness_p": 131363,
+        "forced_composite_successor_p_plus_2": 131365,
+        "outside_prime_factor": 43,
+        "successor_cofactor": 3055,
+        "certificate_verified": true
+      },
+      {
+        "local_admissibility_bits": [
+          1,
+          0,
+          0
+        ],
+        "crt_residue_r": 9931,
+        "crt_modulus_M": 16555,
+        "gcd_r_M": 1,
+        "first_prime_witness_p": 175481,
+        "forced_composite_successor_p_plus_2": 175483,
+        "outside_prime_factor": 43,
+        "successor_cofactor": 4081,
+        "certificate_verified": true
+      },
+      {
+        "local_admissibility_bits": [
+          1,
+          0,
+          1
+        ],
+        "crt_residue_r": 15951,
+        "crt_modulus_M": 16555,
+        "gcd_r_M": 1,
+        "first_prime_witness_p": 82171,
+        "forced_composite_successor_p_plus_2": 82173,
+        "outside_prime_factor": 43,
+        "successor_cofactor": 1911,
+        "certificate_verified": true
+      },
+      {
+        "local_admissibility_bits": [
+          1,
+          1,
+          0
+        ],
+        "crt_residue_r": 2836,
+        "crt_modulus_M": 16555,
+        "gcd_r_M": 1,
+        "first_prime_witness_p": 52501,
+        "forced_composite_successor_p_plus_2": 52503,
+        "outside_prime_factor": 43,
+        "successor_cofactor": 1221,
+        "certificate_verified": true
+      },
+      {
+        "local_admissibility_bits": [
+          1,
+          1,
+          1
+        ],
+        "crt_residue_r": 8856,
+        "crt_modulus_M": 16555,
+        "gcd_r_M": 1,
+        "first_prime_witness_p": 91631,
+        "forced_composite_successor_p_plus_2": 91633,
+        "outside_prime_factor": 43,
+        "successor_cofactor": 2131,
+        "certificate_verified": true
+      }
+    ],
+    "actual_one_sided_prime_weighted_gram_rows": [
+      {
+        "upper_scale_X": 100000,
+        "prime_sample_interval": [
+          50000,
+          99998
+        ],
+        "prime_sample_count": 4459,
+        "coordinate_primes_Q": [
+          5,
+          7,
+          11,
+          13
+        ],
+        "coordinate_count_m": 4,
+        "maximum_absolute_pair_correlation_mu": 0.013068073239269508,
+        "gram_effective_rank": 3.9994316072221627,
+        "coherence_effective_rank_lower_bound": 3.997951754906087,
+        "finite_twin_pair_count_in_sample": 519,
+        "checks": {
+          "gram_diagonal_is_one": true,
+          "effective_rank_obeys_coherence_bound": true,
+          "effective_rank_does_not_exceed_dimension": true
+        }
+      },
+      {
+        "upper_scale_X": 1000000,
+        "prime_sample_interval": [
+          500000,
+          999998
+        ],
+        "prime_sample_count": 36960,
+        "coordinate_primes_Q": [
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29
+        ],
+        "coordinate_count_m": 8,
+        "maximum_absolute_pair_correlation_mu": 0.008909109049926443,
+        "gram_effective_rank": 7.9993892963692765,
+        "coherence_effective_rank_lower_bound": 7.995557623661476,
+        "finite_twin_pair_count_in_sample": 3604,
+        "checks": {
+          "gram_diagonal_is_one": true,
+          "effective_rank_obeys_coherence_bound": true,
+          "effective_rank_does_not_exceed_dimension": true
+        }
+      },
+      {
+        "upper_scale_X": 10000000,
+        "prime_sample_interval": [
+          5000000,
+          9999998
+        ],
+        "prime_sample_count": 316066,
+        "coordinate_primes_Q": [
+          5,
+          7,
+          11,
+          13,
+          17,
+          19,
+          23,
+          29,
+          31,
+          37,
+          41,
+          43
+        ],
+        "coordinate_count_m": 12,
+        "maximum_absolute_pair_correlation_mu": 0.0023230258802740883,
+        "gram_effective_rank": 11.999892440695557,
+        "coherence_effective_rank_lower_bound": 11.999287710982411,
+        "finite_twin_pair_count_in_sample": 26517,
+        "checks": {
+          "gram_diagonal_is_one": true,
+          "effective_rank_obeys_coherence_bound": true,
+          "effective_rank_does_not_exceed_dimension": true
+        }
+      }
+    ],
+    "transcript_sha256": "08d1196f0adb94bb693842d1c0a962715ac434e266a690306e0fdcb96f7f8937",
+    "aggregate": {
+      "all_finite_crt_patterns_have_infinite_prime_composite_successors": true,
+      "one_sided_prime_weighted_finite_crt_sufficiency_refuted": true,
+      "empirical_gram_coherence_bound_proved": true,
+      "largest_empirical_scale": 10000000,
+      "largest_empirical_effective_rank": 11.999892440695557,
+      "two_sided_parity_breaking_main_term_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "Dirichlet's theorem proves infinite prime/composite successors in each fixed local pattern, not the absence of twins. The empirical rows are finite observations and their twin counts cannot establish an infinite lower bound. A genuinely two-sided prime correlation with parity-breaking error control remains missing.",
+    "failure_count": 0
+  },
+  "logical_limit": "No two-sided Lambda(n)Lambda(n+2) lower bound is proved on any cofinal family of blocks.",
+  "route_decision": {
+    "discard": "one-sided prime weighting plus any finite CRT feature hierarchy as sufficient for twin-prime mass",
+    "retain": "a genuinely two-sided prime correlation with parity-breaking error control on growing CRT support",
+    "next_single_lemma": "ParityBreakingTwoSidedLambdaLambdaMainTermDominatesGrowingCRTErrorOnCofinalDyadicBlocks"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T239",
+        "label": "UniformCRTGramIdentityAndCompositeProgressionNoGo",
+        "status": "closed_input"
+      },
+      {
+        "id": "TP-N240",
+        "label": "OneSidedPrimeWeightedCRTOrthogonalityImpliesTwinMass",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "TP-T240",
+        "label": "OneSidedPrimeWeightedCRTFullSupportAndCompositeSuccessorNoGo",
+        "status": "proved_exact"
+      },
+      {
+        "id": "TP-OPEN240",
+        "label": "ParityBreakingTwoSidedLambdaLambdaMainTermDominatesGrowingCRTErrorOnCofinalDyadicBlocks",
+        "status": "highest_risk_open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T239",
+        "TP-N240"
+      ],
+      [
+        "TP-T239",
+        "TP-T240"
+      ],
+      [
+        "TP-N240",
+        "TP-T240"
+      ],
+      [
+        "TP-T240",
+        "TP-OPEN240"
+      ]
+    ]
+  },
+  "claim_boundary": "No twin-prime proof or counterexample; one exact Dirichlet-CRT no-go theorem, eight pattern certificates, and three finite empirical Gram rows only."
+}

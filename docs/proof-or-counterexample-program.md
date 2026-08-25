@@ -8652,3 +8652,28 @@ machine failures, and zero conjecture resolutions.
 
 English report: [TICKET-239 cancellation, lifting, Fourier, and CRT audit](cancellation-lifting-fourier-crt.md).
 한국어 보고서: [TICKET-239 상쇄·lifting·Fourier·CRT 감사](cancellation-lifting-fourier-crt.ko.md).
+
+## TICKET-240 continuation: route correction, Wieferich depth, and one-sided prime CRT
+
+TICKET-240 audits the four TICKET-239 successors and corrects three targets
+that were not genuinely weaker than their parent obligation.
+
+1. **Riemann.** A uniformly positive Gram family has divergent Cotlar
+   square-root overlap sums. Absolute Cotlar summability is sufficient when
+   available but is neither necessary nor sign-sensitive.
+2. **Collatz.** The local run-block defect is exactly the difference between
+   the rational Wieferich depths of 32/27 and 2/3 at exponent q-1.
+   The scan of 1,270,605 primes through 20,000,000 finds no positive candidate
+   but does not discharge the universal quantifier.
+3. **Goldbach.** The proposed signed remainder threshold above negative DC is
+   exactly R_A(h)>=1 by integrality. The next target must expose an
+   independently positive main term and explicit errors.
+4. **Twin prime.** CRT and Dirichlet prove that every complete finite local
+   pattern contains infinitely many primes p whose successor p+2 is
+   composite. One-sided prime weighting therefore cannot break parity.
+
+Machine audit: four exact theorems, four route corrections, four proof DAGs,
+zero machine failures, and zero conjecture resolutions.
+
+English report: [TICKET-240 route corrections, Wieferich depths, and prime-weighted CRT](route-corrections-wieferich-prime-crt.md).
+한국어 보고서: [TICKET-240 경로 교정·Wieferich 깊이·소수 가중 CRT](route-corrections-wieferich-prime-crt.ko.md).

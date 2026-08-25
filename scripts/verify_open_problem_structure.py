@@ -7,6 +7,7 @@ from fractions import Fraction
 from pathlib import Path
 
 from verify_ticket239_structure import verify_ticket239_structure
+from verify_ticket240_structure import verify_ticket240_structure
 
 
 FORBIDDEN_FORMAL_TOKENS = ["sorry", "admit", "axiom "]
@@ -22355,6 +22356,10 @@ def main() -> int:
     ticket239_error = verify_ticket239_structure()
     if ticket239_error:
         return fail(ticket239_error)
+
+    ticket240_error = verify_ticket240_structure()
+    if ticket240_error:
+        return fail(ticket240_error)
 
     print("open problem structure verified")
     return 0

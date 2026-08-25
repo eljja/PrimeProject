@@ -41,6 +41,7 @@ let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
 let ticket236AttemptGlobal = null;
 let ticket237AttemptGlobal = null;
+let ticket240AttemptGlobal = null;
 let ticket239AttemptGlobal = null;
 let ticket238AttemptGlobal = null;
 let ticket235AttemptGlobal = null;
@@ -18030,7 +18031,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket239CancellationLiftingFourierCRT(ticket239AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket240RouteCorrectionsWieferichPrimeCRT(ticket240AttemptGlobal) ||
+      renderTicket239CancellationLiftingFourierCRT(ticket239AttemptGlobal) ||
       renderTicket238MultishellValuationBufferEffectiveRank(ticket238AttemptGlobal) ||
       renderTicket237AnglePaletteEndpointWelch(ticket237AttemptGlobal) ||
       renderTicket236ContractionOrderPhaseDegree2(ticket236AttemptGlobal) ||
@@ -18593,6 +18595,25 @@ async function loadTicket219Attempt() {
   }
 }
 
+async function loadTicket240Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket240-route-corrections-wieferich-prime-crt.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket240AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket240AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket240AttemptGlobal) {
+      ticket240AttemptGlobal.bounded_result = ticket240AttemptGlobal.bounded_result || {};
+      ticket240AttemptGlobal.bounded_result.route_corrections_wieferich_prime_crt_audit = payload.route_corrections_wieferich_prime_crt_audit || {};
+    }
+    return Boolean(ticket240AttemptGlobal);
+  } catch (_error) {
+    ticket240AttemptGlobal = null;
+    return false;
+  }
+}
 async function loadTicket239Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket239-cancellation-lifting-fourier-crt.json", { cache: "no-store" });
@@ -20561,6 +20582,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket240Loaded = await loadTicket240Attempt();
   const ticket239Loaded = await loadTicket239Attempt();
   const ticket238Loaded = await loadTicket238Attempt();
   const ticket237Loaded = await loadTicket237Attempt();
@@ -20582,7 +20604,7 @@ async function main() {
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket239-current";
+  document.documentElement.dataset.openProblemCache = "ticket240-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -20635,8 +20657,9 @@ async function main() {
   const ticket170Loaded = await loadTicket170Attempt();
   const ticket169Loaded = await loadTicket169Attempt();
   const priorityLoads = await Promise.all([loadTicket168Attempt(), loadTicket167Attempt(), loadTicket166Attempt(), loadTicket165Attempt(), loadTicket164Attempt(), loadTicket163Attempt(), loadTicket162Attempt(), loadTicket161Attempt(), loadTicket160Attempt(), loadTicket159Attempt(), loadTicket158Attempt(), loadTicket157Attempt(), loadTicket156Attempt(), loadTicket155Attempt(), loadTicket154Attempt(), loadTicket153Attempt(), loadTicket152Attempt(), loadTicket151Attempt(), loadTicket150Attempt(), loadTicket149Attempt(), loadTicket148Attempt(), loadTicket147Attempt(), loadTicket146Attempt(), loadTicket145Attempt(), loadTicket144Attempt(), loadTicket143Attempt(), loadTicket142Attempt(), loadTicket141Attempt(), loadTicket140Attempt(), loadTicket139Attempt(), loadTicket138Attempt(), loadTicket137Attempt(), loadTicket136Attempt(), loadTicket135Attempt(), loadTicket134Attempt(), loadTicket133Attempt(), loadTicket132Attempt(), loadTicket131Attempt(), loadTicket130Attempt(), loadTicket129Attempt(), loadTicket128Attempt(), loadTicket127Attempt(), loadTicket126Attempt(), loadTicket125Attempt()]);
-  if (!ticket239Loaded || !ticket238Loaded || !ticket237Loaded || !ticket236Loaded || !ticket235Loaded || !ticket234Loaded || !ticket233Loaded || !ticket232Loaded || !ticket231Loaded || !ticket230Loaded || !ticket229Loaded || !ticket228Loaded || !ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
+  if (!ticket240Loaded || !ticket239Loaded || !ticket238Loaded || !ticket237Loaded || !ticket236Loaded || !ticket235Loaded || !ticket234Loaded || !ticket233Loaded || !ticket232Loaded || !ticket231Loaded || !ticket230Loaded || !ticket229Loaded || !ticket228Loaded || !ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket240AttemptGlobal) await loadTicket240Attempt();
     if (!ticket239AttemptGlobal) await loadTicket239Attempt();
     if (!ticket238AttemptGlobal) await loadTicket238Attempt();
     if (!ticket237AttemptGlobal) await loadTicket237Attempt();
@@ -20754,7 +20777,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket239-current";
+  document.documentElement.dataset.openProblemCache = "ticket240-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

@@ -1,0 +1,197 @@
+{
+  "schema": "primeproject.ticket240-route-corrections-wieferich-prime-crt.v1",
+  "generated_at": "2026-08-25T23:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-240",
+  "theorem_name": "RunBlockDefectFermatQuotientReductionAndTwentyMillionAudit",
+  "declared_proposition": "For every prime q>3, let ell_q=lcm(ord_q(32/27),ord_q(2/3)) and define a_q and c_q as in TICKET-239. Since ell_q divides q-1 and q does not divide (q-1)/ell_q, LTE gives the exact reduction a_q=v_q(32^(q-1)-27^(q-1)) and c_q=v_q(2^(q-1)-3^(q-1)). Hence the global nonpositive-defect claim is exactly a rational Wieferich-depth domination problem. At first depth, writing F_q(b)=(b^(q-1)-1)/q mod q, a_q>=2 iff 5F_q(2)-3F_q(3)=0 mod q, while c_q>=2 iff F_q(2)-F_q(3)=0 mod q.",
+  "mathematical_argument": "Put r=(q-1)/ell_q. For (U,V)=(32^ell_q,27^ell_q) and (2^ell_q,3^ell_q), q is odd, q divides U-V, q does not divide UV, and q does not divide r because 1<=r<q. LTE gives v_q(U^r-V^r)=v_q(U-V)+v_q(r)=v_q(U-V), proving both equalities. Modulo q^2, b^(q-1)=1+qF_q(b). Multiplication and inversion give the first quotient of (2^5/3^3)^(q-1)-1 as 5F_q(2)-3F_q(3), and that of (2/3)^(q-1)-1 as F_q(2)-F_q(3).",
+  "reproducible_computation": {
+    "theorem": "For every prime q>3, let ell_q=lcm(ord_q(32/27),ord_q(2/3)) and define a_q and c_q as in TICKET-239. Since ell_q divides q-1 and q does not divide (q-1)/ell_q, LTE gives the exact reduction a_q=v_q(32^(q-1)-27^(q-1)) and c_q=v_q(2^(q-1)-3^(q-1)). Hence the global nonpositive-defect claim is exactly a rational Wieferich-depth domination problem. At first depth, writing F_q(b)=(b^(q-1)-1)/q mod q, a_q>=2 iff 5F_q(2)-3F_q(3)=0 mod q, while c_q>=2 iff F_q(2)-F_q(3)=0 mod q.",
+    "proof": "Put r=(q-1)/ell_q. For (U,V)=(32^ell_q,27^ell_q) and (2^ell_q,3^ell_q), q is odd, q divides U-V, q does not divide UV, and q does not divide r because 1<=r<q. LTE gives v_q(U^r-V^r)=v_q(U-V)+v_q(r)=v_q(U-V), proving both equalities. Modulo q^2, b^(q-1)=1+qF_q(b). Multiplication and inversion give the first quotient of (2^5/3^3)^(q-1)-1 as 5F_q(2)-3F_q(3), and that of (2/3)^(q-1)-1 as F_q(2)-F_q(3).",
+    "representative_depth_reduction_rows": [
+      {
+        "prime_q": 5,
+        "local_period_ell_q": 2,
+        "q_minus_one_multiplier": 2,
+        "local_x_depth_a_q": 1,
+        "fermat_x_depth_W_q_32_over_27": 1,
+        "local_y_depth_c_q": 1,
+        "fermat_y_depth_W_q_2_over_3": 1,
+        "fermat_quotient_linear_form_x": 2,
+        "fermat_quotient_linear_form_y": 2,
+        "depth_reduction_verified": true
+      },
+      {
+        "prime_q": 7,
+        "local_period_ell_q": 6,
+        "q_minus_one_multiplier": 1,
+        "local_x_depth_a_q": 1,
+        "fermat_x_depth_W_q_32_over_27": 1,
+        "local_y_depth_c_q": 1,
+        "fermat_y_depth_W_q_2_over_3": 1,
+        "fermat_quotient_linear_form_x": 6,
+        "fermat_quotient_linear_form_y": 3,
+        "depth_reduction_verified": true
+      },
+      {
+        "prime_q": 23,
+        "local_period_ell_q": 11,
+        "q_minus_one_multiplier": 2,
+        "local_x_depth_a_q": 1,
+        "fermat_x_depth_W_q_32_over_27": 1,
+        "local_y_depth_c_q": 2,
+        "fermat_y_depth_W_q_2_over_3": 2,
+        "fermat_quotient_linear_form_x": 11,
+        "fermat_quotient_linear_form_y": 0,
+        "depth_reduction_verified": true
+      },
+      {
+        "prime_q": 29,
+        "local_period_ell_q": 14,
+        "q_minus_one_multiplier": 2,
+        "local_x_depth_a_q": 1,
+        "fermat_x_depth_W_q_32_over_27": 1,
+        "local_y_depth_c_q": 1,
+        "fermat_y_depth_W_q_2_over_3": 1,
+        "fermat_quotient_linear_form_x": 18,
+        "fermat_quotient_linear_form_y": 15,
+        "depth_reduction_verified": true
+      },
+      {
+        "prime_q": 59,
+        "local_period_ell_q": 58,
+        "q_minus_one_multiplier": 1,
+        "local_x_depth_a_q": 1,
+        "fermat_x_depth_W_q_32_over_27": 1,
+        "local_y_depth_c_q": 1,
+        "fermat_y_depth_W_q_2_over_3": 1,
+        "fermat_quotient_linear_form_x": 35,
+        "fermat_quotient_linear_form_y": 26,
+        "depth_reduction_verified": true
+      },
+      {
+        "prime_q": 109,
+        "local_period_ell_q": 108,
+        "q_minus_one_multiplier": 1,
+        "local_x_depth_a_q": 1,
+        "fermat_x_depth_W_q_32_over_27": 1,
+        "local_y_depth_c_q": 1,
+        "fermat_y_depth_W_q_2_over_3": 1,
+        "fermat_quotient_linear_form_x": 32,
+        "fermat_quotient_linear_form_y": 75,
+        "depth_reduction_verified": true
+      },
+      {
+        "prime_q": 487,
+        "local_period_ell_q": 486,
+        "q_minus_one_multiplier": 1,
+        "local_x_depth_a_q": 1,
+        "fermat_x_depth_W_q_32_over_27": 1,
+        "local_y_depth_c_q": 1,
+        "fermat_y_depth_W_q_2_over_3": 1,
+        "fermat_quotient_linear_form_x": 378,
+        "fermat_quotient_linear_form_y": 394,
+        "depth_reduction_verified": true
+      },
+      {
+        "prime_q": 1009,
+        "local_period_ell_q": 252,
+        "q_minus_one_multiplier": 4,
+        "local_x_depth_a_q": 1,
+        "fermat_x_depth_W_q_32_over_27": 1,
+        "local_y_depth_c_q": 1,
+        "fermat_y_depth_W_q_2_over_3": 1,
+        "fermat_quotient_linear_form_x": 131,
+        "fermat_quotient_linear_form_y": 658,
+        "depth_reduction_verified": true
+      },
+      {
+        "prime_q": 10007,
+        "local_period_ell_q": 5003,
+        "q_minus_one_multiplier": 2,
+        "local_x_depth_a_q": 1,
+        "fermat_x_depth_W_q_32_over_27": 1,
+        "local_y_depth_c_q": 1,
+        "fermat_y_depth_W_q_2_over_3": 1,
+        "fermat_quotient_linear_form_x": 7302,
+        "fermat_quotient_linear_form_y": 6077,
+        "depth_reduction_verified": true
+      }
+    ],
+    "bounded_rational_wieferich_scan": {
+      "prime_limit": 20000000,
+      "odd_primes_scanned": 1270605,
+      "x_depth_at_least_two_count": 0,
+      "x_depth_at_least_two_primes": [],
+      "y_depth_at_least_two_count": 1,
+      "y_depth_at_least_two_primes": [
+        23
+      ],
+      "ambiguous_higher_depth_count": 0,
+      "first_order_positive_defect_candidate_count": 0,
+      "first_order_positive_defect_candidates": [],
+      "scope": "The absence of an x-depth-two prime through this finite limit proves nonpositive defect only in the scanned range. It does not prove rational Wieferich-depth domination for all primes."
+    },
+    "transcript_sha256": "62ceb482705cc10622248ff68094c27b4ff33cb3d49bb47faa25cba2a3f2960a",
+    "aggregate": {
+      "local_defect_fermat_depth_reduction_proved": true,
+      "first_order_fermat_quotient_criterion_proved": true,
+      "bounded_scan_has_no_positive_defect": true,
+      "all_prime_depth_domination_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The reduction replaces an opaque order scan by a precise rational Wieferich comparison, but no known argument excludes exceptional primes above the bound. Even global domination would settle only the run-block finite-palette route, not general necklaces or aperiodic Collatz descent.",
+    "failure_count": 0
+  },
+  "logical_limit": "The all-prime rational Wieferich-depth domination, general necklace exclusion, and aperiodic descent remain open.",
+  "route_decision": {
+    "discard": "bounded absence of positive lifting defects as an all-prime proof",
+    "retain": "the exact rational Wieferich-depth comparison, with finite scans labeled only as bounded evidence",
+    "next_single_lemma": "RationalWieferichDepthDominationFor32Over27Versus2Over3AtEveryOddPrime"
+  },
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T239",
+        "label": "LocalLiftingDefectDichotomyAndPaletteCriterion",
+        "status": "closed_input"
+      },
+      {
+        "id": "CO-N240",
+        "label": "FiniteLiftingDefectScanProvesGlobalNonpositivity",
+        "status": "refuted_or_limited"
+      },
+      {
+        "id": "CO-T240",
+        "label": "RunBlockDefectFermatQuotientReductionAndTwentyMillionAudit",
+        "status": "proved_exact"
+      },
+      {
+        "id": "CO-OPEN240",
+        "label": "RationalWieferichDepthDominationFor32Over27Versus2Over3AtEveryOddPrime",
+        "status": "highest_risk_open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T239",
+        "CO-N240"
+      ],
+      [
+        "CO-T239",
+        "CO-T240"
+      ],
+      [
+        "CO-N240",
+        "CO-T240"
+      ],
+      [
+        "CO-T240",
+        "CO-OPEN240"
+      ]
+    ]
+  },
+  "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial-cycle exclusion; one exact depth reduction and a finite scan through twenty million only."
+}

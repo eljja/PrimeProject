@@ -62,9 +62,33 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-239
+## Current continuation: TICKET-240
 
 The current machine-readable boundary is
+`data/open-problem/ticket240-route-corrections-wieferich-prime-crt.json`.
+It records four exact theorems, zero machine failures, and zero parent-problem
+resolutions.
+
+| Problem | Newly closed result | Current single open lemma |
+|---|---|---|
+| Riemann | `CotlarNormSummabilityNoGoForUniformGramLowerBounds` | `ArithmeticWeilSignedBlockOperatorSymbolHasUniformPositiveLowerBoundAfterCommonModeRemoval` |
+| Collatz | `RunBlockDefectFermatQuotientReductionAndTwentyMillionAudit` | `RationalWieferichDepthDominationFor32Over27Versus2Over3AtEveryOddPrime` |
+| Goldbach | `SignedFourierSlackIntegralityEquivalenceAndIntermediateTargetNoGo` | `BinaryPrimeMajorArcMainTermMinusAllExplicitErrorsIsAtLeastOneForEverySufficientlyLargeEvenTarget` |
+| Twin Prime | `OneSidedPrimeWeightedCRTFullSupportAndCompositeSuccessorNoGo` | `ParityBreakingTwoSidedLambdaLambdaMainTermDominatesGrowingCRTErrorOnCofinalDyadicBlocks` |
+
+Do not repeat the discarded routes. In particular, do not present Cotlar norm
+summability as signed cancellation, the 20,000,000-prime Collatz scan as a
+universal theorem, negative-DC Goldbach slack as weaker than representation
+existence, or one-sided prime-weighted CRT rank as twin-prime mass.
+
+Reports: [English](route-corrections-wieferich-prime-crt.md),
+[한국어](route-corrections-wieferich-prime-crt.ko.md).
+
+All older current/latest headings below are historical snapshots and must not
+override this TICKET-240 boundary.
+## Preserved continuation: TICKET-239
+
+The preserved machine-readable snapshot is
 `data/open-problem/ticket239-cancellation-lifting-fourier-crt.json`.
 It records four exact partial or no-go theorems, zero machine failures, and zero
 parent-conjecture resolutions.
@@ -88,10 +112,10 @@ Reports: [English](cancellation-lifting-fourier-crt.md),
 [한국어](cancellation-lifting-fourier-crt.ko.md).
 
 All older current/latest headings below are historical snapshots and must not
-override this TICKET-239 boundary.
+override the current TICKET-240 boundary.
 ## Preserved continuation: TICKET-238
 
-The current machine-readable boundary is
+The preserved machine-readable snapshot is
 `data/open-problem/ticket238-multishell-valuation-buffer-effectiverank.json`.
 It records four exact partial or no-go theorems, zero machine failures, and zero
 parent-conjecture resolutions.
@@ -115,7 +139,7 @@ Reports: [English](multishell-valuation-buffer-effectiverank.md),
 [한국어](multishell-valuation-buffer-effectiverank.ko.md).
 
 All older current/latest headings below are historical snapshots and must not
-override this TICKET-239 boundary.
+override the current TICKET-240 boundary.
 
 ## Preserved continuation: TICKET-237
 

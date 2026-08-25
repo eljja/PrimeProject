@@ -15,9 +15,38 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-239
+## Current research boundary: TICKET-240
 
 The current machine-readable boundary is
+`data/open-problem/ticket240-route-corrections-wieferich-prime-crt.json`.
+TICKET-240 proves four exact route-correction or reduction theorems and resolves
+none of the parent conjectures:
+
+- uniformly positive Gram families can have divergent Cotlar square-root
+  overlap sums, so absolute Cotlar summability is not a necessary or
+  sign-sensitive RH bridge;
+- the Collatz run-block lifting defect is exactly the difference of two
+  rational Wieferich depths; all 1,270,605 primes through 20,000,000 were
+  checked with no positive defect candidate, still only bounded evidence;
+- a signed Goldbach remainder above negative DC is, by integrality, exactly
+  pointwise representation existence and not a weaker intermediate lemma;
+- every finite CRT feature pattern contains infinitely many primes `p` with
+  composite `p+2`, so one-sided prime weighting cannot supply twin mass.
+
+The next single lemmas are a signed arithmetic Weil operator lower bound,
+all-prime rational Wieferich-depth domination, a binary-prime main term larger
+than every explicit major/minor error, and a two-sided parity-breaking
+`Lambda(n)Lambda(n+2)` main term on cofinal blocks.
+
+한국어: TICKET-240은 Cotlar 절대합, 유한 Collatz 스캔, Goldbach 음의 DC
+여유, 한쪽 소수 가중 CRT를 각각 정확히 감사했습니다. 유한 계산과 전칭
+증명을 분리했으며 네 난제의 해결 수는 여전히 0입니다.
+
+English report: [TICKET-240](route-corrections-wieferich-prime-crt.md).
+한국어 보고서: [TICKET-240](route-corrections-wieferich-prime-crt.ko.md).
+## Preserved research boundary: TICKET-239
+
+The preserved machine-readable snapshot is
 `data/open-problem/ticket239-cancellation-lifting-fourier-crt.json`.
 
 TICKET-239 proves four exact partial or no-go theorems and resolves none of the
@@ -45,7 +74,7 @@ English report: [TICKET-239](cancellation-lifting-fourier-crt.md).
 한국어 보고서: [TICKET-239](cancellation-lifting-fourier-crt.ko.md).
 ## Preserved research boundary: TICKET-238
 
-The current machine-readable boundary is
+The preserved machine-readable snapshot is
 `data/open-problem/ticket238-multishell-valuation-buffer-effectiverank.json`.
 
 TICKET-238 proves four exact partial or no-go theorems and resolves none of the
