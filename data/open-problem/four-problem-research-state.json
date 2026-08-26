@@ -1,40 +1,42 @@
 {
   "schema": "primeproject.four-problem-research-state.v1",
-  "ticket": 247,
-  "parent_ticket": 246,
-  "generated_at": "2026-08-26T18:10:00+09:00",
+  "ticket": 248,
+  "parent_ticket": 247,
+  "generated_at": "2026-08-26T22:40:00+09:00",
   "iteration_complete": true,
   "program_complete": false,
   "resolved_count": 0,
   "candidate_resolution_count": 0,
-  "deep_focus_problem": "riemann",
+  "deep_focus_problem": "goldbach",
   "problems": {
     "riemann": {
       "problem_status": "open_not_proven",
-      "current_target": "HilbertSchmidtInfiniteMomentCoercivityNoGo",
+      "current_target": "UnweightedInfiniteMomentCoercivityNoGo",
       "established_results": [
         "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
         "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
         "JointPhysicalFrequencyTightnessCharacterizesL2Precompactness",
         "ClosureZeroSetObstructionToUniformWeilMargin",
         "FiniteEvenMomentAnnihilatorNoGo",
-        "HilbertSchmidtInfiniteMomentCoercivityNoGo"
+        "HilbertSchmidtInfiniteMomentCoercivityNoGo",
+        "UnweightedInfiniteMomentCoercivityNoGo"
       ],
       "retired_routes": [
         "frequency support or frequency tightness alone as compactness of a normalized even Weil-test family",
         "physical tightness alone, together with TICKET-243's frequency-tightness-alone route, as a compactness certificate",
         "joint tightness plus pointwise positivity, or positive margins on each compact exhaustion stage, as sufficient for one uniform positive Weil margin",
         "zero-free closure separation based only on any fixed finite list of even moments on a normalized class containing the explicit shell annihilator",
-        "uniform positive coercivity from any Hilbert-Schmidt weighted even-moment feature map on the full normalized even L2 sphere"
+        "uniform positive coercivity from any Hilbert-Schmidt weighted even-moment feature map on the full normalized even L2 sphere",
+        "uniform positive coercivity from the raw unweighted infinite even-moment family on the full normalized even L2 sphere"
       ],
       "parked_routes": [],
-      "remaining_gap": "The theorem closes the summable weighted-moment upgrade, but no bridge identifies the genuine admissible Weil closure with the full even L2 sphere or proves coercivity for a noncompact arithmetic feature operator.",
-      "next_single_lemma": "NonHilbertSchmidtArithmeticWeilCoercivityOnAdmissibleClosure",
+      "remaining_gap": "The non-Hilbert-Schmidt diagonal raw-moment upgrade is now also closed, but the Legendre sequence has not been placed in the genuine Guinand-Weil admissible closure and no arithmetic off-diagonal form is controlled.",
+      "next_single_lemma": "ArithmeticOffDiagonalWeilCoercivityOnAdmissibleClosure",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "NonHilbertSchmidtArithmeticWeilCoercivityOnAdmissibleClosure"
+        "ArithmeticOffDiagonalWeilCoercivityOnAdmissibleClosure"
       ],
-      "finite_computation_boundary": "10 exact Legendre rows through half-degree 16 verify the construction; the all-n and all-summable-weight theorem is proved analytically, not inferred from those rows.",
+      "finite_computation_boundary": "8 exact Legendre formula rows through half-degree 128 and cutoff 256 audit the formulas; the all-n 11/n theorem is analytic, not inferred from those rows.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -44,27 +46,31 @@
     },
     "collatz": {
       "problem_status": "open_not_proven",
-      "current_target": "FormalHenselBranchNoGoForValuationDomination",
+      "current_target": "ActualBadBranchGeneralizedWieferichSeparation",
       "established_results": [
         "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
         "UnboundedOrderPrincipalUnitTransferCountermodels",
         "FixedBaseBadLineHarmonicSumEquivalence",
         "SecondOrderFixedBaseFermatDigitCriterion",
         "AllDepthFixedBaseFermatPolynomialIdentity",
-        "FormalHenselBranchNoGoForValuationDomination"
+        "FormalHenselBranchNoGoForValuationDomination",
+        "ActualBadBranchGeneralizedWieferichSeparation"
       ],
       "retired_routes": [
         "deducing the fixed-base 32/27 to 2/3 square-depth transfer from universal order, LTE, and principal-unit algebra",
-        "deducing v_q(P_q)<=v_q(U_q-V_q) for actual Fermat quotients from the unrestricted q-adic polynomial identity alone"
+        "deducing v_q(P_q)<=v_q(U_q-V_q) for actual Fermat quotients from the unrestricted q-adic polynomial identity alone",
+        "treating a finite absence of separated generalized-Wieferich primes as an all-prime arithmetic exclusion"
       ],
-      "parked_routes": [],
-      "remaining_gap": "Hensel countermodels destroy the formal-algebra route, but they do not occur at the actual quotient pair unless an additional arithmetic theorem places it there; no global trajectory implication is known.",
-      "next_single_lemma": "ArithmeticFermatQuotientExclusionOfPqHenselBranch",
+      "parked_routes": [
+        "all-prime exclusion of separated generalized-Wieferich primes without a structural theorem"
+      ],
+      "remaining_gap": "The actual bad-prime set is now exact, but neither its emptiness nor nonemptiness is proved, and even settling that valuation route would not control all Collatz trajectories.",
+      "next_single_lemma": "ExistenceOfSeparatedGeneralizedWieferichPrimeFor32Over27Against2Over3",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "ArithmeticFermatQuotientExclusionOfPqHenselBranch"
+        "ExistenceOfSeparatedGeneralizedWieferichPrimeFor32Over27Against2Over3"
       ],
-      "finite_computation_boundary": "Depth 8 is replayed for all primes q>5 through 10,000; Hensel's derivative-unit proof supplies every prime and arbitrary depth, while the finite table says nothing about actual Fermat quotient pairs.",
+      "finite_computation_boundary": "Exact modular arithmetic checks all 78,495 primes q<= 1,000,000; zero finite hits do not prove global absence.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -74,30 +80,32 @@
     },
     "goldbach": {
       "problem_status": "open_not_proven",
-      "current_target": "RationalCenterArcLipschitzBridgeAndCenterOnlyNoGo",
+      "current_target": "CenteredFirstJetParsevalArcBridge",
       "established_results": [
         "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
         "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
         "ExactParityArcFoldingForEvenBinaryGoldbach",
         "KleinFourOrbitReductionForEvenGoldbachArcs",
         "RationalCenterResidueParsevalBridge",
-        "RationalCenterArcLipschitzBridgeAndCenterOnlyNoGo"
+        "RationalCenterArcLipschitzBridgeAndCenterOnlyNoGo",
+        "CenteredFirstJetParsevalArcBridge"
       ],
       "retired_routes": [
         "placing the parity rational neighborhood around one half in a minor set while demanding an absolute-energy o(X/log^2 X) budget",
         "treating the zero and half-frequency arcs as analytically independent for the odd-prime even-target coefficient",
         "independent signed estimation of all four half-turn/reflection-related rational arcs",
         "replacing every rational-center prime sum by its Ramanujan mean term while omitting the residue-discrepancy residual",
-        "promoting rational-center control to a uniform arc-neighborhood bound without a frequency-scale or signed first-moment term"
+        "promoting rational-center control to a uniform arc-neighborhood bound without a frequency-scale or signed first-moment term",
+        "using the zeroth-order 2 pi |beta| M mass bound as the final center-to-arc transfer"
       ],
       "parked_routes": [],
-      "remaining_gap": "The deterministic 2 pi |beta|M term can be trivial-sized, and no growing-denominator residue-variance decay or signed first-moment cancellation has been proved.",
-      "next_single_lemma": "UniformSignedResidueVarianceAndFirstMomentSavingOnQuarterTorus",
+      "remaining_gap": "The exact first-jet energy controls an average and exceptional numerators, but no theorem converts it to the uniform pointwise saving needed for all even Goldbach targets.",
+      "next_single_lemma": "UniformReducedNumeratorCenteredFirstJetSavingOnQuarterTorus",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "UniformSignedResidueVarianceAndFirstMomentSavingOnQuarterTorus"
+        "UniformReducedNumeratorCenteredFirstJetSavingOnQuarterTorus"
       ],
-      "finite_computation_boundary": "Exact integer/rational rows cover q=3..64 at X=10000,100000,500000; beta=1/X^2 is illustrative only and proves no asymptotic major/minor-arc saving.",
+      "finite_computation_boundary": "Exact integer/rational invariants cover q=3..96 at X=10000,100000,500000; they prove no growing-q uniform saving.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -107,30 +115,32 @@
     },
     "twin_prime": {
       "problem_status": "open_not_proven",
-      "current_target": "SharpOddPrimePowerContaminationBound",
+      "current_target": "ExactActivePrimePowerContaminationIdentity",
       "established_results": [
         "GrowingPeriodDiagonalCRTMimicryForShiftTwo",
         "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock",
         "PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock",
         "PolynomialHeightPeriodicMimicryFromLinnik",
         "PrimePowerPairProxyContaminationBound",
-        "SharpOddPrimePowerContaminationBound"
+        "SharpOddPrimePowerContaminationBound",
+        "ExactActivePrimePowerContaminationIdentity"
       ],
       "retired_routes": [
         "using fixed periodic features even with eventual per-dyadic-scale sampling as a twin-prime certificate",
         "any pure periodic twin certificate whose scale-dependent period is bounded by a fixed power of log X",
         "a fixed pure periodic twin classifier remaining globally prefix-sound beyond every polynomial height in its period",
         "identifying the uncorrected shift-two prime-power pair proxy with the twin-prime indicator; the minimal false pair is (7,9)",
-        "using the exponent-blind TICKET-246 O(sqrt(X) log(X)) correction as the final prime-power contamination scale"
+        "using the exponent-blind TICKET-246 O(sqrt(X) log(X)) correction as the final prime-power contamination scale",
+        "using all odd composite prime powers, including those with no shift-two prime-power neighbor, as the final contamination correction"
       ],
       "parked_routes": [],
-      "remaining_gap": "The correction is now counted exactly and bounded more sharply, but no unbounded scale sequence has A_2 beyond that correction and no parity-breaking Type-II estimate is proved.",
-      "next_single_lemma": "ScaleLocalTypeIILowerBoundBeyondSharpPrimePowerContamination",
+      "remaining_gap": "The correction is now the exact active inclusion-exclusion term, but no unbounded scale sequence has a Type-II lower bound for A_2 beyond it.",
+      "next_single_lemma": "ScaleLocalTypeIILowerBoundBeyondActivePrimePowerContamination",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "ScaleLocalTypeIILowerBoundBeyondSharpPrimePowerContamination"
+        "ScaleLocalTypeIILowerBoundBeyondActivePrimePowerContamination"
       ],
-      "finite_computation_boundary": "Prime-power and twin supports are enumerated through 10,000,000; the exact all-X count identity is combinatorial, but the finite rows imply no twin-prime infinitude.",
+      "finite_computation_boundary": "Prime-power supports are enumerated through 10,000,000; the identity holds for every X, but finite positive twin counts imply no infinitude.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,

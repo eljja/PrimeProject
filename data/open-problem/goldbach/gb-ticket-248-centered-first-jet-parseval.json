@@ -1,0 +1,1386 @@
+{
+  "schema": "primeproject.ticket248-unweighted-wieferich-jet-active.v1",
+  "generated_at": "2026-08-26T22:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-248",
+  "theorem_name": "CenteredFirstJetParsevalArcBridge",
+  "declared_proposition": "Fix q>=3 and X>=3. Over reduced residues r mod q let n_r count odd primes p<=X coprime to q, m_r sum those primes, P=sum n_r, M=sum m_r, delta_r=n_r-P/phi(q), eta_r=m_r-M/phi(q), and define R_j(a) as the additive Fourier transforms of delta and eta. For every real t, sum_(a mod q)|R_0(a)+itR_1(a)|^2=q(D_0+t^2D_1), where D_0=sum delta_r^2 and D_1=sum eta_r^2. Moreover, with t=2pi beta, S*(a/q+beta) differs from c_q(a)(P+2pi i beta M)/phi(q)+R_0(a)+2pi i beta R_1(a) by at most 2pi^2 beta^2 M_2, M_2=sum p^2.",
+  "mathematical_argument": "Taylor's integral remainder gives |exp(iu)-1-iu|<=u^2/2, so termwise summation proves the second-order arc bound. Additive orthogonality gives sum_a|R_0|^2=qD_0, sum_a|R_1|^2=qD_1, and sum_a R_0 conjugate(R_1)=q sum_r delta_r eta_r, which is real. Therefore the cross term in |R_0+itR_1|^2 sums to zero. The exact identity gives mean-square and exceptional-numerator control, but does not turn it into a uniform pointwise saving.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Fix q>=3 and X>=3. Over reduced residues r mod q let n_r count odd primes p<=X coprime to q, m_r sum those primes, P=sum n_r, M=sum m_r, delta_r=n_r-P/phi(q), eta_r=m_r-M/phi(q), and define R_j(a) as the additive Fourier transforms of delta and eta. For every real t, sum_(a mod q)|R_0(a)+itR_1(a)|^2=q(D_0+t^2D_1), where D_0=sum delta_r^2 and D_1=sum eta_r^2. Moreover, with t=2pi beta, S*(a/q+beta) differs from c_q(a)(P+2pi i beta M)/phi(q)+R_0(a)+2pi i beta R_1(a) by at most 2pi^2 beta^2 M_2, M_2=sum p^2.",
+    "proof": "Taylor's integral remainder gives |exp(iu)-1-iu|<=u^2/2, so termwise summation proves the second-order arc bound. Additive orthogonality gives sum_a|R_0|^2=qD_0, sum_a|R_1|^2=qD_1, and sum_a R_0 conjugate(R_1)=q sum_r delta_r eta_r, which is real. Therefore the cross term in |R_0+itR_1|^2 sums to zero. The exact identity gives mean-square and exceptional-numerator control, but does not turn it into a uniform pointwise saving.",
+    "exact_selected_first_jet_rows": [
+      {
+        "limit_X": 10000,
+        "denominator_q": 3,
+        "phi_q": 2,
+        "prime_count_P": 1227,
+        "prime_first_moment_M": 5736391,
+        "prime_second_moment_M2": 37546387947,
+        "phi_times_count_variance": 25,
+        "phi_times_first_moment_variance": 1341537129,
+        "phi_times_cross_covariance": -183135,
+        "count_variance_D0": {
+          "exact": "25/2",
+          "numerator": 25,
+          "denominator": 2,
+          "display_float": 12.5
+        },
+        "first_moment_variance_D1": {
+          "exact": "1341537129/2",
+          "numerator": 1341537129,
+          "denominator": 2,
+          "display_float": 670768564.5
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "37546387947/10000000000000000",
+          "numerator": 37546387947,
+          "denominator": 10000000000000000,
+          "display_float": 3.7546387947e-06
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "1341537129/20000000000000000",
+          "numerator": 1341537129,
+          "denominator": 20000000000000000,
+          "display_float": 6.707685645e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "denominator_q": 4,
+        "phi_q": 2,
+        "prime_count_P": 1228,
+        "prime_first_moment_M": 5736394,
+        "prime_second_moment_M2": 37546387956,
+        "phi_times_count_variance": 100,
+        "phi_times_first_moment_variance": 96668224,
+        "phi_times_cross_covariance": 98320,
+        "count_variance_D0": {
+          "exact": "50/1",
+          "numerator": 50,
+          "denominator": 1,
+          "display_float": 50.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "48334112/1",
+          "numerator": 48334112,
+          "denominator": 1,
+          "display_float": 48334112.0
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "9386596989/2500000000000000",
+          "numerator": 9386596989,
+          "denominator": 2500000000000000,
+          "display_float": 3.7546387956e-06
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "1510441/312500000000000",
+          "numerator": 1510441,
+          "denominator": 312500000000000,
+          "display_float": 4.8334112e-09
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "denominator_q": 5,
+        "phi_q": 4,
+        "prime_count_P": 1227,
+        "prime_first_moment_M": 5736389,
+        "prime_second_moment_M2": 37546387931,
+        "phi_times_count_variance": 107,
+        "phi_times_first_moment_variance": 1513998443,
+        "phi_times_cross_covariance": -4203,
+        "count_variance_D0": {
+          "exact": "107/4",
+          "numerator": 107,
+          "denominator": 4,
+          "display_float": 26.75
+        },
+        "first_moment_variance_D1": {
+          "exact": "1513998443/4",
+          "numerator": 1513998443,
+          "denominator": 4,
+          "display_float": 378499610.75
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "37546387931/10000000000000000",
+          "numerator": 37546387931,
+          "denominator": 10000000000000000,
+          "display_float": 3.7546387931e-06
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "1513998443/40000000000000000",
+          "numerator": 1513998443,
+          "denominator": 40000000000000000,
+          "display_float": 3.7849961075e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "denominator_q": 7,
+        "phi_q": 6,
+        "prime_count_P": 1227,
+        "prime_first_moment_M": 5736387,
+        "prime_second_moment_M2": 37546387907,
+        "phi_times_count_variance": 585,
+        "phi_times_first_moment_variance": 25637455353,
+        "phi_times_cross_covariance": 3451305,
+        "count_variance_D0": {
+          "exact": "195/2",
+          "numerator": 195,
+          "denominator": 2,
+          "display_float": 97.5
+        },
+        "first_moment_variance_D1": {
+          "exact": "8545818451/2",
+          "numerator": 8545818451,
+          "denominator": 2,
+          "display_float": 4272909225.5
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "37546387907/10000000000000000",
+          "numerator": 37546387907,
+          "denominator": 10000000000000000,
+          "display_float": 3.7546387907e-06
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "8545818451/20000000000000000",
+          "numerator": 8545818451,
+          "denominator": 20000000000000000,
+          "display_float": 4.2729092255e-07
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "denominator_q": 8,
+        "phi_q": 4,
+        "prime_count_P": 1228,
+        "prime_first_moment_M": 5736394,
+        "prime_second_moment_M2": 37546387956,
+        "phi_times_count_variance": 840,
+        "phi_times_first_moment_variance": 16842490452,
+        "phi_times_cross_covariance": 3594184,
+        "count_variance_D0": {
+          "exact": "210/1",
+          "numerator": 210,
+          "denominator": 1,
+          "display_float": 210.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "4210622613/1",
+          "numerator": 4210622613,
+          "denominator": 1,
+          "display_float": 4210622613.0
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "9386596989/2500000000000000",
+          "numerator": 9386596989,
+          "denominator": 2500000000000000,
+          "display_float": 3.7546387956e-06
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "4210622613/10000000000000000",
+          "numerator": 4210622613,
+          "denominator": 10000000000000000,
+          "display_float": 4.210622613e-07
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "denominator_q": 12,
+        "phi_q": 4,
+        "prime_count_P": 1227,
+        "prime_first_moment_M": 5736391,
+        "prime_second_moment_M2": 37546387947,
+        "phi_times_count_variance": 275,
+        "phi_times_first_moment_variance": 1785782395,
+        "phi_times_cross_covariance": 147711,
+        "count_variance_D0": {
+          "exact": "275/4",
+          "numerator": 275,
+          "denominator": 4,
+          "display_float": 68.75
+        },
+        "first_moment_variance_D1": {
+          "exact": "1785782395/4",
+          "numerator": 1785782395,
+          "denominator": 4,
+          "display_float": 446445598.75
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "37546387947/10000000000000000",
+          "numerator": 37546387947,
+          "denominator": 10000000000000000,
+          "display_float": 3.7546387947e-06
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "357156479/8000000000000000",
+          "numerator": 357156479,
+          "denominator": 8000000000000000,
+          "display_float": 4.4644559875e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "denominator_q": 16,
+        "phi_q": 8,
+        "prime_count_P": 1228,
+        "prime_first_moment_M": 5736394,
+        "prime_second_moment_M2": 37546387956,
+        "phi_times_count_variance": 1456,
+        "phi_times_first_moment_variance": 64027379228,
+        "phi_times_cross_covariance": 8960056,
+        "count_variance_D0": {
+          "exact": "182/1",
+          "numerator": 182,
+          "denominator": 1,
+          "display_float": 182.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "16006844807/2",
+          "numerator": 16006844807,
+          "denominator": 2,
+          "display_float": 8003422403.5
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "9386596989/2500000000000000",
+          "numerator": 9386596989,
+          "denominator": 2500000000000000,
+          "display_float": 3.7546387956e-06
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "16006844807/20000000000000000",
+          "numerator": 16006844807,
+          "denominator": 20000000000000000,
+          "display_float": 8.0034224035e-07
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "denominator_q": 24,
+        "phi_q": 8,
+        "prime_count_P": 1227,
+        "prime_first_moment_M": 5736391,
+        "prime_second_moment_M2": 37546387947,
+        "phi_times_count_variance": 1199,
+        "phi_times_first_moment_variance": 21771834103,
+        "phi_times_cross_covariance": 4385851,
+        "count_variance_D0": {
+          "exact": "1199/8",
+          "numerator": 1199,
+          "denominator": 8,
+          "display_float": 149.875
+        },
+        "first_moment_variance_D1": {
+          "exact": "21771834103/8",
+          "numerator": 21771834103,
+          "denominator": 8,
+          "display_float": 2721479262.875
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "37546387947/10000000000000000",
+          "numerator": 37546387947,
+          "denominator": 10000000000000000,
+          "display_float": 3.7546387947e-06
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "21771834103/80000000000000000",
+          "numerator": 21771834103,
+          "denominator": 80000000000000000,
+          "display_float": 2.721479262875e-07
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "denominator_q": 32,
+        "phi_q": 16,
+        "prime_count_P": 1228,
+        "prime_first_moment_M": 5736394,
+        "prime_second_moment_M2": 37546387956,
+        "phi_times_count_variance": 4112,
+        "phi_times_first_moment_variance": 156926798268,
+        "phi_times_cross_covariance": 23759624,
+        "count_variance_D0": {
+          "exact": "257/1",
+          "numerator": 257,
+          "denominator": 1,
+          "display_float": 257.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "39231699567/4",
+          "numerator": 39231699567,
+          "denominator": 4,
+          "display_float": 9807924891.75
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "9386596989/2500000000000000",
+          "numerator": 9386596989,
+          "denominator": 2500000000000000,
+          "display_float": 3.7546387956e-06
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "39231699567/40000000000000000",
+          "numerator": 39231699567,
+          "denominator": 40000000000000000,
+          "display_float": 9.80792489175e-07
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "denominator_q": 48,
+        "phi_q": 16,
+        "prime_count_P": 1227,
+        "prime_first_moment_M": 5736391,
+        "prime_second_moment_M2": 37546387947,
+        "phi_times_count_variance": 2327,
+        "phi_times_first_moment_variance": 86943086431,
+        "phi_times_cross_covariance": 12379331,
+        "count_variance_D0": {
+          "exact": "2327/16",
+          "numerator": 2327,
+          "denominator": 16,
+          "display_float": 145.4375
+        },
+        "first_moment_variance_D1": {
+          "exact": "86943086431/16",
+          "numerator": 86943086431,
+          "denominator": 16,
+          "display_float": 5433942901.9375
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "37546387947/10000000000000000",
+          "numerator": 37546387947,
+          "denominator": 10000000000000000,
+          "display_float": 3.7546387947e-06
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "86943086431/160000000000000000",
+          "numerator": 86943086431,
+          "denominator": 160000000000000000,
+          "display_float": 5.4339429019375e-07
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "denominator_q": 64,
+        "phi_q": 32,
+        "prime_count_P": 1228,
+        "prime_first_moment_M": 5736394,
+        "prime_second_moment_M2": 37546387956,
+        "phi_times_count_variance": 8112,
+        "phi_times_first_moment_variance": 383551768540,
+        "phi_times_cross_covariance": 48992520,
+        "count_variance_D0": {
+          "exact": "507/2",
+          "numerator": 507,
+          "denominator": 2,
+          "display_float": 253.5
+        },
+        "first_moment_variance_D1": {
+          "exact": "95887942135/8",
+          "numerator": 95887942135,
+          "denominator": 8,
+          "display_float": 11985992766.875
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "9386596989/2500000000000000",
+          "numerator": 9386596989,
+          "denominator": 2500000000000000,
+          "display_float": 3.7546387956e-06
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "19177588427/16000000000000000",
+          "numerator": 19177588427,
+          "denominator": 16000000000000000,
+          "display_float": 1.1985992766875e-06
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "denominator_q": 96,
+        "phi_q": 32,
+        "prime_count_P": 1227,
+        "prime_first_moment_M": 5736391,
+        "prime_second_moment_M2": 37546387947,
+        "phi_times_count_variance": 6055,
+        "phi_times_first_moment_variance": 285723855855,
+        "phi_times_cross_covariance": 35593299,
+        "count_variance_D0": {
+          "exact": "6055/32",
+          "numerator": 6055,
+          "denominator": 32,
+          "display_float": 189.21875
+        },
+        "first_moment_variance_D1": {
+          "exact": "285723855855/32",
+          "numerator": 285723855855,
+          "denominator": 32,
+          "display_float": 8928870495.46875
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "37546387947/10000000000000000",
+          "numerator": 37546387947,
+          "denominator": 10000000000000000,
+          "display_float": 3.7546387947e-06
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "57144771171/64000000000000000",
+          "numerator": 57144771171,
+          "denominator": 64000000000000000,
+          "display_float": 8.92887049546875e-07
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "denominator_q": 3,
+        "phi_q": 2,
+        "prime_count_P": 9590,
+        "prime_first_moment_M": 454396532,
+        "prime_second_moment_M2": 29822760083870,
+        "phi_times_count_variance": 484,
+        "phi_times_first_moment_variance": 26017690000,
+        "phi_times_cross_covariance": -3548600,
+        "count_variance_D0": {
+          "exact": "242/1",
+          "numerator": 242,
+          "denominator": 1,
+          "display_float": 242.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "13008845000/1",
+          "numerator": 13008845000,
+          "denominator": 1,
+          "display_float": 13008845000.0
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "2982276008387/10000000000000000000",
+          "numerator": 2982276008387,
+          "denominator": 10000000000000000000,
+          "display_float": 2.982276008387e-07
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "2601769/20000000000000000",
+          "numerator": 2601769,
+          "denominator": 20000000000000000,
+          "display_float": 1.3008845e-10
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "denominator_q": 4,
+        "phi_q": 2,
+        "prime_count_P": 9591,
+        "prime_first_moment_M": 454396535,
+        "prime_second_moment_M2": 29822760083879,
+        "phi_times_count_variance": 625,
+        "phi_times_first_moment_variance": 54412560225,
+        "phi_times_cross_covariance": 5831625,
+        "count_variance_D0": {
+          "exact": "625/2",
+          "numerator": 625,
+          "denominator": 2,
+          "display_float": 312.5
+        },
+        "first_moment_variance_D1": {
+          "exact": "54412560225/2",
+          "numerator": 54412560225,
+          "denominator": 2,
+          "display_float": 27206280112.5
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "29822760083879/100000000000000000000",
+          "numerator": 29822760083879,
+          "denominator": 100000000000000000000,
+          "display_float": 2.9822760083879e-07
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "2176502409/8000000000000000000",
+          "numerator": 2176502409,
+          "denominator": 8000000000000000000,
+          "display_float": 2.72062801125e-10
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "denominator_q": 5,
+        "phi_q": 4,
+        "prime_count_P": 9590,
+        "prime_first_moment_M": 454396530,
+        "prime_second_moment_M2": 29822760083854,
+        "phi_times_count_variance": 1476,
+        "phi_times_first_moment_variance": 2825754578756,
+        "phi_times_cross_covariance": 58771692,
+        "count_variance_D0": {
+          "exact": "369/1",
+          "numerator": 369,
+          "denominator": 1,
+          "display_float": 369.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "706438644689/1",
+          "numerator": 706438644689,
+          "denominator": 1,
+          "display_float": 706438644689.0
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "14911380041927/50000000000000000000",
+          "numerator": 14911380041927,
+          "denominator": 50000000000000000000,
+          "display_float": 2.9822760083854e-07
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "706438644689/100000000000000000000",
+          "numerator": 706438644689,
+          "denominator": 100000000000000000000,
+          "display_float": 7.06438644689e-09
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "denominator_q": 7,
+        "phi_q": 6,
+        "prime_count_P": 9590,
+        "prime_first_moment_M": 454396528,
+        "prime_second_moment_M2": 29822760083830,
+        "phi_times_count_variance": 3140,
+        "phi_times_first_moment_variance": 19348315960640,
+        "phi_times_cross_covariance": 215009680,
+        "count_variance_D0": {
+          "exact": "1570/3",
+          "numerator": 1570,
+          "denominator": 3,
+          "display_float": 523.3333333333334
+        },
+        "first_moment_variance_D1": {
+          "exact": "9674157980320/3",
+          "numerator": 9674157980320,
+          "denominator": 3,
+          "display_float": 3224719326773.3335
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "2982276008383/10000000000000000000",
+          "numerator": 2982276008383,
+          "denominator": 10000000000000000000,
+          "display_float": 2.982276008383e-07
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "60463487377/1875000000000000000",
+          "numerator": 60463487377,
+          "denominator": 1875000000000000000,
+          "display_float": 3.224719326773333e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "denominator_q": 8,
+        "phi_q": 4,
+        "prime_count_P": 9591,
+        "prime_first_moment_M": 454396535,
+        "prime_second_moment_M2": 29822760083879,
+        "phi_times_count_variance": 1275,
+        "phi_times_first_moment_variance": 5357426852475,
+        "phi_times_cross_covariance": -639285,
+        "count_variance_D0": {
+          "exact": "1275/4",
+          "numerator": 1275,
+          "denominator": 4,
+          "display_float": 318.75
+        },
+        "first_moment_variance_D1": {
+          "exact": "5357426852475/4",
+          "numerator": 5357426852475,
+          "denominator": 4,
+          "display_float": 1339356713118.75
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "29822760083879/100000000000000000000",
+          "numerator": 29822760083879,
+          "denominator": 100000000000000000000,
+          "display_float": 2.9822760083879e-07
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "214297074099/16000000000000000000",
+          "numerator": 214297074099,
+          "denominator": 16000000000000000000,
+          "display_float": 1.33935671311875e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "denominator_q": 12,
+        "phi_q": 4,
+        "prime_count_P": 9590,
+        "prime_first_moment_M": 454396532,
+        "prime_second_moment_M2": 29822760083870,
+        "phi_times_count_variance": 3364,
+        "phi_times_first_moment_variance": 6568585369240,
+        "phi_times_cross_covariance": 124314616,
+        "count_variance_D0": {
+          "exact": "841/1",
+          "numerator": 841,
+          "denominator": 1,
+          "display_float": 841.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "1642146342310/1",
+          "numerator": 1642146342310,
+          "denominator": 1,
+          "display_float": 1642146342310.0
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "2982276008387/10000000000000000000",
+          "numerator": 2982276008387,
+          "denominator": 10000000000000000000,
+          "display_float": 2.982276008387e-07
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "164214634231/10000000000000000000",
+          "numerator": 164214634231,
+          "denominator": 10000000000000000000,
+          "display_float": 1.64214634231e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "denominator_q": 16,
+        "phi_q": 8,
+        "prime_count_P": 9591,
+        "prime_first_moment_M": 454396535,
+        "prime_second_moment_M2": 29822760083879,
+        "phi_times_count_variance": 1735,
+        "phi_times_first_moment_variance": 14676457684679,
+        "phi_times_cross_covariance": 60554983,
+        "count_variance_D0": {
+          "exact": "1735/8",
+          "numerator": 1735,
+          "denominator": 8,
+          "display_float": 216.875
+        },
+        "first_moment_variance_D1": {
+          "exact": "14676457684679/8",
+          "numerator": 14676457684679,
+          "denominator": 8,
+          "display_float": 1834557210584.875
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "29822760083879/100000000000000000000",
+          "numerator": 29822760083879,
+          "denominator": 100000000000000000000,
+          "display_float": 2.9822760083879e-07
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "14676457684679/800000000000000000000",
+          "numerator": 14676457684679,
+          "denominator": 800000000000000000000,
+          "display_float": 1.834557210584875e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "denominator_q": 24,
+        "phi_q": 8,
+        "prime_count_P": 9590,
+        "prime_first_moment_M": 454396532,
+        "prime_second_moment_M2": 29822760083870,
+        "phi_times_count_variance": 4300,
+        "phi_times_first_moment_variance": 16011431576032,
+        "phi_times_cross_covariance": 117295912,
+        "count_variance_D0": {
+          "exact": "1075/2",
+          "numerator": 1075,
+          "denominator": 2,
+          "display_float": 537.5
+        },
+        "first_moment_variance_D1": {
+          "exact": "2001428947004/1",
+          "numerator": 2001428947004,
+          "denominator": 1,
+          "display_float": 2001428947004.0
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "2982276008387/10000000000000000000",
+          "numerator": 2982276008387,
+          "denominator": 10000000000000000000,
+          "display_float": 2.982276008387e-07
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "500357236751/25000000000000000000",
+          "numerator": 500357236751,
+          "denominator": 25000000000000000000,
+          "display_float": 2.001428947004e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "denominator_q": 32,
+        "phi_q": 16,
+        "prime_count_P": 9591,
+        "prime_first_moment_M": 454396535,
+        "prime_second_moment_M2": 29822760083879,
+        "phi_times_count_variance": 11359,
+        "phi_times_first_moment_variance": 64022309620063,
+        "phi_times_cross_covariance": 670738655,
+        "count_variance_D0": {
+          "exact": "11359/16",
+          "numerator": 11359,
+          "denominator": 16,
+          "display_float": 709.9375
+        },
+        "first_moment_variance_D1": {
+          "exact": "64022309620063/16",
+          "numerator": 64022309620063,
+          "denominator": 16,
+          "display_float": 4001394351253.9375
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "29822760083879/100000000000000000000",
+          "numerator": 29822760083879,
+          "denominator": 100000000000000000000,
+          "display_float": 2.9822760083879e-07
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "64022309620063/1600000000000000000000",
+          "numerator": 64022309620063,
+          "denominator": 1600000000000000000000,
+          "display_float": 4.0013943512539374e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "denominator_q": 48,
+        "phi_q": 16,
+        "prime_count_P": 9590,
+        "prime_first_moment_M": 454396532,
+        "prime_second_moment_M2": 29822760083870,
+        "phi_times_count_variance": 10620,
+        "phi_times_first_moment_variance": 45247194374352,
+        "phi_times_cross_covariance": 505707144,
+        "count_variance_D0": {
+          "exact": "2655/4",
+          "numerator": 2655,
+          "denominator": 4,
+          "display_float": 663.75
+        },
+        "first_moment_variance_D1": {
+          "exact": "2827949648397/1",
+          "numerator": 2827949648397,
+          "denominator": 1,
+          "display_float": 2827949648397.0
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "2982276008387/10000000000000000000",
+          "numerator": 2982276008387,
+          "denominator": 10000000000000000000,
+          "display_float": 2.982276008387e-07
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "2827949648397/100000000000000000000",
+          "numerator": 2827949648397,
+          "denominator": 100000000000000000000,
+          "display_float": 2.827949648397e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "denominator_q": 64,
+        "phi_q": 32,
+        "prime_count_P": 9591,
+        "prime_first_moment_M": 454396535,
+        "prime_second_moment_M2": 29822760083879,
+        "phi_times_count_variance": 26831,
+        "phi_times_first_moment_variance": 126872391221455,
+        "phi_times_cross_covariance": 1458421455,
+        "count_variance_D0": {
+          "exact": "26831/32",
+          "numerator": 26831,
+          "denominator": 32,
+          "display_float": 838.46875
+        },
+        "first_moment_variance_D1": {
+          "exact": "126872391221455/32",
+          "numerator": 126872391221455,
+          "denominator": 32,
+          "display_float": 3964762225670.4688
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "29822760083879/100000000000000000000",
+          "numerator": 29822760083879,
+          "denominator": 100000000000000000000,
+          "display_float": 2.9822760083879e-07
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "25374478244291/640000000000000000000",
+          "numerator": 25374478244291,
+          "denominator": 640000000000000000000,
+          "display_float": 3.964762225670469e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "denominator_q": 96,
+        "phi_q": 32,
+        "prime_count_P": 9590,
+        "prime_first_moment_M": 454396532,
+        "prime_second_moment_M2": 29822760083870,
+        "phi_times_count_variance": 23516,
+        "phi_times_first_moment_variance": 130139211182768,
+        "phi_times_cross_covariance": 1367521672,
+        "count_variance_D0": {
+          "exact": "5879/8",
+          "numerator": 5879,
+          "denominator": 8,
+          "display_float": 734.875
+        },
+        "first_moment_variance_D1": {
+          "exact": "8133700698923/2",
+          "numerator": 8133700698923,
+          "denominator": 2,
+          "display_float": 4066850349461.5
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "2982276008387/10000000000000000000",
+          "numerator": 2982276008387,
+          "denominator": 10000000000000000000,
+          "display_float": 2.982276008387e-07
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "8133700698923/200000000000000000000",
+          "numerator": 8133700698923,
+          "denominator": 200000000000000000000,
+          "display_float": 4.0668503494615e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 500000,
+        "denominator_q": 3,
+        "phi_q": 2,
+        "prime_count_P": 41536,
+        "prime_first_moment_M": 9914236190,
+        "prime_second_moment_M2": 3259699182326752,
+        "phi_times_count_variance": 4900,
+        "phi_times_first_moment_variance": 157881134885776,
+        "phi_times_cross_covariance": 879555320,
+        "count_variance_D0": {
+          "exact": "2450/1",
+          "numerator": 2450,
+          "denominator": 1,
+          "display_float": 2450.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "78940567442888/1",
+          "numerator": 78940567442888,
+          "denominator": 1,
+          "display_float": 78940567442888.0
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "101865599447711/1953125000000000000000",
+          "numerator": 101865599447711,
+          "denominator": 1953125000000000000000,
+          "display_float": 5.215518691722803e-08
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "9867570930361/7812500000000000000000",
+          "numerator": 9867570930361,
+          "denominator": 7812500000000000000000,
+          "display_float": 1.263049079086208e-09
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 500000,
+        "denominator_q": 4,
+        "phi_q": 2,
+        "prime_count_P": 41537,
+        "prime_first_moment_M": 9914236193,
+        "prime_second_moment_M2": 3259699182326761,
+        "phi_times_count_variance": 5625,
+        "phi_times_first_moment_variance": 176318535693001,
+        "phi_times_cross_covariance": 995887425,
+        "count_variance_D0": {
+          "exact": "5625/2",
+          "numerator": 5625,
+          "denominator": 2,
+          "display_float": 2812.5
+        },
+        "first_moment_variance_D1": {
+          "exact": "176318535693001/2",
+          "numerator": 176318535693001,
+          "denominator": 2,
+          "display_float": 88159267846500.5
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "3259699182326761/62500000000000000000000",
+          "numerator": 3259699182326761,
+          "denominator": 62500000000000000000000,
+          "display_float": 5.2155186917228175e-08
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "176318535693001/125000000000000000000000",
+          "numerator": 176318535693001,
+          "denominator": 125000000000000000000000,
+          "display_float": 1.410548285544008e-09
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 500000,
+        "denominator_q": 5,
+        "phi_q": 4,
+        "prime_count_P": 41536,
+        "prime_first_moment_M": 9914236188,
+        "prime_second_moment_M2": 3259699182326736,
+        "phi_times_count_variance": 2920,
+        "phi_times_first_moment_variance": 445161222811128,
+        "phi_times_cross_covariance": 651907496,
+        "count_variance_D0": {
+          "exact": "730/1",
+          "numerator": 730,
+          "denominator": 1,
+          "display_float": 730.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "111290305702782/1",
+          "numerator": 111290305702782,
+          "denominator": 1,
+          "display_float": 111290305702782.0
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "203731198895421/3906250000000000000000",
+          "numerator": 203731198895421,
+          "denominator": 3906250000000000000000,
+          "display_float": 5.215518691722778e-08
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "55645152851391/31250000000000000000000",
+          "numerator": 55645152851391,
+          "denominator": 31250000000000000000000,
+          "display_float": 1.780644891244512e-09
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 500000,
+        "denominator_q": 7,
+        "phi_q": 6,
+        "prime_count_P": 41536,
+        "prime_first_moment_M": 9914236186,
+        "prime_second_moment_M2": 3259699182326712,
+        "phi_times_count_variance": 18128,
+        "phi_times_first_moment_variance": 2041853536359788,
+        "phi_times_cross_covariance": 5852135828,
+        "count_variance_D0": {
+          "exact": "9064/3",
+          "numerator": 9064,
+          "denominator": 3,
+          "display_float": 3021.3333333333335
+        },
+        "first_moment_variance_D1": {
+          "exact": "1020926768179894/3",
+          "numerator": 1020926768179894,
+          "denominator": 3,
+          "display_float": 340308922726631.3
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "407462397790839/7812500000000000000000",
+          "numerator": 407462397790839,
+          "denominator": 7812500000000000000000,
+          "display_float": 5.2155186917227394e-08
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "510463384089947/93750000000000000000000",
+          "numerator": 510463384089947,
+          "denominator": 93750000000000000000000,
+          "display_float": 5.444942763626102e-09
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 500000,
+        "denominator_q": 8,
+        "phi_q": 4,
+        "prime_count_P": 41537,
+        "prime_first_moment_M": 9914236193,
+        "prime_second_moment_M2": 3259699182326761,
+        "phi_times_count_variance": 15363,
+        "phi_times_first_moment_variance": 783210870129251,
+        "phi_times_cross_covariance": 2745839475,
+        "count_variance_D0": {
+          "exact": "15363/4",
+          "numerator": 15363,
+          "denominator": 4,
+          "display_float": 3840.75
+        },
+        "first_moment_variance_D1": {
+          "exact": "783210870129251/4",
+          "numerator": 783210870129251,
+          "denominator": 4,
+          "display_float": 195802717532312.75
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "3259699182326761/62500000000000000000000",
+          "numerator": 3259699182326761,
+          "denominator": 62500000000000000000000,
+          "display_float": 5.2155186917228175e-08
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "783210870129251/250000000000000000000000",
+          "numerator": 783210870129251,
+          "denominator": 250000000000000000000000,
+          "display_float": 3.132843480517004e-09
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 500000,
+        "denominator_q": 12,
+        "phi_q": 4,
+        "prime_count_P": 41536,
+        "prime_first_moment_M": 9914236190,
+        "prime_second_moment_M2": 3259699182326752,
+        "phi_times_count_variance": 16152,
+        "phi_times_first_moment_variance": 676417845643956,
+        "phi_times_cross_covariance": 3268098816,
+        "count_variance_D0": {
+          "exact": "4038/1",
+          "numerator": 4038,
+          "denominator": 1,
+          "display_float": 4038.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "169104461410989/1",
+          "numerator": 169104461410989,
+          "denominator": 1,
+          "display_float": 169104461410989.0
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "101865599447711/1953125000000000000000",
+          "numerator": 101865599447711,
+          "denominator": 1953125000000000000000,
+          "display_float": 5.215518691722803e-08
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "169104461410989/62500000000000000000000",
+          "numerator": 169104461410989,
+          "denominator": 62500000000000000000000,
+          "display_float": 2.705671382575824e-09
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 500000,
+        "denominator_q": 16,
+        "phi_q": 8,
+        "prime_count_P": 41537,
+        "prime_first_moment_M": 9914236193,
+        "prime_second_moment_M2": 3259699182326761,
+        "phi_times_count_variance": 18327,
+        "phi_times_first_moment_variance": 1539619751183639,
+        "phi_times_cross_covariance": 4060616151,
+        "count_variance_D0": {
+          "exact": "18327/8",
+          "numerator": 18327,
+          "denominator": 8,
+          "display_float": 2290.875
+        },
+        "first_moment_variance_D1": {
+          "exact": "1539619751183639/8",
+          "numerator": 1539619751183639,
+          "denominator": 8,
+          "display_float": 192452468897954.88
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "3259699182326761/62500000000000000000000",
+          "numerator": 3259699182326761,
+          "denominator": 62500000000000000000000,
+          "display_float": 5.2155186917228175e-08
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "1539619751183639/500000000000000000000000",
+          "numerator": 1539619751183639,
+          "denominator": 500000000000000000000000,
+          "display_float": 3.079239502367278e-09
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 500000,
+        "denominator_q": 24,
+        "phi_q": 8,
+        "prime_count_P": 41536,
+        "prime_first_moment_M": 9914236190,
+        "prime_second_moment_M2": 3259699182326752,
+        "phi_times_count_variance": 33888,
+        "phi_times_first_moment_variance": 2351423877850716,
+        "phi_times_cross_covariance": 7054254416,
+        "count_variance_D0": {
+          "exact": "4236/1",
+          "numerator": 4236,
+          "denominator": 1,
+          "display_float": 4236.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "587855969462679/2",
+          "numerator": 587855969462679,
+          "denominator": 2,
+          "display_float": 293927984731339.5
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "101865599447711/1953125000000000000000",
+          "numerator": 101865599447711,
+          "denominator": 1953125000000000000000,
+          "display_float": 5.215518691722803e-08
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "587855969462679/125000000000000000000000",
+          "numerator": 587855969462679,
+          "denominator": 125000000000000000000000,
+          "display_float": 4.702847755701432e-09
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 500000,
+        "denominator_q": 32,
+        "phi_q": 16,
+        "prime_count_P": 41537,
+        "prime_first_moment_M": 9914236193,
+        "prime_second_moment_M2": 3259699182326761,
+        "phi_times_count_variance": 55599,
+        "phi_times_first_moment_variance": 5704252245510127,
+        "phi_times_cross_covariance": 15081192079,
+        "count_variance_D0": {
+          "exact": "55599/16",
+          "numerator": 55599,
+          "denominator": 16,
+          "display_float": 3474.9375
+        },
+        "first_moment_variance_D1": {
+          "exact": "5704252245510127/16",
+          "numerator": 5704252245510127,
+          "denominator": 16,
+          "display_float": 356515765344382.94
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "3259699182326761/62500000000000000000000",
+          "numerator": 3259699182326761,
+          "denominator": 62500000000000000000000,
+          "display_float": 5.2155186917228175e-08
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "5704252245510127/1000000000000000000000000",
+          "numerator": 5704252245510127,
+          "denominator": 1000000000000000000000000,
+          "display_float": 5.704252245510127e-09
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 500000,
+        "denominator_q": 48,
+        "phi_q": 16,
+        "prime_count_P": 41536,
+        "prime_first_moment_M": 9914236190,
+        "prime_second_moment_M2": 3259699182326752,
+        "phi_times_count_variance": 100704,
+        "phi_times_first_moment_variance": 11436185488499676,
+        "phi_times_cross_covariance": 31062661120,
+        "count_variance_D0": {
+          "exact": "6294/1",
+          "numerator": 6294,
+          "denominator": 1,
+          "display_float": 6294.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "2859046372124919/4",
+          "numerator": 2859046372124919,
+          "denominator": 4,
+          "display_float": 714761593031229.8
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "101865599447711/1953125000000000000000",
+          "numerator": 101865599447711,
+          "denominator": 1953125000000000000000,
+          "display_float": 5.215518691722803e-08
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "2859046372124919/250000000000000000000000",
+          "numerator": 2859046372124919,
+          "denominator": 250000000000000000000000,
+          "display_float": 1.1436185488499677e-08
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 500000,
+        "denominator_q": 64,
+        "phi_q": 32,
+        "prime_count_P": 41537,
+        "prime_first_moment_M": 9914236193,
+        "prime_second_moment_M2": 3259699182326761,
+        "phi_times_count_variance": 133471,
+        "phi_times_first_moment_variance": 19556801513224863,
+        "phi_times_cross_covariance": 43290769023,
+        "count_variance_D0": {
+          "exact": "133471/32",
+          "numerator": 133471,
+          "denominator": 32,
+          "display_float": 4170.96875
+        },
+        "first_moment_variance_D1": {
+          "exact": "19556801513224863/32",
+          "numerator": 19556801513224863,
+          "denominator": 32,
+          "display_float": 611150047288277.0
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "3259699182326761/62500000000000000000000",
+          "numerator": 3259699182326761,
+          "denominator": 62500000000000000000000,
+          "display_float": 5.2155186917228175e-08
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "19556801513224863/2000000000000000000000000",
+          "numerator": 19556801513224863,
+          "denominator": 2000000000000000000000000,
+          "display_float": 9.778400756612432e-09
+        },
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 500000,
+        "denominator_q": 96,
+        "phi_q": 32,
+        "prime_count_P": 41536,
+        "prime_first_moment_M": 9914236190,
+        "prime_second_moment_M2": 3259699182326752,
+        "phi_times_count_variance": 208000,
+        "phi_times_first_moment_variance": 22529726453345020,
+        "phi_times_cross_covariance": 63381534144,
+        "count_variance_D0": {
+          "exact": "6500/1",
+          "numerator": 6500,
+          "denominator": 1,
+          "display_float": 6500.0
+        },
+        "first_moment_variance_D1": {
+          "exact": "5632431613336255/8",
+          "numerator": 5632431613336255,
+          "denominator": 8,
+          "display_float": 704053951667031.9
+        },
+        "beta_squared_remainder_scale_M2_over_X4": {
+          "exact": "101865599447711/1953125000000000000000",
+          "numerator": 101865599447711,
+          "denominator": 1953125000000000000000,
+          "display_float": 5.215518691722803e-08
+        },
+        "beta_squared_first_jet_energy_D1_over_X4": {
+          "exact": "1126486322667251/100000000000000000000000",
+          "numerator": 1126486322667251,
+          "denominator": 100000000000000000000000,
+          "display_float": 1.126486322667251e-08
+        },
+        "certificate_verified": true
+      }
+    ],
+    "exact_modular_replay": {
+      "q_min": 3,
+      "q_max": 96,
+      "X_scales": [
+        10000,
+        100000,
+        500000
+      ],
+      "denominator_cases": 282
+    },
+    "transcript_sha256": "49d39cfb54e21607b0ad1e39ddf0734d30d646bab71b90b82fb746a3f80cc18a",
+    "aggregate": {
+      "centered_first_jet_parseval_identity_proved": true,
+      "second_order_arc_remainder_proved": true,
+      "uniform_all_numerator_saving_proved": false,
+      "strong_goldbach_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Exact integer/rational invariants cover q=3..96 at X=10000,100000,500000; they prove no growing-q uniform saving.",
+  "logical_limit": "The exact first-jet energy controls an average and exceptional numerators, but no theorem converts it to the uniform pointwise saving needed for all even Goldbach targets.",
+  "route_decision": {
+    "discard": "using the zeroth-order 2 pi |beta| M mass bound as the final center-to-arc transfer",
+    "parked": [],
+    "retain": "a uniform arithmetic saving for the centered count/first-moment jet on every reduced quarter-torus numerator",
+    "next_single_lemma": "UniformReducedNumeratorCenteredFirstJetSavingOnQuarterTorus"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T247",
+        "label": "RationalCenterArcLipschitzBridgeAndCenterOnlyNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "GB-T248",
+        "label": "CenteredFirstJetParsevalArcBridge",
+        "status": "proved"
+      },
+      {
+        "id": "GB-REJECT248",
+        "label": "ZerothOrderPrimeMassLipschitzIsTheFinalArcBridge",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN248",
+        "label": "UniformReducedNumeratorCenteredFirstJetSavingOnQuarterTorus",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T247",
+        "GB-T248"
+      ],
+      [
+        "GB-T248",
+        "GB-REJECT248"
+      ],
+      [
+        "GB-T248",
+        "GB-OPEN248"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T247",
+      "GB-T248",
+      "GB-OPEN248"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; one exact second-order arc expansion and centered first-jet Parseval identity."
+}

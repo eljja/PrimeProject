@@ -1,0 +1,164 @@
+{
+  "schema": "primeproject.ticket248-unweighted-wieferich-jet-active.v1",
+  "generated_at": "2026-08-26T22:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-248",
+  "theorem_name": "ActualBadBranchGeneralizedWieferichSeparation",
+  "declared_proposition": "For every prime q>5, let U_q=(2^(q-1)-1)/q, V_q=(3^(q-1)-1)/q, and let P_q be the TICKET-246 polynomial. Define W_q(a,b)=((a^(q-1)-b^(q-1))/q) mod q. Then exactly P_q(U_q,V_q)=W_q(32,27) mod q and U_q-V_q=W_q(2,3) mod q. Consequently the actual quotient pair violates first-level valuation domination precisely at primes in the set {W_q(32,27)=0} minus {W_q(2,3)=0}. These are separated generalized-Wieferich primes.",
+  "mathematical_argument": "The exact identities 32^(q-1)-27^(q-1)=qP_q(U_q,V_q) and 2^(q-1)-3^(q-1)=q(U_q-V_q) were proved in TICKET-246. Divide by q and reduce modulo q. Thus v_q(P_q)>0 while v_q(U_q-V_q)=0 if and only if q^2 divides the first base difference but not the second. This is an exact arithmetic reduction, not an inference from the finite scan.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every prime q>5, let U_q=(2^(q-1)-1)/q, V_q=(3^(q-1)-1)/q, and let P_q be the TICKET-246 polynomial. Define W_q(a,b)=((a^(q-1)-b^(q-1))/q) mod q. Then exactly P_q(U_q,V_q)=W_q(32,27) mod q and U_q-V_q=W_q(2,3) mod q. Consequently the actual quotient pair violates first-level valuation domination precisely at primes in the set {W_q(32,27)=0} minus {W_q(2,3)=0}. These are separated generalized-Wieferich primes.",
+    "proof": "The exact identities 32^(q-1)-27^(q-1)=qP_q(U_q,V_q) and 2^(q-1)-3^(q-1)=q(U_q-V_q) were proved in TICKET-246. Divide by q and reduce modulo q. Thus v_q(P_q)>0 while v_q(U_q-V_q)=0 if and only if q^2 divides the first base difference but not the second. This is an exact arithmetic reduction, not an inference from the finite scan.",
+    "selected_exact_rows": [
+      {
+        "prime_q": 7,
+        "W_32_27_mod_q": 6,
+        "W_2_3_mod_q": 3,
+        "fermat_quotient_2_mod_q": 2,
+        "fermat_quotient_3_mod_q": 6,
+        "P_q_mod_q": 6,
+        "generalized_wieferich_32_over_27": false,
+        "generalized_wieferich_2_over_3": false,
+        "separated_bad_prime": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "W_32_27_mod_q": 3,
+        "W_2_3_mod_q": 5,
+        "fermat_quotient_2_mod_q": 5,
+        "fermat_quotient_3_mod_q": 0,
+        "P_q_mod_q": 3,
+        "generalized_wieferich_32_over_27": false,
+        "generalized_wieferich_2_over_3": false,
+        "separated_bad_prime": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "W_32_27_mod_q": 11,
+        "W_2_3_mod_q": 0,
+        "fermat_quotient_2_mod_q": 17,
+        "fermat_quotient_3_mod_q": 17,
+        "P_q_mod_q": 11,
+        "generalized_wieferich_32_over_27": false,
+        "generalized_wieferich_2_over_3": true,
+        "separated_bad_prime": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 101,
+        "W_32_27_mod_q": 3,
+        "W_2_3_mod_q": 7,
+        "fermat_quotient_2_mod_q": 92,
+        "fermat_quotient_3_mod_q": 85,
+        "P_q_mod_q": 3,
+        "generalized_wieferich_32_over_27": false,
+        "generalized_wieferich_2_over_3": false,
+        "separated_bad_prime": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 1009,
+        "W_32_27_mod_q": 131,
+        "W_2_3_mod_q": 658,
+        "fermat_quotient_2_mod_q": 592,
+        "fermat_quotient_3_mod_q": 943,
+        "P_q_mod_q": 131,
+        "generalized_wieferich_32_over_27": false,
+        "generalized_wieferich_2_over_3": false,
+        "separated_bad_prime": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 999983,
+        "W_32_27_mod_q": 364647,
+        "W_2_3_mod_q": 66871,
+        "fermat_quotient_2_mod_q": 82017,
+        "fermat_quotient_3_mod_q": 15146,
+        "P_q_mod_q": 364647,
+        "generalized_wieferich_32_over_27": false,
+        "generalized_wieferich_2_over_3": false,
+        "separated_bad_prime": false,
+        "certificate_verified": true
+      }
+    ],
+    "exact_modular_scan": {
+      "prime_limit": 1000000,
+      "primes_checked": 78495,
+      "W_32_27_zero_primes": [],
+      "W_2_3_zero_primes": [
+        23
+      ],
+      "separated_bad_primes": [],
+      "simultaneous_zero_primes": []
+    },
+    "transcript_sha256": "444834a2768b3e94e21d0f968aef0e93fd87f08c540ca52af08756480b6d2d25",
+    "aggregate": {
+      "actual_bad_branch_equivalence_proved": true,
+      "finite_scan_proves_global_absence": false,
+      "actual_valuation_domination_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Exact modular arithmetic checks all 78,495 primes q<= 1,000,000; zero finite hits do not prove global absence.",
+  "logical_limit": "The actual bad-prime set is now exact, but neither its emptiness nor nonemptiness is proved, and even settling that valuation route would not control all Collatz trajectories.",
+  "route_decision": {
+    "discard": "treating a finite absence of separated generalized-Wieferich primes as an all-prime arithmetic exclusion",
+    "parked": [
+      "all-prime exclusion of separated generalized-Wieferich primes without a structural theorem"
+    ],
+    "retain": "an exact construction or obstruction for separated generalized-Wieferich primes comparing 32/27 with 2/3",
+    "next_single_lemma": "ExistenceOfSeparatedGeneralizedWieferichPrimeFor32Over27Against2Over3"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T247",
+        "label": "FormalHenselBranchNoGoForValuationDomination",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T248",
+        "label": "ActualBadBranchGeneralizedWieferichSeparation",
+        "status": "proved"
+      },
+      {
+        "id": "CO-REJECT248",
+        "label": "FiniteSeparatedWieferichScanImpliesAllPrimeExclusion",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN248",
+        "label": "ExistenceOfSeparatedGeneralizedWieferichPrimeFor32Over27Against2Over3",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T247",
+        "CO-T248"
+      ],
+      [
+        "CO-T248",
+        "CO-REJECT248"
+      ],
+      [
+        "CO-T248",
+        "CO-OPEN248"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T247",
+      "CO-T248",
+      "CO-OPEN248"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz proof, divergent orbit, or cycle; one exact reduction of the actual first-level branch obstruction to a separated generalized-Wieferich set."
+}

@@ -44,6 +44,7 @@ let ticket237AttemptGlobal = null;
 let ticket245AttemptGlobal = null;
 let ticket246AttemptGlobal = null;
 let ticket247AttemptGlobal = null;
+let ticket248AttemptGlobal = null;
 let ticket244AttemptGlobal = null;
 let ticket243AttemptGlobal = null;
 let ticket242AttemptGlobal = null;
@@ -18038,7 +18039,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket247HilbertHenselLipschitzPrimePower(ticket247AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket248UnweightedWieferichJetActive(ticket248AttemptGlobal) ||
+      renderTicket247HilbertHenselLipschitzPrimePower(ticket247AttemptGlobal) ||
       renderTicket246MomentAllDepthParsevalPrimePower(ticket246AttemptGlobal) ||
       renderTicket245ClosureSecondOrderKleinLinnik(ticket245AttemptGlobal) ||
       renderTicket244JointTightnessHarmonicParityFoldPolylogMimicry(ticket244AttemptGlobal) ||
@@ -18608,6 +18610,26 @@ async function loadTicket219Attempt() {
     return false;
   }
 }
+async function loadTicket248Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket248-unweighted-wieferich-jet-active.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket248AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket248AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket248AttemptGlobal) {
+      ticket248AttemptGlobal.bounded_result = ticket248AttemptGlobal.bounded_result || {};
+      ticket248AttemptGlobal.bounded_result.unweighted_wieferich_jet_active_audit = payload.unweighted_wieferich_jet_active_audit || {};
+    }
+    return Boolean(ticket248AttemptGlobal);
+  } catch (_error) {
+    ticket248AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket247Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket247-hilbert-hensel-lipschitz-primepower.json", { cache: "no-store" });
@@ -20734,6 +20756,11 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket248Loaded = await loadTicket248Attempt();
+  if (!ticket248Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket248AttemptGlobal) await loadTicket248Attempt();
+  }
   const ticket247Loaded = await loadTicket247Attempt();
   if (!ticket247Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));
@@ -20771,7 +20798,7 @@ async function main() {
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket247-current";
+  document.documentElement.dataset.openProblemCache = "ticket248-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -20952,7 +20979,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket247-current";
+  document.documentElement.dataset.openProblemCache = "ticket248-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

@@ -8850,3 +8850,30 @@ Machine artifact:
 `data/open-problem/ticket247-hilbert-hensel-lipschitz-primepower.json`.
 Reports: [English](hilbert-hensel-lipschitz-primepower.md) and
 [한국어](hilbert-hensel-lipschitz-primepower.ko.md).
+
+## TICKET-248 continuation: unweighted moments, Wieferich separation, centered first jets, and active contamination
+
+TICKET-248 attacks the four TICKET-247 frontiers with an explicit noncompact
+escape sequence, exact Fermat-quotient congruences, a centered Fourier first
+jet, and two-event inclusion-exclusion. It resolves no parent conjecture.
+
+| Track | Exact theorem now closed | Route discarded or retained | Next single lemma |
+|---|---|---|---|
+| RH | `UnweightedInfiniteMomentCoercivityNoGo` | discard raw unweighted infinite-moment coercivity on the full even L2 sphere | `ArithmeticOffDiagonalWeilCoercivityOnAdmissibleClosure` |
+| Collatz | `ActualBadBranchGeneralizedWieferichSeparation` | retain the exact separated-prime criterion; discard promotion of finite no-hits | `ExistenceOfSeparatedGeneralizedWieferichPrimeFor32Over27Against2Over3` |
+| Goldbach | `CenteredFirstJetParsevalArcBridge` | retain exact mean-square first-jet control; discard uniform numerator promotion without a maximal estimate | `UniformReducedNumeratorCenteredFirstJetSavingOnQuarterTorus` |
+| Twin | `ExactActivePrimePowerContaminationIdentity` | replace all-prime-power counting by exact active shift-two support | `ScaleLocalTypeIILowerBoundBeyondActivePrimePowerContamination` |
+
+The RH theorem is infinite but remains scoped to the full even L2 model, not
+the genuine Guinand-Weil admissible closure or its arithmetic off-diagonal
+form. The Collatz scan through one million primes, the Goldbach denominator
+table through 96, and the twin audit through ten million are finite replay
+certificates only. The Goldbach identity is aggregate rather than
+numerator-uniform, and the twin identity supplies no Type-II lower bound.
+Every proof DAG has one open frontier; all parent conjectures remain
+`open_not_proven`.
+
+Machine artifact:
+`data/open-problem/ticket248-unweighted-wieferich-jet-active.json`.
+Reports: [English](unweighted-wieferich-jet-active.md) and
+[한국어](unweighted-wieferich-jet-active.ko.md).

@@ -62,7 +62,39 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-247
+## Current continuation: TICKET-248
+
+The current machine-readable boundary is
+`data/open-problem/ticket248-unweighted-wieferich-jet-active.json`.
+It records three partial theorems, one exact route no-go result, four acyclic
+proof DAGs, zero machine failures, and zero parent-problem resolutions.
+
+| Problem | Newly closed result | Current single open lemma |
+|---|---|---|
+| Riemann | `UnweightedInfiniteMomentCoercivityNoGo` | `ArithmeticOffDiagonalWeilCoercivityOnAdmissibleClosure` |
+| Collatz | `ActualBadBranchGeneralizedWieferichSeparation` | `ExistenceOfSeparatedGeneralizedWieferichPrimeFor32Over27Against2Over3` |
+| Goldbach | `CenteredFirstJetParsevalArcBridge` | `UniformReducedNumeratorCenteredFirstJetSavingOnQuarterTorus` |
+| Twin Prime | `ExactActivePrimePowerContaminationIdentity` | `ScaleLocalTypeIILowerBoundBeyondActivePrimePowerContamination` |
+
+Do not repeat the discarded routes. Unweighted raw moment energy still fails
+to coerce the full even L2 sphere. A finite no-hit prime scan cannot establish
+global absence of separated generalized-Wieferich primes. Mean-square
+Goldbach first-jet control does not imply a uniform bound for every reduced
+numerator. Counting every composite prime power discards the exact active
+shift-two support.
+
+The exact computations cover eight Legendre rows through n=128, all 78,495
+primes between five and one million, 282 Goldbach denominator cases with 36
+selected rows, and seven twin scales through 10,000,000. They are replay
+certificates, not proofs of the four parent conjectures.
+
+Reports: [English](unweighted-wieferich-jet-active.md),
+[한국어](unweighted-wieferich-jet-active.ko.md).
+
+All older current/latest headings below are historical snapshots and must not
+override this TICKET-248 boundary.
+
+## Preserved continuation: TICKET-247
 
 The current machine-readable boundary is
 `data/open-problem/ticket247-hilbert-hensel-lipschitz-primepower.json`.

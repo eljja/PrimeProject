@@ -1,0 +1,171 @@
+{
+  "schema": "primeproject.ticket248-unweighted-wieferich-jet-active.v1",
+  "generated_at": "2026-08-26T22:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-248",
+  "theorem_name": "ExactActivePrimePowerContaminationIdentity",
+  "declared_proposition": "Let PP(n) indicate an odd prime power, P(n) an odd prime, and C(n)=PP(n)-P(n). For X>=3 define A_2(X)=sum_(odd n<=X) PP(n)PP(n+2), pi_2 analogously with P, L=sum C(n)PP(n+2), R=sum PP(n)C(n+2), and B=sum C(n)C(n+2). Then exactly A_2(X)-pi_2(X)=L(X)+R(X)-B(X)<=L(X)+R(X). Thus only composite prime powers with an actual shift-two prime-power neighbor contribute to the correction; all inactive powers can be removed.",
+  "mathematical_argument": "For every pair with PP(n)PP(n+2)=1, failure to be a twin-prime pair is the union of the events C(n)=1 and C(n+2)=1. Inclusion-exclusion on this two-event set gives its indicator as C(n)PP(n+2)+PP(n)C(n+2)-C(n)C(n+2). Summing over odd n<=X proves the exact identity and the active union bound.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let PP(n) indicate an odd prime power, P(n) an odd prime, and C(n)=PP(n)-P(n). For X>=3 define A_2(X)=sum_(odd n<=X) PP(n)PP(n+2), pi_2 analogously with P, L=sum C(n)PP(n+2), R=sum PP(n)C(n+2), and B=sum C(n)C(n+2). Then exactly A_2(X)-pi_2(X)=L(X)+R(X)-B(X)<=L(X)+R(X). Thus only composite prime powers with an actual shift-two prime-power neighbor contribute to the correction; all inactive powers can be removed.",
+    "proof": "For every pair with PP(n)PP(n+2)=1, failure to be a twin-prime pair is the union of the events C(n)=1 and C(n+2)=1. Inclusion-exclusion on this two-event set gives its indicator as C(n)PP(n+2)+PP(n)C(n+2)-C(n)C(n+2). Summing over odd n<=X proves the exact identity and the active union bound.",
+    "exact_active_contamination_rows": [
+      {
+        "limit_X": 100,
+        "prime_power_pair_count_A2": 16,
+        "twin_prime_pair_count_pi2": 8,
+        "exact_contamination_A2_minus_pi2": 8,
+        "left_active_composite_power_pairs_L": 4,
+        "right_active_composite_power_pairs_R": 5,
+        "both_composite_power_pairs_B": 1,
+        "exact_inclusion_exclusion_L_plus_R_minus_B": 8,
+        "active_union_bound_L_plus_R": 9,
+        "ticket247_sharp_bound": 14,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 1000,
+        "prime_power_pair_count_A2": 49,
+        "twin_prime_pair_count_pi2": 35,
+        "exact_contamination_A2_minus_pi2": 14,
+        "left_active_composite_power_pairs_L": 5,
+        "right_active_composite_power_pairs_R": 10,
+        "both_composite_power_pairs_B": 1,
+        "exact_inclusion_exclusion_L_plus_R_minus_B": 14,
+        "active_union_bound_L_plus_R": 15,
+        "ticket247_sharp_bound": 62,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "prime_power_pair_count_A2": 228,
+        "twin_prime_pair_count_pi2": 205,
+        "exact_contamination_A2_minus_pi2": 23,
+        "left_active_composite_power_pairs_L": 6,
+        "right_active_composite_power_pairs_R": 18,
+        "both_composite_power_pairs_B": 1,
+        "exact_inclusion_exclusion_L_plus_R_minus_B": 23,
+        "active_union_bound_L_plus_R": 24,
+        "ticket247_sharp_bound": 202,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "prime_power_pair_count_A2": 1268,
+        "twin_prime_pair_count_pi2": 1224,
+        "exact_contamination_A2_minus_pi2": 44,
+        "left_active_composite_power_pairs_L": 8,
+        "right_active_composite_power_pairs_R": 37,
+        "both_composite_power_pairs_B": 1,
+        "exact_inclusion_exclusion_L_plus_R_minus_B": 44,
+        "active_union_bound_L_plus_R": 45,
+        "ticket247_sharp_bound": 492,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 1000000,
+        "prime_power_pair_count_A2": 8245,
+        "twin_prime_pair_count_pi2": 8169,
+        "exact_contamination_A2_minus_pi2": 76,
+        "left_active_composite_power_pairs_L": 11,
+        "right_active_composite_power_pairs_R": 66,
+        "both_composite_power_pairs_B": 1,
+        "exact_inclusion_exclusion_L_plus_R_minus_B": 76,
+        "active_union_bound_L_plus_R": 77,
+        "ticket247_sharp_bound": 1150,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 5000000,
+        "prime_power_pair_count_A2": 32585,
+        "twin_prime_pair_count_pi2": 32463,
+        "exact_contamination_A2_minus_pi2": 122,
+        "left_active_composite_power_pairs_L": 13,
+        "right_active_composite_power_pairs_R": 110,
+        "both_composite_power_pairs_B": 1,
+        "exact_inclusion_exclusion_L_plus_R_minus_B": 122,
+        "active_union_bound_L_plus_R": 123,
+        "ticket247_sharp_bound": 2180,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000000,
+        "prime_power_pair_count_A2": 59129,
+        "twin_prime_pair_count_pi2": 58980,
+        "exact_contamination_A2_minus_pi2": 149,
+        "left_active_composite_power_pairs_L": 14,
+        "right_active_composite_power_pairs_R": 136,
+        "both_composite_power_pairs_B": 1,
+        "exact_inclusion_exclusion_L_plus_R_minus_B": 149,
+        "active_union_bound_L_plus_R": 150,
+        "ticket247_sharp_bound": 2822,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "85f69edcdb7bc23ce3a41d770918c5a4589b4b50a4e003145c47874fa2bd1741",
+    "aggregate": {
+      "active_contamination_identity_proved": true,
+      "inactive_prime_powers_removed_from_correction": true,
+      "unbounded_type_II_lower_bound_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Prime-power supports are enumerated through 10,000,000; the identity holds for every X, but finite positive twin counts imply no infinitude.",
+  "logical_limit": "The correction is now the exact active inclusion-exclusion term, but no unbounded scale sequence has a Type-II lower bound for A_2 beyond it.",
+  "route_decision": {
+    "discard": "using all odd composite prime powers, including those with no shift-two prime-power neighbor, as the final contamination correction",
+    "parked": [],
+    "retain": "a scale-local nonperiodic Type-II lower bound for A_2 exceeding the active shift-two contamination",
+    "next_single_lemma": "ScaleLocalTypeIILowerBoundBeyondActivePrimePowerContamination"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T247",
+        "label": "SharpOddPrimePowerContaminationBound",
+        "status": "proved"
+      },
+      {
+        "id": "TP-T248",
+        "label": "ExactActivePrimePowerContaminationIdentity",
+        "status": "proved"
+      },
+      {
+        "id": "TP-REJECT248",
+        "label": "AllCompositePrimePowersRemainActiveContaminants",
+        "status": "disproved"
+      },
+      {
+        "id": "TP-OPEN248",
+        "label": "ScaleLocalTypeIILowerBoundBeyondActivePrimePowerContamination",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T247",
+        "TP-T248"
+      ],
+      [
+        "TP-T248",
+        "TP-REJECT248"
+      ],
+      [
+        "TP-T248",
+        "TP-OPEN248"
+      ]
+    ],
+    "resolution_path": [
+      "TP-T247",
+      "TP-T248",
+      "TP-OPEN248"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No twin-prime proof or counterexample; one exact active-contamination identity and much sharper finite correction."
+}

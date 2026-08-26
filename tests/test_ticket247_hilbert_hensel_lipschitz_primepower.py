@@ -149,12 +149,21 @@ class Ticket247HilbertHenselLipschitzPrimePowerTests(unittest.TestCase):
                 encoding="utf-8"
             )
         )
-        self.assertEqual(state["ticket"], 247)
-        self.assertEqual(state["parent_ticket"], 246)
+        self.assertGreaterEqual(state["ticket"], 247)
+        self.assertEqual(state["parent_ticket"], state["ticket"] - 1)
         self.assertEqual(state["resolved_count"], 0)
         self.assertEqual(state["candidate_resolution_count"], 0)
         self.assertFalse(state["program_complete"])
-        self.assertEqual(state["deep_focus_problem"], "riemann")
+        if state["ticket"] == 247:
+            self.assertEqual(state["deep_focus_problem"], "riemann")
+        retained_theorems = {
+            "riemann": "HilbertSchmidtInfiniteMomentCoercivityNoGo",
+            "collatz": "FormalHenselBranchNoGoForValuationDomination",
+            "goldbach": "RationalCenterArcLipschitzBridgeAndCenterOnlyNoGo",
+            "twin_prime": "SharpOddPrimePowerContaminationBound",
+        }
+        for problem, theorem in retained_theorems.items():
+            self.assertIn(theorem, state["problems"][problem]["established_results"])
         self.assertTrue(
             all(problem["stagnation_count"] == 0 for problem in state["problems"].values())
         )

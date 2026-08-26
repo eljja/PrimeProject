@@ -519,3 +519,28 @@ closure, exclusion of actual Fermat quotients from the Hensel branch,
 promotion of finite residue data to signed arc saving, or promotion of the
 prime-power correction to a Twin Type-II lower bound. Resolution and
 candidate-resolution counts are zero.
+
+## TICKET-248 publication boundary
+
+TICKET-248 adds three partial theorems and one exact route no-go result:
+
+- normalized even Legendre modes give an explicit `Q0(f_n)<11/n` escape
+  sequence for unweighted raw moments on the full even L2 sphere;
+- actual first-level Collatz valuation failure is exactly a separated
+  generalized-Wieferich condition, with no such prime found only in the finite
+  scan through one million;
+- centered Goldbach residuals and first moments obey the exact aggregate
+  first-jet Parseval identity `q(D0+t^2 D1)` and a second-order Taylor bound;
+- twin-proxy contamination obeys the exact active-support identity
+  `A2-pi2=L+R-B`.
+
+Allowed `exact_no_go` wording is restricted to the unweighted raw moment map
+on the stated L2 domain. Allowed `partial_theorem` wording covers the exact
+Collatz equivalence, Goldbach identity and Taylor bridge, and twin
+inclusion-exclusion identity. Blocked wording includes every parent-conjecture
+proof/disproof, membership of the Legendre escape sequence in the genuine
+Weil closure, promotion of the 78,495-prime no-hit scan to global
+nonexistence, promotion of aggregate first-jet energy to a uniform
+reduced-numerator saving, or promotion of active contamination localization
+to a Twin Type-II lower bound. Resolution and candidate-resolution counts are
+zero.

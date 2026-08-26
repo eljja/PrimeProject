@@ -15,7 +15,35 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-247
+## Current research boundary: TICKET-248
+
+The current machine-readable boundary is
+`data/open-problem/ticket248-unweighted-wieferich-jet-active.json`.
+TICKET-248 proves three partial theorems and one exact route no-go while
+resolving none of the parent conjectures:
+
+- normalized even Legendre modes satisfy the explicit unweighted moment bound
+  `Q0(f_n)<11/n`, so raw unweighted infinite moments are not coercive on the
+  full normalized even L2 sphere;
+- actual first-level Collatz failure is exactly a prime satisfying
+  `Wq(32,27)=0` and `Wq(2,3) != 0`;
+- the centered Goldbach residual and first-moment jet have exact aggregate
+  energy `q(D0+t^2 D1)`, with a rigorous second-order Taylor remainder;
+- twin-proxy contamination satisfies `A2-pi2=L+R-B`, hence only active
+  composite prime powers with shift-two prime-power neighbors contribute.
+
+The next single lemmas are arithmetic off-diagonal Weil coercivity on the
+actual admissible closure; existence or exclusion of a separated
+generalized-Wieferich prime for 32/27 against 2/3; uniform reduced-numerator
+centered first-jet saving on the quarter torus; and a scale-local Type-II lower
+bound beyond active prime-power contamination.
+
+Reports: [English](unweighted-wieferich-jet-active.md),
+[한국어](unweighted-wieferich-jet-active.ko.md).
+
+All parent conjectures and all candidate-resolution counters remain open/zero.
+
+## Preserved research boundary: TICKET-247
 
 The current machine-readable boundary is
 `data/open-problem/ticket247-hilbert-hensel-lipschitz-primepower.json`.

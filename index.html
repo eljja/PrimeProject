@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260826-ticket247-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260826-ticket248-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-247 · CURRENT RESEARCH BOUNDARY</p>
-                <h1 data-i18n="brief.title">Four open problems, false intermediate targets removed</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-247 proves two partial theorems and two exact no-go results: Hilbert-Schmidt moment coercivity fails, formal Collatz valuation domination has Hensel countermodels, Goldbach gains an arc Lipschitz bridge, and twin-prime proxy contamination is sharpened.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-247은 RH Hilbert-Schmidt 모멘트 coercivity와 Collatz 형식 valuation 지배를 no-go로 닫고, Goldbach 호 Lipschitz 전달과 Twin 정밀 오염 상계를 부분정리로 확정했습니다.</p>
+                <p class="brief-kicker">TICKET-248 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, sharper obstructions isolated</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-248 proves three partial theorems and one exact no-go: unweighted moment coercivity fails, the actual Collatz obstruction is a separated generalized-Wieferich prime, Goldbach gains a centered first-jet identity, and twin-prime proxy contamination is localized to active neighbors.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-248은 RH 비가중 무한 모멘트 coercivity를 no-go로 닫고, 실제 Collatz 장애의 generalized-Wieferich 분리 환원, Goldbach 중심 1차 jet Parseval, Twin 활성 오염 항등식을 부분정리로 확정했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>247</strong><small>2026-08-26</small></div>
-              <div><span>Exact no-go</span><strong>2</strong><small>Hilbert-Schmidt, Hensel</small></div>
-              <div><span>Partial theorems</span><strong>2</strong><small>arc transfer, contamination</small></div>
+              <div><span>Latest ticket</span><strong>248</strong><small>2026-08-26</small></div>
+              <div><span>Exact no-go</span><strong>1</strong><small>unweighted moments</small></div>
+              <div><span>Partial theorems</span><strong>3</strong><small>separation, jet, active support</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 Hilbert-Schmidt 가중 짝수 모멘트 사상의 coercivity 하한이 전체 정규화 짝함수 L2 구면에서 0임을 증명했습니다.</p>
-                <p><strong>폐기:</strong> summable 무한 모멘트 가중치만으로 전체 even L2 구면을 균일 분리하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>NonHilbertSchmidtArithmeticWeilCoercivityOnAdmissibleClosure</code>.</p>
+                <p><strong>확립:</strong> 정규화 even Legendre 도주열에 대해 비가중 무한 모멘트 에너지 Q0(f_n)&lt;11/n을 증명했습니다.</p>
+                <p><strong>폐기:</strong> non-Hilbert-Schmidt 비가중 raw moment 에너지로 전체 even L2 구면을 균일 분리하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ArithmeticOffDiagonalWeilCoercivityOnAdmissibleClosure</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 q&gt;5와 임의 깊이에서 Pq valuation은 크지만 U−V는 unit인 유일 Hensel 반모형 가지를 구성했습니다.</p>
-                <p><strong>폐기:</strong> 무제약 q진 다항식 항등식만으로 실제 Fermat quotient valuation 지배를 얻는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>ArithmeticFermatQuotientExclusionOfPqHenselBranch</code>.</p>
+                <p><strong>확립:</strong> 실제 첫 단계 valuation 실패가 Wq(32,27)=0이고 Wq(2,3)≠0인 소수와 정확히 동치임을 증명했습니다.</p>
+                <p><strong>폐기:</strong> 백만 이하의 무반례만으로 separated generalized-Wieferich prime의 전역 부재를 결론내리는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ExistenceOfSeparatedGeneralizedWieferichPrimeFor32Over27Against2Over3</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 중심 Parseval 상계를 정확한 2π|β|M 항으로 호에 전달하고, 중심값-only 균일 전달의 반례족을 증명했습니다.</p>
-                <p><strong>폐기:</strong> 주파수 scale 또는 signed 1차 모멘트 항 없이 중심값을 균일 호 제어로 승격하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>UniformSignedResidueVarianceAndFirstMomentSavingOnQuarterTorus</code>.</p>
+                <p><strong>확립:</strong> 중심화 잔차와 1차 모멘트 jet의 합산 에너지가 정확히 q(D0+t²D1)임을 증명했습니다.</p>
+                <p><strong>폐기:</strong> 평균제곱 first-jet 제어만으로 모든 reduced numerator의 균일 절약을 얻는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>UniformReducedNumeratorCenteredFirstJetSavingOnQuarterTorus</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 홀수 합성 소수거듭제곱의 지수별 정확 계수와 square/cube 분리 오염 상계를 증명했습니다.</p>
-                <p><strong>폐기:</strong> TICKET-246의 exponent-blind O(√X log X) 항을 최종 오염 scale로 쓰는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>ScaleLocalTypeIILowerBoundBeyondSharpPrimePowerContamination</code>.</p>
+                <p><strong>확립:</strong> proxy 오염의 정확한 활성 항등식 A2−π2=L+R−B를 증명했습니다.</p>
+                <p><strong>폐기:</strong> shift-two 이웃을 보지 않고 모든 합성 소수거듭제곱을 오염으로 세는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ScaleLocalTypeIILowerBoundBeyondActivePrimePowerContamination</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>247개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-247은 Hilbert-Schmidt compactness, Hensel 반모형, center-to-arc 전달, 정밀 prime-power contamination의 경계를 확정했습니다.</p>
+                <p>248개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-248은 비가중 모멘트 도주열, generalized-Wieferich 분리, centered first-jet Parseval, 활성 prime-power contamination의 경계를 확정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/hilbert-hensel-lipschitz-primepower.ko.md">최신 한국어 보고서</a>
-              <a href="docs/hilbert-hensel-lipschitz-primepower.md">Latest English report</a>
+              <a href="docs/unweighted-wieferich-jet-active.ko.md">최신 한국어 보고서</a>
+              <a href="docs/unweighted-wieferich-jet-active.md">Latest English report</a>
             </div>
           </section>
           <section id="overview-panel" class="overview-grid">
@@ -658,8 +658,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-247</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-247 proves two partial theorems and two exact route no-go results, with a resolution count of zero.</p>
+              <strong>TICKET-248</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-248 proves three partial theorems and one exact route no-go result, with a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -795,8 +795,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260826-ticket247"></script>
-    <script src="assets/app.js?v=20260826-ticket247"></script>
+    <script src="assets/i18n.js?v=20260826-ticket248"></script>
+    <script src="assets/app.js?v=20260826-ticket248"></script>
   </body>
 </html>
 

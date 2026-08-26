@@ -85,6 +85,11 @@ jobs:
           python scripts/verify_ticket247_structure.py
 
 
+      - name: Unit and structure check TICKET-248
+        run: |
+          python -m unittest tests.test_ticket248_unweighted_wieferich_jet_active
+          python scripts/verify_ticket248_structure.py
+
       - name: Verify open problem structure
         run: python scripts/verify_open_problem_structure.py
 
@@ -104,6 +109,7 @@ jobs:
           node --check assets/app.js
           node --check assets/open-problems.js
           node --check scripts/verify_pages.cjs
+          node --check assets/ticket248-open-problem.js
 
       - name: Verify GitHub Pages surface
         run: node scripts/verify_pages.cjs
