@@ -1,8 +1,8 @@
 {
   "schema": "primeproject.four-problem-research-state.v1",
-  "ticket": 250,
-  "parent_ticket": 249,
-  "generated_at": "2026-08-27T01:30:00+09:00",
+  "ticket": 251,
+  "parent_ticket": 250,
+  "generated_at": "2026-08-27T04:30:00+09:00",
   "iteration_complete": true,
   "program_complete": false,
   "resolved_count": 0,
@@ -11,7 +11,7 @@
   "problems": {
     "riemann": {
       "problem_status": "open_not_proven",
-      "current_target": "NoncompactMultiplierLegendreEscapeInsufficiencyNoGo",
+      "current_target": "InteriorZeroLocalMultiplierCoercivityNoGo",
       "established_results": [
         "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
         "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
@@ -21,7 +21,8 @@
         "HilbertSchmidtInfiniteMomentCoercivityNoGo",
         "UnweightedInfiniteMomentCoercivityNoGo",
         "CompactOffDiagonalMomentCoercivityNoGo",
-        "NoncompactMultiplierLegendreEscapeInsufficiencyNoGo"
+        "NoncompactMultiplierLegendreEscapeInsufficiencyNoGo",
+        "InteriorZeroLocalMultiplierCoercivityNoGo"
       ],
       "retired_routes": [
         "frequency support or frequency tightness alone as compactness of a normalized even Weil-test family",
@@ -31,16 +32,19 @@
         "uniform positive coercivity from any Hilbert-Schmidt weighted even-moment feature map on the full normalized even L2 sphere",
         "uniform positive coercivity from the raw unweighted infinite even-moment family on the full normalized even L2 sphere",
         "repairing raw unweighted moment coercivity on the full even L2 sphere by adding any compact arithmetic off-diagonal operator",
-        "using a positive diagonal limit on the Legendre sequence for one noncompact multiplier as a certificate of full-sphere coercivity"
+        "using a positive diagonal limit on the Legendre sequence for one noncompact multiplier as a certificate of full-sphere coercivity",
+        "using any continuous nonnegative local multiplier with an interior zero as a full-unit-sphere coercivity repair for the raw moment form"
       ],
-      "parked_routes": [],
-      "remaining_gap": "The explicit multiplier blocks the old oscillatory escape but admits a new concentration escape; no actual Weil arithmetic form or admissible-closure theorem is controlled.",
-      "next_single_lemma": "ArithmeticWeilFormCoercivityAgainstOscillationAndConcentrationEscapes",
+      "parked_routes": [
+        "endpoint-only zero multipliers and strictly positive local floors"
+      ],
+      "remaining_gap": "The no-go concerns an abstract raw-moment model and local multiplication operators; it neither identifies the actual Weil admissible closure nor proves a sign criterion equivalent to RH.",
+      "next_single_lemma": "NonlocalArithmeticWeilKernelExcludesInteriorConcentration",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "ArithmeticWeilFormCoercivityAgainstOscillationAndConcentrationEscapes"
+        "NonlocalArithmeticWeilKernelExcludesInteriorConcentration"
       ],
-      "finite_computation_boundary": "9 exact Legendre rows and 12 exact concentration bounds replay the two mechanisms; the all-sequence conclusions are analytic.",
+      "finite_computation_boundary": "11 exact rational rows replay w=(x^2-1/9)^2; the universal conclusion is analytic, not inferred from the finite rows.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -50,7 +54,7 @@
     },
     "collatz": {
       "problem_status": "open_not_proven",
-      "current_target": "LocalFermatQuotientLiftTransitivityNoGo",
+      "current_target": "FinitePrimeCanonicalLiftPatternCRTInterpolationNoGo",
       "established_results": [
         "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
         "UnboundedOrderPrincipalUnitTransferCountermodels",
@@ -60,27 +64,30 @@
         "FormalHenselBranchNoGoForValuationDomination",
         "ActualBadBranchGeneralizedWieferichSeparation",
         "SeparatedWieferichProjectiveSlopeCriterion",
-        "LocalFermatQuotientLiftTransitivityNoGo"
+        "LocalFermatQuotientLiftTransitivityNoGo",
+        "FinitePrimeCanonicalLiftPatternCRTInterpolationNoGo"
       ],
       "retired_routes": [
         "deducing the fixed-base 32/27 to 2/3 square-depth transfer from universal order, LTE, and principal-unit algebra",
         "deducing v_q(P_q)<=v_q(U_q-V_q) for actual Fermat quotients from the unrestricted q-adic polynomial identity alone",
         "treating a finite absence of separated generalized-Wieferich primes as an all-prime arithmetic exclusion",
         "treating the two first-level generalized-Wieferich congruences as independent after passing to the Fermat-quotient coordinate plane",
-        "excluding projective slope [3:5] from the residue classes 2 and 3 modulo q using only lift-invariant local Fermat-quotient structure"
+        "excluding projective slope [3:5] from the residue classes 2 and 3 modulo q using only lift-invariant local Fermat-quotient structure",
+        "deducing the cross-prime behavior of the canonical Fermat-quotient pair from any finite collection of lift-compatible local constraints"
       ],
       "parked_routes": [
         "all-prime exclusion of separated generalized-Wieferich primes without a structural theorem",
         "all-prime occurrence or avoidance of the projective point [3:5] without a distribution theorem for fixed-base Fermat quotients",
-        "all-prime occurrence or avoidance of the canonical projective point [3:5] without cross-prime distribution input"
+        "all-prime occurrence or avoidance of the canonical projective point [3:5] without cross-prime distribution input",
+        "statistical extrapolation from interpolated noncanonical representatives"
       ],
-      "remaining_gap": "Every local lift fiber contains the target, but the actual canonical lifts remain undecided across primes; this valuation branch still does not control all Collatz trajectories.",
-      "next_single_lemma": "CanonicalRepresentativeFermatQuotientDistributionBeyondLiftTransitivity",
+      "remaining_gap": "CRT constructs integers that depend on the finite prime set; it gives no occurrence, avoidance, or density result for F_q(2),F_q(3) as q varies and does not control Collatz trajectories.",
+      "next_single_lemma": "CanonicalRepresentativeFermatQuotientDistributionBeyondFiniteCRTInterpolation",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "CanonicalRepresentativeFermatQuotientDistributionBeyondLiftTransitivity"
+        "CanonicalRepresentativeFermatQuotientDistributionBeyondFiniteCRTInterpolation"
       ],
-      "finite_computation_boundary": "Exhaustive exact arithmetic checks 73,901 lift pairs over 5 fields; the theorem for every prime q is algebraic.",
+      "finite_computation_boundary": "4 exact CRT certificates are replayed; the theorem for every finite prime set is algebraic.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -90,7 +97,7 @@
     },
     "goldbach": {
       "problem_status": "open_not_proven",
-      "current_target": "PrimeModulusRationalFourierFullSupportAndNormBarrier",
+      "current_target": "CyclotomicUnitFullSupportEnergyConcentrationNoGo",
       "established_results": [
         "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
         "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
@@ -100,7 +107,8 @@
         "RationalCenterArcLipschitzBridgeAndCenterOnlyNoGo",
         "CenteredFirstJetParsevalArcBridge",
         "CenteredJetParsevalSpikeNoGo",
-        "PrimeModulusRationalFourierFullSupportAndNormBarrier"
+        "PrimeModulusRationalFourierFullSupportAndNormBarrier",
+        "CyclotomicUnitFullSupportEnergyConcentrationNoGo"
       ],
       "retired_routes": [
         "placing the parity rational neighborhood around one half in a minor set while demanding an absolute-energy o(X/log^2 X) budget",
@@ -110,16 +118,17 @@
         "promoting rational-center control to a uniform arc-neighborhood bound without a frequency-scale or signed first-moment term",
         "using the zeroth-order 2 pi |beta| M mass bound as the final center-to-arc transfer",
         "deriving a uniform reduced-numerator first-jet saving solely from centeredness and the aggregate Parseval energy identity",
-        "identifying the exact TICKET-249 two-frequency cosine spike with a rational or integer prime-count residue vector at prime moduli q>=5"
+        "identifying the exact TICKET-249 two-frequency cosine spike with a rational or integer prime-count residue vector at prime moduli q>=5",
+        "deriving a quantitative Fourier-energy anti-concentration bound from centeredness, integrality, nonnegativity, exact reduced-frequency support, and a nonzero Galois norm alone"
       ],
       "parked_routes": [],
-      "remaining_gap": "Galois symmetry forces exact full support and a nonzero norm, but permits arbitrarily uneven nonzero magnitudes and does not handle logarithmic prime weights or prove a uniform upper saving.",
-      "next_single_lemma": "QuantitativePrimeCountFourierEnergyAntiConcentrationAtPrimeModuli",
+      "remaining_gap": "The countermodels are admissible nonnegative integer residue vectors, not proved realizable as actual prime-count vectors; excluding them arithmetically remains open and Goldbach is untouched.",
+      "next_single_lemma": "ActualPrimeCountResidueVectorsExcludeCyclotomicUnitConcentration",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "QuantitativePrimeCountFourierEnergyAntiConcentrationAtPrimeModuli"
+        "ActualPrimeCountResidueVectorsExcludeCyclotomicUnitConcentration"
       ],
-      "finite_computation_boundary": "Exact determinants audit 35 prime-count vectors through X=1,000,000; the all-vector theorem comes from Phi_q minimality, not finite data.",
+      "finite_computation_boundary": "32 exact integer rows replay the family; trigonometric decimals are display-only and the all-m limit is analytic.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -129,7 +138,7 @@
     },
     "twin_prime": {
       "problem_status": "open_not_proven",
-      "current_target": "AllBaseEvenLeftRightActiveClassification",
+      "current_target": "RightEvenModuloEightConstraintAndSharpness",
       "established_results": [
         "GrowingPeriodDiagonalCRTMimicryForShiftTwo",
         "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock",
@@ -139,7 +148,8 @@
         "SharpOddPrimePowerContaminationBound",
         "ExactActivePrimePowerContaminationIdentity",
         "EvenExponentLeftActiveContaminationClassification",
-        "AllBaseEvenLeftRightActiveClassification"
+        "AllBaseEvenLeftRightActiveClassification",
+        "RightEvenModuloEightConstraintAndSharpness"
       ],
       "retired_routes": [
         "using fixed periodic features even with eventual per-dyadic-scale sampling as a twin-prime certificate",
@@ -149,16 +159,20 @@
         "using the exponent-blind TICKET-246 O(sqrt(X) log(X)) correction as the final prime-power contamination scale",
         "using all odd composite prime powers, including those with no shift-two prime-power neighbor, as the final contamination correction",
         "allowing an unrestricted family of left-active even-exponent prime powers with base different from 3 in the shift-two contamination",
-        "retaining any right-active composite prime-power contaminant with even left exponent other than the pair 25 to 27, including a possible base-3 exception"
+        "retaining any right-active composite prime-power contaminant with even left exponent other than the pair 25 to 27, including a possible base-3 exception",
+        "retaining a right-even active pair p^k to r^(2m) with composite left member p^k",
+        "using the withdrawn x^2-2=y^n source as a dependency, or claiming modulo eight forces the left exponent to equal one"
       ],
-      "parked_routes": [],
-      "remaining_gap": "The full even-left right-active subclass is closed, but the 135 odd-left examples through ten million remain uncontrolled and no Type-II lower bound is proved.",
-      "next_single_lemma": "ScaleLocalOddLeftRightActiveContaminationBound",
+      "parked_routes": [
+        "the all-X Diophantine exclusion x^2-2=y^k for odd k>=3"
+      ],
+      "remaining_gap": "The congruence theorem does not exclude odd composite left exponents, and the absence of such witnesses in a finite scan cannot be promoted to an all-X result. No sieve lower bound or twin-prime infinitude follows.",
+      "next_single_lemma": "NoPositivePrimePowerSolutionsOfXSquareMinusTwoEqualsYOddPower",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "ScaleLocalOddLeftRightActiveContaminationBound"
+        "NoPositivePrimePowerSolutionsOfXSquareMinusTwoEqualsYOddPower"
       ],
-      "finite_computation_boundary": "Prime-power supports are enumerated at 9 scales through 10,000,000; the all-X result uses the explicit D=2 Lebesgue-Nagell external theorem.",
+      "finite_computation_boundary": "Exact prime-power support is enumerated at 7 scales through 10,000,000; no conclusion beyond that bound is inferred from the scan.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,

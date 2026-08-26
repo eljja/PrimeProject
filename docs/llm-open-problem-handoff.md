@@ -44,6 +44,33 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
+## Latest handoff: TICKET-251
+
+Canonical artifact:
+`data/open-problem/ticket251-interior-crt-cyclotomic-righteven.json`.
+
+All four parent conjectures remain `open_not_proven`. TICKET-251 established:
+
+- RH: every continuous even nonnegative local multiplier with an interior zero fails full-sphere raw-moment coercivity;
+- Collatz: arbitrary targets on every finite prime set are simultaneously realizable by CRT lifts of residues 2 and 3;
+- Goldbach: cyclotomic-unit nonnegative integer vectors preserve full reduced support and nonzero norm while their energy concentrates on two frequencies;
+- Twin: every right-even active pair has odd left exponent and prime base `p=7 mod 8`; modulo eight alone cannot force exponent one, and the withdrawn `x^2-2=y^n` source is not a dependency.
+
+Do not retry the retired local-only routes. The next iteration must select one
+of these exact open frontiers per problem:
+
+```text
+RH: NonlocalArithmeticWeilKernelExcludesInteriorConcentration
+Collatz: CanonicalRepresentativeFermatQuotientDistributionBeyondFiniteCRTInterpolation
+Goldbach: ActualPrimeCountResidueVectorsExcludeCyclotomicUnitConcentration
+Twin: NoPositivePrimePowerSolutionsOfXSquareMinusTwoEqualsYOddPower
+```
+
+For each frontier, declare one falsifiable proposition first, separate analytic
+proof from finite replay, attempt an adversarial countermodel, and retain
+`open_not_proven` unless a complete independently checkable infinite proof or
+counterexample is supplied. When a route fails, turn the failure into an exact
+no-go theorem rather than repeating the same computation.
 ## What Has Been Built
 
 The workbench currently provides:

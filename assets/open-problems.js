@@ -46,6 +46,7 @@ let ticket246AttemptGlobal = null;
 let ticket247AttemptGlobal = null;
 let ticket249AttemptGlobal = null;
 let ticket250AttemptGlobal = null;
+let ticket251AttemptGlobal = null;
 let ticket248AttemptGlobal = null;
 let ticket244AttemptGlobal = null;
 let ticket243AttemptGlobal = null;
@@ -18041,7 +18042,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket250MultiplierLiftGaloisEvenRight(ticket250AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket251InteriorCrtCyclotomicRightEven(ticket251AttemptGlobal) ||
+      renderTicket250MultiplierLiftGaloisEvenRight(ticket250AttemptGlobal) ||
       renderTicket249CompactProjectiveParsevalLebesgue(ticket249AttemptGlobal) ||
       renderTicket248UnweightedWieferichJetActive(ticket248AttemptGlobal) ||
       renderTicket247HilbertHenselLipschitzPrimePower(ticket247AttemptGlobal) ||
@@ -18614,6 +18616,26 @@ async function loadTicket219Attempt() {
     return false;
   }
 }
+async function loadTicket251Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket251-interior-crt-cyclotomic-righteven.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket251AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket251AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket251AttemptGlobal) {
+      ticket251AttemptGlobal.bounded_result = ticket251AttemptGlobal.bounded_result || {};
+      ticket251AttemptGlobal.bounded_result.interior_crt_cyclotomic_righteven_audit = payload.interior_crt_cyclotomic_righteven_audit || {};
+    }
+    return Boolean(ticket251AttemptGlobal);
+  } catch (_error) {
+    ticket251AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket250Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket250-multiplier-lift-galois-evenright.json", { cache: "no-store" });
@@ -20800,6 +20822,11 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket251Loaded = await loadTicket251Attempt();
+  if (!ticket251Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket251AttemptGlobal) await loadTicket251Attempt();
+  }
   const ticket250Loaded = await loadTicket250Attempt();
   if (!ticket250Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));

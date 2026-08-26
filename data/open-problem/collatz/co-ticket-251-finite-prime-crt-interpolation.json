@@ -1,0 +1,277 @@
+{
+  "schema": "primeproject.ticket251-interior-crt-cyclotomic-righteven.v1",
+  "generated_at": "2026-08-27T04:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-251",
+  "theorem_name": "FinitePrimeCanonicalLiftPatternCRTInterpolationNoGo",
+  "declared_proposition": "For every finite nonempty set S of primes q>5 and arbitrary pairs (u_q,v_q) in F_q^2, there is a unique pair (A,B) modulo M=product_(q in S)q^2 such that A=2 and B=3 modulo q and F_q(A)=u_q, F_q(B)=v_q for all q in S, where F_q(x)=(x^(q-1)-1)/q modulo q. Therefore every prescribed finite hit/avoidance pattern for the projective slope [3:5] can be interpolated by fixed integers A,B; finite-prime lift-compatible local data alone cannot determine the canonical pair A=2,B=3.",
+  "mathematical_argument": "The binomial theorem modulo q^2 gives F_q(a+kq)=F_q(a)-k/a modulo q. Thus the unique lift indices are k_q=2(F_q(2)-u_q) and ell_q=3(F_q(3)-v_q) modulo q. The congruences A=2+k_q q and B=3+ell_q q modulo q^2 have unique simultaneous solutions modulo M by the Chinese remainder theorem. Choosing target pairs on or off [3:5] realizes any finite pattern. The interpolated integers depend on S and the targets, so this does not decide the cross-prime behavior of the canonical fixed representatives 2 and 3.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every finite nonempty set S of primes q>5 and arbitrary pairs (u_q,v_q) in F_q^2, there is a unique pair (A,B) modulo M=product_(q in S)q^2 such that A=2 and B=3 modulo q and F_q(A)=u_q, F_q(B)=v_q for all q in S, where F_q(x)=(x^(q-1)-1)/q modulo q. Therefore every prescribed finite hit/avoidance pattern for the projective slope [3:5] can be interpolated by fixed integers A,B; finite-prime lift-compatible local data alone cannot determine the canonical pair A=2,B=3.",
+    "proof": "The binomial theorem modulo q^2 gives F_q(a+kq)=F_q(a)-k/a modulo q. Thus the unique lift indices are k_q=2(F_q(2)-u_q) and ell_q=3(F_q(3)-v_q) modulo q. The congruences A=2+k_q q and B=3+ell_q q modulo q^2 have unique simultaneous solutions modulo M by the Chinese remainder theorem. Choosing target pairs on or off [3:5] realizes any finite pattern. The interpolated integers depend on S and the targets, so this does not decide the cross-prime behavior of the canonical fixed representatives 2 and 3.",
+    "exact_CRT_interpolation_rows": [
+      {
+        "case": "slope_hit",
+        "prime_set": [
+          7,
+          11
+        ],
+        "common_target_pair": [
+          3,
+          5
+        ],
+        "CRT_modulus": 5929,
+        "least_nonnegative_A": 772,
+        "least_nonnegative_B": 2621,
+        "local_constraints": [
+          {
+            "prime_q": 7,
+            "target_u": 3,
+            "target_v": 5,
+            "lift_k": 5,
+            "lift_ell": 3,
+            "A_mod_q_squared": 37,
+            "B_mod_q_squared": 24,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "target_u": 3,
+            "target_v": 5,
+            "lift_k": 4,
+            "lift_ell": 7,
+            "A_mod_q_squared": 46,
+            "B_mod_q_squared": 80,
+            "certificate_verified": true
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "case": "zero_pair",
+        "prime_set": [
+          7,
+          11,
+          13
+        ],
+        "common_target_pair": [
+          0,
+          0
+        ],
+        "CRT_modulus": 1002001,
+        "least_nonnegative_A": 293295,
+        "least_nonnegative_B": 132135,
+        "local_constraints": [
+          {
+            "prime_q": 7,
+            "target_u": 0,
+            "target_v": 0,
+            "lift_k": 4,
+            "lift_ell": 4,
+            "A_mod_q_squared": 30,
+            "B_mod_q_squared": 31,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "target_u": 0,
+            "target_v": 0,
+            "lift_k": 10,
+            "lift_ell": 0,
+            "A_mod_q_squared": 112,
+            "B_mod_q_squared": 3,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 13,
+            "target_u": 0,
+            "target_v": 0,
+            "lift_k": 6,
+            "lift_ell": 11,
+            "A_mod_q_squared": 80,
+            "B_mod_q_squared": 146,
+            "certificate_verified": true
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "case": "asymmetric",
+        "prime_set": [
+          11,
+          17,
+          23
+        ],
+        "common_target_pair": [
+          1,
+          0
+        ],
+        "CRT_modulus": 18498601,
+        "least_nonnegative_A": 5651516,
+        "least_nonnegative_B": 15801877,
+        "local_constraints": [
+          {
+            "prime_q": 11,
+            "target_u": 1,
+            "target_v": 0,
+            "lift_k": 8,
+            "lift_ell": 0,
+            "A_mod_q_squared": 90,
+            "B_mod_q_squared": 3,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 17,
+            "target_u": 1,
+            "target_v": 0,
+            "lift_k": 7,
+            "lift_ell": 13,
+            "A_mod_q_squared": 121,
+            "B_mod_q_squared": 224,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "target_u": 1,
+            "target_v": 0,
+            "lift_k": 9,
+            "lift_ell": 5,
+            "A_mod_q_squared": 209,
+            "B_mod_q_squared": 118,
+            "certificate_verified": true
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "case": "slope_avoid",
+        "prime_set": [
+          7,
+          13,
+          19,
+          31
+        ],
+        "common_target_pair": [
+          1,
+          1
+        ],
+        "CRT_modulus": 2872852801,
+        "least_nonnegative_A": 958886112,
+        "least_nonnegative_B": 1301115728,
+        "local_constraints": [
+          {
+            "prime_q": 7,
+            "target_u": 1,
+            "target_v": 1,
+            "lift_k": 2,
+            "lift_ell": 1,
+            "A_mod_q_squared": 16,
+            "B_mod_q_squared": 10,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 13,
+            "target_u": 1,
+            "target_v": 1,
+            "lift_k": 4,
+            "lift_ell": 8,
+            "A_mod_q_squared": 54,
+            "B_mod_q_squared": 107,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 19,
+            "target_u": 1,
+            "target_v": 1,
+            "lift_k": 4,
+            "lift_ell": 13,
+            "A_mod_q_squared": 78,
+            "B_mod_q_squared": 250,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 31,
+            "target_u": 1,
+            "target_v": 1,
+            "lift_k": 10,
+            "lift_ell": 17,
+            "A_mod_q_squared": 312,
+            "B_mod_q_squared": 530,
+            "certificate_verified": true
+          }
+        ],
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "mod-q^2 exponentiation, affine lift inversion, and exact pairwise-coprime CRT",
+    "complexity": "O(sum_(q in S) log q) modular multiplications plus quasi-linear big-integer CRT overhead per case",
+    "random_seed": null,
+    "transcript_sha256": "c184a69eaebae32ffdc9e9043ca4864bf7615e5933a225721616dcda732e2fdc",
+    "aggregate": {
+      "arbitrary_finite_prime_patterns_interpolated": true,
+      "unique_pair_mod_product_q_squared_proved": true,
+      "canonical_fixed_pair_distribution_controlled": false,
+      "collatz_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "4 exact CRT certificates are replayed; the theorem for every finite prime set is algebraic.",
+  "logical_limit": "CRT constructs integers that depend on the finite prime set; it gives no occurrence, avoidance, or density result for F_q(2),F_q(3) as q varies and does not control Collatz trajectories.",
+  "route_decision": {
+    "discard": "deducing the cross-prime behavior of the canonical Fermat-quotient pair from any finite collection of lift-compatible local constraints",
+    "parked": [
+      "statistical extrapolation from interpolated noncanonical representatives"
+    ],
+    "retain": "distribution information genuinely tied to the same fixed representatives 2 and 3 over an unbounded prime set",
+    "next_single_lemma": "CanonicalRepresentativeFermatQuotientDistributionBeyondFiniteCRTInterpolation"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T250",
+        "label": "LocalFermatQuotientLiftTransitivityNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T251",
+        "label": "FinitePrimeCanonicalLiftPatternCRTInterpolationNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-REJECT251",
+        "label": "FinitePrimeLiftDataDeterminesCanonicalCrossPrimeSlopeBehavior",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN251",
+        "label": "CanonicalRepresentativeFermatQuotientDistributionBeyondFiniteCRTInterpolation",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T250",
+        "CO-T251"
+      ],
+      [
+        "CO-T251",
+        "CO-REJECT251"
+      ],
+      [
+        "CO-T251",
+        "CO-OPEN251"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T250",
+      "CO-T251",
+      "CO-OPEN251"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle; one exact finite-prime interpolation no-go theorem."
+}

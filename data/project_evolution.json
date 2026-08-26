@@ -52,8 +52,8 @@
     "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
-    "claim_language_scanned_files": 274,
-    "claim_language_scanned_lines": 94929,
+    "claim_language_scanned_files": 276,
+    "claim_language_scanned_lines": 95596,
     "claim_language_triggered_mentions": 133,
     "claim_language_guarded_mentions": 133,
     "claim_language_failures": 0,
@@ -1588,6 +1588,13 @@
           "state": "bounded",
           "measure": "RH 9 Legendre plus 12 concentration rows / Collatz 73,901 exact lift pairs / Goldbach 35 exact norm cases plus 2 boundary countermodels / Twin 9 active scales / 2 partial theorems plus 2 exact no-gos / 0 conjecture resolutions",
           "proof": "TICKET-250 refutes Legendre-only noncompact RH validation using a centered concentration escape, proves every local Collatz lift fiber contains projective slope [3:5], proves nonconstant rational prime-modulus Goldbach vectors have full reduced Fourier support and nonzero integer Galois norm, and classifies the entire even-left right-active twin contamination as 25 to 27 while leaving all four parent conjectures open"
+        },
+        {
+          "marker": "212",
+          "title": "Interior concentration, finite-prime CRT, cyclotomic-unit concentration, and a right-even modulo-eight constraint sharpen four gates",
+          "state": "bounded",
+          "measure": "RH 11 exact concentration rows / Collatz 4 exact CRT certificates / Goldbach 32 exact cyclotomic-unit cases / Twin 7 scales and 124 witnesses / 1 partial theorem plus 3 exact no-gos / 0 conjecture resolutions",
+          "proof": "TICKET-251 excludes every continuous nonnegative local RH multiplier with an interior zero, proves arbitrary finite-prime Collatz lift targets are CRT-interpolable, constructs nonnegative integer full-support Goldbach vectors with two-frequency energy concentration, and proves the elementary right-even constraints k odd and p=7 modulo 8 while leaving all four parent conjectures open"
         }
       ],
       "evidence_flow": [
@@ -1709,17 +1716,17 @@
           "layer": "Open-Proof",
           "score": 99,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket250-multiplier-lift-galois-evenright.json", "docs/multiplier-lift-galois-evenright.md", "docs/multiplier-lift-galois-evenright.ko.md", "docs/proof-or-counterexample-program.md"],
-          "gate": "TICKET-250 proves two partial theorems and two exact route no-go results, records four acyclic proof DAGs with zero machine failures, checks 21 exact RH rows, 73,901 Collatz lift pairs, 35 Goldbach norm cases plus two boundary countermodels, and nine twin scales while keeping every resolution counter at zero. The displayed score measures workflow coverage, not proof probability or conjecture completion.",
-          "proof": "The current workbench requires an arithmetic Weil form controlling oscillation and concentration, canonical Fermat-quotient distribution beyond lift transitivity, quantitative prime-count Fourier anti-concentration, and a scale-local odd-left contamination bound."
+          "artifacts": ["data/open-problem/ticket251-interior-crt-cyclotomic-righteven.json", "docs/interior-crt-cyclotomic-righteven.md", "docs/interior-crt-cyclotomic-righteven.ko.md", "docs/proof-or-counterexample-program.md"],
+          "gate": "TICKET-251 proves three exact route no-go results and one elementary partial theorem, records four acyclic proof DAGs with zero machine failures, checks 11 RH concentration rows, four Collatz CRT cases, 32 Goldbach cyclotomic-unit cases, and seven twin scales with 124 witnesses while keeping every resolution counter at zero. The displayed score measures workflow coverage, not proof probability or conjecture completion.",
+          "proof": "The current workbench requires a nonlocal arithmetic Weil kernel excluding concentration, canonical Fermat-quotient distribution beyond finite CRT interpolation, exclusion of cyclotomic-unit concentration for actual prime counts, and an all-X exclusion of x^2-2=y^k for odd k>=3."
         }
       ]
     },
     "latest_changes": [
       {
         "label": "Evidence-first Pages",
-        "impact": "The public entry points now lead with TICKET-250: concentration escape, lift transitivity, Galois full support, and complete even-left classification, while preserving TICKET-249 and the full research ledger.",
-        "metric": "4 current cards / 250 tickets"
+        "impact": "The public entry points now lead with TICKET-251: interior concentration, finite-prime CRT interpolation, cyclotomic-unit concentration, and a right-even modulo-eight constraint, while preserving TICKET-250 and the full research ledger.",
+        "metric": "4 current cards / 251 tickets"
       },
       {
         "label": "Scale evidence",

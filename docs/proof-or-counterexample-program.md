@@ -8930,3 +8930,27 @@ Machine artifact:
 `data/open-problem/ticket250-multiplier-lift-galois-evenright.json`.
 Reports: [English](multiplier-lift-galois-evenright.md) and
 [한국어](multiplier-lift-galois-evenright.ko.md).
+## TICKET-251 continuation: interior concentration, finite-prime CRT, cyclotomic concentration, and a right-even modulo-eight constraint
+
+TICKET-251 attacks the four TICKET-250 frontiers and resolves no parent
+conjecture.
+
+| Track | Exact theorem now closed | Route discarded or retained | Next single lemma |
+|---|---|---|---|
+| RH | `InteriorZeroLocalMultiplierCoercivityNoGo` | discard every continuous nonnegative local multiplier with an interior zero as a full-sphere repair | `NonlocalArithmeticWeilKernelExcludesInteriorConcentration` |
+| Collatz | `FinitePrimeCanonicalLiftPatternCRTInterpolationNoGo` | discard inference from any finite lift-compatible prime set; retain fixed canonical representatives | `CanonicalRepresentativeFermatQuotientDistributionBeyondFiniteCRTInterpolation` |
+| Goldbach | `CyclotomicUnitFullSupportEnergyConcentrationNoGo` | discard structural-only anti-concentration from integrality, full support, and norm | `ActualPrimeCountResidueVectorsExcludeCyclotomicUnitConcentration` |
+| Twin | `RightEvenModuloEightConstraintAndSharpness` | retain the necessary odd-k, p=7 mod 8 condition; discard any claim that congruence alone forces k=1 | `NoPositivePrimePowerSolutionsOfXSquareMinusTwoEqualsYOddPower` |
+
+The RH and Goldbach no-go theorems are analytic all-parameter statements; their
+finite rows only replay exact examples. The Collatz CRT theorem applies to
+every finite prime set but changes the integer representatives with that set,
+so it does not determine `F_q(2),F_q(3)`. The Twin theorem is elementary and
+only proves a modulo-eight condition; the withdrawn `x^2-2=y^n` source is not
+a dependency, and the all-X odd-exponent Diophantine exclusion remains open. Every proof DAG has exactly one open frontier. All
+four parent problems remain `open_not_proven`.
+
+Machine artifact:
+`data/open-problem/ticket251-interior-crt-cyclotomic-righteven.json`.
+Reports: [English](interior-crt-cyclotomic-righteven.md) and
+[한국어](interior-crt-cyclotomic-righteven.ko.md).

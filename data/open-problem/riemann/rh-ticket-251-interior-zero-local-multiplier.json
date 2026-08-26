@@ -1,0 +1,528 @@
+{
+  "schema": "primeproject.ticket251-interior-crt-cyclotomic-righteven.v1",
+  "generated_at": "2026-08-27T04:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-251",
+  "theorem_name": "InteriorZeroLocalMultiplierCoercivityNoGo",
+  "declared_proposition": "Let H=L2_even([-1,1]) and Q0(f)=sum_(k>=0)|integral x^(2k)f(x)dx|^2. If w is continuous, even, nonnegative, nonzero, and w(x0)=0 for some x0 in [0,1), then K=M_w is bounded, self-adjoint, and noncompact, yet inf_{||f||=1}(Q0(f)+<Kf,f>)=0. Hence no such interior-zero local multiplier can supply full-unit-sphere coercivity for Q0.",
+  "mathematical_argument": "Choose rho<1 and shrinking symmetric measurable neighborhoods E_delta of {−x0,x0}, and put g_delta=1_E/sqrt(|E|). Then g_delta is even and normalized. Continuity gives <M_w g_delta,g_delta><=sup_E w ->0. For every k, |integral x^(2k)g_delta|^2<=|E|rho^(4k), so Q0(g_delta)<=|E|/(1-rho^4)->0. Noncompactness follows because w is bounded below on a positive-measure symmetric region and normalized indicators of disjoint symmetric subsets have images separated in L2. For the replay w=(x^2-(1/3)^2)^2 and E_delta is the union of the two delta-neighborhoods, giving the exact rational bounds recorded below.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let H=L2_even([-1,1]) and Q0(f)=sum_(k>=0)|integral x^(2k)f(x)dx|^2. If w is continuous, even, nonnegative, nonzero, and w(x0)=0 for some x0 in [0,1), then K=M_w is bounded, self-adjoint, and noncompact, yet inf_{||f||=1}(Q0(f)+<Kf,f>)=0. Hence no such interior-zero local multiplier can supply full-unit-sphere coercivity for Q0.",
+    "proof": "Choose rho<1 and shrinking symmetric measurable neighborhoods E_delta of {−x0,x0}, and put g_delta=1_E/sqrt(|E|). Then g_delta is even and normalized. Continuity gives <M_w g_delta,g_delta><=sup_E w ->0. For every k, |integral x^(2k)g_delta|^2<=|E|rho^(4k), so Q0(g_delta)<=|E|/(1-rho^4)->0. Noncompactness follows because w is bounded below on a positive-measure symmetric region and normalized indicators of disjoint symmetric subsets have images separated in L2. For the replay w=(x^2-(1/3)^2)^2 and E_delta is the union of the two delta-neighborhoods, giving the exact rational bounds recorded below.",
+    "exact_interior_concentration_rows": [
+      {
+        "delta_power": 3,
+        "delta": {
+          "exact": "1/8",
+          "numerator": 1,
+          "denominator": 8,
+          "display_float": 0.125
+        },
+        "symmetric_support_measure": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "support_radius_rho": {
+          "exact": "11/24",
+          "numerator": 11,
+          "denominator": 24,
+          "display_float": 0.4583333333333333
+        },
+        "proved_multiplier_energy_upper": {
+          "exact": "361/36864",
+          "numerator": 361,
+          "denominator": 36864,
+          "display_float": 0.009792751736111112
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "165888/317135",
+          "numerator": 165888,
+          "denominator": 317135,
+          "display_float": 0.5230832295394706
+        },
+        "proved_combined_upper": {
+          "exact": "6229780967/11690864640",
+          "numerator": 6229780967,
+          "denominator": 11690864640,
+          "display_float": 0.5328759812755817
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 4,
+        "delta": {
+          "exact": "1/16",
+          "numerator": 1,
+          "denominator": 16,
+          "display_float": 0.0625
+        },
+        "symmetric_support_measure": {
+          "exact": "1/4",
+          "numerator": 1,
+          "denominator": 4,
+          "display_float": 0.25
+        },
+        "support_radius_rho": {
+          "exact": "19/48",
+          "numerator": 19,
+          "denominator": 48,
+          "display_float": 0.3958333333333333
+        },
+        "proved_multiplier_energy_upper": {
+          "exact": "1225/589824",
+          "numerator": 1225,
+          "denominator": 589824,
+          "display_float": 0.0020768907335069445
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "1327104/5178095",
+          "numerator": 1327104,
+          "denominator": 5178095,
+          "display_float": 0.2562919374789377
+        },
+        "proved_combined_upper": {
+          "exact": "789100956071/3054164705280",
+          "numerator": 789100956071,
+          "denominator": 3054164705280,
+          "display_float": 0.25836882821244467
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 5,
+        "delta": {
+          "exact": "1/32",
+          "numerator": 1,
+          "denominator": 32,
+          "display_float": 0.03125
+        },
+        "symmetric_support_measure": {
+          "exact": "1/8",
+          "numerator": 1,
+          "denominator": 8,
+          "display_float": 0.125
+        },
+        "support_radius_rho": {
+          "exact": "35/96",
+          "numerator": 35,
+          "denominator": 96,
+          "display_float": 0.3645833333333333
+        },
+        "proved_multiplier_energy_upper": {
+          "exact": "4489/9437184",
+          "numerator": 4489,
+          "denominator": 9437184,
+          "display_float": 0.0004756715562608507
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "10616832/83434031",
+          "numerator": 10616832,
+          "denominator": 83434031,
+          "display_float": 0.12724822081291984
+        },
+        "proved_combined_upper": {
+          "exact": "100567532446247/787382302408704",
+          "numerator": 100567532446247,
+          "denominator": 787382302408704,
+          "display_float": 0.1277238923691807
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 6,
+        "delta": {
+          "exact": "1/64",
+          "numerator": 1,
+          "denominator": 64,
+          "display_float": 0.015625
+        },
+        "symmetric_support_measure": {
+          "exact": "1/16",
+          "numerator": 1,
+          "denominator": 16,
+          "display_float": 0.0625
+        },
+        "support_radius_rho": {
+          "exact": "67/192",
+          "numerator": 67,
+          "denominator": 192,
+          "display_float": 0.3489583333333333
+        },
+        "proved_multiplier_energy_upper": {
+          "exact": "17161/150994944",
+          "numerator": 17161,
+          "denominator": 150994944,
+          "display_float": 0.00011365281211005317
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "84934656/1338803375",
+          "numerator": 84934656,
+          "denominator": 1338803375,
+          "display_float": 0.06344072444543994
+        },
+        "proved_combined_upper": {
+          "exact": "12847678831097639/202152540635136000",
+          "numerator": 12847678831097639,
+          "denominator": 202152540635136000,
+          "display_float": 0.06355437725754999
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 7,
+        "delta": {
+          "exact": "1/128",
+          "numerator": 1,
+          "denominator": 128,
+          "display_float": 0.0078125
+        },
+        "symmetric_support_measure": {
+          "exact": "1/32",
+          "numerator": 1,
+          "denominator": 32,
+          "display_float": 0.03125
+        },
+        "support_radius_rho": {
+          "exact": "131/384",
+          "numerator": 131,
+          "denominator": 384,
+          "display_float": 0.3411458333333333
+        },
+        "proved_multiplier_energy_upper": {
+          "exact": "67081/2415919104",
+          "numerator": 67081,
+          "denominator": 2415919104,
+          "display_float": 2.776624427901374e-05
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "679477248/21448772015",
+          "numerator": 679477248,
+          "denominator": 21448772015,
+          "display_float": 0.03167907456542565
+        },
+        "proved_combined_upper": {
+          "exact": "1643000869252084007/51818498068379074560",
+          "numerator": 1643000869252084007,
+          "denominator": 51818498068379074560,
+          "display_float": 0.031706840809704664
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 8,
+        "delta": {
+          "exact": "1/256",
+          "numerator": 1,
+          "denominator": 256,
+          "display_float": 0.00390625
+        },
+        "symmetric_support_measure": {
+          "exact": "1/64",
+          "numerator": 1,
+          "denominator": 64,
+          "display_float": 0.015625
+        },
+        "support_radius_rho": {
+          "exact": "259/768",
+          "numerator": 259,
+          "denominator": 768,
+          "display_float": 0.3372395833333333
+        },
+        "proved_multiplier_energy_upper": {
+          "exact": "265225/38654705664",
+          "numerator": 265225,
+          "denominator": 38654705664,
+          "display_float": 6.861389718121953e-06
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "5435817984/343392490415",
+          "numerator": 5435817984,
+          "denominator": 343392490415,
+          "display_float": 0.015829752064265158
+        },
+        "proved_combined_upper": {
+          "exact": "210211020487868179751/13273735644219766210560",
+          "numerator": 210211020487868179751,
+          "denominator": 13273735644219766210560,
+          "display_float": 0.01583661345398328
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 9,
+        "delta": {
+          "exact": "1/512",
+          "numerator": 1,
+          "denominator": 512,
+          "display_float": 0.001953125
+        },
+        "symmetric_support_measure": {
+          "exact": "1/128",
+          "numerator": 1,
+          "denominator": 128,
+          "display_float": 0.0078125
+        },
+        "support_radius_rho": {
+          "exact": "515/1536",
+          "numerator": 515,
+          "denominator": 1536,
+          "display_float": 0.3352864583333333
+        },
+        "proved_multiplier_energy_upper": {
+          "exact": "1054729/618475290624",
+          "numerator": 1054729,
+          "denominator": 618475290624,
+          "display_float": 1.7053696663222379e-06
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "43486543872/5495933314991",
+          "numerator": 43486543872,
+          "denominator": 5495933314991,
+          "display_float": 0.007912494817465086
+        },
+        "proved_combined_upper": {
+          "exact": "26901149579717913398567/3399098954239182460944384",
+          "numerator": 26901149579717913398567,
+          "denominator": 3399098954239182460944384,
+          "display_float": 0.007914200187131409
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 10,
+        "delta": {
+          "exact": "1/1024",
+          "numerator": 1,
+          "denominator": 1024,
+          "display_float": 0.0009765625
+        },
+        "symmetric_support_measure": {
+          "exact": "1/256",
+          "numerator": 1,
+          "denominator": 256,
+          "display_float": 0.00390625
+        },
+        "support_radius_rho": {
+          "exact": "1027/3072",
+          "numerator": 1027,
+          "denominator": 3072,
+          "display_float": 0.3343098958333333
+        },
+        "proved_multiplier_energy_upper": {
+          "exact": "4206601/9895604649984",
+          "numerator": 4206601,
+          "denominator": 9895604649984,
+          "display_float": 4.2509792466363353e-07
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "347892350976/87947988586415",
+          "numerator": 347892350976,
+          "denominator": 87947988586415,
+          "display_float": 0.00395566011875498
+        },
+        "proved_combined_upper": {
+          "exact": "3442975128108706962709799/870298524812468033012367360",
+          "numerator": 3442975128108706962709799,
+          "denominator": 870298524812468033012367360,
+          "display_float": 0.003956085216679644
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 11,
+        "delta": {
+          "exact": "1/2048",
+          "numerator": 1,
+          "denominator": 2048,
+          "display_float": 0.00048828125
+        },
+        "symmetric_support_measure": {
+          "exact": "1/512",
+          "numerator": 1,
+          "denominator": 512,
+          "display_float": 0.001953125
+        },
+        "support_radius_rho": {
+          "exact": "2051/6144",
+          "numerator": 2051,
+          "denominator": 6144,
+          "display_float": 0.3338216145833333
+        },
+        "proved_multiplier_energy_upper": {
+          "exact": "16801801/158329674399744",
+          "numerator": 16801801,
+          "denominator": 158329674399744,
+          "display_float": 1.0611909020654922e-07
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "2783138807808/1407271577624495",
+          "numerator": 2783138807808,
+          "denominator": 1407271577624495,
+          "display_float": 0.0019776842310039395
+        },
+        "proved_combined_upper": {
+          "exact": "440677105946532536998116647/222812850677300357290556129280",
+          "numerator": 440677105946532536998116647,
+          "denominator": 222812850677300357290556129280,
+          "display_float": 0.001977790350094146
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 12,
+        "delta": {
+          "exact": "1/4096",
+          "numerator": 1,
+          "denominator": 4096,
+          "display_float": 0.000244140625
+        },
+        "symmetric_support_measure": {
+          "exact": "1/1024",
+          "numerator": 1,
+          "denominator": 1024,
+          "display_float": 0.0009765625
+        },
+        "support_radius_rho": {
+          "exact": "4099/12288",
+          "numerator": 4099,
+          "denominator": 12288,
+          "display_float": 0.3335774739583333
+        },
+        "proved_multiplier_energy_upper": {
+          "exact": "67158025/2533274790395904",
+          "numerator": 67158025,
+          "denominator": 2533274790395904,
+          "display_float": 2.6510359339858446e-08
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "22265110462464/22517172596719535",
+          "numerator": 22265110462464,
+          "denominator": 22517172596719535,
+          "display_float": 0.000988805782201436
+        },
+        "proved_combined_upper": {
+          "exact": "56405155248780318580540865831/57042185690263073415754300784640",
+          "numerator": 56405155248780318580540865831,
+          "denominator": 57042185690263073415754300784640,
+          "display_float": 0.0009888322925607758
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 13,
+        "delta": {
+          "exact": "1/8192",
+          "numerator": 1,
+          "denominator": 8192,
+          "display_float": 0.0001220703125
+        },
+        "symmetric_support_measure": {
+          "exact": "1/2048",
+          "numerator": 1,
+          "denominator": 2048,
+          "display_float": 0.00048828125
+        },
+        "support_radius_rho": {
+          "exact": "8195/24576",
+          "numerator": 8195,
+          "denominator": 24576,
+          "display_float": 0.3334554036458333
+        },
+        "proved_multiplier_energy_upper": {
+          "exact": "268533769/40532396646334464",
+          "numerator": 268533769,
+          "denominator": 40532396646334464,
+          "display_float": 6.625163849626069e-09
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "178120883699712/360281369495109551",
+          "numerator": 178120883699712,
+          "denominator": 360281369495109551,
+          "display_float": 0.0004943938232202423
+        },
+        "proved_combined_upper": {
+          "exact": "7219763056826388766606490402087/14603067372660366226321778266865664",
+          "numerator": 7219763056826388766606490402087,
+          "denominator": 14603067372660366226321778266865664,
+          "display_float": 0.000494400448384092
+        },
+        "certificate_verified": true
+      }
+    ],
+    "sharp_boundary": "The theorem requires an interior zero. If w>=c>0 everywhere, <M_w f,f>>=c||f||^2 gives trivial coercivity; an endpoint-only zero is not decided by this construction.",
+    "algorithm": "exact Fraction bounds for w(x)=(x^2-1/9)^2 on normalized symmetric indicator concentrations",
+    "complexity": "O(E) exact rational operations for E replay rows; the all-w conclusion is analytic",
+    "random_seed": null,
+    "transcript_sha256": "e79a0c6278dedf06d33bbd79125d059adf86c1f2ae1f252afbae78daf5d3ffcd",
+    "aggregate": {
+      "all_continuous_even_nonnegative_interior_zero_multipliers_excluded": true,
+      "noncompactness_proved": true,
+      "strictly_positive_multiplier_excluded": false,
+      "endpoint_only_zero_excluded": false,
+      "actual_weil_form_controlled": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "11 exact rational rows replay w=(x^2-1/9)^2; the universal conclusion is analytic, not inferred from the finite rows.",
+  "logical_limit": "The no-go concerns an abstract raw-moment model and local multiplication operators; it neither identifies the actual Weil admissible closure nor proves a sign criterion equivalent to RH.",
+  "route_decision": {
+    "discard": "using any continuous nonnegative local multiplier with an interior zero as a full-unit-sphere coercivity repair for the raw moment form",
+    "parked": [
+      "endpoint-only zero multipliers and strictly positive local floors"
+    ],
+    "retain": "a genuinely nonlocal arithmetic kernel that controls interior concentration without assuming a positive local floor",
+    "next_single_lemma": "NonlocalArithmeticWeilKernelExcludesInteriorConcentration"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T250",
+        "label": "NoncompactMultiplierLegendreEscapeInsufficiencyNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-T251",
+        "label": "InteriorZeroLocalMultiplierCoercivityNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-REJECT251",
+        "label": "InteriorZeroLocalMultiplierCanBeCoerciveOnTheWholeUnitSphere",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-OPEN251",
+        "label": "NonlocalArithmeticWeilKernelExcludesInteriorConcentration",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T250",
+        "RH-T251"
+      ],
+      [
+        "RH-T251",
+        "RH-REJECT251"
+      ],
+      [
+        "RH-T251",
+        "RH-OPEN251"
+      ]
+    ],
+    "resolution_path": [
+      "RH-T250",
+      "RH-T251",
+      "RH-OPEN251"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No RH proof or disproof; one exact analytic no-go theorem for every continuous even nonnegative local multiplier having an interior zero."
+}

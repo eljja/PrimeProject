@@ -15,10 +15,27 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Preserved research boundary: TICKET-249
-## Current research boundary: TICKET-250
+## Current research boundary: TICKET-251
 
 The current machine-readable boundary is
+`data/open-problem/ticket251-interior-crt-cyclotomic-righteven.json`.
+TICKET-251 proves three exact route no-go theorems and one elementary
+partial theorem while resolving none of the parent conjectures:
+
+- every continuous even nonnegative local RH multiplier with an interior zero admits concentration escape;
+- arbitrary finite-prime Collatz Fermat-quotient targets are CRT-interpolable;
+- cyclotomic-unit integer vectors have full Fourier support and nonzero norm but two-frequency energy concentration;
+- every right-even twin active pair has odd exponent k and prime base p=7 mod 8; this congruence alone cannot force k=1.
+
+The next single lemmas are the nonlocal Weil concentration bound, canonical
+distribution beyond finite CRT, exclusion of cyclotomic concentration for
+actual prime counts, and an all-X exclusion for x^2-2=y^k with odd k>=3. All statuses remain
+`open_not_proven`. Reports: [English](interior-crt-cyclotomic-righteven.md)
+and [한국어](interior-crt-cyclotomic-righteven.ko.md).
+
+## Preserved research boundary: TICKET-250
+
+The preserved machine-readable boundary is
 `data/open-problem/ticket250-multiplier-lift-galois-evenright.json`.
 TICKET-250 proves two partial theorems and two exact route no-go results while
 resolving none of the parent conjectures:
@@ -42,6 +59,8 @@ are acyclic with one open frontier and every parent status is
 Reports: [English](multiplier-lift-galois-evenright.md) and
 [한국어](multiplier-lift-galois-evenright.ko.md).
 
+
+## Preserved research boundary: TICKET-249
 
 The current machine-readable boundary is
 `data/open-problem/ticket249-compact-projective-parseval-lebesgue.json`.

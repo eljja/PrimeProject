@@ -191,18 +191,27 @@ class Ticket250MultiplierLiftGaloisEvenRightTests(unittest.TestCase):
         committed = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(committed, build_audit())
 
-    def test_persistent_state_advances_exactly_one_ticket(self) -> None:
+    def test_persistent_state_preserves_ticket250_history(self) -> None:
         state = json.loads(
             (ROOT / "data/open-problem/four-problem-research-state.json").read_text(
                 encoding="utf-8"
             )
         )
-        self.assertEqual(state["ticket"], 250)
-        self.assertEqual(state["parent_ticket"], 249)
+        self.assertGreaterEqual(state["ticket"], 250)
+        self.assertEqual(state["parent_ticket"], state["ticket"] - 1)
         self.assertEqual(state["resolved_count"], 0)
         self.assertEqual(state["candidate_resolution_count"], 0)
         self.assertFalse(state["program_complete"])
-        self.assertEqual(state["deep_focus_problem"], "goldbach")
+        if state["ticket"] == 250:
+            self.assertEqual(state["deep_focus_problem"], "goldbach")
+        historical = {
+            "riemann": "NoncompactMultiplierLegendreEscapeInsufficiencyNoGo",
+            "collatz": "LocalFermatQuotientLiftTransitivityNoGo",
+            "goldbach": "PrimeModulusRationalFourierFullSupportAndNormBarrier",
+            "twin_prime": "AllBaseEvenLeftRightActiveClassification",
+        }
+        for problem_key, theorem in historical.items():
+            self.assertIn(theorem, state["problems"][problem_key]["established_results"])
         self.assertTrue(
             all(problem["stagnation_count"] == 0 for problem in state["problems"].values())
         )

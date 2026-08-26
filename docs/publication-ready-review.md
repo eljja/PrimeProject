@@ -582,3 +582,18 @@ promotion of local lift transitivity to canonical Collatz occurrence,
 promotion of a nonzero Galois norm to Goldbach anti-concentration, and
 promotion of even-left classification to an odd-left or Type-II bound.
 Resolution and candidate-resolution counts are zero.
+## TICKET-251 publication boundary
+
+TICKET-251 adds three exact route no-go theorems and one elementary
+partial theorem. Allowed `exact_no_go` wording is limited to interior-zero
+continuous nonnegative local multipliers in the stated raw-moment model,
+finite-prime CRT interpolation of noncanonical Fermat-quotient lifts, and the
+cyclotomic-unit nonnegative integer residue-vector countermodel. Allowed
+`partial_theorem` wording is limited to the elementary right-even modulo-eight
+constraint: a solution forces odd `k` and `p=7 mod 8`, while the congruence
+alone cannot force `k=1`. The withdrawn `x^2-2=y^n` source is not a dependency. Blocked wording includes every
+parent-conjecture proof or disproof, identification of the local multiplier
+model with the actual Weil form, promotion of finite-prime interpolation to
+canonical cross-prime distribution, identification of the cyclotomic vectors
+with actual prime counts, any claim that modulo eight excludes odd composite
+left exponents, and any all-X `k=1` classification. Resolution and candidate-resolution counts are zero.

@@ -160,15 +160,27 @@ def verify_ticket250_structure() -> str | None:
             encoding="utf-8"
         )
     )
+    current_ticket = state.get("ticket")
     if (
-        state.get("ticket") != 250
-        or state.get("parent_ticket") != 249
-        or state.get("deep_focus_problem") != "goldbach"
+        not isinstance(current_ticket, int)
+        or current_ticket < 250
+        or state.get("parent_ticket") != current_ticket - 1
         or state.get("resolved_count") != 0
         or state.get("candidate_resolution_count") != 0
         or state.get("program_complete")
     ):
         return "TICKET-250 persistent research state changed"
+    if current_ticket == 250 and state.get("deep_focus_problem") != "goldbach":
+        return "TICKET-250 deep-focus boundary changed"
+    historical = {
+        "riemann": "NoncompactMultiplierLegendreEscapeInsufficiencyNoGo",
+        "collatz": "LocalFermatQuotientLiftTransitivityNoGo",
+        "goldbach": "PrimeModulusRationalFourierFullSupportAndNormBarrier",
+        "twin_prime": "AllBaseEvenLeftRightActiveClassification",
+    }
+    for problem_key, theorem in historical.items():
+        if theorem not in state.get("problems", {}).get(problem_key, {}).get("established_results", []):
+            return f"TICKET-250 result missing from persistent history: {theorem}"
     for report in (
         ROOT / "docs/multiplier-lift-galois-evenright.md",
         ROOT / "docs/multiplier-lift-galois-evenright.ko.md",

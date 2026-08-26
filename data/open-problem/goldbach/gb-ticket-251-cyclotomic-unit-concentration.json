@@ -1,0 +1,1428 @@
+{
+  "schema": "primeproject.ticket251-interior-crt-cyclotomic-righteven.v1",
+  "generated_at": "2026-08-27T04:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-251",
+  "theorem_name": "CyclotomicUnitFullSupportEnergyConcentrationNoGo",
+  "declared_proposition": "Fix an odd prime q>=5 and m>=1. Let c_r=sum_{0<=j<=m, j=r mod q}(-1)^j binom(m,j), C=-min_r c_r, n_r=C+c_r, N=sum_r n_r, and Delta_r=q n_r-N. Then n_r are nonnegative integers, sum Delta_r=0, and for every reduced frequency a, F_m(a)=sum_r Delta_r zeta_q^(ar)=q(1-zeta_q^a)^m is nonzero. Its Galois norm is q^(q-1+m), while the Fourier energy outside the maximal conjugate pair a=(q±1)/2 divided by the energy on that pair is at most ((q-3)/2)rho_q^m ->0, where rho_q=cos^2(3pi/(2q))/cos^2(pi/(2q))<1.",
+  "mathematical_argument": "Reduction of (1-X)^m modulo X^q-1 gives the integers c_r and sum c_r=(1-1)^m=0; the vector is nonzero, so C>0 and n is nonnegative. Since N=qC, Delta_r=qc_r. Evaluation at zeta_q^a gives F_m(a)=q(1-zeta_q^a)^m, hence full support. Multiplying over a=1,...,q-1 and using product_a(1-zeta_q^a)=q gives the exact norm. Also |F_m(a)|^2=q^2(4sin^2(pi a/q))^m. The maximal values form the stated pair; every other value is bounded by the second maximum cos^2(3pi/(2q)), proving the ratio bound. Thus centeredness, integrality, nonnegativity, exact full support, and a nonzero norm do not imply quantitative Fourier-energy anti-concentration.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Fix an odd prime q>=5 and m>=1. Let c_r=sum_{0<=j<=m, j=r mod q}(-1)^j binom(m,j), C=-min_r c_r, n_r=C+c_r, N=sum_r n_r, and Delta_r=q n_r-N. Then n_r are nonnegative integers, sum Delta_r=0, and for every reduced frequency a, F_m(a)=sum_r Delta_r zeta_q^(ar)=q(1-zeta_q^a)^m is nonzero. Its Galois norm is q^(q-1+m), while the Fourier energy outside the maximal conjugate pair a=(q±1)/2 divided by the energy on that pair is at most ((q-3)/2)rho_q^m ->0, where rho_q=cos^2(3pi/(2q))/cos^2(pi/(2q))<1.",
+    "proof": "Reduction of (1-X)^m modulo X^q-1 gives the integers c_r and sum c_r=(1-1)^m=0; the vector is nonzero, so C>0 and n is nonnegative. Since N=qC, Delta_r=qc_r. Evaluation at zeta_q^a gives F_m(a)=q(1-zeta_q^a)^m, hence full support. Multiplying over a=1,...,q-1 and using product_a(1-zeta_q^a)=q gives the exact norm. Also |F_m(a)|^2=q^2(4sin^2(pi a/q))^m. The maximal values form the stated pair; every other value is bounded by the second maximum cos^2(3pi/(2q)), proving the ratio bound. Thus centeredness, integrality, nonnegativity, exact full support, and a nonzero norm do not imply quantitative Fourier-energy anti-concentration.",
+    "exact_cyclotomic_unit_rows": [
+      {
+        "prime_modulus_q": 5,
+        "exponent_m": 1,
+        "cyclic_coefficients_c": [
+          1,
+          -1,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          2,
+          0,
+          1,
+          1,
+          1
+        ],
+        "centered_coefficients_Delta": [
+          5,
+          -5,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "250",
+        "exact_galois_norm": "3125",
+        "outside_pair_to_max_pair_energy_upper_display": "3.819660112501052000000000E-1",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 5,
+        "exponent_m": 2,
+        "cyclic_coefficients_c": [
+          1,
+          -2,
+          1,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          3,
+          0,
+          3,
+          2,
+          2
+        ],
+        "centered_coefficients_Delta": [
+          5,
+          -10,
+          5,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "750",
+        "exact_galois_norm": "15625",
+        "outside_pair_to_max_pair_energy_upper_display": "1.458980337503154922112670E-1",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 5,
+        "exponent_m": 3,
+        "cyclic_coefficients_c": [
+          1,
+          -3,
+          3,
+          -1,
+          0
+        ],
+        "nonnegative_counts_n": [
+          4,
+          0,
+          6,
+          2,
+          3
+        ],
+        "centered_coefficients_Delta": [
+          5,
+          -15,
+          15,
+          -5,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "2500",
+        "exact_galois_norm": "78125",
+        "outside_pair_to_max_pair_energy_upper_display": "5.572809000084123546216864E-2",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 5,
+        "exponent_m": 5,
+        "cyclic_coefficients_c": [
+          0,
+          -5,
+          10,
+          -10,
+          5
+        ],
+        "nonnegative_counts_n": [
+          10,
+          5,
+          20,
+          0,
+          15
+        ],
+        "centered_coefficients_Delta": [
+          0,
+          -25,
+          50,
+          -50,
+          25
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "31250",
+        "exact_galois_norm": "1953125",
+        "outside_pair_to_max_pair_energy_upper_display": "8.130618755783353878195229E-3",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 5,
+        "exponent_m": 8,
+        "cyclic_coefficients_c": [
+          -55,
+          20,
+          20,
+          -55,
+          70
+        ],
+        "nonnegative_counts_n": [
+          0,
+          75,
+          75,
+          0,
+          125
+        ],
+        "centered_coefficients_Delta": [
+          -275,
+          100,
+          100,
+          -275,
+          350
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "1468750",
+        "exact_galois_norm": "244140625",
+        "outside_pair_to_max_pair_energy_upper_display": "4.531038537848225302526511E-4",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 5,
+        "exponent_m": 13,
+        "cyclic_coefficients_c": [
+          -1000,
+          1625,
+          -1625,
+          1000,
+          0
+        ],
+        "nonnegative_counts_n": [
+          625,
+          3250,
+          0,
+          2625,
+          1625
+        ],
+        "centered_coefficients_Delta": [
+          -5000,
+          8125,
+          -8125,
+          5000,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "910156250",
+        "exact_galois_norm": "762939453125",
+        "outside_pair_to_max_pair_energy_upper_display": "3.684014691900596459906305E-6",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 5,
+        "exponent_m": 21,
+        "cyclic_coefficients_c": [
+          278125,
+          -278125,
+          171875,
+          0,
+          -171875
+        ],
+        "nonnegative_counts_n": [
+          556250,
+          0,
+          450000,
+          278125,
+          106250
+        ],
+        "centered_coefficients_Delta": [
+          1390625,
+          -1390625,
+          859375,
+          0,
+          -859375
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "26723632812500",
+        "exact_galois_norm": "298023223876953125",
+        "outside_pair_to_max_pair_energy_upper_display": "1.669241254300065880967074E-9",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 5,
+        "exponent_m": 34,
+        "cyclic_coefficients_c": [
+          -385546875,
+          1009375000,
+          -1247656250,
+          1009375000,
+          -385546875
+        ],
+        "nonnegative_counts_n": [
+          862109375,
+          2257031250,
+          0,
+          2257031250,
+          862109375
+        ],
+        "centered_coefficients_Delta": [
+          -1927734375,
+          5046875000,
+          -6238281250,
+          5046875000,
+          -1927734375
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "486451835632324218750",
+        "exact_galois_norm": "363797880709171295166015625",
+        "outside_pair_to_max_pair_energy_upper_display": "6.149509305168022392102757E-15",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "exponent_m": 1,
+        "cyclic_coefficients_c": [
+          1,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          2,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "centered_coefficients_Delta": [
+          7,
+          -7,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "686",
+        "exact_galois_norm": "823543",
+        "outside_pair_to_max_pair_energy_upper_display": "1.286208264215581200000000E+0",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "exponent_m": 2,
+        "cyclic_coefficients_c": [
+          1,
+          -2,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          3,
+          0,
+          3,
+          2,
+          2,
+          2,
+          2
+        ],
+        "centered_coefficients_Delta": [
+          7,
+          -14,
+          7,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "2058",
+        "exact_galois_norm": "5764801",
+        "outside_pair_to_max_pair_energy_upper_display": "8.271658494682291690262744E-1",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "exponent_m": 3,
+        "cyclic_coefficients_c": [
+          1,
+          -3,
+          3,
+          -1,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          4,
+          0,
+          6,
+          2,
+          3,
+          3,
+          3
+        ],
+        "centered_coefficients_Delta": [
+          7,
+          -21,
+          21,
+          -7,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "6860",
+        "exact_galois_norm": "40353607",
+        "outside_pair_to_max_pair_energy_upper_display": "5.319537757314688845374136E-1",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "exponent_m": 5,
+        "cyclic_coefficients_c": [
+          1,
+          -5,
+          10,
+          -10,
+          5,
+          -1,
+          0
+        ],
+        "nonnegative_counts_n": [
+          11,
+          5,
+          20,
+          0,
+          15,
+          9,
+          10
+        ],
+        "centered_coefficients_Delta": [
+          7,
+          -35,
+          70,
+          -70,
+          35,
+          -7,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "86436",
+        "exact_galois_norm": "1977326743",
+        "outside_pair_to_max_pair_energy_upper_display": "2.200069983903761651333038E-1",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "exponent_m": 8,
+        "cyclic_coefficients_c": [
+          -7,
+          -7,
+          28,
+          -56,
+          70,
+          -56,
+          28
+        ],
+        "nonnegative_counts_n": [
+          49,
+          49,
+          84,
+          0,
+          126,
+          0,
+          84
+        ],
+        "centered_coefficients_Delta": [
+          -49,
+          -49,
+          196,
+          -392,
+          490,
+          -392,
+          196
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "4403434",
+        "exact_galois_norm": "678223072849",
+        "outside_pair_to_max_pair_energy_upper_display": "5.851677674055389920785866E-2",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "exponent_m": 13,
+        "cyclic_coefficients_c": [
+          -1715,
+          1274,
+          -637,
+          0,
+          637,
+          -1274,
+          1715
+        ],
+        "nonnegative_counts_n": [
+          0,
+          2989,
+          1078,
+          1715,
+          2352,
+          441,
+          3430
+        ],
+        "centered_coefficients_Delta": [
+          -12005,
+          8918,
+          -4459,
+          0,
+          4459,
+          -8918,
+          12005
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "3409468020",
+        "exact_galois_norm": "11398895185373143",
+        "outside_pair_to_max_pair_energy_upper_display": "6.437050203084521560927349E-3",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "exponent_m": 21,
+        "cyclic_coefficients_c": [
+          0,
+          149205,
+          -273371,
+          345401,
+          -345401,
+          273371,
+          -149205
+        ],
+        "nonnegative_counts_n": [
+          345401,
+          494606,
+          72030,
+          690802,
+          0,
+          618772,
+          196196
+        ],
+        "centered_coefficients_Delta": [
+          0,
+          1044435,
+          -1913597,
+          2417807,
+          -2417807,
+          1913597,
+          -1044435
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "148378840916362",
+        "exact_galois_norm": "65712362363534280139543",
+        "outside_pair_to_max_pair_energy_upper_display": "1.883377148008170422694685E-4",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "exponent_m": 34,
+        "cyclic_coefficients_c": [
+          459957169,
+          -1289735566,
+          1865459351,
+          -2071361908,
+          1865459351,
+          -1289735566,
+          459957169
+        ],
+        "nonnegative_counts_n": [
+          2531319077,
+          781626342,
+          3936821259,
+          0,
+          3936821259,
+          781626342,
+          2531319077
+        ],
+        "centered_coefficients_Delta": [
+          3219700183,
+          -9028148962,
+          13058215457,
+          -14499533356,
+          13058215457,
+          -9028148962,
+          3219700183
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "5145128346970975176100",
+        "exact_galois_norm": "6366805760909027985741435139224001",
+        "outside_pair_to_max_pair_energy_upper_display": "6.061696626535370220714983E-7",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 11,
+        "exponent_m": 1,
+        "cyclic_coefficients_c": [
+          1,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          2,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "centered_coefficients_Delta": [
+          11,
+          -11,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "2662",
+        "exact_galois_norm": "285311670611",
+        "outside_pair_to_max_pair_energy_upper_display": "3.378140684817491600000000E+0",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 11,
+        "exponent_m": 2,
+        "cyclic_coefficients_c": [
+          1,
+          -2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          3,
+          0,
+          3,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "centered_coefficients_Delta": [
+          11,
+          -22,
+          11,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "7986",
+        "exact_galois_norm": "3138428376721",
+        "outside_pair_to_max_pair_energy_upper_display": "2.852958621604797780561200E+0",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 11,
+        "exponent_m": 3,
+        "cyclic_coefficients_c": [
+          1,
+          -3,
+          3,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          4,
+          0,
+          6,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "centered_coefficients_Delta": [
+          11,
+          -33,
+          33,
+          -11,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "26620",
+        "exact_galois_norm": "34522712143931",
+        "outside_pair_to_max_pair_energy_upper_display": "2.409423897935999615104049E+0",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 11,
+        "exponent_m": 5,
+        "cyclic_coefficients_c": [
+          1,
+          -5,
+          10,
+          -10,
+          5,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          11,
+          5,
+          20,
+          0,
+          15,
+          9,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "centered_coefficients_Delta": [
+          11,
+          -55,
+          110,
+          -110,
+          55,
+          -11,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "335412",
+        "exact_galois_norm": "4177248169415651",
+        "outside_pair_to_max_pair_energy_upper_display": "1.718496670679287108516647E+0",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 11,
+        "exponent_m": 8,
+        "cyclic_coefficients_c": [
+          1,
+          -8,
+          28,
+          -56,
+          70,
+          -56,
+          28,
+          -8,
+          1,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          57,
+          48,
+          84,
+          0,
+          126,
+          0,
+          84,
+          48,
+          57,
+          56,
+          56
+        ],
+        "centered_coefficients_Delta": [
+          11,
+          -88,
+          308,
+          -616,
+          770,
+          -616,
+          308,
+          -88,
+          11,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "17129970",
+        "exact_galois_norm": "5559917313492231481",
+        "outside_pair_to_max_pair_energy_upper_display": "1.035146736714531451124361E+0",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 11,
+        "exponent_m": 13,
+        "cyclic_coefficients_c": [
+          -77,
+          0,
+          77,
+          -286,
+          715,
+          -1287,
+          1716,
+          -1716,
+          1287,
+          -715,
+          286
+        ],
+        "nonnegative_counts_n": [
+          1639,
+          1716,
+          1793,
+          1430,
+          2431,
+          429,
+          3432,
+          0,
+          3003,
+          1001,
+          2002
+        ],
+        "centered_coefficients_Delta": [
+          -847,
+          0,
+          847,
+          -3146,
+          7865,
+          -14157,
+          18876,
+          -18876,
+          14157,
+          -7865,
+          3146
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "13842333450",
+        "exact_galois_norm": "895430243255237372246531",
+        "outside_pair_to_max_pair_energy_upper_display": "4.447240551771127182601846E-1",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 11,
+        "exponent_m": 21,
+        "cyclic_coefficients_c": [
+          -352715,
+          293909,
+          -203280,
+          114950,
+          -48279,
+          0,
+          48279,
+          -114950,
+          203280,
+          -293909,
+          352715
+        ],
+        "nonnegative_counts_n": [
+          0,
+          646624,
+          149435,
+          467665,
+          304436,
+          352715,
+          400994,
+          237765,
+          555995,
+          58806,
+          705430
+        ],
+        "centered_coefficients_Delta": [
+          -3879865,
+          3232999,
+          -2236080,
+          1264450,
+          -531069,
+          0,
+          531069,
+          -1264450,
+          2236080,
+          -3232999,
+          3879865
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "712504249685514",
+        "exact_galois_norm": "191943424957750480504146841291811",
+        "outside_pair_to_max_pair_energy_upper_display": "1.150886636137603641766826E-1",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 11,
+        "exponent_m": 34,
+        "cyclic_coefficients_c": [
+          262256247,
+          262256247,
+          -796855059,
+          1339518400,
+          -1837764940,
+          2198303558,
+          -2330916412,
+          2198303558,
+          -1837764940,
+          1339518400,
+          -796855059
+        ],
+        "nonnegative_counts_n": [
+          2593172659,
+          2593172659,
+          1534061353,
+          3670434812,
+          493151472,
+          4529219970,
+          0,
+          4529219970,
+          493151472,
+          3670434812,
+          1534061353
+        ],
+        "centered_coefficients_Delta": [
+          2884818717,
+          2884818717,
+          -8765405649,
+          14734702400,
+          -20215414340,
+          24181339138,
+          -25640080532,
+          24181339138,
+          -20215414340,
+          14734702400,
+          -8765405649
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "35736205435185448983812",
+        "exact_galois_norm": "6626407607736641103900260617069258125403649041",
+        "outside_pair_to_max_pair_energy_upper_display": "1.279567429680653225212403E-2",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 13,
+        "exponent_m": 1,
+        "cyclic_coefficients_c": [
+          1,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          2,
+          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "centered_coefficients_Delta": [
+          13,
+          -13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "4394",
+        "exact_galois_norm": "302875106592253",
+        "outside_pair_to_max_pair_energy_upper_display": "4.435723908011059500000000E+0",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 13,
+        "exponent_m": 2,
+        "cyclic_coefficients_c": [
+          1,
+          -2,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          3,
+          0,
+          3,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "centered_coefficients_Delta": [
+          13,
+          -26,
+          13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "13182",
+        "exact_galois_norm": "3937376385699289",
+        "outside_pair_to_max_pair_energy_upper_display": "3.935129317620181248224235E+0",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 13,
+        "exponent_m": 3,
+        "cyclic_coefficients_c": [
+          1,
+          -3,
+          3,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          4,
+          0,
+          6,
+          2,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        "centered_coefficients_Delta": [
+          13,
+          -39,
+          39,
+          -13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "43940",
+        "exact_galois_norm": "51185893014090757",
+        "outside_pair_to_max_pair_energy_upper_display": "3.491029439056616837745948E+0",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 13,
+        "exponent_m": 5,
+        "cyclic_coefficients_c": [
+          1,
+          -5,
+          10,
+          -10,
+          5,
+          -1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          11,
+          5,
+          20,
+          0,
+          15,
+          9,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        "centered_coefficients_Delta": [
+          13,
+          -65,
+          130,
+          -130,
+          65,
+          -13,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "553644",
+        "exact_galois_norm": "8650415919381337933",
+        "outside_pair_to_max_pair_energy_upper_display": "2.747530458861365747230319E+0",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 13,
+        "exponent_m": 8,
+        "cyclic_coefficients_c": [
+          1,
+          -8,
+          28,
+          -56,
+          70,
+          -56,
+          28,
+          -8,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        "nonnegative_counts_n": [
+          57,
+          48,
+          84,
+          0,
+          126,
+          0,
+          84,
+          48,
+          57,
+          56,
+          56,
+          56,
+          56
+        ],
+        "centered_coefficients_Delta": [
+          13,
+          -104,
+          364,
+          -728,
+          910,
+          -728,
+          364,
+          -104,
+          13,
+          0,
+          0,
+          0,
+          0
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "28275390",
+        "exact_galois_norm": "19004963774880799438801",
+        "outside_pair_to_max_pair_energy_upper_display": "1.918341943317952545903736E+0",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 13,
+        "exponent_m": 13,
+        "cyclic_coefficients_c": [
+          0,
+          -13,
+          78,
+          -286,
+          715,
+          -1287,
+          1716,
+          -1716,
+          1287,
+          -715,
+          286,
+          -78,
+          13
+        ],
+        "nonnegative_counts_n": [
+          1716,
+          1703,
+          1794,
+          1430,
+          2431,
+          429,
+          3432,
+          0,
+          3003,
+          1001,
+          2002,
+          1638,
+          1729
+        ],
+        "centered_coefficients_Delta": [
+          0,
+          -169,
+          1014,
+          -3718,
+          9295,
+          -16731,
+          22308,
+          -22308,
+          16731,
+          -9295,
+          3718,
+          -1014,
+          169
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "22850113806",
+        "exact_galois_norm": "7056410014866816666030739693",
+        "outside_pair_to_max_pair_energy_upper_display": "1.054140583955475647903698E+0",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 13,
+        "exponent_m": 21,
+        "cyclic_coefficients_c": [
+          -203489,
+          116259,
+          -54054,
+          19019,
+          0,
+          -19019,
+          54054,
+          -116259,
+          203489,
+          -293930,
+          352716,
+          -352716,
+          293930
+        ],
+        "nonnegative_counts_n": [
+          149227,
+          468975,
+          298662,
+          371735,
+          352716,
+          333697,
+          406770,
+          236457,
+          556205,
+          58786,
+          705432,
+          0,
+          646646
+        ],
+        "centered_coefficients_Delta": [
+          -2645357,
+          1511367,
+          -702702,
+          247247,
+          0,
+          -247247,
+          702702,
+          -1511367,
+          2645357,
+          -3821090,
+          4585308,
+          -4585308,
+          3821090
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "1182033925511790",
+        "exact_galois_norm": "5756130429098929077956071497934208653",
+        "outside_pair_to_max_pair_energy_upper_display": "4.044404192710936924595718E-1",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 13,
+        "exponent_m": 34,
+        "cyclic_coefficients_c": [
+          -909827555,
+          1386595990,
+          -1854622055,
+          2203677190,
+          -2333513468,
+          2203677190,
+          -1854622055,
+          1386595990,
+          -909827555,
+          495902784,
+          -154969620,
+          -154969620,
+          495902784
+        ],
+        "nonnegative_counts_n": [
+          1423685913,
+          3720109458,
+          478891413,
+          4537190658,
+          0,
+          4537190658,
+          478891413,
+          3720109458,
+          1423685913,
+          2829416252,
+          2178543848,
+          2178543848,
+          2829416252
+        ],
+        "centered_coefficients_Delta": [
+          -11827758215,
+          18025747870,
+          -24110086715,
+          28647803470,
+          -30335675084,
+          28647803470,
+          -24110086715,
+          18025747870,
+          -11827758215,
+          6446736192,
+          -2014605060,
+          -2014605060,
+          6446736192
+        ],
+        "exact_reduced_fourier_energy_by_parseval": "61686612213301465604292",
+        "exact_galois_norm": "1743388617272249143997555461487119439669521095365209",
+        "outside_pair_to_max_pair_energy_upper_display": "8.526741194912562233168944E-2",
+        "floating_value_role": "display_only_nonproof",
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "exact cyclic binomial folding, integer centering, Parseval integer, and cyclotomic norm; floating trigonometry is display-only",
+    "complexity": "O(sum_(q,m)(q+m)) integer operations for replay rows; the concentration limit is analytic",
+    "random_seed": null,
+    "transcript_sha256": "e3c9e81aab8500e964f265aa6ba8bd91105d40f67e1f5c7938f63bb88bcaa857",
+    "aggregate": {
+      "nonnegative_integer_full_support_concentration_family_proved": true,
+      "exact_norm_formula_proved": true,
+      "structural_only_quantitative_anti_concentration_refuted": true,
+      "actual_prime_count_vectors_excluded_from_family": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "32 exact integer rows replay the family; trigonometric decimals are display-only and the all-m limit is analytic.",
+  "logical_limit": "The countermodels are admissible nonnegative integer residue vectors, not proved realizable as actual prime-count vectors; excluding them arithmetically remains open and Goldbach is untouched.",
+  "route_decision": {
+    "discard": "deriving a quantitative Fourier-energy anti-concentration bound from centeredness, integrality, nonnegativity, exact reduced-frequency support, and a nonzero Galois norm alone",
+    "parked": [],
+    "retain": "prime-specific arithmetic constraints strong enough to rule out the cyclotomic-unit concentration family for actual prime-count or logarithmically weighted residue vectors",
+    "next_single_lemma": "ActualPrimeCountResidueVectorsExcludeCyclotomicUnitConcentration"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T250",
+        "label": "PrimeModulusRationalFourierFullSupportAndNormBarrier",
+        "status": "proved"
+      },
+      {
+        "id": "GB-T251",
+        "label": "CyclotomicUnitFullSupportEnergyConcentrationNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "GB-REJECT251",
+        "label": "StructuralFullSupportAndNonzeroNormForceQuantitativeEnergyAnticoncentration",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN251",
+        "label": "ActualPrimeCountResidueVectorsExcludeCyclotomicUnitConcentration",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T250",
+        "GB-T251"
+      ],
+      [
+        "GB-T251",
+        "GB-REJECT251"
+      ],
+      [
+        "GB-T251",
+        "GB-OPEN251"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T250",
+      "GB-T251",
+      "GB-OPEN251"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; one exact countermodel family closes a structural-only anti-concentration route."
+}
