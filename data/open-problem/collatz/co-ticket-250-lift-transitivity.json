@@ -1,0 +1,243 @@
+{
+  "schema": "primeproject.ticket250-multiplier-lift-galois-evenright.v1",
+  "generated_at": "2026-08-27T01:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-250",
+  "theorem_name": "LocalFermatQuotientLiftTransitivityNoGo",
+  "declared_proposition": "Let q>5 be prime. For k,l in F_q define A_k=2+kq and B_l=3+lq modulo q^2, and let F_q(a)=((a^(q-1)-1)/q) mod q. Then F_q(A_k)=F_q(2)-k/2 and F_q(B_l)=F_q(3)-l/3. Hence the map (k,l)->(F_q(A_k),F_q(B_l)) is a bijection F_q^2->F_q^2. Exactly q-1 lift pairs hit the separated projective line [3:5], one for each t in F_q^*. Therefore slope [3:5] cannot be excluded using only the residue classes 2,3 modulo q and reasoning invariant under changing their lifts modulo q^2; the canonical lifts k=l=0 carry essential cross-prime arithmetic information.",
+  "mathematical_argument": "The binomial expansion modulo q^2 gives (a+kq)^(q-1)=a^(q-1)+(q-1)a^(q-2)kq mod q^2. After division by q, F_q(a+kq)=F_q(a)+(q-1)a^(q-2)k=F_q(a)-k/a mod q. The coefficient -1/a is nonzero, so each coordinate map is affine bijective. For a given nonzero t the unique lifts are k=2(F_q(2)-3t) and l=3(F_q(3)-5t). These give the q-1 separated targets. The theorem does not decide whether the fixed integer representatives 2 and 3 ever hit [3:5] as q varies.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let q>5 be prime. For k,l in F_q define A_k=2+kq and B_l=3+lq modulo q^2, and let F_q(a)=((a^(q-1)-1)/q) mod q. Then F_q(A_k)=F_q(2)-k/2 and F_q(B_l)=F_q(3)-l/3. Hence the map (k,l)->(F_q(A_k),F_q(B_l)) is a bijection F_q^2->F_q^2. Exactly q-1 lift pairs hit the separated projective line [3:5], one for each t in F_q^*. Therefore slope [3:5] cannot be excluded using only the residue classes 2,3 modulo q and reasoning invariant under changing their lifts modulo q^2; the canonical lifts k=l=0 carry essential cross-prime arithmetic information.",
+    "proof": "The binomial expansion modulo q^2 gives (a+kq)^(q-1)=a^(q-1)+(q-1)a^(q-2)kq mod q^2. After division by q, F_q(a+kq)=F_q(a)+(q-1)a^(q-2)k=F_q(a)-k/a mod q. The coefficient -1/a is nonzero, so each coordinate map is affine bijective. For a given nonzero t the unique lifts are k=2(F_q(2)-3t) and l=3(F_q(3)-5t). These give the q-1 separated targets. The theorem does not decide whether the fixed integer representatives 2 and 3 ever hit [3:5] as q varies.",
+    "exact_lift_field_rows": [
+      {
+        "prime_q": 7,
+        "lift_pairs_checked": 49,
+        "fermat_coordinate_pairs_reached": 49,
+        "separated_projective_lift_pairs": 6,
+        "expected_separated_pairs": 6,
+        "canonical_lift_is_separated": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "lift_pairs_checked": 121,
+        "fermat_coordinate_pairs_reached": 121,
+        "separated_projective_lift_pairs": 10,
+        "expected_separated_pairs": 10,
+        "canonical_lift_is_separated": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "lift_pairs_checked": 529,
+        "fermat_coordinate_pairs_reached": 529,
+        "separated_projective_lift_pairs": 22,
+        "expected_separated_pairs": 22,
+        "canonical_lift_is_separated": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 101,
+        "lift_pairs_checked": 10201,
+        "fermat_coordinate_pairs_reached": 10201,
+        "separated_projective_lift_pairs": 100,
+        "expected_separated_pairs": 100,
+        "canonical_lift_is_separated": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 251,
+        "lift_pairs_checked": 63001,
+        "fermat_coordinate_pairs_reached": 63001,
+        "separated_projective_lift_pairs": 250,
+        "expected_separated_pairs": 250,
+        "canonical_lift_is_separated": false,
+        "certificate_verified": true
+      }
+    ],
+    "exact_explicit_target_rows": [
+      {
+        "prime_q": 7,
+        "canonical_U": 2,
+        "canonical_V": 6,
+        "selected_explicit_target_lifts": [
+          {
+            "projective_parameter_t": 1,
+            "lift_k2": 5,
+            "lift_k3": 3,
+            "lifted_U": 3,
+            "lifted_V": 5
+          },
+          {
+            "projective_parameter_t": 6,
+            "lift_k2": 3,
+            "lift_k3": 5,
+            "lifted_U": 4,
+            "lifted_V": 2
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "canonical_U": 5,
+        "canonical_V": 0,
+        "selected_explicit_target_lifts": [
+          {
+            "projective_parameter_t": 1,
+            "lift_k2": 4,
+            "lift_k3": 7,
+            "lifted_U": 3,
+            "lifted_V": 5
+          },
+          {
+            "projective_parameter_t": 10,
+            "lift_k2": 5,
+            "lift_k3": 4,
+            "lifted_U": 8,
+            "lifted_V": 6
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "canonical_U": 17,
+        "canonical_V": 17,
+        "selected_explicit_target_lifts": [
+          {
+            "projective_parameter_t": 1,
+            "lift_k2": 5,
+            "lift_k3": 13,
+            "lifted_U": 3,
+            "lifted_V": 5
+          },
+          {
+            "projective_parameter_t": 22,
+            "lift_k2": 17,
+            "lift_k3": 20,
+            "lifted_U": 20,
+            "lifted_V": 18
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 101,
+        "canonical_U": 92,
+        "canonical_V": 85,
+        "selected_explicit_target_lifts": [
+          {
+            "projective_parameter_t": 1,
+            "lift_k2": 77,
+            "lift_k3": 38,
+            "lifted_U": 3,
+            "lifted_V": 5
+          },
+          {
+            "projective_parameter_t": 100,
+            "lift_k2": 89,
+            "lift_k3": 68,
+            "lifted_U": 98,
+            "lifted_V": 96
+          }
+        ],
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 251,
+        "canonical_U": 247,
+        "canonical_V": 29,
+        "selected_explicit_target_lifts": [
+          {
+            "projective_parameter_t": 1,
+            "lift_k2": 237,
+            "lift_k3": 72,
+            "lifted_U": 3,
+            "lifted_V": 5
+          },
+          {
+            "projective_parameter_t": 250,
+            "lift_k2": 249,
+            "lift_k3": 102,
+            "lifted_U": 248,
+            "lifted_V": 246
+          }
+        ],
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "exact modular exponentiation modulo q^2, affine lift formulas, and exhaustive q^2 lift-pair enumeration",
+    "complexity": "O(sum_q(q log q + q^2)) exact modular and finite-field operations",
+    "random_seed": null,
+    "transcript_sha256": "08ee2ee2080e127c58f7120621b39d20213ce2f6cf71987aaf01c7099ad528c2",
+    "aggregate": {
+      "lift_affine_transitivity_proved": true,
+      "separated_projective_lifts_exist_for_every_q": true,
+      "lift_invariant_local_avoidance_route_refuted": true,
+      "canonical_fixed_representative_occurrence_decided": false,
+      "collatz_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Exhaustive exact arithmetic checks 73,901 lift pairs over 5 fields; the theorem for every prime q is algebraic.",
+  "logical_limit": "Every local lift fiber contains the target, but the actual canonical lifts remain undecided across primes; this valuation branch still does not control all Collatz trajectories.",
+  "route_decision": {
+    "discard": "excluding projective slope [3:5] from the residue classes 2 and 3 modulo q using only lift-invariant local Fermat-quotient structure",
+    "parked": [
+      "all-prime occurrence or avoidance of the canonical projective point [3:5] without cross-prime distribution input"
+    ],
+    "retain": "arithmetic information tied to the canonical fixed integer representatives 2 and 3 as q varies",
+    "next_single_lemma": "CanonicalRepresentativeFermatQuotientDistributionBeyondLiftTransitivity"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T249",
+        "label": "SeparatedWieferichProjectiveSlopeCriterion",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T250",
+        "label": "LocalFermatQuotientLiftTransitivityNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-REJECT250",
+        "label": "LiftInvariantLocalStructureExcludesProjectiveSlopeThreeFifths",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN250",
+        "label": "CanonicalRepresentativeFermatQuotientDistributionBeyondLiftTransitivity",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T249",
+        "CO-T250"
+      ],
+      [
+        "CO-T250",
+        "CO-REJECT250"
+      ],
+      [
+        "CO-T250",
+        "CO-OPEN250"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T249",
+      "CO-T250",
+      "CO-OPEN250"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz proof, divergent orbit, or cycle; one exact no-go for a lift-invariant local avoidance route."
+}

@@ -568,3 +568,17 @@ global slope avoidance, identification of the abstract Goldbach spike with
 prime-count residuals, or promotion of left-active classification to a
 right-active or Type-II bound. Resolution and candidate-resolution counts are
 zero.
+
+## TICKET-250 publication boundary
+
+TICKET-250 adds two partial theorems and two exact route no-go results.
+Allowed `exact_no_go` wording is limited to the failure of Legendre-only
+noncompact RH validation and lift-invariant local Collatz slope avoidance.
+Allowed `partial_theorem` wording is limited to prime-modulus rational
+Fourier full support/nonzero norm and the complete even-left right-active
+classification `25 -> 27`. Blocked wording includes every parent-conjecture
+proof or disproof, identification of `M_(x^2)` with the actual Weil form,
+promotion of local lift transitivity to canonical Collatz occurrence,
+promotion of a nonzero Galois norm to Goldbach anti-concentration, and
+promotion of even-left classification to an odd-left or Type-II bound.
+Resolution and candidate-resolution counts are zero.

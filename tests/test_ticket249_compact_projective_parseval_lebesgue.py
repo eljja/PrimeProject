@@ -198,18 +198,27 @@ class Ticket249CompactProjectiveParsevalLebesgueTests(unittest.TestCase):
         committed = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(committed, build_audit())
 
-    def test_persistent_state_advances_exactly_one_ticket(self) -> None:
+    def test_persistent_state_preserves_ticket249_history(self) -> None:
         state = json.loads(
             (ROOT / "data/open-problem/four-problem-research-state.json").read_text(
                 encoding="utf-8"
             )
         )
-        self.assertEqual(state["ticket"], 249)
-        self.assertEqual(state["parent_ticket"], 248)
+        self.assertGreaterEqual(state["ticket"], 249)
+        self.assertEqual(state["parent_ticket"], state["ticket"] - 1)
         self.assertEqual(state["resolved_count"], 0)
         self.assertEqual(state["candidate_resolution_count"], 0)
         self.assertFalse(state["program_complete"])
-        self.assertEqual(state["deep_focus_problem"], "twin_prime")
+        if state["ticket"] == 249:
+            self.assertEqual(state["deep_focus_problem"], "twin_prime")
+        historical = {
+            "riemann": "CompactOffDiagonalMomentCoercivityNoGo",
+            "collatz": "SeparatedWieferichProjectiveSlopeCriterion",
+            "goldbach": "CenteredJetParsevalSpikeNoGo",
+            "twin_prime": "EvenExponentLeftActiveContaminationClassification",
+        }
+        for problem_key, theorem in historical.items():
+            self.assertIn(theorem, state["problems"][problem_key]["established_results"])
         self.assertTrue(
             all(problem["stagnation_count"] == 0 for problem in state["problems"].values())
         )

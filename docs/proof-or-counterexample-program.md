@@ -8905,3 +8905,28 @@ Machine artifact:
 `data/open-problem/ticket249-compact-projective-parseval-lebesgue.json`.
 Reports: [English](compact-projective-parseval-lebesgue.md) and
 [한국어](compact-projective-parseval-lebesgue.ko.md).
+
+## TICKET-250 continuation: multiplier escape, lift transitivity, Galois support, and even-left classification
+
+TICKET-250 attacks the four TICKET-249 frontiers and resolves no parent
+conjecture.
+
+| Track | Exact theorem now closed | Route discarded or retained | Next single lemma |
+|---|---|---|---|
+| RH | `NoncompactMultiplierLegendreEscapeInsufficiencyNoGo` | discard Legendre-only noncompact coercivity validation; retain simultaneous oscillation/concentration control | `ArithmeticWeilFormCoercivityAgainstOscillationAndConcentrationEscapes` |
+| Collatz | `LocalFermatQuotientLiftTransitivityNoGo` | discard lift-invariant local slope avoidance; retain canonical representatives | `CanonicalRepresentativeFermatQuotientDistributionBeyondLiftTransitivity` |
+| Goldbach | `PrimeModulusRationalFourierFullSupportAndNormBarrier` | exclude the exact rational two-spike model at prime q>=5; retain quantitative upper anti-concentration | `QuantitativePrimeCountFourierEnergyAntiConcentrationAtPrimeModuli` |
+| Twin | `AllBaseEvenLeftRightActiveClassification` | close all even-left support as `25 -> 27`; retain odd-left contamination | `ScaleLocalOddLeftRightActiveContaminationBound` |
+
+The infinite RH no-go is scoped to `M_(x^2)` on the full even L2 model, not
+the actual Weil form. The infinite Collatz no-go concerns all local lifts, not
+canonical occurrence across primes or all trajectories. The Goldbach theorem
+proves exact support and nonzero norm, not a quantitative upper saving or a
+log-weighted estimate. The Twin theorem uses the published D=2
+Lebesgue-Nagell classification as an explicit external node and gives no
+odd-left or Type-II estimate. All parent problems remain `open_not_proven`.
+
+Machine artifact:
+`data/open-problem/ticket250-multiplier-lift-galois-evenright.json`.
+Reports: [English](multiplier-lift-galois-evenright.md) and
+[한국어](multiplier-lift-galois-evenright.ko.md).

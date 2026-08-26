@@ -96,6 +96,11 @@ jobs:
           python scripts/verify_ticket249_structure.py
 
 
+      - name: Unit and structure check TICKET-250
+        run: |
+          python -m unittest tests.test_ticket250_multiplier_lift_galois_evenright
+          python scripts/verify_ticket250_structure.py
+
       - name: Verify open problem structure
         run: python scripts/verify_open_problem_structure.py
 
@@ -117,6 +122,7 @@ jobs:
           node --check scripts/verify_pages.cjs
           node --check assets/ticket248-open-problem.js
           node --check assets/ticket249-open-problem.js
+          node --check assets/ticket250-open-problem.js
 
       - name: Verify GitHub Pages surface
         run: node scripts/verify_pages.cjs

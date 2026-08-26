@@ -1,0 +1,188 @@
+{
+  "schema": "primeproject.ticket250-multiplier-lift-galois-evenright.v1",
+  "generated_at": "2026-08-27T01:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-250",
+  "theorem_name": "AllBaseEvenLeftRightActiveClassification",
+  "declared_proposition": "Let p,r be odd primes, m>=1, and ell>=2. If p^(2m)+2=r^ell, then (p,m,r,ell)=(5,1,3,3). Consequently every right-active shift-two prime-power pair whose left exponent is even is the single pair (25,27), with no base-3 exception: R_even-left(X)=1 for X>=25 and zero otherwise.",
+  "mathematical_argument": "Set x=p^m. If ell=2, then x and r are odd, so x^2+2=3 mod 8 while r^2=1 mod 8, impossible. If ell>=3, the D=2 Lebesgue-Nagell classification says that the only positive solution of x^2+2=y^ell is (x,y,ell)=(5,3,3). Thus p^m=5 and the claimed quadruple follows. Unlike TICKET-249, no assumption p!=3 is needed. The external Diophantine theorem is an explicit proof-DAG node.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let p,r be odd primes, m>=1, and ell>=2. If p^(2m)+2=r^ell, then (p,m,r,ell)=(5,1,3,3). Consequently every right-active shift-two prime-power pair whose left exponent is even is the single pair (25,27), with no base-3 exception: R_even-left(X)=1 for X>=25 and zero otherwise.",
+    "proof": "Set x=p^m. If ell=2, then x and r are odd, so x^2+2=3 mod 8 while r^2=1 mod 8, impossible. If ell>=3, the D=2 Lebesgue-Nagell classification says that the only positive solution of x^2+2=y^ell is (x,y,ell)=(5,3,3). Thus p^m=5 and the claimed quadruple follows. Unlike TICKET-249, no assumption p!=3 is needed. The external Diophantine theorem is an explicit proof-DAG node.",
+    "exact_scale_rows": [
+      {
+        "limit_X": 24,
+        "right_active_composite_pairs_R": 2,
+        "right_active_even_left_exponent": 0,
+        "right_active_odd_left_exponent": 2,
+        "proved_even_left_count": 0,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 25,
+        "right_active_composite_pairs_R": 3,
+        "right_active_even_left_exponent": 1,
+        "right_active_odd_left_exponent": 2,
+        "proved_even_left_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100,
+        "right_active_composite_pairs_R": 5,
+        "right_active_even_left_exponent": 1,
+        "right_active_odd_left_exponent": 4,
+        "proved_even_left_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 1000,
+        "right_active_composite_pairs_R": 10,
+        "right_active_even_left_exponent": 1,
+        "right_active_odd_left_exponent": 9,
+        "proved_even_left_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "right_active_composite_pairs_R": 18,
+        "right_active_even_left_exponent": 1,
+        "right_active_odd_left_exponent": 17,
+        "proved_even_left_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "right_active_composite_pairs_R": 37,
+        "right_active_even_left_exponent": 1,
+        "right_active_odd_left_exponent": 36,
+        "proved_even_left_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 1000000,
+        "right_active_composite_pairs_R": 66,
+        "right_active_even_left_exponent": 1,
+        "right_active_odd_left_exponent": 65,
+        "proved_even_left_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 5000000,
+        "right_active_composite_pairs_R": 110,
+        "right_active_even_left_exponent": 1,
+        "right_active_odd_left_exponent": 109,
+        "proved_even_left_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000000,
+        "right_active_composite_pairs_R": 136,
+        "right_active_even_left_exponent": 1,
+        "right_active_odd_left_exponent": 135,
+        "proved_even_left_count": 1,
+        "certificate_verified": true
+      }
+    ],
+    "selected_even_left_witnesses": [
+      {
+        "n": 25,
+        "n_plus_2": 27,
+        "left_base": 5,
+        "left_exponent": 2,
+        "right_base": 3,
+        "right_exponent": 3,
+        "left_exponent_even": true,
+        "classification_verified": true
+      }
+    ],
+    "external_theorem": {
+      "name": "Lebesgue-Nagell D=2 classification (Nagell)",
+      "statement_used": "For positive integers x,y and n>=3, x^2+2=y^n has only (x,y,n)=(5,3,3).",
+      "modern_primary_source": "https://doi.org/10.1112/S0010437X05001739",
+      "source_scope": "Bugeaud-Mignotte-Siksek solve x^2+D=y^n for 1<=D<=100; only D=2 is used."
+    },
+    "algorithm": "Eratosthenes sieve, exact odd-prime-power representation table, shift-two activation, and exponent-parity partition",
+    "complexity": "O(X log log X) time and O(X) support memory for the finite replay; the all-X classification is Diophantine",
+    "random_seed": null,
+    "transcript_sha256": "0cf8bd40771dca2cc7e0da725f6bffbaefb50d81c3d73d72731917568fa4dcda",
+    "aggregate": {
+      "all_base_even_left_right_active_classification_proved": true,
+      "unique_pair": [
+        25,
+        27
+      ],
+      "base_three_left_exception_eliminated": true,
+      "odd_left_right_active_contamination_controlled": false,
+      "scale_local_type_II_lower_bound_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Prime-power supports are enumerated at 9 scales through 10,000,000; the all-X result uses the explicit D=2 Lebesgue-Nagell external theorem.",
+  "logical_limit": "The full even-left right-active subclass is closed, but the 135 odd-left examples through ten million remain uncontrolled and no Type-II lower bound is proved.",
+  "route_decision": {
+    "discard": "retaining any right-active composite prime-power contaminant with even left exponent other than the pair 25 to 27, including a possible base-3 exception",
+    "parked": [],
+    "retain": "a scale-local bound for the remaining right-active pairs, all of which have odd left exponent except 25 to 27",
+    "next_single_lemma": "ScaleLocalOddLeftRightActiveContaminationBound"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T249",
+        "label": "EvenExponentLeftActiveContaminationClassification",
+        "status": "proved"
+      },
+      {
+        "id": "TP-EXT-NAGELL",
+        "label": "Lebesgue-Nagell D=2 classification",
+        "status": "external_theorem"
+      },
+      {
+        "id": "TP-T250",
+        "label": "AllBaseEvenLeftRightActiveClassification",
+        "status": "proved"
+      },
+      {
+        "id": "TP-REJECT250",
+        "label": "AdditionalEvenLeftRightActiveContaminantsOrBaseThreeExceptionExist",
+        "status": "disproved"
+      },
+      {
+        "id": "TP-OPEN250",
+        "label": "ScaleLocalOddLeftRightActiveContaminationBound",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-EXT-NAGELL",
+        "TP-T250"
+      ],
+      [
+        "TP-T249",
+        "TP-T250"
+      ],
+      [
+        "TP-T250",
+        "TP-REJECT250"
+      ],
+      [
+        "TP-T250",
+        "TP-OPEN250"
+      ]
+    ],
+    "resolution_path": [
+      "TP-T249",
+      "TP-EXT-NAGELL",
+      "TP-T250",
+      "TP-OPEN250"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No twin-prime proof or counterexample; one strengthened all-base classification of a strict right-active contamination subclass."
+}

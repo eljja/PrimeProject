@@ -45,6 +45,7 @@ let ticket245AttemptGlobal = null;
 let ticket246AttemptGlobal = null;
 let ticket247AttemptGlobal = null;
 let ticket249AttemptGlobal = null;
+let ticket250AttemptGlobal = null;
 let ticket248AttemptGlobal = null;
 let ticket244AttemptGlobal = null;
 let ticket243AttemptGlobal = null;
@@ -18040,7 +18041,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket249CompactProjectiveParsevalLebesgue(ticket249AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket250MultiplierLiftGaloisEvenRight(ticket250AttemptGlobal) ||
+      renderTicket249CompactProjectiveParsevalLebesgue(ticket249AttemptGlobal) ||
       renderTicket248UnweightedWieferichJetActive(ticket248AttemptGlobal) ||
       renderTicket247HilbertHenselLipschitzPrimePower(ticket247AttemptGlobal) ||
       renderTicket246MomentAllDepthParsevalPrimePower(ticket246AttemptGlobal) ||
@@ -18612,6 +18614,26 @@ async function loadTicket219Attempt() {
     return false;
   }
 }
+async function loadTicket250Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket250-multiplier-lift-galois-evenright.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket250AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket250AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket250AttemptGlobal) {
+      ticket250AttemptGlobal.bounded_result = ticket250AttemptGlobal.bounded_result || {};
+      ticket250AttemptGlobal.bounded_result.multiplier_lift_galois_evenright_audit = payload.multiplier_lift_galois_evenright_audit || {};
+    }
+    return Boolean(ticket250AttemptGlobal);
+  } catch (_error) {
+    ticket250AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket249Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket249-compact-projective-parseval-lebesgue.json", { cache: "no-store" });
@@ -20778,6 +20800,11 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket250Loaded = await loadTicket250Attempt();
+  if (!ticket250Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket250AttemptGlobal) await loadTicket250Attempt();
+  }
   const ticket249Loaded = await loadTicket249Attempt();
   if (!ticket249Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));

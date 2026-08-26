@@ -1,0 +1,2698 @@
+{
+  "schema": "primeproject.ticket250-multiplier-lift-galois-evenright.v1",
+  "generated_at": "2026-08-27T01:30:00+09:00",
+  "status": "open_not_proven",
+  "iteration_complete": true,
+  "program_complete": false,
+  "multiplier_lift_galois_evenright_audit": {
+    "theorem_name": "FourConjectureMultiplierLiftGaloisEvenRightAudit",
+    "summary": "TICKET-250 proves two exact route no-go theorems and two partial theorems while leaving all four parent conjectures open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-250",
+      "theorem_name": "NoncompactMultiplierLegendreEscapeInsufficiencyNoGo",
+      "declared_proposition": "Let H=L2_even([-1,1]), let Q0 be the raw even-moment energy, let f_n=sqrt((4n+1)/2)P_(2n), and let K=M_(x^2). Then K is bounded, self-adjoint, and noncompact, while <Kf_n,f_n> tends to 1/2. Thus K defeats the compact weak-null escape used in TICKET-249. However, for g_epsilon=(2epsilon)^(-1/2)1_[−epsilon,epsilon], ||g_epsilon||=1, <Kg_epsilon,g_epsilon>=epsilon^2/3 and Q0(g_epsilon)<=2epsilon/(1-epsilon^4), so Q0(g_epsilon)+<Kg_epsilon,g_epsilon> tends to zero. Therefore nonvanishing on the Legendre escape sequence, even for an explicit noncompact correction, is not sufficient for full-sphere coercivity.",
+      "mathematical_argument": "For normalized Legendre degree l, the three-term recurrence gives <x^2 phi_l,phi_l>=(l+1)^2/((2l+1)(2l+3))+l^2/((2l-1)(2l+1)), which tends to 1/2. Multiplication by x^2 is noncompact: normalized indicators of countably many disjoint positive-measure intervals inside [1/2,1] have mutually orthogonal images of norm at least 1/4. For the normalized centered indicator, the 2k-th moment squared is 2 epsilon^(4k+1)/(2k+1)^2. Summing and dropping the denominators gives Q0<=2epsilon/(1-epsilon^4). Both this bound and epsilon^2/3 vanish. The construction is an exact counterexample to a Legendre-only noncompact coercivity test, not a model of the actual Guinand-Weil arithmetic form.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let H=L2_even([-1,1]), let Q0 be the raw even-moment energy, let f_n=sqrt((4n+1)/2)P_(2n), and let K=M_(x^2). Then K is bounded, self-adjoint, and noncompact, while <Kf_n,f_n> tends to 1/2. Thus K defeats the compact weak-null escape used in TICKET-249. However, for g_epsilon=(2epsilon)^(-1/2)1_[−epsilon,epsilon], ||g_epsilon||=1, <Kg_epsilon,g_epsilon>=epsilon^2/3 and Q0(g_epsilon)<=2epsilon/(1-epsilon^4), so Q0(g_epsilon)+<Kg_epsilon,g_epsilon> tends to zero. Therefore nonvanishing on the Legendre escape sequence, even for an explicit noncompact correction, is not sufficient for full-sphere coercivity.",
+        "proof": "For normalized Legendre degree l, the three-term recurrence gives <x^2 phi_l,phi_l>=(l+1)^2/((2l+1)(2l+3))+l^2/((2l-1)(2l+1)), which tends to 1/2. Multiplication by x^2 is noncompact: normalized indicators of countably many disjoint positive-measure intervals inside [1/2,1] have mutually orthogonal images of norm at least 1/4. For the normalized centered indicator, the 2k-th moment squared is 2 epsilon^(4k+1)/(2k+1)^2. Summing and dropping the denominators gives Q0<=2epsilon/(1-epsilon^4). Both this bound and epsilon^2/3 vanish. The construction is an exact counterexample to a Legendre-only noncompact coercivity test, not a model of the actual Guinand-Weil arithmetic form.",
+        "exact_legendre_multiplier_rows": [
+          {
+            "half_degree_n": 1,
+            "legendre_degree": 2,
+            "exact_M_x2_expectation": {
+              "exact": "11/21",
+              "numerator": 11,
+              "denominator": 21,
+              "display_float": 0.5238095238095238
+            },
+            "exact_distance_from_one_half": {
+              "exact": "1/42",
+              "numerator": 1,
+              "denominator": 42,
+              "display_float": 0.023809523809523808
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 2,
+            "legendre_degree": 4,
+            "exact_M_x2_expectation": {
+              "exact": "39/77",
+              "numerator": 39,
+              "denominator": 77,
+              "display_float": 0.5064935064935064
+            },
+            "exact_distance_from_one_half": {
+              "exact": "1/154",
+              "numerator": 1,
+              "denominator": 154,
+              "display_float": 0.006493506493506494
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 4,
+            "legendre_degree": 8,
+            "exact_M_x2_expectation": {
+              "exact": "143/285",
+              "numerator": 143,
+              "denominator": 285,
+              "display_float": 0.5017543859649123
+            },
+            "exact_distance_from_one_half": {
+              "exact": "1/570",
+              "numerator": 1,
+              "denominator": 570,
+              "display_float": 0.0017543859649122807
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 8,
+            "legendre_degree": 16,
+            "exact_M_x2_expectation": {
+              "exact": "543/1085",
+              "numerator": 543,
+              "denominator": 1085,
+              "display_float": 0.5004608294930876
+            },
+            "exact_distance_from_one_half": {
+              "exact": "1/2170",
+              "numerator": 1,
+              "denominator": 2170,
+              "display_float": 0.0004608294930875576
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 16,
+            "legendre_degree": 32,
+            "exact_M_x2_expectation": {
+              "exact": "2111/4221",
+              "numerator": 2111,
+              "denominator": 4221,
+              "display_float": 0.5001184553423359
+            },
+            "exact_distance_from_one_half": {
+              "exact": "1/8442",
+              "numerator": 1,
+              "denominator": 8442,
+              "display_float": 0.00011845534233593936
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 32,
+            "legendre_degree": 64,
+            "exact_M_x2_expectation": {
+              "exact": "8319/16637",
+              "numerator": 8319,
+              "denominator": 16637,
+              "display_float": 0.5000300534952214
+            },
+            "exact_distance_from_one_half": {
+              "exact": "1/33274",
+              "numerator": 1,
+              "denominator": 33274,
+              "display_float": 3.005349522149426e-05
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 64,
+            "legendre_degree": 128,
+            "exact_M_x2_expectation": {
+              "exact": "33023/66045",
+              "numerator": 33023,
+              "denominator": 66045,
+              "display_float": 0.5000075705958059
+            },
+            "exact_distance_from_one_half": {
+              "exact": "1/132090",
+              "numerator": 1,
+              "denominator": 132090,
+              "display_float": 7.570595805889923e-06
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 128,
+            "legendre_degree": 256,
+            "exact_M_x2_expectation": {
+              "exact": "131583/263165",
+              "numerator": 131583,
+              "denominator": 263165,
+              "display_float": 0.5000018999487014
+            },
+            "exact_distance_from_one_half": {
+              "exact": "1/526330",
+              "numerator": 1,
+              "denominator": 526330,
+              "display_float": 1.8999487013850626e-06
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 256,
+            "legendre_degree": 512,
+            "exact_M_x2_expectation": {
+              "exact": "525311/1050621",
+              "numerator": 525311,
+              "denominator": 1050621,
+              "display_float": 0.50000047590901
+            },
+            "exact_distance_from_one_half": {
+              "exact": "1/2101242",
+              "numerator": 1,
+              "denominator": 2101242,
+              "display_float": 4.759090100045592e-07
+            },
+            "certificate_verified": true
+          }
+        ],
+        "exact_concentration_escape_rows": [
+          {
+            "epsilon_power": 1,
+            "epsilon": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "exact_M_x2_energy": {
+              "exact": "1/12",
+              "numerator": 1,
+              "denominator": 12,
+              "display_float": 0.08333333333333333
+            },
+            "proved_Q0_upper_bound": {
+              "exact": "16/15",
+              "numerator": 16,
+              "denominator": 15,
+              "display_float": 1.0666666666666667
+            },
+            "proved_combined_upper_bound": {
+              "exact": "23/20",
+              "numerator": 23,
+              "denominator": 20,
+              "display_float": 1.15
+            },
+            "certificate_verified": true
+          },
+          {
+            "epsilon_power": 2,
+            "epsilon": {
+              "exact": "1/4",
+              "numerator": 1,
+              "denominator": 4,
+              "display_float": 0.25
+            },
+            "exact_M_x2_energy": {
+              "exact": "1/48",
+              "numerator": 1,
+              "denominator": 48,
+              "display_float": 0.020833333333333332
+            },
+            "proved_Q0_upper_bound": {
+              "exact": "128/255",
+              "numerator": 128,
+              "denominator": 255,
+              "display_float": 0.5019607843137255
+            },
+            "proved_combined_upper_bound": {
+              "exact": "711/1360",
+              "numerator": 711,
+              "denominator": 1360,
+              "display_float": 0.5227941176470589
+            },
+            "certificate_verified": true
+          },
+          {
+            "epsilon_power": 3,
+            "epsilon": {
+              "exact": "1/8",
+              "numerator": 1,
+              "denominator": 8,
+              "display_float": 0.125
+            },
+            "exact_M_x2_energy": {
+              "exact": "1/192",
+              "numerator": 1,
+              "denominator": 192,
+              "display_float": 0.005208333333333333
+            },
+            "proved_Q0_upper_bound": {
+              "exact": "1024/4095",
+              "numerator": 1024,
+              "denominator": 4095,
+              "display_float": 0.25006105006105006
+            },
+            "proved_combined_upper_bound": {
+              "exact": "66901/262080",
+              "numerator": 66901,
+              "denominator": 262080,
+              "display_float": 0.2552693833943834
+            },
+            "certificate_verified": true
+          },
+          {
+            "epsilon_power": 4,
+            "epsilon": {
+              "exact": "1/16",
+              "numerator": 1,
+              "denominator": 16,
+              "display_float": 0.0625
+            },
+            "exact_M_x2_energy": {
+              "exact": "1/768",
+              "numerator": 1,
+              "denominator": 768,
+              "display_float": 0.0013020833333333333
+            },
+            "proved_Q0_upper_bound": {
+              "exact": "8192/65535",
+              "numerator": 8192,
+              "denominator": 65535,
+              "display_float": 0.1250019073777371
+            },
+            "proved_combined_upper_bound": {
+              "exact": "2118997/16776960",
+              "numerator": 2118997,
+              "denominator": 16776960,
+              "display_float": 0.12630399071107043
+            },
+            "certificate_verified": true
+          },
+          {
+            "epsilon_power": 5,
+            "epsilon": {
+              "exact": "1/32",
+              "numerator": 1,
+              "denominator": 32,
+              "display_float": 0.03125
+            },
+            "exact_M_x2_energy": {
+              "exact": "1/3072",
+              "numerator": 1,
+              "denominator": 3072,
+              "display_float": 0.0003255208333333333
+            },
+            "proved_Q0_upper_bound": {
+              "exact": "65536/1048575",
+              "numerator": 65536,
+              "denominator": 1048575,
+              "display_float": 0.06250005960470162
+            },
+            "proved_combined_upper_bound": {
+              "exact": "67458389/1073740800",
+              "numerator": 67458389,
+              "denominator": 1073740800,
+              "display_float": 0.06282558043803495
+            },
+            "certificate_verified": true
+          },
+          {
+            "epsilon_power": 6,
+            "epsilon": {
+              "exact": "1/64",
+              "numerator": 1,
+              "denominator": 64,
+              "display_float": 0.015625
+            },
+            "exact_M_x2_energy": {
+              "exact": "1/12288",
+              "numerator": 1,
+              "denominator": 12288,
+              "display_float": 8.138020833333333e-05
+            },
+            "proved_Q0_upper_bound": {
+              "exact": "524288/16777215",
+              "numerator": 524288,
+              "denominator": 16777215,
+              "display_float": 0.03125000186264526
+            },
+            "proved_combined_upper_bound": {
+              "exact": "2153076053/68719472640",
+              "numerator": 2153076053,
+              "denominator": 68719472640,
+              "display_float": 0.031331382070978596
+            },
+            "certificate_verified": true
+          },
+          {
+            "epsilon_power": 7,
+            "epsilon": {
+              "exact": "1/128",
+              "numerator": 1,
+              "denominator": 128,
+              "display_float": 0.0078125
+            },
+            "exact_M_x2_energy": {
+              "exact": "1/49152",
+              "numerator": 1,
+              "denominator": 49152,
+              "display_float": 2.0345052083333332e-05
+            },
+            "proved_Q0_upper_bound": {
+              "exact": "4194304/268435455",
+              "numerator": 4194304,
+              "denominator": 268435455,
+              "display_float": 0.01562500005820766
+            },
+            "proved_combined_upper_bound": {
+              "exact": "22936318407/1466015498240",
+              "numerator": 22936318407,
+              "denominator": 1466015498240,
+              "display_float": 0.015645345110290993
+            },
+            "certificate_verified": true
+          },
+          {
+            "epsilon_power": 8,
+            "epsilon": {
+              "exact": "1/256",
+              "numerator": 1,
+              "denominator": 256,
+              "display_float": 0.00390625
+            },
+            "exact_M_x2_energy": {
+              "exact": "1/196608",
+              "numerator": 1,
+              "denominator": 196608,
+              "display_float": 5.086263020833333e-06
+            },
+            "proved_Q0_upper_bound": {
+              "exact": "33554432/4294967295",
+              "numerator": 33554432,
+              "denominator": 4294967295,
+              "display_float": 0.00781250000181899
+            },
+            "proved_combined_upper_bound": {
+              "exact": "733484970439/93824992215040",
+              "numerator": 733484970439,
+              "denominator": 93824992215040,
+              "display_float": 0.007817586264839823
+            },
+            "certificate_verified": true
+          },
+          {
+            "epsilon_power": 9,
+            "epsilon": {
+              "exact": "1/512",
+              "numerator": 1,
+              "denominator": 512,
+              "display_float": 0.001953125
+            },
+            "exact_M_x2_energy": {
+              "exact": "1/786432",
+              "numerator": 1,
+              "denominator": 786432,
+              "display_float": 1.2715657552083333e-06
+            },
+            "proved_Q0_upper_bound": {
+              "exact": "268435456/68719476735",
+              "numerator": 268435456,
+              "denominator": 68719476735,
+              "display_float": 0.003906250000056843
+            },
+            "proved_combined_upper_bound": {
+              "exact": "70391650669909/18014398509219840",
+              "numerator": 70391650669909,
+              "denominator": 18014398509219840,
+              "display_float": 0.0039075215658120515
+            },
+            "certificate_verified": true
+          },
+          {
+            "epsilon_power": 10,
+            "epsilon": {
+              "exact": "1/1024",
+              "numerator": 1,
+              "denominator": 1024,
+              "display_float": 0.0009765625
+            },
+            "exact_M_x2_energy": {
+              "exact": "1/3145728",
+              "numerator": 1,
+              "denominator": 3145728,
+              "display_float": 3.178914388020833e-07
+            },
+            "proved_Q0_upper_bound": {
+              "exact": "2147483648/1099511627775",
+              "numerator": 2147483648,
+              "denominator": 1099511627775,
+              "display_float": 0.0019531250000017764
+            },
+            "proved_combined_upper_bound": {
+              "exact": "2252166317561173/1152921504605798400",
+              "numerator": 2252166317561173,
+              "denominator": 1152921504605798400,
+              "display_float": 0.0019534428914405786
+            },
+            "certificate_verified": true
+          },
+          {
+            "epsilon_power": 11,
+            "epsilon": {
+              "exact": "1/2048",
+              "numerator": 1,
+              "denominator": 2048,
+              "display_float": 0.00048828125
+            },
+            "exact_M_x2_energy": {
+              "exact": "1/12582912",
+              "numerator": 1,
+              "denominator": 12582912,
+              "display_float": 7.947285970052083e-08
+            },
+            "proved_Q0_upper_bound": {
+              "exact": "17179869184/17592186044415",
+              "numerator": 17179869184,
+              "denominator": 17592186044415,
+              "display_float": 0.0009765625000000555
+            },
+            "proved_combined_upper_bound": {
+              "exact": "72063458099942741/73786976294834012160",
+              "numerator": 72063458099942741,
+              "denominator": 73786976294834012160,
+              "display_float": 0.000976641972859756
+            },
+            "certificate_verified": true
+          },
+          {
+            "epsilon_power": 12,
+            "epsilon": {
+              "exact": "1/4096",
+              "numerator": 1,
+              "denominator": 4096,
+              "display_float": 0.000244140625
+            },
+            "exact_M_x2_energy": {
+              "exact": "1/50331648",
+              "numerator": 1,
+              "denominator": 50331648,
+              "display_float": 1.9868214925130207e-08
+            },
+            "proved_Q0_upper_bound": {
+              "exact": "137438953472/281474976710655",
+              "numerator": 137438953472,
+              "denominator": 281474976710655,
+              "display_float": 0.0004882812500000017
+            },
+            "proved_combined_upper_bound": {
+              "exact": "2305936834205930837/4722366482869628436480",
+              "numerator": 2305936834205930837,
+              "denominator": 4722366482869628436480,
+              "display_float": 0.0004883011182149269
+            },
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact Fraction evaluation of the normalized Legendre Jacobi recurrence and geometric upper bounds for centered indicators",
+        "complexity": "O(N+E) exact rational operations for N Legendre and E concentration rows; noncompactness and the all-epsilon limit are analytic",
+        "random_seed": null,
+        "transcript_sha256": "20099dd1cab1cbcfa5ef4863e9f3c115c9f59af2da902d05bdbe029b5a8c507b",
+        "aggregate": {
+          "multiplier_M_x2_noncompact_proved": true,
+          "legendre_escape_blocked_by_multiplier": true,
+          "concentration_escape_for_Q0_plus_multiplier_proved": true,
+          "legendre_only_noncompact_coercivity_route_refuted": true,
+          "actual_weil_form_controlled": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "9 exact Legendre rows and 12 exact concentration bounds replay the two mechanisms; the all-sequence conclusions are analytic.",
+      "logical_limit": "The explicit multiplier blocks the old oscillatory escape but admits a new concentration escape; no actual Weil arithmetic form or admissible-closure theorem is controlled.",
+      "route_decision": {
+        "discard": "using a positive diagonal limit on the Legendre sequence for one noncompact multiplier as a certificate of full-sphere coercivity",
+        "parked": [],
+        "retain": "an arithmetic form that controls both oscillatory Legendre escape and spatial concentration escape on the actual admissible closure",
+        "next_single_lemma": "ArithmeticWeilFormCoercivityAgainstOscillationAndConcentrationEscapes"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T249",
+            "label": "CompactOffDiagonalMomentCoercivityNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "RH-T250",
+            "label": "NoncompactMultiplierLegendreEscapeInsufficiencyNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "RH-REJECT250",
+            "label": "LegendreNonvanishingOfOneNoncompactCorrectionImpliesCoercivity",
+            "status": "disproved"
+          },
+          {
+            "id": "RH-OPEN250",
+            "label": "ArithmeticWeilFormCoercivityAgainstOscillationAndConcentrationEscapes",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T249",
+            "RH-T250"
+          ],
+          [
+            "RH-T250",
+            "RH-REJECT250"
+          ],
+          [
+            "RH-T250",
+            "RH-OPEN250"
+          ]
+        ],
+        "resolution_path": [
+          "RH-T249",
+          "RH-T250",
+          "RH-OPEN250"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No RH proof or disproof; one exact no-go for validating noncompact coercivity only on the Legendre escape sequence."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-250",
+      "theorem_name": "LocalFermatQuotientLiftTransitivityNoGo",
+      "declared_proposition": "Let q>5 be prime. For k,l in F_q define A_k=2+kq and B_l=3+lq modulo q^2, and let F_q(a)=((a^(q-1)-1)/q) mod q. Then F_q(A_k)=F_q(2)-k/2 and F_q(B_l)=F_q(3)-l/3. Hence the map (k,l)->(F_q(A_k),F_q(B_l)) is a bijection F_q^2->F_q^2. Exactly q-1 lift pairs hit the separated projective line [3:5], one for each t in F_q^*. Therefore slope [3:5] cannot be excluded using only the residue classes 2,3 modulo q and reasoning invariant under changing their lifts modulo q^2; the canonical lifts k=l=0 carry essential cross-prime arithmetic information.",
+      "mathematical_argument": "The binomial expansion modulo q^2 gives (a+kq)^(q-1)=a^(q-1)+(q-1)a^(q-2)kq mod q^2. After division by q, F_q(a+kq)=F_q(a)+(q-1)a^(q-2)k=F_q(a)-k/a mod q. The coefficient -1/a is nonzero, so each coordinate map is affine bijective. For a given nonzero t the unique lifts are k=2(F_q(2)-3t) and l=3(F_q(3)-5t). These give the q-1 separated targets. The theorem does not decide whether the fixed integer representatives 2 and 3 ever hit [3:5] as q varies.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let q>5 be prime. For k,l in F_q define A_k=2+kq and B_l=3+lq modulo q^2, and let F_q(a)=((a^(q-1)-1)/q) mod q. Then F_q(A_k)=F_q(2)-k/2 and F_q(B_l)=F_q(3)-l/3. Hence the map (k,l)->(F_q(A_k),F_q(B_l)) is a bijection F_q^2->F_q^2. Exactly q-1 lift pairs hit the separated projective line [3:5], one for each t in F_q^*. Therefore slope [3:5] cannot be excluded using only the residue classes 2,3 modulo q and reasoning invariant under changing their lifts modulo q^2; the canonical lifts k=l=0 carry essential cross-prime arithmetic information.",
+        "proof": "The binomial expansion modulo q^2 gives (a+kq)^(q-1)=a^(q-1)+(q-1)a^(q-2)kq mod q^2. After division by q, F_q(a+kq)=F_q(a)+(q-1)a^(q-2)k=F_q(a)-k/a mod q. The coefficient -1/a is nonzero, so each coordinate map is affine bijective. For a given nonzero t the unique lifts are k=2(F_q(2)-3t) and l=3(F_q(3)-5t). These give the q-1 separated targets. The theorem does not decide whether the fixed integer representatives 2 and 3 ever hit [3:5] as q varies.",
+        "exact_lift_field_rows": [
+          {
+            "prime_q": 7,
+            "lift_pairs_checked": 49,
+            "fermat_coordinate_pairs_reached": 49,
+            "separated_projective_lift_pairs": 6,
+            "expected_separated_pairs": 6,
+            "canonical_lift_is_separated": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "lift_pairs_checked": 121,
+            "fermat_coordinate_pairs_reached": 121,
+            "separated_projective_lift_pairs": 10,
+            "expected_separated_pairs": 10,
+            "canonical_lift_is_separated": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "lift_pairs_checked": 529,
+            "fermat_coordinate_pairs_reached": 529,
+            "separated_projective_lift_pairs": 22,
+            "expected_separated_pairs": 22,
+            "canonical_lift_is_separated": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 101,
+            "lift_pairs_checked": 10201,
+            "fermat_coordinate_pairs_reached": 10201,
+            "separated_projective_lift_pairs": 100,
+            "expected_separated_pairs": 100,
+            "canonical_lift_is_separated": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 251,
+            "lift_pairs_checked": 63001,
+            "fermat_coordinate_pairs_reached": 63001,
+            "separated_projective_lift_pairs": 250,
+            "expected_separated_pairs": 250,
+            "canonical_lift_is_separated": false,
+            "certificate_verified": true
+          }
+        ],
+        "exact_explicit_target_rows": [
+          {
+            "prime_q": 7,
+            "canonical_U": 2,
+            "canonical_V": 6,
+            "selected_explicit_target_lifts": [
+              {
+                "projective_parameter_t": 1,
+                "lift_k2": 5,
+                "lift_k3": 3,
+                "lifted_U": 3,
+                "lifted_V": 5
+              },
+              {
+                "projective_parameter_t": 6,
+                "lift_k2": 3,
+                "lift_k3": 5,
+                "lifted_U": 4,
+                "lifted_V": 2
+              }
+            ],
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "canonical_U": 5,
+            "canonical_V": 0,
+            "selected_explicit_target_lifts": [
+              {
+                "projective_parameter_t": 1,
+                "lift_k2": 4,
+                "lift_k3": 7,
+                "lifted_U": 3,
+                "lifted_V": 5
+              },
+              {
+                "projective_parameter_t": 10,
+                "lift_k2": 5,
+                "lift_k3": 4,
+                "lifted_U": 8,
+                "lifted_V": 6
+              }
+            ],
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "canonical_U": 17,
+            "canonical_V": 17,
+            "selected_explicit_target_lifts": [
+              {
+                "projective_parameter_t": 1,
+                "lift_k2": 5,
+                "lift_k3": 13,
+                "lifted_U": 3,
+                "lifted_V": 5
+              },
+              {
+                "projective_parameter_t": 22,
+                "lift_k2": 17,
+                "lift_k3": 20,
+                "lifted_U": 20,
+                "lifted_V": 18
+              }
+            ],
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 101,
+            "canonical_U": 92,
+            "canonical_V": 85,
+            "selected_explicit_target_lifts": [
+              {
+                "projective_parameter_t": 1,
+                "lift_k2": 77,
+                "lift_k3": 38,
+                "lifted_U": 3,
+                "lifted_V": 5
+              },
+              {
+                "projective_parameter_t": 100,
+                "lift_k2": 89,
+                "lift_k3": 68,
+                "lifted_U": 98,
+                "lifted_V": 96
+              }
+            ],
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 251,
+            "canonical_U": 247,
+            "canonical_V": 29,
+            "selected_explicit_target_lifts": [
+              {
+                "projective_parameter_t": 1,
+                "lift_k2": 237,
+                "lift_k3": 72,
+                "lifted_U": 3,
+                "lifted_V": 5
+              },
+              {
+                "projective_parameter_t": 250,
+                "lift_k2": 249,
+                "lift_k3": 102,
+                "lifted_U": 248,
+                "lifted_V": 246
+              }
+            ],
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact modular exponentiation modulo q^2, affine lift formulas, and exhaustive q^2 lift-pair enumeration",
+        "complexity": "O(sum_q(q log q + q^2)) exact modular and finite-field operations",
+        "random_seed": null,
+        "transcript_sha256": "08ee2ee2080e127c58f7120621b39d20213ce2f6cf71987aaf01c7099ad528c2",
+        "aggregate": {
+          "lift_affine_transitivity_proved": true,
+          "separated_projective_lifts_exist_for_every_q": true,
+          "lift_invariant_local_avoidance_route_refuted": true,
+          "canonical_fixed_representative_occurrence_decided": false,
+          "collatz_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Exhaustive exact arithmetic checks 73,901 lift pairs over 5 fields; the theorem for every prime q is algebraic.",
+      "logical_limit": "Every local lift fiber contains the target, but the actual canonical lifts remain undecided across primes; this valuation branch still does not control all Collatz trajectories.",
+      "route_decision": {
+        "discard": "excluding projective slope [3:5] from the residue classes 2 and 3 modulo q using only lift-invariant local Fermat-quotient structure",
+        "parked": [
+          "all-prime occurrence or avoidance of the canonical projective point [3:5] without cross-prime distribution input"
+        ],
+        "retain": "arithmetic information tied to the canonical fixed integer representatives 2 and 3 as q varies",
+        "next_single_lemma": "CanonicalRepresentativeFermatQuotientDistributionBeyondLiftTransitivity"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T249",
+            "label": "SeparatedWieferichProjectiveSlopeCriterion",
+            "status": "proved"
+          },
+          {
+            "id": "CO-T250",
+            "label": "LocalFermatQuotientLiftTransitivityNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "CO-REJECT250",
+            "label": "LiftInvariantLocalStructureExcludesProjectiveSlopeThreeFifths",
+            "status": "disproved"
+          },
+          {
+            "id": "CO-OPEN250",
+            "label": "CanonicalRepresentativeFermatQuotientDistributionBeyondLiftTransitivity",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T249",
+            "CO-T250"
+          ],
+          [
+            "CO-T250",
+            "CO-REJECT250"
+          ],
+          [
+            "CO-T250",
+            "CO-OPEN250"
+          ]
+        ],
+        "resolution_path": [
+          "CO-T249",
+          "CO-T250",
+          "CO-OPEN250"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No Collatz proof, divergent orbit, or cycle; one exact no-go for a lift-invariant local avoidance route."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-250",
+      "theorem_name": "PrimeModulusRationalFourierFullSupportAndNormBarrier",
+      "declared_proposition": "Let q>=5 be prime, let n_0,...,n_(q-1) be integers, put N=sum_r n_r and Delta_r=q n_r-N, and let zeta be a primitive q-th root of unity. If the vector n is nonconstant, then for every a=1,...,q-1 the Fourier coefficient F(a)=sum_r Delta_r zeta^(ar) is nonzero. Moreover F(a) is an algebraic integer and product_(a=1)^(q-1) F(a) is a nonzero integer, hence has absolute value at least one. Consequently the exact two-frequency spike from TICKET-249 cannot be an integer or rational prime-count residue vector at a prime modulus q>=5.",
+      "mathematical_argument": "Let P(X)=sum_r Delta_r X^r. If P(zeta^a)=0 for a nonzero a, then zeta^a is primitive and its minimal polynomial Phi_q=1+X+...+X^(q-1) divides P. Since deg P<=q-1, P=c Phi_q. But P(1)=sum Delta_r=0 whereas Phi_q(1)=q, so c=0. Thus Delta=0, forcing n to be constant, a contradiction. The Galois conjugates of F(a) are exactly F(1),...,F(q-1); their product is the algebraic norm of a nonzero algebraic integer and is therefore a nonzero integer. This proves exact full support and a multiplicative norm barrier, but no pointwise upper bound or quantitative energy saving.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let q>=5 be prime, let n_0,...,n_(q-1) be integers, put N=sum_r n_r and Delta_r=q n_r-N, and let zeta be a primitive q-th root of unity. If the vector n is nonconstant, then for every a=1,...,q-1 the Fourier coefficient F(a)=sum_r Delta_r zeta^(ar) is nonzero. Moreover F(a) is an algebraic integer and product_(a=1)^(q-1) F(a) is a nonzero integer, hence has absolute value at least one. Consequently the exact two-frequency spike from TICKET-249 cannot be an integer or rational prime-count residue vector at a prime modulus q>=5.",
+        "proof": "Let P(X)=sum_r Delta_r X^r. If P(zeta^a)=0 for a nonzero a, then zeta^a is primitive and its minimal polynomial Phi_q=1+X+...+X^(q-1) divides P. Since deg P<=q-1, P=c Phi_q. But P(1)=sum Delta_r=0 whereas Phi_q(1)=q, so c=0. Thus Delta=0, forcing n to be constant, a contradiction. The Galois conjugates of F(a) are exactly F(1),...,F(q-1); their product is the algebraic norm of a nonzero algebraic integer and is therefore a nonzero integer. This proves exact full support and a multiplicative norm barrier, but no pointwise upper bound or quantitative energy saving.",
+        "exact_prime_count_norm_rows": [
+          {
+            "prime_modulus_q": 5,
+            "prime_count_limit_X": 100,
+            "prime_count_total": 25,
+            "residue_counts": [
+              1,
+              5,
+              7,
+              7,
+              5
+            ],
+            "centered_integral_vector": [
+              -20,
+              0,
+              10,
+              10,
+              0
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "250000",
+            "absolute_norm_digit_count": 6,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "prime_count_limit_X": 1000,
+            "prime_count_total": 168,
+            "residue_counts": [
+              1,
+              40,
+              47,
+              42,
+              38
+            ],
+            "centered_integral_vector": [
+              -163,
+              32,
+              67,
+              42,
+              22
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "1681163125",
+            "absolute_norm_digit_count": 10,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "prime_count_limit_X": 10000,
+            "prime_count_total": 1229,
+            "residue_counts": [
+              1,
+              306,
+              309,
+              310,
+              303
+            ],
+            "centered_integral_vector": [
+              -1224,
+              301,
+              316,
+              321,
+              286
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "5476892344375",
+            "absolute_norm_digit_count": 13,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "prime_count_limit_X": 100000,
+            "prime_count_total": 9592,
+            "residue_counts": [
+              1,
+              2387,
+              2412,
+              2402,
+              2390
+            ],
+            "centered_integral_vector": [
+              -9587,
+              2343,
+              2468,
+              2418,
+              2358
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "20621332663956875",
+            "absolute_norm_digit_count": 17,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "prime_count_limit_X": 1000000,
+            "prime_count_total": 78498,
+            "residue_counts": [
+              1,
+              19617,
+              19622,
+              19665,
+              19593
+            ],
+            "centered_integral_vector": [
+              -78493,
+              19587,
+              19612,
+              19827,
+              19467
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "92675090522052175625",
+            "absolute_norm_digit_count": 20,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "prime_count_limit_X": 100,
+            "prime_count_total": 25,
+            "residue_counts": [
+              1,
+              3,
+              4,
+              5,
+              3,
+              5,
+              4
+            ],
+            "centered_integral_vector": [
+              -18,
+              -4,
+              3,
+              10,
+              -4,
+              10,
+              3
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "245533463",
+            "absolute_norm_digit_count": 9,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "prime_count_limit_X": 1000,
+            "prime_count_total": 168,
+            "residue_counts": [
+              1,
+              28,
+              27,
+              30,
+              26,
+              29,
+              27
+            ],
+            "centered_integral_vector": [
+              -161,
+              28,
+              21,
+              42,
+              14,
+              35,
+              21
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "46210559167528",
+            "absolute_norm_digit_count": 14,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "prime_count_limit_X": 10000,
+            "prime_count_total": 1229,
+            "residue_counts": [
+              1,
+              203,
+              203,
+              209,
+              202,
+              211,
+              200
+            ],
+            "centered_integral_vector": [
+              -1222,
+              192,
+              192,
+              234,
+              185,
+              248,
+              171
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "8420237038351819919",
+            "absolute_norm_digit_count": 19,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "prime_count_limit_X": 100000,
+            "prime_count_total": 9592,
+            "residue_counts": [
+              1,
+              1593,
+              1584,
+              1613,
+              1601,
+              1604,
+              1596
+            ],
+            "centered_integral_vector": [
+              -9585,
+              1559,
+              1496,
+              1699,
+              1615,
+              1636,
+              1580
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "1955542959594065410904741",
+            "absolute_norm_digit_count": 25,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "prime_count_limit_X": 1000000,
+            "prime_count_total": 78498,
+            "residue_counts": [
+              1,
+              13063,
+              13065,
+              13105,
+              13069,
+              13105,
+              13090
+            ],
+            "centered_integral_vector": [
+              -78491,
+              12943,
+              12957,
+              13237,
+              12985,
+              13237,
+              13132
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "589677978432645566554537954843",
+            "absolute_norm_digit_count": 30,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "prime_count_limit_X": 100,
+            "prime_count_total": 25,
+            "residue_counts": [
+              1,
+              3,
+              3,
+              2,
+              2,
+              2,
+              3,
+              3,
+              2,
+              3,
+              1
+            ],
+            "centered_integral_vector": [
+              -14,
+              8,
+              8,
+              -3,
+              -3,
+              -3,
+              8,
+              8,
+              -3,
+              8,
+              -14
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "82195698560569",
+            "absolute_norm_digit_count": 14,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "prime_count_limit_X": 1000,
+            "prime_count_total": 168,
+            "residue_counts": [
+              1,
+              17,
+              18,
+              18,
+              16,
+              17,
+              18,
+              17,
+              15,
+              15,
+              16
+            ],
+            "centered_integral_vector": [
+              -157,
+              19,
+              30,
+              30,
+              8,
+              19,
+              30,
+              19,
+              -3,
+              -3,
+              8
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "28235680971487169665903",
+            "absolute_norm_digit_count": 23,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "prime_count_limit_X": 10000,
+            "prime_count_total": 1229,
+            "residue_counts": [
+              1,
+              125,
+              120,
+              122,
+              118,
+              121,
+              125,
+              124,
+              124,
+              126,
+              123
+            ],
+            "centered_integral_vector": [
+              -1218,
+              146,
+              91,
+              113,
+              69,
+              102,
+              146,
+              135,
+              135,
+              157,
+              124
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "18920405296004491503817808639479",
+            "absolute_norm_digit_count": 32,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "prime_count_limit_X": 100000,
+            "prime_count_total": 9592,
+            "residue_counts": [
+              1,
+              945,
+              957,
+              963,
+              962,
+              963,
+              966,
+              955,
+              958,
+              953,
+              969
+            ],
+            "centered_integral_vector": [
+              -9581,
+              803,
+              935,
+              1001,
+              990,
+              1001,
+              1034,
+              913,
+              946,
+              891,
+              1067
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "16929679273230738538665708762040516175527",
+            "absolute_norm_digit_count": 41,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "prime_count_limit_X": 1000000,
+            "prime_count_total": 78498,
+            "residue_counts": [
+              1,
+              7858,
+              7843,
+              7814,
+              7839,
+              7853,
+              7876,
+              7874,
+              7873,
+              7828,
+              7839
+            ],
+            "centered_integral_vector": [
+              -78487,
+              7940,
+              7775,
+              7456,
+              7731,
+              7885,
+              8138,
+              8116,
+              8105,
+              7610,
+              7731
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "23013256557993894313840672260412247484985659424111",
+            "absolute_norm_digit_count": 50,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "prime_count_limit_X": 100,
+            "prime_count_total": 25,
+            "residue_counts": [
+              1,
+              2,
+              3,
+              2,
+              2,
+              3,
+              3,
+              2,
+              2,
+              1,
+              1,
+              3,
+              0
+            ],
+            "centered_integral_vector": [
+              -12,
+              1,
+              14,
+              1,
+              1,
+              14,
+              14,
+              1,
+              1,
+              -12,
+              -12,
+              14,
+              -25
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "547015740590731399",
+            "absolute_norm_digit_count": 18,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "prime_count_limit_X": 1000,
+            "prime_count_total": 168,
+            "residue_counts": [
+              1,
+              13,
+              17,
+              14,
+              13,
+              14,
+              15,
+              14,
+              14,
+              13,
+              15,
+              13,
+              12
+            ],
+            "centered_integral_vector": [
+              -155,
+              1,
+              53,
+              14,
+              1,
+              14,
+              27,
+              14,
+              14,
+              1,
+              27,
+              1,
+              -12
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "521864632680009815614536703",
+            "absolute_norm_digit_count": 27,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "prime_count_limit_X": 10000,
+            "prime_count_total": 1229,
+            "residue_counts": [
+              1,
+              99,
+              105,
+              105,
+              104,
+              103,
+              102,
+              102,
+              102,
+              102,
+              100,
+              104,
+              100
+            ],
+            "centered_integral_vector": [
+              -1216,
+              58,
+              136,
+              136,
+              123,
+              110,
+              97,
+              97,
+              97,
+              97,
+              71,
+              123,
+              71
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "27104049496298667544074679953806478317",
+            "absolute_norm_digit_count": 38,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "prime_count_limit_X": 100000,
+            "prime_count_total": 9592,
+            "residue_counts": [
+              1,
+              798,
+              801,
+              798,
+              806,
+              800,
+              807,
+              799,
+              790,
+              794,
+              797,
+              808,
+              793
+            ],
+            "centered_integral_vector": [
+              -9579,
+              782,
+              821,
+              782,
+              886,
+              808,
+              899,
+              795,
+              678,
+              730,
+              769,
+              912,
+              717
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "1560059936300010124523972993652530103692109423293",
+            "absolute_norm_digit_count": 49,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "prime_count_limit_X": 1000000,
+            "prime_count_total": 78498,
+            "residue_counts": [
+              1,
+              6539,
+              6531,
+              6526,
+              6511,
+              6527,
+              6568,
+              6537,
+              6561,
+              6566,
+              6553,
+              6533,
+              6545
+            ],
+            "centered_integral_vector": [
+              -78485,
+              6509,
+              6405,
+              6340,
+              6145,
+              6353,
+              6886,
+              6483,
+              6795,
+              6860,
+              6691,
+              6431,
+              6587
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "142806886652285786589681693875989888360486148281660973481599",
+            "absolute_norm_digit_count": 60,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 17,
+            "prime_count_limit_X": 100,
+            "prime_count_total": 25,
+            "residue_counts": [
+              1,
+              0,
+              3,
+              3,
+              1,
+              2,
+              1,
+              2,
+              1,
+              1,
+              1,
+              2,
+              2,
+              2,
+              1,
+              1,
+              1
+            ],
+            "centered_integral_vector": [
+              -8,
+              -25,
+              26,
+              26,
+              -8,
+              9,
+              -8,
+              9,
+              -8,
+              -8,
+              -8,
+              9,
+              9,
+              9,
+              -8,
+              -8,
+              -8
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "1883910695626469587544774369",
+            "absolute_norm_digit_count": 28,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 17,
+            "prime_count_limit_X": 1000,
+            "prime_count_total": 168,
+            "residue_counts": [
+              1,
+              10,
+              12,
+              12,
+              8,
+              11,
+              10,
+              11,
+              11,
+              8,
+              11,
+              13,
+              11,
+              13,
+              10,
+              9,
+              7
+            ],
+            "centered_integral_vector": [
+              -151,
+              2,
+              36,
+              36,
+              -32,
+              19,
+              2,
+              19,
+              19,
+              -32,
+              19,
+              53,
+              19,
+              53,
+              2,
+              -15,
+              -49
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "1405648795360828406460410806105754533",
+            "absolute_norm_digit_count": 37,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 17,
+            "prime_count_limit_X": 10000,
+            "prime_count_total": 1229,
+            "residue_counts": [
+              1,
+              78,
+              72,
+              77,
+              77,
+              74,
+              75,
+              76,
+              78,
+              72,
+              80,
+              81,
+              81,
+              79,
+              78,
+              77,
+              73
+            ],
+            "centered_integral_vector": [
+              -1212,
+              97,
+              -5,
+              80,
+              80,
+              29,
+              46,
+              63,
+              97,
+              -5,
+              131,
+              148,
+              148,
+              114,
+              97,
+              80,
+              12
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "62995357075514603345830131325379266575728205142933",
+            "absolute_norm_digit_count": 50,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 17,
+            "prime_count_limit_X": 100000,
+            "prime_count_total": 9592,
+            "residue_counts": [
+              1,
+              603,
+              599,
+              597,
+              591,
+              607,
+              600,
+              590,
+              593,
+              598,
+              601,
+              604,
+              612,
+              593,
+              609,
+              600,
+              594
+            ],
+            "centered_integral_vector": [
+              -9575,
+              659,
+              591,
+              557,
+              455,
+              727,
+              608,
+              438,
+              489,
+              574,
+              625,
+              676,
+              812,
+              489,
+              761,
+              608,
+              506
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "13100483853259197158302293660854378040003406262676153341527460489",
+            "absolute_norm_digit_count": 65,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 17,
+            "prime_count_limit_X": 1000000,
+            "prime_count_total": 78498,
+            "residue_counts": [
+              1,
+              4875,
+              4903,
+              4895,
+              4917,
+              4935,
+              4936,
+              4918,
+              4907,
+              4895,
+              4930,
+              4905,
+              4894,
+              4849,
+              4927,
+              4908,
+              4903
+            ],
+            "centered_integral_vector": [
+              -78481,
+              4377,
+              4853,
+              4717,
+              5091,
+              5397,
+              5414,
+              5108,
+              4921,
+              4717,
+              5312,
+              4887,
+              4700,
+              3935,
+              5261,
+              4938,
+              4853
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "5467196676770789364659547759472913470213792192828200393411516862869199919681327",
+            "absolute_norm_digit_count": 79,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 19,
+            "prime_count_limit_X": 100,
+            "prime_count_total": 25,
+            "residue_counts": [
+              1,
+              0,
+              3,
+              3,
+              2,
+              2,
+              0,
+              2,
+              0,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "centered_integral_vector": [
+              -6,
+              -25,
+              32,
+              32,
+              13,
+              13,
+              -25,
+              13,
+              -25,
+              -6,
+              13,
+              -6,
+              -6,
+              13,
+              -6,
+              -6,
+              -6,
+              -6,
+              -6
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "661723371615037596786076280216519",
+            "absolute_norm_digit_count": 33,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 19,
+            "prime_count_limit_X": 1000,
+            "prime_count_total": 168,
+            "residue_counts": [
+              1,
+              7,
+              10,
+              12,
+              9,
+              10,
+              8,
+              11,
+              9,
+              10,
+              10,
+              9,
+              9,
+              10,
+              7,
+              7,
+              8,
+              11,
+              10
+            ],
+            "centered_integral_vector": [
+              -149,
+              -35,
+              22,
+              60,
+              3,
+              22,
+              -16,
+              41,
+              3,
+              22,
+              22,
+              3,
+              3,
+              22,
+              -35,
+              -35,
+              -16,
+              41,
+              22
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "6101012565737555171738267404076614951379",
+            "absolute_norm_digit_count": 40,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 19,
+            "prime_count_limit_X": 10000,
+            "prime_count_total": 1229,
+            "residue_counts": [
+              1,
+              64,
+              74,
+              72,
+              68,
+              70,
+              65,
+              72,
+              65,
+              66,
+              73,
+              70,
+              67,
+              72,
+              66,
+              67,
+              62,
+              67,
+              68
+            ],
+            "centered_integral_vector": [
+              -1210,
+              -13,
+              177,
+              139,
+              63,
+              101,
+              6,
+              139,
+              6,
+              25,
+              158,
+              101,
+              44,
+              139,
+              25,
+              44,
+              -51,
+              44,
+              63
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "105569462994445035053653354749188663007264698685016047463",
+            "absolute_norm_digit_count": 57,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 19,
+            "prime_count_limit_X": 100000,
+            "prime_count_total": 9592,
+            "residue_counts": [
+              1,
+              525,
+              535,
+              537,
+              532,
+              542,
+              527,
+              535,
+              536,
+              529,
+              541,
+              535,
+              530,
+              546,
+              525,
+              519,
+              523,
+              536,
+              538
+            ],
+            "centered_integral_vector": [
+              -9573,
+              383,
+              573,
+              611,
+              516,
+              706,
+              421,
+              573,
+              592,
+              459,
+              687,
+              573,
+              478,
+              782,
+              383,
+              269,
+              345,
+              592,
+              630
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "1226888447020931220162098457152137951490762373821517705145340612500388041",
+            "absolute_norm_digit_count": 73,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 19,
+            "prime_count_limit_X": 1000000,
+            "prime_count_total": 78498,
+            "residue_counts": [
+              1,
+              4329,
+              4385,
+              4364,
+              4340,
+              4382,
+              4350,
+              4366,
+              4360,
+              4343,
+              4380,
+              4357,
+              4355,
+              4374,
+              4364,
+              4337,
+              4369,
+              4342,
+              4400
+            ],
+            "centered_integral_vector": [
+              -78479,
+              3753,
+              4817,
+              4418,
+              3962,
+              4760,
+              4152,
+              4456,
+              4342,
+              4019,
+              4722,
+              4285,
+              4247,
+              4608,
+              4418,
+              3905,
+              4513,
+              4000,
+              5102
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "33801986995774927999296471963469797050892818874481428032961145040990121838273941137299949",
+            "absolute_norm_digit_count": 89,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 23,
+            "prime_count_limit_X": 100,
+            "prime_count_total": 25,
+            "residue_counts": [
+              1,
+              1,
+              2,
+              1,
+              1,
+              2,
+              1,
+              2,
+              1,
+              0,
+              1,
+              1,
+              0,
+              2,
+              2,
+              1,
+              0,
+              1,
+              1,
+              1,
+              2,
+              1,
+              0
+            ],
+            "centered_integral_vector": [
+              -2,
+              -2,
+              21,
+              -2,
+              -2,
+              21,
+              -2,
+              21,
+              -2,
+              -25,
+              -2,
+              -2,
+              -25,
+              21,
+              21,
+              -2,
+              -25,
+              -2,
+              -2,
+              -2,
+              21,
+              -2,
+              -25
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "3793410456811648207374054869627450307487",
+            "absolute_norm_digit_count": 40,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 23,
+            "prime_count_limit_X": 1000,
+            "prime_count_total": 168,
+            "residue_counts": [
+              1,
+              8,
+              9,
+              8,
+              7,
+              8,
+              8,
+              8,
+              6,
+              8,
+              8,
+              9,
+              7,
+              5,
+              7,
+              10,
+              6,
+              9,
+              8,
+              7,
+              8,
+              7,
+              6
+            ],
+            "centered_integral_vector": [
+              -145,
+              16,
+              39,
+              16,
+              -7,
+              16,
+              16,
+              16,
+              -30,
+              16,
+              16,
+              39,
+              -7,
+              -53,
+              -7,
+              62,
+              -30,
+              39,
+              16,
+              -7,
+              16,
+              -7,
+              -30
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "33842878053602057041145947586636711120697019300757",
+            "absolute_norm_digit_count": 50,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 23,
+            "prime_count_limit_X": 10000,
+            "prime_count_total": 1229,
+            "residue_counts": [
+              1,
+              55,
+              54,
+              55,
+              49,
+              58,
+              60,
+              55,
+              56,
+              52,
+              59,
+              53,
+              56,
+              54,
+              59,
+              57,
+              56,
+              59,
+              54,
+              58,
+              56,
+              56,
+              57
+            ],
+            "centered_integral_vector": [
+              -1206,
+              36,
+              13,
+              36,
+              -102,
+              105,
+              151,
+              36,
+              59,
+              -33,
+              128,
+              -10,
+              59,
+              13,
+              128,
+              82,
+              59,
+              128,
+              13,
+              105,
+              59,
+              59,
+              82
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "191932034804037145717535929088666426885507043776693907108980686182209",
+            "absolute_norm_digit_count": 69,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 23,
+            "prime_count_limit_X": 100000,
+            "prime_count_total": 9592,
+            "residue_counts": [
+              1,
+              429,
+              439,
+              429,
+              428,
+              445,
+              431,
+              442,
+              443,
+              435,
+              436,
+              442,
+              435,
+              432,
+              436,
+              433,
+              435,
+              434,
+              432,
+              438,
+              435,
+              440,
+              442
+            ],
+            "centered_integral_vector": [
+              -9569,
+              275,
+              505,
+              275,
+              252,
+              643,
+              321,
+              574,
+              597,
+              413,
+              436,
+              574,
+              413,
+              344,
+              436,
+              367,
+              413,
+              390,
+              344,
+              482,
+              413,
+              528,
+              574
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "10207342744468570260437934660740065971546925274131923240713521455965557602843662735971231",
+            "absolute_norm_digit_count": 89,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 23,
+            "prime_count_limit_X": 1000000,
+            "prime_count_total": 78498,
+            "residue_counts": [
+              1,
+              3577,
+              3565,
+              3556,
+              3571,
+              3563,
+              3573,
+              3553,
+              3573,
+              3548,
+              3566,
+              3570,
+              3514,
+              3589,
+              3586,
+              3573,
+              3569,
+              3583,
+              3552,
+              3573,
+              3589,
+              3582,
+              3572
+            ],
+            "centered_integral_vector": [
+              -78475,
+              3773,
+              3497,
+              3290,
+              3635,
+              3451,
+              3681,
+              3221,
+              3681,
+              3106,
+              3520,
+              3612,
+              2324,
+              4049,
+              3980,
+              3681,
+              3589,
+              3911,
+              3198,
+              3681,
+              4049,
+              3888,
+              3658
+            ],
+            "centered_sum": 0,
+            "vector_nonconstant": true,
+            "exact_galois_norm": "1286119427567586397707820051531541129461289515882515759845314368747812889099859721282949788651966093036185703",
+            "absolute_norm_digit_count": 109,
+            "all_nonzero_frequencies_proved_by_minimal_polynomial": true,
+            "certificate_verified": true
+          }
+        ],
+        "exact_boundary_countermodels": [
+          {
+            "modulus_q": 3,
+            "centered_vector": [
+              2,
+              -1,
+              -1
+            ],
+            "nonzero_frequency_support": [
+              1,
+              2
+            ],
+            "interpretation": "all nonzero frequencies are exactly two, so q>=5 is necessary for excluding a two-spike support",
+            "certificate_verified": true
+          },
+          {
+            "modulus_q": 4,
+            "centered_vector": [
+              1,
+              0,
+              -1,
+              0
+            ],
+            "nonzero_frequency_support": [
+              1,
+              3
+            ],
+            "interpretation": "composite moduli can have a proper two-frequency Galois orbit",
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "Eratosthenes prime counts by residue, exact cyclotomic reduction, and fraction-free Bareiss determinants",
+        "complexity": "O(X log log X + sum_(q,X) q^3) integer operations and O(X+max q^2) memory",
+        "random_seed": null,
+        "transcript_sha256": "684fea0b7645dea69f080eddb985918605ef6db23fde35646689556c8cf5c5a1",
+        "aggregate": {
+          "prime_modulus_rational_full_support_proved": true,
+          "nonzero_integral_galois_norm_proved": true,
+          "ticket249_two_spike_prime_count_model_excluded_for_q_at_least_5": true,
+          "quantitative_pointwise_upper_anti_concentration_proved": false,
+          "strong_goldbach_resolved": false,
+          "smallest_replayed_absolute_norm": "250000",
+          "smallest_norm_case": {
+            "prime_modulus_q": 5,
+            "prime_count_limit_X": 100
+          }
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Exact determinants audit 35 prime-count vectors through X=1,000,000; the all-vector theorem comes from Phi_q minimality, not finite data.",
+      "logical_limit": "Galois symmetry forces exact full support and a nonzero norm, but permits arbitrarily uneven nonzero magnitudes and does not handle logarithmic prime weights or prove a uniform upper saving.",
+      "route_decision": {
+        "discard": "identifying the exact TICKET-249 two-frequency cosine spike with a rational or integer prime-count residue vector at prime moduli q>=5",
+        "parked": [],
+        "retain": "quantitative prime-specific upper anti-concentration for weighted residue vectors after exact support is established",
+        "next_single_lemma": "QuantitativePrimeCountFourierEnergyAntiConcentrationAtPrimeModuli"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T249",
+            "label": "CenteredJetParsevalSpikeNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "GB-T250",
+            "label": "PrimeModulusRationalFourierFullSupportAndNormBarrier",
+            "status": "proved"
+          },
+          {
+            "id": "GB-REJECT250",
+            "label": "Ticket249TwoSpikeCanBePrimeCountVectorAtPrimeModulusAtLeastFive",
+            "status": "disproved"
+          },
+          {
+            "id": "GB-OPEN250",
+            "label": "QuantitativePrimeCountFourierEnergyAntiConcentrationAtPrimeModuli",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T249",
+            "GB-T250"
+          ],
+          [
+            "GB-T250",
+            "GB-REJECT250"
+          ],
+          [
+            "GB-T250",
+            "GB-OPEN250"
+          ]
+        ],
+        "resolution_path": [
+          "GB-T249",
+          "GB-T250",
+          "GB-OPEN250"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No strong Goldbach proof or counterexample; one exact algebraic support theorem and norm barrier for prime-count residue vectors."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-250",
+      "theorem_name": "AllBaseEvenLeftRightActiveClassification",
+      "declared_proposition": "Let p,r be odd primes, m>=1, and ell>=2. If p^(2m)+2=r^ell, then (p,m,r,ell)=(5,1,3,3). Consequently every right-active shift-two prime-power pair whose left exponent is even is the single pair (25,27), with no base-3 exception: R_even-left(X)=1 for X>=25 and zero otherwise.",
+      "mathematical_argument": "Set x=p^m. If ell=2, then x and r are odd, so x^2+2=3 mod 8 while r^2=1 mod 8, impossible. If ell>=3, the D=2 Lebesgue-Nagell classification says that the only positive solution of x^2+2=y^ell is (x,y,ell)=(5,3,3). Thus p^m=5 and the claimed quadruple follows. Unlike TICKET-249, no assumption p!=3 is needed. The external Diophantine theorem is an explicit proof-DAG node.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let p,r be odd primes, m>=1, and ell>=2. If p^(2m)+2=r^ell, then (p,m,r,ell)=(5,1,3,3). Consequently every right-active shift-two prime-power pair whose left exponent is even is the single pair (25,27), with no base-3 exception: R_even-left(X)=1 for X>=25 and zero otherwise.",
+        "proof": "Set x=p^m. If ell=2, then x and r are odd, so x^2+2=3 mod 8 while r^2=1 mod 8, impossible. If ell>=3, the D=2 Lebesgue-Nagell classification says that the only positive solution of x^2+2=y^ell is (x,y,ell)=(5,3,3). Thus p^m=5 and the claimed quadruple follows. Unlike TICKET-249, no assumption p!=3 is needed. The external Diophantine theorem is an explicit proof-DAG node.",
+        "exact_scale_rows": [
+          {
+            "limit_X": 24,
+            "right_active_composite_pairs_R": 2,
+            "right_active_even_left_exponent": 0,
+            "right_active_odd_left_exponent": 2,
+            "proved_even_left_count": 0,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 25,
+            "right_active_composite_pairs_R": 3,
+            "right_active_even_left_exponent": 1,
+            "right_active_odd_left_exponent": 2,
+            "proved_even_left_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 100,
+            "right_active_composite_pairs_R": 5,
+            "right_active_even_left_exponent": 1,
+            "right_active_odd_left_exponent": 4,
+            "proved_even_left_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 1000,
+            "right_active_composite_pairs_R": 10,
+            "right_active_even_left_exponent": 1,
+            "right_active_odd_left_exponent": 9,
+            "proved_even_left_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 10000,
+            "right_active_composite_pairs_R": 18,
+            "right_active_even_left_exponent": 1,
+            "right_active_odd_left_exponent": 17,
+            "proved_even_left_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 100000,
+            "right_active_composite_pairs_R": 37,
+            "right_active_even_left_exponent": 1,
+            "right_active_odd_left_exponent": 36,
+            "proved_even_left_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 1000000,
+            "right_active_composite_pairs_R": 66,
+            "right_active_even_left_exponent": 1,
+            "right_active_odd_left_exponent": 65,
+            "proved_even_left_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 5000000,
+            "right_active_composite_pairs_R": 110,
+            "right_active_even_left_exponent": 1,
+            "right_active_odd_left_exponent": 109,
+            "proved_even_left_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 10000000,
+            "right_active_composite_pairs_R": 136,
+            "right_active_even_left_exponent": 1,
+            "right_active_odd_left_exponent": 135,
+            "proved_even_left_count": 1,
+            "certificate_verified": true
+          }
+        ],
+        "selected_even_left_witnesses": [
+          {
+            "n": 25,
+            "n_plus_2": 27,
+            "left_base": 5,
+            "left_exponent": 2,
+            "right_base": 3,
+            "right_exponent": 3,
+            "left_exponent_even": true,
+            "classification_verified": true
+          }
+        ],
+        "external_theorem": {
+          "name": "Lebesgue-Nagell D=2 classification (Nagell)",
+          "statement_used": "For positive integers x,y and n>=3, x^2+2=y^n has only (x,y,n)=(5,3,3).",
+          "modern_primary_source": "https://doi.org/10.1112/S0010437X05001739",
+          "source_scope": "Bugeaud-Mignotte-Siksek solve x^2+D=y^n for 1<=D<=100; only D=2 is used."
+        },
+        "algorithm": "Eratosthenes sieve, exact odd-prime-power representation table, shift-two activation, and exponent-parity partition",
+        "complexity": "O(X log log X) time and O(X) support memory for the finite replay; the all-X classification is Diophantine",
+        "random_seed": null,
+        "transcript_sha256": "0cf8bd40771dca2cc7e0da725f6bffbaefb50d81c3d73d72731917568fa4dcda",
+        "aggregate": {
+          "all_base_even_left_right_active_classification_proved": true,
+          "unique_pair": [
+            25,
+            27
+          ],
+          "base_three_left_exception_eliminated": true,
+          "odd_left_right_active_contamination_controlled": false,
+          "scale_local_type_II_lower_bound_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Prime-power supports are enumerated at 9 scales through 10,000,000; the all-X result uses the explicit D=2 Lebesgue-Nagell external theorem.",
+      "logical_limit": "The full even-left right-active subclass is closed, but the 135 odd-left examples through ten million remain uncontrolled and no Type-II lower bound is proved.",
+      "route_decision": {
+        "discard": "retaining any right-active composite prime-power contaminant with even left exponent other than the pair 25 to 27, including a possible base-3 exception",
+        "parked": [],
+        "retain": "a scale-local bound for the remaining right-active pairs, all of which have odd left exponent except 25 to 27",
+        "next_single_lemma": "ScaleLocalOddLeftRightActiveContaminationBound"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T249",
+            "label": "EvenExponentLeftActiveContaminationClassification",
+            "status": "proved"
+          },
+          {
+            "id": "TP-EXT-NAGELL",
+            "label": "Lebesgue-Nagell D=2 classification",
+            "status": "external_theorem"
+          },
+          {
+            "id": "TP-T250",
+            "label": "AllBaseEvenLeftRightActiveClassification",
+            "status": "proved"
+          },
+          {
+            "id": "TP-REJECT250",
+            "label": "AdditionalEvenLeftRightActiveContaminantsOrBaseThreeExceptionExist",
+            "status": "disproved"
+          },
+          {
+            "id": "TP-OPEN250",
+            "label": "ScaleLocalOddLeftRightActiveContaminationBound",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-EXT-NAGELL",
+            "TP-T250"
+          ],
+          [
+            "TP-T249",
+            "TP-T250"
+          ],
+          [
+            "TP-T250",
+            "TP-REJECT250"
+          ],
+          [
+            "TP-T250",
+            "TP-OPEN250"
+          ]
+        ],
+        "resolution_path": [
+          "TP-T249",
+          "TP-EXT-NAGELL",
+          "TP-T250",
+          "TP-OPEN250"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No twin-prime proof or counterexample; one strengthened all-base classification of a strict right-active contamination subclass."
+    },
+    "research_baselines": {
+      "riemann_status": "https://www.claymath.org/millennium/Riemann-Hypothesis/",
+      "collatz": "https://arxiv.org/abs/1909.03562",
+      "goldbach_major_arcs": "https://arxiv.org/abs/1205.5252",
+      "twin_prime_parity": "https://arxiv.org/abs/1407.4897",
+      "lebesgue_nagell_D2": "https://doi.org/10.1112/S0010437X05001739"
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_partial_theorem_count": 2,
+      "exact_no_go_count": 2,
+      "candidate_resolution_count": 0,
+      "conjecture_resolution_count": 0,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "deep_focus_problem": "goldbach",
+      "stagnated_problem_count": 0,
+      "riemann_legendre_case_count": 9,
+      "riemann_concentration_case_count": 12,
+      "collatz_lift_pair_count": 73901,
+      "goldbach_prime_count_norm_case_count": 35,
+      "goldbach_boundary_countermodel_count": 2,
+      "twin_active_scale_count": 9,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-250",
+      "declared_proposition": "Let H=L2_even([-1,1]), let Q0 be the raw even-moment energy, let f_n=sqrt((4n+1)/2)P_(2n), and let K=M_(x^2). Then K is bounded, self-adjoint, and noncompact, while <Kf_n,f_n> tends to 1/2. Thus K defeats the compact weak-null escape used in TICKET-249. However, for g_epsilon=(2epsilon)^(-1/2)1_[−epsilon,epsilon], ||g_epsilon||=1, <Kg_epsilon,g_epsilon>=epsilon^2/3 and Q0(g_epsilon)<=2epsilon/(1-epsilon^4), so Q0(g_epsilon)+<Kg_epsilon,g_epsilon> tends to zero. Therefore nonvanishing on the Legendre escape sequence, even for an explicit noncompact correction, is not sufficient for full-sphere coercivity.",
+      "new_result": "NoncompactMultiplierLegendreEscapeInsufficiencyNoGo",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/multiplier_lift_galois_evenright_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "using a positive diagonal limit on the Legendre sequence for one noncompact multiplier as a certificate of full-sphere coercivity",
+      "parked_routes": [],
+      "remaining_gap": "The explicit multiplier blocks the old oscillatory escape but admits a new concentration escape; no actual Weil arithmetic form or admissible-closure theorem is controlled.",
+      "stagnation_count": 0,
+      "candidate_theorem": "ArithmeticWeilFormCoercivityAgainstOscillationAndConcentrationEscapes"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-250",
+      "declared_proposition": "Let q>5 be prime. For k,l in F_q define A_k=2+kq and B_l=3+lq modulo q^2, and let F_q(a)=((a^(q-1)-1)/q) mod q. Then F_q(A_k)=F_q(2)-k/2 and F_q(B_l)=F_q(3)-l/3. Hence the map (k,l)->(F_q(A_k),F_q(B_l)) is a bijection F_q^2->F_q^2. Exactly q-1 lift pairs hit the separated projective line [3:5], one for each t in F_q^*. Therefore slope [3:5] cannot be excluded using only the residue classes 2,3 modulo q and reasoning invariant under changing their lifts modulo q^2; the canonical lifts k=l=0 carry essential cross-prime arithmetic information.",
+      "new_result": "LocalFermatQuotientLiftTransitivityNoGo",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/multiplier_lift_galois_evenright_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "excluding projective slope [3:5] from the residue classes 2 and 3 modulo q using only lift-invariant local Fermat-quotient structure",
+      "parked_routes": [
+        "all-prime occurrence or avoidance of the canonical projective point [3:5] without cross-prime distribution input"
+      ],
+      "remaining_gap": "Every local lift fiber contains the target, but the actual canonical lifts remain undecided across primes; this valuation branch still does not control all Collatz trajectories.",
+      "stagnation_count": 0,
+      "candidate_theorem": "CanonicalRepresentativeFermatQuotientDistributionBeyondLiftTransitivity"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-250",
+      "declared_proposition": "Let q>=5 be prime, let n_0,...,n_(q-1) be integers, put N=sum_r n_r and Delta_r=q n_r-N, and let zeta be a primitive q-th root of unity. If the vector n is nonconstant, then for every a=1,...,q-1 the Fourier coefficient F(a)=sum_r Delta_r zeta^(ar) is nonzero. Moreover F(a) is an algebraic integer and product_(a=1)^(q-1) F(a) is a nonzero integer, hence has absolute value at least one. Consequently the exact two-frequency spike from TICKET-249 cannot be an integer or rational prime-count residue vector at a prime modulus q>=5.",
+      "new_result": "PrimeModulusRationalFourierFullSupportAndNormBarrier",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/multiplier_lift_galois_evenright_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "identifying the exact TICKET-249 two-frequency cosine spike with a rational or integer prime-count residue vector at prime moduli q>=5",
+      "parked_routes": [],
+      "remaining_gap": "Galois symmetry forces exact full support and a nonzero norm, but permits arbitrarily uneven nonzero magnitudes and does not handle logarithmic prime weights or prove a uniform upper saving.",
+      "stagnation_count": 0,
+      "candidate_theorem": "QuantitativePrimeCountFourierEnergyAntiConcentrationAtPrimeModuli"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-250",
+      "declared_proposition": "Let p,r be odd primes, m>=1, and ell>=2. If p^(2m)+2=r^ell, then (p,m,r,ell)=(5,1,3,3). Consequently every right-active shift-two prime-power pair whose left exponent is even is the single pair (25,27), with no base-3 exception: R_even-left(X)=1 for X>=25 and zero otherwise.",
+      "new_result": "AllBaseEvenLeftRightActiveClassification",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/multiplier_lift_galois_evenright_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "retaining any right-active composite prime-power contaminant with even left exponent other than the pair 25 to 27, including a possible base-3 exception",
+      "parked_routes": [],
+      "remaining_gap": "The full even-left right-active subclass is closed, but the 135 odd-left examples through ten million remain uncontrolled and no Type-II lower bound is proved.",
+      "stagnation_count": 0,
+      "candidate_theorem": "ScaleLocalOddLeftRightActiveContaminationBound"
+    }
+  ]
+}

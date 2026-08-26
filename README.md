@@ -31,17 +31,16 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-249: Compact Perturbation No-Go, Projective Fermat Quotients, Parseval Spikes, and Lebesgue-Nagell Active Classification](docs/compact-projective-parseval-lebesgue.md),
-with a separate [Korean report](docs/compact-projective-parseval-lebesgue.ko.md).
-It proves two partial theorems and two exact route no-go results. Compact
-off-diagonal operators cannot repair raw-moment coercivity on the full even L2
-model. The actual first-level Collatz failure is the nonzero projective
-Fermat-quotient point [3:5]. An exact centered cosine jet refutes uniform
-Goldbach numerator control from Parseval data alone. Using the cited D=2
-Lebesgue-Nagell classification, the away-from-3 even-exponent left-active twin
-contamination is exactly (25,27). Eight compact rows, a 664,576-prime scan,
-10,900 finite-field pairs, 5,020 exact group-ring cases, and seven twin scales are
-bounded replay evidence. All parent conjectures remain `open_not_proven`.
+[TICKET-250: Multiplier Escape, Lift Transitivity, Galois Support, and Even-Left Classification](docs/multiplier-lift-galois-evenright.md),
+with a separate [Korean report](docs/multiplier-lift-galois-evenright.ko.md).
+It proves two partial theorems and two exact route no-go results. The
+noncompact multiplier `M_(x^2)` blocks the Legendre RH escape but admits a
+centered concentration escape. Every local Collatz lift fiber contains exactly
+`q-1` representatives of projective slope `[3:5]`. Every nonconstant
+rational residue vector at prime modulus `q>=5` has full reduced Fourier
+support and nonzero integer Galois norm. Using the cited `D=2`
+Lebesgue-Nagell classification, the complete even-left twin contamination is
+exactly `25->27`. All parent conjectures remain `open_not_proven`.
 
 The preserved [TICKET-248 report](docs/unweighted-wieferich-jet-active.md)
 records the preceding unweighted-moment, Wieferich-separation, first-jet, and
@@ -663,15 +662,13 @@ See [TICKET236 EN](docs/contraction-order-phase-degree2.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-249입니다. 리만 트랙은 모든 compact
-off-diagonal 보정이 Legendre 도주열에서 사라진다는 exact no-go를
-증명했습니다. 콜라츠 트랙은 실제 장애를 projective Fermat-quotient 점
-[3:5]로 환원했습니다. 골드바흐 트랙은 Parseval-only 균일 승격을 exact
-두-spike 반례로 폐기했습니다. 쌍둥이 소수 트랙은 외부 D=2
-Lebesgue-Nagell 정리를 명시적으로 사용해 밑이 3이 아닌 왼쪽 짝수 지수
-활성 오염을 (25,27) 하나로 분류했습니다. 이들은 두 partial theorem과 두
-exact no-go이며 유한 계산은 선언 범위의 재현 증거일 뿐입니다. 해결 수는
-0입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-250입니다. 리만 트랙은 한 비compact
+multiplier의 Legendre 양성만으로 coercivity를 인증하는 경로를 집중
+도주열로 폐기했습니다. 콜라츠 트랙은 모든 local lift fiber가 [3:5]를
+포함하므로 lift-invariant 회피가 불가능함을 증명했습니다. 골드바흐
+트랙은 prime-modulus 유리 vector의 full Fourier support와 nonzero norm을
+증명했습니다. 쌍둥이 소수 트랙은 밑 3까지 포함한 전체 even-left 오염을
+25→27 하나로 분류했습니다. 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
@@ -691,19 +688,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-249입니다.
-[compact 보정·projective quotient·Parseval spike·Lebesgue-Nagell 분류 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/compact-projective-parseval-lebesgue.ko.md)와
-[영문 보고서](docs/compact-projective-parseval-lebesgue.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-250입니다.
+[multiplier 도주·lift 추이성·Galois support·even-left 분류 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/multiplier-lift-galois-evenright.ko.md)와
+[영문 보고서](docs/multiplier-lift-galois-evenright.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-현재 결정적 미해결 보조정리는 noncompact 산술 Weil form 또는 Legendre
-배제, projective slope [3:5]의 출현 또는 회피, 소수 고유의 reduced-numerator
-jet anti-concentration, 오른쪽 활성 소수거듭제곱 오염의 scale-local
-상계입니다.
+현재 결정적 미해결 보조정리는 oscillation과 concentration을 함께 막는
+산술 Weil form, canonical Fermat-quotient 분포, prime-count Fourier
+energy의 정량적 anti-concentration, odd-left right-active 오염의
+scale-local 상계입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-249의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 249개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-250의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 250개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

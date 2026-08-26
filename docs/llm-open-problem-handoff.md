@@ -62,7 +62,40 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-249
+## Preserved continuation: TICKET-249
+## Current continuation: TICKET-250
+
+The current machine-readable boundary is
+`data/open-problem/ticket250-multiplier-lift-galois-evenright.json`.
+It records two partial theorems, two exact route no-go results, four acyclic
+proof DAGs, zero machine failures, and zero parent-problem resolutions.
+
+| Problem | Newly closed result | Current single open lemma |
+|---|---|---|
+| Riemann | `NoncompactMultiplierLegendreEscapeInsufficiencyNoGo` | `ArithmeticWeilFormCoercivityAgainstOscillationAndConcentrationEscapes` |
+| Collatz | `LocalFermatQuotientLiftTransitivityNoGo` | `CanonicalRepresentativeFermatQuotientDistributionBeyondLiftTransitivity` |
+| Goldbach | `PrimeModulusRationalFourierFullSupportAndNormBarrier` | `QuantitativePrimeCountFourierEnergyAntiConcentrationAtPrimeModuli` |
+| Twin Prime | `AllBaseEvenLeftRightActiveClassification` | `ScaleLocalOddLeftRightActiveContaminationBound` |
+
+Do not repeat the newly discarded routes. A positive Legendre diagonal for one
+noncompact RH correction does not certify full-sphere coercivity. Local
+Fermat-quotient lift structure cannot avoid projective slope `[3:5]`; only
+canonical fixed representatives remain meaningful. Galois full support and a
+nonzero norm do not give quantitative Goldbach upper anti-concentration. The
+complete even-left twin subclass is `25 -> 27`, but 135 odd-left examples
+remain through ten million and no Type-II lower bound follows.
+
+Exact replay covers nine Legendre rows, twelve concentration rows, 73,901
+Collatz lift pairs, 35 prime-count Galois norms plus two boundary countermodels,
+and nine twin scales. These finite checks are certificates of the stated
+formulas, not proofs of the four parent conjectures.
+
+Reports: [English](multiplier-lift-galois-evenright.md),
+[한국어](multiplier-lift-galois-evenright.ko.md).
+
+All older current/latest headings below are historical snapshots and must not
+override this TICKET-250 boundary.
+
 
 The current machine-readable boundary is
 `data/open-problem/ticket249-compact-projective-parseval-lebesgue.json`.

@@ -151,17 +151,31 @@ def verify_ticket249_structure() -> str | None:
     if not state_path.exists():
         return "missing persistent four-problem research state"
     state = json.loads(state_path.read_text(encoding="utf-8"))
-    if state.get("ticket") != 249 or state.get("parent_ticket") != 248:
-        return "TICKET-249 persistent research state changed"
+    current_ticket = state.get("ticket")
+    if not isinstance(current_ticket, int) or current_ticket < 249:
+        return "TICKET-249 persistent research state was rolled back"
+    if state.get("parent_ticket") != current_ticket - 1:
+        return "persistent research-state parent link changed"
     if (
         state.get("resolved_count") != 0
         or state.get("candidate_resolution_count") != 0
         or state.get("program_complete")
-        or state.get("deep_focus_problem") != "twin_prime"
     ):
         return "TICKET-249 resolution boundary changed"
     if sum(node.get("status") == "external_theorem" for node in root["twin_prime"]["proof_dag"]["nodes"]) != 1:
         return "TICKET-249 Twin external theorem boundary changed"
+    if current_ticket == 249 and state.get("deep_focus_problem") != "twin_prime":
+        return "TICKET-249 deep-focus boundary changed"
+    historical = {
+        "riemann": "CompactOffDiagonalMomentCoercivityNoGo",
+        "collatz": "SeparatedWieferichProjectiveSlopeCriterion",
+        "goldbach": "CenteredJetParsevalSpikeNoGo",
+        "twin_prime": "EvenExponentLeftActiveContaminationClassification",
+    }
+    for problem_key, theorem in historical.items():
+        if theorem not in state.get("problems", {}).get(problem_key, {}).get("established_results", []):
+            return f"TICKET-249 result missing from persistent history: {theorem}"
+
     for report in (
         ROOT / "docs/compact-projective-parseval-lebesgue.md",
         ROOT / "docs/compact-projective-parseval-lebesgue.ko.md",

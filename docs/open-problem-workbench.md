@@ -15,7 +15,33 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-249
+## Preserved research boundary: TICKET-249
+## Current research boundary: TICKET-250
+
+The current machine-readable boundary is
+`data/open-problem/ticket250-multiplier-lift-galois-evenright.json`.
+TICKET-250 proves two partial theorems and two exact route no-go results while
+resolving none of the parent conjectures:
+
+- the noncompact multiplier `M_(x^2)` blocks the normalized Legendre escape
+  but a centered concentration sequence still makes the combined form vanish;
+- the local Fermat-quotient lift action on residues 2 and 3 is transitive, so
+  every lift fiber contains exactly `q-1` representatives of slope `[3:5]`;
+- every nonconstant rational residue vector at prime modulus `q>=5` has full
+  reduced Fourier support and a nonzero integer Galois norm;
+- all right-active pairs with even left exponent are exactly `25+2=27`,
+  using the cited D=2 Lebesgue-Nagell classification.
+
+The next single lemmas are an arithmetic Weil form controlling oscillation and
+concentration; canonical Fermat-quotient distribution beyond local lift
+transitivity; quantitative prime-count Fourier energy anti-concentration; and
+a scale-local odd-left right-active contamination bound. All four proof DAGs
+are acyclic with one open frontier and every parent status is
+`open_not_proven`.
+
+Reports: [English](multiplier-lift-galois-evenright.md) and
+[한국어](multiplier-lift-galois-evenright.ko.md).
+
 
 The current machine-readable boundary is
 `data/open-problem/ticket249-compact-projective-parseval-lebesgue.json`.
