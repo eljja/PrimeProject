@@ -433,3 +433,24 @@ Blocked claims:
 - that an absolute half-arc energy floor settles a signed Goldbach coefficient;
 - that fixed-modulus PNT in progressions supplies growing-modulus Type II
   uniformity or proves infinitely many twin primes.
+
+## TICKET-244 publication boundary
+
+TICKET-244 adds three partial theorems and one exact route no-go:
+
+- bounded-`L2` relative compactness is equivalent to joint physical and Fourier
+  tail tightness; this is a functional-analytic bridge, not RH positivity;
+- the Collatz fixed-base bad line has an exact first-layer harmonic-prefix
+  reformulation; all-prime nonvanishing and higher valuations remain open;
+- the odd-prime Goldbach coefficient folds exactly under a half-turn for even
+  targets; denominator-at-least-three arcs and signed residual saving remain open;
+- fixed-polylogarithmic pure periodic Twin classifiers are refuted by a uniform
+  dyadic mimicry theorem; superpolylogarithmic, nonperiodic, and Type-II routes
+  are not covered.
+
+Allowed public wording is `partial_theorem` for the first three tracks and
+`exact_no_go` only for the specified Twin periodic-classifier route. Blocked
+wording includes any parent-conjecture proof/disproof, any promotion of the
+2,259-prime or 8,290-target replays to an infinite result, and any claim that the
+first Collatz harmonic layer controls higher q-adic depth. Resolution and
+candidate-resolution counts are both zero.

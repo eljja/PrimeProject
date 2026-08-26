@@ -15,7 +15,38 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-243
+## Current research boundary: TICKET-244
+
+The current machine-readable boundary is
+`data/open-problem/ticket244-joint-tightness-harmonic-parity-fold-polylog-mimicry.json`.
+TICKET-244 proves three partial theorems and one exact route no-go, while
+resolving none of the parent conjectures:
+
+- joint physical-frequency tail tightness exactly characterizes relative
+  compactness for bounded `L2(R)` families; either one-sided condition fails;
+- the fixed-base Collatz first Wieferich bad line is exactly
+  `4H_floor(q/3)=5H_((q-1)/2) mod q`, with higher depths explicitly open;
+- the odd-prime even-target Goldbach integrand is exactly half-periodic, so the
+  zero and half-frequency arcs fold into one signed problem;
+- every pure periodic Twin fingerprint with
+  `M_X<=(log_2 X)^A` has a prime/composite-successor mimic in every
+  sufficiently large dyadic block.
+
+The next single lemmas are a uniform signed Guinand-Weil tail with positive
+margin on exhaustive jointly tight admissible classes; fixed-base harmonic
+bad-line nonvanishing for every prime; denominator-at-least-three major arcs
+plus signed residual saving after parity folding; and superpolylogarithmic
+scale-local Type II cancellation with positive shift-two prime mass.
+
+한국어: 세 부분정리는 joint compactness의 정확한 gate, Collatz 첫 층의
+harmonic 표현, Goldbach parity folding을 확정합니다. Twin no-go는 고정
+주기에서 모든 fixed-polylog 가변 주기로 범위를 넓힙니다. 네 난제의 해결
+수와 후보 해결 수는 모두 0입니다.
+
+Reports: [English](joint-tightness-harmonic-parity-fold-polylog-mimicry.md),
+[한국어](joint-tightness-harmonic-parity-fold-polylog-mimicry.ko.md).
+
+## Preserved research boundary: TICKET-243
 
 The current machine-readable boundary is
 `data/open-problem/ticket243-bandlimit-principal-unit-half-arc-dyadic-mimicry.json`.

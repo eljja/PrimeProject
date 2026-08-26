@@ -8757,3 +8757,25 @@ certificate failures. The analytic theorems do not depend on that finite
 range. The machine-readable audit, four proof DAGs, exact next lemmas, and
 claim boundaries are in
 `data/open-problem/ticket243-bandlimit-principal-unit-half-arc-dyadic-mimicry.json`.
+## TICKET-244 continuation: joint tightness, harmonic bad lines, parity folding, and polylog mimicry
+
+TICKET-244 attacks the four TICKET-243 successors and closes four strictly
+bounded statements without resolving a parent conjecture:
+
+1. joint physical-frequency tails characterize relative compactness in bounded
+   `L2(R)` families; physical-only and frequency-only compactness both fail;
+2. the fixed-base first Wieferich bad line is exactly
+   `4H_floor(q/3)=5H_((q-1)/2) mod q`; simultaneous first-layer vanishing does
+   not decide higher valuations;
+3. the odd-prime even-target Goldbach integrand is exactly half-periodic and,
+   for even `N>=6`, has the full-prime binary coefficient;
+4. for every fixed `A`, any pure periodic Twin fingerprint with
+   `M_X<=(log_2 X)^A` has prime/composite-successor mimics in every sufficiently
+   large dyadic block, by Bertrand, CRT, and uniform Siegel-Walfisz.
+
+The deep-focus result is item 4 and is classified `exact_no_go`. Items 1-3 are
+`partial_theorem`. The exact generator, five track/integrated JSON artifacts,
+eight focused tests, bilingual proof, proof DAGs, and persistent state are linked
+from
+`data/open-problem/ticket244-joint-tightness-harmonic-parity-fold-polylog-mimicry.json`.
+All four conjectures remain `open_not_proven`.

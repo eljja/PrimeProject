@@ -1,0 +1,159 @@
+{
+  "schema": "primeproject.ticket244-joint-tightness-harmonic-parity-fold-polylog-mimicry.v1",
+  "generated_at": "2026-08-26T09:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-244",
+  "theorem_name": "PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock",
+  "declared_proposition": "Fix A>0. For every sufficiently large X, let 1<=M_X<=(log_2 X)^A, choose a_X modulo M_X with gcd(a_X,M_X)=gcd(a_X+2,M_X)=1, and let F_X be any feature of (n,n+2) depending only on that pair modulo M_X. Then every sufficiently large dyadic block [X,2X] contains a prime p with F_X(p,p+2)=F_X(a_X,a_X+2) but p+2 composite. Thus no pure periodic twin classifier whose scale-dependent period is bounded by any fixed power of log X can exclude prime/composite-successor mimics.",
+  "mathematical_argument": "For M_X>=2, Bertrand's postulate supplies a prime ell_X with M_X<ell_X<2M_X; use ell_X=3 for M_X=1. CRT gives a reduced class r_X=a_X mod M_X and r_X=-2 mod ell_X, of modulus Q_X=M_X ell_X<2M_X^2<=2(log_2 X)^(2A). The Siegel-Walfisz theorem is uniform for moduli bounded by any fixed power of log X, so the number of primes p in [X,2X] in this class is asymptotic to (Li(2X)-Li(X))/phi(Q_X), uniformly and hence positive for all large X. Then ell_X divides p+2; since X>ell_X eventually, p+2 is composite. Congruence modulo M_X preserves F_X.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Fix A>0. For every sufficiently large X, let 1<=M_X<=(log_2 X)^A, choose a_X modulo M_X with gcd(a_X,M_X)=gcd(a_X+2,M_X)=1, and let F_X be any feature of (n,n+2) depending only on that pair modulo M_X. Then every sufficiently large dyadic block [X,2X] contains a prime p with F_X(p,p+2)=F_X(a_X,a_X+2) but p+2 composite. Thus no pure periodic twin classifier whose scale-dependent period is bounded by any fixed power of log X can exclude prime/composite-successor mimics.",
+    "proof": "For M_X>=2, Bertrand's postulate supplies a prime ell_X with M_X<ell_X<2M_X; use ell_X=3 for M_X=1. CRT gives a reduced class r_X=a_X mod M_X and r_X=-2 mod ell_X, of modulus Q_X=M_X ell_X<2M_X^2<=2(log_2 X)^(2A). The Siegel-Walfisz theorem is uniform for moduli bounded by any fixed power of log X, so the number of primes p in [X,2X] in this class is asymptotic to (Li(2X)-Li(X))/phi(Q_X), uniformly and hence positive for all large X. Then ell_X divides p+2; since X>ell_X eventually, p+2 is composite. Congruence modulo M_X preserves F_X.",
+    "finite_polylog_period_witness_rows": [
+      {
+        "scale_dependent_period_M_X": 30,
+        "admissible_residue_a_X": 11,
+        "bertrand_prime_ell_X": 31,
+        "combined_crt_residue": 401,
+        "combined_modulus_Q_X": 930,
+        "dyadic_block_start_X": 930000,
+        "floor_log2_X": 19,
+        "polylog_power_A": 4,
+        "M_X_at_most_floor_log2_X_power_A": true,
+        "prime_mimic_p": 934121,
+        "forced_composite_successor_p_plus_2": 934123,
+        "successor_cofactor": 30133,
+        "certificate_verified": true
+      },
+      {
+        "scale_dependent_period_M_X": 210,
+        "admissible_residue_a_X": 11,
+        "bertrand_prime_ell_X": 211,
+        "combined_crt_residue": 2741,
+        "combined_modulus_Q_X": 44310,
+        "dyadic_block_start_X": 44310000,
+        "floor_log2_X": 25,
+        "polylog_power_A": 4,
+        "M_X_at_most_floor_log2_X_power_A": true,
+        "prime_mimic_p": 44357051,
+        "forced_composite_successor_p_plus_2": 44357053,
+        "successor_cofactor": 210223,
+        "certificate_verified": true
+      },
+      {
+        "scale_dependent_period_M_X": 2310,
+        "admissible_residue_a_X": 17,
+        "bertrand_prime_ell_X": 2311,
+        "combined_crt_residue": 43907,
+        "combined_modulus_Q_X": 5338410,
+        "dyadic_block_start_X": 5338410000,
+        "floor_log2_X": 32,
+        "polylog_power_A": 4,
+        "M_X_at_most_floor_log2_X_power_A": true,
+        "prime_mimic_p": 5386499597,
+        "forced_composite_successor_p_plus_2": 5386499599,
+        "successor_cofactor": 2330809,
+        "certificate_verified": true
+      },
+      {
+        "scale_dependent_period_M_X": 30030,
+        "admissible_residue_a_X": 17,
+        "bertrand_prime_ell_X": 30047,
+        "combined_crt_residue": 212342147,
+        "combined_modulus_Q_X": 902311410,
+        "dyadic_block_start_X": 902311410000,
+        "floor_log2_X": 39,
+        "polylog_power_A": 4,
+        "M_X_at_most_floor_log2_X_power_A": true,
+        "prime_mimic_p": 905230686377,
+        "forced_composite_successor_p_plus_2": 905230686379,
+        "successor_cofactor": 30127157,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "506feb7368986984fd026ada7be00bb70d5049766f2ab1d0c02ee24686cb8d7c",
+    "aggregate": {
+      "polylog_growing_period_every_large_dyadic_mimicry_proved": true,
+      "pure_polylog_periodic_classifier_route_refuted": true,
+      "finite_witness_rows_verified": true,
+      "superpolylog_or_nonperiodic_structure_required_for_this_route": true,
+      "scale_local_type_ii_cancellation_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The theorem blocks only classifiers determined by one residue pair modulo M_X<=log^A X. It does not cover superpolylogarithmic periods, nonperiodic information, signed Lambda correlations, or Type-I/II estimates, and it neither proves nor disproves twin primes.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Four exact scale-dependent CRT witnesses at A=4; the all-large-X theorem relies on Bertrand and the uniform Siegel-Walfisz theorem, not on the four rows.",
+  "logical_limit": "The obstruction does not address superpolylogarithmic periods, nonperiodic features, or the signed Type-I/II estimates needed for twin-prime mass.",
+  "route_decision": {
+    "discard": "any pure periodic twin certificate whose scale-dependent period is bounded by a fixed power of log X",
+    "parked": [],
+    "retain": "superpolylogarithmic or nonperiodic parity-sensitive information, especially signed Type-II Lambda correlation",
+    "next_single_lemma": "SuperPolylogarithmicScaleLocalTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T243",
+        "label": "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock",
+        "status": "proved"
+      },
+      {
+        "id": "TP-EXT244-2",
+        "label": "Siegel-Walfisz theorem",
+        "status": "external_theorem"
+      },
+      {
+        "id": "TP-EXT244-1",
+        "label": "Bertrand's postulate",
+        "status": "external_theorem"
+      },
+      {
+        "id": "TP-N244",
+        "label": "PolylogarithmicGrowingPeriodsEscapePrimeCompositeSuccessorMimicry",
+        "status": "disproved"
+      },
+      {
+        "id": "TP-T244",
+        "label": "PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock",
+        "status": "proved"
+      },
+      {
+        "id": "TP-OPEN244",
+        "label": "SuperPolylogarithmicScaleLocalTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T243",
+        "TP-T244"
+      ],
+      [
+        "TP-EXT244-2",
+        "TP-T244"
+      ],
+      [
+        "TP-EXT244-1",
+        "TP-T244"
+      ],
+      [
+        "TP-T243",
+        "TP-N244"
+      ],
+      [
+        "TP-N244",
+        "TP-T244"
+      ],
+      [
+        "TP-T244",
+        "TP-OPEN244"
+      ]
+    ]
+  },
+  "claim_boundary": "No twin-prime proof or finite counterexample to infinitude; one general no-go for all fixed-polylog periodic classifiers."
+}

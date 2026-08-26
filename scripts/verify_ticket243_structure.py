@@ -155,7 +155,17 @@ def verify_ticket243_structure() -> str | None:
     if not state_path.exists():
         return "missing persistent four-problem research state"
     state = json.loads(state_path.read_text(encoding="utf-8"))
-    if state.get("ticket") != 243 or state.get("parent_ticket") != 242 or state.get("resolved_count") != 0 or state.get("candidate_resolution_count") != 0 or state.get("program_complete") or state.get("deep_focus_problem") != "collatz":
+    ticket = state.get("ticket")
+    retained_theorems = {
+        "riemann": "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
+        "collatz": "UnboundedOrderPrincipalUnitTransferCountermodels",
+        "goldbach": "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
+        "twin_prime": "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock",
+    }
+    if not isinstance(ticket, int) or ticket < 243 or state.get("resolved_count") != 0 or state.get("candidate_resolution_count") != 0 or state.get("program_complete") or any(
+        theorem not in state.get("problems", {}).get(problem, {}).get("established_results", [])
+        for problem, theorem in retained_theorems.items()
+    ):
         return "TICKET-243 persistent research state changed"
 
     required_docs = (

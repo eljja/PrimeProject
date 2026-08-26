@@ -1,0 +1,832 @@
+{
+  "schema": "primeproject.ticket244-joint-tightness-harmonic-parity-fold-polylog-mimicry.v1",
+  "generated_at": "2026-08-26T09:30:00+09:00",
+  "status": "open_not_proven",
+  "iteration_complete": true,
+  "program_complete": false,
+  "joint_tightness_harmonic_parity_fold_polylog_mimicry_audit": {
+    "theorem_name": "FourConjectureJointTightnessHarmonicParityFoldPolylogMimicryAudit",
+    "summary": "TICKET-244 proves three partial theorems and one exact route no-go while leaving all four parent conjectures open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-244",
+      "theorem_name": "JointPhysicalFrequencyTightnessCharacterizesL2Precompactness",
+      "declared_proposition": "Let K be a bounded subset of L2(R), with unitary Fourier transform. Then K is relatively compact in L2(R) if and only if for every epsilon>0 there is R such that both sup_(f in K) integral_(|x|>R) |f(x)|^2 dx<epsilon and sup_(f in K) integral_(|xi|>R) |fhat(xi)|^2 dxi<epsilon. Neither tail condition alone suffices: TICKET-243 supplies the frequency-only counterfamily, while f_n(x)=pi^(-1/2)1_[-pi,pi](x)cos(nx) is a normalized real-even orthonormal physical-tight counterfamily.",
+      "mathematical_argument": "For sufficiency, Plancherel gives ||tau_h f-f||_2^2 as the integral of |exp(i h xi)-1|^2|fhat(xi)|^2. Splitting at |xi|=R bounds it by R^2 h^2 B^2+4 epsilon, uniformly for ||f||_2<=B. Frequency tightness therefore gives uniform translation continuity; physical tightness and the Riesz-Kolmogorov theorem give relative compactness. For necessity, a finite epsilon-net for a compact set transfers the vanishing tails of its finitely many centers uniformly; apply the same argument after the unitary Fourier transform. Cosine orthogonality proves the physical-only counterfamily has Gram matrix I.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let K be a bounded subset of L2(R), with unitary Fourier transform. Then K is relatively compact in L2(R) if and only if for every epsilon>0 there is R such that both sup_(f in K) integral_(|x|>R) |f(x)|^2 dx<epsilon and sup_(f in K) integral_(|xi|>R) |fhat(xi)|^2 dxi<epsilon. Neither tail condition alone suffices: TICKET-243 supplies the frequency-only counterfamily, while f_n(x)=pi^(-1/2)1_[-pi,pi](x)cos(nx) is a normalized real-even orthonormal physical-tight counterfamily.",
+        "proof": "For sufficiency, Plancherel gives ||tau_h f-f||_2^2 as the integral of |exp(i h xi)-1|^2|fhat(xi)|^2. Splitting at |xi|=R bounds it by R^2 h^2 B^2+4 epsilon, uniformly for ||f||_2<=B. Frequency tightness therefore gives uniform translation continuity; physical tightness and the Riesz-Kolmogorov theorem give relative compactness. For necessity, a finite epsilon-net for a compact set transfers the vanishing tails of its finitely many centers uniformly; apply the same argument after the unitary Fourier transform. Cosine orthogonality proves the physical-only counterfamily has Gram matrix I.",
+        "physical_only_counterfamily_gram_rows": [
+          {
+            "orthonormal_family_size": 4,
+            "common_physical_support": "[-pi,pi]",
+            "real_even": true,
+            "gram_diagonal": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "maximum_off_diagonal_absolute_value": {
+              "exact": "0",
+              "float": 0.0
+            },
+            "minimum_pair_distance_squared": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "orthonormal_family_size": 8,
+            "common_physical_support": "[-pi,pi]",
+            "real_even": true,
+            "gram_diagonal": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "maximum_off_diagonal_absolute_value": {
+              "exact": "0",
+              "float": 0.0
+            },
+            "minimum_pair_distance_squared": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "orthonormal_family_size": 16,
+            "common_physical_support": "[-pi,pi]",
+            "real_even": true,
+            "gram_diagonal": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "maximum_off_diagonal_absolute_value": {
+              "exact": "0",
+              "float": 0.0
+            },
+            "minimum_pair_distance_squared": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "orthonormal_family_size": 32,
+            "common_physical_support": "[-pi,pi]",
+            "real_even": true,
+            "gram_diagonal": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "maximum_off_diagonal_absolute_value": {
+              "exact": "0",
+              "float": 0.0
+            },
+            "minimum_pair_distance_squared": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "orthonormal_family_size": 64,
+            "common_physical_support": "[-pi,pi]",
+            "real_even": true,
+            "gram_diagonal": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "maximum_off_diagonal_absolute_value": {
+              "exact": "0",
+              "float": 0.0
+            },
+            "minimum_pair_distance_squared": {
+              "exact": "2",
+              "float": 2.0
+            },
+            "certificate_verified": true
+          }
+        ],
+        "exact_translation_bound_rows": [
+          {
+            "frequency_radius_R": 2,
+            "translation_h": {
+              "exact": "1/4",
+              "float": 0.25
+            },
+            "uniform_frequency_tail_budget_epsilon": {
+              "exact": "1/4",
+              "float": 0.25
+            },
+            "squared_L2_translation_bound": {
+              "exact": "5/4",
+              "float": 1.25
+            },
+            "certificate_verified": true
+          },
+          {
+            "frequency_radius_R": 4,
+            "translation_h": {
+              "exact": "1/16",
+              "float": 0.0625
+            },
+            "uniform_frequency_tail_budget_epsilon": {
+              "exact": "1/16",
+              "float": 0.0625
+            },
+            "squared_L2_translation_bound": {
+              "exact": "5/16",
+              "float": 0.3125
+            },
+            "certificate_verified": true
+          },
+          {
+            "frequency_radius_R": 8,
+            "translation_h": {
+              "exact": "1/64",
+              "float": 0.015625
+            },
+            "uniform_frequency_tail_budget_epsilon": {
+              "exact": "1/64",
+              "float": 0.015625
+            },
+            "squared_L2_translation_bound": {
+              "exact": "5/64",
+              "float": 0.078125
+            },
+            "certificate_verified": true
+          },
+          {
+            "frequency_radius_R": 16,
+            "translation_h": {
+              "exact": "1/256",
+              "float": 0.00390625
+            },
+            "uniform_frequency_tail_budget_epsilon": {
+              "exact": "1/256",
+              "float": 0.00390625
+            },
+            "squared_L2_translation_bound": {
+              "exact": "5/256",
+              "float": 0.01953125
+            },
+            "certificate_verified": true
+          },
+          {
+            "frequency_radius_R": 32,
+            "translation_h": {
+              "exact": "1/1024",
+              "float": 0.0009765625
+            },
+            "uniform_frequency_tail_budget_epsilon": {
+              "exact": "1/1024",
+              "float": 0.0009765625
+            },
+            "squared_L2_translation_bound": {
+              "exact": "5/1024",
+              "float": 0.0048828125
+            },
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "ba395b597b5ad65a2e1542934cb1781646c445f36e3b2828931e423fde04b07b",
+        "aggregate": {
+          "joint_tightness_characterizes_relative_compactness": true,
+          "physical_tightness_alone_refuted": true,
+          "frequency_tightness_alone_refuted_by_ticket243": true,
+          "actual_admissible_weil_class_joint_tightness_proved": false,
+          "uniform_signed_guinand_weil_tail_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The theorem is functional analytic. It does not prove that the full normalized Guinand-Weil admissible class is jointly tight, does not control its signed arithmetic tail, and supplies no positive Weil margin or zero exclusion.",
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Five symbolic physical-support Gram rows and five exact rational translation-bound rows; the infinite theorem uses Riesz-Kolmogorov and Plancherel.",
+      "logical_limit": "The actual normalized admissible Weil class has not been shown jointly tight, exhaustive, or uniformly positive under signed arithmetic tails.",
+      "route_decision": {
+        "discard": "physical tightness alone, together with TICKET-243's frequency-tightness-alone route, as a compactness certificate",
+        "parked": [],
+        "retain": "joint physical-frequency tightness as the exact compactness gate, followed by signed arithmetic-tail control",
+        "next_single_lemma": "UniformSignedGuinandWeilTailWithPositiveMarginOnExhaustiveJointlyTightAdmissibleClasses"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T243",
+            "label": "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "RH-EXT244-2",
+            "label": "Riesz-Kolmogorov compactness theorem",
+            "status": "external_theorem"
+          },
+          {
+            "id": "RH-EXT244-1",
+            "label": "Plancherel theorem",
+            "status": "external_theorem"
+          },
+          {
+            "id": "RH-N244",
+            "label": "PhysicalTightnessAloneImpliesRelativeCompactness",
+            "status": "disproved"
+          },
+          {
+            "id": "RH-T244",
+            "label": "JointPhysicalFrequencyTightnessCharacterizesL2Precompactness",
+            "status": "proved"
+          },
+          {
+            "id": "RH-OPEN244",
+            "label": "UniformSignedGuinandWeilTailWithPositiveMarginOnExhaustiveJointlyTightAdmissibleClasses",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T243",
+            "RH-T244"
+          ],
+          [
+            "RH-EXT244-2",
+            "RH-T244"
+          ],
+          [
+            "RH-EXT244-1",
+            "RH-T244"
+          ],
+          [
+            "RH-T243",
+            "RH-N244"
+          ],
+          [
+            "RH-N244",
+            "RH-T244"
+          ],
+          [
+            "RH-T244",
+            "RH-OPEN244"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof, disproof, zero exclusion, or positivity theorem; the functional-analytic compactness gate is exactly characterized."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-244",
+      "theorem_name": "FixedBaseBadLineHarmonicSumEquivalence",
+      "declared_proposition": "For every prime q>5, put F_q(a)=(a^(q-1)-1)/q modulo q and H_m=sum_(1<=k<=m) k^(-1) modulo q. Then 2F_q(2)=-H_((q-1)/2) and 3F_q(3)=-2H_floor(q/3). Consequently 5F_q(2)=3F_q(3) if and only if 4H_floor(q/3)=5H_((q-1)/2), while F_q(2)=F_q(3) if and only if 4H_floor(q/3)=3H_((q-1)/2). On the first line, the second holds exactly when H_((q-1)/2)=0. Thus a TICKET-240 first-order positive-defect candidate is equivalent to the first harmonic line together with H_((q-1)/2) nonzero. If both harmonic sums vanish, higher q-adic depths remain undecided.",
+      "mathematical_argument": "Multiplication by m permutes the nonzero residues modulo q. Writing mk=r_k+q floor(mk/q), comparing products modulo q^2, and grouping the floors gives Lerch's elementary identity mF_q(m)=-sum_(j=1)^(m-1) H_floor(jq/m) modulo q. At m=2 this is the half-harmonic formula. At m=3, H_floor(2q/3)=H_floor(q/3) modulo q by the reflection k -> q-k, giving the third-harmonic formula. Substitution into the two Fermat-quotient lines proves both equivalences. Under 4H_third=5H_half, the second line becomes 5H_half=3H_half, hence H_half=0 because q is odd.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "For every prime q>5, put F_q(a)=(a^(q-1)-1)/q modulo q and H_m=sum_(1<=k<=m) k^(-1) modulo q. Then 2F_q(2)=-H_((q-1)/2) and 3F_q(3)=-2H_floor(q/3). Consequently 5F_q(2)=3F_q(3) if and only if 4H_floor(q/3)=5H_((q-1)/2), while F_q(2)=F_q(3) if and only if 4H_floor(q/3)=3H_((q-1)/2). On the first line, the second holds exactly when H_((q-1)/2)=0. Thus a TICKET-240 first-order positive-defect candidate is equivalent to the first harmonic line together with H_((q-1)/2) nonzero. If both harmonic sums vanish, higher q-adic depths remain undecided.",
+        "proof": "Multiplication by m permutes the nonzero residues modulo q. Writing mk=r_k+q floor(mk/q), comparing products modulo q^2, and grouping the floors gives Lerch's elementary identity mF_q(m)=-sum_(j=1)^(m-1) H_floor(jq/m) modulo q. At m=2 this is the half-harmonic formula. At m=3, H_floor(2q/3)=H_floor(q/3) modulo q by the reflection k -> q-k, giving the third-harmonic formula. Substitution into the two Fermat-quotient lines proves both equivalences. Under 4H_third=5H_half, the second line becomes 5H_half=3H_half, hence H_half=0 because q is odd.",
+        "selected_exact_harmonic_rows": [
+          {
+            "prime_q": 7,
+            "fermat_quotient_Fq2": 2,
+            "fermat_quotient_Fq3": 6,
+            "half_harmonic_H_floor_q_over_2_mod_q": 3,
+            "third_harmonic_H_floor_q_over_3_mod_q": 5,
+            "rational_wieferich_bad_line": false,
+            "two_over_three_square_depth_line": false,
+            "harmonic_equivalences_verified": true
+          },
+          {
+            "prime_q": 11,
+            "fermat_quotient_Fq2": 5,
+            "fermat_quotient_Fq3": 0,
+            "half_harmonic_H_floor_q_over_2_mod_q": 1,
+            "third_harmonic_H_floor_q_over_3_mod_q": 0,
+            "rational_wieferich_bad_line": false,
+            "two_over_three_square_depth_line": false,
+            "harmonic_equivalences_verified": true
+          },
+          {
+            "prime_q": 13,
+            "fermat_quotient_Fq2": 3,
+            "fermat_quotient_Fq3": 8,
+            "half_harmonic_H_floor_q_over_2_mod_q": 7,
+            "third_harmonic_H_floor_q_over_3_mod_q": 1,
+            "rational_wieferich_bad_line": false,
+            "two_over_three_square_depth_line": false,
+            "harmonic_equivalences_verified": true
+          },
+          {
+            "prime_q": 29,
+            "fermat_quotient_Fq2": 1,
+            "fermat_quotient_Fq3": 15,
+            "half_harmonic_H_floor_q_over_2_mod_q": 27,
+            "third_harmonic_H_floor_q_over_3_mod_q": 21,
+            "rational_wieferich_bad_line": false,
+            "two_over_three_square_depth_line": false,
+            "harmonic_equivalences_verified": true
+          },
+          {
+            "prime_q": 59,
+            "fermat_quotient_Fq2": 8,
+            "fermat_quotient_Fq3": 41,
+            "half_harmonic_H_floor_q_over_2_mod_q": 43,
+            "third_harmonic_H_floor_q_over_3_mod_q": 27,
+            "rational_wieferich_bad_line": false,
+            "two_over_three_square_depth_line": false,
+            "harmonic_equivalences_verified": true
+          },
+          {
+            "prime_q": 109,
+            "fermat_quotient_Fq2": 67,
+            "fermat_quotient_Fq3": 101,
+            "half_harmonic_H_floor_q_over_2_mod_q": 84,
+            "third_harmonic_H_floor_q_over_3_mod_q": 12,
+            "rational_wieferich_bad_line": false,
+            "two_over_three_square_depth_line": false,
+            "harmonic_equivalences_verified": true
+          },
+          {
+            "prime_q": 487,
+            "fermat_quotient_Fq2": 85,
+            "fermat_quotient_Fq3": 178,
+            "half_harmonic_H_floor_q_over_2_mod_q": 317,
+            "third_harmonic_H_floor_q_over_3_mod_q": 220,
+            "rational_wieferich_bad_line": false,
+            "two_over_three_square_depth_line": false,
+            "harmonic_equivalences_verified": true
+          },
+          {
+            "prime_q": 1009,
+            "fermat_quotient_Fq2": 592,
+            "fermat_quotient_Fq3": 943,
+            "half_harmonic_H_floor_q_over_2_mod_q": 834,
+            "third_harmonic_H_floor_q_over_3_mod_q": 99,
+            "rational_wieferich_bad_line": false,
+            "two_over_three_square_depth_line": false,
+            "harmonic_equivalences_verified": true
+          },
+          {
+            "prime_q": 10007,
+            "fermat_quotient_Fq2": 9546,
+            "fermat_quotient_Fq3": 3469,
+            "half_harmonic_H_floor_q_over_2_mod_q": 922,
+            "third_harmonic_H_floor_q_over_3_mod_q": 9807,
+            "rational_wieferich_bad_line": false,
+            "two_over_three_square_depth_line": false,
+            "harmonic_equivalences_verified": true
+          },
+          {
+            "prime_q": 19997,
+            "fermat_quotient_Fq2": 19896,
+            "fermat_quotient_Fq3": 13612,
+            "half_harmonic_H_floor_q_over_2_mod_q": 202,
+            "third_harmonic_H_floor_q_over_3_mod_q": 19576,
+            "rational_wieferich_bad_line": false,
+            "two_over_three_square_depth_line": false,
+            "harmonic_equivalences_verified": true
+          }
+        ],
+        "bounded_harmonic_replay": {
+          "prime_limit": 20000,
+          "primes_scanned": 2259,
+          "bad_line_count": 0,
+          "first_order_positive_candidate_count": 0,
+          "failure_count": 0,
+          "integer_arithmetic_only": true,
+          "algorithm": "linear modular-inverse recurrence per prime plus modular exponentiation",
+          "complexity": "O(sum_{q<=Q, q prime} q) integer operations and O(pi(Q)) modular exponentiations"
+        },
+        "transcript_sha256": "bf5611e2479fe672d7d3a6b8d746f99c79bfee67bc7f894075681ca39b6723a2",
+        "aggregate": {
+          "lerch_harmonic_reduction_proved": true,
+          "first_order_positive_candidate_harmonic_characterization_proved": true,
+          "all_prime_harmonic_bad_line_nonvanishing_proved": false,
+          "bounded_replay_has_first_order_positive_candidate": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "The harmonic identities are exact for every prime q>5, but the replay is finite and finds no bad-line prime. No argument proves all-prime nonvanishing. If both first-layer lines vanish, higher q-adic depths would still require comparison. Even all-prime run-block depth domination would not settle arbitrary Collatz orbits or cycles.",
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "All 2,259 primes 5<q<=20,000 replayed with exact integer modular arithmetic; no bounded absence is promoted to an all-prime conclusion.",
+      "logical_limit": "No all-prime proof excludes 4H_floor(q/3)=5H_((q-1)/2); simultaneous first-layer vanishing would also leave higher q-adic depths, and general Collatz dynamics remain outside this run-block reduction.",
+      "route_decision": {
+        "discard": "none newly; universal principal-unit transfer remains retired by TICKET-243",
+        "parked": [],
+        "retain": "the exact fixed-base harmonic bad-line nonvanishing statement, equivalent to excluding every 32/27 rational-Wieferich prime at first depth",
+        "next_single_lemma": "FixedBaseHarmonicBadLineNonvanishingForEveryPrime"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T243",
+            "label": "UnboundedOrderPrincipalUnitTransferCountermodels",
+            "status": "proved"
+          },
+          {
+            "id": "CO-T244",
+            "label": "FixedBaseBadLineHarmonicSumEquivalence",
+            "status": "proved"
+          },
+          {
+            "id": "CO-OPEN244",
+            "label": "FixedBaseHarmonicBadLineNonvanishingForEveryPrime",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T243",
+            "CO-T244"
+          ],
+          [
+            "CO-T244",
+            "CO-OPEN244"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle; one exact all-prime harmonic reformulation and a finite identity replay only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-244",
+      "theorem_name": "ExactParityArcFoldingForEvenBinaryGoldbach",
+      "declared_proposition": "Let O_X(alpha)=sum_(3<=p<=X) exp(2 pi i p alpha). Then O_X(alpha+1/2)=-O_X(alpha). For every even N, O_X(alpha)^2 exp(-2 pi i N alpha) is exactly 1/2-periodic. Hence the arc around 1/2 is the translate, with identical signed integral, of the arc around 0 for the odd-prime binary coefficient. Moreover, for every even N>=6 the full prime representation coefficient equals the odd-prime coefficient, since a representation using 2 would force the other summand to be an even prime at least 4.",
+      "mathematical_argument": "Every prime in O_X is odd, so translation by 1/2 multiplies every summand by -1. Squaring removes that sign, and the target phase gains exp(-pi i N)=1 for even N. This proves exact half-periodicity and equality of translated arc integrals. Expanding S_X=O_X+exp(4 pi i alpha), the extra Fourier coefficients correspond only to a summand 2 or to 2+2; neither contributes to an even N>=6.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let O_X(alpha)=sum_(3<=p<=X) exp(2 pi i p alpha). Then O_X(alpha+1/2)=-O_X(alpha). For every even N, O_X(alpha)^2 exp(-2 pi i N alpha) is exactly 1/2-periodic. Hence the arc around 1/2 is the translate, with identical signed integral, of the arc around 0 for the odd-prime binary coefficient. Moreover, for every even N>=6 the full prime representation coefficient equals the odd-prime coefficient, since a representation using 2 would force the other summand to be an even prime at least 4.",
+        "proof": "Every prime in O_X is odd, so translation by 1/2 multiplies every summand by -1. Squaring removes that sign, and the target phase gains exp(-pi i N)=1 for even N. This proves exact half-periodicity and equality of translated arc integrals. Expanding S_X=O_X+exp(4 pi i alpha), the extra Fourier coefficients correspond only to a summand 2 or to 2+2; neither contributes to an even N>=6.",
+        "exact_parity_fold_rows": [
+          {
+            "prime_cutoff_X": 100,
+            "odd_prime_count": 24,
+            "even_targets_6_through_X_checked": 48,
+            "minimum_ordered_odd_prime_representation_count": 1,
+            "minimum_count_target": 6,
+            "full_sum_vs_odd_sum_coefficient_failures": 0,
+            "exact_half_turn_phase_failures": 0,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 500,
+            "odd_prime_count": 94,
+            "even_targets_6_through_X_checked": 248,
+            "minimum_ordered_odd_prime_representation_count": 1,
+            "minimum_count_target": 6,
+            "full_sum_vs_odd_sum_coefficient_failures": 0,
+            "exact_half_turn_phase_failures": 0,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 1000,
+            "odd_prime_count": 167,
+            "even_targets_6_through_X_checked": 498,
+            "minimum_ordered_odd_prime_representation_count": 1,
+            "minimum_count_target": 6,
+            "full_sum_vs_odd_sum_coefficient_failures": 0,
+            "exact_half_turn_phase_failures": 0,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 5000,
+            "odd_prime_count": 668,
+            "even_targets_6_through_X_checked": 2498,
+            "minimum_ordered_odd_prime_representation_count": 1,
+            "minimum_count_target": 6,
+            "full_sum_vs_odd_sum_coefficient_failures": 0,
+            "exact_half_turn_phase_failures": 0,
+            "certificate_verified": true
+          },
+          {
+            "prime_cutoff_X": 10000,
+            "odd_prime_count": 1228,
+            "even_targets_6_through_X_checked": 4998,
+            "minimum_ordered_odd_prime_representation_count": 1,
+            "minimum_count_target": 6,
+            "full_sum_vs_odd_sum_coefficient_failures": 0,
+            "exact_half_turn_phase_failures": 0,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "ba16a10093eb8fe103469b86dec9e5768dcfed91fccc7944168c6c775a0d3c61",
+        "aggregate": {
+          "odd_prime_half_antiperiodicity_proved": true,
+          "even_binary_integrand_half_periodicity_proved": true,
+          "full_and_odd_prime_coefficients_equal_for_even_N_at_least_6": true,
+          "finite_even_targets_checked": 8290,
+          "denominator_at_least_three_major_arcs_controlled": false,
+          "signed_residual_saving_proved": false,
+          "strong_goldbach_resolved": false
+        },
+        "no_go_scope": "The parity fold exactly removes duplicate bookkeeping between the zero and half-frequency arcs. It gives no estimate on rational arcs of denominator at least three, no signed residual minor-arc saving, and no positive representation lower bound beyond the explicit finite replay.",
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Exactly 8,290 even targets across five cutoffs through 10,000; finite Goldbach checks do not imply the infinite conjecture.",
+      "logical_limit": "No denominator-at-least-three major-arc asymptotic, signed residual saving, or uniform positive Goldbach lower bound is proved.",
+      "route_decision": {
+        "discard": "treating the zero and half-frequency arcs as analytically independent for the odd-prime even-target coefficient",
+        "parked": [],
+        "retain": "one half-torus with complete denominator-at-least-three major arcs and a signed residual estimate",
+        "next_single_lemma": "CompleteDenominatorAtLeastThreeMajorArcExtractionAndSignedResidualSavingAfterParityFolding"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T243",
+            "label": "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
+            "status": "proved"
+          },
+          {
+            "id": "GB-N244",
+            "label": "ZeroAndHalfFrequencyOddPrimeArcsRequireIndependentSignedAnalysis",
+            "status": "disproved"
+          },
+          {
+            "id": "GB-T244",
+            "label": "ExactParityArcFoldingForEvenBinaryGoldbach",
+            "status": "proved"
+          },
+          {
+            "id": "GB-OPEN244",
+            "label": "CompleteDenominatorAtLeastThreeMajorArcExtractionAndSignedResidualSavingAfterParityFolding",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T243",
+            "GB-T244"
+          ],
+          [
+            "GB-T243",
+            "GB-N244"
+          ],
+          [
+            "GB-N244",
+            "GB-T244"
+          ],
+          [
+            "GB-T244",
+            "GB-OPEN244"
+          ]
+        ]
+      },
+      "claim_boundary": "No strong Goldbach proof or counterexample; an exact parity-fold identity plus bounded direct coefficient checks only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-244",
+      "theorem_name": "PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock",
+      "declared_proposition": "Fix A>0. For every sufficiently large X, let 1<=M_X<=(log_2 X)^A, choose a_X modulo M_X with gcd(a_X,M_X)=gcd(a_X+2,M_X)=1, and let F_X be any feature of (n,n+2) depending only on that pair modulo M_X. Then every sufficiently large dyadic block [X,2X] contains a prime p with F_X(p,p+2)=F_X(a_X,a_X+2) but p+2 composite. Thus no pure periodic twin classifier whose scale-dependent period is bounded by any fixed power of log X can exclude prime/composite-successor mimics.",
+      "mathematical_argument": "For M_X>=2, Bertrand's postulate supplies a prime ell_X with M_X<ell_X<2M_X; use ell_X=3 for M_X=1. CRT gives a reduced class r_X=a_X mod M_X and r_X=-2 mod ell_X, of modulus Q_X=M_X ell_X<2M_X^2<=2(log_2 X)^(2A). The Siegel-Walfisz theorem is uniform for moduli bounded by any fixed power of log X, so the number of primes p in [X,2X] in this class is asymptotic to (Li(2X)-Li(X))/phi(Q_X), uniformly and hence positive for all large X. Then ell_X divides p+2; since X>ell_X eventually, p+2 is composite. Congruence modulo M_X preserves F_X.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Fix A>0. For every sufficiently large X, let 1<=M_X<=(log_2 X)^A, choose a_X modulo M_X with gcd(a_X,M_X)=gcd(a_X+2,M_X)=1, and let F_X be any feature of (n,n+2) depending only on that pair modulo M_X. Then every sufficiently large dyadic block [X,2X] contains a prime p with F_X(p,p+2)=F_X(a_X,a_X+2) but p+2 composite. Thus no pure periodic twin classifier whose scale-dependent period is bounded by any fixed power of log X can exclude prime/composite-successor mimics.",
+        "proof": "For M_X>=2, Bertrand's postulate supplies a prime ell_X with M_X<ell_X<2M_X; use ell_X=3 for M_X=1. CRT gives a reduced class r_X=a_X mod M_X and r_X=-2 mod ell_X, of modulus Q_X=M_X ell_X<2M_X^2<=2(log_2 X)^(2A). The Siegel-Walfisz theorem is uniform for moduli bounded by any fixed power of log X, so the number of primes p in [X,2X] in this class is asymptotic to (Li(2X)-Li(X))/phi(Q_X), uniformly and hence positive for all large X. Then ell_X divides p+2; since X>ell_X eventually, p+2 is composite. Congruence modulo M_X preserves F_X.",
+        "finite_polylog_period_witness_rows": [
+          {
+            "scale_dependent_period_M_X": 30,
+            "admissible_residue_a_X": 11,
+            "bertrand_prime_ell_X": 31,
+            "combined_crt_residue": 401,
+            "combined_modulus_Q_X": 930,
+            "dyadic_block_start_X": 930000,
+            "floor_log2_X": 19,
+            "polylog_power_A": 4,
+            "M_X_at_most_floor_log2_X_power_A": true,
+            "prime_mimic_p": 934121,
+            "forced_composite_successor_p_plus_2": 934123,
+            "successor_cofactor": 30133,
+            "certificate_verified": true
+          },
+          {
+            "scale_dependent_period_M_X": 210,
+            "admissible_residue_a_X": 11,
+            "bertrand_prime_ell_X": 211,
+            "combined_crt_residue": 2741,
+            "combined_modulus_Q_X": 44310,
+            "dyadic_block_start_X": 44310000,
+            "floor_log2_X": 25,
+            "polylog_power_A": 4,
+            "M_X_at_most_floor_log2_X_power_A": true,
+            "prime_mimic_p": 44357051,
+            "forced_composite_successor_p_plus_2": 44357053,
+            "successor_cofactor": 210223,
+            "certificate_verified": true
+          },
+          {
+            "scale_dependent_period_M_X": 2310,
+            "admissible_residue_a_X": 17,
+            "bertrand_prime_ell_X": 2311,
+            "combined_crt_residue": 43907,
+            "combined_modulus_Q_X": 5338410,
+            "dyadic_block_start_X": 5338410000,
+            "floor_log2_X": 32,
+            "polylog_power_A": 4,
+            "M_X_at_most_floor_log2_X_power_A": true,
+            "prime_mimic_p": 5386499597,
+            "forced_composite_successor_p_plus_2": 5386499599,
+            "successor_cofactor": 2330809,
+            "certificate_verified": true
+          },
+          {
+            "scale_dependent_period_M_X": 30030,
+            "admissible_residue_a_X": 17,
+            "bertrand_prime_ell_X": 30047,
+            "combined_crt_residue": 212342147,
+            "combined_modulus_Q_X": 902311410,
+            "dyadic_block_start_X": 902311410000,
+            "floor_log2_X": 39,
+            "polylog_power_A": 4,
+            "M_X_at_most_floor_log2_X_power_A": true,
+            "prime_mimic_p": 905230686377,
+            "forced_composite_successor_p_plus_2": 905230686379,
+            "successor_cofactor": 30127157,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "506feb7368986984fd026ada7be00bb70d5049766f2ab1d0c02ee24686cb8d7c",
+        "aggregate": {
+          "polylog_growing_period_every_large_dyadic_mimicry_proved": true,
+          "pure_polylog_periodic_classifier_route_refuted": true,
+          "finite_witness_rows_verified": true,
+          "superpolylog_or_nonperiodic_structure_required_for_this_route": true,
+          "scale_local_type_ii_cancellation_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The theorem blocks only classifiers determined by one residue pair modulo M_X<=log^A X. It does not cover superpolylogarithmic periods, nonperiodic information, signed Lambda correlations, or Type-I/II estimates, and it neither proves nor disproves twin primes.",
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Four exact scale-dependent CRT witnesses at A=4; the all-large-X theorem relies on Bertrand and the uniform Siegel-Walfisz theorem, not on the four rows.",
+      "logical_limit": "The obstruction does not address superpolylogarithmic periods, nonperiodic features, or the signed Type-I/II estimates needed for twin-prime mass.",
+      "route_decision": {
+        "discard": "any pure periodic twin certificate whose scale-dependent period is bounded by a fixed power of log X",
+        "parked": [],
+        "retain": "superpolylogarithmic or nonperiodic parity-sensitive information, especially signed Type-II Lambda correlation",
+        "next_single_lemma": "SuperPolylogarithmicScaleLocalTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T243",
+            "label": "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock",
+            "status": "proved"
+          },
+          {
+            "id": "TP-EXT244-2",
+            "label": "Siegel-Walfisz theorem",
+            "status": "external_theorem"
+          },
+          {
+            "id": "TP-EXT244-1",
+            "label": "Bertrand's postulate",
+            "status": "external_theorem"
+          },
+          {
+            "id": "TP-N244",
+            "label": "PolylogarithmicGrowingPeriodsEscapePrimeCompositeSuccessorMimicry",
+            "status": "disproved"
+          },
+          {
+            "id": "TP-T244",
+            "label": "PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock",
+            "status": "proved"
+          },
+          {
+            "id": "TP-OPEN244",
+            "label": "SuperPolylogarithmicScaleLocalTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T243",
+            "TP-T244"
+          ],
+          [
+            "TP-EXT244-2",
+            "TP-T244"
+          ],
+          [
+            "TP-EXT244-1",
+            "TP-T244"
+          ],
+          [
+            "TP-T243",
+            "TP-N244"
+          ],
+          [
+            "TP-N244",
+            "TP-T244"
+          ],
+          [
+            "TP-T244",
+            "TP-OPEN244"
+          ]
+        ]
+      },
+      "claim_boundary": "No twin-prime proof or finite counterexample to infinitude; one general no-go for all fixed-polylog periodic classifiers."
+    },
+    "research_baselines": {
+      "riemann_status": "https://www.claymath.org/millennium/Riemann-Hypothesis/",
+      "compactness": "https://arxiv.org/abs/2204.14237",
+      "fermat_quotients": "https://arxiv.org/abs/1110.3113",
+      "collatz": "https://arxiv.org/abs/1909.03562",
+      "goldbach_minor": "https://arxiv.org/abs/1205.5252",
+      "siegel_walfisz": "https://arxiv.org/abs/2108.10878",
+      "twin_prime_parity": "https://arxiv.org/abs/1407.4897"
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "partial_theorem_count": 3,
+      "exact_no_go_count": 1,
+      "candidate_resolution_count": 0,
+      "conjecture_resolution_count": 0,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "deep_focus_problem": "twin_prime",
+      "stagnated_problem_count": 0,
+      "harmonic_scan_limit": 20000,
+      "goldbach_finite_limit": 10000,
+      "twin_witness_count": 4,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-244",
+      "declared_proposition": "Let K be a bounded subset of L2(R), with unitary Fourier transform. Then K is relatively compact in L2(R) if and only if for every epsilon>0 there is R such that both sup_(f in K) integral_(|x|>R) |f(x)|^2 dx<epsilon and sup_(f in K) integral_(|xi|>R) |fhat(xi)|^2 dxi<epsilon. Neither tail condition alone suffices: TICKET-243 supplies the frequency-only counterfamily, while f_n(x)=pi^(-1/2)1_[-pi,pi](x)cos(nx) is a normalized real-even orthonormal physical-tight counterfamily.",
+      "new_result": "JointPhysicalFrequencyTightnessCharacterizesL2Precompactness",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/joint_tightness_harmonic_parity_fold_polylog_mimicry_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "physical tightness alone, together with TICKET-243's frequency-tightness-alone route, as a compactness certificate",
+      "parked_routes": [],
+      "remaining_gap": "The actual normalized admissible Weil class has not been shown jointly tight, exhaustive, or uniformly positive under signed arithmetic tails.",
+      "stagnation_count": 0,
+      "candidate_theorem": "UniformSignedGuinandWeilTailWithPositiveMarginOnExhaustiveJointlyTightAdmissibleClasses"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-244",
+      "declared_proposition": "For every prime q>5, put F_q(a)=(a^(q-1)-1)/q modulo q and H_m=sum_(1<=k<=m) k^(-1) modulo q. Then 2F_q(2)=-H_((q-1)/2) and 3F_q(3)=-2H_floor(q/3). Consequently 5F_q(2)=3F_q(3) if and only if 4H_floor(q/3)=5H_((q-1)/2), while F_q(2)=F_q(3) if and only if 4H_floor(q/3)=3H_((q-1)/2). On the first line, the second holds exactly when H_((q-1)/2)=0. Thus a TICKET-240 first-order positive-defect candidate is equivalent to the first harmonic line together with H_((q-1)/2) nonzero. If both harmonic sums vanish, higher q-adic depths remain undecided.",
+      "new_result": "FixedBaseBadLineHarmonicSumEquivalence",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/joint_tightness_harmonic_parity_fold_polylog_mimicry_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "none newly; universal principal-unit transfer remains retired by TICKET-243",
+      "parked_routes": [],
+      "remaining_gap": "No all-prime proof excludes 4H_floor(q/3)=5H_((q-1)/2); simultaneous first-layer vanishing would also leave higher q-adic depths, and general Collatz dynamics remain outside this run-block reduction.",
+      "stagnation_count": 0,
+      "candidate_theorem": "FixedBaseHarmonicBadLineNonvanishingForEveryPrime"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-244",
+      "declared_proposition": "Let O_X(alpha)=sum_(3<=p<=X) exp(2 pi i p alpha). Then O_X(alpha+1/2)=-O_X(alpha). For every even N, O_X(alpha)^2 exp(-2 pi i N alpha) is exactly 1/2-periodic. Hence the arc around 1/2 is the translate, with identical signed integral, of the arc around 0 for the odd-prime binary coefficient. Moreover, for every even N>=6 the full prime representation coefficient equals the odd-prime coefficient, since a representation using 2 would force the other summand to be an even prime at least 4.",
+      "new_result": "ExactParityArcFoldingForEvenBinaryGoldbach",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/joint_tightness_harmonic_parity_fold_polylog_mimicry_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "treating the zero and half-frequency arcs as analytically independent for the odd-prime even-target coefficient",
+      "parked_routes": [],
+      "remaining_gap": "No denominator-at-least-three major-arc asymptotic, signed residual saving, or uniform positive Goldbach lower bound is proved.",
+      "stagnation_count": 0,
+      "candidate_theorem": "CompleteDenominatorAtLeastThreeMajorArcExtractionAndSignedResidualSavingAfterParityFolding"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-244",
+      "declared_proposition": "Fix A>0. For every sufficiently large X, let 1<=M_X<=(log_2 X)^A, choose a_X modulo M_X with gcd(a_X,M_X)=gcd(a_X+2,M_X)=1, and let F_X be any feature of (n,n+2) depending only on that pair modulo M_X. Then every sufficiently large dyadic block [X,2X] contains a prime p with F_X(p,p+2)=F_X(a_X,a_X+2) but p+2 composite. Thus no pure periodic twin classifier whose scale-dependent period is bounded by any fixed power of log X can exclude prime/composite-successor mimics.",
+      "new_result": "PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/joint_tightness_harmonic_parity_fold_polylog_mimicry_audit/twin-prime",
+        "failure_count": 0
+      },
+      "discarded_route": "any pure periodic twin certificate whose scale-dependent period is bounded by a fixed power of log X",
+      "parked_routes": [],
+      "remaining_gap": "The obstruction does not address superpolylogarithmic periods, nonperiodic features, or the signed Type-I/II estimates needed for twin-prime mass.",
+      "stagnation_count": 0,
+      "candidate_theorem": "SuperPolylogarithmicScaleLocalTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "schema": "primeproject.ticket244-joint-tightness-harmonic-parity-fold-polylog-mimicry.v1",
+  "generated_at": "2026-08-26T09:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-244",
+  "theorem_name": "FixedBaseBadLineHarmonicSumEquivalence",
+  "declared_proposition": "For every prime q>5, put F_q(a)=(a^(q-1)-1)/q modulo q and H_m=sum_(1<=k<=m) k^(-1) modulo q. Then 2F_q(2)=-H_((q-1)/2) and 3F_q(3)=-2H_floor(q/3). Consequently 5F_q(2)=3F_q(3) if and only if 4H_floor(q/3)=5H_((q-1)/2), while F_q(2)=F_q(3) if and only if 4H_floor(q/3)=3H_((q-1)/2). On the first line, the second holds exactly when H_((q-1)/2)=0. Thus a TICKET-240 first-order positive-defect candidate is equivalent to the first harmonic line together with H_((q-1)/2) nonzero. If both harmonic sums vanish, higher q-adic depths remain undecided.",
+  "mathematical_argument": "Multiplication by m permutes the nonzero residues modulo q. Writing mk=r_k+q floor(mk/q), comparing products modulo q^2, and grouping the floors gives Lerch's elementary identity mF_q(m)=-sum_(j=1)^(m-1) H_floor(jq/m) modulo q. At m=2 this is the half-harmonic formula. At m=3, H_floor(2q/3)=H_floor(q/3) modulo q by the reflection k -> q-k, giving the third-harmonic formula. Substitution into the two Fermat-quotient lines proves both equivalences. Under 4H_third=5H_half, the second line becomes 5H_half=3H_half, hence H_half=0 because q is odd.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every prime q>5, put F_q(a)=(a^(q-1)-1)/q modulo q and H_m=sum_(1<=k<=m) k^(-1) modulo q. Then 2F_q(2)=-H_((q-1)/2) and 3F_q(3)=-2H_floor(q/3). Consequently 5F_q(2)=3F_q(3) if and only if 4H_floor(q/3)=5H_((q-1)/2), while F_q(2)=F_q(3) if and only if 4H_floor(q/3)=3H_((q-1)/2). On the first line, the second holds exactly when H_((q-1)/2)=0. Thus a TICKET-240 first-order positive-defect candidate is equivalent to the first harmonic line together with H_((q-1)/2) nonzero. If both harmonic sums vanish, higher q-adic depths remain undecided.",
+    "proof": "Multiplication by m permutes the nonzero residues modulo q. Writing mk=r_k+q floor(mk/q), comparing products modulo q^2, and grouping the floors gives Lerch's elementary identity mF_q(m)=-sum_(j=1)^(m-1) H_floor(jq/m) modulo q. At m=2 this is the half-harmonic formula. At m=3, H_floor(2q/3)=H_floor(q/3) modulo q by the reflection k -> q-k, giving the third-harmonic formula. Substitution into the two Fermat-quotient lines proves both equivalences. Under 4H_third=5H_half, the second line becomes 5H_half=3H_half, hence H_half=0 because q is odd.",
+    "selected_exact_harmonic_rows": [
+      {
+        "prime_q": 7,
+        "fermat_quotient_Fq2": 2,
+        "fermat_quotient_Fq3": 6,
+        "half_harmonic_H_floor_q_over_2_mod_q": 3,
+        "third_harmonic_H_floor_q_over_3_mod_q": 5,
+        "rational_wieferich_bad_line": false,
+        "two_over_three_square_depth_line": false,
+        "harmonic_equivalences_verified": true
+      },
+      {
+        "prime_q": 11,
+        "fermat_quotient_Fq2": 5,
+        "fermat_quotient_Fq3": 0,
+        "half_harmonic_H_floor_q_over_2_mod_q": 1,
+        "third_harmonic_H_floor_q_over_3_mod_q": 0,
+        "rational_wieferich_bad_line": false,
+        "two_over_three_square_depth_line": false,
+        "harmonic_equivalences_verified": true
+      },
+      {
+        "prime_q": 13,
+        "fermat_quotient_Fq2": 3,
+        "fermat_quotient_Fq3": 8,
+        "half_harmonic_H_floor_q_over_2_mod_q": 7,
+        "third_harmonic_H_floor_q_over_3_mod_q": 1,
+        "rational_wieferich_bad_line": false,
+        "two_over_three_square_depth_line": false,
+        "harmonic_equivalences_verified": true
+      },
+      {
+        "prime_q": 29,
+        "fermat_quotient_Fq2": 1,
+        "fermat_quotient_Fq3": 15,
+        "half_harmonic_H_floor_q_over_2_mod_q": 27,
+        "third_harmonic_H_floor_q_over_3_mod_q": 21,
+        "rational_wieferich_bad_line": false,
+        "two_over_three_square_depth_line": false,
+        "harmonic_equivalences_verified": true
+      },
+      {
+        "prime_q": 59,
+        "fermat_quotient_Fq2": 8,
+        "fermat_quotient_Fq3": 41,
+        "half_harmonic_H_floor_q_over_2_mod_q": 43,
+        "third_harmonic_H_floor_q_over_3_mod_q": 27,
+        "rational_wieferich_bad_line": false,
+        "two_over_three_square_depth_line": false,
+        "harmonic_equivalences_verified": true
+      },
+      {
+        "prime_q": 109,
+        "fermat_quotient_Fq2": 67,
+        "fermat_quotient_Fq3": 101,
+        "half_harmonic_H_floor_q_over_2_mod_q": 84,
+        "third_harmonic_H_floor_q_over_3_mod_q": 12,
+        "rational_wieferich_bad_line": false,
+        "two_over_three_square_depth_line": false,
+        "harmonic_equivalences_verified": true
+      },
+      {
+        "prime_q": 487,
+        "fermat_quotient_Fq2": 85,
+        "fermat_quotient_Fq3": 178,
+        "half_harmonic_H_floor_q_over_2_mod_q": 317,
+        "third_harmonic_H_floor_q_over_3_mod_q": 220,
+        "rational_wieferich_bad_line": false,
+        "two_over_three_square_depth_line": false,
+        "harmonic_equivalences_verified": true
+      },
+      {
+        "prime_q": 1009,
+        "fermat_quotient_Fq2": 592,
+        "fermat_quotient_Fq3": 943,
+        "half_harmonic_H_floor_q_over_2_mod_q": 834,
+        "third_harmonic_H_floor_q_over_3_mod_q": 99,
+        "rational_wieferich_bad_line": false,
+        "two_over_three_square_depth_line": false,
+        "harmonic_equivalences_verified": true
+      },
+      {
+        "prime_q": 10007,
+        "fermat_quotient_Fq2": 9546,
+        "fermat_quotient_Fq3": 3469,
+        "half_harmonic_H_floor_q_over_2_mod_q": 922,
+        "third_harmonic_H_floor_q_over_3_mod_q": 9807,
+        "rational_wieferich_bad_line": false,
+        "two_over_three_square_depth_line": false,
+        "harmonic_equivalences_verified": true
+      },
+      {
+        "prime_q": 19997,
+        "fermat_quotient_Fq2": 19896,
+        "fermat_quotient_Fq3": 13612,
+        "half_harmonic_H_floor_q_over_2_mod_q": 202,
+        "third_harmonic_H_floor_q_over_3_mod_q": 19576,
+        "rational_wieferich_bad_line": false,
+        "two_over_three_square_depth_line": false,
+        "harmonic_equivalences_verified": true
+      }
+    ],
+    "bounded_harmonic_replay": {
+      "prime_limit": 20000,
+      "primes_scanned": 2259,
+      "bad_line_count": 0,
+      "first_order_positive_candidate_count": 0,
+      "failure_count": 0,
+      "integer_arithmetic_only": true,
+      "algorithm": "linear modular-inverse recurrence per prime plus modular exponentiation",
+      "complexity": "O(sum_{q<=Q, q prime} q) integer operations and O(pi(Q)) modular exponentiations"
+    },
+    "transcript_sha256": "bf5611e2479fe672d7d3a6b8d746f99c79bfee67bc7f894075681ca39b6723a2",
+    "aggregate": {
+      "lerch_harmonic_reduction_proved": true,
+      "first_order_positive_candidate_harmonic_characterization_proved": true,
+      "all_prime_harmonic_bad_line_nonvanishing_proved": false,
+      "bounded_replay_has_first_order_positive_candidate": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The harmonic identities are exact for every prime q>5, but the replay is finite and finds no bad-line prime. No argument proves all-prime nonvanishing. If both first-layer lines vanish, higher q-adic depths would still require comparison. Even all-prime run-block depth domination would not settle arbitrary Collatz orbits or cycles.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "All 2,259 primes 5<q<=20,000 replayed with exact integer modular arithmetic; no bounded absence is promoted to an all-prime conclusion.",
+  "logical_limit": "No all-prime proof excludes 4H_floor(q/3)=5H_((q-1)/2); simultaneous first-layer vanishing would also leave higher q-adic depths, and general Collatz dynamics remain outside this run-block reduction.",
+  "route_decision": {
+    "discard": "none newly; universal principal-unit transfer remains retired by TICKET-243",
+    "parked": [],
+    "retain": "the exact fixed-base harmonic bad-line nonvanishing statement, equivalent to excluding every 32/27 rational-Wieferich prime at first depth",
+    "next_single_lemma": "FixedBaseHarmonicBadLineNonvanishingForEveryPrime"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T243",
+        "label": "UnboundedOrderPrincipalUnitTransferCountermodels",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T244",
+        "label": "FixedBaseBadLineHarmonicSumEquivalence",
+        "status": "proved"
+      },
+      {
+        "id": "CO-OPEN244",
+        "label": "FixedBaseHarmonicBadLineNonvanishingForEveryPrime",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T243",
+        "CO-T244"
+      ],
+      [
+        "CO-T244",
+        "CO-OPEN244"
+      ]
+    ]
+  },
+  "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle; one exact all-prime harmonic reformulation and a finite identity replay only."
+}

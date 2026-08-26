@@ -62,12 +62,12 @@
       ko: "네 미해결 문제, 양화사와 척도 지름길을 분리하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-243 proves three exact route no-go theorems and one partial theorem for bandlimit compactness, principal-unit transfer, half-frequency energy, and dyadic periodic mimicry.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-243은 bandlimit compactness, principal-unit transfer, half-frequency energy 경로의 세 no-go와 dyadic fixed-period mimicry 부분정리를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-244 proves three partial theorems and one exact no-go for joint-tightness compactness, harmonic bad-line reduction, parity folding, and polylog-period mimicry.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-244는 joint-tightness compactness, harmonic bad-line 환원, parity folding의 세 부분정리와 polylog-period mimicry no-go를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-243 proves three exact route no-go theorems and one partial theorem, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-243은 세 개의 정확한 경로 no-go와 한 개의 부분정리를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-244 proves three partial theorems and one exact route no-go, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-244는 세 개의 부분정리와 한 개의 정확한 경로 no-go를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

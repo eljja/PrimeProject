@@ -193,11 +193,13 @@ class Ticket243BandlimitPrincipalUnitHalfArcDyadicMimicryTest(unittest.TestCase)
             self.assertEqual(section["problem_status"], "open_not_proven")
 
         state = json.loads(STATE.read_text(encoding="utf-8"))
-        self.assertEqual(state["ticket"], 243)
-        self.assertEqual(state["parent_ticket"], 242)
+        self.assertGreaterEqual(state["ticket"], 243)
         self.assertEqual(state["resolved_count"], 0)
         self.assertFalse(state["program_complete"])
-        self.assertEqual(state["deep_focus_problem"], "collatz")
+        self.assertIn(
+            "UnboundedOrderPrincipalUnitTransferCountermodels",
+            state["problems"]["collatz"]["established_results"],
+        )
         self.assertEqual(set(state["problems"]), set(("riemann", "collatz", "goldbach", "twin_prime")))
 
     def test_integrated_output_reproduces(self) -> None:

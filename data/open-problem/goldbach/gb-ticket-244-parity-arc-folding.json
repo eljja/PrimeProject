@@ -1,0 +1,132 @@
+{
+  "schema": "primeproject.ticket244-joint-tightness-harmonic-parity-fold-polylog-mimicry.v1",
+  "generated_at": "2026-08-26T09:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-244",
+  "theorem_name": "ExactParityArcFoldingForEvenBinaryGoldbach",
+  "declared_proposition": "Let O_X(alpha)=sum_(3<=p<=X) exp(2 pi i p alpha). Then O_X(alpha+1/2)=-O_X(alpha). For every even N, O_X(alpha)^2 exp(-2 pi i N alpha) is exactly 1/2-periodic. Hence the arc around 1/2 is the translate, with identical signed integral, of the arc around 0 for the odd-prime binary coefficient. Moreover, for every even N>=6 the full prime representation coefficient equals the odd-prime coefficient, since a representation using 2 would force the other summand to be an even prime at least 4.",
+  "mathematical_argument": "Every prime in O_X is odd, so translation by 1/2 multiplies every summand by -1. Squaring removes that sign, and the target phase gains exp(-pi i N)=1 for even N. This proves exact half-periodicity and equality of translated arc integrals. Expanding S_X=O_X+exp(4 pi i alpha), the extra Fourier coefficients correspond only to a summand 2 or to 2+2; neither contributes to an even N>=6.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let O_X(alpha)=sum_(3<=p<=X) exp(2 pi i p alpha). Then O_X(alpha+1/2)=-O_X(alpha). For every even N, O_X(alpha)^2 exp(-2 pi i N alpha) is exactly 1/2-periodic. Hence the arc around 1/2 is the translate, with identical signed integral, of the arc around 0 for the odd-prime binary coefficient. Moreover, for every even N>=6 the full prime representation coefficient equals the odd-prime coefficient, since a representation using 2 would force the other summand to be an even prime at least 4.",
+    "proof": "Every prime in O_X is odd, so translation by 1/2 multiplies every summand by -1. Squaring removes that sign, and the target phase gains exp(-pi i N)=1 for even N. This proves exact half-periodicity and equality of translated arc integrals. Expanding S_X=O_X+exp(4 pi i alpha), the extra Fourier coefficients correspond only to a summand 2 or to 2+2; neither contributes to an even N>=6.",
+    "exact_parity_fold_rows": [
+      {
+        "prime_cutoff_X": 100,
+        "odd_prime_count": 24,
+        "even_targets_6_through_X_checked": 48,
+        "minimum_ordered_odd_prime_representation_count": 1,
+        "minimum_count_target": 6,
+        "full_sum_vs_odd_sum_coefficient_failures": 0,
+        "exact_half_turn_phase_failures": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 500,
+        "odd_prime_count": 94,
+        "even_targets_6_through_X_checked": 248,
+        "minimum_ordered_odd_prime_representation_count": 1,
+        "minimum_count_target": 6,
+        "full_sum_vs_odd_sum_coefficient_failures": 0,
+        "exact_half_turn_phase_failures": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 1000,
+        "odd_prime_count": 167,
+        "even_targets_6_through_X_checked": 498,
+        "minimum_ordered_odd_prime_representation_count": 1,
+        "minimum_count_target": 6,
+        "full_sum_vs_odd_sum_coefficient_failures": 0,
+        "exact_half_turn_phase_failures": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 5000,
+        "odd_prime_count": 668,
+        "even_targets_6_through_X_checked": 2498,
+        "minimum_ordered_odd_prime_representation_count": 1,
+        "minimum_count_target": 6,
+        "full_sum_vs_odd_sum_coefficient_failures": 0,
+        "exact_half_turn_phase_failures": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_cutoff_X": 10000,
+        "odd_prime_count": 1228,
+        "even_targets_6_through_X_checked": 4998,
+        "minimum_ordered_odd_prime_representation_count": 1,
+        "minimum_count_target": 6,
+        "full_sum_vs_odd_sum_coefficient_failures": 0,
+        "exact_half_turn_phase_failures": 0,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "ba16a10093eb8fe103469b86dec9e5768dcfed91fccc7944168c6c775a0d3c61",
+    "aggregate": {
+      "odd_prime_half_antiperiodicity_proved": true,
+      "even_binary_integrand_half_periodicity_proved": true,
+      "full_and_odd_prime_coefficients_equal_for_even_N_at_least_6": true,
+      "finite_even_targets_checked": 8290,
+      "denominator_at_least_three_major_arcs_controlled": false,
+      "signed_residual_saving_proved": false,
+      "strong_goldbach_resolved": false
+    },
+    "no_go_scope": "The parity fold exactly removes duplicate bookkeeping between the zero and half-frequency arcs. It gives no estimate on rational arcs of denominator at least three, no signed residual minor-arc saving, and no positive representation lower bound beyond the explicit finite replay.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Exactly 8,290 even targets across five cutoffs through 10,000; finite Goldbach checks do not imply the infinite conjecture.",
+  "logical_limit": "No denominator-at-least-three major-arc asymptotic, signed residual saving, or uniform positive Goldbach lower bound is proved.",
+  "route_decision": {
+    "discard": "treating the zero and half-frequency arcs as analytically independent for the odd-prime even-target coefficient",
+    "parked": [],
+    "retain": "one half-torus with complete denominator-at-least-three major arcs and a signed residual estimate",
+    "next_single_lemma": "CompleteDenominatorAtLeastThreeMajorArcExtractionAndSignedResidualSavingAfterParityFolding"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T243",
+        "label": "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
+        "status": "proved"
+      },
+      {
+        "id": "GB-N244",
+        "label": "ZeroAndHalfFrequencyOddPrimeArcsRequireIndependentSignedAnalysis",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-T244",
+        "label": "ExactParityArcFoldingForEvenBinaryGoldbach",
+        "status": "proved"
+      },
+      {
+        "id": "GB-OPEN244",
+        "label": "CompleteDenominatorAtLeastThreeMajorArcExtractionAndSignedResidualSavingAfterParityFolding",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T243",
+        "GB-T244"
+      ],
+      [
+        "GB-T243",
+        "GB-N244"
+      ],
+      [
+        "GB-N244",
+        "GB-T244"
+      ],
+      [
+        "GB-T244",
+        "GB-OPEN244"
+      ]
+    ]
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; an exact parity-fold identity plus bounded direct coefficient checks only."
+}

@@ -31,15 +31,23 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-244: Joint Tightness, Harmonic Bad Lines, Parity Folding, and Polylog Mimicry](docs/joint-tightness-harmonic-parity-fold-polylog-mimicry.md),
+with a separate [Korean report](docs/joint-tightness-harmonic-parity-fold-polylog-mimicry.ko.md).
+It proves three partial theorems and one exact route no-go: joint physical-
+frequency tails exactly characterize bounded-L2 relative compactness; the
+fixed-base Collatz first bad line is an exact harmonic-prefix identity; the
+odd-prime even-target Goldbach coefficient folds across a half-turn; and every
+pure periodic Twin classifier bounded by a fixed logarithmic power has
+prime/composite-successor mimics in all sufficiently large dyadic blocks.
+The 2,259-prime harmonic replay, 8,290 even-target checks, and four finite Twin
+witnesses are bounded evidence only. All four parent conjectures remain
+`open_not_proven`.
+
+The preserved TICKET-243 continuation is
 [TICKET-243: Bandlimit, Principal Units, Half-Arc Energy, and Dyadic Mimicry](docs/bandlimit-principal-unit-half-arc-dyadic-mimicry.md),
 with a separate [Korean report](docs/bandlimit-principal-unit-half-arc-dyadic-mimicry.ko.md).
-It proves three exact route no-go theorems and one partial theorem: bandlimit
-alone does not compactify normalized even tests; universal principal-unit
-transfer fails at unbounded orders; an omitted half-frequency arc carries
-natural binary energy; and every fixed periodic Twin mimic occurs in every
-sufficiently large dyadic block. The 5,130-prime local-model replay and all
-other computations are finite evidence only. All four parent conjectures remain
-`open_not_proven`.
+It closed the frequency-only compactness, universal principal-unit transfer,
+omitted half-frequency arc, and fixed-period dyadic mimicry shortcuts.
 
 The preserved TICKET-242 continuation is
 [TICKET-242: Quantifier Order, Order Cores, Parseval Scale, and Diagonal CRT](docs/quantifier-order-parseval-diagonal-crt.md),
@@ -624,14 +632,14 @@ See [TICKET236 EN](docs/contraction-order-phase-degree2.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-243입니다. 리만 트랙은 고정
-bandlimit만으로 normalized even test family가 compact하지 않음을
-증명했습니다. 콜라츠 트랙은 무계 order의 명시적 principal-unit
-countermodel로 universal local transfer를 반증했습니다. 골드바흐 트랙은
-1/2 주변 arc가 자연 이항 척도의 절대 에너지를 가짐을 증명했습니다.
-쌍둥이 소수 트랙은 고정 periodic fingerprint 모방이 충분히 큰 모든
-dyadic block에 존재함을 증명했습니다. 이들은 세 exact no-go와 한
-partial theorem이며, 유한 계산은 선언 범위의 재현 증거일 뿐입니다.
+한국어 최신 요약: 최신 탐색은 TICKET-244입니다. 리만 트랙은 bounded L2의
+joint physical-frequency tightness가 relative compactness의 정확한 gate임을
+증명했습니다. 콜라츠 트랙은 고정기저 첫 bad line을 harmonic prefix 합동으로
+환원했습니다. 골드바흐 트랙은 odd-prime even-target integrand의 exact parity
+folding을 증명했습니다. 쌍둥이 소수 트랙은 fixed-polylog 이하의 모든 pure
+periodic fingerprint가 충분히 큰 모든 dyadic block에서 모방됨을 증명했습니다.
+이들은 세 partial theorem과 한 exact no-go이며, 유한 계산은 선언 범위의
+재현 증거일 뿐입니다.
 네 상위 문제의 해결 수는 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
@@ -652,19 +660,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-243입니다.
-[bandlimit·principal unit·half-arc·dyadic mimicry 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/bandlimit-principal-unit-half-arc-dyadic-mimicry.ko.md)와
-[영문 보고서](docs/bandlimit-principal-unit-half-arc-dyadic-mimicry.md)는
+최신 난제 연구 트랙은 TICKET-244입니다.
+[joint tightness·harmonic bad line·parity fold·polylog mimicry 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/joint-tightness-harmonic-parity-fold-polylog-mimicry.ko.md)와
+[영문 보고서](docs/joint-tightness-harmonic-parity-fold-polylog-mimicry.md)는
 네 트랙의 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을
-분리합니다. 현재 결정적 미해결 보조정리는 joint physical-frequency
-tightness와 uniform signed Weil tail, 고정 밑 32/27의 rational-Wieferich
-배제, complete small-denominator major arcs와 signed residual saving,
-scale-local 성장 modulus shift-two Type II 추정입니다.
+분리합니다. 현재 결정적 미해결 보조정리는 exhaustive jointly tight class의
+uniform signed Weil tail, 고정 밑 harmonic bad-line 비소거, parity folding
+후 분모 3 이상 major arcs와 signed residual saving, superpolylog scale-local
+shift-two Type II 추정입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-243의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 243개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-244의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 244개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

@@ -1,0 +1,271 @@
+{
+  "schema": "primeproject.ticket244-joint-tightness-harmonic-parity-fold-polylog-mimicry.v1",
+  "generated_at": "2026-08-26T09:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-244",
+  "theorem_name": "JointPhysicalFrequencyTightnessCharacterizesL2Precompactness",
+  "declared_proposition": "Let K be a bounded subset of L2(R), with unitary Fourier transform. Then K is relatively compact in L2(R) if and only if for every epsilon>0 there is R such that both sup_(f in K) integral_(|x|>R) |f(x)|^2 dx<epsilon and sup_(f in K) integral_(|xi|>R) |fhat(xi)|^2 dxi<epsilon. Neither tail condition alone suffices: TICKET-243 supplies the frequency-only counterfamily, while f_n(x)=pi^(-1/2)1_[-pi,pi](x)cos(nx) is a normalized real-even orthonormal physical-tight counterfamily.",
+  "mathematical_argument": "For sufficiency, Plancherel gives ||tau_h f-f||_2^2 as the integral of |exp(i h xi)-1|^2|fhat(xi)|^2. Splitting at |xi|=R bounds it by R^2 h^2 B^2+4 epsilon, uniformly for ||f||_2<=B. Frequency tightness therefore gives uniform translation continuity; physical tightness and the Riesz-Kolmogorov theorem give relative compactness. For necessity, a finite epsilon-net for a compact set transfers the vanishing tails of its finitely many centers uniformly; apply the same argument after the unitary Fourier transform. Cosine orthogonality proves the physical-only counterfamily has Gram matrix I.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let K be a bounded subset of L2(R), with unitary Fourier transform. Then K is relatively compact in L2(R) if and only if for every epsilon>0 there is R such that both sup_(f in K) integral_(|x|>R) |f(x)|^2 dx<epsilon and sup_(f in K) integral_(|xi|>R) |fhat(xi)|^2 dxi<epsilon. Neither tail condition alone suffices: TICKET-243 supplies the frequency-only counterfamily, while f_n(x)=pi^(-1/2)1_[-pi,pi](x)cos(nx) is a normalized real-even orthonormal physical-tight counterfamily.",
+    "proof": "For sufficiency, Plancherel gives ||tau_h f-f||_2^2 as the integral of |exp(i h xi)-1|^2|fhat(xi)|^2. Splitting at |xi|=R bounds it by R^2 h^2 B^2+4 epsilon, uniformly for ||f||_2<=B. Frequency tightness therefore gives uniform translation continuity; physical tightness and the Riesz-Kolmogorov theorem give relative compactness. For necessity, a finite epsilon-net for a compact set transfers the vanishing tails of its finitely many centers uniformly; apply the same argument after the unitary Fourier transform. Cosine orthogonality proves the physical-only counterfamily has Gram matrix I.",
+    "physical_only_counterfamily_gram_rows": [
+      {
+        "orthonormal_family_size": 4,
+        "common_physical_support": "[-pi,pi]",
+        "real_even": true,
+        "gram_diagonal": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "maximum_off_diagonal_absolute_value": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "minimum_pair_distance_squared": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "orthonormal_family_size": 8,
+        "common_physical_support": "[-pi,pi]",
+        "real_even": true,
+        "gram_diagonal": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "maximum_off_diagonal_absolute_value": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "minimum_pair_distance_squared": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "orthonormal_family_size": 16,
+        "common_physical_support": "[-pi,pi]",
+        "real_even": true,
+        "gram_diagonal": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "maximum_off_diagonal_absolute_value": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "minimum_pair_distance_squared": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "orthonormal_family_size": 32,
+        "common_physical_support": "[-pi,pi]",
+        "real_even": true,
+        "gram_diagonal": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "maximum_off_diagonal_absolute_value": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "minimum_pair_distance_squared": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "orthonormal_family_size": 64,
+        "common_physical_support": "[-pi,pi]",
+        "real_even": true,
+        "gram_diagonal": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "maximum_off_diagonal_absolute_value": {
+          "exact": "0",
+          "float": 0.0
+        },
+        "minimum_pair_distance_squared": {
+          "exact": "2",
+          "float": 2.0
+        },
+        "certificate_verified": true
+      }
+    ],
+    "exact_translation_bound_rows": [
+      {
+        "frequency_radius_R": 2,
+        "translation_h": {
+          "exact": "1/4",
+          "float": 0.25
+        },
+        "uniform_frequency_tail_budget_epsilon": {
+          "exact": "1/4",
+          "float": 0.25
+        },
+        "squared_L2_translation_bound": {
+          "exact": "5/4",
+          "float": 1.25
+        },
+        "certificate_verified": true
+      },
+      {
+        "frequency_radius_R": 4,
+        "translation_h": {
+          "exact": "1/16",
+          "float": 0.0625
+        },
+        "uniform_frequency_tail_budget_epsilon": {
+          "exact": "1/16",
+          "float": 0.0625
+        },
+        "squared_L2_translation_bound": {
+          "exact": "5/16",
+          "float": 0.3125
+        },
+        "certificate_verified": true
+      },
+      {
+        "frequency_radius_R": 8,
+        "translation_h": {
+          "exact": "1/64",
+          "float": 0.015625
+        },
+        "uniform_frequency_tail_budget_epsilon": {
+          "exact": "1/64",
+          "float": 0.015625
+        },
+        "squared_L2_translation_bound": {
+          "exact": "5/64",
+          "float": 0.078125
+        },
+        "certificate_verified": true
+      },
+      {
+        "frequency_radius_R": 16,
+        "translation_h": {
+          "exact": "1/256",
+          "float": 0.00390625
+        },
+        "uniform_frequency_tail_budget_epsilon": {
+          "exact": "1/256",
+          "float": 0.00390625
+        },
+        "squared_L2_translation_bound": {
+          "exact": "5/256",
+          "float": 0.01953125
+        },
+        "certificate_verified": true
+      },
+      {
+        "frequency_radius_R": 32,
+        "translation_h": {
+          "exact": "1/1024",
+          "float": 0.0009765625
+        },
+        "uniform_frequency_tail_budget_epsilon": {
+          "exact": "1/1024",
+          "float": 0.0009765625
+        },
+        "squared_L2_translation_bound": {
+          "exact": "5/1024",
+          "float": 0.0048828125
+        },
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "ba395b597b5ad65a2e1542934cb1781646c445f36e3b2828931e423fde04b07b",
+    "aggregate": {
+      "joint_tightness_characterizes_relative_compactness": true,
+      "physical_tightness_alone_refuted": true,
+      "frequency_tightness_alone_refuted_by_ticket243": true,
+      "actual_admissible_weil_class_joint_tightness_proved": false,
+      "uniform_signed_guinand_weil_tail_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The theorem is functional analytic. It does not prove that the full normalized Guinand-Weil admissible class is jointly tight, does not control its signed arithmetic tail, and supplies no positive Weil margin or zero exclusion.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Five symbolic physical-support Gram rows and five exact rational translation-bound rows; the infinite theorem uses Riesz-Kolmogorov and Plancherel.",
+  "logical_limit": "The actual normalized admissible Weil class has not been shown jointly tight, exhaustive, or uniformly positive under signed arithmetic tails.",
+  "route_decision": {
+    "discard": "physical tightness alone, together with TICKET-243's frequency-tightness-alone route, as a compactness certificate",
+    "parked": [],
+    "retain": "joint physical-frequency tightness as the exact compactness gate, followed by signed arithmetic-tail control",
+    "next_single_lemma": "UniformSignedGuinandWeilTailWithPositiveMarginOnExhaustiveJointlyTightAdmissibleClasses"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T243",
+        "label": "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-EXT244-2",
+        "label": "Riesz-Kolmogorov compactness theorem",
+        "status": "external_theorem"
+      },
+      {
+        "id": "RH-EXT244-1",
+        "label": "Plancherel theorem",
+        "status": "external_theorem"
+      },
+      {
+        "id": "RH-N244",
+        "label": "PhysicalTightnessAloneImpliesRelativeCompactness",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-T244",
+        "label": "JointPhysicalFrequencyTightnessCharacterizesL2Precompactness",
+        "status": "proved"
+      },
+      {
+        "id": "RH-OPEN244",
+        "label": "UniformSignedGuinandWeilTailWithPositiveMarginOnExhaustiveJointlyTightAdmissibleClasses",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T243",
+        "RH-T244"
+      ],
+      [
+        "RH-EXT244-2",
+        "RH-T244"
+      ],
+      [
+        "RH-EXT244-1",
+        "RH-T244"
+      ],
+      [
+        "RH-T243",
+        "RH-N244"
+      ],
+      [
+        "RH-N244",
+        "RH-T244"
+      ],
+      [
+        "RH-T244",
+        "RH-OPEN244"
+      ]
+    ]
+  },
+  "claim_boundary": "No RH proof, disproof, zero exclusion, or positivity theorem; the functional-analytic compactness gate is exactly characterized."
+}

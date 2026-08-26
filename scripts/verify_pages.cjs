@@ -15,6 +15,7 @@ async function main() {
   let metrics = null;
   const openProblemSource = fs.readFileSync(path.join(root, "assets", "open-problems.js"), "utf8");
   const ticket242Load = openProblemSource.indexOf("const ticket242Loaded = await loadTicket242Attempt();");
+  const ticket244Load = openProblemSource.indexOf("const ticket244Loaded = await loadTicket244Attempt();");
   const ticket243Load = openProblemSource.indexOf("const ticket243Loaded = await loadTicket243Attempt();");
   const ticket241Load = openProblemSource.indexOf("const ticket241Loaded = await loadTicket241Attempt();");
   const ticket240Load = openProblemSource.indexOf("const ticket240Loaded = await loadTicket240Attempt();");
@@ -94,14 +95,17 @@ async function main() {
   const priorityRender = openProblemSource.indexOf("render(payload, problem);", priorityLoad);
   const historicalLoad = openProblemSource.indexOf("const labResponse = await fetch", priorityRender);
   if (!(ticket243Load >= 0 && ticket243Load < ticket242Load && ticket242Load < ticket241Load && ticket241Load < ticket240Load && ticket240Load < ticket239Load && ticket239Load < ticket238Load && ticket238Load < ticket237Load && ticket237Load < ticket236Load && ticket236Load < ticket235Load && ticket235Load < ticket234Load && ticket234Load < ticket233Load && ticket233Load < ticket232Load && ticket232Load < ticket231Load && ticket231Load < ticket230Load && ticket230Load < ticket229Load && ticket229Load < ticket228Load && ticket228Load < ticket227Load && ticket227Load < ticket226Load && ticket226Load < ticket225Load && ticket225Load < ticket224Load && ticket224Load < ticket223Load && ticket223Load < ticket222Load && ticket222Load < ticket221Load && ticket221Load < ticket220Load && ticket220Load < ticket240EarlyRender && ticket240EarlyRender < ticket219Load && ticket219Load < ticket218Load && ticket218Load < ticket217Load && ticket217Load < ticket216Load && ticket216Load < ticket215Load && ticket215Load < ticket214Load && ticket214Load < ticket213Load && ticket213Load < ticket212Load && ticket212Load < ticket211Load && ticket211Load < ticket210Load && ticket210Load < ticket209Load && ticket209Load < ticket208Load && ticket208Load < ticket207Load && ticket207Load < ticket206Load && ticket206Load < ticket205Load && ticket205Load < ticket204Load && ticket204Load < ticket203Load && ticket203Load < ticket202Load && ticket202Load < ticket201Load && ticket201Load < ticket200Load && ticket200Load < ticket199Load && ticket199Load < ticket198Load && ticket198Load < ticket197Load && ticket197Load < ticket196Load && ticket196Load < ticket195Load && ticket195Load < ticket194Load && ticket194Load < ticket193Load && ticket193Load < ticket192Load && ticket192Load < ticket191Load && ticket191Load < ticket190Load && ticket190Load < ticket189Load && ticket189Load < ticket188Load && ticket188Load < ticket187Load && ticket187Load < ticket186Load && ticket186Load < ticket185Load && ticket185Load < ticket184Load && ticket184Load < ticket183Load && ticket183Load < ticket182Load && ticket182Load < ticket181Load && ticket181Load < ticket180Load && ticket180Load < ticket179Load && ticket179Load < ticket178Load && ticket178Load < ticket177Load && ticket177Load < ticket176Load && ticket176Load < ticket175Load && ticket175Load < ticket174Load && ticket174Load < ticket173Load && ticket173Load < ticket172Load && ticket172Load < ticket171Load && ticket171Load < ticket170Load && ticket170Load < ticket169Load && ticket169Load < priorityLoad && priorityLoad < priorityRender && priorityRender < historicalLoad)) {
+  if (!(ticket244Load >= 0 && ticket244Load < ticket243Load)) {
+    errors.push("TICKET244 must load before TICKET243");
+  }
     errors.push("TICKET243 must render before archive loading, and TICKET243 through TICKET125 must precede historical ticket loading");
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260826-ticket243") || !source.includes("ticket243-open-problem.js?v=20260826-ticket243") || !source.includes("ticket242-open-problem.js?v=20260825-ticket242")) {
+    if (!source.includes("open-problems.js?v=20260826-ticket244") || !source.includes("ticket244-open-problem.js?v=20260826-ticket244") || !source.includes("ticket243-open-problem.js?v=20260826-ticket243") || !source.includes("ticket242-open-problem.js?v=20260825-ticket242")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260826-ticket243-layout")) {
+    if (!source.includes("styles.css?v=20260826-ticket244-layout")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -497,9 +501,9 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
-          ticket243AuditOverflow: (() => {
+          ticket244AuditOverflow: (() => {
             const wrapper = document.querySelector(
-              "#ticket243-bandlimit-principal-unit-half-arc-dyadic-mimicry .ticket243-audit-table .proof-table-wrap",
+              "#ticket244-joint-tightness-harmonic-parity-fold-polylog-mimicry .ticket244-audit-table .proof-table-wrap",
             );
             return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
           })(),
@@ -770,15 +774,15 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-243") ||
-    !metrics.currentBriefText.includes("JointPhysicalFrequencyTightnessAndUniformSignedGuinandWeilTailWithPositiveMargin") ||
-    !metrics.currentBriefText.includes("FixedBaseRationalWieferichExclusionFor32Over27OnAllPrimeOrderCores") ||
-    !metrics.currentBriefText.includes("CompleteSmallDenominatorMajorArcCoverageAndSignedResidualBinaryCoefficientSaving") ||
-    !metrics.currentBriefText.includes("ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass") ||
+    !metrics.currentBriefText.includes("TICKET-244") ||
+    !metrics.currentBriefText.includes("UniformSignedGuinandWeilTailWithPositiveMarginOnExhaustiveJointlyTightAdmissibleClasses") ||
+    !metrics.currentBriefText.includes("FixedBaseHarmonicBadLineNonvanishingForEveryPrime") ||
+    !metrics.currentBriefText.includes("CompleteDenominatorAtLeastThreeMajorArcExtractionAndSignedResidualSavingAfterParityFolding") ||
+    !metrics.currentBriefText.includes("SuperPolylogarithmicScaleLocalTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
-    metrics.railResearchTicket.trim() !== "TICKET-243" ||
-    !metrics.railResearchText.includes("TICKET-243") ||
+    metrics.railResearchTicket.trim() !== "TICKET-244" ||
+    !metrics.railResearchText.includes("TICKET-244") ||
     !metrics.railResearchText.includes("resolution count of zero") ||
     metrics.mobileHorizontalOverflow ||
     !metrics.mobileNavigationCollapsed
@@ -795,12 +799,12 @@ async function main() {
     ["Collatz link", metrics.proofHub?.links.includes("collatz.html")],
     ["Goldbach link", metrics.proofHub?.links.includes("goldbach.html")],
     ["Twin link", metrics.proofHub?.links.includes("twin-prime.html")],
-    ["TICKET-243 boundary", metrics.proofHub?.boundary.includes("What TICKET-243 actually changed")],
-    ["Riemann next lemma", metrics.proofHub?.boundary.includes("JointPhysicalFrequencyTightnessAndUniformSignedGuinandWeilTailWithPositiveMargin")],
-    ["Collatz next lemma", metrics.proofHub?.boundary.includes("FixedBaseRationalWieferichExclusionFor32Over27OnAllPrimeOrderCores")],
-    ["Goldbach next lemma", metrics.proofHub?.boundary.includes("CompleteSmallDenominatorMajorArcCoverageAndSignedResidualBinaryCoefficientSaving")],
-    ["Twin next lemma", metrics.proofHub?.boundary.includes("ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass")],
-    ["progression range", metrics.proofHub?.boundary.includes("TICKET-161–243")],
+    ["TICKET-244 boundary", metrics.proofHub?.boundary.includes("What TICKET-244 actually changed")],
+    ["Riemann next lemma", metrics.proofHub?.boundary.includes("UniformSignedGuinandWeilTailWithPositiveMarginOnExhaustiveJointlyTightAdmissibleClasses")],
+    ["Collatz next lemma", metrics.proofHub?.boundary.includes("FixedBaseHarmonicBadLineNonvanishingForEveryPrime")],
+    ["Goldbach next lemma", metrics.proofHub?.boundary.includes("CompleteDenominatorAtLeastThreeMajorArcExtractionAndSignedResidualSavingAfterParityFolding")],
+    ["Twin next lemma", metrics.proofHub?.boundary.includes("SuperPolylogarithmicScaleLocalTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass")],
+    ["progression range", metrics.proofHub?.boundary.includes("TICKET-161–244")],
     ["resolution count label", metrics.proofHub?.boundary.includes("Resolution count")],
     ["zero resolution count", metrics.proofHub?.boundary.includes("0")],
     ["claim boundary", metrics.proofHub?.boundary.includes("not present a conjecture as solved")],
@@ -814,8 +818,8 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentBoundaryLabel.includes("TICKET-243 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-243 boundary label missing`);
-    if (!page.currentResearchText.includes("Ticket 243 bandlimit, principal-unit transfer, half-arc energy, and dyadic mimicry")) failures.push(`${page.problemId}: current TICKET-243 boundary missing`);
+    if (!page.currentBoundaryLabel.includes("TICKET-244 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-244 boundary label missing`);
+    if (!page.currentResearchText.includes("Ticket 244 joint tightness, harmonic bad line, parity folding, and polylog mimicry")) failures.push(`${page.problemId}: current TICKET-244 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -1685,38 +1689,38 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
-    requireCurrentText("ticket243 title", "Ticket 243 bandlimit, principal-unit transfer, half-arc energy, and dyadic mimicry");
-    requireCurrentText("ticket243 table", "TICKET243 audit");
-    requireCurrentText("ticket243 latest", "LATEST / 최신 연구 경계");
-    requireCurrentText("ticket243 resolutions", "Resolution count0");
-    requireCurrentText("ticket243 proof DAG", "Proof DAG / 증명 의존성");
-    requireCurrentText("ticket243 completion guard", "TICKET-243 resolves none of the four parent conjectures");
-    if (page.ticket243AuditOverflow) checks.push(`${page.problemId}: ticket243 audit table overflow`);
+    requireCurrentText("ticket244 title", "Ticket 244 joint tightness, harmonic bad line, parity folding, and polylog mimicry");
+    requireCurrentText("ticket244 table", "TICKET244 audit");
+    requireCurrentText("ticket244 latest", "LATEST / 최신 연구 경계");
+    requireCurrentText("ticket244 resolutions", "Resolution count0");
+    requireCurrentText("ticket244 proof DAG", "Proof DAG / 증명 의존성");
+    requireCurrentText("ticket244 completion guard", "TICKET-244 resolves none of the four parent conjectures");
+    if (page.ticket244AuditOverflow) checks.push(`${page.problemId}: ticket244 audit table overflow`);
     if (page.problemId === "riemann") {
-      requireCurrentText("ticket243 RH theorem", "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo");
-      requireCurrentText("ticket243 RH target", "JointPhysicalFrequencyTightnessAndUniformSignedGuinandWeilTailWithPositiveMargin");
-      requireCurrentText("ticket243 RH bandlimit", "Fixed bandlimitproved");
-      requireCurrentText("ticket243 RH no-go", "Relative compactnessrefuted");
-      requireCurrentText("ticket243 RH open", "Uniform Weil tailopen");
+      requireCurrentText("ticket244 RH theorem", "JointPhysicalFrequencyTightnessCharacterizesL2Precompactness");
+      requireCurrentText("ticket244 RH target", "UniformSignedGuinandWeilTailWithPositiveMarginOnExhaustiveJointlyTightAdmissibleClasses");
+      requireCurrentText("ticket244 RH compactness", "Joint tightness ⇔ compactnessproved");
+      requireCurrentText("ticket244 RH no-go", "Physical-only routerefuted");
+      requireCurrentText("ticket244 RH open", "Uniform signed Weil tailopen");
     } else if (page.problemId === "collatz") {
-      requireCurrentText("ticket243 Collatz theorem", "UnboundedOrderPrincipalUnitTransferCountermodels");
-      requireCurrentText("ticket243 Collatz target", "FixedBaseRationalWieferichExclusionFor32Over27OnAllPrimeOrderCores");
-      requireCurrentText("ticket243 Collatz scan", "Local models scanned5,130");
-      requireCurrentText("ticket243 Collatz order", "Largest model order24,999");
-      requireCurrentText("ticket243 Collatz no-go", "Universal local transferrefuted");
-      requireCurrentText("ticket243 Collatz open", "Fixed-base exclusionopen");
+      requireCurrentText("ticket244 Collatz theorem", "FixedBaseBadLineHarmonicSumEquivalence");
+      requireCurrentText("ticket244 Collatz target", "FixedBaseHarmonicBadLineNonvanishingForEveryPrime");
+      requireCurrentText("ticket244 Collatz scan", "Primes replayed2,259");
+      requireCurrentText("ticket244 Collatz rows", "Bad-line rows0");
+      requireCurrentText("ticket244 Collatz reduction", "Harmonic reductionproved");
+      requireCurrentText("ticket244 Collatz open", "All-prime nonvanishingopen");
     } else if (page.problemId === "goldbach") {
-      requireCurrentText("ticket243 Goldbach theorem", "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy");
-      requireCurrentText("ticket243 Goldbach target", "CompleteSmallDenominatorMajorArcCoverageAndSignedResidualBinaryCoefficientSaving");
-      requireCurrentText("ticket243 Goldbach floor", "Half-arc floorproved");
-      requireCurrentText("ticket243 Goldbach no-go", "Omitted-major routerefuted");
-      requireCurrentText("ticket243 Goldbach open", "Signed residual savingopen");
+      requireCurrentText("ticket244 Goldbach theorem", "ExactParityArcFoldingForEvenBinaryGoldbach");
+      requireCurrentText("ticket244 Goldbach target", "CompleteDenominatorAtLeastThreeMajorArcExtractionAndSignedResidualSavingAfterParityFolding");
+      requireCurrentText("ticket244 Goldbach fold", "Exact parity foldproved");
+      requireCurrentText("ticket244 Goldbach targets", "Finite targets8,290");
+      requireCurrentText("ticket244 Goldbach open", "Signed residual savingopen");
     } else {
-      requireCurrentText("ticket243 Twin theorem", "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock");
-      requireCurrentText("ticket243 Twin target", "ScaleLocalGrowingModulusTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass");
-      requireCurrentText("ticket243 Twin partial", "Every-large-block fixed-period mimicryproved");
-      requireCurrentText("ticket243 Twin uniformity", "Growing-modulus uniformityopen");
-      requireCurrentText("ticket243 Twin open", "Scale-local Type IIopen");
+      requireCurrentText("ticket244 Twin theorem", "PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock");
+      requireCurrentText("ticket244 Twin target", "SuperPolylogarithmicScaleLocalTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass");
+      requireCurrentText("ticket244 Twin mimicry", "Polylog-period mimicryproved");
+      requireCurrentText("ticket244 Twin no-go", "Pure periodic routerefuted");
+      requireCurrentText("ticket244 Twin open", "Scale-local Type IIopen");
     }
     requireText("ticket194 historical title", "Ticket 194 dense-core extension, ten-one cycles, and theta layers");
     requireText("ticket194 historical table", "TICKET194 audit");
@@ -3749,6 +3753,7 @@ async function main() {
     ["panel", metrics.evolutionPanel, "TICKET-149"],
     ["panel", metrics.evolutionPanel, "Open-Proof"],
     ["panel", metrics.evolutionPanel, "TICKET-243"],
+    ["panel", metrics.evolutionPanel, "TICKET-244"],
     ["panel", metrics.evolutionPanel, "Multishell accumulation"],
     ["panel", metrics.evolutionPanel, "99%"],
     ["panel", metrics.evolutionPanel, "Adaptive clearance, single-one exclusion, CRT witnesses"],
@@ -3790,8 +3795,8 @@ async function main() {
     !metrics.atlasPanel.includes("Publication claims governed") ||
     !metrics.atlasPanel.includes("Evidence ladder") ||
     !metrics.atlasPanel.includes("Proof workbench") ||
-    !metrics.atlasPanel.includes("TICKET-243") ||
-    !metrics.atlasPanel.includes("JointPhysicalFrequencyTightnessAndUniformSignedGuinandWeilTailWithPositiveMargin") ||
+    !metrics.atlasPanel.includes("TICKET-244") ||
+    !metrics.atlasPanel.includes("UniformSignedGuinandWeilTailWithPositiveMarginOnExhaustiveJointlyTightAdmissibleClasses") ||
     !metrics.atlasPanel.includes("Riemann Hypothesis") ||
     !metrics.atlasPanel.includes("Twin Prime Conjecture") ||
     !metrics.atlasPanel.includes("Next academic work")
@@ -3886,6 +3891,7 @@ async function main() {
     !metrics.evolutionPanel.includes("Publication consistency") ||
     !metrics.evolutionPanel.includes("TICKET-242") ||
     !metrics.evolutionPanel.includes("TICKET-243") ||
+    !metrics.evolutionPanel.includes("TICKET-244") ||
     !metrics.evolutionPanel.includes("TICKET-239") ||
     !metrics.evolutionPanel.includes("TICKET-233") ||
     !metrics.evolutionPanel.includes("TICKET-232") ||
