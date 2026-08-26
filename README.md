@@ -31,17 +31,21 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-248: Unweighted Moment No-Go, Generalized-Wieferich Separation, Centered First Jets, and Active Prime-Power Contamination](docs/unweighted-wieferich-jet-active.md),
-with a separate [Korean report](docs/unweighted-wieferich-jet-active.ko.md).
-It proves three partial theorems and one exact route no-go. Normalized even
-Legendre modes give an explicit unweighted infinite-moment escape sequence.
-Actual first-level Collatz failure is equivalent to a separated
-generalized-Wieferich prime. Goldbach centered residuals and first moments obey
-an exact aggregate first-jet Parseval identity. The twin proxy differs from the
-twin count by an exact inclusion-exclusion term supported only on active
-prime-power neighbors. The eight Legendre rows, 78,495-prime scan, 282
-Goldbach denominator cases with 36 selected rows, and seven twin scales are
+[TICKET-249: Compact Perturbation No-Go, Projective Fermat Quotients, Parseval Spikes, and Lebesgue-Nagell Active Classification](docs/compact-projective-parseval-lebesgue.md),
+with a separate [Korean report](docs/compact-projective-parseval-lebesgue.ko.md).
+It proves two partial theorems and two exact route no-go results. Compact
+off-diagonal operators cannot repair raw-moment coercivity on the full even L2
+model. The actual first-level Collatz failure is the nonzero projective
+Fermat-quotient point [3:5]. An exact centered cosine jet refutes uniform
+Goldbach numerator control from Parseval data alone. Using the cited D=2
+Lebesgue-Nagell classification, the away-from-3 even-exponent left-active twin
+contamination is exactly (25,27). Eight compact rows, a 664,576-prime scan,
+10,900 finite-field pairs, 5,020 exact group-ring cases, and seven twin scales are
 bounded replay evidence. All parent conjectures remain `open_not_proven`.
+
+The preserved [TICKET-248 report](docs/unweighted-wieferich-jet-active.md)
+records the preceding unweighted-moment, Wieferich-separation, first-jet, and
+active-contamination boundary.
 
 The preserved [TICKET-247 report](docs/hilbert-hensel-lipschitz-primepower.md)
 records the preceding Hilbert-Schmidt, Hensel, arc, and contamination boundary.
@@ -659,14 +663,14 @@ See [TICKET236 EN](docs/contraction-order-phase-degree2.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-248입니다. 리만 트랙은 명시적
-Legendre 도주열로 비가중 무한 모멘트 coercivity를 exact no-go로
-닫았습니다. 콜라츠 트랙은 실제 첫 단계 실패를 separated
-generalized-Wieferich 소수의 존재로 정확히 환원했습니다. 골드바흐
-트랙은 중심화 잔차와 1차 모멘트 jet의 합산 Parseval 항등식을, 쌍둥이
-소수 트랙은 활성 소수거듭제곱 이웃만 남기는 정확한 오염 항등식을
-증명했습니다. 이들은 세 partial theorem과 한 exact no-go이며 유한
-계산은 선언 범위의 재현 증거일 뿐입니다. 네 상위 문제의 해결 수는
+한국어 최신 요약: 최신 탐색은 TICKET-249입니다. 리만 트랙은 모든 compact
+off-diagonal 보정이 Legendre 도주열에서 사라진다는 exact no-go를
+증명했습니다. 콜라츠 트랙은 실제 장애를 projective Fermat-quotient 점
+[3:5]로 환원했습니다. 골드바흐 트랙은 Parseval-only 균일 승격을 exact
+두-spike 반례로 폐기했습니다. 쌍둥이 소수 트랙은 외부 D=2
+Lebesgue-Nagell 정리를 명시적으로 사용해 밑이 3이 아닌 왼쪽 짝수 지수
+활성 오염을 (25,27) 하나로 분류했습니다. 이들은 두 partial theorem과 두
+exact no-go이며 유한 계산은 선언 범위의 재현 증거일 뿐입니다. 해결 수는
 0입니다.
 
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
@@ -687,19 +691,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-248입니다.
-[비가중 모멘트·Wieferich 분리·중심 jet·활성 오염 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/unweighted-wieferich-jet-active.ko.md)와
-[영문 보고서](docs/unweighted-wieferich-jet-active.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-249입니다.
+[compact 보정·projective quotient·Parseval spike·Lebesgue-Nagell 분류 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/compact-projective-parseval-lebesgue.ko.md)와
+[영문 보고서](docs/compact-projective-parseval-lebesgue.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-현재 결정적 미해결 보조정리는 실제 Weil closure의 산술 off-diagonal
-coercivity, separated generalized-Wieferich 소수의 존재 또는 배제,
-quarter-torus의 reduced-numerator 중심 first-jet 절약, 활성
-소수거듭제곱 오염을 이기는 scale-local Type-II 하한입니다.
+현재 결정적 미해결 보조정리는 noncompact 산술 Weil form 또는 Legendre
+배제, projective slope [3:5]의 출현 또는 회피, 소수 고유의 reduced-numerator
+jet anti-concentration, 오른쪽 활성 소수거듭제곱 오염의 scale-local
+상계입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-248의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 248개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-249의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 249개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

@@ -62,7 +62,43 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-248
+## Current continuation: TICKET-249
+
+The current machine-readable boundary is
+`data/open-problem/ticket249-compact-projective-parseval-lebesgue.json`.
+It records two partial theorems, two exact route no-go results, four acyclic
+proof DAGs, zero machine failures, and zero parent-problem resolutions.
+
+| Problem | Newly closed result | Current single open lemma |
+|---|---|---|
+| Riemann | `CompactOffDiagonalMomentCoercivityNoGo` | `NoncompactArithmeticWeilFormOrLegendreExclusion` |
+| Collatz | `SeparatedWieferichProjectiveSlopeCriterion` | `OccurrenceOrAvoidanceOfProjectiveFermatQuotientSlopeThreeFifths` |
+| Goldbach | `CenteredJetParsevalSpikeNoGo` | `PrimeSpecificReducedNumeratorJetAntiConcentration` |
+| Twin Prime | `EvenExponentLeftActiveContaminationClassification` | `ScaleLocalRightActivePrimePowerContaminationBound` |
+
+Do not repeat the discarded routes. A compact perturbation cannot repair raw
+moment coercivity on the full even L2 sphere. The Collatz obstruction is the
+single projective Fermat-quotient slope `[3:5]`, but a finite no-hit scan is not
+global avoidance. Centeredness plus aggregate Parseval control alone permits
+frequency spikes and cannot give numerator-uniform Goldbach saving. Away from
+base three, the only even-exponent left-active twin contamination is `25 -> 27`;
+this says nothing about right-active contamination or Type-II mass.
+
+The exact computations cover eight finite-rank RH rows through n=256, all
+664,576 primes through ten million plus 10,900 exhaustive finite-field pairs,
+5,020 exact Goldbach reduced-frequency cases through q=128, and seven twin
+scales through 10,000,000. They are replay certificates, not proofs of the four
+parent conjectures. The twin classification invokes the published
+Lebesgue-Nagell classification for `x^2+2=y^n` as an explicit external theorem
+node rather than silently treating it as project-local work.
+
+Reports: [English](compact-projective-parseval-lebesgue.md),
+[한국어](compact-projective-parseval-lebesgue.ko.md).
+
+All older current/latest headings below are historical snapshots and must not
+override this TICKET-249 boundary.
+
+## Preserved continuation: TICKET-248
 
 The current machine-readable boundary is
 `data/open-problem/ticket248-unweighted-wieferich-jet-active.json`.
@@ -91,8 +127,8 @@ certificates, not proofs of the four parent conjectures.
 Reports: [English](unweighted-wieferich-jet-active.md),
 [한국어](unweighted-wieferich-jet-active.ko.md).
 
-All older current/latest headings below are historical snapshots and must not
-override this TICKET-248 boundary.
+This TICKET-248 snapshot is preserved for provenance and does not override the
+TICKET-249 boundary above.
 
 ## Preserved continuation: TICKET-247
 

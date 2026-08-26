@@ -1,0 +1,184 @@
+{
+  "schema": "primeproject.ticket249-compact-projective-parseval-lebesgue.v1",
+  "generated_at": "2026-08-26T23:50:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-249",
+  "theorem_name": "SeparatedWieferichProjectiveSlopeCriterion",
+  "declared_proposition": "For every prime q>5, set U_q=((2^(q-1)-1)/q) mod q and V_q=((3^(q-1)-1)/q) mod q. The TICKET-248 separated bad condition W_q(32,27)=0 and W_q(2,3)!=0 holds if and only if there is a unique t in F_q^* with (U_q,V_q)=t(3,5). Equivalently the Fermat-quotient projective point is exactly [3:5], excluding the origin.",
+  "mathematical_argument": "Fermat quotients satisfy q_q(a^m)=m q_q(a) modulo q. Hence W_q(32,27)=5U_q-3V_q and W_q(2,3)=U_q-V_q. The first expression vanishes exactly when U_q=3t and V_q=5t for the unique t=U_q/3. On that line U_q-V_q=-2t, which is nonzero exactly when t is nonzero because q>5. The exhaustive finite-field rows check the quantifiers independently; the actual-prime scan does not prove that the projective target occurs or is avoided infinitely often.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every prime q>5, set U_q=((2^(q-1)-1)/q) mod q and V_q=((3^(q-1)-1)/q) mod q. The TICKET-248 separated bad condition W_q(32,27)=0 and W_q(2,3)!=0 holds if and only if there is a unique t in F_q^* with (U_q,V_q)=t(3,5). Equivalently the Fermat-quotient projective point is exactly [3:5], excluding the origin.",
+    "proof": "Fermat quotients satisfy q_q(a^m)=m q_q(a) modulo q. Hence W_q(32,27)=5U_q-3V_q and W_q(2,3)=U_q-V_q. The first expression vanishes exactly when U_q=3t and V_q=5t for the unique t=U_q/3. On that line U_q-V_q=-2t, which is nonzero exactly when t is nonzero because q>5. The exhaustive finite-field rows check the quantifiers independently; the actual-prime scan does not prove that the projective target occurs or is avoided infinitely often.",
+    "selected_exact_prime_rows": [
+      {
+        "prime_q": 7,
+        "U_q": 2,
+        "V_q": 6,
+        "W_32_27_mod_q": 6,
+        "W_2_3_mod_q": 3,
+        "projective_parameter_t": null,
+        "separated_bad_prime": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "U_q": 5,
+        "V_q": 0,
+        "W_32_27_mod_q": 3,
+        "W_2_3_mod_q": 5,
+        "projective_parameter_t": null,
+        "separated_bad_prime": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "U_q": 17,
+        "V_q": 17,
+        "W_32_27_mod_q": 11,
+        "W_2_3_mod_q": 0,
+        "projective_parameter_t": null,
+        "separated_bad_prime": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 101,
+        "U_q": 92,
+        "V_q": 85,
+        "W_32_27_mod_q": 3,
+        "W_2_3_mod_q": 7,
+        "projective_parameter_t": null,
+        "separated_bad_prime": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 1009,
+        "U_q": 592,
+        "V_q": 943,
+        "W_32_27_mod_q": 131,
+        "W_2_3_mod_q": 658,
+        "projective_parameter_t": null,
+        "separated_bad_prime": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 9999991,
+        "U_q": 295813,
+        "V_q": 5555222,
+        "W_32_27_mod_q": 4813381,
+        "W_2_3_mod_q": 4740582,
+        "projective_parameter_t": null,
+        "separated_bad_prime": false,
+        "certificate_verified": true
+      }
+    ],
+    "exact_finite_field_rows": [
+      {
+        "prime_q": 7,
+        "pairs_checked": 49,
+        "linear_zero_pairs": 7,
+        "nonzero_projective_pairs": 6,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "pairs_checked": 121,
+        "linear_zero_pairs": 11,
+        "nonzero_projective_pairs": 10,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "pairs_checked": 529,
+        "linear_zero_pairs": 23,
+        "nonzero_projective_pairs": 22,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 101,
+        "pairs_checked": 10201,
+        "linear_zero_pairs": 101,
+        "nonzero_projective_pairs": 100,
+        "certificate_verified": true
+      }
+    ],
+    "exact_modular_scan": {
+      "prime_limit": 10000000,
+      "primes_checked": 664576,
+      "W_32_27_zero_primes": [],
+      "W_2_3_zero_primes": [
+        23
+      ],
+      "separated_bad_primes": []
+    },
+    "algorithm": "Eratosthenes sieve followed by modular exponentiation modulo q^2; exhaustive F_q^2 checks for four small fields",
+    "complexity": "O(B log log B + pi(B) log B + sum q^2) modular operations",
+    "random_seed": null,
+    "transcript_sha256": "db860c5bef6ae1b016d468346b1b9941eac90c375f93d4f7c4f67c8ee8e881b7",
+    "aggregate": {
+      "projective_slope_criterion_proved": true,
+      "target_projective_point": "[3:5]",
+      "finite_scan_proves_occurrence_or_avoidance": false,
+      "collatz_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Exact modular arithmetic scans 664,576 primes through 10,000,000; absence in that finite range proves neither global avoidance nor Collatz.",
+  "logical_limit": "The obstruction is now one nonzero projective target, but no theorem decides whether the actual fixed-base points hit it for any or infinitely many primes; this valuation branch alone would not control all Collatz trajectories.",
+  "route_decision": {
+    "discard": "treating the two first-level generalized-Wieferich congruences as independent after passing to the Fermat-quotient coordinate plane",
+    "parked": [
+      "all-prime occurrence or avoidance of the projective point [3:5] without a distribution theorem for fixed-base Fermat quotients"
+    ],
+    "retain": "an arithmetic occurrence or avoidance theorem for the fixed projective Fermat-quotient point [3:5]",
+    "next_single_lemma": "OccurrenceOrAvoidanceOfProjectiveFermatQuotientSlopeThreeFifths"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T248",
+        "label": "ActualBadBranchGeneralizedWieferichSeparation",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T249",
+        "label": "SeparatedWieferichProjectiveSlopeCriterion",
+        "status": "proved"
+      },
+      {
+        "id": "CO-REJECT249",
+        "label": "SeparatedConditionsRemainTwoIndependentCongruences",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN249",
+        "label": "OccurrenceOrAvoidanceOfProjectiveFermatQuotientSlopeThreeFifths",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T248",
+        "CO-T249"
+      ],
+      [
+        "CO-T249",
+        "CO-REJECT249"
+      ],
+      [
+        "CO-T249",
+        "CO-OPEN249"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T248",
+      "CO-T249",
+      "CO-OPEN249"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle; one exact projective-coordinate reduction of the first-level valuation obstruction."
+}

@@ -8877,3 +8877,31 @@ Machine artifact:
 `data/open-problem/ticket248-unweighted-wieferich-jet-active.json`.
 Reports: [English](unweighted-wieferich-jet-active.md) and
 [한국어](unweighted-wieferich-jet-active.ko.md).
+## TICKET-249 continuation: compact perturbations, projective slopes, Parseval spikes, and even-left classification
+
+TICKET-249 attacks the four TICKET-248 frontiers with compact-operator
+functional analysis, projective Fermat quotients, an exact Fourier spike
+countermodel, and a Diophantine classification. It resolves no parent
+conjecture.
+
+| Track | Exact theorem now closed | Route discarded or retained | Next single lemma |
+|---|---|---|---|
+| RH | `CompactOffDiagonalMomentCoercivityNoGo` | discard repair of raw full-sphere moment coercivity by any compact quadratic perturbation | `NoncompactArithmeticWeilFormOrLegendreExclusion` |
+| Collatz | `SeparatedWieferichProjectiveSlopeCriterion` | retain the exact nonzero slope `[3:5]`; discard promotion of finite no-hits | `OccurrenceOrAvoidanceOfProjectiveFermatQuotientSlopeThreeFifths` |
+| Goldbach | `CenteredJetParsevalSpikeNoGo` | discard uniform numerator saving from centeredness and aggregate Parseval alone | `PrimeSpecificReducedNumeratorJetAntiConcentration` |
+| Twin | `EvenExponentLeftActiveContaminationClassification` | classify away-from-three even-left support as the unique pair `25 -> 27`; right support remains open | `ScaleLocalRightActivePrimePowerContaminationBound` |
+
+The RH compactness theorem is infinite but scoped to the full even L2 model;
+it neither identifies the genuine Weil form as compact nor places the
+Legendre sequence in the admissible closure. The Collatz ten-million-prime
+scan and finite-field exhaustive tables are finite replay only. The Goldbach
+countermodel is an abstract centered residue vector, not a vector of prime
+counts. The Twin theorem uses the published Lebesgue-Nagell classification of
+`x^2+2=y^n` as an explicit external theorem node and gives no right-active or
+Type-II estimate. Every proof DAG has one open frontier; all parent
+conjectures remain `open_not_proven`.
+
+Machine artifact:
+`data/open-problem/ticket249-compact-projective-parseval-lebesgue.json`.
+Reports: [English](compact-projective-parseval-lebesgue.md) and
+[한국어](compact-projective-parseval-lebesgue.ko.md).

@@ -185,13 +185,28 @@ def verify_ticket248_structure() -> str | None:
     if not state_path.exists():
         return "missing persistent four-problem research state"
     state = json.loads(state_path.read_text(encoding="utf-8"))
-    if state.get("ticket") != 248 or state.get("parent_ticket") != 247:
+    ticket = state.get("ticket")
+    retained_theorems = {
+        "riemann": "UnweightedInfiniteMomentCoercivityNoGo",
+        "collatz": "ActualBadBranchGeneralizedWieferichSeparation",
+        "goldbach": "CenteredFirstJetParsevalArcBridge",
+        "twin_prime": "ExactActivePrimePowerContaminationIdentity",
+    }
+    if (
+        not isinstance(ticket, int)
+        or ticket < 248
+        or state.get("parent_ticket") != ticket - 1
+        or any(
+            theorem not in state.get("problems", {}).get(problem, {}).get("established_results", [])
+            for problem, theorem in retained_theorems.items()
+        )
+    ):
         return "TICKET-248 persistent research state changed"
     if (
         state.get("resolved_count") != 0
         or state.get("candidate_resolution_count") != 0
         or state.get("program_complete")
-        or state.get("deep_focus_problem") != "goldbach"
+        or (ticket == 248 and state.get("deep_focus_problem") != "goldbach")
     ):
         return "TICKET-248 resolution boundary changed"
     for report in (

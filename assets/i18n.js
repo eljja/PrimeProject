@@ -62,12 +62,12 @@
       ko: "네 미해결 문제, 양화사와 척도 지름길을 분리하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-248 proves three partial theorems and one exact no-go for unweighted moment coercivity, generalized-Wieferich separation, centered first-jet Parseval, and active prime-power contamination.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-248은 RH 비가중 모멘트 coercivity no-go와 Collatz generalized-Wieferich 분리, Goldbach 중심 1차 jet Parseval, Twin 활성 오염의 세 부분정리를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-249 proves two partial theorems and two exact route no-go results for compact RH corrections, a projective Collatz slope, Goldbach Parseval spikes, and one twin active-power subclass.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-249는 RH compact 보정과 Goldbach Parseval-only 승격의 두 no-go, Collatz projective slope와 Twin 활성 거듭제곱 분류의 두 부분정리를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-248 proves three partial theorems and one exact route no-go result, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-248은 세 부분정리와 하나의 정확한 경로 no-go를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-249 proves two partial theorems and two exact route no-go results, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-249는 두 부분정리와 두 정확한 경로 no-go를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

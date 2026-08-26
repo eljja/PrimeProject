@@ -44,6 +44,7 @@ let ticket237AttemptGlobal = null;
 let ticket245AttemptGlobal = null;
 let ticket246AttemptGlobal = null;
 let ticket247AttemptGlobal = null;
+let ticket249AttemptGlobal = null;
 let ticket248AttemptGlobal = null;
 let ticket244AttemptGlobal = null;
 let ticket243AttemptGlobal = null;
@@ -18039,7 +18040,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket248UnweightedWieferichJetActive(ticket248AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket249CompactProjectiveParsevalLebesgue(ticket249AttemptGlobal) ||
+      renderTicket248UnweightedWieferichJetActive(ticket248AttemptGlobal) ||
       renderTicket247HilbertHenselLipschitzPrimePower(ticket247AttemptGlobal) ||
       renderTicket246MomentAllDepthParsevalPrimePower(ticket246AttemptGlobal) ||
       renderTicket245ClosureSecondOrderKleinLinnik(ticket245AttemptGlobal) ||
@@ -18610,6 +18612,26 @@ async function loadTicket219Attempt() {
     return false;
   }
 }
+async function loadTicket249Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket249-compact-projective-parseval-lebesgue.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket249AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket249AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket249AttemptGlobal) {
+      ticket249AttemptGlobal.bounded_result = ticket249AttemptGlobal.bounded_result || {};
+      ticket249AttemptGlobal.bounded_result.compact_projective_parseval_lebesgue_audit = payload.compact_projective_parseval_lebesgue_audit || {};
+    }
+    return Boolean(ticket249AttemptGlobal);
+  } catch (_error) {
+    ticket249AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket248Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket248-unweighted-wieferich-jet-active.json", { cache: "no-store" });
@@ -20756,6 +20778,11 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket249Loaded = await loadTicket249Attempt();
+  if (!ticket249Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket249AttemptGlobal) await loadTicket249Attempt();
+  }
   const ticket248Loaded = await loadTicket248Attempt();
   if (!ticket248Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));

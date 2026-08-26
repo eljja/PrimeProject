@@ -544,3 +544,27 @@ nonexistence, promotion of aggregate first-jet energy to a uniform
 reduced-numerator saving, or promotion of active contamination localization
 to a Twin Type-II lower bound. Resolution and candidate-resolution counts are
 zero.
+## TICKET-249 publication boundary
+
+TICKET-249 adds two partial theorems and two exact route no-go results:
+
+- compact quadratic perturbations cannot repair raw moment coercivity on the
+  full normalized even L2 sphere;
+- separated Collatz first-level failure is exactly the nonzero projective
+  Fermat-quotient slope `[3:5]`;
+- centeredness and aggregate first-jet Parseval energy alone cannot prevent a
+  Goldbach reduced-frequency spike;
+- away from base three, even-exponent left-active twin contamination has the
+  unique solution `25+2=27`, using an explicit external Lebesgue-Nagell
+  theorem node.
+
+Allowed `exact_no_go` wording is restricted to the compactly perturbed raw
+moment energy on the stated L2 domain and to the abstract centered Parseval
+countermodel. Allowed `partial_theorem` wording covers the exact projective
+Collatz criterion and the scoped even-left Diophantine classification. Blocked
+wording includes every parent-conjecture proof/disproof, any claim that the
+genuine Weil form is compact, promotion of the 664,576-prime no-hit scan to
+global slope avoidance, identification of the abstract Goldbach spike with
+prime-count residuals, or promotion of left-active classification to a
+right-active or Type-II bound. Resolution and candidate-resolution counts are
+zero.

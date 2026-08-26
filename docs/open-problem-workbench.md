@@ -15,7 +15,35 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-248
+## Current research boundary: TICKET-249
+
+The current machine-readable boundary is
+`data/open-problem/ticket249-compact-projective-parseval-lebesgue.json`.
+TICKET-249 proves two partial theorems and two exact route no-go results while
+resolving none of the parent conjectures:
+
+- every compact perturbation of the raw RH moment energy still has zero
+  coercivity along normalized even Legendre modes on the full even L2 sphere;
+- the separated Collatz obstruction is exactly the nonzero projective
+  Fermat-quotient point `[U_q:V_q]=[3:5]`;
+- centeredness and aggregate Parseval control alone admit exact Goldbach
+  frequency spikes, so they cannot imply a uniform reduced-numerator saving;
+- away from base three, even-exponent left-active twin contamination is
+  classified by the unique solution `25+2=27`, conditional only on the
+  explicitly cited classical Lebesgue-Nagell theorem node.
+
+The next single lemmas are a noncompact arithmetic Weil form or exclusion of
+the Legendre escape sequence; occurrence or avoidance of projective
+Fermat-quotient slope three-fifths; prime-specific reduced-numerator jet
+anti-concentration; and a scale-local bound for right-active prime-power
+contamination.
+
+Reports: [English](compact-projective-parseval-lebesgue.md),
+[한국어](compact-projective-parseval-lebesgue.ko.md).
+
+All parent conjectures and all candidate-resolution counters remain open/zero.
+
+## Preserved research boundary: TICKET-248
 
 The current machine-readable boundary is
 `data/open-problem/ticket248-unweighted-wieferich-jet-active.json`.

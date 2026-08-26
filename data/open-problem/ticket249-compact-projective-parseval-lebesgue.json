@@ -1,0 +1,1368 @@
+{
+  "schema": "primeproject.ticket249-compact-projective-parseval-lebesgue.v1",
+  "generated_at": "2026-08-26T23:50:00+09:00",
+  "status": "open_not_proven",
+  "iteration_complete": true,
+  "program_complete": false,
+  "compact_projective_parseval_lebesgue_audit": {
+    "theorem_name": "FourConjectureCompactProjectiveParsevalLebesgueAudit",
+    "summary": "TICKET-249 proves two exact route no-go theorems and two partial theorems while leaving all four parent conjectures open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-249",
+      "theorem_name": "CompactOffDiagonalMomentCoercivityNoGo",
+      "declared_proposition": "Let H=L2_even([-1,1]), let Q0 be the raw unweighted even-moment energy from TICKET-248, and put f_n=sqrt((4n+1)/2)P_(2n). For every bounded compact operator K:H->H, ||f_n||=1, Q0(f_n)<=11/n, and <Kf_n,f_n> tends to zero. Consequently no c>0 can satisfy Q0(f)+Re<Kf,f>>=c||f||^2 for every f in H. Thus an arithmetic off-diagonal correction that is compact on the full even L2 model cannot repair raw-moment coercivity.",
+      "mathematical_argument": "The normalized even Legendre polynomials form an orthonormal sequence, hence f_n converges weakly to zero. A compact operator maps every bounded weakly null sequence to a norm-null sequence: otherwise a norm-convergent subsequence of Kf_n would have a nonzero limit, while all its scalar products converge to zero. Therefore |<Kf_n,f_n>|<=||Kf_n|| tends to zero. TICKET-248 gives Q0(f_n)<=11/n. Substitution into a proposed positive coercive inequality gives c<=0, a contradiction. The finite-rank projection rows are exact checks of the compact mechanism, not the proof for arbitrary compact K.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let H=L2_even([-1,1]), let Q0 be the raw unweighted even-moment energy from TICKET-248, and put f_n=sqrt((4n+1)/2)P_(2n). For every bounded compact operator K:H->H, ||f_n||=1, Q0(f_n)<=11/n, and <Kf_n,f_n> tends to zero. Consequently no c>0 can satisfy Q0(f)+Re<Kf,f>>=c||f||^2 for every f in H. Thus an arithmetic off-diagonal correction that is compact on the full even L2 model cannot repair raw-moment coercivity.",
+        "proof": "The normalized even Legendre polynomials form an orthonormal sequence, hence f_n converges weakly to zero. A compact operator maps every bounded weakly null sequence to a norm-null sequence: otherwise a norm-convergent subsequence of Kf_n would have a nonzero limit, while all its scalar products converge to zero. Therefore |<Kf_n,f_n>|<=||Kf_n|| tends to zero. TICKET-248 gives Q0(f_n)<=11/n. Substitution into a proposed positive coercive inequality gives c<=0, a contradiction. The finite-rank projection rows are exact checks of the compact mechanism, not the proof for arbitrary compact K.",
+        "exact_finite_rank_rows": [
+          {
+            "half_degree_n": 2,
+            "legendre_degree": 4,
+            "finite_rank_projection_rank": 2,
+            "checked_moment_window": 8,
+            "exact_partial_unweighted_energy": {
+              "exact": "37522758212096/226229221112895",
+              "numerator": 37522758212096,
+              "denominator": 226229221112895,
+              "display_float": 0.16586167793669346
+            },
+            "proved_all_moment_energy_bound": {
+              "exact": "11/2",
+              "numerator": 11,
+              "denominator": 2,
+              "display_float": 5.5
+            },
+            "exact_projection_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 4,
+            "legendre_degree": 8,
+            "finite_rank_projection_rank": 4,
+            "checked_moment_window": 8,
+            "exact_partial_unweighted_energy": {
+              "exact": "1469281558622476828672/133095805812747223070625",
+              "numerator": 1469281558622476828672,
+              "denominator": 133095805812747223070625,
+              "display_float": 0.011039277681594356
+            },
+            "proved_all_moment_energy_bound": {
+              "exact": "11/4",
+              "numerator": 11,
+              "denominator": 4,
+              "display_float": 2.75
+            },
+            "exact_projection_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 8,
+            "legendre_degree": 16,
+            "finite_rank_projection_rank": 8,
+            "checked_moment_window": 8,
+            "exact_partial_unweighted_energy": {
+              "exact": "93290699073325748235690146004992/5800235799861647907246829119535385625",
+              "numerator": 93290699073325748235690146004992,
+              "denominator": 5800235799861647907246829119535385625,
+              "display_float": 1.608394939315243e-05
+            },
+            "proved_all_moment_energy_bound": {
+              "exact": "11/8",
+              "numerator": 11,
+              "denominator": 8,
+              "display_float": 1.375
+            },
+            "exact_projection_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 16,
+            "legendre_degree": 32,
+            "finite_rank_projection_rank": 16,
+            "checked_moment_window": 8,
+            "exact_partial_unweighted_energy": {
+              "exact": "220933531876740226413152421716122810854670336/108640574543825697485380036606270409350140865133158448325",
+              "numerator": 220933531876740226413152421716122810854670336,
+              "denominator": 108640574543825697485380036606270409350140865133158448325,
+              "display_float": 2.033618956862341e-12
+            },
+            "proved_all_moment_energy_bound": {
+              "exact": "11/16",
+              "numerator": 11,
+              "denominator": 16,
+              "display_float": 0.6875
+            },
+            "exact_projection_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 32,
+            "legendre_degree": 64,
+            "finite_rank_projection_rank": 32,
+            "checked_moment_window": 8,
+            "exact_partial_unweighted_energy": {
+              "exact": "1037600994388796019264749807176788118524508269291492036210116293296128/4287071569634619275000175961128003768907119941981166243639302850226378704882650578247786339428125",
+              "numerator": 1037600994388796019264749807176788118524508269291492036210116293296128,
+              "denominator": 4287071569634619275000175961128003768907119941981166243639302850226378704882650578247786339428125,
+              "display_float": 2.42030247812548e-28
+            },
+            "proved_all_moment_energy_bound": {
+              "exact": "11/32",
+              "numerator": 11,
+              "denominator": 32,
+              "display_float": 0.34375
+            },
+            "exact_projection_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 64,
+            "legendre_degree": 128,
+            "finite_rank_projection_rank": 64,
+            "checked_moment_window": 8,
+            "exact_partial_unweighted_energy": {
+              "exact": "6960344325273907194777337784114738781870206927191019520157290735316721432269364567164890477391988646726573647198930599936/1775731344104734642095097323778982910912827494341618529832896990079262429011347397145429477622055164427260759461234378278780128659363371007114783364371912170260429495966741978642703565",
+              "numerator": 6960344325273907194777337784114738781870206927191019520157290735316721432269364567164890477391988646726573647198930599936,
+              "denominator": 1775731344104734642095097323778982910912827494341618529832896990079262429011347397145429477622055164427260759461234378278780128659363371007114783364371912170260429495966741978642703565,
+              "display_float": 3.9197057304764105e-63
+            },
+            "proved_all_moment_energy_bound": {
+              "exact": "11/64",
+              "numerator": 11,
+              "denominator": 64,
+              "display_float": 0.171875
+            },
+            "exact_projection_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 128,
+            "legendre_degree": 256,
+            "finite_rank_projection_rank": 128,
+            "checked_moment_window": 8,
+            "exact_partial_unweighted_energy": {
+              "exact": "9893566708252322304638559244625736675459885532968469543428177800053672144790331167985085763830555435535091005249732318544817643130751475884710975786682544089442999185350047409041644706145346337975721525248/31324690898659546547322008380506945120671877697901435251514346886750703243377587657742335283376403461753758045615492626966883101753564572282524327208151574028925773177441736853941182691773852465624781542701032038142014046872840983327227298385060854040682446715469547978201260097472486554354859822752623382638710065844175425272616277269020625",
+              "numerator": 9893566708252322304638559244625736675459885532968469543428177800053672144790331167985085763830555435535091005249732318544817643130751475884710975786682544089442999185350047409041644706145346337975721525248,
+              "denominator": 31324690898659546547322008380506945120671877697901435251514346886750703243377587657742335283376403461753758045615492626966883101753564572282524327208151574028925773177441736853941182691773852465624781542701032038142014046872840983327227298385060854040682446715469547978201260097472486554354859822752623382638710065844175425272616277269020625,
+              "display_float": 3.158392445199097e-136
+            },
+            "proved_all_moment_energy_bound": {
+              "exact": "11/128",
+              "numerator": 11,
+              "denominator": 128,
+              "display_float": 0.0859375
+            },
+            "exact_projection_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "half_degree_n": 256,
+            "legendre_degree": 512,
+            "finite_rank_projection_rank": 256,
+            "checked_moment_window": 8,
+            "exact_partial_unweighted_energy": {
+              "exact": "11859460254578661118724399623042745928634501241414071798777953901546028471471709701430214454157970207227817701584387099863041567707183838067527200351089807685750188248544901198493005120931794336088943290079968332332005999463264566575096835933303574501736848739093151502618084876106588194243892568197316331030405804622874335443975769274177926524328906934307520512/40855192165915800938340716406873029529969806235222236211082289480290868601886478224203709630177507102002934046629516140267608764047230388702347589149794484565237649433679582017269151734297864136408232269172022048293811614694700637563146015524231155483262808875486541318605972293414513874901007873360128805132700071937517599634121601336105249335092737229111513504439772337965332611649778456960495734269757942801494130406663657703331286919132923254798425246389516027246947035131148672228582031414037134887445722504338700922425936673147244567135028979094752480464492793351238489709088352601928508588616396500273046344270365693893918565388173314563975",
+              "numerator": 11859460254578661118724399623042745928634501241414071798777953901546028471471709701430214454157970207227817701584387099863041567707183838067527200351089807685750188248544901198493005120931794336088943290079968332332005999463264566575096835933303574501736848739093151502618084876106588194243892568197316331030405804622874335443975769274177926524328906934307520512,
+              "denominator": 40855192165915800938340716406873029529969806235222236211082289480290868601886478224203709630177507102002934046629516140267608764047230388702347589149794484565237649433679582017269151734297864136408232269172022048293811614694700637563146015524231155483262808875486541318605972293414513874901007873360128805132700071937517599634121601336105249335092737229111513504439772337965332611649778456960495734269757942801494130406663657703331286919132923254798425246389516027246947035131148672228582031414037134887445722504338700922425936673147244567135028979094752480464492793351238489709088352601928508588616396500273046344270365693893918565388173314563975,
+              "display_float": 2.902803689287903e-286
+            },
+            "proved_all_moment_energy_bound": {
+              "exact": "11/256",
+              "numerator": 11,
+              "denominator": 256,
+              "display_float": 0.04296875
+            },
+            "exact_projection_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact Fraction Legendre moments over a fixed eight-moment window plus exact orthogonality to the first n even Legendre modes",
+        "complexity": "O(sum n * window) big-integer arithmetic for the certificate rows; the compact-operator conclusion is analytic",
+        "random_seed": null,
+        "transcript_sha256": "eaaa5e2eccd9fa1fcb32504240f86c5ecff7d815eb4d218a5eb22e9248bb999a",
+        "aggregate": {
+          "compact_offdiagonal_coercivity_no_go_proved": true,
+          "finite_rank_models_checked": 8,
+          "noncompact_arithmetic_offdiagonal_control_proved": false,
+          "genuine_weil_admissible_closure_reached": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "8 exact finite-rank rows audit the weak-null mechanism; the all-compact theorem is analytic and does not place f_n in the genuine Weil admissible closure.",
+      "logical_limit": "The compact-perturbation class is closed, but the true Weil form may be noncompact and its normalized admissible closure may exclude the Legendre sequence.",
+      "route_decision": {
+        "discard": "repairing raw unweighted moment coercivity on the full even L2 sphere by adding any compact arithmetic off-diagonal operator",
+        "parked": [],
+        "retain": "a genuinely noncompact arithmetic form on the Guinand-Weil admissible closure, or a proof that the Legendre escape sequence is inadmissible there",
+        "next_single_lemma": "NoncompactArithmeticWeilFormOrLegendreExclusion"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T248",
+            "label": "UnweightedInfiniteMomentCoercivityNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "RH-T249",
+            "label": "CompactOffDiagonalMomentCoercivityNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "RH-REJECT249",
+            "label": "CompactOffDiagonalRepairsFullSphereCoercivity",
+            "status": "disproved"
+          },
+          {
+            "id": "RH-OPEN249",
+            "label": "NoncompactArithmeticWeilFormOrLegendreExclusion",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T248",
+            "RH-T249"
+          ],
+          [
+            "RH-T249",
+            "RH-REJECT249"
+          ],
+          [
+            "RH-T249",
+            "RH-OPEN249"
+          ]
+        ],
+        "resolution_path": [
+          "RH-T248",
+          "RH-T249",
+          "RH-OPEN249"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No RH proof or disproof; one exact compact-perturbation no-go on the full even L2 model."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-249",
+      "theorem_name": "SeparatedWieferichProjectiveSlopeCriterion",
+      "declared_proposition": "For every prime q>5, set U_q=((2^(q-1)-1)/q) mod q and V_q=((3^(q-1)-1)/q) mod q. The TICKET-248 separated bad condition W_q(32,27)=0 and W_q(2,3)!=0 holds if and only if there is a unique t in F_q^* with (U_q,V_q)=t(3,5). Equivalently the Fermat-quotient projective point is exactly [3:5], excluding the origin.",
+      "mathematical_argument": "Fermat quotients satisfy q_q(a^m)=m q_q(a) modulo q. Hence W_q(32,27)=5U_q-3V_q and W_q(2,3)=U_q-V_q. The first expression vanishes exactly when U_q=3t and V_q=5t for the unique t=U_q/3. On that line U_q-V_q=-2t, which is nonzero exactly when t is nonzero because q>5. The exhaustive finite-field rows check the quantifiers independently; the actual-prime scan does not prove that the projective target occurs or is avoided infinitely often.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "For every prime q>5, set U_q=((2^(q-1)-1)/q) mod q and V_q=((3^(q-1)-1)/q) mod q. The TICKET-248 separated bad condition W_q(32,27)=0 and W_q(2,3)!=0 holds if and only if there is a unique t in F_q^* with (U_q,V_q)=t(3,5). Equivalently the Fermat-quotient projective point is exactly [3:5], excluding the origin.",
+        "proof": "Fermat quotients satisfy q_q(a^m)=m q_q(a) modulo q. Hence W_q(32,27)=5U_q-3V_q and W_q(2,3)=U_q-V_q. The first expression vanishes exactly when U_q=3t and V_q=5t for the unique t=U_q/3. On that line U_q-V_q=-2t, which is nonzero exactly when t is nonzero because q>5. The exhaustive finite-field rows check the quantifiers independently; the actual-prime scan does not prove that the projective target occurs or is avoided infinitely often.",
+        "selected_exact_prime_rows": [
+          {
+            "prime_q": 7,
+            "U_q": 2,
+            "V_q": 6,
+            "W_32_27_mod_q": 6,
+            "W_2_3_mod_q": 3,
+            "projective_parameter_t": null,
+            "separated_bad_prime": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "U_q": 5,
+            "V_q": 0,
+            "W_32_27_mod_q": 3,
+            "W_2_3_mod_q": 5,
+            "projective_parameter_t": null,
+            "separated_bad_prime": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "U_q": 17,
+            "V_q": 17,
+            "W_32_27_mod_q": 11,
+            "W_2_3_mod_q": 0,
+            "projective_parameter_t": null,
+            "separated_bad_prime": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 101,
+            "U_q": 92,
+            "V_q": 85,
+            "W_32_27_mod_q": 3,
+            "W_2_3_mod_q": 7,
+            "projective_parameter_t": null,
+            "separated_bad_prime": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 1009,
+            "U_q": 592,
+            "V_q": 943,
+            "W_32_27_mod_q": 131,
+            "W_2_3_mod_q": 658,
+            "projective_parameter_t": null,
+            "separated_bad_prime": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 9999991,
+            "U_q": 295813,
+            "V_q": 5555222,
+            "W_32_27_mod_q": 4813381,
+            "W_2_3_mod_q": 4740582,
+            "projective_parameter_t": null,
+            "separated_bad_prime": false,
+            "certificate_verified": true
+          }
+        ],
+        "exact_finite_field_rows": [
+          {
+            "prime_q": 7,
+            "pairs_checked": 49,
+            "linear_zero_pairs": 7,
+            "nonzero_projective_pairs": 6,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "pairs_checked": 121,
+            "linear_zero_pairs": 11,
+            "nonzero_projective_pairs": 10,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "pairs_checked": 529,
+            "linear_zero_pairs": 23,
+            "nonzero_projective_pairs": 22,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 101,
+            "pairs_checked": 10201,
+            "linear_zero_pairs": 101,
+            "nonzero_projective_pairs": 100,
+            "certificate_verified": true
+          }
+        ],
+        "exact_modular_scan": {
+          "prime_limit": 10000000,
+          "primes_checked": 664576,
+          "W_32_27_zero_primes": [],
+          "W_2_3_zero_primes": [
+            23
+          ],
+          "separated_bad_primes": []
+        },
+        "algorithm": "Eratosthenes sieve followed by modular exponentiation modulo q^2; exhaustive F_q^2 checks for four small fields",
+        "complexity": "O(B log log B + pi(B) log B + sum q^2) modular operations",
+        "random_seed": null,
+        "transcript_sha256": "db860c5bef6ae1b016d468346b1b9941eac90c375f93d4f7c4f67c8ee8e881b7",
+        "aggregate": {
+          "projective_slope_criterion_proved": true,
+          "target_projective_point": "[3:5]",
+          "finite_scan_proves_occurrence_or_avoidance": false,
+          "collatz_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Exact modular arithmetic scans 664,576 primes through 10,000,000; absence in that finite range proves neither global avoidance nor Collatz.",
+      "logical_limit": "The obstruction is now one nonzero projective target, but no theorem decides whether the actual fixed-base points hit it for any or infinitely many primes; this valuation branch alone would not control all Collatz trajectories.",
+      "route_decision": {
+        "discard": "treating the two first-level generalized-Wieferich congruences as independent after passing to the Fermat-quotient coordinate plane",
+        "parked": [
+          "all-prime occurrence or avoidance of the projective point [3:5] without a distribution theorem for fixed-base Fermat quotients"
+        ],
+        "retain": "an arithmetic occurrence or avoidance theorem for the fixed projective Fermat-quotient point [3:5]",
+        "next_single_lemma": "OccurrenceOrAvoidanceOfProjectiveFermatQuotientSlopeThreeFifths"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T248",
+            "label": "ActualBadBranchGeneralizedWieferichSeparation",
+            "status": "proved"
+          },
+          {
+            "id": "CO-T249",
+            "label": "SeparatedWieferichProjectiveSlopeCriterion",
+            "status": "proved"
+          },
+          {
+            "id": "CO-REJECT249",
+            "label": "SeparatedConditionsRemainTwoIndependentCongruences",
+            "status": "disproved"
+          },
+          {
+            "id": "CO-OPEN249",
+            "label": "OccurrenceOrAvoidanceOfProjectiveFermatQuotientSlopeThreeFifths",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T248",
+            "CO-T249"
+          ],
+          [
+            "CO-T249",
+            "CO-REJECT249"
+          ],
+          [
+            "CO-T249",
+            "CO-OPEN249"
+          ]
+        ],
+        "resolution_path": [
+          "CO-T248",
+          "CO-T249",
+          "CO-OPEN249"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle; one exact projective-coordinate reduction of the first-level valuation obstruction."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-249",
+      "theorem_name": "CenteredJetParsevalSpikeNoGo",
+      "declared_proposition": "Fix q>=3 and a reduced a0 mod q. Put delta_r=cos(2*pi*a0*r/q) for every residue r, eta_r=c delta_r for any real c, and J_a(t)=sum_r (delta_r+i t eta_r)exp(2*pi*i*a*r/q). Then delta and eta are centered, D0=q/2, D1=c^2 q/2, J_a(t)=0 outside a=+/-a0, and each of those two frequencies has squared magnitude q(D0+t^2D1)/2. Therefore centeredness plus the TICKET-248 Parseval energy alone cannot imply a uniform o(sqrt(q(D0+t^2D1))) bound over reduced numerators.",
+      "mathematical_argument": "Write 2delta_r=zeta^(a0 r)+zeta^(-a0 r). Additive orthogonality shows 2R0(a)=q when a=+a0 or -a0 and zero otherwise; the two frequencies are distinct because q>=3 and a0 is reduced. Thus D0=q/2 and each Fourier spike has energy q^2/4, exactly half of qD0. Since eta=c delta, J_a(t)=(1+i t c)R0(a), multiplying every energy by 1+t^2c^2. The countermodel is an exact real centered residue vector. It is not asserted to be an actual prime-count vector.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Fix q>=3 and a reduced a0 mod q. Put delta_r=cos(2*pi*a0*r/q) for every residue r, eta_r=c delta_r for any real c, and J_a(t)=sum_r (delta_r+i t eta_r)exp(2*pi*i*a*r/q). Then delta and eta are centered, D0=q/2, D1=c^2 q/2, J_a(t)=0 outside a=+/-a0, and each of those two frequencies has squared magnitude q(D0+t^2D1)/2. Therefore centeredness plus the TICKET-248 Parseval energy alone cannot imply a uniform o(sqrt(q(D0+t^2D1))) bound over reduced numerators.",
+        "proof": "Write 2delta_r=zeta^(a0 r)+zeta^(-a0 r). Additive orthogonality shows 2R0(a)=q when a=+a0 or -a0 and zero otherwise; the two frequencies are distinct because q>=3 and a0 is reduced. Thus D0=q/2 and each Fourier spike has energy q^2/4, exactly half of qD0. Since eta=c delta, J_a(t)=(1+i t c)R0(a), multiplying every energy by 1+t^2c^2. The countermodel is an exact real centered residue vector. It is not asserted to be an actual prime-count vector.",
+        "exact_selected_spike_rows": [
+          {
+            "denominator_q": 3,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              2
+            ],
+            "centered_energy_D0": {
+              "exact": "3/2",
+              "numerator": 3,
+              "denominator": 2,
+              "display_float": 1.5
+            },
+            "total_parseval_energy": {
+              "exact": "9/2",
+              "numerator": 9,
+              "denominator": 2,
+              "display_float": 4.5
+            },
+            "each_spike_energy": {
+              "exact": "9/4",
+              "numerator": 9,
+              "denominator": 4,
+              "display_float": 2.25
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "denominator_q": 4,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              3
+            ],
+            "centered_energy_D0": {
+              "exact": "2/1",
+              "numerator": 2,
+              "denominator": 1,
+              "display_float": 2.0
+            },
+            "total_parseval_energy": {
+              "exact": "8/1",
+              "numerator": 8,
+              "denominator": 1,
+              "display_float": 8.0
+            },
+            "each_spike_energy": {
+              "exact": "4/1",
+              "numerator": 4,
+              "denominator": 1,
+              "display_float": 4.0
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "denominator_q": 5,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              4
+            ],
+            "centered_energy_D0": {
+              "exact": "5/2",
+              "numerator": 5,
+              "denominator": 2,
+              "display_float": 2.5
+            },
+            "total_parseval_energy": {
+              "exact": "25/2",
+              "numerator": 25,
+              "denominator": 2,
+              "display_float": 12.5
+            },
+            "each_spike_energy": {
+              "exact": "25/4",
+              "numerator": 25,
+              "denominator": 4,
+              "display_float": 6.25
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "denominator_q": 7,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              6
+            ],
+            "centered_energy_D0": {
+              "exact": "7/2",
+              "numerator": 7,
+              "denominator": 2,
+              "display_float": 3.5
+            },
+            "total_parseval_energy": {
+              "exact": "49/2",
+              "numerator": 49,
+              "denominator": 2,
+              "display_float": 24.5
+            },
+            "each_spike_energy": {
+              "exact": "49/4",
+              "numerator": 49,
+              "denominator": 4,
+              "display_float": 12.25
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "denominator_q": 8,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              7
+            ],
+            "centered_energy_D0": {
+              "exact": "4/1",
+              "numerator": 4,
+              "denominator": 1,
+              "display_float": 4.0
+            },
+            "total_parseval_energy": {
+              "exact": "32/1",
+              "numerator": 32,
+              "denominator": 1,
+              "display_float": 32.0
+            },
+            "each_spike_energy": {
+              "exact": "16/1",
+              "numerator": 16,
+              "denominator": 1,
+              "display_float": 16.0
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "denominator_q": 12,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              11
+            ],
+            "centered_energy_D0": {
+              "exact": "6/1",
+              "numerator": 6,
+              "denominator": 1,
+              "display_float": 6.0
+            },
+            "total_parseval_energy": {
+              "exact": "72/1",
+              "numerator": 72,
+              "denominator": 1,
+              "display_float": 72.0
+            },
+            "each_spike_energy": {
+              "exact": "36/1",
+              "numerator": 36,
+              "denominator": 1,
+              "display_float": 36.0
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "denominator_q": 16,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              15
+            ],
+            "centered_energy_D0": {
+              "exact": "8/1",
+              "numerator": 8,
+              "denominator": 1,
+              "display_float": 8.0
+            },
+            "total_parseval_energy": {
+              "exact": "128/1",
+              "numerator": 128,
+              "denominator": 1,
+              "display_float": 128.0
+            },
+            "each_spike_energy": {
+              "exact": "64/1",
+              "numerator": 64,
+              "denominator": 1,
+              "display_float": 64.0
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "denominator_q": 24,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              23
+            ],
+            "centered_energy_D0": {
+              "exact": "12/1",
+              "numerator": 12,
+              "denominator": 1,
+              "display_float": 12.0
+            },
+            "total_parseval_energy": {
+              "exact": "288/1",
+              "numerator": 288,
+              "denominator": 1,
+              "display_float": 288.0
+            },
+            "each_spike_energy": {
+              "exact": "144/1",
+              "numerator": 144,
+              "denominator": 1,
+              "display_float": 144.0
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "denominator_q": 32,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              31
+            ],
+            "centered_energy_D0": {
+              "exact": "16/1",
+              "numerator": 16,
+              "denominator": 1,
+              "display_float": 16.0
+            },
+            "total_parseval_energy": {
+              "exact": "512/1",
+              "numerator": 512,
+              "denominator": 1,
+              "display_float": 512.0
+            },
+            "each_spike_energy": {
+              "exact": "256/1",
+              "numerator": 256,
+              "denominator": 1,
+              "display_float": 256.0
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "denominator_q": 48,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              47
+            ],
+            "centered_energy_D0": {
+              "exact": "24/1",
+              "numerator": 24,
+              "denominator": 1,
+              "display_float": 24.0
+            },
+            "total_parseval_energy": {
+              "exact": "1152/1",
+              "numerator": 1152,
+              "denominator": 1,
+              "display_float": 1152.0
+            },
+            "each_spike_energy": {
+              "exact": "576/1",
+              "numerator": 576,
+              "denominator": 1,
+              "display_float": 576.0
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "denominator_q": 64,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              63
+            ],
+            "centered_energy_D0": {
+              "exact": "32/1",
+              "numerator": 32,
+              "denominator": 1,
+              "display_float": 32.0
+            },
+            "total_parseval_energy": {
+              "exact": "2048/1",
+              "numerator": 2048,
+              "denominator": 1,
+              "display_float": 2048.0
+            },
+            "each_spike_energy": {
+              "exact": "1024/1",
+              "numerator": 1024,
+              "denominator": 1,
+              "display_float": 1024.0
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "denominator_q": 96,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              95
+            ],
+            "centered_energy_D0": {
+              "exact": "48/1",
+              "numerator": 48,
+              "denominator": 1,
+              "display_float": 48.0
+            },
+            "total_parseval_energy": {
+              "exact": "4608/1",
+              "numerator": 4608,
+              "denominator": 1,
+              "display_float": 4608.0
+            },
+            "each_spike_energy": {
+              "exact": "2304/1",
+              "numerator": 2304,
+              "denominator": 1,
+              "display_float": 2304.0
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          },
+          {
+            "denominator_q": 128,
+            "reduced_frequency_a0": 1,
+            "nonzero_numerators": [
+              1,
+              127
+            ],
+            "centered_energy_D0": {
+              "exact": "64/1",
+              "numerator": 64,
+              "denominator": 1,
+              "display_float": 64.0
+            },
+            "total_parseval_energy": {
+              "exact": "8192/1",
+              "numerator": 8192,
+              "denominator": 1,
+              "display_float": 8192.0
+            },
+            "each_spike_energy": {
+              "exact": "4096/1",
+              "numerator": 4096,
+              "denominator": 1,
+              "display_float": 4096.0
+            },
+            "spike_to_total_ratio_squared": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "certificate_verified": true
+          }
+        ],
+        "exact_group_ring_replay": {
+          "q_min": 3,
+          "q_max": 128,
+          "reduced_frequency_cases": 5020
+        },
+        "algorithm": "integer root-of-unity orthogonality via q|k indicators; no trigonometric floating point",
+        "complexity": "O(sum_(q<=Q) q*phi(q)) integer operations",
+        "random_seed": null,
+        "transcript_sha256": "439a6562998de91c99533ceacb5ac53d177af9e48165ee51c4eed6ec782d59fe",
+        "aggregate": {
+          "parseval_spike_countermodel_proved": true,
+          "abstract_mean_square_to_uniform_route_refuted": true,
+          "actual_prime_count_vector_counterexample_claimed": false,
+          "prime_specific_anti_concentration_proved": false,
+          "strong_goldbach_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Integer group-ring orthogonality checks all 5,020 reduced frequencies for q<= 128; the all-q theorem is algebraic, not inferred from the table.",
+      "logical_limit": "The exact cosine countermodel blocks only abstract moment-to-uniform promotion. Actual prime residue vectors have additional arithmetic structure that the countermodel does not model.",
+      "route_decision": {
+        "discard": "deriving a uniform reduced-numerator first-jet saving solely from centeredness and the aggregate Parseval energy identity",
+        "parked": [],
+        "retain": "prime-specific arithmetic anti-concentration beyond abstract centered first-jet data",
+        "next_single_lemma": "PrimeSpecificReducedNumeratorJetAntiConcentration"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T248",
+            "label": "CenteredFirstJetParsevalArcBridge",
+            "status": "proved"
+          },
+          {
+            "id": "GB-T249",
+            "label": "CenteredJetParsevalSpikeNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "GB-REJECT249",
+            "label": "CenteredParsevalEnergyAloneForcesUniformNumeratorSaving",
+            "status": "disproved"
+          },
+          {
+            "id": "GB-OPEN249",
+            "label": "PrimeSpecificReducedNumeratorJetAntiConcentration",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T248",
+            "GB-T249"
+          ],
+          [
+            "GB-T249",
+            "GB-REJECT249"
+          ],
+          [
+            "GB-T249",
+            "GB-OPEN249"
+          ]
+        ],
+        "resolution_path": [
+          "GB-T248",
+          "GB-T249",
+          "GB-OPEN249"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No strong Goldbach proof or counterexample; one exact no-go for a Parseval-only uniformity promotion."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-249",
+      "theorem_name": "EvenExponentLeftActiveContaminationClassification",
+      "declared_proposition": "Let p and r be odd primes and let m>=1, ell>=1. If p!=3 and p^(2m)+2=r^ell, then (p,m,r,ell)=(5,1,3,3). Consequently the left-active twin prime-power contamination with even exponent and base different from 3 is exactly the single pair (25,27): for every X, L_even,p!=3(X)=1 if X>=25 and 0 otherwise.",
+      "mathematical_argument": "Set x=p^m. Because p!=3, x^2+2 is divisible by 3, so the prime-power right side has r=3. If ell=1 then x=1; if ell=2 then x^2=7. For ell>=3, the classical Nagell solution of the Lebesgue-Nagell equation x^2+2=y^ell gives only (x,y,ell)=(5,3,3). Hence p^m=5, so p=5 and m=1. The external Diophantine input is explicitly represented in the proof DAG; the project-local contribution is its exact application to the active contamination identity.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let p and r be odd primes and let m>=1, ell>=1. If p!=3 and p^(2m)+2=r^ell, then (p,m,r,ell)=(5,1,3,3). Consequently the left-active twin prime-power contamination with even exponent and base different from 3 is exactly the single pair (25,27): for every X, L_even,p!=3(X)=1 if X>=25 and 0 otherwise.",
+        "proof": "Set x=p^m. Because p!=3, x^2+2 is divisible by 3, so the prime-power right side has r=3. If ell=1 then x=1; if ell=2 then x^2=7. For ell>=3, the classical Nagell solution of the Lebesgue-Nagell equation x^2+2=y^ell gives only (x,y,ell)=(5,3,3). Hence p^m=5, so p=5 and m=1. The external Diophantine input is explicitly represented in the proof DAG; the project-local contribution is its exact application to the active contamination identity.",
+        "exact_scale_rows": [
+          {
+            "limit_X": 100,
+            "left_active_composite_pairs_L": 4,
+            "left_even_exponent_base_not_3": 1,
+            "left_even_exponent_base_3": 2,
+            "left_odd_exponent": 1,
+            "right_active_composite_pairs_R": 5,
+            "proved_even_base_not_3_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 1000,
+            "left_active_composite_pairs_L": 5,
+            "left_even_exponent_base_not_3": 1,
+            "left_even_exponent_base_3": 2,
+            "left_odd_exponent": 2,
+            "right_active_composite_pairs_R": 10,
+            "proved_even_base_not_3_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 10000,
+            "left_active_composite_pairs_L": 6,
+            "left_even_exponent_base_not_3": 1,
+            "left_even_exponent_base_3": 3,
+            "left_odd_exponent": 2,
+            "right_active_composite_pairs_R": 18,
+            "proved_even_base_not_3_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 100000,
+            "left_active_composite_pairs_L": 8,
+            "left_even_exponent_base_not_3": 1,
+            "left_even_exponent_base_3": 4,
+            "left_odd_exponent": 3,
+            "right_active_composite_pairs_R": 37,
+            "proved_even_base_not_3_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 1000000,
+            "left_active_composite_pairs_L": 11,
+            "left_even_exponent_base_not_3": 1,
+            "left_even_exponent_base_3": 4,
+            "left_odd_exponent": 6,
+            "right_active_composite_pairs_R": 66,
+            "proved_even_base_not_3_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 5000000,
+            "left_active_composite_pairs_L": 13,
+            "left_even_exponent_base_not_3": 1,
+            "left_even_exponent_base_3": 5,
+            "left_odd_exponent": 7,
+            "right_active_composite_pairs_R": 110,
+            "proved_even_base_not_3_count": 1,
+            "certificate_verified": true
+          },
+          {
+            "limit_X": 10000000,
+            "left_active_composite_pairs_L": 14,
+            "left_even_exponent_base_not_3": 1,
+            "left_even_exponent_base_3": 5,
+            "left_odd_exponent": 8,
+            "right_active_composite_pairs_R": 136,
+            "proved_even_base_not_3_count": 1,
+            "certificate_verified": true
+          }
+        ],
+        "selected_left_active_witnesses": [
+          {
+            "n": 9,
+            "n_plus_2": 11,
+            "left_representation": "3^2",
+            "right_representation": "11^1",
+            "category": "even_exponent_base_3",
+            "classification_verified": true
+          },
+          {
+            "n": 25,
+            "n_plus_2": 27,
+            "left_representation": "5^2",
+            "right_representation": "3^3",
+            "category": "even_exponent_base_not_3",
+            "classification_verified": true
+          },
+          {
+            "n": 27,
+            "n_plus_2": 29,
+            "left_representation": "3^3",
+            "right_representation": "29^1",
+            "category": "odd_exponent",
+            "classification_verified": true
+          },
+          {
+            "n": 81,
+            "n_plus_2": 83,
+            "left_representation": "3^4",
+            "right_representation": "83^1",
+            "category": "even_exponent_base_3",
+            "classification_verified": true
+          },
+          {
+            "n": 125,
+            "n_plus_2": 127,
+            "left_representation": "5^3",
+            "right_representation": "127^1",
+            "category": "odd_exponent",
+            "classification_verified": true
+          },
+          {
+            "n": 6561,
+            "n_plus_2": 6563,
+            "left_representation": "3^8",
+            "right_representation": "6563^1",
+            "category": "even_exponent_base_3",
+            "classification_verified": true
+          },
+          {
+            "n": 24389,
+            "n_plus_2": 24391,
+            "left_representation": "29^3",
+            "right_representation": "24391^1",
+            "category": "odd_exponent",
+            "classification_verified": true
+          },
+          {
+            "n": 59049,
+            "n_plus_2": 59051,
+            "left_representation": "3^10",
+            "right_representation": "59051^1",
+            "category": "even_exponent_base_3",
+            "classification_verified": true
+          },
+          {
+            "n": 161051,
+            "n_plus_2": 161053,
+            "left_representation": "11^5",
+            "right_representation": "161053^1",
+            "category": "odd_exponent",
+            "classification_verified": true
+          },
+          {
+            "n": 357911,
+            "n_plus_2": 357913,
+            "left_representation": "71^3",
+            "right_representation": "357913^1",
+            "category": "odd_exponent",
+            "classification_verified": true
+          },
+          {
+            "n": 571787,
+            "n_plus_2": 571789,
+            "left_representation": "83^3",
+            "right_representation": "571789^1",
+            "category": "odd_exponent",
+            "classification_verified": true
+          },
+          {
+            "n": 1442897,
+            "n_plus_2": 1442899,
+            "left_representation": "113^3",
+            "right_representation": "1442899^1",
+            "category": "odd_exponent",
+            "classification_verified": true
+          },
+          {
+            "n": 4782969,
+            "n_plus_2": 4782971,
+            "left_representation": "3^14",
+            "right_representation": "4782971^1",
+            "category": "even_exponent_base_3",
+            "classification_verified": true
+          },
+          {
+            "n": 5177717,
+            "n_plus_2": 5177719,
+            "left_representation": "173^3",
+            "right_representation": "5177719^1",
+            "category": "odd_exponent",
+            "classification_verified": true
+          }
+        ],
+        "external_theorem": {
+          "name": "Lebesgue-Nagell D=2 classification (Nagell)",
+          "statement_used": "For positive integers x,y and n>=3, x^2+2=y^n has only (x,y,n)=(5,3,3).",
+          "modern_primary_source": "https://doi.org/10.1112/S0010437X05001739",
+          "source_scope": "Bugeaud-Mignotte-Siksek solve x^2+D=y^n for 1<=D<=100; only the D=2 instance is used."
+        },
+        "algorithm": "Eratosthenes sieve and exact odd-prime-power representation table, followed by shift-two enumeration",
+        "complexity": "O(X log log X + number of odd candidates) time and O(X) bytes for the finite replay",
+        "random_seed": null,
+        "transcript_sha256": "6df796f1387e44725a337fc60d5fe44a94e2521496caf1cdc39e30bba96f6fd9",
+        "aggregate": {
+          "even_left_base_not3_classification_proved": true,
+          "unique_pair": [
+            25,
+            27
+          ],
+          "right_active_contamination_controlled": false,
+          "scale_local_type_II_lower_bound_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Prime-power supports are enumerated through 10,000,000; the finite replay audits the classification, while the all-X statement depends on the cited D=2 Lebesgue-Nagell theorem.",
+      "logical_limit": "Only one left-even base-not-3 contaminant survives, but right-active contamination remains dominant and no unbounded Type-II lower bound for the proxy has been proved.",
+      "route_decision": {
+        "discard": "allowing an unrestricted family of left-active even-exponent prime powers with base different from 3 in the shift-two contamination",
+        "parked": [],
+        "retain": "control of the right-active contamination and the remaining base-3/even or odd-exponent left-active terms before a scale-local Type-II lower bound",
+        "next_single_lemma": "ScaleLocalRightActivePrimePowerContaminationBound"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T248",
+            "label": "ExactActivePrimePowerContaminationIdentity",
+            "status": "proved"
+          },
+          {
+            "id": "TP-EXT-NAGELL",
+            "label": "Lebesgue-Nagell D=2 classification",
+            "status": "external_theorem"
+          },
+          {
+            "id": "TP-T249",
+            "label": "EvenExponentLeftActiveContaminationClassification",
+            "status": "proved"
+          },
+          {
+            "id": "TP-REJECT249",
+            "label": "ArbitraryEvenExponentLeftActiveContaminantsAwayFromThree",
+            "status": "disproved"
+          },
+          {
+            "id": "TP-OPEN249",
+            "label": "ScaleLocalRightActivePrimePowerContaminationBound",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-EXT-NAGELL",
+            "TP-T249"
+          ],
+          [
+            "TP-T248",
+            "TP-T249"
+          ],
+          [
+            "TP-T249",
+            "TP-REJECT249"
+          ],
+          [
+            "TP-T249",
+            "TP-OPEN249"
+          ]
+        ],
+        "resolution_path": [
+          "TP-T248",
+          "TP-EXT-NAGELL",
+          "TP-T249",
+          "TP-OPEN249"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No twin-prime proof or counterexample; one all-scale Diophantine classification of a strict active-contamination subclass."
+    },
+    "research_baselines": {
+      "riemann_status": "https://www.claymath.org/millennium/Riemann-Hypothesis/",
+      "collatz": "https://arxiv.org/abs/1909.03562",
+      "goldbach_major_arcs": "https://arxiv.org/abs/1205.5252",
+      "twin_prime_parity": "https://arxiv.org/abs/1407.4897",
+      "lebesgue_nagell_D2": "https://doi.org/10.1112/S0010437X05001739"
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_partial_theorem_count": 2,
+      "exact_no_go_count": 2,
+      "candidate_resolution_count": 0,
+      "conjecture_resolution_count": 0,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "deep_focus_problem": "twin_prime",
+      "stagnated_problem_count": 0,
+      "riemann_compact_model_count": 8,
+      "collatz_wieferich_prime_count": 664576,
+      "collatz_field_case_count": 10900,
+      "goldbach_spike_case_count": 5020,
+      "twin_active_scale_count": 7,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-249",
+      "declared_proposition": "Let H=L2_even([-1,1]), let Q0 be the raw unweighted even-moment energy from TICKET-248, and put f_n=sqrt((4n+1)/2)P_(2n). For every bounded compact operator K:H->H, ||f_n||=1, Q0(f_n)<=11/n, and <Kf_n,f_n> tends to zero. Consequently no c>0 can satisfy Q0(f)+Re<Kf,f>>=c||f||^2 for every f in H. Thus an arithmetic off-diagonal correction that is compact on the full even L2 model cannot repair raw-moment coercivity.",
+      "new_result": "CompactOffDiagonalMomentCoercivityNoGo",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/compact_projective_parseval_lebesgue_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "repairing raw unweighted moment coercivity on the full even L2 sphere by adding any compact arithmetic off-diagonal operator",
+      "parked_routes": [],
+      "remaining_gap": "The compact-perturbation class is closed, but the true Weil form may be noncompact and its normalized admissible closure may exclude the Legendre sequence.",
+      "stagnation_count": 0,
+      "candidate_theorem": "NoncompactArithmeticWeilFormOrLegendreExclusion"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-249",
+      "declared_proposition": "For every prime q>5, set U_q=((2^(q-1)-1)/q) mod q and V_q=((3^(q-1)-1)/q) mod q. The TICKET-248 separated bad condition W_q(32,27)=0 and W_q(2,3)!=0 holds if and only if there is a unique t in F_q^* with (U_q,V_q)=t(3,5). Equivalently the Fermat-quotient projective point is exactly [3:5], excluding the origin.",
+      "new_result": "SeparatedWieferichProjectiveSlopeCriterion",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/compact_projective_parseval_lebesgue_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "treating the two first-level generalized-Wieferich congruences as independent after passing to the Fermat-quotient coordinate plane",
+      "parked_routes": [
+        "all-prime occurrence or avoidance of the projective point [3:5] without a distribution theorem for fixed-base Fermat quotients"
+      ],
+      "remaining_gap": "The obstruction is now one nonzero projective target, but no theorem decides whether the actual fixed-base points hit it for any or infinitely many primes; this valuation branch alone would not control all Collatz trajectories.",
+      "stagnation_count": 0,
+      "candidate_theorem": "OccurrenceOrAvoidanceOfProjectiveFermatQuotientSlopeThreeFifths"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-249",
+      "declared_proposition": "Fix q>=3 and a reduced a0 mod q. Put delta_r=cos(2*pi*a0*r/q) for every residue r, eta_r=c delta_r for any real c, and J_a(t)=sum_r (delta_r+i t eta_r)exp(2*pi*i*a*r/q). Then delta and eta are centered, D0=q/2, D1=c^2 q/2, J_a(t)=0 outside a=+/-a0, and each of those two frequencies has squared magnitude q(D0+t^2D1)/2. Therefore centeredness plus the TICKET-248 Parseval energy alone cannot imply a uniform o(sqrt(q(D0+t^2D1))) bound over reduced numerators.",
+      "new_result": "CenteredJetParsevalSpikeNoGo",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/compact_projective_parseval_lebesgue_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "deriving a uniform reduced-numerator first-jet saving solely from centeredness and the aggregate Parseval energy identity",
+      "parked_routes": [],
+      "remaining_gap": "The exact cosine countermodel blocks only abstract moment-to-uniform promotion. Actual prime residue vectors have additional arithmetic structure that the countermodel does not model.",
+      "stagnation_count": 0,
+      "candidate_theorem": "PrimeSpecificReducedNumeratorJetAntiConcentration"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-249",
+      "declared_proposition": "Let p and r be odd primes and let m>=1, ell>=1. If p!=3 and p^(2m)+2=r^ell, then (p,m,r,ell)=(5,1,3,3). Consequently the left-active twin prime-power contamination with even exponent and base different from 3 is exactly the single pair (25,27): for every X, L_even,p!=3(X)=1 if X>=25 and 0 otherwise.",
+      "new_result": "EvenExponentLeftActiveContaminationClassification",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/compact_projective_parseval_lebesgue_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "allowing an unrestricted family of left-active even-exponent prime powers with base different from 3 in the shift-two contamination",
+      "parked_routes": [],
+      "remaining_gap": "Only one left-even base-not-3 contaminant survives, but right-active contamination remains dominant and no unbounded Type-II lower bound for the proxy has been proved.",
+      "stagnation_count": 0,
+      "candidate_theorem": "ScaleLocalRightActivePrimePowerContaminationBound"
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "schema": "primeproject.ticket249-compact-projective-parseval-lebesgue.v1",
+  "generated_at": "2026-08-26T23:50:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-249",
+  "theorem_name": "EvenExponentLeftActiveContaminationClassification",
+  "declared_proposition": "Let p and r be odd primes and let m>=1, ell>=1. If p!=3 and p^(2m)+2=r^ell, then (p,m,r,ell)=(5,1,3,3). Consequently the left-active twin prime-power contamination with even exponent and base different from 3 is exactly the single pair (25,27): for every X, L_even,p!=3(X)=1 if X>=25 and 0 otherwise.",
+  "mathematical_argument": "Set x=p^m. Because p!=3, x^2+2 is divisible by 3, so the prime-power right side has r=3. If ell=1 then x=1; if ell=2 then x^2=7. For ell>=3, the classical Nagell solution of the Lebesgue-Nagell equation x^2+2=y^ell gives only (x,y,ell)=(5,3,3). Hence p^m=5, so p=5 and m=1. The external Diophantine input is explicitly represented in the proof DAG; the project-local contribution is its exact application to the active contamination identity.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let p and r be odd primes and let m>=1, ell>=1. If p!=3 and p^(2m)+2=r^ell, then (p,m,r,ell)=(5,1,3,3). Consequently the left-active twin prime-power contamination with even exponent and base different from 3 is exactly the single pair (25,27): for every X, L_even,p!=3(X)=1 if X>=25 and 0 otherwise.",
+    "proof": "Set x=p^m. Because p!=3, x^2+2 is divisible by 3, so the prime-power right side has r=3. If ell=1 then x=1; if ell=2 then x^2=7. For ell>=3, the classical Nagell solution of the Lebesgue-Nagell equation x^2+2=y^ell gives only (x,y,ell)=(5,3,3). Hence p^m=5, so p=5 and m=1. The external Diophantine input is explicitly represented in the proof DAG; the project-local contribution is its exact application to the active contamination identity.",
+    "exact_scale_rows": [
+      {
+        "limit_X": 100,
+        "left_active_composite_pairs_L": 4,
+        "left_even_exponent_base_not_3": 1,
+        "left_even_exponent_base_3": 2,
+        "left_odd_exponent": 1,
+        "right_active_composite_pairs_R": 5,
+        "proved_even_base_not_3_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 1000,
+        "left_active_composite_pairs_L": 5,
+        "left_even_exponent_base_not_3": 1,
+        "left_even_exponent_base_3": 2,
+        "left_odd_exponent": 2,
+        "right_active_composite_pairs_R": 10,
+        "proved_even_base_not_3_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "left_active_composite_pairs_L": 6,
+        "left_even_exponent_base_not_3": 1,
+        "left_even_exponent_base_3": 3,
+        "left_odd_exponent": 2,
+        "right_active_composite_pairs_R": 18,
+        "proved_even_base_not_3_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "left_active_composite_pairs_L": 8,
+        "left_even_exponent_base_not_3": 1,
+        "left_even_exponent_base_3": 4,
+        "left_odd_exponent": 3,
+        "right_active_composite_pairs_R": 37,
+        "proved_even_base_not_3_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 1000000,
+        "left_active_composite_pairs_L": 11,
+        "left_even_exponent_base_not_3": 1,
+        "left_even_exponent_base_3": 4,
+        "left_odd_exponent": 6,
+        "right_active_composite_pairs_R": 66,
+        "proved_even_base_not_3_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 5000000,
+        "left_active_composite_pairs_L": 13,
+        "left_even_exponent_base_not_3": 1,
+        "left_even_exponent_base_3": 5,
+        "left_odd_exponent": 7,
+        "right_active_composite_pairs_R": 110,
+        "proved_even_base_not_3_count": 1,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000000,
+        "left_active_composite_pairs_L": 14,
+        "left_even_exponent_base_not_3": 1,
+        "left_even_exponent_base_3": 5,
+        "left_odd_exponent": 8,
+        "right_active_composite_pairs_R": 136,
+        "proved_even_base_not_3_count": 1,
+        "certificate_verified": true
+      }
+    ],
+    "selected_left_active_witnesses": [
+      {
+        "n": 9,
+        "n_plus_2": 11,
+        "left_representation": "3^2",
+        "right_representation": "11^1",
+        "category": "even_exponent_base_3",
+        "classification_verified": true
+      },
+      {
+        "n": 25,
+        "n_plus_2": 27,
+        "left_representation": "5^2",
+        "right_representation": "3^3",
+        "category": "even_exponent_base_not_3",
+        "classification_verified": true
+      },
+      {
+        "n": 27,
+        "n_plus_2": 29,
+        "left_representation": "3^3",
+        "right_representation": "29^1",
+        "category": "odd_exponent",
+        "classification_verified": true
+      },
+      {
+        "n": 81,
+        "n_plus_2": 83,
+        "left_representation": "3^4",
+        "right_representation": "83^1",
+        "category": "even_exponent_base_3",
+        "classification_verified": true
+      },
+      {
+        "n": 125,
+        "n_plus_2": 127,
+        "left_representation": "5^3",
+        "right_representation": "127^1",
+        "category": "odd_exponent",
+        "classification_verified": true
+      },
+      {
+        "n": 6561,
+        "n_plus_2": 6563,
+        "left_representation": "3^8",
+        "right_representation": "6563^1",
+        "category": "even_exponent_base_3",
+        "classification_verified": true
+      },
+      {
+        "n": 24389,
+        "n_plus_2": 24391,
+        "left_representation": "29^3",
+        "right_representation": "24391^1",
+        "category": "odd_exponent",
+        "classification_verified": true
+      },
+      {
+        "n": 59049,
+        "n_plus_2": 59051,
+        "left_representation": "3^10",
+        "right_representation": "59051^1",
+        "category": "even_exponent_base_3",
+        "classification_verified": true
+      },
+      {
+        "n": 161051,
+        "n_plus_2": 161053,
+        "left_representation": "11^5",
+        "right_representation": "161053^1",
+        "category": "odd_exponent",
+        "classification_verified": true
+      },
+      {
+        "n": 357911,
+        "n_plus_2": 357913,
+        "left_representation": "71^3",
+        "right_representation": "357913^1",
+        "category": "odd_exponent",
+        "classification_verified": true
+      },
+      {
+        "n": 571787,
+        "n_plus_2": 571789,
+        "left_representation": "83^3",
+        "right_representation": "571789^1",
+        "category": "odd_exponent",
+        "classification_verified": true
+      },
+      {
+        "n": 1442897,
+        "n_plus_2": 1442899,
+        "left_representation": "113^3",
+        "right_representation": "1442899^1",
+        "category": "odd_exponent",
+        "classification_verified": true
+      },
+      {
+        "n": 4782969,
+        "n_plus_2": 4782971,
+        "left_representation": "3^14",
+        "right_representation": "4782971^1",
+        "category": "even_exponent_base_3",
+        "classification_verified": true
+      },
+      {
+        "n": 5177717,
+        "n_plus_2": 5177719,
+        "left_representation": "173^3",
+        "right_representation": "5177719^1",
+        "category": "odd_exponent",
+        "classification_verified": true
+      }
+    ],
+    "external_theorem": {
+      "name": "Lebesgue-Nagell D=2 classification (Nagell)",
+      "statement_used": "For positive integers x,y and n>=3, x^2+2=y^n has only (x,y,n)=(5,3,3).",
+      "modern_primary_source": "https://doi.org/10.1112/S0010437X05001739",
+      "source_scope": "Bugeaud-Mignotte-Siksek solve x^2+D=y^n for 1<=D<=100; only the D=2 instance is used."
+    },
+    "algorithm": "Eratosthenes sieve and exact odd-prime-power representation table, followed by shift-two enumeration",
+    "complexity": "O(X log log X + number of odd candidates) time and O(X) bytes for the finite replay",
+    "random_seed": null,
+    "transcript_sha256": "6df796f1387e44725a337fc60d5fe44a94e2521496caf1cdc39e30bba96f6fd9",
+    "aggregate": {
+      "even_left_base_not3_classification_proved": true,
+      "unique_pair": [
+        25,
+        27
+      ],
+      "right_active_contamination_controlled": false,
+      "scale_local_type_II_lower_bound_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Prime-power supports are enumerated through 10,000,000; the finite replay audits the classification, while the all-X statement depends on the cited D=2 Lebesgue-Nagell theorem.",
+  "logical_limit": "Only one left-even base-not-3 contaminant survives, but right-active contamination remains dominant and no unbounded Type-II lower bound for the proxy has been proved.",
+  "route_decision": {
+    "discard": "allowing an unrestricted family of left-active even-exponent prime powers with base different from 3 in the shift-two contamination",
+    "parked": [],
+    "retain": "control of the right-active contamination and the remaining base-3/even or odd-exponent left-active terms before a scale-local Type-II lower bound",
+    "next_single_lemma": "ScaleLocalRightActivePrimePowerContaminationBound"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T248",
+        "label": "ExactActivePrimePowerContaminationIdentity",
+        "status": "proved"
+      },
+      {
+        "id": "TP-EXT-NAGELL",
+        "label": "Lebesgue-Nagell D=2 classification",
+        "status": "external_theorem"
+      },
+      {
+        "id": "TP-T249",
+        "label": "EvenExponentLeftActiveContaminationClassification",
+        "status": "proved"
+      },
+      {
+        "id": "TP-REJECT249",
+        "label": "ArbitraryEvenExponentLeftActiveContaminantsAwayFromThree",
+        "status": "disproved"
+      },
+      {
+        "id": "TP-OPEN249",
+        "label": "ScaleLocalRightActivePrimePowerContaminationBound",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-EXT-NAGELL",
+        "TP-T249"
+      ],
+      [
+        "TP-T248",
+        "TP-T249"
+      ],
+      [
+        "TP-T249",
+        "TP-REJECT249"
+      ],
+      [
+        "TP-T249",
+        "TP-OPEN249"
+      ]
+    ],
+    "resolution_path": [
+      "TP-T248",
+      "TP-EXT-NAGELL",
+      "TP-T249",
+      "TP-OPEN249"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No twin-prime proof or counterexample; one all-scale Diophantine classification of a strict active-contamination subclass."
+}

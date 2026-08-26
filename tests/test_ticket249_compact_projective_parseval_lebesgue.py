@@ -5,13 +5,13 @@ import unittest
 from fractions import Fraction
 from pathlib import Path
 
-from scripts.ticket248_unweighted_wieferich_jet_active import (
+from scripts.ticket249_compact_projective_parseval_lebesgue import (
     AUDIT_KEY,
-    RIEMANN_ORDERS,
     SCHEMA,
     build_audit,
-    legendre_even_moment_factorial,
-    legendre_even_moment_product,
+    fermat_quotient_residue,
+    generalized_wieferich_residue,
+    root_sum,
 )
 
 
@@ -27,7 +27,7 @@ ALLOWED_NODE_STATUSES = {
 }
 
 
-class Ticket248UnweightedWieferichJetActiveTests(unittest.TestCase):
+class Ticket249CompactProjectiveParsevalLebesgueTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.audit = build_audit()
@@ -39,18 +39,18 @@ class Ticket248UnweightedWieferichJetActiveTests(unittest.TestCase):
         self.assertFalse(self.audit["program_complete"])
         machine = self.root["machine_audit"]
         self.assertEqual(machine["exact_theorem_count"], 4)
-        self.assertEqual(machine["new_partial_theorem_count"], 3)
-        self.assertEqual(machine["exact_no_go_count"], 1)
+        self.assertEqual(machine["new_partial_theorem_count"], 2)
+        self.assertEqual(machine["exact_no_go_count"], 2)
         self.assertEqual(machine["conjecture_resolution_count"], 0)
         self.assertEqual(machine["candidate_resolution_count"], 0)
-        self.assertEqual(machine["deep_focus_problem"], "goldbach")
+        self.assertEqual(machine["deep_focus_problem"], "twin_prime")
         self.assertEqual(machine["total_failure_count"], 0)
         self.assertEqual(
             [
                 self.root[key]["result_classification"]
                 for key in ("riemann", "collatz", "goldbach", "twin_prime")
             ],
-            ["exact_no_go", "partial_theorem", "partial_theorem", "partial_theorem"],
+            ["exact_no_go", "partial_theorem", "exact_no_go", "partial_theorem"],
         )
         self.assertTrue(
             all(
@@ -59,99 +59,111 @@ class Ticket248UnweightedWieferichJetActiveTests(unittest.TestCase):
             )
         )
 
-    def test_riemann_unweighted_moment_formula_and_bound(self) -> None:
+    def test_riemann_compact_escape_rows(self) -> None:
         computation = self.root["riemann"]["reproducible_computation"]
         self.assertEqual(
             computation["transcript_sha256"],
-            "faaba3834a933146319b810147b5d58136ae13d23bd6599297b292d2ba33c1bd",
+            "eaaa5e2eccd9fa1fcb32504240f86c5ecff7d815eb4d218a5eb22e9248bb999a",
         )
-        self.assertEqual(len(computation["exact_legendre_rows"]), len(RIEMANN_ORDERS))
-        for n in RIEMANN_ORDERS:
-            self.assertEqual(legendre_even_moment_factorial(n, n - 1), 0)
-            for k in (n, n + 1, 2 * n, 256):
-                self.assertEqual(
-                    legendre_even_moment_factorial(n, k),
-                    legendre_even_moment_product(n, k),
-                )
-        for row in computation["exact_legendre_rows"]:
-            partial = Fraction(row["partial_unweighted_energy"]["exact"])
-            bound = Fraction(row["proved_all_tail_energy_bound"]["exact"])
+        rows = computation["exact_finite_rank_rows"]
+        self.assertEqual(len(rows), 8)
+        for row in rows:
+            partial = Fraction(row["exact_partial_unweighted_energy"]["exact"])
+            bound = Fraction(row["proved_all_moment_energy_bound"]["exact"])
             self.assertLessEqual(partial, bound)
+            self.assertEqual(row["exact_projection_energy"]["exact"], "0/1")
             self.assertTrue(row["certificate_verified"])
+        self.assertEqual(rows[-1]["half_degree_n"], 256)
+        self.assertEqual(rows[-1]["proved_all_moment_energy_bound"]["exact"], "11/256")
         self.assertTrue(
-            computation["aggregate"]["unweighted_non_hilbert_schmidt_no_go_proved"]
+            computation["aggregate"]["compact_offdiagonal_coercivity_no_go_proved"]
         )
         self.assertFalse(
-            computation["aggregate"]["genuine_weil_admissible_closure_reached"]
+            computation["aggregate"]["noncompact_arithmetic_offdiagonal_control_proved"]
         )
 
-    def test_collatz_actual_bad_branch_equivalence_scan(self) -> None:
+    def test_collatz_projective_slope_and_scan(self) -> None:
         computation = self.root["collatz"]["reproducible_computation"]
         self.assertEqual(
             computation["transcript_sha256"],
-            "444834a2768b3e94e21d0f968aef0e93fd87f08c540ca52af08756480b6d2d25",
+            "db860c5bef6ae1b016d468346b1b9941eac90c375f93d4f7c4f67c8ee8e881b7",
         )
         scan = computation["exact_modular_scan"]
-        self.assertEqual(scan["primes_checked"], 78_495)
+        self.assertEqual(scan["primes_checked"], 664_576)
         self.assertEqual(scan["W_32_27_zero_primes"], [])
         self.assertEqual(scan["W_2_3_zero_primes"], [23])
         self.assertEqual(scan["separated_bad_primes"], [])
-        q23 = next(
-            row for row in computation["selected_exact_rows"] if row["prime_q"] == 23
-        )
-        self.assertNotEqual(q23["W_32_27_mod_q"], 0)
-        self.assertEqual(q23["W_2_3_mod_q"], 0)
-        self.assertTrue(
-            all(row["certificate_verified"] for row in computation["selected_exact_rows"])
-        )
-        self.assertFalse(
-            computation["aggregate"]["finite_scan_proves_global_absence"]
+        for q in (7, 11, 23, 101, 1009):
+            u = fermat_quotient_residue(2, q)
+            v = fermat_quotient_residue(3, q)
+            self.assertEqual(
+                generalized_wieferich_residue(32, 27, q),
+                (5 * u - 3 * v) % q,
+            )
+            self.assertEqual(
+                generalized_wieferich_residue(2, 3, q), (u - v) % q
+            )
+        self.assertEqual(
+            [row["nonzero_projective_pairs"] for row in computation["exact_finite_field_rows"]],
+            [6, 10, 22, 100],
         )
 
-    def test_goldbach_centered_first_jet_invariants(self) -> None:
+    def test_goldbach_exact_group_ring_spikes(self) -> None:
         computation = self.root["goldbach"]["reproducible_computation"]
         self.assertEqual(
             computation["transcript_sha256"],
-            "49d39cfb54e21607b0ad1e39ddf0734d30d646bab71b90b82fb746a3f80cc18a",
+            "439a6562998de91c99533ceacb5ac53d177af9e48165ee51c4eed6ec782d59fe",
         )
         self.assertEqual(
-            computation["exact_modular_replay"]["denominator_cases"], 282
+            computation["exact_group_ring_replay"]["reduced_frequency_cases"],
+            5_020,
         )
-        rows = computation["exact_selected_first_jet_rows"]
-        self.assertEqual(len(rows), 36)
+        self.assertEqual(root_sum(17, 34), 17)
+        self.assertEqual(root_sum(17, 35), 0)
+        rows = computation["exact_selected_spike_rows"]
+        self.assertEqual(len(rows), 13)
         self.assertTrue(all(row["certificate_verified"] for row in rows))
-        last = rows[-1]
-        self.assertEqual(last["limit_X"], 500_000)
-        self.assertEqual(last["denominator_q"], 96)
-        self.assertEqual(last["phi_times_count_variance"], 208_000)
-        self.assertEqual(
-            last["phi_times_first_moment_variance"], 22_529_726_453_345_020
-        )
         self.assertTrue(
-            computation["aggregate"]["centered_first_jet_parseval_identity_proved"]
+            all(row["spike_to_total_ratio_squared"]["exact"] == "1/2" for row in rows)
+        )
+        self.assertEqual(rows[-1]["nonzero_numerators"], [1, 127])
+        self.assertTrue(
+            computation["aggregate"]["abstract_mean_square_to_uniform_route_refuted"]
         )
         self.assertFalse(
-            computation["aggregate"]["uniform_all_numerator_saving_proved"]
+            computation["aggregate"]["actual_prime_count_vector_counterexample_claimed"]
         )
 
-    def test_twin_active_contamination_identity(self) -> None:
+    def test_twin_even_left_classification(self) -> None:
         computation = self.root["twin_prime"]["reproducible_computation"]
         self.assertEqual(
             computation["transcript_sha256"],
-            "85f69edcdb7bc23ce3a41d770918c5a4589b4b50a4e003145c47874fa2bd1741",
+            "6df796f1387e44725a337fc60d5fe44a94e2521496caf1cdc39e30bba96f6fd9",
         )
-        rows = computation["exact_active_contamination_rows"]
+        rows = computation["exact_scale_rows"]
         self.assertEqual(len(rows), 7)
         self.assertTrue(all(row["certificate_verified"] for row in rows))
+        self.assertTrue(
+            all(row["left_even_exponent_base_not_3"] == 1 for row in rows)
+        )
         last = rows[-1]
-        self.assertEqual(last["prime_power_pair_count_A2"], 59_129)
-        self.assertEqual(last["twin_prime_pair_count_pi2"], 58_980)
-        self.assertEqual(last["exact_contamination_A2_minus_pi2"], 149)
-        self.assertEqual(last["left_active_composite_power_pairs_L"], 14)
-        self.assertEqual(last["right_active_composite_power_pairs_R"], 136)
-        self.assertEqual(last["both_composite_power_pairs_B"], 1)
-        self.assertEqual(last["active_union_bound_L_plus_R"], 150)
-        self.assertEqual(last["ticket247_sharp_bound"], 2_822)
+        self.assertEqual(last["left_active_composite_pairs_L"], 14)
+        self.assertEqual(last["left_even_exponent_base_3"], 5)
+        self.assertEqual(last["left_odd_exponent"], 8)
+        self.assertEqual(last["right_active_composite_pairs_R"], 136)
+        witnesses = computation["selected_left_active_witnesses"]
+        exceptional = [
+            row
+            for row in witnesses
+            if row["category"] == "even_exponent_base_not_3"
+        ]
+        self.assertEqual(
+            [(row["n"], row["n_plus_2"]) for row in exceptional], [(25, 27)]
+        )
+        self.assertEqual(
+            computation["external_theorem"]["modern_primary_source"],
+            "https://doi.org/10.1112/S0010437X05001739",
+        )
 
     def test_proof_dags_are_acyclic_with_one_open_frontier(self) -> None:
         for key in ("riemann", "collatz", "goldbach", "twin_prime"):
@@ -182,7 +194,7 @@ class Ticket248UnweightedWieferichJetActiveTests(unittest.TestCase):
             self.assertEqual(visited, len(nodes))
 
     def test_committed_integrated_json_matches_generator(self) -> None:
-        path = ROOT / "data/open-problem/ticket248-unweighted-wieferich-jet-active.json"
+        path = ROOT / "data/open-problem/ticket249-compact-projective-parseval-lebesgue.json"
         committed = json.loads(path.read_text(encoding="utf-8"))
         self.assertEqual(committed, build_audit())
 
@@ -192,21 +204,12 @@ class Ticket248UnweightedWieferichJetActiveTests(unittest.TestCase):
                 encoding="utf-8"
             )
         )
-        self.assertGreaterEqual(state["ticket"], 248)
-        self.assertEqual(state["parent_ticket"], state["ticket"] - 1)
+        self.assertEqual(state["ticket"], 249)
+        self.assertEqual(state["parent_ticket"], 248)
         self.assertEqual(state["resolved_count"], 0)
         self.assertEqual(state["candidate_resolution_count"], 0)
         self.assertFalse(state["program_complete"])
-        if state["ticket"] == 248:
-            self.assertEqual(state["deep_focus_problem"], "goldbach")
-        retained_theorems = {
-            "riemann": "UnweightedInfiniteMomentCoercivityNoGo",
-            "collatz": "ActualBadBranchGeneralizedWieferichSeparation",
-            "goldbach": "CenteredFirstJetParsevalArcBridge",
-            "twin_prime": "ExactActivePrimePowerContaminationIdentity",
-        }
-        for problem, theorem in retained_theorems.items():
-            self.assertIn(theorem, state["problems"][problem]["established_results"])
+        self.assertEqual(state["deep_focus_problem"], "twin_prime")
         self.assertTrue(
             all(problem["stagnation_count"] == 0 for problem in state["problems"].values())
         )
