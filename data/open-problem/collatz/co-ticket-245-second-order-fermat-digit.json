@@ -1,0 +1,170 @@
+{
+  "schema": "primeproject.ticket245-closure-second-order-klein-linnik.v1",
+  "generated_at": "2026-08-26T11:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-245",
+  "theorem_name": "SecondOrderFixedBaseFermatDigitCriterion",
+  "declared_proposition": "For every prime q>5 define the integer Fermat quotients U=(2^(q-1)-1)/q and V=(3^(q-1)-1)/q, read modulo q^2. Then q^3 divides 32^(q-1)-27^(q-1) if and only if 5U-3V+q(10U^2-3V^2)=0 modulo q^2, while q^3 divides 2^(q-1)-3^(q-1) if and only if U-V=0 modulo q^2. Reduction modulo q recovers the TICKET-244 first-layer bad and comparison lines. These are exact second-order digit criteria, not an all-prime nonvanishing theorem.",
+  "mathematical_argument": "Write 2^(q-1)=1+qU and 3^(q-1)=1+qV. Modulo q^3, the binomial theorem gives (1+qU)^5=1+5qU+10q^2U^2 and (1+qV)^3=1+3qV+3q^2V^2. Subtracting and dividing by q proves the first criterion. Direct subtraction of 1+qU and 1+qV proves the second. Only U,V modulo q^2 are needed. The computation checks both criteria against independent modular exponentiation modulo q^3.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every prime q>5 define the integer Fermat quotients U=(2^(q-1)-1)/q and V=(3^(q-1)-1)/q, read modulo q^2. Then q^3 divides 32^(q-1)-27^(q-1) if and only if 5U-3V+q(10U^2-3V^2)=0 modulo q^2, while q^3 divides 2^(q-1)-3^(q-1) if and only if U-V=0 modulo q^2. Reduction modulo q recovers the TICKET-244 first-layer bad and comparison lines. These are exact second-order digit criteria, not an all-prime nonvanishing theorem.",
+    "proof": "Write 2^(q-1)=1+qU and 3^(q-1)=1+qV. Modulo q^3, the binomial theorem gives (1+qU)^5=1+5qU+10q^2U^2 and (1+qV)^3=1+3qV+3q^2V^2. Subtracting and dividing by q proves the first criterion. Direct subtraction of 1+qU and 1+qV proves the second. Only U,V modulo q^2 are needed. The computation checks both criteria against independent modular exponentiation modulo q^3.",
+    "selected_exact_second_order_rows": [
+      {
+        "prime_q": 7,
+        "Qq2_mod_q_squared": 9,
+        "Qq3_mod_q_squared": 6,
+        "bad_line_first_layer": false,
+        "comparison_line_first_layer": false,
+        "bad_line_second_digit_mod_q_squared": 41,
+        "comparison_second_digit_mod_q_squared": 3,
+        "q_cubed_divides_32_power_minus_27_power": false,
+        "q_cubed_divides_2_power_minus_3_power": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "Qq2_mod_q_squared": 385,
+        "Qq3_mod_q_squared": 270,
+        "bad_line_first_layer": false,
+        "comparison_line_first_layer": true,
+        "bad_line_second_digit_mod_q_squared": 34,
+        "comparison_second_digit_mod_q_squared": 115,
+        "q_cubed_divides_32_power_minus_27_power": false,
+        "q_cubed_divides_2_power_minus_3_power": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 109,
+        "Qq2_mod_q_squared": 6280,
+        "Qq3_mod_q_squared": 9911,
+        "bad_line_first_layer": false,
+        "comparison_line_first_layer": false,
+        "bad_line_second_digit_mod_q_squared": 2539,
+        "comparison_second_digit_mod_q_squared": 8250,
+        "q_cubed_divides_32_power_minus_27_power": false,
+        "q_cubed_divides_2_power_minus_3_power": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 487,
+        "Qq2_mod_q_squared": 24435,
+        "Qq3_mod_q_squared": 235399,
+        "bad_line_first_layer": false,
+        "comparison_line_first_layer": false,
+        "bad_line_second_digit_mod_q_squared": 169854,
+        "comparison_second_digit_mod_q_squared": 26205,
+        "q_cubed_divides_32_power_minus_27_power": false,
+        "q_cubed_divides_2_power_minus_3_power": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 1009,
+        "Qq2_mod_q_squared": 888512,
+        "Qq3_mod_q_squared": 168437,
+        "bad_line_first_layer": false,
+        "comparison_line_first_layer": false,
+        "bad_line_second_digit_mod_q_squared": 300813,
+        "comparison_second_digit_mod_q_squared": 720075,
+        "q_cubed_divides_32_power_minus_27_power": false,
+        "q_cubed_divides_2_power_minus_3_power": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 10007,
+        "Qq2_mod_q_squared": 26337963,
+        "Qq3_mod_q_squared": 6117746,
+        "bad_line_first_layer": false,
+        "comparison_line_first_layer": false,
+        "bad_line_second_digit_mod_q_squared": 84236221,
+        "comparison_second_digit_mod_q_squared": 20220217,
+        "q_cubed_divides_32_power_minus_27_power": false,
+        "q_cubed_divides_2_power_minus_3_power": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 49999,
+        "Qq2_mod_q_squared": 95533204,
+        "Qq3_mod_q_squared": 2316266379,
+        "bad_line_first_layer": false,
+        "comparison_line_first_layer": false,
+        "bad_line_second_digit_mod_q_squared": 1818701083,
+        "comparison_second_digit_mod_q_squared": 279166826,
+        "q_cubed_divides_32_power_minus_27_power": false,
+        "q_cubed_divides_2_power_minus_3_power": false,
+        "certificate_verified": true
+      }
+    ],
+    "adversarial_first_layer_scan": {
+      "prime_limit": 20000000,
+      "primes_scanned": 1270604,
+      "bad_line_prime_count": 0,
+      "bad_line_primes": [],
+      "comparison_line_prime_count": 1,
+      "comparison_line_primes": [
+        23
+      ]
+    },
+    "second_order_replay": {
+      "prime_limit": 50000,
+      "primes_scanned": 5130,
+      "q_cubed_bad_line_prime_count": 0,
+      "q_cubed_bad_line_primes": [],
+      "q_cubed_comparison_prime_count": 0,
+      "q_cubed_comparison_primes": [],
+      "failure_count": 0
+    },
+    "transcript_sha256": "26b7da7bc74a887b9b954122bc61dfc4277277cbde99e063505e8d6ebbd1423f",
+    "aggregate": {
+      "exact_second_order_digit_criteria_proved": true,
+      "first_layer_bad_line_nonvanishing_through_finite_limit": true,
+      "all_prime_bad_line_nonvanishing_proved": false,
+      "all_depth_fixed_base_domination_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "No first-layer bad prime occurs in the bounded scan, so the scan does not exercise the actual bad branch and cannot prove it empty. The formula decides depth three once q is supplied but gives no uniform control at arbitrary depth and no statement about general Collatz trajectories or nontrivial cycles.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "The first layer is scanned for all 1,270,604 primes through 20,000,000; q^3 identities are replayed only through 50,000. Both use exact integer modular arithmetic, but neither finite boundary proves an all-prime statement.",
+  "logical_limit": "No all-prime argument excludes the first bad line, and the second-order formula does not control arbitrary q-adic depths or general Collatz dynamics.",
+  "route_decision": {
+    "discard": "none newly; the finite absence of bad-line primes is not promoted to an all-prime theorem",
+    "parked": [],
+    "retain": "exact higher q-adic digit formulas for the actual bases, while continuing adversarial search for a first bad-line prime",
+    "next_single_lemma": "FixedBaseAllPrimeRationalWieferichDepthDomination"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T244",
+        "label": "FixedBaseBadLineHarmonicSumEquivalence",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T245",
+        "label": "SecondOrderFixedBaseFermatDigitCriterion",
+        "status": "proved"
+      },
+      {
+        "id": "CO-OPEN245",
+        "label": "FixedBaseAllPrimeRationalWieferichDepthDomination",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T244",
+        "CO-T245"
+      ],
+      [
+        "CO-T245",
+        "CO-OPEN245"
+      ]
+    ]
+  },
+  "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle; an exact q^3 criterion and bounded adversarial replay only."
+}

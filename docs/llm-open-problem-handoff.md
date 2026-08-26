@@ -62,7 +62,34 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-244
+## Current continuation: TICKET-245
+
+The current machine-readable boundary is
+`data/open-problem/ticket245-closure-second-order-klein-linnik.json`.
+It records two partial theorems, two exact route no-gos, four acyclic proof
+DAGs, zero machine failures, and zero parent-problem resolutions.
+
+| Problem | Newly closed result | Current single open lemma |
+|---|---|---|
+| Riemann | `ClosureZeroSetObstructionToUniformWeilMargin` | `ZeroFreeClosureSeparationForNormalizedAdmissibleWeilFunctional` |
+| Collatz | `SecondOrderFixedBaseFermatDigitCriterion` | `FixedBaseAllPrimeRationalWieferichDepthDomination` |
+| Goldbach | `KleinFourOrbitReductionForEvenGoldbachArcs` | `UniformRepresentativeArcAsymptoticAndSignedResidualSavingOnQuarterTorus` |
+| Twin Prime | `PolynomialHeightPeriodicMimicryFromLinnik` | `ScaleLocalNonperiodicTypeIICancellationBeyondPeriodicHeightBarriers` |
+
+Do not repeat the discarded routes. Joint tightness and pointwise/classwise
+positivity do not give a uniform margin without zero-free closure separation.
+The Collatz twenty-million-prime absence is finite only. Four Klein-related
+Goldbach arcs are one signed problem, but one representative still needs an
+estimate. A fixed periodic Twin classifier fails below polynomial height in its
+period, but the theorem is not scale-local for a changing modulus.
+
+Reports: [English](closure-second-order-klein-linnik.md),
+[한국어](closure-second-order-klein-linnik.ko.md).
+
+All older current/latest headings below are historical snapshots and must not
+override this TICKET-245 boundary.
+
+## Preserved continuation: TICKET-244
 
 The current machine-readable boundary is
 `data/open-problem/ticket244-joint-tightness-harmonic-parity-fold-polylog-mimicry.json`.

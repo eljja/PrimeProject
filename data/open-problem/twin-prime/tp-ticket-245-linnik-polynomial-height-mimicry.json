@@ -1,0 +1,163 @@
+{
+  "schema": "primeproject.ticket245-closure-second-order-klein-linnik.v1",
+  "generated_at": "2026-08-26T11:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-245",
+  "theorem_name": "PolynomialHeightPeriodicMimicryFromLinnik",
+  "declared_proposition": "There are absolute constants C,L>0 such that for every integer M>=1, every residue a modulo M with gcd(a,M)=gcd(a+2,M)=1, and every feature F of (n,n+2) depending only on that pair modulo M, there is a prime p<=C M^(3L) with F(p,p+2)=F(a,a+2) but p+2 composite. Consequently, a globally prefix-sound pure M-periodic twin certificate that accepts an admissible class cannot remain sound through X>=C M^(3L); such a certificate through X must have M>(X/C)^(1/(3L)).",
+  "mathematical_argument": "For M>=2 choose primes M<ell_1<2M and 2M<ell_2<4M by Bertrand; use ell_1=3, ell_2=5 for M=1. CRT gives one reduced residue r modulo Q=M ell_1 ell_2 with r=a modulo M and r=-2 modulo both auxiliary primes. Here Q<8M^3 for M>=2. Linnik's theorem supplies an absolute C_0,L and a prime p congruent to r modulo Q with p<=C_0 Q^L; absorb 8^L and the M=1 case into C. Since p+2 is a positive multiple of ell_1 ell_2, it is composite. Congruence modulo M preserves F. The prefix lower bound is the contrapositive of the same statement.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "There are absolute constants C,L>0 such that for every integer M>=1, every residue a modulo M with gcd(a,M)=gcd(a+2,M)=1, and every feature F of (n,n+2) depending only on that pair modulo M, there is a prime p<=C M^(3L) with F(p,p+2)=F(a,a+2) but p+2 composite. Consequently, a globally prefix-sound pure M-periodic twin certificate that accepts an admissible class cannot remain sound through X>=C M^(3L); such a certificate through X must have M>(X/C)^(1/(3L)).",
+    "proof": "For M>=2 choose primes M<ell_1<2M and 2M<ell_2<4M by Bertrand; use ell_1=3, ell_2=5 for M=1. CRT gives one reduced residue r modulo Q=M ell_1 ell_2 with r=a modulo M and r=-2 modulo both auxiliary primes. Here Q<8M^3 for M>=2. Linnik's theorem supplies an absolute C_0,L and a prime p congruent to r modulo Q with p<=C_0 Q^L; absorb 8^L and the M=1 case into C. Since p+2 is a positive multiple of ell_1 ell_2, it is composite. Congruence modulo M preserves F. The prefix lower bound is the contrapositive of the same statement.",
+    "exact_polynomial_height_witness_rows": [
+      {
+        "period_M": 1,
+        "admissible_residue_a": 0,
+        "bertrand_prime_ell_1": 3,
+        "bertrand_prime_ell_2": 5,
+        "crt_residue": 13,
+        "crt_modulus_Q": 15,
+        "Q_less_than_8M_cubed": true,
+        "first_prime_in_crt_class": 13,
+        "forced_composite_successor": 15,
+        "successor_factorization": "3*5*1",
+        "certificate_verified": true
+      },
+      {
+        "period_M": 30,
+        "admissible_residue_a": 11,
+        "bertrand_prime_ell_1": 31,
+        "bertrand_prime_ell_2": 61,
+        "crt_residue": 24581,
+        "crt_modulus_Q": 56730,
+        "Q_less_than_8M_cubed": true,
+        "first_prime_in_crt_class": 138041,
+        "forced_composite_successor": 138043,
+        "successor_factorization": "31*61*73",
+        "certificate_verified": true
+      },
+      {
+        "period_M": 210,
+        "admissible_residue_a": 11,
+        "bertrand_prime_ell_1": 211,
+        "bertrand_prime_ell_2": 421,
+        "crt_residue": 1154801,
+        "crt_modulus_Q": 18654510,
+        "Q_less_than_8M_cubed": true,
+        "first_prime_in_crt_class": 19809311,
+        "forced_composite_successor": 19809313,
+        "successor_factorization": "211*421*223",
+        "certificate_verified": true
+      },
+      {
+        "period_M": 2310,
+        "admissible_residue_a": 17,
+        "bertrand_prime_ell_1": 2311,
+        "bertrand_prime_ell_2": 4621,
+        "crt_residue": 202903487,
+        "crt_modulus_Q": 24668792610,
+        "Q_less_than_8M_cubed": true,
+        "first_prime_in_crt_class": 271559622197,
+        "forced_composite_successor": 271559622199,
+        "successor_factorization": "2311*4621*25429",
+        "certificate_verified": true
+      },
+      {
+        "period_M": 30030,
+        "admissible_residue_a": 17,
+        "bertrand_prime_ell_1": 30047,
+        "bertrand_prime_ell_2": 60077,
+        "crt_residue": 23071412784437,
+        "crt_modulus_Q": 54208162578570,
+        "Q_less_than_8M_cubed": true,
+        "first_prime_in_crt_class": 239904063098717,
+        "forced_composite_successor": 239904063098719,
+        "successor_factorization": "30047*60077*132901",
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "9c40a7487d40b111bb2e9ebc9c4bc9cbcf4edaf9ed73d931632d5df78bd32e98",
+    "aggregate": {
+      "polynomial_height_periodic_mimicry_proved": true,
+      "global_prefix_period_lower_bound_proved": true,
+      "scale_local_superpolylog_classifier_refuted": false,
+      "nonperiodic_type_ii_cancellation_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The Linnik bound concerns a fixed globally reused period and an initial interval. It does not place the mimic in a prescribed dyadic block when M changes with that block, and it says nothing about nonperiodic features or signed Type-I/II Lambda correlation.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Five exact CRT/primality/factorization witnesses; the universal polynomial-height conclusion depends on Bertrand's postulate and Linnik's theorem, not on these rows.",
+  "logical_limit": "The theorem gives a polynomial height bound for each fixed global period but does not handle a period chosen anew for a prescribed dyadic block or any nonperiodic Type-I/II structure.",
+  "route_decision": {
+    "discard": "a fixed pure periodic twin classifier remaining globally prefix-sound beyond every polynomial height in its period",
+    "parked": [],
+    "retain": "scale-local nonperiodic parity-breaking information and signed Type-II Lambda cancellation",
+    "next_single_lemma": "ScaleLocalNonperiodicTypeIICancellationBeyondPeriodicHeightBarriers"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T244",
+        "label": "PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock",
+        "status": "proved"
+      },
+      {
+        "id": "TP-EXT245-2",
+        "label": "Linnik's least-prime theorem",
+        "status": "external_theorem"
+      },
+      {
+        "id": "TP-EXT245-1",
+        "label": "Bertrand's postulate",
+        "status": "external_theorem"
+      },
+      {
+        "id": "TP-N245",
+        "label": "FixedPeriodicTwinClassifierCanRemainSoundBeyondEveryPolynomialInItsPeriod",
+        "status": "disproved"
+      },
+      {
+        "id": "TP-T245",
+        "label": "PolynomialHeightPeriodicMimicryFromLinnik",
+        "status": "proved"
+      },
+      {
+        "id": "TP-OPEN245",
+        "label": "ScaleLocalNonperiodicTypeIICancellationBeyondPeriodicHeightBarriers",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T244",
+        "TP-T245"
+      ],
+      [
+        "TP-EXT245-2",
+        "TP-T245"
+      ],
+      [
+        "TP-EXT245-1",
+        "TP-T245"
+      ],
+      [
+        "TP-T244",
+        "TP-N245"
+      ],
+      [
+        "TP-N245",
+        "TP-T245"
+      ],
+      [
+        "TP-T245",
+        "TP-OPEN245"
+      ]
+    ]
+  },
+  "claim_boundary": "No proof of infinitely many twin primes and no counterexample to the conjecture; one quantitative no-go for globally reused periodic certificates."
+}

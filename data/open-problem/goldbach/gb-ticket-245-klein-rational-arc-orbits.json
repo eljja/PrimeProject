@@ -1,0 +1,131 @@
+{
+  "schema": "primeproject.ticket245-closure-second-order-klein-linnik.v1",
+  "generated_at": "2026-08-26T11:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-245",
+  "theorem_name": "KleinFourOrbitReductionForEvenGoldbachArcs",
+  "declared_proposition": "Let O_X(alpha)=sum_(3<=p<=X) exp(2 pi i p alpha) and, for even N, I_(X,N)(alpha)=O_X(alpha)^2 exp(-2 pi i N alpha) on R/Z. Let h(alpha)=alpha+1/2 and r(alpha)=-alpha. Then I after h equals I, and I after r equals the complex conjugate of I. Consequently, for every measurable E whose four Klein images E,hE,rE,hrE are disjoint up to null sets, the signed integral over their union is exactly 4 Re integral_E I. Every rational center belongs to a Klein orbit with a representative in [0,1/4]; only the orbits of 0 and 1/4 have size two, and every other orbit has size four.",
+  "mathematical_argument": "TICKET-244 gives O_X(alpha+1/2)=-O_X(alpha), and even N removes the phase sign, proving h-invariance. Since O_X(-alpha) is the complex conjugate of O_X(alpha), the same is true for I under r. Haar measure is invariant under h and r, so the four integrals are J,J,conj(J),conj(J). Their sum is 4 Re J. The commuting involutions h and r form a Klein four-group. Folding first modulo h and then by reflection sends every center to [0,1/4]. Stabilizers occur only at alpha=0 modulo 1/2 or alpha=1/4 modulo 1/2, giving exactly the two size-two orbits.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let O_X(alpha)=sum_(3<=p<=X) exp(2 pi i p alpha) and, for even N, I_(X,N)(alpha)=O_X(alpha)^2 exp(-2 pi i N alpha) on R/Z. Let h(alpha)=alpha+1/2 and r(alpha)=-alpha. Then I after h equals I, and I after r equals the complex conjugate of I. Consequently, for every measurable E whose four Klein images E,hE,rE,hrE are disjoint up to null sets, the signed integral over their union is exactly 4 Re integral_E I. Every rational center belongs to a Klein orbit with a representative in [0,1/4]; only the orbits of 0 and 1/4 have size two, and every other orbit has size four.",
+    "proof": "TICKET-244 gives O_X(alpha+1/2)=-O_X(alpha), and even N removes the phase sign, proving h-invariance. Since O_X(-alpha) is the complex conjugate of O_X(alpha), the same is true for I under r. Haar measure is invariant under h and r, so the four integrals are J,J,conj(J),conj(J). Their sum is 4 Re J. The commuting involutions h and r form a Klein four-group. Folding first modulo h and then by reflection sends every center to [0,1/4]. Stabilizers occur only at alpha=0 modulo 1/2 or alpha=1/4 modulo 1/2, giving exactly the two size-two orbits.",
+    "exact_rational_center_orbit_rows": [
+      {
+        "seed_denominator_limit_Q": 8,
+        "reduced_rational_seed_count": 22,
+        "klein_closed_center_count": 32,
+        "canonical_quarter_torus_orbit_count": 9,
+        "orbit_size_two_count": 2,
+        "orbit_size_four_count": 7,
+        "maximum_denominator_after_half_turn": 14,
+        "certificate_verified": true
+      },
+      {
+        "seed_denominator_limit_Q": 16,
+        "reduced_rational_seed_count": 80,
+        "klein_closed_center_count": 116,
+        "canonical_quarter_torus_orbit_count": 30,
+        "orbit_size_two_count": 2,
+        "orbit_size_four_count": 28,
+        "maximum_denominator_after_half_turn": 30,
+        "certificate_verified": true
+      },
+      {
+        "seed_denominator_limit_Q": 32,
+        "reduced_rational_seed_count": 324,
+        "klein_closed_center_count": 488,
+        "canonical_quarter_torus_orbit_count": 123,
+        "orbit_size_two_count": 2,
+        "orbit_size_four_count": 121,
+        "maximum_denominator_after_half_turn": 62,
+        "certificate_verified": true
+      },
+      {
+        "seed_denominator_limit_Q": 64,
+        "reduced_rational_seed_count": 1260,
+        "klein_closed_center_count": 1872,
+        "canonical_quarter_torus_orbit_count": 469,
+        "orbit_size_two_count": 2,
+        "orbit_size_four_count": 467,
+        "maximum_denominator_after_half_turn": 126,
+        "certificate_verified": true
+      },
+      {
+        "seed_denominator_limit_Q": 128,
+        "reduced_rational_seed_count": 5022,
+        "klein_closed_center_count": 7524,
+        "canonical_quarter_torus_orbit_count": 1882,
+        "orbit_size_two_count": 2,
+        "orbit_size_four_count": 1880,
+        "maximum_denominator_after_half_turn": 254,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "92774e213632ee5eb153236bafe3c0b03ec914994db4b4b668b22224c52d6639",
+    "aggregate": {
+      "klein_four_integrand_symmetry_proved": true,
+      "four_arc_signed_integral_reduction_proved": true,
+      "all_rational_centers_reduce_to_quarter_torus": true,
+      "representative_arc_asymptotic_proved": false,
+      "signed_residual_saving_proved": false,
+      "strong_goldbach_resolved": false
+    },
+    "no_go_scope": "The theorem removes duplicate signed analysis among symmetry-related arcs only. It neither estimates one representative arc nor proves that a chosen collection of neighborhoods is disjoint. Denominators may double under the half turn, and minor-arc cancellation and a uniform positive Goldbach lower bound remain open.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Five exact rational orbit enumerations for seed denominators through 128; they certify finite combinatorics, while the integral identity is an all-X, all-even-N algebraic theorem.",
+  "logical_limit": "Symmetry removes duplicate arcs but supplies no estimate on a canonical representative, no disjoint-width theorem, and no signed minor-arc saving or positive representation lower bound.",
+  "route_decision": {
+    "discard": "independent signed estimation of all four half-turn/reflection-related rational arcs",
+    "parked": [],
+    "retain": "one canonical representative per rational-center orbit on the quarter torus, followed by a uniform representative-arc asymptotic and signed residual estimate",
+    "next_single_lemma": "UniformRepresentativeArcAsymptoticAndSignedResidualSavingOnQuarterTorus"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T244",
+        "label": "ExactParityArcFoldingForEvenBinaryGoldbach",
+        "status": "proved"
+      },
+      {
+        "id": "GB-N245",
+        "label": "SymmetryRelatedRationalArcsRequireIndependentSignedEstimates",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-T245",
+        "label": "KleinFourOrbitReductionForEvenGoldbachArcs",
+        "status": "proved"
+      },
+      {
+        "id": "GB-OPEN245",
+        "label": "UniformRepresentativeArcAsymptoticAndSignedResidualSavingOnQuarterTorus",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T244",
+        "GB-T245"
+      ],
+      [
+        "GB-T244",
+        "GB-N245"
+      ],
+      [
+        "GB-N245",
+        "GB-T245"
+      ],
+      [
+        "GB-T245",
+        "GB-OPEN245"
+      ]
+    ]
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; an exact Klein-four signed integral reduction and finite rational-center orbit certificates only."
+}

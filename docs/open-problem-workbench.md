@@ -15,7 +15,37 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-244
+## Current research boundary: TICKET-245
+
+The current machine-readable boundary is
+`data/open-problem/ticket245-closure-second-order-klein-linnik.json`.
+TICKET-245 proves two partial theorems and two exact route no-go theorems while
+resolving none of the parent conjectures:
+
+- joint tightness and pointwise positivity do not imply one uniform Weil margin;
+  zero-free separation of the compact closure is the exact missing condition;
+- exact second Fermat digits decide the two fixed Collatz rational depths at
+  `q^3`; the first bad line is absent only in the bounded scan through 20M;
+- half-turn and reflection form a Klein four action reducing all rational
+  Goldbach centers to representatives in the quarter torus;
+- every fixed globally reused periodic Twin feature has a prime/composite-
+  successor mimic below `C M^(3L)` by Bertrand, CRT, and Linnik.
+
+The next single lemmas are zero-free closure separation for the actual
+normalized admissible Weil functional; all-prime rational-Wieferich depth
+domination for the fixed Collatz bases; a uniform representative-arc
+asymptotic plus signed residual saving on the quarter torus; and scale-local
+nonperiodic Type-II cancellation beyond periodic-height barriers.
+
+한국어: RH와 Twin 트랙은 각각 closure-margin 승격과 고정주기 전역 prefix
+분류기를 exact no-go로 닫았습니다. Collatz 2차 Fermat digit과 Goldbach
+Klein orbit은 partial theorem입니다. 네 난제의 해결 수와 후보 해결 수는
+모두 0입니다.
+
+Reports: [English](closure-second-order-klein-linnik.md),
+[한국어](closure-second-order-klein-linnik.ko.md).
+
+## Preserved research boundary: TICKET-244
 
 The current machine-readable boundary is
 `data/open-problem/ticket244-joint-tightness-harmonic-parity-fold-polylog-mimicry.json`.

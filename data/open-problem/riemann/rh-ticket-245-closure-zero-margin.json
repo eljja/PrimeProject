@@ -1,0 +1,176 @@
+{
+  "schema": "primeproject.ticket245-closure-second-order-klein-linnik.v1",
+  "generated_at": "2026-08-26T11:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-245",
+  "theorem_name": "ClosureZeroSetObstructionToUniformWeilMargin",
+  "declared_proposition": "Let e0=2^(-1/2)1_[-1,1] and e1=2^(-1/2)1_([-2,-1] union [1,2]) in real-even L2(R). For 0<t<=1 put f_t=(t e0+e1)/sqrt(1+t^2), K={f_t:0<t<=1}, and Q(f)=|<f,e0>|^2. Then K is bounded, relatively compact, and jointly tight in physical and Fourier space; Q is continuous and Q(f)>0 for every f in K, but inf_K Q=0. The compact classes K_m={f_t:1/m<=t<=1} exhaust K and min_(K_m)Q=1/(m^2+1). More generally, for every nonempty relatively compact K and continuous Q>=0, inf_K Q>0 if and only if closure(K) is disjoint from Q^(-1)(0).",
+  "mathematical_argument": "The two displayed indicator functions are normalized, real-even, orthogonal, and supported in [-2,2]. The map t->f_t extends continuously to [0,1], so closure(K)={f_t:0<=t<=1} is compact. TICKET-244 therefore gives joint physical-frequency tightness (it also follows directly from the fixed two-dimensional span). Orthogonality gives Q(f_t)=t^2/(1+t^2), which is positive for t>0, has infimum zero, and has minimum 1/(m^2+1) on K_m. For the general statement, continuity extends an infimum-zero sequence to a zero at a convergent subsequence in closure(K); conversely a zero in the closure is approached from K. If the compact closure avoids the closed zero set, Q attains a strictly positive minimum. Thus compactness plus pointwise positivity on a nonclosed exhaustive family cannot supply a uniform positive margin.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let e0=2^(-1/2)1_[-1,1] and e1=2^(-1/2)1_([-2,-1] union [1,2]) in real-even L2(R). For 0<t<=1 put f_t=(t e0+e1)/sqrt(1+t^2), K={f_t:0<t<=1}, and Q(f)=|<f,e0>|^2. Then K is bounded, relatively compact, and jointly tight in physical and Fourier space; Q is continuous and Q(f)>0 for every f in K, but inf_K Q=0. The compact classes K_m={f_t:1/m<=t<=1} exhaust K and min_(K_m)Q=1/(m^2+1). More generally, for every nonempty relatively compact K and continuous Q>=0, inf_K Q>0 if and only if closure(K) is disjoint from Q^(-1)(0).",
+    "proof": "The two displayed indicator functions are normalized, real-even, orthogonal, and supported in [-2,2]. The map t->f_t extends continuously to [0,1], so closure(K)={f_t:0<=t<=1} is compact. TICKET-244 therefore gives joint physical-frequency tightness (it also follows directly from the fixed two-dimensional span). Orthogonality gives Q(f_t)=t^2/(1+t^2), which is positive for t>0, has infimum zero, and has minimum 1/(m^2+1) on K_m. For the general statement, continuity extends an infimum-zero sequence to a zero at a convergent subsequence in closure(K); conversely a zero in the closure is approached from K. If the compact closure avoids the closed zero set, Q attains a strictly positive minimum. Thus compactness plus pointwise positivity on a nonclosed exhaustive family cannot supply a uniform positive margin.",
+    "exact_exhaustion_margin_rows": [
+      {
+        "compact_class_K_m_lower_t": {
+          "exact": "1/2",
+          "float": 0.5
+        },
+        "exact_minimum_Q_on_K_m": {
+          "exact": "1/5",
+          "float": 0.2
+        },
+        "normalized_L2_norm_squared": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "common_physical_support": "[-2,2]",
+        "certificate_verified": true
+      },
+      {
+        "compact_class_K_m_lower_t": {
+          "exact": "1/4",
+          "float": 0.25
+        },
+        "exact_minimum_Q_on_K_m": {
+          "exact": "1/17",
+          "float": 0.058823529411764705
+        },
+        "normalized_L2_norm_squared": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "common_physical_support": "[-2,2]",
+        "certificate_verified": true
+      },
+      {
+        "compact_class_K_m_lower_t": {
+          "exact": "1/8",
+          "float": 0.125
+        },
+        "exact_minimum_Q_on_K_m": {
+          "exact": "1/65",
+          "float": 0.015384615384615385
+        },
+        "normalized_L2_norm_squared": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "common_physical_support": "[-2,2]",
+        "certificate_verified": true
+      },
+      {
+        "compact_class_K_m_lower_t": {
+          "exact": "1/16",
+          "float": 0.0625
+        },
+        "exact_minimum_Q_on_K_m": {
+          "exact": "1/257",
+          "float": 0.0038910505836575876
+        },
+        "normalized_L2_norm_squared": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "common_physical_support": "[-2,2]",
+        "certificate_verified": true
+      },
+      {
+        "compact_class_K_m_lower_t": {
+          "exact": "1/32",
+          "float": 0.03125
+        },
+        "exact_minimum_Q_on_K_m": {
+          "exact": "1/1025",
+          "float": 0.000975609756097561
+        },
+        "normalized_L2_norm_squared": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "common_physical_support": "[-2,2]",
+        "certificate_verified": true
+      },
+      {
+        "compact_class_K_m_lower_t": {
+          "exact": "1/64",
+          "float": 0.015625
+        },
+        "exact_minimum_Q_on_K_m": {
+          "exact": "1/4097",
+          "float": 0.000244081034903588
+        },
+        "normalized_L2_norm_squared": {
+          "exact": "1",
+          "float": 1.0
+        },
+        "common_physical_support": "[-2,2]",
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "5e329477cb0a2f420f406b1b9f94483f36d9026bb1ef22542c31b68ac139cbb1",
+    "aggregate": {
+      "closure_zero_set_margin_criterion_proved": true,
+      "joint_tightness_plus_pointwise_positivity_uniform_margin_refuted": true,
+      "compact_exhaustion_classwise_margin_globalization_refuted": true,
+      "actual_weil_functional_zero_free_on_closure_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The counterfamily is an abstract real-even L2 family, not the actual normalized Guinand-Weil admissible class. It refutes only the logical promotion from joint tightness and pointwise or classwise positivity to a uniform margin; it does not show that the genuine Weil closure contains a zero-functional test.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Six exact rational compact-exhaustion margins; compactness and joint tightness of the infinite family are proved analytically, not inferred from the six rows.",
+  "logical_limit": "No zero-free separation is known for the closure of the actual normalized admissible Weil class, and no signed arithmetic-tail positivity theorem or RH zero exclusion follows.",
+  "route_decision": {
+    "discard": "joint tightness plus pointwise positivity, or positive margins on each compact exhaustion stage, as sufficient for one uniform positive Weil margin",
+    "parked": [],
+    "retain": "joint tightness together with an explicit zero-free separation theorem on the closure of the genuine normalized admissible class",
+    "next_single_lemma": "ZeroFreeClosureSeparationForNormalizedAdmissibleWeilFunctional"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T244",
+        "label": "JointPhysicalFrequencyTightnessCharacterizesL2Precompactness",
+        "status": "proved"
+      },
+      {
+        "id": "RH-N245",
+        "label": "JointTightnessAndPointwisePositivityImplyUniformPositiveMargin",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-T245",
+        "label": "ClosureZeroSetObstructionToUniformWeilMargin",
+        "status": "proved"
+      },
+      {
+        "id": "RH-OPEN245",
+        "label": "ZeroFreeClosureSeparationForNormalizedAdmissibleWeilFunctional",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T244",
+        "RH-T245"
+      ],
+      [
+        "RH-T244",
+        "RH-N245"
+      ],
+      [
+        "RH-N245",
+        "RH-T245"
+      ],
+      [
+        "RH-T245",
+        "RH-OPEN245"
+      ]
+    ]
+  },
+  "claim_boundary": "No RH proof or disproof; one exact compactness-to-margin promotion obstruction in a real-even L2 model."
+}

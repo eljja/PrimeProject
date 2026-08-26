@@ -155,12 +155,18 @@ class Ticket244JointTightnessHarmonicParityFoldPolylogMimicryTests(
                 encoding="utf-8"
             )
         )
-        self.assertEqual(state["ticket"], 244)
-        self.assertEqual(state["parent_ticket"], 243)
+        self.assertGreaterEqual(state["ticket"], 244)
         self.assertEqual(state["resolved_count"], 0)
         self.assertEqual(state["candidate_resolution_count"], 0)
         self.assertFalse(state["program_complete"])
-        self.assertEqual(state["deep_focus_problem"], "twin_prime")
+        retained = {
+            "riemann": "JointPhysicalFrequencyTightnessCharacterizesL2Precompactness",
+            "collatz": "FixedBaseBadLineHarmonicSumEquivalence",
+            "goldbach": "ExactParityArcFoldingForEvenBinaryGoldbach",
+            "twin_prime": "PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock",
+        }
+        for problem, theorem in retained.items():
+            self.assertIn(theorem, state["problems"][problem]["established_results"])
         self.assertTrue(
             all(problem["stagnation_count"] == 0 for problem in state["problems"].values())
         )

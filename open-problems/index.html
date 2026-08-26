@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260826-ticket244-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260826-ticket245-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,21 +31,21 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-244</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-245</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-244 actually changed</h2>
-          <p>TICKET-244 did not solve a parent conjecture. It exactly characterizes joint physical-frequency compactness, rewrites the fixed-base Collatz bad line as a harmonic-sum identity, folds the odd-prime Goldbach arcs at 0 and 1/2, and proves a no-go for every pure periodic Twin classifier of fixed-polylogarithmic period.</p>
-          <p class="proof-boundary">TICKET-244는 상위 난제를 해결하지 않았습니다. RH의 joint tightness compactness gate, Collatz의 harmonic bad line, Goldbach의 parity folding을 부분정리로 확정하고, 고정 log 거듭제곱 이하 Twin periodic classifier 전체를 no-go로 닫았습니다. 유한 계산은 선언한 범위의 재현 증거일 뿐입니다.</p>
+          <h2>What TICKET-245 actually changed</h2>
+          <p>TICKET-245 did not solve a parent conjecture. It isolates the zero-set closure condition missing from a uniform Weil margin, derives exact second Fermat digits for the Collatz fixed bases, folds every rational Goldbach center by a Klein four symmetry, and proves polynomial-height false-positive mimicry for every globally reused periodic Twin classifier.</p>
+          <p class="proof-boundary">TICKET-245는 상위 난제를 해결하지 않았습니다. RH의 closure zero-set obstruction과 Twin의 Linnik 다항 높이 no-go를 확정하고, Collatz 2차 Fermat digit과 Goldbach Klein orbit 환원을 부분정리로 증명했습니다. 유한 계산은 선언한 범위의 재현 증거일 뿐입니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
-          <div><dt>Exact no-go results</dt><dd>1</dd></div>
-          <div><dt>Partial theorems</dt><dd>3</dd></div>
+          <div><dt>Exact no-go results</dt><dd>2</dd></div>
+          <div><dt>Partial theorems</dt><dd>2</dd></div>
           <div><dt>Resolution count</dt><dd>0</dd></div>
         </dl>
       </section>
@@ -55,58 +55,58 @@
           <header><span>01 · SIGNED CANCELLATION</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>JointPhysicalFrequencyTightnessCharacterizesL2Precompactness</code>: a bounded L2 family is relatively compact exactly when both physical and Fourier tails are uniformly tight.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Physical tightness alone fails, completing TICKET-243's one-sided frequency-tightness no-go.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformSignedGuinandWeilTailWithPositiveMarginOnExhaustiveJointlyTightAdmissibleClasses</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>ClosureZeroSetObstructionToUniformWeilMargin</code>: for a relatively compact family and continuous Q≥0, a uniform positive margin is equivalent to zero-free separation of its closure.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Joint tightness plus pointwise positivity, even with positive margins on every compact exhaustion stage, does not globalize to one positive margin.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ZeroFreeClosureSeparationForNormalizedAdmissibleWeilFunctional</code></dd></div>
           </dl>
-          <p class="workbench-ko">물리·주파수 tail을 함께 제어하는 것이 정확한 compactness gate입니다. 실제 admissible class의 exhaustion과 uniform signed Weil tail은 아직 열려 있습니다.</p>
+          <p class="workbench-ko">joint tightness와 점별 양성만으로는 uniform margin이 나오지 않습니다. 실제 admissible closure가 zero set을 피한다는 정리가 필요합니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · LOCAL LIFTING</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>FixedBaseBadLineHarmonicSumEquivalence</code>: 5Fq(2)=3Fq(3) is exactly 4H⌊q/3⌋=5H(q−1)/2 modulo q.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>No new route is retired; the identity is only the first q-adic layer and does not compare higher depths when both residues vanish.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>FixedBaseHarmonicBadLineNonvanishingForEveryPrime</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>SecondOrderFixedBaseFermatDigitCriterion</code>: the q³ depths of 32/27 and 2/3 are decided by exact congruences in U,V modulo q².</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>No new route is retired; zero bad-line rows through 20,000,000 remain bounded evidence only.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>FixedBaseAllPrimeRationalWieferichDepthDomination</code></dd></div>
           </dl>
-          <p class="workbench-ko">고정 밑 32/27의 첫 Wieferich line을 half/third harmonic prefix의 비소거 문제로 옮겼습니다. 전소수 비소거와 고차 valuation은 미해결입니다.</p>
+          <p class="workbench-ko">고정 밑 두 깊이의 q³ 판정을 2차 Fermat digit으로 정확히 내렸습니다. 전소수·전깊이 domination과 일반 Collatz 동역학은 미해결입니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED FOURIER PHASE</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>ExactParityArcFoldingForEvenBinaryGoldbach</code>: the odd-prime even-target integrand is exactly half-periodic and its coefficient equals the full-prime coefficient for N≥6.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The odd-prime arcs around 0 and 1/2 are exact translates and need not be treated as independent signed problems.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CompleteDenominatorAtLeastThreeMajorArcExtractionAndSignedResidualSavingAfterParityFolding</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>KleinFourOrbitReductionForEvenGoldbachArcs</code>: half-turn and reflection reduce every rational center to one representative in the quarter torus.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Four half-turn/reflection-related rational arcs need not be estimated as independent signed quantities.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>UniformRepresentativeArcAsymptoticAndSignedResidualSavingOnQuarterTorus</code></dd></div>
           </dl>
-          <p class="workbench-ko">odd-prime 합에서는 0과 1/2 arc가 정확히 folding됩니다. 분모 3 이상 major arc와 signed residual saving은 여전히 필요합니다.</p>
+          <p class="workbench-ko">모든 유리 중심을 Klein orbit으로 묶어 quarter torus 대표 하나로 줄였습니다. 대표 arc 추정과 signed residual saving은 남습니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PARITY-SENSITIVE TRANSFER</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock</code>: every M(X)≤(log X)^A periodic fingerprint has a prime/composite-successor mimic in all sufficiently large dyadic blocks.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Every pure periodic classifier bounded by a fixed logarithmic power fails, even when its period and accepted residue vary with scale.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>SuperPolylogarithmicScaleLocalTypeIICancellationForShiftTwoLambdaWithPositivePrimeMass</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>PolynomialHeightPeriodicMimicryFromLinnik</code>: every fixed admissible M-periodic feature has a prime/composite-successor mimic below C M^(3L).</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>A fixed pure periodic classifier cannot remain globally prefix-sound beyond every polynomial height in its period.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ScaleLocalNonperiodicTypeIICancellationBeyondPeriodicHeightBarriers</code></dd></div>
           </dl>
-          <p class="workbench-ko">고정 log 거듭제곱까지 증가하는 주기도 충분히 큰 모든 dyadic block에서 모방됩니다. superpolylog 또는 nonperiodic Type II 정보가 필요합니다.</p>
+          <p class="workbench-ko">고정 주기 분류기는 주기의 다항 높이 안에서 거짓 양성을 갖습니다. scale-local 비주기 Type-II 정보가 필요합니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>244 tickets reduced to four meaningful eras</h2>
+          <h2>245 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–244 · Signed transfer barriers and route correction</strong><p>joint compactness, harmonic bad lines, parity folding, polylog periodic mimicry의 한계를 분리해 다음 무한 추정의 정확한 대상을 다시 설정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–245 · Signed transfer barriers and route correction</strong><p>closure margin, higher Fermat digits, rational-arc orbits, periodic-height mimicry의 한계를 분리해 다음 무한 추정의 정확한 대상을 다시 설정했습니다.</p></li>
         </ol>
       </section>
 
@@ -116,6 +116,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/closure-second-order-klein-linnik.ko.md">TICKET-245 한국어 보고서</a>
+          <a href="../docs/closure-second-order-klein-linnik.md">TICKET-245 English report</a>
+          <a href="../data/open-problem/ticket245-closure-second-order-klein-linnik.json">TICKET-245 machine JSON</a>
           <a href="../docs/joint-tightness-harmonic-parity-fold-polylog-mimicry.ko.md">TICKET-244 한국어 보고서</a>
           <a href="../docs/joint-tightness-harmonic-parity-fold-polylog-mimicry.md">TICKET-244 English report</a>
           <a href="../data/open-problem/ticket244-joint-tightness-harmonic-parity-fold-polylog-mimicry.json">TICKET-244 machine JSON</a>
@@ -216,7 +219,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260826-ticket244"></script>
+    <script src="../assets/i18n.js?v=20260826-ticket245"></script>
   </body>
 </html>
 

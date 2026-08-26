@@ -8779,3 +8779,27 @@ eight focused tests, bilingual proof, proof DAGs, and persistent state are linke
 from
 `data/open-problem/ticket244-joint-tightness-harmonic-parity-fold-polylog-mimicry.json`.
 All four conjectures remain `open_not_proven`.
+
+## TICKET-245 continuation: closure margins, second Fermat digits, Klein arc orbits, and Linnik-height mimicry
+
+TICKET-245 attacks the four TICKET-244 successors and closes four strictly
+bounded statements without resolving a parent conjecture.
+
+| Track | Exact theorem now closed | Route discarded or retained | Next single lemma |
+|---|---|---|---|
+| RH | `ClosureZeroSetObstructionToUniformWeilMargin` | discard joint-tightness plus pointwise/classwise positivity without closure separation | `ZeroFreeClosureSeparationForNormalizedAdmissibleWeilFunctional` |
+| Collatz | `SecondOrderFixedBaseFermatDigitCriterion` | retain exact fixed-base higher-digit analysis; finite nonoccurrence is not a theorem | `FixedBaseAllPrimeRationalWieferichDepthDomination` |
+| Goldbach | `KleinFourOrbitReductionForEvenGoldbachArcs` | discard independent estimation of four symmetry-related rational arcs | `UniformRepresentativeArcAsymptoticAndSignedResidualSavingOnQuarterTorus` |
+| Twin | `PolynomialHeightPeriodicMimicryFromLinnik` | discard a fixed periodic classifier sound beyond every polynomial height | `ScaleLocalNonperiodicTypeIICancellationBeyondPeriodicHeightBarriers` |
+
+The deep-focus Twin theorem fixes `M,a,F` before using two Bertrand primes,
+CRT, and Linnik's least-prime theorem. It gives no prescribed-dyadic-block
+uniformity for a changing modulus. The Collatz scan covers 1,270,604 primes
+through twenty million, but it is adversarial finite evidence only. All four
+proof DAGs have one open frontier, and all parent conjectures remain
+`open_not_proven`.
+
+Machine artifact:
+`data/open-problem/ticket245-closure-second-order-klein-linnik.json`.
+Reports: [English](closure-second-order-klein-linnik.md) and
+[한국어](closure-second-order-klein-linnik.ko.md).

@@ -1,0 +1,734 @@
+{
+  "schema": "primeproject.ticket245-closure-second-order-klein-linnik.v1",
+  "generated_at": "2026-08-26T11:30:00+09:00",
+  "status": "open_not_proven",
+  "iteration_complete": true,
+  "program_complete": false,
+  "closure_second_order_klein_linnik_audit": {
+    "theorem_name": "FourConjectureClosureSecondOrderKleinLinnikAudit",
+    "summary": "TICKET-245 proves two partial theorems and two exact route no-go theorems while leaving all four parent conjectures open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-245",
+      "theorem_name": "ClosureZeroSetObstructionToUniformWeilMargin",
+      "declared_proposition": "Let e0=2^(-1/2)1_[-1,1] and e1=2^(-1/2)1_([-2,-1] union [1,2]) in real-even L2(R). For 0<t<=1 put f_t=(t e0+e1)/sqrt(1+t^2), K={f_t:0<t<=1}, and Q(f)=|<f,e0>|^2. Then K is bounded, relatively compact, and jointly tight in physical and Fourier space; Q is continuous and Q(f)>0 for every f in K, but inf_K Q=0. The compact classes K_m={f_t:1/m<=t<=1} exhaust K and min_(K_m)Q=1/(m^2+1). More generally, for every nonempty relatively compact K and continuous Q>=0, inf_K Q>0 if and only if closure(K) is disjoint from Q^(-1)(0).",
+      "mathematical_argument": "The two displayed indicator functions are normalized, real-even, orthogonal, and supported in [-2,2]. The map t->f_t extends continuously to [0,1], so closure(K)={f_t:0<=t<=1} is compact. TICKET-244 therefore gives joint physical-frequency tightness (it also follows directly from the fixed two-dimensional span). Orthogonality gives Q(f_t)=t^2/(1+t^2), which is positive for t>0, has infimum zero, and has minimum 1/(m^2+1) on K_m. For the general statement, continuity extends an infimum-zero sequence to a zero at a convergent subsequence in closure(K); conversely a zero in the closure is approached from K. If the compact closure avoids the closed zero set, Q attains a strictly positive minimum. Thus compactness plus pointwise positivity on a nonclosed exhaustive family cannot supply a uniform positive margin.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let e0=2^(-1/2)1_[-1,1] and e1=2^(-1/2)1_([-2,-1] union [1,2]) in real-even L2(R). For 0<t<=1 put f_t=(t e0+e1)/sqrt(1+t^2), K={f_t:0<t<=1}, and Q(f)=|<f,e0>|^2. Then K is bounded, relatively compact, and jointly tight in physical and Fourier space; Q is continuous and Q(f)>0 for every f in K, but inf_K Q=0. The compact classes K_m={f_t:1/m<=t<=1} exhaust K and min_(K_m)Q=1/(m^2+1). More generally, for every nonempty relatively compact K and continuous Q>=0, inf_K Q>0 if and only if closure(K) is disjoint from Q^(-1)(0).",
+        "proof": "The two displayed indicator functions are normalized, real-even, orthogonal, and supported in [-2,2]. The map t->f_t extends continuously to [0,1], so closure(K)={f_t:0<=t<=1} is compact. TICKET-244 therefore gives joint physical-frequency tightness (it also follows directly from the fixed two-dimensional span). Orthogonality gives Q(f_t)=t^2/(1+t^2), which is positive for t>0, has infimum zero, and has minimum 1/(m^2+1) on K_m. For the general statement, continuity extends an infimum-zero sequence to a zero at a convergent subsequence in closure(K); conversely a zero in the closure is approached from K. If the compact closure avoids the closed zero set, Q attains a strictly positive minimum. Thus compactness plus pointwise positivity on a nonclosed exhaustive family cannot supply a uniform positive margin.",
+        "exact_exhaustion_margin_rows": [
+          {
+            "compact_class_K_m_lower_t": {
+              "exact": "1/2",
+              "float": 0.5
+            },
+            "exact_minimum_Q_on_K_m": {
+              "exact": "1/5",
+              "float": 0.2
+            },
+            "normalized_L2_norm_squared": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "common_physical_support": "[-2,2]",
+            "certificate_verified": true
+          },
+          {
+            "compact_class_K_m_lower_t": {
+              "exact": "1/4",
+              "float": 0.25
+            },
+            "exact_minimum_Q_on_K_m": {
+              "exact": "1/17",
+              "float": 0.058823529411764705
+            },
+            "normalized_L2_norm_squared": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "common_physical_support": "[-2,2]",
+            "certificate_verified": true
+          },
+          {
+            "compact_class_K_m_lower_t": {
+              "exact": "1/8",
+              "float": 0.125
+            },
+            "exact_minimum_Q_on_K_m": {
+              "exact": "1/65",
+              "float": 0.015384615384615385
+            },
+            "normalized_L2_norm_squared": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "common_physical_support": "[-2,2]",
+            "certificate_verified": true
+          },
+          {
+            "compact_class_K_m_lower_t": {
+              "exact": "1/16",
+              "float": 0.0625
+            },
+            "exact_minimum_Q_on_K_m": {
+              "exact": "1/257",
+              "float": 0.0038910505836575876
+            },
+            "normalized_L2_norm_squared": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "common_physical_support": "[-2,2]",
+            "certificate_verified": true
+          },
+          {
+            "compact_class_K_m_lower_t": {
+              "exact": "1/32",
+              "float": 0.03125
+            },
+            "exact_minimum_Q_on_K_m": {
+              "exact": "1/1025",
+              "float": 0.000975609756097561
+            },
+            "normalized_L2_norm_squared": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "common_physical_support": "[-2,2]",
+            "certificate_verified": true
+          },
+          {
+            "compact_class_K_m_lower_t": {
+              "exact": "1/64",
+              "float": 0.015625
+            },
+            "exact_minimum_Q_on_K_m": {
+              "exact": "1/4097",
+              "float": 0.000244081034903588
+            },
+            "normalized_L2_norm_squared": {
+              "exact": "1",
+              "float": 1.0
+            },
+            "common_physical_support": "[-2,2]",
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "5e329477cb0a2f420f406b1b9f94483f36d9026bb1ef22542c31b68ac139cbb1",
+        "aggregate": {
+          "closure_zero_set_margin_criterion_proved": true,
+          "joint_tightness_plus_pointwise_positivity_uniform_margin_refuted": true,
+          "compact_exhaustion_classwise_margin_globalization_refuted": true,
+          "actual_weil_functional_zero_free_on_closure_proved": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "no_go_scope": "The counterfamily is an abstract real-even L2 family, not the actual normalized Guinand-Weil admissible class. It refutes only the logical promotion from joint tightness and pointwise or classwise positivity to a uniform margin; it does not show that the genuine Weil closure contains a zero-functional test.",
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Six exact rational compact-exhaustion margins; compactness and joint tightness of the infinite family are proved analytically, not inferred from the six rows.",
+      "logical_limit": "No zero-free separation is known for the closure of the actual normalized admissible Weil class, and no signed arithmetic-tail positivity theorem or RH zero exclusion follows.",
+      "route_decision": {
+        "discard": "joint tightness plus pointwise positivity, or positive margins on each compact exhaustion stage, as sufficient for one uniform positive Weil margin",
+        "parked": [],
+        "retain": "joint tightness together with an explicit zero-free separation theorem on the closure of the genuine normalized admissible class",
+        "next_single_lemma": "ZeroFreeClosureSeparationForNormalizedAdmissibleWeilFunctional"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T244",
+            "label": "JointPhysicalFrequencyTightnessCharacterizesL2Precompactness",
+            "status": "proved"
+          },
+          {
+            "id": "RH-N245",
+            "label": "JointTightnessAndPointwisePositivityImplyUniformPositiveMargin",
+            "status": "disproved"
+          },
+          {
+            "id": "RH-T245",
+            "label": "ClosureZeroSetObstructionToUniformWeilMargin",
+            "status": "proved"
+          },
+          {
+            "id": "RH-OPEN245",
+            "label": "ZeroFreeClosureSeparationForNormalizedAdmissibleWeilFunctional",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T244",
+            "RH-T245"
+          ],
+          [
+            "RH-T244",
+            "RH-N245"
+          ],
+          [
+            "RH-N245",
+            "RH-T245"
+          ],
+          [
+            "RH-T245",
+            "RH-OPEN245"
+          ]
+        ]
+      },
+      "claim_boundary": "No RH proof or disproof; one exact compactness-to-margin promotion obstruction in a real-even L2 model."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-245",
+      "theorem_name": "SecondOrderFixedBaseFermatDigitCriterion",
+      "declared_proposition": "For every prime q>5 define the integer Fermat quotients U=(2^(q-1)-1)/q and V=(3^(q-1)-1)/q, read modulo q^2. Then q^3 divides 32^(q-1)-27^(q-1) if and only if 5U-3V+q(10U^2-3V^2)=0 modulo q^2, while q^3 divides 2^(q-1)-3^(q-1) if and only if U-V=0 modulo q^2. Reduction modulo q recovers the TICKET-244 first-layer bad and comparison lines. These are exact second-order digit criteria, not an all-prime nonvanishing theorem.",
+      "mathematical_argument": "Write 2^(q-1)=1+qU and 3^(q-1)=1+qV. Modulo q^3, the binomial theorem gives (1+qU)^5=1+5qU+10q^2U^2 and (1+qV)^3=1+3qV+3q^2V^2. Subtracting and dividing by q proves the first criterion. Direct subtraction of 1+qU and 1+qV proves the second. Only U,V modulo q^2 are needed. The computation checks both criteria against independent modular exponentiation modulo q^3.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "For every prime q>5 define the integer Fermat quotients U=(2^(q-1)-1)/q and V=(3^(q-1)-1)/q, read modulo q^2. Then q^3 divides 32^(q-1)-27^(q-1) if and only if 5U-3V+q(10U^2-3V^2)=0 modulo q^2, while q^3 divides 2^(q-1)-3^(q-1) if and only if U-V=0 modulo q^2. Reduction modulo q recovers the TICKET-244 first-layer bad and comparison lines. These are exact second-order digit criteria, not an all-prime nonvanishing theorem.",
+        "proof": "Write 2^(q-1)=1+qU and 3^(q-1)=1+qV. Modulo q^3, the binomial theorem gives (1+qU)^5=1+5qU+10q^2U^2 and (1+qV)^3=1+3qV+3q^2V^2. Subtracting and dividing by q proves the first criterion. Direct subtraction of 1+qU and 1+qV proves the second. Only U,V modulo q^2 are needed. The computation checks both criteria against independent modular exponentiation modulo q^3.",
+        "selected_exact_second_order_rows": [
+          {
+            "prime_q": 7,
+            "Qq2_mod_q_squared": 9,
+            "Qq3_mod_q_squared": 6,
+            "bad_line_first_layer": false,
+            "comparison_line_first_layer": false,
+            "bad_line_second_digit_mod_q_squared": 41,
+            "comparison_second_digit_mod_q_squared": 3,
+            "q_cubed_divides_32_power_minus_27_power": false,
+            "q_cubed_divides_2_power_minus_3_power": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "Qq2_mod_q_squared": 385,
+            "Qq3_mod_q_squared": 270,
+            "bad_line_first_layer": false,
+            "comparison_line_first_layer": true,
+            "bad_line_second_digit_mod_q_squared": 34,
+            "comparison_second_digit_mod_q_squared": 115,
+            "q_cubed_divides_32_power_minus_27_power": false,
+            "q_cubed_divides_2_power_minus_3_power": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 109,
+            "Qq2_mod_q_squared": 6280,
+            "Qq3_mod_q_squared": 9911,
+            "bad_line_first_layer": false,
+            "comparison_line_first_layer": false,
+            "bad_line_second_digit_mod_q_squared": 2539,
+            "comparison_second_digit_mod_q_squared": 8250,
+            "q_cubed_divides_32_power_minus_27_power": false,
+            "q_cubed_divides_2_power_minus_3_power": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 487,
+            "Qq2_mod_q_squared": 24435,
+            "Qq3_mod_q_squared": 235399,
+            "bad_line_first_layer": false,
+            "comparison_line_first_layer": false,
+            "bad_line_second_digit_mod_q_squared": 169854,
+            "comparison_second_digit_mod_q_squared": 26205,
+            "q_cubed_divides_32_power_minus_27_power": false,
+            "q_cubed_divides_2_power_minus_3_power": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 1009,
+            "Qq2_mod_q_squared": 888512,
+            "Qq3_mod_q_squared": 168437,
+            "bad_line_first_layer": false,
+            "comparison_line_first_layer": false,
+            "bad_line_second_digit_mod_q_squared": 300813,
+            "comparison_second_digit_mod_q_squared": 720075,
+            "q_cubed_divides_32_power_minus_27_power": false,
+            "q_cubed_divides_2_power_minus_3_power": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 10007,
+            "Qq2_mod_q_squared": 26337963,
+            "Qq3_mod_q_squared": 6117746,
+            "bad_line_first_layer": false,
+            "comparison_line_first_layer": false,
+            "bad_line_second_digit_mod_q_squared": 84236221,
+            "comparison_second_digit_mod_q_squared": 20220217,
+            "q_cubed_divides_32_power_minus_27_power": false,
+            "q_cubed_divides_2_power_minus_3_power": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 49999,
+            "Qq2_mod_q_squared": 95533204,
+            "Qq3_mod_q_squared": 2316266379,
+            "bad_line_first_layer": false,
+            "comparison_line_first_layer": false,
+            "bad_line_second_digit_mod_q_squared": 1818701083,
+            "comparison_second_digit_mod_q_squared": 279166826,
+            "q_cubed_divides_32_power_minus_27_power": false,
+            "q_cubed_divides_2_power_minus_3_power": false,
+            "certificate_verified": true
+          }
+        ],
+        "adversarial_first_layer_scan": {
+          "prime_limit": 20000000,
+          "primes_scanned": 1270604,
+          "bad_line_prime_count": 0,
+          "bad_line_primes": [],
+          "comparison_line_prime_count": 1,
+          "comparison_line_primes": [
+            23
+          ]
+        },
+        "second_order_replay": {
+          "prime_limit": 50000,
+          "primes_scanned": 5130,
+          "q_cubed_bad_line_prime_count": 0,
+          "q_cubed_bad_line_primes": [],
+          "q_cubed_comparison_prime_count": 0,
+          "q_cubed_comparison_primes": [],
+          "failure_count": 0
+        },
+        "transcript_sha256": "26b7da7bc74a887b9b954122bc61dfc4277277cbde99e063505e8d6ebbd1423f",
+        "aggregate": {
+          "exact_second_order_digit_criteria_proved": true,
+          "first_layer_bad_line_nonvanishing_through_finite_limit": true,
+          "all_prime_bad_line_nonvanishing_proved": false,
+          "all_depth_fixed_base_domination_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "no_go_scope": "No first-layer bad prime occurs in the bounded scan, so the scan does not exercise the actual bad branch and cannot prove it empty. The formula decides depth three once q is supplied but gives no uniform control at arbitrary depth and no statement about general Collatz trajectories or nontrivial cycles.",
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "The first layer is scanned for all 1,270,604 primes through 20,000,000; q^3 identities are replayed only through 50,000. Both use exact integer modular arithmetic, but neither finite boundary proves an all-prime statement.",
+      "logical_limit": "No all-prime argument excludes the first bad line, and the second-order formula does not control arbitrary q-adic depths or general Collatz dynamics.",
+      "route_decision": {
+        "discard": "none newly; the finite absence of bad-line primes is not promoted to an all-prime theorem",
+        "parked": [],
+        "retain": "exact higher q-adic digit formulas for the actual bases, while continuing adversarial search for a first bad-line prime",
+        "next_single_lemma": "FixedBaseAllPrimeRationalWieferichDepthDomination"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T244",
+            "label": "FixedBaseBadLineHarmonicSumEquivalence",
+            "status": "proved"
+          },
+          {
+            "id": "CO-T245",
+            "label": "SecondOrderFixedBaseFermatDigitCriterion",
+            "status": "proved"
+          },
+          {
+            "id": "CO-OPEN245",
+            "label": "FixedBaseAllPrimeRationalWieferichDepthDomination",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T244",
+            "CO-T245"
+          ],
+          [
+            "CO-T245",
+            "CO-OPEN245"
+          ]
+        ]
+      },
+      "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle; an exact q^3 criterion and bounded adversarial replay only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-245",
+      "theorem_name": "KleinFourOrbitReductionForEvenGoldbachArcs",
+      "declared_proposition": "Let O_X(alpha)=sum_(3<=p<=X) exp(2 pi i p alpha) and, for even N, I_(X,N)(alpha)=O_X(alpha)^2 exp(-2 pi i N alpha) on R/Z. Let h(alpha)=alpha+1/2 and r(alpha)=-alpha. Then I after h equals I, and I after r equals the complex conjugate of I. Consequently, for every measurable E whose four Klein images E,hE,rE,hrE are disjoint up to null sets, the signed integral over their union is exactly 4 Re integral_E I. Every rational center belongs to a Klein orbit with a representative in [0,1/4]; only the orbits of 0 and 1/4 have size two, and every other orbit has size four.",
+      "mathematical_argument": "TICKET-244 gives O_X(alpha+1/2)=-O_X(alpha), and even N removes the phase sign, proving h-invariance. Since O_X(-alpha) is the complex conjugate of O_X(alpha), the same is true for I under r. Haar measure is invariant under h and r, so the four integrals are J,J,conj(J),conj(J). Their sum is 4 Re J. The commuting involutions h and r form a Klein four-group. Folding first modulo h and then by reflection sends every center to [0,1/4]. Stabilizers occur only at alpha=0 modulo 1/2 or alpha=1/4 modulo 1/2, giving exactly the two size-two orbits.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let O_X(alpha)=sum_(3<=p<=X) exp(2 pi i p alpha) and, for even N, I_(X,N)(alpha)=O_X(alpha)^2 exp(-2 pi i N alpha) on R/Z. Let h(alpha)=alpha+1/2 and r(alpha)=-alpha. Then I after h equals I, and I after r equals the complex conjugate of I. Consequently, for every measurable E whose four Klein images E,hE,rE,hrE are disjoint up to null sets, the signed integral over their union is exactly 4 Re integral_E I. Every rational center belongs to a Klein orbit with a representative in [0,1/4]; only the orbits of 0 and 1/4 have size two, and every other orbit has size four.",
+        "proof": "TICKET-244 gives O_X(alpha+1/2)=-O_X(alpha), and even N removes the phase sign, proving h-invariance. Since O_X(-alpha) is the complex conjugate of O_X(alpha), the same is true for I under r. Haar measure is invariant under h and r, so the four integrals are J,J,conj(J),conj(J). Their sum is 4 Re J. The commuting involutions h and r form a Klein four-group. Folding first modulo h and then by reflection sends every center to [0,1/4]. Stabilizers occur only at alpha=0 modulo 1/2 or alpha=1/4 modulo 1/2, giving exactly the two size-two orbits.",
+        "exact_rational_center_orbit_rows": [
+          {
+            "seed_denominator_limit_Q": 8,
+            "reduced_rational_seed_count": 22,
+            "klein_closed_center_count": 32,
+            "canonical_quarter_torus_orbit_count": 9,
+            "orbit_size_two_count": 2,
+            "orbit_size_four_count": 7,
+            "maximum_denominator_after_half_turn": 14,
+            "certificate_verified": true
+          },
+          {
+            "seed_denominator_limit_Q": 16,
+            "reduced_rational_seed_count": 80,
+            "klein_closed_center_count": 116,
+            "canonical_quarter_torus_orbit_count": 30,
+            "orbit_size_two_count": 2,
+            "orbit_size_four_count": 28,
+            "maximum_denominator_after_half_turn": 30,
+            "certificate_verified": true
+          },
+          {
+            "seed_denominator_limit_Q": 32,
+            "reduced_rational_seed_count": 324,
+            "klein_closed_center_count": 488,
+            "canonical_quarter_torus_orbit_count": 123,
+            "orbit_size_two_count": 2,
+            "orbit_size_four_count": 121,
+            "maximum_denominator_after_half_turn": 62,
+            "certificate_verified": true
+          },
+          {
+            "seed_denominator_limit_Q": 64,
+            "reduced_rational_seed_count": 1260,
+            "klein_closed_center_count": 1872,
+            "canonical_quarter_torus_orbit_count": 469,
+            "orbit_size_two_count": 2,
+            "orbit_size_four_count": 467,
+            "maximum_denominator_after_half_turn": 126,
+            "certificate_verified": true
+          },
+          {
+            "seed_denominator_limit_Q": 128,
+            "reduced_rational_seed_count": 5022,
+            "klein_closed_center_count": 7524,
+            "canonical_quarter_torus_orbit_count": 1882,
+            "orbit_size_two_count": 2,
+            "orbit_size_four_count": 1880,
+            "maximum_denominator_after_half_turn": 254,
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "92774e213632ee5eb153236bafe3c0b03ec914994db4b4b668b22224c52d6639",
+        "aggregate": {
+          "klein_four_integrand_symmetry_proved": true,
+          "four_arc_signed_integral_reduction_proved": true,
+          "all_rational_centers_reduce_to_quarter_torus": true,
+          "representative_arc_asymptotic_proved": false,
+          "signed_residual_saving_proved": false,
+          "strong_goldbach_resolved": false
+        },
+        "no_go_scope": "The theorem removes duplicate signed analysis among symmetry-related arcs only. It neither estimates one representative arc nor proves that a chosen collection of neighborhoods is disjoint. Denominators may double under the half turn, and minor-arc cancellation and a uniform positive Goldbach lower bound remain open.",
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Five exact rational orbit enumerations for seed denominators through 128; they certify finite combinatorics, while the integral identity is an all-X, all-even-N algebraic theorem.",
+      "logical_limit": "Symmetry removes duplicate arcs but supplies no estimate on a canonical representative, no disjoint-width theorem, and no signed minor-arc saving or positive representation lower bound.",
+      "route_decision": {
+        "discard": "independent signed estimation of all four half-turn/reflection-related rational arcs",
+        "parked": [],
+        "retain": "one canonical representative per rational-center orbit on the quarter torus, followed by a uniform representative-arc asymptotic and signed residual estimate",
+        "next_single_lemma": "UniformRepresentativeArcAsymptoticAndSignedResidualSavingOnQuarterTorus"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T244",
+            "label": "ExactParityArcFoldingForEvenBinaryGoldbach",
+            "status": "proved"
+          },
+          {
+            "id": "GB-N245",
+            "label": "SymmetryRelatedRationalArcsRequireIndependentSignedEstimates",
+            "status": "disproved"
+          },
+          {
+            "id": "GB-T245",
+            "label": "KleinFourOrbitReductionForEvenGoldbachArcs",
+            "status": "proved"
+          },
+          {
+            "id": "GB-OPEN245",
+            "label": "UniformRepresentativeArcAsymptoticAndSignedResidualSavingOnQuarterTorus",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T244",
+            "GB-T245"
+          ],
+          [
+            "GB-T244",
+            "GB-N245"
+          ],
+          [
+            "GB-N245",
+            "GB-T245"
+          ],
+          [
+            "GB-T245",
+            "GB-OPEN245"
+          ]
+        ]
+      },
+      "claim_boundary": "No strong Goldbach proof or counterexample; an exact Klein-four signed integral reduction and finite rational-center orbit certificates only."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-245",
+      "theorem_name": "PolynomialHeightPeriodicMimicryFromLinnik",
+      "declared_proposition": "There are absolute constants C,L>0 such that for every integer M>=1, every residue a modulo M with gcd(a,M)=gcd(a+2,M)=1, and every feature F of (n,n+2) depending only on that pair modulo M, there is a prime p<=C M^(3L) with F(p,p+2)=F(a,a+2) but p+2 composite. Consequently, a globally prefix-sound pure M-periodic twin certificate that accepts an admissible class cannot remain sound through X>=C M^(3L); such a certificate through X must have M>(X/C)^(1/(3L)).",
+      "mathematical_argument": "For M>=2 choose primes M<ell_1<2M and 2M<ell_2<4M by Bertrand; use ell_1=3, ell_2=5 for M=1. CRT gives one reduced residue r modulo Q=M ell_1 ell_2 with r=a modulo M and r=-2 modulo both auxiliary primes. Here Q<8M^3 for M>=2. Linnik's theorem supplies an absolute C_0,L and a prime p congruent to r modulo Q with p<=C_0 Q^L; absorb 8^L and the M=1 case into C. Since p+2 is a positive multiple of ell_1 ell_2, it is composite. Congruence modulo M preserves F. The prefix lower bound is the contrapositive of the same statement.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "There are absolute constants C,L>0 such that for every integer M>=1, every residue a modulo M with gcd(a,M)=gcd(a+2,M)=1, and every feature F of (n,n+2) depending only on that pair modulo M, there is a prime p<=C M^(3L) with F(p,p+2)=F(a,a+2) but p+2 composite. Consequently, a globally prefix-sound pure M-periodic twin certificate that accepts an admissible class cannot remain sound through X>=C M^(3L); such a certificate through X must have M>(X/C)^(1/(3L)).",
+        "proof": "For M>=2 choose primes M<ell_1<2M and 2M<ell_2<4M by Bertrand; use ell_1=3, ell_2=5 for M=1. CRT gives one reduced residue r modulo Q=M ell_1 ell_2 with r=a modulo M and r=-2 modulo both auxiliary primes. Here Q<8M^3 for M>=2. Linnik's theorem supplies an absolute C_0,L and a prime p congruent to r modulo Q with p<=C_0 Q^L; absorb 8^L and the M=1 case into C. Since p+2 is a positive multiple of ell_1 ell_2, it is composite. Congruence modulo M preserves F. The prefix lower bound is the contrapositive of the same statement.",
+        "exact_polynomial_height_witness_rows": [
+          {
+            "period_M": 1,
+            "admissible_residue_a": 0,
+            "bertrand_prime_ell_1": 3,
+            "bertrand_prime_ell_2": 5,
+            "crt_residue": 13,
+            "crt_modulus_Q": 15,
+            "Q_less_than_8M_cubed": true,
+            "first_prime_in_crt_class": 13,
+            "forced_composite_successor": 15,
+            "successor_factorization": "3*5*1",
+            "certificate_verified": true
+          },
+          {
+            "period_M": 30,
+            "admissible_residue_a": 11,
+            "bertrand_prime_ell_1": 31,
+            "bertrand_prime_ell_2": 61,
+            "crt_residue": 24581,
+            "crt_modulus_Q": 56730,
+            "Q_less_than_8M_cubed": true,
+            "first_prime_in_crt_class": 138041,
+            "forced_composite_successor": 138043,
+            "successor_factorization": "31*61*73",
+            "certificate_verified": true
+          },
+          {
+            "period_M": 210,
+            "admissible_residue_a": 11,
+            "bertrand_prime_ell_1": 211,
+            "bertrand_prime_ell_2": 421,
+            "crt_residue": 1154801,
+            "crt_modulus_Q": 18654510,
+            "Q_less_than_8M_cubed": true,
+            "first_prime_in_crt_class": 19809311,
+            "forced_composite_successor": 19809313,
+            "successor_factorization": "211*421*223",
+            "certificate_verified": true
+          },
+          {
+            "period_M": 2310,
+            "admissible_residue_a": 17,
+            "bertrand_prime_ell_1": 2311,
+            "bertrand_prime_ell_2": 4621,
+            "crt_residue": 202903487,
+            "crt_modulus_Q": 24668792610,
+            "Q_less_than_8M_cubed": true,
+            "first_prime_in_crt_class": 271559622197,
+            "forced_composite_successor": 271559622199,
+            "successor_factorization": "2311*4621*25429",
+            "certificate_verified": true
+          },
+          {
+            "period_M": 30030,
+            "admissible_residue_a": 17,
+            "bertrand_prime_ell_1": 30047,
+            "bertrand_prime_ell_2": 60077,
+            "crt_residue": 23071412784437,
+            "crt_modulus_Q": 54208162578570,
+            "Q_less_than_8M_cubed": true,
+            "first_prime_in_crt_class": 239904063098717,
+            "forced_composite_successor": 239904063098719,
+            "successor_factorization": "30047*60077*132901",
+            "certificate_verified": true
+          }
+        ],
+        "transcript_sha256": "9c40a7487d40b111bb2e9ebc9c4bc9cbcf4edaf9ed73d931632d5df78bd32e98",
+        "aggregate": {
+          "polynomial_height_periodic_mimicry_proved": true,
+          "global_prefix_period_lower_bound_proved": true,
+          "scale_local_superpolylog_classifier_refuted": false,
+          "nonperiodic_type_ii_cancellation_proved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "no_go_scope": "The Linnik bound concerns a fixed globally reused period and an initial interval. It does not place the mimic in a prescribed dyadic block when M changes with that block, and it says nothing about nonperiodic features or signed Type-I/II Lambda correlation.",
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "Five exact CRT/primality/factorization witnesses; the universal polynomial-height conclusion depends on Bertrand's postulate and Linnik's theorem, not on these rows.",
+      "logical_limit": "The theorem gives a polynomial height bound for each fixed global period but does not handle a period chosen anew for a prescribed dyadic block or any nonperiodic Type-I/II structure.",
+      "route_decision": {
+        "discard": "a fixed pure periodic twin classifier remaining globally prefix-sound beyond every polynomial height in its period",
+        "parked": [],
+        "retain": "scale-local nonperiodic parity-breaking information and signed Type-II Lambda cancellation",
+        "next_single_lemma": "ScaleLocalNonperiodicTypeIICancellationBeyondPeriodicHeightBarriers"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T244",
+            "label": "PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock",
+            "status": "proved"
+          },
+          {
+            "id": "TP-EXT245-2",
+            "label": "Linnik's least-prime theorem",
+            "status": "external_theorem"
+          },
+          {
+            "id": "TP-EXT245-1",
+            "label": "Bertrand's postulate",
+            "status": "external_theorem"
+          },
+          {
+            "id": "TP-N245",
+            "label": "FixedPeriodicTwinClassifierCanRemainSoundBeyondEveryPolynomialInItsPeriod",
+            "status": "disproved"
+          },
+          {
+            "id": "TP-T245",
+            "label": "PolynomialHeightPeriodicMimicryFromLinnik",
+            "status": "proved"
+          },
+          {
+            "id": "TP-OPEN245",
+            "label": "ScaleLocalNonperiodicTypeIICancellationBeyondPeriodicHeightBarriers",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T244",
+            "TP-T245"
+          ],
+          [
+            "TP-EXT245-2",
+            "TP-T245"
+          ],
+          [
+            "TP-EXT245-1",
+            "TP-T245"
+          ],
+          [
+            "TP-T244",
+            "TP-N245"
+          ],
+          [
+            "TP-N245",
+            "TP-T245"
+          ],
+          [
+            "TP-T245",
+            "TP-OPEN245"
+          ]
+        ]
+      },
+      "claim_boundary": "No proof of infinitely many twin primes and no counterexample to the conjecture; one quantitative no-go for globally reused periodic certificates."
+    },
+    "research_baselines": {
+      "riemann_status": "https://www.claymath.org/millennium/Riemann-Hypothesis/",
+      "compactness": "https://arxiv.org/abs/2204.14237",
+      "fermat_quotients": "https://arxiv.org/abs/1110.3113",
+      "collatz": "https://arxiv.org/abs/1909.03562",
+      "goldbach_major_arcs": "https://arxiv.org/abs/1205.5252",
+      "linnik": "https://arxiv.org/abs/0906.2749",
+      "twin_prime_parity": "https://arxiv.org/abs/1407.4897"
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_partial_theorem_count": 2,
+      "exact_no_go_count": 2,
+      "candidate_resolution_count": 0,
+      "conjecture_resolution_count": 0,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "deep_focus_problem": "twin_prime",
+      "stagnated_problem_count": 0,
+      "first_layer_scan_limit": 20000000,
+      "second_order_scan_limit": 50000,
+      "farey_denominator_limit": 128,
+      "twin_witness_count": 5,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-245",
+      "declared_proposition": "Let e0=2^(-1/2)1_[-1,1] and e1=2^(-1/2)1_([-2,-1] union [1,2]) in real-even L2(R). For 0<t<=1 put f_t=(t e0+e1)/sqrt(1+t^2), K={f_t:0<t<=1}, and Q(f)=|<f,e0>|^2. Then K is bounded, relatively compact, and jointly tight in physical and Fourier space; Q is continuous and Q(f)>0 for every f in K, but inf_K Q=0. The compact classes K_m={f_t:1/m<=t<=1} exhaust K and min_(K_m)Q=1/(m^2+1). More generally, for every nonempty relatively compact K and continuous Q>=0, inf_K Q>0 if and only if closure(K) is disjoint from Q^(-1)(0).",
+      "new_result": "ClosureZeroSetObstructionToUniformWeilMargin",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/closure_second_order_klein_linnik_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "joint tightness plus pointwise positivity, or positive margins on each compact exhaustion stage, as sufficient for one uniform positive Weil margin",
+      "parked_routes": [],
+      "remaining_gap": "No zero-free separation is known for the closure of the actual normalized admissible Weil class, and no signed arithmetic-tail positivity theorem or RH zero exclusion follows.",
+      "stagnation_count": 0,
+      "candidate_theorem": "ZeroFreeClosureSeparationForNormalizedAdmissibleWeilFunctional"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-245",
+      "declared_proposition": "For every prime q>5 define the integer Fermat quotients U=(2^(q-1)-1)/q and V=(3^(q-1)-1)/q, read modulo q^2. Then q^3 divides 32^(q-1)-27^(q-1) if and only if 5U-3V+q(10U^2-3V^2)=0 modulo q^2, while q^3 divides 2^(q-1)-3^(q-1) if and only if U-V=0 modulo q^2. Reduction modulo q recovers the TICKET-244 first-layer bad and comparison lines. These are exact second-order digit criteria, not an all-prime nonvanishing theorem.",
+      "new_result": "SecondOrderFixedBaseFermatDigitCriterion",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/closure_second_order_klein_linnik_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "none newly; the finite absence of bad-line primes is not promoted to an all-prime theorem",
+      "parked_routes": [],
+      "remaining_gap": "No all-prime argument excludes the first bad line, and the second-order formula does not control arbitrary q-adic depths or general Collatz dynamics.",
+      "stagnation_count": 0,
+      "candidate_theorem": "FixedBaseAllPrimeRationalWieferichDepthDomination"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-245",
+      "declared_proposition": "Let O_X(alpha)=sum_(3<=p<=X) exp(2 pi i p alpha) and, for even N, I_(X,N)(alpha)=O_X(alpha)^2 exp(-2 pi i N alpha) on R/Z. Let h(alpha)=alpha+1/2 and r(alpha)=-alpha. Then I after h equals I, and I after r equals the complex conjugate of I. Consequently, for every measurable E whose four Klein images E,hE,rE,hrE are disjoint up to null sets, the signed integral over their union is exactly 4 Re integral_E I. Every rational center belongs to a Klein orbit with a representative in [0,1/4]; only the orbits of 0 and 1/4 have size two, and every other orbit has size four.",
+      "new_result": "KleinFourOrbitReductionForEvenGoldbachArcs",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/closure_second_order_klein_linnik_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "independent signed estimation of all four half-turn/reflection-related rational arcs",
+      "parked_routes": [],
+      "remaining_gap": "Symmetry removes duplicate arcs but supplies no estimate on a canonical representative, no disjoint-width theorem, and no signed minor-arc saving or positive representation lower bound.",
+      "stagnation_count": 0,
+      "candidate_theorem": "UniformRepresentativeArcAsymptoticAndSignedResidualSavingOnQuarterTorus"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-245",
+      "declared_proposition": "There are absolute constants C,L>0 such that for every integer M>=1, every residue a modulo M with gcd(a,M)=gcd(a+2,M)=1, and every feature F of (n,n+2) depending only on that pair modulo M, there is a prime p<=C M^(3L) with F(p,p+2)=F(a,a+2) but p+2 composite. Consequently, a globally prefix-sound pure M-periodic twin certificate that accepts an admissible class cannot remain sound through X>=C M^(3L); such a certificate through X must have M>(X/C)^(1/(3L)).",
+      "new_result": "PolynomialHeightPeriodicMimicryFromLinnik",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/closure_second_order_klein_linnik_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "a fixed pure periodic twin classifier remaining globally prefix-sound beyond every polynomial height in its period",
+      "parked_routes": [],
+      "remaining_gap": "The theorem gives a polynomial height bound for each fixed global period but does not handle a period chosen anew for a prescribed dyadic block or any nonperiodic Type-I/II structure.",
+      "stagnation_count": 0,
+      "candidate_theorem": "ScaleLocalNonperiodicTypeIICancellationBeyondPeriodicHeightBarriers"
+    }
+  ]
+}

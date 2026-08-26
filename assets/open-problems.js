@@ -41,6 +41,7 @@ let ticket156AttemptGlobal = null;
 let ticket157AttemptGlobal = null;
 let ticket236AttemptGlobal = null;
 let ticket237AttemptGlobal = null;
+let ticket245AttemptGlobal = null;
 let ticket244AttemptGlobal = null;
 let ticket243AttemptGlobal = null;
 let ticket242AttemptGlobal = null;
@@ -18035,7 +18036,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket244JointTightnessHarmonicParityFoldPolylogMimicry(ticket244AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket245ClosureSecondOrderKleinLinnik(ticket245AttemptGlobal) ||
+      renderTicket244JointTightnessHarmonicParityFoldPolylogMimicry(ticket244AttemptGlobal) ||
       renderTicket243BandlimitPrincipalUnitHalfArcDyadicMimicry(ticket243AttemptGlobal) ||
       renderTicket242QuantifierOrderParsevalDiagonalCRT(ticket242AttemptGlobal) ||
       renderTicket241FiniteInformationCanonicalErrors(ticket241AttemptGlobal) ||
@@ -18599,6 +18601,26 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+
+async function loadTicket245Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket245-closure-second-order-klein-linnik.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket245AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket245AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket245AttemptGlobal) {
+      ticket245AttemptGlobal.bounded_result = ticket245AttemptGlobal.bounded_result || {};
+      ticket245AttemptGlobal.bounded_result.closure_second_order_klein_linnik_audit = payload.closure_second_order_klein_linnik_audit || {};
+    }
+    return Boolean(ticket245AttemptGlobal);
+  } catch (_error) {
+    ticket245AttemptGlobal = null;
     return false;
   }
 }
@@ -20669,6 +20691,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket245Loaded = await loadTicket245Attempt();
   const ticket244Loaded = await loadTicket244Attempt();
   const ticket243Loaded = await loadTicket243Attempt();
   const ticket242Loaded = await loadTicket242Attempt();
@@ -20695,7 +20718,7 @@ async function main() {
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket244-current";
+  document.documentElement.dataset.openProblemCache = "ticket245-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -20751,6 +20774,10 @@ async function main() {
   if (!ticket244Loaded || !ticket243Loaded || !ticket242Loaded || !ticket241Loaded || !ticket240Loaded || !ticket239Loaded || !ticket238Loaded || !ticket237Loaded || !ticket236Loaded || !ticket235Loaded || !ticket234Loaded || !ticket233Loaded || !ticket232Loaded || !ticket231Loaded || !ticket230Loaded || !ticket229Loaded || !ticket228Loaded || !ticket227Loaded || !ticket226Loaded || !ticket225Loaded || !ticket224Loaded || !ticket223Loaded || !ticket222Loaded || !ticket221Loaded || !ticket220Loaded || !ticket219Loaded || !ticket218Loaded || !ticket217Loaded || !ticket216Loaded || !ticket215Loaded || !ticket214Loaded || !ticket213Loaded || !ticket212Loaded || !ticket211Loaded || !ticket210Loaded || !ticket209Loaded || !ticket208Loaded || !ticket207Loaded || !ticket206Loaded || !ticket205Loaded || !ticket204Loaded || !ticket203Loaded || !ticket202Loaded || !ticket201Loaded || !ticket200Loaded || !ticket199Loaded || !ticket198Loaded || !ticket197Loaded || !ticket196Loaded || !ticket195Loaded || !ticket194Loaded || !ticket193Loaded || !ticket192Loaded || !ticket191Loaded || !ticket190Loaded || !ticket189Loaded || !ticket188Loaded || !ticket187Loaded || !ticket186Loaded || !ticket185Loaded || !ticket184Loaded || !ticket183Loaded || !ticket182Loaded || !ticket181Loaded || !ticket180Loaded || !ticket179Loaded || !ticket178Loaded || !ticket177Loaded || !ticket176Loaded || !ticket175Loaded || !ticket174Loaded || !ticket173Loaded || !ticket172Loaded || !ticket171Loaded || !ticket170Loaded || !ticket169Loaded || priorityLoads.some((loaded) => !loaded)) {
     await new Promise((resolve) => setTimeout(resolve, 250));
     if (!ticket244AttemptGlobal) await loadTicket244Attempt();
+  if (!ticket245Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket245AttemptGlobal) await loadTicket245Attempt();
+  }
     if (!ticket243AttemptGlobal) await loadTicket243Attempt();
     if (!ticket242AttemptGlobal) await loadTicket242Attempt();
     if (!ticket241AttemptGlobal) await loadTicket241Attempt();
@@ -20872,7 +20899,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket244-current";
+  document.documentElement.dataset.openProblemCache = "ticket245-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

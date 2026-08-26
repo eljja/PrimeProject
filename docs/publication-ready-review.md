@@ -454,3 +454,24 @@ wording includes any parent-conjecture proof/disproof, any promotion of the
 2,259-prime or 8,290-target replays to an infinite result, and any claim that the
 first Collatz harmonic layer controls higher q-adic depth. Resolution and
 candidate-resolution counts are both zero.
+
+## TICKET-245 publication boundary
+
+TICKET-245 adds two partial theorems and two exact route no-go theorems:
+
+- joint tightness plus pointwise or compact-stage positivity does not imply a
+  uniform Weil margin unless the compact closure avoids the functional zero set;
+- exact second Fermat digits decide the fixed Collatz rational depths at
+  `q^3`, while all-prime and arbitrary-depth domination remain open;
+- half-turn and reflection reduce every rational Goldbach center to a
+  quarter-torus Klein-orbit representative, without estimating that representative;
+- Linnik's theorem gives a prime/composite-successor mimic below polynomial
+  height for every fixed globally reused periodic Twin feature.
+
+Allowed public wording is `exact_no_go` for the specified RH margin-promotion
+and Twin fixed-period prefix routes and `partial_theorem` for the Collatz and
+Goldbach reductions. Blocked wording includes any parent-conjecture
+proof/disproof, promotion of the twenty-million-prime scan to an all-prime
+statement, a claim that rational-center folding estimates major arcs, or a
+claim that the Linnik theorem handles a changing modulus in a prescribed
+scale-local dyadic block. Resolution and candidate-resolution counts are zero.

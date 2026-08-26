@@ -69,6 +69,11 @@ jobs:
           python scripts/verify_ticket244_structure.py
 
 
+      - name: Unit and structure check TICKET-245
+        run: |
+          python -m unittest tests.test_ticket245_closure_second_order_klein_linnik
+          python scripts/verify_ticket245_structure.py
+
       - name: Verify open problem structure
         run: python scripts/verify_open_problem_structure.py
 

@@ -31,16 +31,16 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-244: Joint Tightness, Harmonic Bad Lines, Parity Folding, and Polylog Mimicry](docs/joint-tightness-harmonic-parity-fold-polylog-mimicry.md),
-with a separate [Korean report](docs/joint-tightness-harmonic-parity-fold-polylog-mimicry.ko.md).
-It proves three partial theorems and one exact route no-go: joint physical-
-frequency tails exactly characterize bounded-L2 relative compactness; the
-fixed-base Collatz first bad line is an exact harmonic-prefix identity; the
-odd-prime even-target Goldbach coefficient folds across a half-turn; and every
-pure periodic Twin classifier bounded by a fixed logarithmic power has
-prime/composite-successor mimics in all sufficiently large dyadic blocks.
-The 2,259-prime harmonic replay, 8,290 even-target checks, and four finite Twin
-witnesses are bounded evidence only. All four parent conjectures remain
+[TICKET-245: Closure Margins, Second Fermat Digits, Klein Arc Orbits, and Linnik-Height Mimicry](docs/closure-second-order-klein-linnik.md),
+with a separate [Korean report](docs/closure-second-order-klein-linnik.ko.md).
+It proves two partial theorems and two exact route no-gos. Joint tightness plus
+pointwise positivity does not imply a uniform Weil margin without zero-free
+closure separation. Exact second Fermat digits decide the fixed Collatz depths
+at q cubed. Half-turn and reflection fold all rational Goldbach centers into
+quarter-torus orbits. Linnik's theorem bounds a false positive for every fixed
+periodic Twin feature polynomially in its period. The 1,270,604-prime first-
+layer scan, 5,130 second-order replays, 7,524 rational-center closure, and five
+finite Twin witnesses are bounded evidence only. All parent conjectures remain
 `open_not_proven`.
 
 The preserved TICKET-243 continuation is
@@ -632,13 +632,13 @@ See [TICKET236 EN](docs/contraction-order-phase-degree2.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-244입니다. 리만 트랙은 bounded L2의
-joint physical-frequency tightness가 relative compactness의 정확한 gate임을
-증명했습니다. 콜라츠 트랙은 고정기저 첫 bad line을 harmonic prefix 합동으로
-환원했습니다. 골드바흐 트랙은 odd-prime even-target integrand의 exact parity
-folding을 증명했습니다. 쌍둥이 소수 트랙은 fixed-polylog 이하의 모든 pure
-periodic fingerprint가 충분히 큰 모든 dyadic block에서 모방됨을 증명했습니다.
-이들은 세 partial theorem과 한 exact no-go이며, 유한 계산은 선언 범위의
+한국어 최신 요약: 최신 탐색은 TICKET-245입니다. 리만 트랙은 joint tightness와
+점별 양성에서 uniform margin으로 가는 경로의 closure zero-set obstruction을
+증명했습니다. 콜라츠 트랙은 고정기저의 q³ 깊이를 판정하는 2차 Fermat digit
+공식을 증명했습니다. 골드바흐 트랙은 유리 중심을 quarter-torus Klein orbit으로
+접었습니다. 쌍둥이 소수 트랙은 고정 주기 분류기의 거짓 양성이 그 주기의
+다항 높이 안에 존재함을 증명했습니다. 이들은 두 partial theorem과 두 exact
+no-go이며, 유한 계산은 선언 범위의
 재현 증거일 뿐입니다.
 네 상위 문제의 해결 수는 0입니다.
 
@@ -660,19 +660,19 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-244입니다.
-[joint tightness·harmonic bad line·parity fold·polylog mimicry 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/joint-tightness-harmonic-parity-fold-polylog-mimicry.ko.md)와
-[영문 보고서](docs/joint-tightness-harmonic-parity-fold-polylog-mimicry.md)는
+최신 난제 연구 트랙은 TICKET-245입니다.
+[closure margin·second Fermat digit·Klein arc orbit·Linnik-height mimicry 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/closure-second-order-klein-linnik.ko.md)와
+[영문 보고서](docs/closure-second-order-klein-linnik.md)는
 네 트랙의 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을
-분리합니다. 현재 결정적 미해결 보조정리는 exhaustive jointly tight class의
-uniform signed Weil tail, 고정 밑 harmonic bad-line 비소거, parity folding
-후 분모 3 이상 major arcs와 signed residual saving, superpolylog scale-local
+분리합니다. 현재 결정적 미해결 보조정리는 실제 Weil closure의 zero-free
+separation, 고정 밑 all-prime rational Wieferich depth domination, quarter-
+torus 대표 arc asymptotic과 signed residual saving, scale-local nonperiodic
 shift-two Type II 추정입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-244의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 244개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-245의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 245개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

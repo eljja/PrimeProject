@@ -169,13 +169,26 @@ def verify_ticket244_structure() -> str | None:
     if not state_path.exists():
         return "missing persistent four-problem research state"
     state = json.loads(state_path.read_text(encoding="utf-8"))
+    ticket = state.get("ticket")
+    retained_theorems = {
+        "riemann": "JointPhysicalFrequencyTightnessCharacterizesL2Precompactness",
+        "collatz": "FixedBaseBadLineHarmonicSumEquivalence",
+        "goldbach": "ExactParityArcFoldingForEvenBinaryGoldbach",
+        "twin_prime": "PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock",
+    }
     if (
-        state.get("ticket") != 244
-        or state.get("parent_ticket") != 243
+        not isinstance(ticket, int)
+        or ticket < 244
         or state.get("resolved_count") != 0
         or state.get("candidate_resolution_count") != 0
         or state.get("program_complete")
-        or state.get("deep_focus_problem") != "twin_prime"
+        or any(
+            theorem
+            not in state.get("problems", {})
+            .get(problem, {})
+            .get("established_results", [])
+            for problem, theorem in retained_theorems.items()
+        )
     ):
         return "TICKET-244 persistent research state changed"
 
