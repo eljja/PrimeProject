@@ -42,6 +42,7 @@ let ticket157AttemptGlobal = null;
 let ticket236AttemptGlobal = null;
 let ticket237AttemptGlobal = null;
 let ticket245AttemptGlobal = null;
+let ticket246AttemptGlobal = null;
 let ticket244AttemptGlobal = null;
 let ticket243AttemptGlobal = null;
 let ticket242AttemptGlobal = null;
@@ -18036,7 +18037,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket245ClosureSecondOrderKleinLinnik(ticket245AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket246MomentAllDepthParsevalPrimePower(ticket246AttemptGlobal) ||
+      renderTicket245ClosureSecondOrderKleinLinnik(ticket245AttemptGlobal) ||
       renderTicket244JointTightnessHarmonicParityFoldPolylogMimicry(ticket244AttemptGlobal) ||
       renderTicket243BandlimitPrincipalUnitHalfArcDyadicMimicry(ticket243AttemptGlobal) ||
       renderTicket242QuantifierOrderParsevalDiagonalCRT(ticket242AttemptGlobal) ||
@@ -18601,6 +18603,25 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+async function loadTicket246Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket246-moment-alldepth-parseval-primepower.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket246AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket246AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket246AttemptGlobal) {
+      ticket246AttemptGlobal.bounded_result = ticket246AttemptGlobal.bounded_result || {};
+      ticket246AttemptGlobal.bounded_result.moment_alldepth_parseval_primepower_audit = payload.moment_alldepth_parseval_primepower_audit || {};
+    }
+    return Boolean(ticket246AttemptGlobal);
+  } catch (_error) {
+    ticket246AttemptGlobal = null;
     return false;
   }
 }
@@ -20692,6 +20713,11 @@ async function main() {
   let ticket117Attempt = null;
   let ticket118Attempt = null;
   const ticket245Loaded = await loadTicket245Attempt();
+  const ticket246Loaded = await loadTicket246Attempt();
+  if (!ticket246Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket246AttemptGlobal) await loadTicket246Attempt();
+  }
   const ticket244Loaded = await loadTicket244Attempt();
   const ticket243Loaded = await loadTicket243Attempt();
   const ticket242Loaded = await loadTicket242Attempt();
@@ -20718,7 +20744,7 @@ async function main() {
   const ticket221Loaded = await loadTicket221Attempt();
   const ticket220Loaded = await loadTicket220Attempt();
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket245-current";
+  document.documentElement.dataset.openProblemCache = "ticket246-current";
   const ticket219Loaded = await loadTicket219Attempt();
   const ticket218Loaded = await loadTicket218Attempt();
   const ticket217Loaded = await loadTicket217Attempt();
@@ -20899,7 +20925,7 @@ async function main() {
     if (!ticket125AttemptGlobal) await loadTicket125Attempt();
   }
   render(payload, problem);
-  document.documentElement.dataset.openProblemCache = "ticket245-current";
+  document.documentElement.dataset.openProblemCache = "ticket246-current";
   try {
     const labResponse = await fetch("../data/open-problem/proof-or-counterexample-lab.json", { cache: "no-store" });
     if (labResponse.ok) {

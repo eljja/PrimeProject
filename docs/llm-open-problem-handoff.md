@@ -62,7 +62,41 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-245
+## Current continuation: TICKET-246
+
+The current machine-readable boundary is
+`data/open-problem/ticket246-moment-alldepth-parseval-primepower.json`.
+It records three partial theorems, one exact route no-go, four acyclic proof
+DAGs, zero machine failures, and zero parent-problem resolutions.
+
+| Problem | Newly closed result | Current single open lemma |
+|---|---|---|
+| Riemann | `FiniteEvenMomentAnnihilatorNoGo` | `InfiniteFeatureCoercivityOnNormalizedAdmissibleWeilClosure` |
+| Collatz | `AllDepthFixedBaseFermatPolynomialIdentity` | `FixedBaseAllPrimeValuationDominationForPqByUqMinusVq` |
+| Goldbach | `RationalCenterResidueParsevalBridge` | `UniformQuarterTorusResidueVarianceDecayWithArcStability` |
+| Twin Prime | `PrimePowerPairProxyContaminationBound` | `ScaleLocalTypeIILowerBoundBeyondPrimePowerContamination` |
+
+Do not repeat the discarded routes. A fixed finite even-moment list cannot
+separate the model class containing the explicit shell annihilators. A
+Ramanujan mean cannot replace the Goldbach center sum while omitting its
+residue residual. The prime-power pair proxy is not the twin count: the minimum
+false odd pair is (7,9). The Collatz five-digit replay is finite and supplies
+no all-prime valuation comparison.
+
+The adversarial Twin audit initially exposed (2,4) under an incorrectly broad
+`n>=2` domain. Continue only from the corrected odd-start `n>=3` theorem.
+Do not transfer any theorem across conjectures without a separately proved
+bridge. One exact falsifiable proposition, one open frontier, and explicit
+finite/infinite boundaries remain mandatory for every track.
+
+Reports: [English](moment-alldepth-parseval-primepower.md),
+[한국어](moment-alldepth-parseval-primepower.ko.md).
+
+All older current/latest headings below are historical snapshots and must not
+override this TICKET-246 boundary.
+
+## Preserved continuation: TICKET-245
+
 
 The current machine-readable boundary is
 `data/open-problem/ticket245-closure-second-order-klein-linnik.json`.
@@ -86,8 +120,6 @@ period, but the theorem is not scale-local for a changing modulus.
 Reports: [English](closure-second-order-klein-linnik.md),
 [한국어](closure-second-order-klein-linnik.ko.md).
 
-All older current/latest headings below are historical snapshots and must not
-override this TICKET-245 boundary.
 
 ## Preserved continuation: TICKET-244
 

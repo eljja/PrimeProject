@@ -15,7 +15,38 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-245
+## Current research boundary: TICKET-246
+
+The current machine-readable boundary is
+`data/open-problem/ticket246-moment-alldepth-parseval-primepower.json`.
+TICKET-246 proves three partial theorems and one exact route no-go while
+resolving none of the parent conjectures:
+
+- explicit normalized compact-support shell sums annihilate any fixed finite
+  list of even moments, refuting that model-class separation route;
+- one terminating degree-five Fermat-quotient polynomial gives the exact
+  q-adic depth of the fixed Collatz 32/27 difference for every supplied prime;
+- the Goldbach rational-center residual has exact Parseval norm equal to q
+  times the prime-residue discrepancy square sum;
+- the odd prime-power pair proxy differs from the twin count by an explicit
+  composite-prime-power contamination bounded by O(sqrt(X) log X).
+
+The next single lemmas are infinite-feature coercivity on the actual normalized
+admissible Weil closure; all-prime valuation domination for Pq by Uq−Vq;
+uniform quarter-torus residue-variance decay with arc stability; and a
+scale-local Type-II lower bound beyond prime-power contamination.
+
+한국어: RH의 유한 모멘트 분리 경로는 명시적 소거자로 exact no-go가
+되었습니다. Collatz 전 깊이 다항식, Goldbach 유리 중심 Parseval,
+Twin 소수거듭제곱 오염 상계는 partial theorem입니다. 계산은 각각
+9개 모멘트 행, 17,981개 소수, 186개 분모 사례, 6개 척도에 한정되며
+네 난제의 해결 수와 후보 해결 수는 모두 0입니다.
+
+Reports: [English](moment-alldepth-parseval-primepower.md),
+[한국어](moment-alldepth-parseval-primepower.ko.md).
+
+## Preserved research boundary: TICKET-245
+
 
 The current machine-readable boundary is
 `data/open-problem/ticket245-closure-second-order-klein-linnik.json`.

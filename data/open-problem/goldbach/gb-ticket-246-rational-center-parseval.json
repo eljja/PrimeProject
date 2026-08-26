@@ -1,0 +1,677 @@
+{
+  "schema": "primeproject.ticket246-moment-alldepth-parseval-primepower.v1",
+  "generated_at": "2026-08-26T13:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-246",
+  "theorem_name": "RationalCenterResidueParsevalBridge",
+  "declared_proposition": "Let q>=3 and X>=3. For each unit r modulo q let n_r count odd primes p<=X with p congruent to r modulo q, let P=sum_r n_r, and put delta_r=n_r-P/phi(q). Define S*(a)=sum over odd p<=X with gcd(p,q)=1 of exp(2 pi i ap/q). Then for every a modulo q, S*(a)=(P/phi(q))c_q(a)+R(a), where R(a)=sum_r delta_r exp(2 pi i ar/q). Exactly, sum_(a mod q)|R(a)|^2=q sum_r delta_r^2, and |R(a)|^2<=phi(q)sum_r delta_r^2. If gcd(a,q)=1 then c_q(a)=mu(q). The omitted odd primes dividing q contribute the explicit finite term D_q(a)=sum_(p|q, 3<=p<=X)exp(2 pi i ap/q).",
+  "mathematical_argument": "Group the coprime prime sum by its reduced residue class and write n_r=P/phi(q)+delta_r. The mean part is the Ramanujan sum. Expanding sum_a|R(a)|^2 and using exact character orthogonality modulo q kills all r not equal to s and leaves q sum_r delta_r^2. Cauchy-Schwarz gives the pointwise inequality. Moebius inversion of the unit indicator gives c_q(a)=mu(q) at coprime a. Splitting the original odd-prime sum according to gcd(p,q)=1 adds exactly the displayed divisor-prime term.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let q>=3 and X>=3. For each unit r modulo q let n_r count odd primes p<=X with p congruent to r modulo q, let P=sum_r n_r, and put delta_r=n_r-P/phi(q). Define S*(a)=sum over odd p<=X with gcd(p,q)=1 of exp(2 pi i ap/q). Then for every a modulo q, S*(a)=(P/phi(q))c_q(a)+R(a), where R(a)=sum_r delta_r exp(2 pi i ar/q). Exactly, sum_(a mod q)|R(a)|^2=q sum_r delta_r^2, and |R(a)|^2<=phi(q)sum_r delta_r^2. If gcd(a,q)=1 then c_q(a)=mu(q). The omitted odd primes dividing q contribute the explicit finite term D_q(a)=sum_(p|q, 3<=p<=X)exp(2 pi i ap/q).",
+    "proof": "Group the coprime prime sum by its reduced residue class and write n_r=P/phi(q)+delta_r. The mean part is the Ramanujan sum. Expanding sum_a|R(a)|^2 and using exact character orthogonality modulo q kills all r not equal to s and leaves q sum_r delta_r^2. Cauchy-Schwarz gives the pointwise inequality. Moebius inversion of the unit indicator gives c_q(a)=mu(q) at coprime a. Splitting the original odd-prime sum according to gcd(p,q)=1 adds exactly the displayed divisor-prime term.",
+    "exact_selected_residue_variance_rows": [
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 3,
+        "phi_q": 2,
+        "unit_prime_mass": 1227,
+        "odd_prime_divisors_of_q_removed": [
+          3
+        ],
+        "residue_count_square_sum": 752777,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 25,
+        "relative_variance_V": {
+          "exact": "25/1505529",
+          "float": 1.6605458944995415e-05
+        },
+        "parseval_residual_energy": {
+          "exact": "75/2",
+          "float": 37.5
+        },
+        "coprime_center_main_coefficient_mu_q": -1,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 4,
+        "phi_q": 2,
+        "unit_prime_mass": 1228,
+        "odd_prime_divisors_of_q_removed": [],
+        "residue_count_square_sum": 754042,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 100,
+        "relative_variance_V": {
+          "exact": "25/376996",
+          "float": 6.631370094112405e-05
+        },
+        "parseval_residual_energy": {
+          "exact": "200",
+          "float": 200.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 5,
+        "phi_q": 4,
+        "unit_prime_mass": 1227,
+        "odd_prime_divisors_of_q_removed": [
+          5
+        ],
+        "residue_count_square_sum": 376409,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 107,
+        "relative_variance_V": {
+          "exact": "107/1505529",
+          "float": 7.107136428458038e-05
+        },
+        "parseval_residual_energy": {
+          "exact": "535/4",
+          "float": 133.75
+        },
+        "coprime_center_main_coefficient_mu_q": -1,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 8,
+        "phi_q": 4,
+        "unit_prime_mass": 1228,
+        "odd_prime_divisors_of_q_removed": [],
+        "residue_count_square_sum": 377206,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 840,
+        "relative_variance_V": {
+          "exact": "105/188498",
+          "float": 0.0005570350879054419
+        },
+        "parseval_residual_energy": {
+          "exact": "1680",
+          "float": 1680.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 12,
+        "phi_q": 4,
+        "unit_prime_mass": 1227,
+        "odd_prime_divisors_of_q_removed": [
+          3
+        ],
+        "residue_count_square_sum": 376451,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 275,
+        "relative_variance_V": {
+          "exact": "275/1505529",
+          "float": 0.00018266004839494955
+        },
+        "parseval_residual_energy": {
+          "exact": "825",
+          "float": 825.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 16,
+        "phi_q": 8,
+        "unit_prime_mass": 1228,
+        "odd_prime_divisors_of_q_removed": [],
+        "residue_count_square_sum": 188680,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 1456,
+        "relative_variance_V": {
+          "exact": "91/94249",
+          "float": 0.0009655274857027661
+        },
+        "parseval_residual_energy": {
+          "exact": "2912",
+          "float": 2912.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 30,
+        "phi_q": 8,
+        "unit_prime_mass": 1226,
+        "odd_prime_divisors_of_q_removed": [
+          3,
+          5
+        ],
+        "residue_count_square_sum": 187904,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 156,
+        "relative_variance_V": {
+          "exact": "39/375769",
+          "float": 0.00010378716711596752
+        },
+        "parseval_residual_energy": {
+          "exact": "585",
+          "float": 585.0
+        },
+        "coprime_center_main_coefficient_mu_q": -1,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 60,
+        "phi_q": 16,
+        "unit_prime_mass": 1226,
+        "odd_prime_divisors_of_q_removed": [
+          3,
+          5
+        ],
+        "residue_count_square_sum": 93994,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 828,
+        "relative_variance_V": {
+          "exact": "207/375769",
+          "float": 0.0005508703485385968
+        },
+        "parseval_residual_energy": {
+          "exact": "3105",
+          "float": 3105.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 64,
+        "phi_q": 32,
+        "unit_prime_mass": 1228,
+        "odd_prime_divisors_of_q_removed": [],
+        "residue_count_square_sum": 47378,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 8112,
+        "relative_variance_V": {
+          "exact": "507/94249",
+          "float": 0.005379367420343982
+        },
+        "parseval_residual_energy": {
+          "exact": "16224",
+          "float": 16224.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 3,
+        "phi_q": 2,
+        "unit_prime_mass": 9590,
+        "odd_prime_divisors_of_q_removed": [
+          3
+        ],
+        "residue_count_square_sum": 45984292,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 484,
+        "relative_variance_V": {
+          "exact": "121/22992025",
+          "float": 5.262694347279111e-06
+        },
+        "parseval_residual_energy": {
+          "exact": "726",
+          "float": 726.0
+        },
+        "coprime_center_main_coefficient_mu_q": -1,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 4,
+        "phi_q": 2,
+        "unit_prime_mass": 9591,
+        "odd_prime_divisors_of_q_removed": [],
+        "residue_count_square_sum": 45993953,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 625,
+        "relative_variance_V": {
+          "exact": "625/91987281",
+          "float": 6.794417589101258e-06
+        },
+        "parseval_residual_energy": {
+          "exact": "1250",
+          "float": 1250.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 5,
+        "phi_q": 4,
+        "unit_prime_mass": 9590,
+        "odd_prime_divisors_of_q_removed": [
+          5
+        ],
+        "residue_count_square_sum": 22992394,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 1476,
+        "relative_variance_V": {
+          "exact": "369/22992025",
+          "float": 1.6049043092115635e-05
+        },
+        "parseval_residual_energy": {
+          "exact": "1845",
+          "float": 1845.0
+        },
+        "coprime_center_main_coefficient_mu_q": -1,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 8,
+        "phi_q": 4,
+        "unit_prime_mass": 9591,
+        "odd_prime_divisors_of_q_removed": [],
+        "residue_count_square_sum": 22997139,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 1275,
+        "relative_variance_V": {
+          "exact": "425/30662427",
+          "float": 1.3860611881766567e-05
+        },
+        "parseval_residual_energy": {
+          "exact": "2550",
+          "float": 2550.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 12,
+        "phi_q": 4,
+        "unit_prime_mass": 9590,
+        "odd_prime_divisors_of_q_removed": [
+          3
+        ],
+        "residue_count_square_sum": 22992866,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 3364,
+        "relative_variance_V": {
+          "exact": "841/22992025",
+          "float": 3.657790038067547e-05
+        },
+        "parseval_residual_energy": {
+          "exact": "10092",
+          "float": 10092.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 16,
+        "phi_q": 8,
+        "unit_prime_mass": 9591,
+        "odd_prime_divisors_of_q_removed": [],
+        "residue_count_square_sum": 11498627,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 1735,
+        "relative_variance_V": {
+          "exact": "1735/91987281",
+          "float": 1.8861303227345093e-05
+        },
+        "parseval_residual_energy": {
+          "exact": "3470",
+          "float": 3470.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 30,
+        "phi_q": 8,
+        "unit_prime_mass": 9589,
+        "odd_prime_divisors_of_q_removed": [
+          3,
+          5
+        ],
+        "residue_count_square_sum": 11493927,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 2495,
+        "relative_variance_V": {
+          "exact": "2495/91948921",
+          "float": 2.7134630541232777e-05
+        },
+        "parseval_residual_energy": {
+          "exact": "37425/4",
+          "float": 9356.25
+        },
+        "coprime_center_main_coefficient_mu_q": -1,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 60,
+        "phi_q": 16,
+        "unit_prime_mass": 9589,
+        "odd_prime_divisors_of_q_removed": [
+          3,
+          5
+        ],
+        "residue_count_square_sum": 5747625,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 13079,
+        "relative_variance_V": {
+          "exact": "13079/91948921",
+          "float": 0.00014224201717386113
+        },
+        "parseval_residual_energy": {
+          "exact": "196185/4",
+          "float": 49046.25
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 64,
+        "phi_q": 32,
+        "unit_prime_mass": 9591,
+        "odd_prime_divisors_of_q_removed": [],
+        "residue_count_square_sum": 2875441,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 26831,
+        "relative_variance_V": {
+          "exact": "26831/91987281",
+          "float": 0.0002916816293330814
+        },
+        "parseval_residual_energy": {
+          "exact": "53662",
+          "float": 53662.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 3,
+        "phi_q": 2,
+        "unit_prime_mass": 41536,
+        "odd_prime_divisors_of_q_removed": [
+          3
+        ],
+        "residue_count_square_sum": 862622098,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 4900,
+        "relative_variance_V": {
+          "exact": "1225/431309824",
+          "float": 2.8401857129968826e-06
+        },
+        "parseval_residual_energy": {
+          "exact": "7350",
+          "float": 7350.0
+        },
+        "coprime_center_main_coefficient_mu_q": -1,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 4,
+        "phi_q": 2,
+        "unit_prime_mass": 41537,
+        "odd_prime_divisors_of_q_removed": [],
+        "residue_count_square_sum": 862663997,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 5625,
+        "relative_variance_V": {
+          "exact": "5625/1725322369",
+          "float": 3.260260285885159e-06
+        },
+        "parseval_residual_energy": {
+          "exact": "11250",
+          "float": 11250.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 5,
+        "phi_q": 4,
+        "unit_prime_mass": 41536,
+        "odd_prime_divisors_of_q_removed": [
+          5
+        ],
+        "residue_count_square_sum": 431310554,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 2920,
+        "relative_variance_V": {
+          "exact": "365/215654912",
+          "float": 1.6925188330512035e-06
+        },
+        "parseval_residual_energy": {
+          "exact": "3650",
+          "float": 3650.0
+        },
+        "coprime_center_main_coefficient_mu_q": -1,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 8,
+        "phi_q": 4,
+        "unit_prime_mass": 41537,
+        "odd_prime_divisors_of_q_removed": [],
+        "residue_count_square_sum": 431334433,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 15363,
+        "relative_variance_V": {
+          "exact": "27/3032201",
+          "float": 8.904422892809546e-06
+        },
+        "parseval_residual_energy": {
+          "exact": "30726",
+          "float": 30726.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 12,
+        "phi_q": 4,
+        "unit_prime_mass": 41536,
+        "odd_prime_divisors_of_q_removed": [
+          3
+        ],
+        "residue_count_square_sum": 431313862,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 16152,
+        "relative_variance_V": {
+          "exact": "2019/215654912",
+          "float": 9.36217951761748e-06
+        },
+        "parseval_residual_energy": {
+          "exact": "48456",
+          "float": 48456.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 16,
+        "phi_q": 8,
+        "unit_prime_mass": 41537,
+        "odd_prime_divisors_of_q_removed": [],
+        "residue_count_square_sum": 215667587,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 18327,
+        "relative_variance_V": {
+          "exact": "18327/1725322369",
+          "float": 1.0622362712785299e-05
+        },
+        "parseval_residual_energy": {
+          "exact": "36654",
+          "float": 36654.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 30,
+        "phi_q": 8,
+        "unit_prime_mass": 41535,
+        "odd_prime_divisors_of_q_removed": [
+          3,
+          5
+        ],
+        "residue_count_square_sum": 215647489,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 23687,
+        "relative_variance_V": {
+          "exact": "23687/1725156225",
+          "float": 1.3730350710701578e-05
+        },
+        "parseval_residual_energy": {
+          "exact": "355305/4",
+          "float": 88826.25
+        },
+        "coprime_center_main_coefficient_mu_q": -1,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 60,
+        "phi_q": 16,
+        "unit_prime_mass": 41535,
+        "odd_prime_divisors_of_q_removed": [
+          3,
+          5
+        ],
+        "residue_count_square_sum": 107825947,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 58927,
+        "relative_variance_V": {
+          "exact": "58927/1725156225",
+          "float": 3.415748622997897e-05
+        },
+        "parseval_residual_energy": {
+          "exact": "883905/4",
+          "float": 220976.25
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 64,
+        "phi_q": 32,
+        "unit_prime_mass": 41537,
+        "odd_prime_divisors_of_q_removed": [],
+        "residue_count_square_sum": 53920495,
+        "variance_numerator_phi_sum_n_squared_minus_P_squared": 133471,
+        "relative_variance_V": {
+          "exact": "133471/1725322369",
+          "float": 7.736003566531165e-05
+        },
+        "parseval_residual_energy": {
+          "exact": "266942",
+          "float": 266942.0
+        },
+        "coprime_center_main_coefficient_mu_q": 0,
+        "certificate_verified": true
+      }
+    ],
+    "exhaustive_denominator_summaries": [
+      {
+        "prime_limit_X": 10000,
+        "denominators_checked": 62,
+        "maximum_relative_variance": {
+          "exact": "6497/501843",
+          "float": 0.012946280011876225
+        },
+        "maximum_relative_variance_denominator_q": 61,
+        "minimum_relative_variance": {
+          "exact": "25/1505529",
+          "float": 1.6605458944995415e-05
+        },
+        "minimum_relative_variance_denominator_q": 3,
+        "failure_count": 0
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominators_checked": 62,
+        "maximum_relative_variance": {
+          "exact": "27179/22992025",
+          "float": 0.0011821055344189996
+        },
+        "maximum_relative_variance_denominator_q": 53,
+        "minimum_relative_variance": {
+          "exact": "121/22992025",
+          "float": 5.262694347279111e-06
+        },
+        "minimum_relative_variance_denominator_q": 3,
+        "failure_count": 0
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominators_checked": 62,
+        "maximum_relative_variance": {
+          "exact": "37003/215654912",
+          "float": 0.00017158431336820187
+        },
+        "maximum_relative_variance_denominator_q": 61,
+        "minimum_relative_variance": {
+          "exact": "365/215654912",
+          "float": 1.6925188330512035e-06
+        },
+        "minimum_relative_variance_denominator_q": 5,
+        "failure_count": 0
+      }
+    ],
+    "transcript_sha256": "36eb596f31cf8cc962d8f1bb069323d36d8e8478dd095922c64ad5a529a67e10",
+    "aggregate": {
+      "rational_center_mean_residual_decomposition_proved": true,
+      "exact_residual_parseval_identity_proved": true,
+      "pointwise_residual_bound_proved": true,
+      "uniform_growing_denominator_variance_decay_proved": false,
+      "representative_arc_stability_proved": false,
+      "strong_goldbach_resolved": false
+    },
+    "no_go_scope": "The identity is exact at rational centers only. The finite tables do not prove variance decay for growing q, control neighborhoods around the centers, or supply signed minor-arc cancellation. Dropping R(a) without a discrepancy theorem is invalid whenever the exact variance is nonzero. No positive Goldbach representation lower bound follows.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Exact prime residue counts are exhausted for q=3..64 at X=10000,100000,500000; they do not prove any asymptotic in X or q.",
+  "logical_limit": "Exact center Parseval identifies the residual norm, but no growing-denominator decay, neighborhood stability, signed minor-arc saving, or positive Goldbach lower bound is proved.",
+  "route_decision": {
+    "discard": "replacing every rational-center prime sum by its Ramanujan mean term while omitting the residue-discrepancy residual",
+    "parked": [],
+    "retain": "the quarter-torus representative reduction together with uniform residue-variance decay and stability on full arc neighborhoods",
+    "next_single_lemma": "UniformQuarterTorusResidueVarianceDecayWithArcStability"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T245",
+        "label": "KleinFourOrbitReductionForEvenGoldbachArcs",
+        "status": "proved"
+      },
+      {
+        "id": "GB-N246",
+        "label": "RamanujanMeanAloneEqualsEveryRationalCenterPrimeSum",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-T246",
+        "label": "RationalCenterResidueParsevalBridge",
+        "status": "proved"
+      },
+      {
+        "id": "GB-OPEN246",
+        "label": "UniformQuarterTorusResidueVarianceDecayWithArcStability",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T245",
+        "GB-T246"
+      ],
+      [
+        "GB-T245",
+        "GB-N246"
+      ],
+      [
+        "GB-N246",
+        "GB-T246"
+      ],
+      [
+        "GB-T246",
+        "GB-OPEN246"
+      ]
+    ]
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; one exact rational-center mean/residual decomposition and finite residue-variance certificates."
+}

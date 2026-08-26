@@ -62,12 +62,12 @@
       ko: "네 미해결 문제, 양화사와 척도 지름길을 분리하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-245 proves two partial theorems and two exact no-gos for second Fermat digits, Klein rational-arc folding, closure margins, and polynomial-height periodic mimicry.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-245는 Collatz 2차 Fermat digit과 Goldbach Klein orbit의 두 부분정리, RH closure-margin과 Twin periodic-height의 두 no-go를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-246 proves three partial theorems and one exact no-go for an all-depth Fermat polynomial, rational-center Parseval, prime-power contamination, and finite-moment annihilation.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-246은 Collatz 전 깊이 다항식, Goldbach 중심 Parseval, Twin 소수거듭제곱 오염 상계의 세 부분정리와 RH 유한 모멘트 분리의 한 no-go를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-245 proves two partial theorems and two exact route no-gos, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-245는 두 개의 부분정리와 두 개의 정확한 경로 no-go를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-246 proves three partial theorems and one exact route no-go, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-246은 세 개의 부분정리와 한 개의 정확한 경로 no-go를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

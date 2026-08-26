@@ -127,7 +127,12 @@ def verify_ticket245_structure() -> str | None:
 
     state_path = ROOT / "data/open-problem/four-problem-research-state.json"
     state = json.loads(state_path.read_text(encoding="utf-8"))
-    if state.get("ticket") != 245 or state.get("parent_ticket") != 244:
+    ticket = state.get("ticket")
+    if (
+        not isinstance(ticket, int)
+        or ticket < 245
+        or state.get("parent_ticket") != ticket - 1
+    ):
         return "TICKET-245 persistent research state changed"
     if state.get("resolved_count") != 0 or state.get("candidate_resolution_count") != 0 or state.get("program_complete"):
         return "TICKET-245 resolution boundary changed"

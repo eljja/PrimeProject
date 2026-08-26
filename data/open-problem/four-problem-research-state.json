@@ -1,36 +1,38 @@
 {
   "schema": "primeproject.four-problem-research-state.v1",
-  "ticket": 245,
-  "parent_ticket": 244,
-  "generated_at": "2026-08-26T11:30:00+09:00",
+  "ticket": 246,
+  "parent_ticket": 245,
+  "generated_at": "2026-08-26T13:40:00+09:00",
   "iteration_complete": true,
   "program_complete": false,
   "resolved_count": 0,
   "candidate_resolution_count": 0,
-  "deep_focus_problem": "twin_prime",
+  "deep_focus_problem": "collatz",
   "problems": {
     "riemann": {
       "problem_status": "open_not_proven",
-      "current_target": "ClosureZeroSetObstructionToUniformWeilMargin",
+      "current_target": "FiniteEvenMomentAnnihilatorNoGo",
       "established_results": [
         "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
         "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
         "JointPhysicalFrequencyTightnessCharacterizesL2Precompactness",
-        "ClosureZeroSetObstructionToUniformWeilMargin"
+        "ClosureZeroSetObstructionToUniformWeilMargin",
+        "FiniteEvenMomentAnnihilatorNoGo"
       ],
       "retired_routes": [
         "frequency support or frequency tightness alone as compactness of a normalized even Weil-test family",
         "physical tightness alone, together with TICKET-243's frequency-tightness-alone route, as a compactness certificate",
-        "joint tightness plus pointwise positivity, or positive margins on each compact exhaustion stage, as sufficient for one uniform positive Weil margin"
+        "joint tightness plus pointwise positivity, or positive margins on each compact exhaustion stage, as sufficient for one uniform positive Weil margin",
+        "zero-free closure separation based only on any fixed finite list of even moments on a normalized class containing the explicit shell annihilator"
       ],
       "parked_routes": [],
-      "remaining_gap": "No zero-free separation is known for the closure of the actual normalized admissible Weil class, and no signed arithmetic-tail positivity theorem or RH zero exclusion follows.",
-      "next_single_lemma": "ZeroFreeClosureSeparationForNormalizedAdmissibleWeilFunctional",
+      "remaining_gap": "Finite moments cannot separate the model closure, while no theorem embeds the shell annihilators into the genuine smooth admissible class or controls the full Weil functional.",
+      "next_single_lemma": "InfiniteFeatureCoercivityOnNormalizedAdmissibleWeilClosure",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "ZeroFreeClosureSeparationForNormalizedAdmissibleWeilFunctional"
+        "InfiniteFeatureCoercivityOnNormalizedAdmissibleWeilClosure"
       ],
-      "finite_computation_boundary": "Six exact rational compact-exhaustion margins; compactness and joint tightness of the infinite family are proved analytically, not inferred from the six rows.",
+      "finite_computation_boundary": "Nine exact finite-difference rows for m through 12; the all-m theorem is proved algebraically and is not inferred from those rows.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -40,24 +42,25 @@
     },
     "collatz": {
       "problem_status": "open_not_proven",
-      "current_target": "SecondOrderFixedBaseFermatDigitCriterion",
+      "current_target": "AllDepthFixedBaseFermatPolynomialIdentity",
       "established_results": [
         "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
         "UnboundedOrderPrincipalUnitTransferCountermodels",
         "FixedBaseBadLineHarmonicSumEquivalence",
-        "SecondOrderFixedBaseFermatDigitCriterion"
+        "SecondOrderFixedBaseFermatDigitCriterion",
+        "AllDepthFixedBaseFermatPolynomialIdentity"
       ],
       "retired_routes": [
         "deducing the fixed-base 32/27 to 2/3 square-depth transfer from universal order, LTE, and principal-unit algebra"
       ],
       "parked_routes": [],
-      "remaining_gap": "No all-prime argument excludes the first bad line, and the second-order formula does not control arbitrary q-adic depths or general Collatz dynamics.",
-      "next_single_lemma": "FixedBaseAllPrimeRationalWieferichDepthDomination",
+      "remaining_gap": "The all-depth identity removes the omitted-digit gap but supplies no uniform valuation domination over all primes and no global Collatz trajectory argument.",
+      "next_single_lemma": "FixedBaseAllPrimeValuationDominationForPqByUqMinusVq",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "FixedBaseAllPrimeRationalWieferichDepthDomination"
+        "FixedBaseAllPrimeValuationDominationForPqByUqMinusVq"
       ],
-      "finite_computation_boundary": "The first layer is scanned for all 1,270,604 primes through 20,000,000; q^3 identities are replayed only through 50,000. Both use exact integer modular arithmetic, but neither finite boundary proves an all-prime statement.",
+      "finite_computation_boundary": "Five q-adic quotient digits are replayed for all 17,981 primes through 200,000; exact identities hold for arbitrary depth, but the finite valuation histogram proves no all-prime inequality.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -67,26 +70,28 @@
     },
     "goldbach": {
       "problem_status": "open_not_proven",
-      "current_target": "KleinFourOrbitReductionForEvenGoldbachArcs",
+      "current_target": "RationalCenterResidueParsevalBridge",
       "established_results": [
         "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
         "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
         "ExactParityArcFoldingForEvenBinaryGoldbach",
-        "KleinFourOrbitReductionForEvenGoldbachArcs"
+        "KleinFourOrbitReductionForEvenGoldbachArcs",
+        "RationalCenterResidueParsevalBridge"
       ],
       "retired_routes": [
         "placing the parity rational neighborhood around one half in a minor set while demanding an absolute-energy o(X/log^2 X) budget",
         "treating the zero and half-frequency arcs as analytically independent for the odd-prime even-target coefficient",
-        "independent signed estimation of all four half-turn/reflection-related rational arcs"
+        "independent signed estimation of all four half-turn/reflection-related rational arcs",
+        "replacing every rational-center prime sum by its Ramanujan mean term while omitting the residue-discrepancy residual"
       ],
       "parked_routes": [],
-      "remaining_gap": "Symmetry removes duplicate arcs but supplies no estimate on a canonical representative, no disjoint-width theorem, and no signed minor-arc saving or positive representation lower bound.",
-      "next_single_lemma": "UniformRepresentativeArcAsymptoticAndSignedResidualSavingOnQuarterTorus",
+      "remaining_gap": "Exact center Parseval identifies the residual norm, but no growing-denominator decay, neighborhood stability, signed minor-arc saving, or positive Goldbach lower bound is proved.",
+      "next_single_lemma": "UniformQuarterTorusResidueVarianceDecayWithArcStability",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "UniformRepresentativeArcAsymptoticAndSignedResidualSavingOnQuarterTorus"
+        "UniformQuarterTorusResidueVarianceDecayWithArcStability"
       ],
-      "finite_computation_boundary": "Five exact rational orbit enumerations for seed denominators through 128; they certify finite combinatorics, while the integral identity is an all-X, all-even-N algebraic theorem.",
+      "finite_computation_boundary": "Exact prime residue counts are exhausted for q=3..64 at X=10000,100000,500000; they do not prove any asymptotic in X or q.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -96,26 +101,28 @@
     },
     "twin_prime": {
       "problem_status": "open_not_proven",
-      "current_target": "PolynomialHeightPeriodicMimicryFromLinnik",
+      "current_target": "PrimePowerPairProxyContaminationBound",
       "established_results": [
         "GrowingPeriodDiagonalCRTMimicryForShiftTwo",
         "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock",
         "PolylogarithmicGrowingPeriodMimicryInEveryLargeDyadicBlock",
-        "PolynomialHeightPeriodicMimicryFromLinnik"
+        "PolynomialHeightPeriodicMimicryFromLinnik",
+        "PrimePowerPairProxyContaminationBound"
       ],
       "retired_routes": [
         "using fixed periodic features even with eventual per-dyadic-scale sampling as a twin-prime certificate",
         "any pure periodic twin certificate whose scale-dependent period is bounded by a fixed power of log X",
-        "a fixed pure periodic twin classifier remaining globally prefix-sound beyond every polynomial height in its period"
+        "a fixed pure periodic twin classifier remaining globally prefix-sound beyond every polynomial height in its period",
+        "identifying the uncorrected shift-two prime-power pair proxy with the twin-prime indicator; the minimal false pair is (7,9)"
       ],
       "parked_routes": [],
-      "remaining_gap": "The theorem gives a polynomial height bound for each fixed global period but does not handle a period chosen anew for a prescribed dyadic block or any nonperiodic Type-I/II structure.",
-      "next_single_lemma": "ScaleLocalNonperiodicTypeIICancellationBeyondPeriodicHeightBarriers",
+      "remaining_gap": "The proxy error is sublinear but can dominate an arbitrarily sparse infinite twin sequence; no lower bound beyond the error or parity-breaking Type-II cancellation is proved.",
+      "next_single_lemma": "ScaleLocalTypeIILowerBoundBeyondPrimePowerContamination",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "ScaleLocalNonperiodicTypeIICancellationBeyondPeriodicHeightBarriers"
+        "ScaleLocalTypeIILowerBoundBeyondPrimePowerContamination"
       ],
-      "finite_computation_boundary": "Five exact CRT/primality/factorization witnesses; the universal polynomial-height conclusion depends on Bertrand's postulate and Linnik's theorem, not on these rows.",
+      "finite_computation_boundary": "The prime-power and twin supports are enumerated exactly through 5,000,000; finite counts do not imply the required unbounded excess.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,

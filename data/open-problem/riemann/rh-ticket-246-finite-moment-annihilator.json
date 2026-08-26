@@ -1,0 +1,367 @@
+{
+  "schema": "primeproject.ticket246-moment-alldepth-parseval-primepower.v1",
+  "generated_at": "2026-08-26T13:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-246",
+  "theorem_name": "FiniteEvenMomentAnnihilatorNoGo",
+  "declared_proposition": "For every integer m>=1 let e_j=2^(-1/2) times the indicator of [-j-1,-j] union [j,j+1], for 0<=j<=2m, and put c_j=(-1)^j binom(2m,j). Then g_m=sum_j c_j e_j is nonzero, real-even, compactly supported, and its even moments integral x^(2k)g_m(x)dx vanish for every 0<=k<m. Moreover ||g_m||_2^2=binom(4m,2m). Thus the normalized f_m=g_m/sqrt(binom(4m,2m)) lies on the L2 unit sphere and Q_m(f_m)=sum_(k<m)|integral x^(2k)f_m(x)dx|^2=0. No nonnegative certificate using only the first m even moments can separate every normalized member of any class containing f_m from its zero set.",
+  "mathematical_argument": "The shell indicators are real-even orthonormal vectors. After removing their common square-root-two factor, the 2k-th moment of e_j is ((j+1)^(2k+1)-j^(2k+1))/(2k+1), a polynomial in j of degree 2k. For k<m this degree is at most 2m-2. The alternating binomial sum of order 2m annihilates every polynomial of degree below 2m, proving all m moment identities. Orthogonality gives the coefficient-square norm, and Vandermonde's identity gives sum_j binom(2m,j)^2=binom(4m,2m). Normalization is therefore legitimate and leaves all moments zero.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every integer m>=1 let e_j=2^(-1/2) times the indicator of [-j-1,-j] union [j,j+1], for 0<=j<=2m, and put c_j=(-1)^j binom(2m,j). Then g_m=sum_j c_j e_j is nonzero, real-even, compactly supported, and its even moments integral x^(2k)g_m(x)dx vanish for every 0<=k<m. Moreover ||g_m||_2^2=binom(4m,2m). Thus the normalized f_m=g_m/sqrt(binom(4m,2m)) lies on the L2 unit sphere and Q_m(f_m)=sum_(k<m)|integral x^(2k)f_m(x)dx|^2=0. No nonnegative certificate using only the first m even moments can separate every normalized member of any class containing f_m from its zero set.",
+    "proof": "The shell indicators are real-even orthonormal vectors. After removing their common square-root-two factor, the 2k-th moment of e_j is ((j+1)^(2k+1)-j^(2k+1))/(2k+1), a polynomial in j of degree 2k. For k<m this degree is at most 2m-2. The alternating binomial sum of order 2m annihilates every polynomial of degree below 2m, proving all m moment identities. Orthogonality gives the coefficient-square norm, and Vandermonde's identity gives sum_j binom(2m,j)^2=binom(4m,2m). Normalization is therefore legitimate and leaves all moments zero.",
+    "exact_finite_difference_moment_rows": [
+      {
+        "moment_count_m": 1,
+        "shell_dimension": 3,
+        "finite_difference_order": 2,
+        "integer_coefficients": [
+          1,
+          -2,
+          1
+        ],
+        "unnormalized_L2_norm_squared": 6,
+        "central_binomial_norm_certificate": 6,
+        "annihilated_even_moment_orders": [
+          0
+        ],
+        "all_exact_moment_sums_zero": true,
+        "common_compact_support": "[-3,3]",
+        "certificate_verified": true
+      },
+      {
+        "moment_count_m": 2,
+        "shell_dimension": 5,
+        "finite_difference_order": 4,
+        "integer_coefficients": [
+          1,
+          -4,
+          6,
+          -4,
+          1
+        ],
+        "unnormalized_L2_norm_squared": 70,
+        "central_binomial_norm_certificate": 70,
+        "annihilated_even_moment_orders": [
+          0,
+          1
+        ],
+        "all_exact_moment_sums_zero": true,
+        "common_compact_support": "[-5,5]",
+        "certificate_verified": true
+      },
+      {
+        "moment_count_m": 3,
+        "shell_dimension": 7,
+        "finite_difference_order": 6,
+        "integer_coefficients": [
+          1,
+          -6,
+          15,
+          -20,
+          15,
+          -6,
+          1
+        ],
+        "unnormalized_L2_norm_squared": 924,
+        "central_binomial_norm_certificate": 924,
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2
+        ],
+        "all_exact_moment_sums_zero": true,
+        "common_compact_support": "[-7,7]",
+        "certificate_verified": true
+      },
+      {
+        "moment_count_m": 4,
+        "shell_dimension": 9,
+        "finite_difference_order": 8,
+        "integer_coefficients": [
+          1,
+          -8,
+          28,
+          -56,
+          70,
+          -56,
+          28,
+          -8,
+          1
+        ],
+        "unnormalized_L2_norm_squared": 12870,
+        "central_binomial_norm_certificate": 12870,
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "all_exact_moment_sums_zero": true,
+        "common_compact_support": "[-9,9]",
+        "certificate_verified": true
+      },
+      {
+        "moment_count_m": 5,
+        "shell_dimension": 11,
+        "finite_difference_order": 10,
+        "integer_coefficients": [
+          1,
+          -10,
+          45,
+          -120,
+          210,
+          -252,
+          210,
+          -120,
+          45,
+          -10,
+          1
+        ],
+        "unnormalized_L2_norm_squared": 184756,
+        "central_binomial_norm_certificate": 184756,
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "all_exact_moment_sums_zero": true,
+        "common_compact_support": "[-11,11]",
+        "certificate_verified": true
+      },
+      {
+        "moment_count_m": 6,
+        "shell_dimension": 13,
+        "finite_difference_order": 12,
+        "integer_coefficients": [
+          1,
+          -12,
+          66,
+          -220,
+          495,
+          -792,
+          924,
+          -792,
+          495,
+          -220,
+          66,
+          -12,
+          1
+        ],
+        "unnormalized_L2_norm_squared": 2704156,
+        "central_binomial_norm_certificate": 2704156,
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "all_exact_moment_sums_zero": true,
+        "common_compact_support": "[-13,13]",
+        "certificate_verified": true
+      },
+      {
+        "moment_count_m": 8,
+        "shell_dimension": 17,
+        "finite_difference_order": 16,
+        "integer_coefficients": [
+          1,
+          -16,
+          120,
+          -560,
+          1820,
+          -4368,
+          8008,
+          -11440,
+          12870,
+          -11440,
+          8008,
+          -4368,
+          1820,
+          -560,
+          120,
+          -16,
+          1
+        ],
+        "unnormalized_L2_norm_squared": 601080390,
+        "central_binomial_norm_certificate": 601080390,
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "all_exact_moment_sums_zero": true,
+        "common_compact_support": "[-17,17]",
+        "certificate_verified": true
+      },
+      {
+        "moment_count_m": 10,
+        "shell_dimension": 21,
+        "finite_difference_order": 20,
+        "integer_coefficients": [
+          1,
+          -20,
+          190,
+          -1140,
+          4845,
+          -15504,
+          38760,
+          -77520,
+          125970,
+          -167960,
+          184756,
+          -167960,
+          125970,
+          -77520,
+          38760,
+          -15504,
+          4845,
+          -1140,
+          190,
+          -20,
+          1
+        ],
+        "unnormalized_L2_norm_squared": 137846528820,
+        "central_binomial_norm_certificate": 137846528820,
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "all_exact_moment_sums_zero": true,
+        "common_compact_support": "[-21,21]",
+        "certificate_verified": true
+      },
+      {
+        "moment_count_m": 12,
+        "shell_dimension": 25,
+        "finite_difference_order": 24,
+        "integer_coefficients": [
+          1,
+          -24,
+          276,
+          -2024,
+          10626,
+          -42504,
+          134596,
+          -346104,
+          735471,
+          -1307504,
+          1961256,
+          -2496144,
+          2704156,
+          -2496144,
+          1961256,
+          -1307504,
+          735471,
+          -346104,
+          134596,
+          -42504,
+          10626,
+          -2024,
+          276,
+          -24,
+          1
+        ],
+        "unnormalized_L2_norm_squared": 32247603683100,
+        "central_binomial_norm_certificate": 32247603683100,
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "all_exact_moment_sums_zero": true,
+        "common_compact_support": "[-25,25]",
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "b69bddb4b9317df798192eb20375e83c87132c4804c1cdb57fe71723a8667765",
+    "aggregate": {
+      "all_finite_moment_annihilators_verified": true,
+      "finite_even_moment_zero_separation_refuted": true,
+      "actual_admissible_weil_infinite_feature_coercivity_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "The explicit functions are compactly supported even L2 step functions. They are not proved to belong to the normalized smooth Guinand-Weil admissible class, and Q_m is only a finite-moment proxy, not the genuine Weil functional. The theorem blocks finite-moment zero separation on classes containing these functions; it does not prove that the actual Weil closure meets its zero set.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Nine exact finite-difference rows for m through 12; the all-m theorem is proved algebraically and is not inferred from those rows.",
+  "logical_limit": "Finite moments cannot separate the model closure, while no theorem embeds the shell annihilators into the genuine smooth admissible class or controls the full Weil functional.",
+  "route_decision": {
+    "discard": "zero-free closure separation based only on any fixed finite list of even moments on a normalized class containing the explicit shell annihilator",
+    "parked": [],
+    "retain": "an infinite-feature coercive inequality on the genuine normalized admissible Weil closure",
+    "next_single_lemma": "InfiniteFeatureCoercivityOnNormalizedAdmissibleWeilClosure"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T245",
+        "label": "ClosureZeroSetObstructionToUniformWeilMargin",
+        "status": "proved"
+      },
+      {
+        "id": "RH-N246",
+        "label": "FiniteEvenMomentsSeparateEveryNormalizedEvenTestFromZero",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-T246",
+        "label": "FiniteEvenMomentAnnihilatorNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-OPEN246",
+        "label": "InfiniteFeatureCoercivityOnNormalizedAdmissibleWeilClosure",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T245",
+        "RH-T246"
+      ],
+      [
+        "RH-T245",
+        "RH-N246"
+      ],
+      [
+        "RH-N246",
+        "RH-T246"
+      ],
+      [
+        "RH-T246",
+        "RH-OPEN246"
+      ]
+    ]
+  },
+  "claim_boundary": "No RH proof or disproof; one exact finite-moment certificate obstruction on compactly supported even step functions."
+}

@@ -475,3 +475,24 @@ proof/disproof, promotion of the twenty-million-prime scan to an all-prime
 statement, a claim that rational-center folding estimates major arcs, or a
 claim that the Linnik theorem handles a changing modulus in a prescribed
 scale-local dyadic block. Resolution and candidate-resolution counts are zero.
+## TICKET-246 publication boundary
+
+TICKET-246 adds three partial theorems and one exact route no-go:
+
+- fixed finite lists of even moments have explicit normalized compact-support
+  annihilators in the stated real-even L2 model class;
+- a terminating degree-five polynomial gives the exact q-adic depth of the
+  fixed Collatz 32/27 difference for every supplied prime;
+- rational-center Goldbach residual energy obeys an exact residue-discrepancy
+  Parseval identity;
+- the odd prime-power pair proxy has an explicit contamination bound, and its
+  uncorrected equality with the twin count is false.
+
+Allowed public wording is `exact_no_go` only for the specified RH finite-
+moment model route and `partial_theorem` for the other three auxiliary
+statements. Blocked wording includes every parent-conjecture proof/disproof,
+promotion of the 17,981-prime replay to an all-prime valuation theorem,
+promotion of finite residue tables to growing-denominator decay or arc
+stability, and promotion of the prime-power proxy bound to a Twin Type-II
+lower bound. The corrected Twin domain is odd `n>=3`; `(2,4)` refutes the
+initial broader domain. Resolution and candidate-resolution counts are zero.

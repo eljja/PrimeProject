@@ -1,0 +1,179 @@
+{
+  "schema": "primeproject.ticket246-moment-alldepth-parseval-primepower.v1",
+  "generated_at": "2026-08-26T13:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-246",
+  "theorem_name": "AllDepthFixedBaseFermatPolynomialIdentity",
+  "declared_proposition": "For every prime q>5 define the exact integers U=(2^(q-1)-1)/q and V=(3^(q-1)-1)/q, and define P_q=5U-3V+q(10U^2-3V^2)+q^2(10U^3-V^3)+5q^3U^4+q^4U^5. Then exactly 32^(q-1)-27^(q-1)=qP_q and 2^(q-1)-3^(q-1)=q(U-V). Consequently, for every integer r>=1, q^(r+1) divides the first difference if and only if P_q=0 modulo q^r, and divides the second difference if and only if U-V=0 modulo q^r. Equivalently their exact q-adic valuations are 1+v_q(P_q) and 1+v_q(U-V), respectively.",
+  "mathematical_argument": "The definitions give 2^(q-1)=1+qU and 3^(q-1)=1+qV as exact integer equalities. Since 32^(q-1)=(1+qU)^5 and 27^(q-1)=(1+qV)^3, expanding both binomials and subtracting gives the displayed five-term P_q identity with no omitted tail. Direct subtraction gives the U-V identity. Both differences are nonzero, so taking q-adic valuations and reducing modulo arbitrary q^r are valid.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every prime q>5 define the exact integers U=(2^(q-1)-1)/q and V=(3^(q-1)-1)/q, and define P_q=5U-3V+q(10U^2-3V^2)+q^2(10U^3-V^3)+5q^3U^4+q^4U^5. Then exactly 32^(q-1)-27^(q-1)=qP_q and 2^(q-1)-3^(q-1)=q(U-V). Consequently, for every integer r>=1, q^(r+1) divides the first difference if and only if P_q=0 modulo q^r, and divides the second difference if and only if U-V=0 modulo q^r. Equivalently their exact q-adic valuations are 1+v_q(P_q) and 1+v_q(U-V), respectively.",
+    "proof": "The definitions give 2^(q-1)=1+qU and 3^(q-1)=1+qV as exact integer equalities. Since 32^(q-1)=(1+qU)^5 and 27^(q-1)=(1+qV)^3, expanding both binomials and subtracting gives the displayed five-term P_q identity with no omitted tail. Direct subtraction gives the U-V identity. Both differences are nonzero, so taking q-adic valuations and reducing modulo arbitrary q^r are valid.",
+    "selected_all_depth_rows": [
+      {
+        "prime_q": 7,
+        "U_mod_q_to_fifth": 9,
+        "V_mod_q_to_fifth": 104,
+        "P_q_mod_q_to_fifth": 10674,
+        "U_minus_V_mod_q_to_fifth": 16712,
+        "bad_difference_q_adic_valuation_capped_at_six": "1",
+        "comparison_difference_q_adic_valuation_capped_at_six": "1",
+        "ticket245_second_order_residue": 41,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "U_mod_q_to_fifth": 182361,
+        "V_mod_q_to_fifth": 6325523,
+        "P_q_mod_q_to_fifth": 1901789,
+        "U_minus_V_mod_q_to_fifth": 293181,
+        "bad_difference_q_adic_valuation_capped_at_six": "1",
+        "comparison_difference_q_adic_valuation_capped_at_six": "2",
+        "ticket245_second_order_residue": 34,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 109,
+        "U_mod_q_to_fifth": 13048065029,
+        "V_mod_q_to_fifth": 10278179844,
+        "P_q_mod_q_to_fifth": 10582694383,
+        "U_minus_V_mod_q_to_fifth": 2769885185,
+        "bad_difference_q_adic_valuation_capped_at_six": "1",
+        "comparison_difference_q_adic_valuation_capped_at_six": "1",
+        "ticket245_second_order_residue": 2539,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 487,
+        "U_mod_q_to_fifth": 5067290977326,
+        "V_mod_q_to_fifth": 20442400822647,
+        "P_q_mod_q_to_fifth": 7141364148208,
+        "U_minus_V_mod_q_to_fifth": 12018218685886,
+        "bad_difference_q_adic_valuation_capped_at_six": "1",
+        "comparison_difference_q_adic_valuation_capped_at_six": "1",
+        "ticket245_second_order_residue": 169854,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 1093,
+        "U_mod_q_to_fifth": 1507328235694800,
+        "V_mod_q_to_fifth": 1331466233166739,
+        "P_q_mod_q_to_fifth": 898265235115463,
+        "U_minus_V_mod_q_to_fifth": 175862002528061,
+        "bad_difference_q_adic_valuation_capped_at_six": "1",
+        "comparison_difference_q_adic_valuation_capped_at_six": "1",
+        "ticket245_second_order_residue": 367405,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 3511,
+        "U_mod_q_to_fifth": 294985530219628019,
+        "V_mod_q_to_fifth": 487451531482860267,
+        "P_q_mod_q_to_fifth": 489149525670677657,
+        "U_minus_V_mod_q_to_fifth": 341058228290646303,
+        "bad_difference_q_adic_valuation_capped_at_six": "1",
+        "comparison_difference_q_adic_valuation_capped_at_six": "1",
+        "ticket245_second_order_residue": 6920160,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 10007,
+        "U_mod_q_to_fifth": 35820165914164539279,
+        "V_mod_q_to_fifth": 84873209377060448034,
+        "P_q_mod_q_to_fifth": 43956337629804899395,
+        "U_minus_V_mod_q_to_fifth": 51297446880224158052,
+        "bad_difference_q_adic_valuation_capped_at_six": "1",
+        "comparison_difference_q_adic_valuation_capped_at_six": "1",
+        "ticket245_second_order_residue": 84236221,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 49999,
+        "U_mod_q_to_fifth": 157232796724586724423260,
+        "V_mod_q_to_fifth": 177772080895044328663023,
+        "P_q_mod_q_to_fifth": 255029632392242409054515,
+        "U_minus_V_mod_q_to_fifth": 291929467079517396010236,
+        "bad_difference_q_adic_valuation_capped_at_six": "1",
+        "comparison_difference_q_adic_valuation_capped_at_six": "1",
+        "ticket245_second_order_residue": 1818701083,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 199999,
+        "U_mod_q_to_fifth": 169003126223119624100410914,
+        "V_mod_q_to_fifth": 40899989326826425749624617,
+        "P_q_mod_q_to_fifth": 200110797604819255198713052,
+        "U_minus_V_mod_q_to_fifth": 128103136896293198350786297,
+        "bad_difference_q_adic_valuation_capped_at_six": "1",
+        "comparison_difference_q_adic_valuation_capped_at_six": "1",
+        "ticket245_second_order_residue": 33267317960,
+        "certificate_verified": true
+      }
+    ],
+    "exact_modular_replay": {
+      "prime_limit": 200000,
+      "primes_scanned": 17981,
+      "q_adic_digits_replayed": 5,
+      "bad_difference_valuation_counts": {
+        "1": 17981
+      },
+      "comparison_difference_valuation_counts": {
+        "1": 17980,
+        "2": 1
+      },
+      "failure_count": 0
+    },
+    "transcript_sha256": "7c570287e63987c481e1b978c549ff1889b3dcc058ef859fe5c1befb32456269",
+    "aggregate": {
+      "exact_all_depth_polynomial_identity_proved": true,
+      "ticket245_second_order_formula_recovered": true,
+      "all_prime_valuation_domination_proved": false,
+      "general_collatz_dynamics_controlled": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The identities decide every q-adic depth once U,V are supplied, but they do not compare v_q(P_q) with v_q(U-V) uniformly over all primes. The finite replay is not an all-prime valuation theorem and these two fixed bases still encode only one local run-block route, not arbitrary Collatz trajectories or nontrivial cycles.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Five q-adic quotient digits are replayed for all 17,981 primes through 200,000; exact identities hold for arbitrary depth, but the finite valuation histogram proves no all-prime inequality.",
+  "logical_limit": "The all-depth identity removes the omitted-digit gap but supplies no uniform valuation domination over all primes and no global Collatz trajectory argument.",
+  "route_decision": {
+    "discard": "none newly; the exact polynomial reduction does not by itself decide the required all-prime valuation inequality",
+    "parked": [],
+    "retain": "an all-prime comparison between v_q(P_q) and v_q(U_q-V_q), now with every higher digit represented by one exact finite polynomial",
+    "next_single_lemma": "FixedBaseAllPrimeValuationDominationForPqByUqMinusVq"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T245",
+        "label": "SecondOrderFixedBaseFermatDigitCriterion",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T246",
+        "label": "AllDepthFixedBaseFermatPolynomialIdentity",
+        "status": "proved"
+      },
+      {
+        "id": "CO-OPEN246",
+        "label": "FixedBaseAllPrimeValuationDominationForPqByUqMinusVq",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T245",
+        "CO-T246"
+      ],
+      [
+        "CO-T246",
+        "CO-OPEN246"
+      ]
+    ]
+  },
+  "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle; an exact all-depth fixed-base valuation identity and bounded five-digit replay only."
+}

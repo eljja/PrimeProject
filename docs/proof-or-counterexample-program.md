@@ -8803,3 +8803,25 @@ Machine artifact:
 `data/open-problem/ticket245-closure-second-order-klein-linnik.json`.
 Reports: [English](closure-second-order-klein-linnik.md) and
 [한국어](closure-second-order-klein-linnik.ko.md).
+## TICKET-246 continuation: finite moments, all-depth algebra, center Parseval, and prime-power contamination
+
+TICKET-246 advances each TICKET-245 frontier by one exact, falsifiable auxiliary
+statement and resolves no parent conjecture.
+
+| Track | Exact theorem now closed | Route discarded or retained | Next single lemma |
+|---|---|---|---|
+| RH | `FiniteEvenMomentAnnihilatorNoGo` | discard separation by a fixed finite even-moment list on the model class | `InfiniteFeatureCoercivityOnNormalizedAdmissibleWeilClosure` |
+| Collatz | `AllDepthFixedBaseFermatPolynomialIdentity` | retain exact fixed-base valuation analysis; finite histograms prove no all-prime order | `FixedBaseAllPrimeValuationDominationForPqByUqMinusVq` |
+| Goldbach | `RationalCenterResidueParsevalBridge` | discard the Ramanujan mean with its residue residual omitted | `UniformQuarterTorusResidueVarianceDecayWithArcStability` |
+| Twin | `PrimePowerPairProxyContaminationBound` | discard uncorrected equality of prime-power pairs and twin pairs | `ScaleLocalTypeIILowerBoundBeyondPrimePowerContamination` |
+
+The deep-focus Collatz identity is exact at arbitrary q-adic depth because the
+two binomial expansions terminate; the 17,981-prime replay is only an
+adversarial check. The Twin domain is odd starts `n>=3`: an initial broader
+domain was rejected by the boundary counterexample `(2,4)`. Each proof DAG
+has one open frontier, and all parent conjectures remain `open_not_proven`.
+
+Machine artifact:
+`data/open-problem/ticket246-moment-alldepth-parseval-primepower.json`.
+Reports: [English](moment-alldepth-parseval-primepower.md) and
+[한국어](moment-alldepth-parseval-primepower.ko.md).
