@@ -1,0 +1,180 @@
+{
+  "schema": "primeproject.ticket247-hilbert-hensel-lipschitz-primepower.v1",
+  "generated_at": "2026-08-26T18:10:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-247",
+  "theorem_name": "SharpOddPrimePowerContaminationBound",
+  "declared_proposition": "Let A_2(X) and pi_2(X) be the odd prime-power-pair and twin-prime counts of TICKET-246, put Y=X+2, K=floor(log_2 Y), and let pi_odd(t) count odd primes at most t. If N_odd(Y) counts odd composite prime powers at most Y, then exactly N_odd(Y)=sum_(k=2)^K pi_odd(floor(Y^(1/k))). Consequently 0<=A_2(X)-pi_2(X)<=2N_odd(Y) <=2pi_odd(floor(sqrt(Y)))+2(K-2)pi_odd(floor(cuberoot(Y))). This strictly sharpens the exponent-blind TICKET-246 correction at every audited scale.",
+  "mathematical_argument": "Every odd composite prime power has a unique representation p^k with odd prime p and k>=2, so counting by exponent gives the exact sum. As before, every false pair contains such a power in one of two coordinates, giving the factor-two union bound. The k=2 contribution is exactly pi_odd(floor sqrt(Y)); every one of the K-2 remaining contributions is at most the k=3 count, proving the sharper bound.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let A_2(X) and pi_2(X) be the odd prime-power-pair and twin-prime counts of TICKET-246, put Y=X+2, K=floor(log_2 Y), and let pi_odd(t) count odd primes at most t. If N_odd(Y) counts odd composite prime powers at most Y, then exactly N_odd(Y)=sum_(k=2)^K pi_odd(floor(Y^(1/k))). Consequently 0<=A_2(X)-pi_2(X)<=2N_odd(Y) <=2pi_odd(floor(sqrt(Y)))+2(K-2)pi_odd(floor(cuberoot(Y))). This strictly sharpens the exponent-blind TICKET-246 correction at every audited scale.",
+    "proof": "Every odd composite prime power has a unique representation p^k with odd prime p and k>=2, so counting by exponent gives the exact sum. As before, every false pair contains such a power in one of two coordinates, giving the factor-two union bound. The k=2 contribution is exactly pi_odd(floor sqrt(Y)); every one of the K-2 remaining contributions is at most the k=3 count, proving the sharper bound.",
+    "exact_sharp_contamination_rows": [
+      {
+        "limit_X": 100,
+        "prime_power_pair_count_A2": 16,
+        "twin_prime_pair_count_pi2": 8,
+        "composite_prime_power_contamination": 8,
+        "exact_odd_composite_prime_powers_N": 5,
+        "odd_prime_bases_through_sqrt_Y": 3,
+        "odd_prime_bases_through_cuberoot_Y": 1,
+        "exponent_cap_K": 6,
+        "sharp_contamination_bound": 14,
+        "ticket246_exponent_blind_bound": 100,
+        "strictly_improves_ticket246_bound": true,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 1000,
+        "prime_power_pair_count_A2": 49,
+        "twin_prime_pair_count_pi2": 35,
+        "composite_prime_power_contamination": 14,
+        "exact_odd_composite_prime_powers_N": 17,
+        "odd_prime_bases_through_sqrt_Y": 10,
+        "odd_prime_bases_through_cuberoot_Y": 3,
+        "exponent_cap_K": 9,
+        "sharp_contamination_bound": 62,
+        "ticket246_exponent_blind_bound": 496,
+        "strictly_improves_ticket246_bound": true,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000,
+        "prime_power_pair_count_A2": 228,
+        "twin_prime_pair_count_pi2": 205,
+        "composite_prime_power_contamination": 23,
+        "exact_odd_composite_prime_powers_N": 39,
+        "odd_prime_bases_through_sqrt_Y": 24,
+        "odd_prime_bases_through_cuberoot_Y": 7,
+        "exponent_cap_K": 13,
+        "sharp_contamination_bound": 202,
+        "ticket246_exponent_blind_bound": 2400,
+        "strictly_improves_ticket246_bound": true,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 100000,
+        "prime_power_pair_count_A2": 1268,
+        "twin_prime_pair_count_pi2": 1224,
+        "composite_prime_power_contamination": 44,
+        "exact_odd_composite_prime_powers_N": 93,
+        "odd_prime_bases_through_sqrt_Y": 64,
+        "odd_prime_bases_through_cuberoot_Y": 13,
+        "exponent_cap_K": 16,
+        "sharp_contamination_bound": 492,
+        "ticket246_exponent_blind_bound": 9480,
+        "strictly_improves_ticket246_bound": true,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 1000000,
+        "prime_power_pair_count_A2": 8245,
+        "twin_prime_pair_count_pi2": 8169,
+        "composite_prime_power_contamination": 76,
+        "exact_odd_composite_prime_powers_N": 218,
+        "odd_prime_bases_through_sqrt_Y": 167,
+        "odd_prime_bases_through_cuberoot_Y": 24,
+        "exponent_cap_K": 19,
+        "sharp_contamination_bound": 1150,
+        "ticket246_exponent_blind_bound": 36000,
+        "strictly_improves_ticket246_bound": true,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 5000000,
+        "prime_power_pair_count_A2": 32585,
+        "twin_prime_pair_count_pi2": 32463,
+        "composite_prime_power_contamination": 122,
+        "exact_odd_composite_prime_powers_N": 406,
+        "odd_prime_bases_through_sqrt_Y": 330,
+        "odd_prime_bases_through_cuberoot_Y": 38,
+        "exponent_cap_K": 22,
+        "sharp_contamination_bound": 2180,
+        "ticket246_exponent_blind_bound": 93912,
+        "strictly_improves_ticket246_bound": true,
+        "certificate_verified": true
+      },
+      {
+        "limit_X": 10000000,
+        "prime_power_pair_count_A2": 59129,
+        "twin_prime_pair_count_pi2": 58980,
+        "composite_prime_power_contamination": 149,
+        "exact_odd_composite_prime_powers_N": 533,
+        "odd_prime_bases_through_sqrt_Y": 445,
+        "odd_prime_bases_through_cuberoot_Y": 46,
+        "exponent_cap_K": 23,
+        "sharp_contamination_bound": 2822,
+        "ticket246_exponent_blind_bound": 139128,
+        "strictly_improves_ticket246_bound": true,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "7b336b5638d06b913ebee11fc89308a7a186953083f85cfe772a8a4971410d87",
+    "aggregate": {
+      "exact_odd_composite_prime_power_formula_proved": true,
+      "sharp_contamination_bound_proved": true,
+      "strict_improvement_on_all_audited_scales": true,
+      "scale_local_type_ii_lower_bound_proved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "no_go_scope": "The exact correction is smaller than the previous crude correction, but there is still no lower bound for A_2 exceeding it on unbounded scales. The finite sieve through ten million supplies no Type-II cancellation and no infinitude conclusion.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Prime-power and twin supports are enumerated through 10,000,000; the exact all-X count identity is combinatorial, but the finite rows imply no twin-prime infinitude.",
+  "logical_limit": "The correction is now counted exactly and bounded more sharply, but no unbounded scale sequence has A_2 beyond that correction and no parity-breaking Type-II estimate is proved.",
+  "route_decision": {
+    "discard": "using the exponent-blind TICKET-246 O(sqrt(X) log(X)) correction as the final prime-power contamination scale",
+    "parked": [],
+    "retain": "a scale-local nonperiodic Type-II lower bound for A_2 exceeding the exact odd composite-prime-power correction",
+    "next_single_lemma": "ScaleLocalTypeIILowerBoundBeyondSharpPrimePowerContamination"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T246",
+        "label": "PrimePowerPairProxyContaminationBound",
+        "status": "proved"
+      },
+      {
+        "id": "TP-T247",
+        "label": "SharpOddPrimePowerContaminationBound",
+        "status": "proved"
+      },
+      {
+        "id": "TP-REJECT247",
+        "label": "ExponentBlindPrimePowerCorrectionIsSharp",
+        "status": "disproved"
+      },
+      {
+        "id": "TP-OPEN247",
+        "label": "ScaleLocalTypeIILowerBoundBeyondSharpPrimePowerContamination",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T246",
+        "TP-T247"
+      ],
+      [
+        "TP-T247",
+        "TP-REJECT247"
+      ],
+      [
+        "TP-T247",
+        "TP-OPEN247"
+      ]
+    ],
+    "resolution_path": [
+      "TP-T246",
+      "TP-T247",
+      "TP-OPEN247"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No twin-prime proof or counterexample; one exact contamination count formula and sharper sufficient target."
+}

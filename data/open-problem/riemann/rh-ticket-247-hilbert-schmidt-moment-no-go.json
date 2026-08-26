@@ -1,0 +1,483 @@
+{
+  "schema": "primeproject.ticket247-hilbert-hensel-lipschitz-primepower.v1",
+  "generated_at": "2026-08-26T18:10:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-247",
+  "theorem_name": "HilbertSchmidtInfiniteMomentCoercivityNoGo",
+  "declared_proposition": "Let H=L2_even([-1,1]) and let w_k>=0 satisfy sum_(k>=0) 2w_k/(4k+1)<infinity. Define Q_w(f)=sum_(k>=0) w_k |integral_(-1)^1 x^(2k)f(x)dx|^2. For every n>=1, the normalized even Legendre polynomial f_n=sqrt((4n+1)/2) P_(2n) has norm one, its moments of orders 0,2,...,2n-2 vanish, and Q_w(f_n)<=sum_(k>=n)2w_k/(4k+1). Consequently inf_{||f||_2=1,f in H} Q_w(f)=0. Equivalently, the weighted moment feature operator is Hilbert-Schmidt and cannot be bounded below on the infinite-dimensional unit sphere.",
+  "mathematical_argument": "Legendre orthogonality makes P_(2n) orthogonal to every polynomial of degree below 2n, hence to x^(2k) for k<n, and its exact squared norm is 2/(4n+1). For k>=n, Cauchy-Schwarz gives the normalized bound |integral x^(2k)f_n|^2<=integral x^(4k)dx=2/(4k+1). Summing with w_k proves the tail bound, whose right side tends to zero by convergence. The same summability is exactly the sum of the squared norms of the weighted coordinate functionals, so the feature map is Hilbert-Schmidt and compact. A positive uniform lower bound would contradict the displayed unit sequence.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let H=L2_even([-1,1]) and let w_k>=0 satisfy sum_(k>=0) 2w_k/(4k+1)<infinity. Define Q_w(f)=sum_(k>=0) w_k |integral_(-1)^1 x^(2k)f(x)dx|^2. For every n>=1, the normalized even Legendre polynomial f_n=sqrt((4n+1)/2) P_(2n) has norm one, its moments of orders 0,2,...,2n-2 vanish, and Q_w(f_n)<=sum_(k>=n)2w_k/(4k+1). Consequently inf_{||f||_2=1,f in H} Q_w(f)=0. Equivalently, the weighted moment feature operator is Hilbert-Schmidt and cannot be bounded below on the infinite-dimensional unit sphere.",
+    "proof": "Legendre orthogonality makes P_(2n) orthogonal to every polynomial of degree below 2n, hence to x^(2k) for k<n, and its exact squared norm is 2/(4n+1). For k>=n, Cauchy-Schwarz gives the normalized bound |integral x^(2k)f_n|^2<=integral x^(4k)dx=2/(4k+1). Summing with w_k proves the tail bound, whose right side tends to zero by convergence. The same summability is exactly the sum of the squared norms of the weighted coordinate functionals, so the feature map is Hilbert-Schmidt and compact. A positive uniform lower bound would contradict the displayed unit sequence.",
+    "exact_legendre_certificates": [
+      {
+        "legendre_half_degree_n": 1,
+        "polynomial_degree": 2,
+        "coefficients_low_to_high": [
+          "-1/2",
+          "0",
+          "3/2"
+        ],
+        "annihilated_even_moment_orders": [
+          0
+        ],
+        "all_exact_moments_zero": true,
+        "unnormalized_L2_norm_squared": {
+          "exact": "2/5",
+          "float": 0.4
+        },
+        "dyadic_weight_feature_tail_upper_bound": {
+          "exact": "2/5",
+          "float": 0.4
+        },
+        "recurrence_matches_rodrigues": true,
+        "certificate_verified": true
+      },
+      {
+        "legendre_half_degree_n": 2,
+        "polynomial_degree": 4,
+        "coefficients_low_to_high": [
+          "3/8",
+          "0",
+          "-15/4",
+          "0",
+          "35/8"
+        ],
+        "annihilated_even_moment_orders": [
+          0,
+          1
+        ],
+        "all_exact_moments_zero": true,
+        "unnormalized_L2_norm_squared": {
+          "exact": "2/9",
+          "float": 0.2222222222222222
+        },
+        "dyadic_weight_feature_tail_upper_bound": {
+          "exact": "1/9",
+          "float": 0.1111111111111111
+        },
+        "recurrence_matches_rodrigues": true,
+        "certificate_verified": true
+      },
+      {
+        "legendre_half_degree_n": 3,
+        "polynomial_degree": 6,
+        "coefficients_low_to_high": [
+          "-5/16",
+          "0",
+          "105/16",
+          "0",
+          "-315/16",
+          "0",
+          "231/16"
+        ],
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2
+        ],
+        "all_exact_moments_zero": true,
+        "unnormalized_L2_norm_squared": {
+          "exact": "2/13",
+          "float": 0.15384615384615385
+        },
+        "dyadic_weight_feature_tail_upper_bound": {
+          "exact": "1/26",
+          "float": 0.038461538461538464
+        },
+        "recurrence_matches_rodrigues": true,
+        "certificate_verified": true
+      },
+      {
+        "legendre_half_degree_n": 4,
+        "polynomial_degree": 8,
+        "coefficients_low_to_high": [
+          "35/128",
+          "0",
+          "-315/32",
+          "0",
+          "3465/64",
+          "0",
+          "-3003/32",
+          "0",
+          "6435/128"
+        ],
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "all_exact_moments_zero": true,
+        "unnormalized_L2_norm_squared": {
+          "exact": "2/17",
+          "float": 0.11764705882352941
+        },
+        "dyadic_weight_feature_tail_upper_bound": {
+          "exact": "1/68",
+          "float": 0.014705882352941176
+        },
+        "recurrence_matches_rodrigues": true,
+        "certificate_verified": true
+      },
+      {
+        "legendre_half_degree_n": 5,
+        "polynomial_degree": 10,
+        "coefficients_low_to_high": [
+          "-63/256",
+          "0",
+          "3465/256",
+          "0",
+          "-15015/128",
+          "0",
+          "45045/128",
+          "0",
+          "-109395/256",
+          "0",
+          "46189/256"
+        ],
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "all_exact_moments_zero": true,
+        "unnormalized_L2_norm_squared": {
+          "exact": "2/21",
+          "float": 0.09523809523809523
+        },
+        "dyadic_weight_feature_tail_upper_bound": {
+          "exact": "1/168",
+          "float": 0.005952380952380952
+        },
+        "recurrence_matches_rodrigues": true,
+        "certificate_verified": true
+      },
+      {
+        "legendre_half_degree_n": 6,
+        "polynomial_degree": 12,
+        "coefficients_low_to_high": [
+          "231/1024",
+          "0",
+          "-9009/512",
+          "0",
+          "225225/1024",
+          "0",
+          "-255255/256",
+          "0",
+          "2078505/1024",
+          "0",
+          "-969969/512",
+          "0",
+          "676039/1024"
+        ],
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "all_exact_moments_zero": true,
+        "unnormalized_L2_norm_squared": {
+          "exact": "2/25",
+          "float": 0.08
+        },
+        "dyadic_weight_feature_tail_upper_bound": {
+          "exact": "1/400",
+          "float": 0.0025
+        },
+        "recurrence_matches_rodrigues": true,
+        "certificate_verified": true
+      },
+      {
+        "legendre_half_degree_n": 8,
+        "polynomial_degree": 16,
+        "coefficients_low_to_high": [
+          "6435/32768",
+          "0",
+          "-109395/4096",
+          "0",
+          "4849845/8192",
+          "0",
+          "-20369349/4096",
+          "0",
+          "334639305/16384",
+          "0",
+          "-185910725/4096",
+          "0",
+          "456326325/8192",
+          "0",
+          "-145422675/4096",
+          "0",
+          "300540195/32768"
+        ],
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "all_exact_moments_zero": true,
+        "unnormalized_L2_norm_squared": {
+          "exact": "2/33",
+          "float": 0.06060606060606061
+        },
+        "dyadic_weight_feature_tail_upper_bound": {
+          "exact": "1/2112",
+          "float": 0.0004734848484848485
+        },
+        "recurrence_matches_rodrigues": true,
+        "certificate_verified": true
+      },
+      {
+        "legendre_half_degree_n": 10,
+        "polynomial_degree": 20,
+        "coefficients_low_to_high": [
+          "46189/262144",
+          "0",
+          "-4849845/131072",
+          "0",
+          "334639305/262144",
+          "0",
+          "-557732175/32768",
+          "0",
+          "15058768725/131072",
+          "0",
+          "-29113619535/65536",
+          "0",
+          "136745788725/131072",
+          "0",
+          "-49589132175/32768",
+          "0",
+          "347123925225/262144",
+          "0",
+          "-83945001525/131072",
+          "0",
+          "34461632205/262144"
+        ],
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "all_exact_moments_zero": true,
+        "unnormalized_L2_norm_squared": {
+          "exact": "2/41",
+          "float": 0.04878048780487805
+        },
+        "dyadic_weight_feature_tail_upper_bound": {
+          "exact": "1/10496",
+          "float": 9.527439024390244e-05
+        },
+        "recurrence_matches_rodrigues": true,
+        "certificate_verified": true
+      },
+      {
+        "legendre_half_degree_n": 12,
+        "polynomial_degree": 24,
+        "coefficients_low_to_high": [
+          "676039/4194304",
+          "0",
+          "-50702925/1048576",
+          "0",
+          "5019589575/2097152",
+          "0",
+          "-48522699225/1048576",
+          "0",
+          "1933976154825/4194304",
+          "0",
+          "-1418249180205/524288",
+          "0",
+          "10529425731825/1048576",
+          "0",
+          "-12843585233325/524288",
+          "0",
+          "166966608033225/4194304",
+          "0",
+          "-44742685812825/1048576",
+          "0",
+          "60755857577415/2097152",
+          "0",
+          "-11835556670925/1048576",
+          "0",
+          "8061900920775/4194304"
+        ],
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "all_exact_moments_zero": true,
+        "unnormalized_L2_norm_squared": {
+          "exact": "2/49",
+          "float": 0.04081632653061224
+        },
+        "dyadic_weight_feature_tail_upper_bound": {
+          "exact": "1/50176",
+          "float": 1.992984693877551e-05
+        },
+        "recurrence_matches_rodrigues": true,
+        "certificate_verified": true
+      },
+      {
+        "legendre_half_degree_n": 16,
+        "polynomial_degree": 32,
+        "coefficients_low_to_high": [
+          "300540195/2147483648",
+          "0",
+          "-9917826435/134217728",
+          "0",
+          "1735619626125/268435456",
+          "0",
+          "-29968365544425/134217728",
+          "0",
+          "2170565904431925/536870912",
+          "0",
+          "-5932880138780595/134217728",
+          "0",
+          "85037948655855195/268435456",
+          "0",
+          "-210258664258982625/134217728",
+          "0",
+          "5929294332103310025/1073741824",
+          "0",
+          "-1898924328582105825/134217728",
+          "0",
+          "7135957740040123995/268435456",
+          "0",
+          "-4911763119767877555/134217728",
+          "0",
+          "19575867506321251125/536870912",
+          "0",
+          "-3433305993416342505/134217728",
+          "0",
+          "3215318311294669965/268435456",
+          "0",
+          "-450883717216034179/134217728",
+          "0",
+          "916312070471295267/2147483648"
+        ],
+        "annihilated_even_moment_orders": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "all_exact_moments_zero": true,
+        "unnormalized_L2_norm_squared": {
+          "exact": "2/65",
+          "float": 0.03076923076923077
+        },
+        "dyadic_weight_feature_tail_upper_bound": {
+          "exact": "1/1064960",
+          "float": 9.390024038461539e-07
+        },
+        "recurrence_matches_rodrigues": true,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "6f96be5ca5ceffa5ed645e2eb17758ae151b079799bf89baaa00c605cce871a5",
+    "aggregate": {
+      "hilbert_schmidt_weighted_moment_coercivity_refuted": true,
+      "explicit_normalized_weak_sequence_proved": true,
+      "dyadic_weight_tail_tends_to_zero_proved": true,
+      "non_hilbert_schmidt_arithmetic_weil_coercivity_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "no_go_scope": "This is an all-Hilbert-space no-go for weighted monomial feature maps whose coordinate norm squares are summable. It does not show that the Legendre sequence belongs to the genuine normalized Guinand-Weil admissible closure, and it does not cover a non-Hilbert-Schmidt or arithmetic feature operator. It therefore proves no RH implication.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "10 exact Legendre rows through half-degree 16 verify the construction; the all-n and all-summable-weight theorem is proved analytically, not inferred from those rows.",
+  "logical_limit": "The theorem closes the summable weighted-moment upgrade, but no bridge identifies the genuine admissible Weil closure with the full even L2 sphere or proves coercivity for a noncompact arithmetic feature operator.",
+  "route_decision": {
+    "discard": "uniform positive coercivity from any Hilbert-Schmidt weighted even-moment feature map on the full normalized even L2 sphere",
+    "parked": [],
+    "retain": "non-Hilbert-Schmidt arithmetic Weil features on the genuine normalized admissible closure",
+    "next_single_lemma": "NonHilbertSchmidtArithmeticWeilCoercivityOnAdmissibleClosure"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T246",
+        "label": "FiniteEvenMomentAnnihilatorNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-T247",
+        "label": "HilbertSchmidtInfiniteMomentCoercivityNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-REJECT247",
+        "label": "HilbertSchmidtInfiniteMomentsCoerceTheEvenL2UnitSphere",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-OPEN247",
+        "label": "NonHilbertSchmidtArithmeticWeilCoercivityOnAdmissibleClosure",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T246",
+        "RH-T247"
+      ],
+      [
+        "RH-T247",
+        "RH-REJECT247"
+      ],
+      [
+        "RH-T247",
+        "RH-OPEN247"
+      ]
+    ],
+    "resolution_path": [
+      "RH-T246",
+      "RH-T247",
+      "RH-OPEN247"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No RH proof or disproof; one exact infinite-feature no-go under the Hilbert-Schmidt summability condition."
+}

@@ -1,0 +1,615 @@
+{
+  "schema": "primeproject.ticket247-hilbert-hensel-lipschitz-primepower.v1",
+  "generated_at": "2026-08-26T18:10:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-247",
+  "theorem_name": "RationalCenterArcLipschitzBridgeAndCenterOnlyNoGo",
+  "declared_proposition": "Let q>=3, X>=3, and let S*(alpha) sum exp(2 pi i alpha p) over odd primes p<=X coprime to q. For reduced residues r let n_r be the counts, P=sum n_r, delta_r=n_r-P/phi(q), D=sum delta_r^2, and M=sum p over the same primes. For every integer a and real beta, |S*(a/q+beta)-(P/phi(q))c_q(a)| <= sqrt(phi(q)D)+2 pi |beta|M, where phi(q)D=phi(q)sum n_r^2-P^2 is an exact nonnegative integer. No modulus of continuity uniform in the maximum frequency can follow from center values alone: F_N(beta)=exp(2 pi i N beta)-1 has F_N(0)=0 but |F_N(1/(2N))|=2 as 1/(2N) tends to zero.",
+  "mathematical_argument": "TICKET-246 gives the center decomposition and Cauchy-Schwarz bound |R(a)|<=sqrt(phi D). Subtract the center sum term by term and use |exp(it)-1|<=|t| to obtain at most 2 pi |beta| sum p. The variance identity follows by expanding delta_r. For the no-go family, the center is exactly zero while exp(2 pi i N/(2N))=-1, so the displaced value is exactly -2.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let q>=3, X>=3, and let S*(alpha) sum exp(2 pi i alpha p) over odd primes p<=X coprime to q. For reduced residues r let n_r be the counts, P=sum n_r, delta_r=n_r-P/phi(q), D=sum delta_r^2, and M=sum p over the same primes. For every integer a and real beta, |S*(a/q+beta)-(P/phi(q))c_q(a)| <= sqrt(phi(q)D)+2 pi |beta|M, where phi(q)D=phi(q)sum n_r^2-P^2 is an exact nonnegative integer. No modulus of continuity uniform in the maximum frequency can follow from center values alone: F_N(beta)=exp(2 pi i N beta)-1 has F_N(0)=0 but |F_N(1/(2N))|=2 as 1/(2N) tends to zero.",
+    "proof": "TICKET-246 gives the center decomposition and Cauchy-Schwarz bound |R(a)|<=sqrt(phi D). Subtract the center sum term by term and use |exp(it)-1|<=|t| to obtain at most 2 pi |beta| sum p. The variance identity follows by expanding delta_r. For the no-go family, the center is exactly zero while exp(2 pi i N/(2N))=-1, so the displaced value is exactly -2.",
+    "exact_selected_arc_rows": [
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 3,
+        "phi_q": 2,
+        "unit_prime_mass": 1227,
+        "unit_prime_first_moment_M": 5736391,
+        "residual_pointwise_squared_bound_phi_D": 25,
+        "arc_width_abs_beta": {
+          "exact": "1/100000000",
+          "float": 1e-08
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "5736391/100000000",
+          "float": 0.05736391
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 4,
+        "phi_q": 2,
+        "unit_prime_mass": 1228,
+        "unit_prime_first_moment_M": 5736394,
+        "residual_pointwise_squared_bound_phi_D": 100,
+        "arc_width_abs_beta": {
+          "exact": "1/100000000",
+          "float": 1e-08
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "2868197/50000000",
+          "float": 0.05736394
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 5,
+        "phi_q": 4,
+        "unit_prime_mass": 1227,
+        "unit_prime_first_moment_M": 5736389,
+        "residual_pointwise_squared_bound_phi_D": 107,
+        "arc_width_abs_beta": {
+          "exact": "1/100000000",
+          "float": 1e-08
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "5736389/100000000",
+          "float": 0.05736389
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 8,
+        "phi_q": 4,
+        "unit_prime_mass": 1228,
+        "unit_prime_first_moment_M": 5736394,
+        "residual_pointwise_squared_bound_phi_D": 840,
+        "arc_width_abs_beta": {
+          "exact": "1/100000000",
+          "float": 1e-08
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "2868197/50000000",
+          "float": 0.05736394
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 12,
+        "phi_q": 4,
+        "unit_prime_mass": 1227,
+        "unit_prime_first_moment_M": 5736391,
+        "residual_pointwise_squared_bound_phi_D": 275,
+        "arc_width_abs_beta": {
+          "exact": "1/100000000",
+          "float": 1e-08
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "5736391/100000000",
+          "float": 0.05736391
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 16,
+        "phi_q": 8,
+        "unit_prime_mass": 1228,
+        "unit_prime_first_moment_M": 5736394,
+        "residual_pointwise_squared_bound_phi_D": 1456,
+        "arc_width_abs_beta": {
+          "exact": "1/100000000",
+          "float": 1e-08
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "2868197/50000000",
+          "float": 0.05736394
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 30,
+        "phi_q": 8,
+        "unit_prime_mass": 1226,
+        "unit_prime_first_moment_M": 5736386,
+        "residual_pointwise_squared_bound_phi_D": 156,
+        "arc_width_abs_beta": {
+          "exact": "1/100000000",
+          "float": 1e-08
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "2868193/50000000",
+          "float": 0.05736386
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 60,
+        "phi_q": 16,
+        "unit_prime_mass": 1226,
+        "unit_prime_first_moment_M": 5736386,
+        "residual_pointwise_squared_bound_phi_D": 828,
+        "arc_width_abs_beta": {
+          "exact": "1/100000000",
+          "float": 1e-08
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "2868193/50000000",
+          "float": 0.05736386
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 10000,
+        "denominator_q": 64,
+        "phi_q": 32,
+        "unit_prime_mass": 1228,
+        "unit_prime_first_moment_M": 5736394,
+        "residual_pointwise_squared_bound_phi_D": 8112,
+        "arc_width_abs_beta": {
+          "exact": "1/100000000",
+          "float": 1e-08
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "2868197/50000000",
+          "float": 0.05736394
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 3,
+        "phi_q": 2,
+        "unit_prime_mass": 9590,
+        "unit_prime_first_moment_M": 454396532,
+        "residual_pointwise_squared_bound_phi_D": 484,
+        "arc_width_abs_beta": {
+          "exact": "1/10000000000",
+          "float": 1e-10
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "113599133/2500000000",
+          "float": 0.0454396532
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 4,
+        "phi_q": 2,
+        "unit_prime_mass": 9591,
+        "unit_prime_first_moment_M": 454396535,
+        "residual_pointwise_squared_bound_phi_D": 625,
+        "arc_width_abs_beta": {
+          "exact": "1/10000000000",
+          "float": 1e-10
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "90879307/2000000000",
+          "float": 0.0454396535
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 5,
+        "phi_q": 4,
+        "unit_prime_mass": 9590,
+        "unit_prime_first_moment_M": 454396530,
+        "residual_pointwise_squared_bound_phi_D": 1476,
+        "arc_width_abs_beta": {
+          "exact": "1/10000000000",
+          "float": 1e-10
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "45439653/1000000000",
+          "float": 0.045439653
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 8,
+        "phi_q": 4,
+        "unit_prime_mass": 9591,
+        "unit_prime_first_moment_M": 454396535,
+        "residual_pointwise_squared_bound_phi_D": 1275,
+        "arc_width_abs_beta": {
+          "exact": "1/10000000000",
+          "float": 1e-10
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "90879307/2000000000",
+          "float": 0.0454396535
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 12,
+        "phi_q": 4,
+        "unit_prime_mass": 9590,
+        "unit_prime_first_moment_M": 454396532,
+        "residual_pointwise_squared_bound_phi_D": 3364,
+        "arc_width_abs_beta": {
+          "exact": "1/10000000000",
+          "float": 1e-10
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "113599133/2500000000",
+          "float": 0.0454396532
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 16,
+        "phi_q": 8,
+        "unit_prime_mass": 9591,
+        "unit_prime_first_moment_M": 454396535,
+        "residual_pointwise_squared_bound_phi_D": 1735,
+        "arc_width_abs_beta": {
+          "exact": "1/10000000000",
+          "float": 1e-10
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "90879307/2000000000",
+          "float": 0.0454396535
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 30,
+        "phi_q": 8,
+        "unit_prime_mass": 9589,
+        "unit_prime_first_moment_M": 454396527,
+        "residual_pointwise_squared_bound_phi_D": 2495,
+        "arc_width_abs_beta": {
+          "exact": "1/10000000000",
+          "float": 1e-10
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "454396527/10000000000",
+          "float": 0.0454396527
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 60,
+        "phi_q": 16,
+        "unit_prime_mass": 9589,
+        "unit_prime_first_moment_M": 454396527,
+        "residual_pointwise_squared_bound_phi_D": 13079,
+        "arc_width_abs_beta": {
+          "exact": "1/10000000000",
+          "float": 1e-10
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "454396527/10000000000",
+          "float": 0.0454396527
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominator_q": 64,
+        "phi_q": 32,
+        "unit_prime_mass": 9591,
+        "unit_prime_first_moment_M": 454396535,
+        "residual_pointwise_squared_bound_phi_D": 26831,
+        "arc_width_abs_beta": {
+          "exact": "1/10000000000",
+          "float": 1e-10
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "90879307/2000000000",
+          "float": 0.0454396535
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 3,
+        "phi_q": 2,
+        "unit_prime_mass": 41536,
+        "unit_prime_first_moment_M": 9914236190,
+        "residual_pointwise_squared_bound_phi_D": 4900,
+        "arc_width_abs_beta": {
+          "exact": "1/250000000000",
+          "float": 4e-12
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "991423619/25000000000",
+          "float": 0.03965694476
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 4,
+        "phi_q": 2,
+        "unit_prime_mass": 41537,
+        "unit_prime_first_moment_M": 9914236193,
+        "residual_pointwise_squared_bound_phi_D": 5625,
+        "arc_width_abs_beta": {
+          "exact": "1/250000000000",
+          "float": 4e-12
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "9914236193/250000000000",
+          "float": 0.039656944772
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 5,
+        "phi_q": 4,
+        "unit_prime_mass": 41536,
+        "unit_prime_first_moment_M": 9914236188,
+        "residual_pointwise_squared_bound_phi_D": 2920,
+        "arc_width_abs_beta": {
+          "exact": "1/250000000000",
+          "float": 4e-12
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "2478559047/62500000000",
+          "float": 0.039656944752
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 8,
+        "phi_q": 4,
+        "unit_prime_mass": 41537,
+        "unit_prime_first_moment_M": 9914236193,
+        "residual_pointwise_squared_bound_phi_D": 15363,
+        "arc_width_abs_beta": {
+          "exact": "1/250000000000",
+          "float": 4e-12
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "9914236193/250000000000",
+          "float": 0.039656944772
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 12,
+        "phi_q": 4,
+        "unit_prime_mass": 41536,
+        "unit_prime_first_moment_M": 9914236190,
+        "residual_pointwise_squared_bound_phi_D": 16152,
+        "arc_width_abs_beta": {
+          "exact": "1/250000000000",
+          "float": 4e-12
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "991423619/25000000000",
+          "float": 0.03965694476
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 16,
+        "phi_q": 8,
+        "unit_prime_mass": 41537,
+        "unit_prime_first_moment_M": 9914236193,
+        "residual_pointwise_squared_bound_phi_D": 18327,
+        "arc_width_abs_beta": {
+          "exact": "1/250000000000",
+          "float": 4e-12
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "9914236193/250000000000",
+          "float": 0.039656944772
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 30,
+        "phi_q": 8,
+        "unit_prime_mass": 41535,
+        "unit_prime_first_moment_M": 9914236185,
+        "residual_pointwise_squared_bound_phi_D": 23687,
+        "arc_width_abs_beta": {
+          "exact": "1/250000000000",
+          "float": 4e-12
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "1982847237/50000000000",
+          "float": 0.03965694474
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 60,
+        "phi_q": 16,
+        "unit_prime_mass": 41535,
+        "unit_prime_first_moment_M": 9914236185,
+        "residual_pointwise_squared_bound_phi_D": 58927,
+        "arc_width_abs_beta": {
+          "exact": "1/250000000000",
+          "float": 4e-12
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "1982847237/50000000000",
+          "float": 0.03965694474
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominator_q": 64,
+        "phi_q": 32,
+        "unit_prime_mass": 41537,
+        "unit_prime_first_moment_M": 9914236193,
+        "residual_pointwise_squared_bound_phi_D": 133471,
+        "arc_width_abs_beta": {
+          "exact": "1/250000000000",
+          "float": 4e-12
+        },
+        "lipschitz_budget_M_abs_beta_without_2pi": {
+          "exact": "9914236193/250000000000",
+          "float": 0.039656944772
+        },
+        "certificate_verified": true
+      }
+    ],
+    "exhaustive_denominator_summaries": [
+      {
+        "prime_limit_X": 10000,
+        "denominators_checked": 62,
+        "maximum_M_abs_beta_without_2pi": {
+          "exact": "2868197/50000000",
+          "float": 0.05736394
+        },
+        "maximum_budget_denominator_q": 4,
+        "failure_count": 0
+      },
+      {
+        "prime_limit_X": 100000,
+        "denominators_checked": 62,
+        "maximum_M_abs_beta_without_2pi": {
+          "exact": "90879307/2000000000",
+          "float": 0.0454396535
+        },
+        "maximum_budget_denominator_q": 4,
+        "failure_count": 0
+      },
+      {
+        "prime_limit_X": 500000,
+        "denominators_checked": 62,
+        "maximum_M_abs_beta_without_2pi": {
+          "exact": "9914236193/250000000000",
+          "float": 0.039656944772
+        },
+        "maximum_budget_denominator_q": 4,
+        "failure_count": 0
+      }
+    ],
+    "center_only_uniformity_counterfamily": [
+      {
+        "frequency_N": 10,
+        "center_value_abs_F_N_0": 0,
+        "test_beta": {
+          "exact": "1/20",
+          "float": 0.05
+        },
+        "exact_abs_F_N_beta": 2,
+        "certificate_verified": true
+      },
+      {
+        "frequency_N": 100,
+        "center_value_abs_F_N_0": 0,
+        "test_beta": {
+          "exact": "1/200",
+          "float": 0.005
+        },
+        "exact_abs_F_N_beta": 2,
+        "certificate_verified": true
+      },
+      {
+        "frequency_N": 1000,
+        "center_value_abs_F_N_0": 0,
+        "test_beta": {
+          "exact": "1/2000",
+          "float": 0.0005
+        },
+        "exact_abs_F_N_beta": 2,
+        "certificate_verified": true
+      },
+      {
+        "frequency_N": 10000,
+        "center_value_abs_F_N_0": 0,
+        "test_beta": {
+          "exact": "1/20000",
+          "float": 5e-05
+        },
+        "exact_abs_F_N_beta": 2,
+        "certificate_verified": true
+      }
+    ],
+    "transcript_sha256": "314c9f28ab175a59fce98474b249cf6e8fbc9fb811f2258d8c344d1b113a89b4",
+    "aggregate": {
+      "rational_center_arc_lipschitz_bridge_proved": true,
+      "center_only_uniform_modulus_refuted": true,
+      "uniform_signed_first_moment_saving_proved": false,
+      "uniform_growing_denominator_variance_decay_proved": false,
+      "strong_goldbach_resolved": false
+    },
+    "no_go_scope": "The Lipschitz term is deterministic but may be as large as the trivial prime first moment; it is not signed cancellation. The counterfamily blocks center-only promotion for unrestricted trigonometric polynomials, not a sharper theorem using prime arithmetic. The finite residue tables prove no asymptotic in X or q and no positive Goldbach representation bound.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Exact integer/rational rows cover q=3..64 at X=10000,100000,500000; beta=1/X^2 is illustrative only and proves no asymptotic major/minor-arc saving.",
+  "logical_limit": "The deterministic 2 pi |beta|M term can be trivial-sized, and no growing-denominator residue-variance decay or signed first-moment cancellation has been proved.",
+  "route_decision": {
+    "discard": "promoting rational-center control to a uniform arc-neighborhood bound without a frequency-scale or signed first-moment term",
+    "parked": [],
+    "retain": "the exact center Parseval bound plus uniform signed residue and prime-first-moment savings on quarter-torus arcs",
+    "next_single_lemma": "UniformSignedResidueVarianceAndFirstMomentSavingOnQuarterTorus"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T246",
+        "label": "RationalCenterResidueParsevalBridge",
+        "status": "proved"
+      },
+      {
+        "id": "GB-T247",
+        "label": "RationalCenterArcLipschitzBridgeAndCenterOnlyNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "GB-REJECT247",
+        "label": "CenterValuesAloneGiveUniformArcModulus",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN247",
+        "label": "UniformSignedResidueVarianceAndFirstMomentSavingOnQuarterTorus",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T246",
+        "GB-T247"
+      ],
+      [
+        "GB-T247",
+        "GB-REJECT247"
+      ],
+      [
+        "GB-T247",
+        "GB-OPEN247"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T246",
+      "GB-T247",
+      "GB-OPEN247"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; one exact center-to-arc inequality and one exact center-only uniformity obstruction."
+}

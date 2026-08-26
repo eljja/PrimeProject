@@ -8825,3 +8825,28 @@ Machine artifact:
 `data/open-problem/ticket246-moment-alldepth-parseval-primepower.json`.
 Reports: [English](moment-alldepth-parseval-primepower.md) and
 [한국어](moment-alldepth-parseval-primepower.ko.md).
+
+## TICKET-247 continuation: Hilbert-Schmidt, Hensel, arc Lipschitz, and sharp prime powers
+
+TICKET-247 attacks the four TICKET-246 frontiers with exact compactness,
+`q`-adic, Fourier-displacement, and prime-power counting arguments. It resolves
+no parent conjecture.
+
+| Track | Exact theorem now closed | Route discarded or retained | Next single lemma |
+|---|---|---|---|
+| RH | `HilbertSchmidtInfiniteMomentCoercivityNoGo` | discard every summable weighted-moment coercivity bound on the full even L2 sphere | `NonHilbertSchmidtArithmeticWeilCoercivityOnAdmissibleClosure` |
+| Collatz | `FormalHenselBranchNoGoForValuationDomination` | discard valuation domination derived from the unrestricted polynomial identity alone | `ArithmeticFermatQuotientExclusionOfPqHenselBranch` |
+| Goldbach | `RationalCenterArcLipschitzBridgeAndCenterOnlyNoGo` | discard center-only uniform arc promotion; retain an explicit first-moment term | `UniformSignedResidueVarianceAndFirstMomentSavingOnQuarterTorus` |
+| Twin | `SharpOddPrimePowerContaminationBound` | replace the exponent-blind correction by the exact exponent count and square/cube bound | `ScaleLocalTypeIILowerBoundBeyondSharpPrimePowerContamination` |
+
+The RH theorem is infinite but scoped: it uses every summable weight sequence
+on the full even L2 model and does not identify the genuine Weil closure. The
+Collatz theorem is also all-prime/all-depth but uses unrestricted q-adic pairs,
+not actual Fermat quotients. Goldbach retains the necessary frequency-scale
+term, and Twin still lacks a lower bound beyond contamination. Every proof DAG
+has one open frontier; all parent conjectures remain `open_not_proven`.
+
+Machine artifact:
+`data/open-problem/ticket247-hilbert-hensel-lipschitz-primepower.json`.
+Reports: [English](hilbert-hensel-lipschitz-primepower.md) and
+[한국어](hilbert-hensel-lipschitz-primepower.ko.md).

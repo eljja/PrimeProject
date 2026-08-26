@@ -1,0 +1,213 @@
+{
+  "schema": "primeproject.ticket247-hilbert-hensel-lipschitz-primepower.v1",
+  "generated_at": "2026-08-26T18:10:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-247",
+  "theorem_name": "FormalHenselBranchNoGoForValuationDomination",
+  "declared_proposition": "For every prime q>5 and every integer r>=1 there is an integer V_r, unique modulo q^r subject to V_r=5 modulo q, such that with U=3, P_q(U,V_r)=0 modulo q^r while U-V_r is nonzero modulo q. Therefore v_q(P_q(U,V_r))>=r>0=v_q(U-V_r). The unrestricted formal assertion v_q(P_q(U,V))<=v_q(U-V) for all q-adic quotient pairs is false at every prime q>5 and arbitrary depth.",
+  "mathematical_argument": "Modulo q the polynomial is P_q(3,V)=15-3V, so V=5 is a root. Its V-derivative is -3-6qV-3q^2V^2=-3(1+qV)^2, a unit modulo every prime q>5. Hensel lifting gives one and only one compatible root modulo q^r for every r. Along that branch 3-V=-2 modulo q, hence it is a unit. The valuation inequality is therefore violated by exact integer representatives at each requested finite depth.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every prime q>5 and every integer r>=1 there is an integer V_r, unique modulo q^r subject to V_r=5 modulo q, such that with U=3, P_q(U,V_r)=0 modulo q^r while U-V_r is nonzero modulo q. Therefore v_q(P_q(U,V_r))>=r>0=v_q(U-V_r). The unrestricted formal assertion v_q(P_q(U,V))<=v_q(U-V) for all q-adic quotient pairs is false at every prime q>5 and arbitrary depth.",
+    "proof": "Modulo q the polynomial is P_q(3,V)=15-3V, so V=5 is a root. Its V-derivative is -3-6qV-3q^2V^2=-3(1+qV)^2, a unit modulo every prime q>5. Hensel lifting gives one and only one compatible root modulo q^r for every r. Along that branch 3-V=-2 modulo q, hence it is a unit. The valuation inequality is therefore violated by exact integer representatives at each requested finite depth.",
+    "selected_hensel_countermodels": [
+      {
+        "prime_q": 7,
+        "fixed_U": 3,
+        "lifted_V_mod_q_to_depth": 857687,
+        "base_q_digits_low_to_high": [
+          5,
+          5,
+          3,
+          1,
+          0,
+          2,
+          0,
+          1
+        ],
+        "lift_depth": 8,
+        "P_q_mod_q_to_depth": 0,
+        "U_minus_V_mod_q": 5,
+        "P_q_valuation_lower_bound": 8,
+        "U_minus_V_valuation": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "fixed_U": 3,
+        "lifted_V_mod_q_to_depth": 31104441,
+        "base_q_digits_low_to_high": [
+          5,
+          5,
+          2,
+          5,
+          1,
+          6,
+          6,
+          1
+        ],
+        "lift_depth": 8,
+        "P_q_mod_q_to_depth": 0,
+        "U_minus_V_mod_q": 9,
+        "P_q_valuation_lower_bound": 8,
+        "U_minus_V_valuation": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "fixed_U": 3,
+        "lifted_V_mod_q_to_depth": 13331178355,
+        "base_q_digits_low_to_high": [
+          5,
+          5,
+          6,
+          9,
+          5,
+          1,
+          21,
+          3
+        ],
+        "lift_depth": 8,
+        "P_q_mod_q_to_depth": 0,
+        "U_minus_V_mod_q": 21,
+        "P_q_valuation_lower_bound": 8,
+        "U_minus_V_valuation": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 101,
+        "fixed_U": 3,
+        "lifted_V_mod_q_to_depth": 337839932764052,
+        "base_q_digits_low_to_high": [
+          5,
+          5,
+          32,
+          35,
+          31,
+          26,
+          15,
+          3
+        ],
+        "lift_depth": 8,
+        "P_q_mod_q_to_depth": 0,
+        "U_minus_V_mod_q": 99,
+        "P_q_valuation_lower_bound": 8,
+        "U_minus_V_valuation": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 1009,
+        "fixed_U": 3,
+        "lifted_V_mod_q_to_depth": 254107166311144300037539,
+        "base_q_digits_low_to_high": [
+          5,
+          5,
+          671,
+          1,
+          334,
+          452,
+          665,
+          238
+        ],
+        "lift_depth": 8,
+        "P_q_mod_q_to_depth": 0,
+        "U_minus_V_mod_q": 1007,
+        "P_q_valuation_lower_bound": 8,
+        "U_minus_V_valuation": 0,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 9973,
+        "fixed_U": 3,
+        "lifted_V_mod_q_to_depth": 21888463162891190666263709326159,
+        "base_q_digits_low_to_high": [
+          5,
+          5,
+          6647,
+          1,
+          3322,
+          4436,
+          6641,
+          2230
+        ],
+        "lift_depth": 8,
+        "P_q_mod_q_to_depth": 0,
+        "U_minus_V_mod_q": 9971,
+        "P_q_valuation_lower_bound": 8,
+        "U_minus_V_valuation": 0,
+        "certificate_verified": true
+      }
+    ],
+    "exact_modular_replay": {
+      "prime_limit": 10000,
+      "primes_checked": 1226,
+      "lift_depth": 8,
+      "all_lifts_verified": true
+    },
+    "transcript_sha256": "bcb089ee91757f792ae7151212331f811f48a1cc771eea1386d4d4349ba04156",
+    "aggregate": {
+      "formal_unrestricted_valuation_domination_refuted": true,
+      "all_prime_all_depth_hensel_branch_proved": true,
+      "actual_fermat_quotients_excluded_from_hensel_branch": false,
+      "collatz_conjecture_resolved": false
+    },
+    "no_go_scope": "The countermodels are unrestricted q-adic pairs with U fixed to 3. They are not the actual Fermat quotients U=(2^(q-1)-1)/q and V=(3^(q-1)-1)/q. Thus the theorem blocks a deduction from the polynomial identity alone, but it neither refutes an arithmetic inequality on actual quotient pairs nor decides any Collatz orbit.",
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Depth 8 is replayed for all primes q>5 through 10,000; Hensel's derivative-unit proof supplies every prime and arbitrary depth, while the finite table says nothing about actual Fermat quotient pairs.",
+  "logical_limit": "Hensel countermodels destroy the formal-algebra route, but they do not occur at the actual quotient pair unless an additional arithmetic theorem places it there; no global trajectory implication is known.",
+  "route_decision": {
+    "discard": "deducing v_q(P_q)<=v_q(U_q-V_q) for actual Fermat quotients from the unrestricted q-adic polynomial identity alone",
+    "parked": [],
+    "retain": "an arithmetic exclusion showing that actual fixed-base Fermat quotients cannot approach the bad Hensel branch",
+    "next_single_lemma": "ArithmeticFermatQuotientExclusionOfPqHenselBranch"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T246",
+        "label": "AllDepthFixedBaseFermatPolynomialIdentity",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T247",
+        "label": "FormalHenselBranchNoGoForValuationDomination",
+        "status": "proved"
+      },
+      {
+        "id": "CO-REJECT247",
+        "label": "UnrestrictedQAdicPolynomialValuationDomination",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN247",
+        "label": "ArithmeticFermatQuotientExclusionOfPqHenselBranch",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T246",
+        "CO-T247"
+      ],
+      [
+        "CO-T247",
+        "CO-REJECT247"
+      ],
+      [
+        "CO-T247",
+        "CO-OPEN247"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T246",
+      "CO-T247",
+      "CO-OPEN247"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz proof, divergent orbit, or nontrivial cycle; one exact no-go for the unrestricted q-adic valuation-transfer route."
+}

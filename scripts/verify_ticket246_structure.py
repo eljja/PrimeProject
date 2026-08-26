@@ -177,13 +177,31 @@ def verify_ticket246_structure() -> str | None:
     if not state_path.exists():
         return "missing persistent four-problem research state"
     state = json.loads(state_path.read_text(encoding="utf-8"))
-    if state.get("ticket") != 246 or state.get("parent_ticket") != 245:
+    ticket = state.get("ticket")
+    retained_theorems = {
+        "riemann": "FiniteEvenMomentAnnihilatorNoGo",
+        "collatz": "AllDepthFixedBaseFermatPolynomialIdentity",
+        "goldbach": "RationalCenterResidueParsevalBridge",
+        "twin_prime": "PrimePowerPairProxyContaminationBound",
+    }
+    if (
+        not isinstance(ticket, int)
+        or ticket < 246
+        or state.get("parent_ticket") != ticket - 1
+        or any(
+            theorem
+            not in state.get("problems", {})
+            .get(problem, {})
+            .get("established_results", [])
+            for problem, theorem in retained_theorems.items()
+        )
+    ):
         return "TICKET-246 persistent research state changed"
     if (
         state.get("resolved_count") != 0
         or state.get("candidate_resolution_count") != 0
         or state.get("program_complete")
-        or state.get("deep_focus_problem") != "collatz"
+        or (ticket == 246 and state.get("deep_focus_problem") != "collatz")
     ):
         return "TICKET-246 resolution boundary changed"
     for report in (

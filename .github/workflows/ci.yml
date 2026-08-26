@@ -79,6 +79,12 @@ jobs:
           python -m unittest tests.test_ticket246_moment_alldepth_parseval_primepower
           python scripts/verify_ticket246_structure.py
 
+      - name: Unit and structure check TICKET-247
+        run: |
+          python -m unittest tests.test_ticket247_hilbert_hensel_lipschitz_primepower
+          python scripts/verify_ticket247_structure.py
+
+
       - name: Verify open problem structure
         run: python scripts/verify_open_problem_structure.py
 

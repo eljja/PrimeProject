@@ -496,3 +496,26 @@ promotion of finite residue tables to growing-denominator decay or arc
 stability, and promotion of the prime-power proxy bound to a Twin Type-II
 lower bound. The corrected Twin domain is odd `n>=3`; `(2,4)` refutes the
 initial broader domain. Resolution and candidate-resolution counts are zero.
+
+## TICKET-247 publication boundary
+
+TICKET-247 adds two partial theorems and two exact route no-go results:
+
+- Hilbert-Schmidt weighted even-moment features have zero coercivity on the
+  full normalized even L2 sphere;
+- unrestricted fixed-base polynomial valuation domination has a bad Hensel
+  branch at every prime above five and arbitrary depth;
+- rational-center Goldbach control extends to arcs with an explicit
+  `2 pi |beta| M` term, while center-only uniformity is exactly refuted;
+- odd composite prime powers have an exact exponent count and a sharper
+  square/cube contamination correction.
+
+Allowed `exact_no_go` wording is restricted to the Hilbert-Schmidt moment map
+on the stated L2 domain and the unrestricted q-adic polynomial-pair route.
+Allowed `partial_theorem` wording covers the exact Goldbach inequality and
+Twin counting bound. Blocked wording includes every parent-conjecture
+proof/disproof, membership of the Legendre sequence in the genuine Weil
+closure, exclusion of actual Fermat quotients from the Hensel branch,
+promotion of finite residue data to signed arc saving, or promotion of the
+prime-power correction to a Twin Type-II lower bound. Resolution and
+candidate-resolution counts are zero.

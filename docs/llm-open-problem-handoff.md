@@ -62,7 +62,39 @@ The workbench currently provides:
 
 This is useful because it prevents the common failure mode where an LLM produces a plausible but invalid proof by silently replacing an infinite theorem with finite evidence, a heuristic, or a weaker theorem.
 
-## Current continuation: TICKET-246
+## Current continuation: TICKET-247
+
+The current machine-readable boundary is
+`data/open-problem/ticket247-hilbert-hensel-lipschitz-primepower.json`.
+It records two partial theorems, two exact route no-go results, four acyclic
+proof DAGs, zero machine failures, and zero parent-problem resolutions.
+
+| Problem | Newly closed result | Current single open lemma |
+|---|---|---|
+| Riemann | `HilbertSchmidtInfiniteMomentCoercivityNoGo` | `NonHilbertSchmidtArithmeticWeilCoercivityOnAdmissibleClosure` |
+| Collatz | `FormalHenselBranchNoGoForValuationDomination` | `ArithmeticFermatQuotientExclusionOfPqHenselBranch` |
+| Goldbach | `RationalCenterArcLipschitzBridgeAndCenterOnlyNoGo` | `UniformSignedResidueVarianceAndFirstMomentSavingOnQuarterTorus` |
+| Twin Prime | `SharpOddPrimePowerContaminationBound` | `ScaleLocalTypeIILowerBoundBeyondSharpPrimePowerContamination` |
+
+Do not repeat the discarded routes. Summable weighted even moments cannot
+coerce the full normalized even L2 sphere. The Collatz polynomial identity
+alone cannot distinguish actual quotient pairs from the bad Hensel branch.
+Goldbach center values require a frequency-scale or signed first-moment term
+for arc transfer. The exponent-blind TICKET-246 prime-power correction is no
+longer the sharp project-local target.
+
+The exact computations cover ten Legendre rows, all 1,226 primes through
+10,000 at eight Hensel digits, 186 Goldbach denominator cases plus four exact
+center-only counterexamples, and seven twin scales through 10,000,000. They
+are replay certificates, not proofs of the four parent conjectures.
+
+Reports: [English](hilbert-hensel-lipschitz-primepower.md),
+[한국어](hilbert-hensel-lipschitz-primepower.ko.md).
+
+All older current/latest headings below are historical snapshots and must not
+override this TICKET-247 boundary.
+
+## Preserved continuation: TICKET-246
 
 The current machine-readable boundary is
 `data/open-problem/ticket246-moment-alldepth-parseval-primepower.json`.
@@ -92,8 +124,8 @@ finite/infinite boundaries remain mandatory for every track.
 Reports: [English](moment-alldepth-parseval-primepower.md),
 [한국어](moment-alldepth-parseval-primepower.ko.md).
 
-All older current/latest headings below are historical snapshots and must not
-override this TICKET-246 boundary.
+This preserved snapshot is historical and does not override the TICKET-247
+boundary above.
 
 ## Preserved continuation: TICKET-245
 
