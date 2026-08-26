@@ -431,6 +431,12 @@ async function main() {
       await problemPage.goto(new URL(href, url).toString(), { waitUntil: "networkidle" });
       try {
         await problemPage.waitForFunction(() => document.querySelectorAll(".proof-metric").length >= 3);
+        await problemPage.waitForFunction(
+          () => document.querySelector("#currentResearch")?.textContent.includes("Ticket 248")
+            && document.querySelector("#proofOrCounterexampleLab")?.textContent.includes("Ticket 71"),
+          null,
+          { timeout: 120000 },
+        );
       } catch (error) {
         errors.push(`${problemId}: ${error.message}`);
       }
