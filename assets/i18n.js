@@ -62,12 +62,12 @@
       ko: "네 미해결 문제, 양화사와 척도 지름길을 분리하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-253 proves an RH spectral-density identity, a Collatz complete-character no-go, a Goldbach unique-prefix theorem, and an external-theorem-dependent reduction to 84 Twin Lebesgue–Nagell exponents.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-253은 RH spectral-density 항등식, Collatz complete-character no-go, Goldbach unique-prefix 정리, 외부 정리에 의존한 Twin 84개 Lebesgue–Nagell 지수 축약을 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-254 proves two exact no-gos and two partial theorems: positive-diagonal and nonnegative-detector obstructions, an even-reflection exclusion, and an exponent-17 Thue reduction.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-254는 positive-diagonal 및 nonnegative-detector no-go, even-reflection 배제, 지수 17 Thue 축약을 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-253 proves one exact route no-go and three partial theorems, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-253은 exact route no-go 한 개와 부분정리 세 개를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-254 proves two exact route no-gos and two partial theorems, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-254는 exact route no-go 두 개와 부분정리 두 개를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

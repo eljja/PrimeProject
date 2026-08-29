@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260829-ticket253-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260829-ticket254-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-253 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-254 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, sharper obstructions isolated</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-253 proves three partial theorems and one exact no-go: an RH Dirichlet-packet density identity, a Collatz complete-character indicator obstruction, a Goldbach unique-prefix realizability criterion, and an external-theorem-dependent reduction of right-even twin contamination to 84 Lebesgue–Nagell prime exponents.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-253은 RH spectral-density 항등식, Collatz complete-character no-go, Goldbach unique-prefix 판정, Twin 84개 Lebesgue–Nagell 지수 축약을 확정했습니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-254 proves two partial theorems and two exact no-gos: a positive-diagonal RH counterexample, a nonnegative complete-detector Collatz obstruction, an even-reflection Goldbach exclusion, and an exponent-17 reduction to 17 explicit unit-twisted Thue equations.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-254는 RH positive-diagonal no-go, Collatz nonnegative complete-detector no-go, Goldbach even-reflection 배제, Twin 지수 17의 17개 Thue 방정식 축약을 확정했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>253</strong><small>2026-08-29</small></div>
-              <div><span>Exact no-go</span><strong>1</strong><small>complete fixed-q character detector</small></div>
-              <div><span>Partial theorems</span><strong>3</strong><small>density, unique prefix, 84-exponent reduction</small></div>
+              <div><span>Latest ticket</span><strong>254</strong><small>2026-08-29</small></div>
+              <div><span>Exact no-go</span><strong>2</strong><small>positive diagonal · nonnegative complete detector</small></div>
+              <div><span>Partial theorems</span><strong>2</strong><small>even reflection · exponent-17 Thue reduction</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> Dirichlet packet의 projection energy는 선택 주파수 비율과 정확히 같고 양의 대칭 밀도로 수렴합니다.</p>
-                <p><strong>폐기:</strong> 추상 projection을 실제 Weil form과 연결하지 않은 coercivity 주장.</p>
-                <p><strong>다음 핵심:</strong> <code>ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets</code>.</p>
+                <p><strong>확립:</strong> 모든 푸리에 대각이 1인 양의 자기수반 블록도 Dirichlet packet 에너지가 0일 수 있습니다.</p>
+                <p><strong>폐기:</strong> 양의 대각 정보만으로 Dirichlet packet 지배를 주장하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ActualWeilDirichletBlocksHaveUniformStrictDiagonalDominance</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> complete fixed-q character sum은 canonical [3:5] 사건의 정확한 지시함수입니다.</p>
-                <p><strong>폐기:</strong> complete fixed-q 합에 generic pointwise square-root cancellation을 직접 적용하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>CrossPrimeCanonicalSlopeCharacterAverageCancellation</code>.</p>
+                <p><strong>확립:</strong> 모든 비음 complete-detector 평균은 가중 incidence와 정확히 같습니다.</p>
+                <p><strong>폐기:</strong> 비음 complete cross-prime 평균에서 상쇄를 얻는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>IncompleteSlopeCharacterKernelHasSignedRecoveryAndCrossPrimeCancellation</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> compatible cyclotomic tail의 실현 가능성은 하나의 강제 prime-prefix residue vector 일치와 동치입니다.</p>
-                <p><strong>폐기:</strong> 선택한 10개 tail의 prefix 불일치는 유한 증거일 뿐 모든 tail을 배제하지 않습니다.</p>
-                <p><strong>다음 핵심:</strong> <code>UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail</code>.</p>
+                <p><strong>확립:</strong> 짝수이고 q-비가분인 compatible tail은 두 번째 잔여류 소수 임계값 뒤에서 배제됩니다.</p>
+                <p><strong>폐기:</strong> 홀수 m, q|m, 또는 두 번째 잔여류 소수보다 짧은 접두는 아직 열려 있습니다.</p>
+                <p><strong>다음 핵심:</strong> <code>OddOrQDivisibleCompatibleTailPrimePrefixExclusion</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 인용한 Katz–Pratt 정리에 의존하면 right-even 방정식의 k의 모든 소인수는 정확히 84개 후보에 속합니다.</p>
-                <p><strong>폐기:</strong> k≤9999 유한 스캔이나 외부 축약만으로 남은 84개 지수 방정식을 해결하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>LebesgueNagellExponent17HasNoPositiveSolution</code>.</p>
+                <p><strong>확립:</strong> x²-2=y¹⁷은 17개의 명시적 단위 twist coefficient-one Thue 방정식과 동치입니다.</p>
+                <p><strong>폐기:</strong> 유한 좌표 상자의 무해 검색을 17개 Thue 방정식의 전역 해 부재로 승격하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>AllSeventeenUnitTwistedCoefficientOneThueEquationsHaveNoAdmissibleIntegralPoint</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>253개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-253은 spectral density, complete character, unique prefix, 84-exponent 경계를 확정했습니다.</p>
+                <p>254개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-254는 positive diagonal, weighted detector, even reflection, exponent-17 Thue 경계를 확정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/density-character-prefix-lebesgue.ko.md">최신 한국어 보고서</a>
-              <a href="docs/density-character-prefix-lebesgue.md">Latest English report</a>
+              <a href="docs/diagonal-weighted-reflection-thue.ko.md">최신 한국어 보고서</a>
+              <a href="docs/diagonal-weighted-reflection-thue.md">Latest English report</a>
             </div>
           </section>
           <section id="overview-panel" class="overview-grid">
@@ -658,8 +658,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-253</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-253 proves one exact route no-go and three partial theorems, with a resolution count of zero.</p>
+              <strong>TICKET-254</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-254 proves two exact route no-gos and two partial theorems, with a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -795,8 +795,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260829-ticket253"></script>
-    <script src="assets/app.js?v=20260829-ticket253"></script>
+    <script src="assets/i18n.js?v=20260829-ticket254"></script>
+    <script src="assets/app.js?v=20260829-ticket254"></script>
   </body>
 </html>
 

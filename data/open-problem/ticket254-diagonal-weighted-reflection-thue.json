@@ -1,0 +1,3259 @@
+{
+  "schema": "primeproject.ticket254-diagonal-weighted-reflection-thue.v1",
+  "generated_at": "2026-08-29T14:19:28+09:00",
+  "status": "open_not_proven",
+  "iteration_complete": true,
+  "program_complete": false,
+  "diagonal_weighted_reflection_thue_audit": {
+    "theorem_name": "FourConjectureDiagonalWeightedReflectionThueAudit",
+    "summary": "TICKET-254 proves two exact route no-go theorems and two partial theorems while leaving all four parent conjectures open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-254",
+      "theorem_name": "PositiveDiagonalDirichletPacketDominationNoGo",
+      "declared_proposition": "For every N>=1 there is a bounded positive self-adjoint operator A_N on l2(Z), with <A_N e_n,e_n>=1 for every Fourier basis vector, but <A_N d_N,d_N>=0 for d_N=(2N+1)^(-1/2)sum_(|n|<=N)e_n. On the L=2N+1 packet block take A_N=L/(L-1)I-J/(L-1), and take the identity off that block. Its packet-block spectrum is {0,L/(L-1)}. Thus even a uniform strictly positive Fourier diagonal does not imply Dirichlet-packet domination without off-diagonal information.",
+      "mathematical_argument": "Every diagonal entry of L/(L-1)I-J/(L-1) is one. The all-ones vector is killed because J has eigenvalue L there; on its orthogonal complement J is zero and the eigenvalue is L/(L-1)>0. Direct sum with the identity gives a bounded positive self-adjoint operator on l2(Z). The normalized all-ones block vector is d_N, so its energy is zero. This counterexample addresses diagonal-only inference, not the actual Guinand-Weil form.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "For every N>=1 there is a bounded positive self-adjoint operator A_N on l2(Z), with <A_N e_n,e_n>=1 for every Fourier basis vector, but <A_N d_N,d_N>=0 for d_N=(2N+1)^(-1/2)sum_(|n|<=N)e_n. On the L=2N+1 packet block take A_N=L/(L-1)I-J/(L-1), and take the identity off that block. Its packet-block spectrum is {0,L/(L-1)}. Thus even a uniform strictly positive Fourier diagonal does not imply Dirichlet-packet domination without off-diagonal information.",
+        "proof": "Every diagonal entry of L/(L-1)I-J/(L-1) is one. The all-ones vector is killed because J has eigenvalue L there; on its orthogonal complement J is zero and the eigenvalue is L/(L-1)>0. Direct sum with the identity gives a bounded positive self-adjoint operator on l2(Z). The normalized all-ones block vector is d_N, so its energy is zero. This counterexample addresses diagonal-only inference, not the actual Guinand-Weil form.",
+        "exact_block_operator_rows": [
+          {
+            "dirichlet_half_bandwidth_N": 1,
+            "block_dimension_L": 3,
+            "fourier_diagonal": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "common_off_diagonal": {
+              "exact": "-1/2",
+              "numerator": -1,
+              "denominator": 2,
+              "display_float": -0.5
+            },
+            "dirichlet_packet_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "orthogonal_complement_eigenvalue": {
+              "exact": "3/2",
+              "numerator": 3,
+              "denominator": 2,
+              "display_float": 1.5
+            },
+            "operator_norm_upper_bound_three_halves": true,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 2,
+            "block_dimension_L": 5,
+            "fourier_diagonal": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "common_off_diagonal": {
+              "exact": "-1/4",
+              "numerator": -1,
+              "denominator": 4,
+              "display_float": -0.25
+            },
+            "dirichlet_packet_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "orthogonal_complement_eigenvalue": {
+              "exact": "5/4",
+              "numerator": 5,
+              "denominator": 4,
+              "display_float": 1.25
+            },
+            "operator_norm_upper_bound_three_halves": true,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 3,
+            "block_dimension_L": 7,
+            "fourier_diagonal": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "common_off_diagonal": {
+              "exact": "-1/6",
+              "numerator": -1,
+              "denominator": 6,
+              "display_float": -0.16666666666666666
+            },
+            "dirichlet_packet_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "orthogonal_complement_eigenvalue": {
+              "exact": "7/6",
+              "numerator": 7,
+              "denominator": 6,
+              "display_float": 1.1666666666666667
+            },
+            "operator_norm_upper_bound_three_halves": true,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 4,
+            "block_dimension_L": 9,
+            "fourier_diagonal": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "common_off_diagonal": {
+              "exact": "-1/8",
+              "numerator": -1,
+              "denominator": 8,
+              "display_float": -0.125
+            },
+            "dirichlet_packet_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "orthogonal_complement_eigenvalue": {
+              "exact": "9/8",
+              "numerator": 9,
+              "denominator": 8,
+              "display_float": 1.125
+            },
+            "operator_norm_upper_bound_three_halves": true,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 7,
+            "block_dimension_L": 15,
+            "fourier_diagonal": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "common_off_diagonal": {
+              "exact": "-1/14",
+              "numerator": -1,
+              "denominator": 14,
+              "display_float": -0.07142857142857142
+            },
+            "dirichlet_packet_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "orthogonal_complement_eigenvalue": {
+              "exact": "15/14",
+              "numerator": 15,
+              "denominator": 14,
+              "display_float": 1.0714285714285714
+            },
+            "operator_norm_upper_bound_three_halves": true,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 15,
+            "block_dimension_L": 31,
+            "fourier_diagonal": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "common_off_diagonal": {
+              "exact": "-1/30",
+              "numerator": -1,
+              "denominator": 30,
+              "display_float": -0.03333333333333333
+            },
+            "dirichlet_packet_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "orthogonal_complement_eigenvalue": {
+              "exact": "31/30",
+              "numerator": 31,
+              "denominator": 30,
+              "display_float": 1.0333333333333334
+            },
+            "operator_norm_upper_bound_three_halves": true,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 31,
+            "block_dimension_L": 63,
+            "fourier_diagonal": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "common_off_diagonal": {
+              "exact": "-1/62",
+              "numerator": -1,
+              "denominator": 62,
+              "display_float": -0.016129032258064516
+            },
+            "dirichlet_packet_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "orthogonal_complement_eigenvalue": {
+              "exact": "63/62",
+              "numerator": 63,
+              "denominator": 62,
+              "display_float": 1.0161290322580645
+            },
+            "operator_norm_upper_bound_three_halves": true,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 63,
+            "block_dimension_L": 127,
+            "fourier_diagonal": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "common_off_diagonal": {
+              "exact": "-1/126",
+              "numerator": -1,
+              "denominator": 126,
+              "display_float": -0.007936507936507936
+            },
+            "dirichlet_packet_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "orthogonal_complement_eigenvalue": {
+              "exact": "127/126",
+              "numerator": 127,
+              "denominator": 126,
+              "display_float": 1.007936507936508
+            },
+            "operator_norm_upper_bound_three_halves": true,
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact Fraction evaluation of the two eigenspaces of an equicorrelated finite block embedded in l2(Z)",
+        "complexity": "O(number of replay blocks); the all-N construction is algebraic",
+        "random_seed": null,
+        "transcript_sha256": "0be64af7360d626405108d0fee5944f6132fdb6065fd57690c657f3e160df05c",
+        "aggregate": {
+          "positive_self_adjoint_operator_constructed_for_every_packet_size": true,
+          "every_fourier_diagonal_equals_one": true,
+          "selected_dirichlet_packet_energy_zero": true,
+          "diagonal_only_domination_route_rejected": true,
+          "actual_weil_form_analyzed": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "8 exact rational blocks replay the all-N algebraic construction.",
+      "logical_limit": "The counterexample ranges over abstract positive operators and does not compute or refute the actual Guinand-Weil form.",
+      "route_decision": {
+        "discard": "inferring a positive Dirichlet-packet lower bound from uniform positivity of Fourier diagonal entries alone",
+        "parked": [
+          "actual Weil-form block matrices and their off-diagonal row sums"
+        ],
+        "retain": "the need for quantitative off-diagonal control on actual Weil blocks",
+        "next_single_lemma": "ActualWeilDirichletBlocksHaveUniformStrictDiagonalDominance"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T253",
+            "label": "DirichletPacketSpectralDensityLimit",
+            "status": "proved"
+          },
+          {
+            "id": "RH-T254",
+            "label": "PositiveDiagonalDirichletPacketDominationNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "RH-REJECT254",
+            "label": "UniformPositiveFourierDiagonalImpliesDirichletPacketDomination",
+            "status": "disproved"
+          },
+          {
+            "id": "RH-OPEN254",
+            "label": "ActualWeilDirichletBlocksHaveUniformStrictDiagonalDominance",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T253",
+            "RH-T254"
+          ],
+          [
+            "RH-T254",
+            "RH-REJECT254"
+          ],
+          [
+            "RH-T254",
+            "RH-OPEN254"
+          ]
+        ],
+        "resolution_path": [
+          "RH-T253",
+          "RH-T254",
+          "RH-OPEN254"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No RH proof or disproof; one exact no-go for diagonal-only packet domination."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-254",
+      "theorem_name": "NonnegativeCrossPrimeCompleteDetectorAverageNoGo",
+      "declared_proposition": "For every finite set Q of primes q>5, every nonnegative weights w_q, and arbitrary pairs (U_q,V_q) in F_q^2, let D_q=5U_q-3V_q and C_q(D)=sum_(h=1)^(q-1)exp(2pi ihD/q). Then sum_q w_q[(1+C_q(D_q))/q-1_(U_q=V_q=0)] equals exactly sum_q w_q 1_(D_q=0,(U_q,V_q)!=(0,0)). Every summand is nonnegative. Hence nonnegative cross-prime averaging of the complete detector creates no cancellation or smoothing; bounding it is exactly the original weighted incidence problem.",
+      "mathematical_argument": "Additive-character orthogonality gives (1+C_q(D))/q=1_(D=0) pointwise. Subtract the origin indicator and multiply by w_q>=0. Summing preserves equality and nonnegativity. Therefore a claimed cancellation estimate for this normalized complete detector cannot be an independent route to canonical slope avoidance. Signed incomplete kernels may still contain information and are not ruled out.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "For every finite set Q of primes q>5, every nonnegative weights w_q, and arbitrary pairs (U_q,V_q) in F_q^2, let D_q=5U_q-3V_q and C_q(D)=sum_(h=1)^(q-1)exp(2pi ihD/q). Then sum_q w_q[(1+C_q(D_q))/q-1_(U_q=V_q=0)] equals exactly sum_q w_q 1_(D_q=0,(U_q,V_q)!=(0,0)). Every summand is nonnegative. Hence nonnegative cross-prime averaging of the complete detector creates no cancellation or smoothing; bounding it is exactly the original weighted incidence problem.",
+        "proof": "Additive-character orthogonality gives (1+C_q(D))/q=1_(D=0) pointwise. Subtract the origin indicator and multiply by w_q>=0. Summing preserves equality and nonnegativity. Therefore a claimed cancellation estimate for this normalized complete detector cannot be an independent route to canonical slope avoidance. Signed incomplete kernels may still contain information and are not ruled out.",
+        "exact_detector_rows": [
+          {
+            "prime_q": 7,
+            "scenario": "canonical",
+            "U_q": 2,
+            "V_q": 6,
+            "slope_residue_D_q": 6,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 7,
+            "scenario": "synthetic_hit",
+            "U_q": 3,
+            "V_q": 5,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 6,
+            "normalized_separated_detector": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "separated_incidence": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 7,
+            "scenario": "synthetic_miss",
+            "U_q": 1,
+            "V_q": 1,
+            "slope_residue_D_q": 2,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 7,
+            "scenario": "origin",
+            "U_q": 0,
+            "V_q": 0,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 6,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "scenario": "canonical",
+            "U_q": 5,
+            "V_q": 0,
+            "slope_residue_D_q": 3,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "scenario": "synthetic_hit",
+            "U_q": 3,
+            "V_q": 5,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 10,
+            "normalized_separated_detector": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "separated_incidence": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "scenario": "synthetic_miss",
+            "U_q": 1,
+            "V_q": 1,
+            "slope_residue_D_q": 2,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "scenario": "origin",
+            "U_q": 0,
+            "V_q": 0,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 10,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 13,
+            "scenario": "canonical",
+            "U_q": 3,
+            "V_q": 8,
+            "slope_residue_D_q": 4,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 13,
+            "scenario": "synthetic_hit",
+            "U_q": 3,
+            "V_q": 5,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 12,
+            "normalized_separated_detector": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "separated_incidence": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 13,
+            "scenario": "synthetic_miss",
+            "U_q": 1,
+            "V_q": 1,
+            "slope_residue_D_q": 2,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 13,
+            "scenario": "origin",
+            "U_q": 0,
+            "V_q": 0,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 12,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 17,
+            "scenario": "canonical",
+            "U_q": 13,
+            "V_q": 10,
+            "slope_residue_D_q": 1,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 17,
+            "scenario": "synthetic_hit",
+            "U_q": 3,
+            "V_q": 5,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 16,
+            "normalized_separated_detector": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "separated_incidence": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 17,
+            "scenario": "synthetic_miss",
+            "U_q": 1,
+            "V_q": 1,
+            "slope_residue_D_q": 2,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 17,
+            "scenario": "origin",
+            "U_q": 0,
+            "V_q": 0,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 16,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 19,
+            "scenario": "canonical",
+            "U_q": 3,
+            "V_q": 18,
+            "slope_residue_D_q": 18,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 19,
+            "scenario": "synthetic_hit",
+            "U_q": 3,
+            "V_q": 5,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 18,
+            "normalized_separated_detector": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "separated_incidence": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 19,
+            "scenario": "synthetic_miss",
+            "U_q": 1,
+            "V_q": 1,
+            "slope_residue_D_q": 2,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 19,
+            "scenario": "origin",
+            "U_q": 0,
+            "V_q": 0,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 18,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "scenario": "canonical",
+            "U_q": 17,
+            "V_q": 17,
+            "slope_residue_D_q": 11,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "scenario": "synthetic_hit",
+            "U_q": 3,
+            "V_q": 5,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 22,
+            "normalized_separated_detector": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "separated_incidence": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "scenario": "synthetic_miss",
+            "U_q": 1,
+            "V_q": 1,
+            "slope_residue_D_q": 2,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "scenario": "origin",
+            "U_q": 0,
+            "V_q": 0,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 22,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 29,
+            "scenario": "canonical",
+            "U_q": 1,
+            "V_q": 15,
+            "slope_residue_D_q": 18,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 29,
+            "scenario": "synthetic_hit",
+            "U_q": 3,
+            "V_q": 5,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 28,
+            "normalized_separated_detector": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "separated_incidence": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 29,
+            "scenario": "synthetic_miss",
+            "U_q": 1,
+            "V_q": 1,
+            "slope_residue_D_q": 2,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 29,
+            "scenario": "origin",
+            "U_q": 0,
+            "V_q": 0,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 28,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 31,
+            "scenario": "canonical",
+            "U_q": 6,
+            "V_q": 17,
+            "slope_residue_D_q": 10,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 31,
+            "scenario": "synthetic_hit",
+            "U_q": 3,
+            "V_q": 5,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 30,
+            "normalized_separated_detector": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "separated_incidence": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 31,
+            "scenario": "synthetic_miss",
+            "U_q": 1,
+            "V_q": 1,
+            "slope_residue_D_q": 2,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 31,
+            "scenario": "origin",
+            "U_q": 0,
+            "V_q": 0,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 30,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 37,
+            "scenario": "canonical",
+            "U_q": 1,
+            "V_q": 18,
+            "slope_residue_D_q": 25,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 37,
+            "scenario": "synthetic_hit",
+            "U_q": 3,
+            "V_q": 5,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 36,
+            "normalized_separated_detector": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "separated_incidence": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 37,
+            "scenario": "synthetic_miss",
+            "U_q": 1,
+            "V_q": 1,
+            "slope_residue_D_q": 2,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 37,
+            "scenario": "origin",
+            "U_q": 0,
+            "V_q": 0,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 36,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 41,
+            "scenario": "canonical",
+            "U_q": 23,
+            "V_q": 21,
+            "slope_residue_D_q": 11,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 41,
+            "scenario": "synthetic_hit",
+            "U_q": 3,
+            "V_q": 5,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 40,
+            "normalized_separated_detector": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "separated_incidence": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 41,
+            "scenario": "synthetic_miss",
+            "U_q": 1,
+            "V_q": 1,
+            "slope_residue_D_q": 2,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 41,
+            "scenario": "origin",
+            "U_q": 0,
+            "V_q": 0,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 40,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 43,
+            "scenario": "canonical",
+            "U_q": 25,
+            "V_q": 2,
+            "slope_residue_D_q": 33,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 43,
+            "scenario": "synthetic_hit",
+            "U_q": 3,
+            "V_q": 5,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 42,
+            "normalized_separated_detector": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "separated_incidence": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 43,
+            "scenario": "synthetic_miss",
+            "U_q": 1,
+            "V_q": 1,
+            "slope_residue_D_q": 2,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 43,
+            "scenario": "origin",
+            "U_q": 0,
+            "V_q": 0,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 42,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 47,
+            "scenario": "canonical",
+            "U_q": 44,
+            "V_q": 11,
+            "slope_residue_D_q": 46,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 47,
+            "scenario": "synthetic_hit",
+            "U_q": 3,
+            "V_q": 5,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 46,
+            "normalized_separated_detector": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "separated_incidence": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 47,
+            "scenario": "synthetic_miss",
+            "U_q": 1,
+            "V_q": 1,
+            "slope_residue_D_q": 2,
+            "complete_character_sum": -1,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 47,
+            "scenario": "origin",
+            "U_q": 0,
+            "V_q": 0,
+            "slope_residue_D_q": 0,
+            "complete_character_sum": 46,
+            "normalized_separated_detector": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "separated_incidence": false,
+            "certificate_verified": true
+          }
+        ],
+        "exact_nonnegative_weighted_rows": [
+          {
+            "scenario": "canonical",
+            "nonnegative_weight_family": "unit",
+            "weighted_complete_detector_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "weighted_incidence_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "scenario": "canonical",
+            "nonnegative_weight_family": "prime",
+            "weighted_complete_detector_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "weighted_incidence_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "scenario": "canonical",
+            "nonnegative_weight_family": "reciprocal_prime",
+            "weighted_complete_detector_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "weighted_incidence_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "scenario": "synthetic_hit",
+            "nonnegative_weight_family": "unit",
+            "weighted_complete_detector_sum": {
+              "exact": "12/1",
+              "numerator": 12,
+              "denominator": 1,
+              "display_float": 12.0
+            },
+            "weighted_incidence_sum": {
+              "exact": "12/1",
+              "numerator": 12,
+              "denominator": 1,
+              "display_float": 12.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "scenario": "synthetic_hit",
+            "nonnegative_weight_family": "prime",
+            "weighted_complete_detector_sum": {
+              "exact": "318/1",
+              "numerator": 318,
+              "denominator": 1,
+              "display_float": 318.0
+            },
+            "weighted_incidence_sum": {
+              "exact": "318/1",
+              "numerator": 318,
+              "denominator": 1,
+              "display_float": 318.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "scenario": "synthetic_hit",
+            "nonnegative_weight_family": "reciprocal_prime",
+            "weighted_complete_detector_sum": {
+              "exact": "12878111897066418/20496326086283047",
+              "numerator": 12878111897066418,
+              "denominator": 20496326086283047,
+              "display_float": 0.628313183682463
+            },
+            "weighted_incidence_sum": {
+              "exact": "12878111897066418/20496326086283047",
+              "numerator": 12878111897066418,
+              "denominator": 20496326086283047,
+              "display_float": 0.628313183682463
+            },
+            "certificate_verified": true
+          },
+          {
+            "scenario": "synthetic_miss",
+            "nonnegative_weight_family": "unit",
+            "weighted_complete_detector_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "weighted_incidence_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "scenario": "synthetic_miss",
+            "nonnegative_weight_family": "prime",
+            "weighted_complete_detector_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "weighted_incidence_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "scenario": "synthetic_miss",
+            "nonnegative_weight_family": "reciprocal_prime",
+            "weighted_complete_detector_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "weighted_incidence_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "scenario": "origin",
+            "nonnegative_weight_family": "unit",
+            "weighted_complete_detector_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "weighted_incidence_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "scenario": "origin",
+            "nonnegative_weight_family": "prime",
+            "weighted_complete_detector_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "weighted_incidence_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "scenario": "origin",
+            "nonnegative_weight_family": "reciprocal_prime",
+            "weighted_complete_detector_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "weighted_incidence_sum": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact q^2 Fermat quotients, integer character dichotomy, and Fraction-weighted identities",
+        "complexity": "O(sum log q) modular multiplications for canonical rows; the weighted identity is algebraic for arbitrary finite Q",
+        "random_seed": null,
+        "transcript_sha256": "6ce9f4399b2372016d2c0bb7d9aa02e8bc14b7b5ee124687ba55c6f76638be46",
+        "aggregate": {
+          "pointwise_separated_detector_identity_proved": true,
+          "all_nonnegative_weighted_complete_averages_equal_incidence": true,
+          "cross_prime_complete_detector_cancellation_route_rejected": true,
+          "signed_incomplete_character_route_rejected": false,
+          "canonical_cross_prime_distribution_controlled": false,
+          "collatz_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "48 detector rows and 12 exact weighted rows replay the universal identity.",
+      "logical_limit": "The theorem blocks only normalized complete detectors with nonnegative weights; it says nothing about a genuinely signed incomplete transform or canonical occurrence.",
+      "route_decision": {
+        "discard": "using any nonnegative weighted cross-prime average of the normalized complete slope detector as an independent cancellation statistic",
+        "parked": [
+          "signed incomplete character kernels with a proved recovery inequality"
+        ],
+        "retain": "character truncation or another signed transform not identical to incidence",
+        "next_single_lemma": "IncompleteSlopeCharacterKernelHasSignedRecoveryAndCrossPrimeCancellation"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T253",
+            "label": "CompleteSlopeCharacterSumDichotomyNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "CO-T254",
+            "label": "NonnegativeCrossPrimeCompleteDetectorAverageNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "CO-REJECT254",
+            "label": "NonnegativeCompleteDetectorAveragingCreatesCrossPrimeCancellation",
+            "status": "disproved"
+          },
+          {
+            "id": "CO-OPEN254",
+            "label": "IncompleteSlopeCharacterKernelHasSignedRecoveryAndCrossPrimeCancellation",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T253",
+            "CO-T254"
+          ],
+          [
+            "CO-T254",
+            "CO-REJECT254"
+          ],
+          [
+            "CO-T254",
+            "CO-OPEN254"
+          ]
+        ],
+        "resolution_path": [
+          "CO-T253",
+          "CO-T254",
+          "CO-OPEN254"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No Collatz proof or counterexample; one exact no-go for the proposed cross-prime complete-average implementation."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-254",
+      "theorem_name": "EvenCyclotomicReflectionPrimePrefixExclusion",
+      "declared_proposition": "Let q>=5 be prime, m be even with q not dividing m, and c_r be the cyclic coefficients of (1-X)^m modulo X^q-1. Suppose the tail is zero-residue compatible, set t=1-c_0 and T=qt, and put r=m mod q. Let kappa_q(r) be the global prime index of the second prime congruent to r modulo q. If T>=kappa_q(r), then the tail cannot be realized by the actual prime prefix. Indeed c_r=c_0 by even reflection, so the forced count N*_r=c_r+t is one, whereas the first T primes contain at least two primes in residue r.",
+      "mathematical_argument": "Writing a_j=(-1)^j binom(m,j), the involution j->m-j gives a_(m-j)=(-1)^m a_j. Folding modulo q therefore yields c_(m-r)=(-1)^m c_r. For even m and r=0 this says c_(m mod q)=c_0. Since q does not divide m, that residue is nonzero, and compatibility fixes its target count at c_0+(1-c_0)=1. If T reaches the second prime in that class, its actual prefix count is at least two, contradicting the TICKET-253 unique-prefix criterion. Odd m, q-divisible m, and T below the explicit threshold are not excluded by this argument.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let q>=5 be prime, m be even with q not dividing m, and c_r be the cyclic coefficients of (1-X)^m modulo X^q-1. Suppose the tail is zero-residue compatible, set t=1-c_0 and T=qt, and put r=m mod q. Let kappa_q(r) be the global prime index of the second prime congruent to r modulo q. If T>=kappa_q(r), then the tail cannot be realized by the actual prime prefix. Indeed c_r=c_0 by even reflection, so the forced count N*_r=c_r+t is one, whereas the first T primes contain at least two primes in residue r.",
+        "proof": "Writing a_j=(-1)^j binom(m,j), the involution j->m-j gives a_(m-j)=(-1)^m a_j. Folding modulo q therefore yields c_(m-r)=(-1)^m c_r. For even m and r=0 this says c_(m mod q)=c_0. Since q does not divide m, that residue is nonzero, and compatibility fixes its target count at c_0+(1-c_0)=1. If T reaches the second prime in that class, its actual prefix count is at least two, contradicting the TICKET-253 unique-prefix criterion. Odd m, q-divisible m, and T below the explicit threshold are not excluded by this argument.",
+        "exact_even_reflection_exclusion_rows": [
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 8,
+            "reflected_nonzero_residue_m_mod_q": 3,
+            "cyclic_coefficient_c0": -55,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 56,
+            "forced_total_prime_count_T": 280,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 3,
+            "second_prime_in_reflected_residue": 13,
+            "global_index_of_second_residue_prime": 6,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 12,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -725,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 726,
+            "forced_total_prime_count_T": 3630,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 7,
+            "global_index_of_second_residue_prime": 4,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 28,
+            "reflected_nonzero_residue_m_mod_q": 3,
+            "cyclic_coefficient_c0": -21312500,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 21312501,
+            "forced_total_prime_count_T": 106562505,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 3,
+            "second_prime_in_reflected_residue": 13,
+            "global_index_of_second_residue_prime": 6,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 32,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -278984375,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 278984376,
+            "forced_total_prime_count_T": 1394921880,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 7,
+            "global_index_of_second_residue_prime": 4,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 48,
+            "reflected_nonzero_residue_m_mod_q": 3,
+            "cyclic_coefficient_c0": -8191455078125,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 8191455078126,
+            "forced_total_prime_count_T": 40957275390630,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 3,
+            "second_prime_in_reflected_residue": 13,
+            "global_index_of_second_residue_prime": 6,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 52,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -107227539062500,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 107227539062501,
+            "forced_total_prime_count_T": 536137695312505,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 7,
+            "global_index_of_second_residue_prime": 4,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 68,
+            "reflected_nonzero_residue_m_mod_q": 3,
+            "cyclic_coefficient_c0": -3148382415771484375,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 3148382415771484376,
+            "forced_total_prime_count_T": 15741912078857421880,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 3,
+            "second_prime_in_reflected_residue": 13,
+            "global_index_of_second_residue_prime": 6,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 72,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -41212860870361328125,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 41212860870361328126,
+            "forced_total_prime_count_T": 206064304351806640630,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 7,
+            "global_index_of_second_residue_prime": 4,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 88,
+            "reflected_nonzero_residue_m_mod_q": 3,
+            "cyclic_coefficient_c0": -1210079496383666992187500,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 1210079496383666992187501,
+            "forced_total_prime_count_T": 6050397481918334960937505,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 3,
+            "second_prime_in_reflected_residue": 13,
+            "global_index_of_second_residue_prime": 6,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 92,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -15840146253108978271484375,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 15840146253108978271484376,
+            "forced_total_prime_count_T": 79200731265544891357421880,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 7,
+            "global_index_of_second_residue_prime": 4,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 108,
+            "reflected_nonzero_residue_m_mod_q": 3,
+            "cyclic_coefficient_c0": -465093560500442981719970703125,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 465093560500442981719970703126,
+            "forced_total_prime_count_T": 2325467802502214908599853515630,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 3,
+            "second_prime_in_reflected_residue": 13,
+            "global_index_of_second_residue_prime": 6,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 112,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -6088153746694326400756835937500,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 6088153746694326400756835937501,
+            "forced_total_prime_count_T": 30440768733471632003784179687505,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 7,
+            "global_index_of_second_residue_prime": 4,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 128,
+            "reflected_nonzero_residue_m_mod_q": 3,
+            "cyclic_coefficient_c0": -178758520134775899350643157958984375,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 178758520134775899350643157958984376,
+            "forced_total_prime_count_T": 893792600673879496753215789794921880,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 3,
+            "second_prime_in_reflected_residue": 13,
+            "global_index_of_second_residue_prime": 6,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 132,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -2339979407457378692924976348876953125,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 2339979407457378692924976348876953126,
+            "forced_total_prime_count_T": 11699897037286893464624881744384765630,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 7,
+            "global_index_of_second_residue_prime": 4,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 148,
+            "reflected_nonzero_residue_m_mod_q": 3,
+            "cyclic_coefficient_c0": -68705764247502724174410104751586914062500,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 68705764247502724174410104751586914062501,
+            "forced_total_prime_count_T": 343528821237513620872050523757934570312505,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 3,
+            "second_prime_in_reflected_residue": 13,
+            "global_index_of_second_residue_prime": 6,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "even_cyclotomic_exponent_m": 152,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -899370130114997373311780393123626708984375,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 899370130114997373311780393123626708984376,
+            "forced_total_prime_count_T": 4496850650574986866558901965618133544921880,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 7,
+            "global_index_of_second_residue_prime": 4,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "even_cyclotomic_exponent_m": 12,
+            "reflected_nonzero_residue_m_mod_q": 5,
+            "cyclic_coefficient_c0": -791,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 792,
+            "forced_total_prime_count_T": 5544,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 5,
+            "second_prime_in_reflected_residue": 19,
+            "global_index_of_second_residue_prime": 8,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "even_cyclotomic_exponent_m": 16,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -11319,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 11320,
+            "forced_total_prime_count_T": 79240,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 23,
+            "global_index_of_second_residue_prime": 9,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "even_cyclotomic_exponent_m": 40,
+            "reflected_nonzero_residue_m_mod_q": 5,
+            "cyclic_coefficient_c0": -102507926647,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 102507926648,
+            "forced_total_prime_count_T": 717555486536,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 5,
+            "second_prime_in_reflected_residue": 19,
+            "global_index_of_second_residue_prime": 8,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "even_cyclotomic_exponent_m": 44,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -1481693035767,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 1481693035768,
+            "forced_total_prime_count_T": 10371851250376,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 23,
+            "global_index_of_second_residue_prime": 9,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "even_cyclotomic_exponent_m": 68,
+            "reflected_nonzero_residue_m_mod_q": 5,
+            "cyclic_coefficient_c0": -13514867067069009495,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 13514867067069009496,
+            "forced_total_prime_count_T": 94604069469483066472,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 5,
+            "second_prime_in_reflected_residue": 19,
+            "global_index_of_second_residue_prime": 8,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "even_cyclotomic_exponent_m": 72,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -195353753256767496055,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 195353753256767496056,
+            "forced_total_prime_count_T": 1367476272797372472392,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 23,
+            "global_index_of_second_residue_prime": 9,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "even_cyclotomic_exponent_m": 96,
+            "reflected_nonzero_residue_m_mod_q": 5,
+            "cyclic_coefficient_c0": -1781893518606625155120520887,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 1781893518606625155120520888,
+            "forced_total_prime_count_T": 12473254630246376085843646216,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 5,
+            "second_prime_in_reflected_residue": 19,
+            "global_index_of_second_residue_prime": 8,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "even_cyclotomic_exponent_m": 100,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -25756790672451669789777976759,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 25756790672451669789777976760,
+            "forced_total_prime_count_T": 180297534707161688528445837320,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 23,
+            "global_index_of_second_residue_prime": 9,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "even_cyclotomic_exponent_m": 124,
+            "reflected_nonzero_residue_m_mod_q": 5,
+            "cyclic_coefficient_c0": -234937179373669898612716678391821207,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 234937179373669898612716678391821208,
+            "forced_total_prime_count_T": 1644560255615689290289016748742748456,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 5,
+            "second_prime_in_reflected_residue": 19,
+            "global_index_of_second_residue_prime": 8,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "even_cyclotomic_exponent_m": 128,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -3395953623303122636154051451228844471,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 3395953623303122636154051451228844472,
+            "forced_total_prime_count_T": 23771675363121858453078360158601911304,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 23,
+            "global_index_of_second_residue_prime": 9,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "even_cyclotomic_exponent_m": 152,
+            "reflected_nonzero_residue_m_mod_q": 5,
+            "cyclic_coefficient_c0": -30975744445006673698340316239974923312069367,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 30975744445006673698340316239974923312069368,
+            "forced_total_prime_count_T": 216830211115046715888382213679824463184485576,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 5,
+            "second_prime_in_reflected_residue": 19,
+            "global_index_of_second_residue_prime": 8,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "even_cyclotomic_exponent_m": 156,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -447746039443346308297287700374577810892981623,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 447746039443346308297287700374577810892981624,
+            "forced_total_prime_count_T": 3134222276103424158081013902622044676250871368,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 23,
+            "global_index_of_second_residue_prime": 9,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "even_cyclotomic_exponent_m": 20,
+            "reflected_nonzero_residue_m_mod_q": 9,
+            "cyclic_coefficient_c0": -167959,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 167960,
+            "forced_total_prime_count_T": 1847560,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 31,
+            "second_prime_in_reflected_residue": 53,
+            "global_index_of_second_residue_prime": 16,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "even_cyclotomic_exponent_m": 24,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -2495867,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 2495868,
+            "forced_total_prime_count_T": 27454548,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 13,
+            "global_index_of_second_residue_prime": 6,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "even_cyclotomic_exponent_m": 64,
+            "reflected_nonzero_residue_m_mod_q": 9,
+            "cyclic_coefficient_c0": -1677123672976019631,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 1677123672976019632,
+            "forced_total_prime_count_T": 18448360402736215952,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 31,
+            "second_prime_in_reflected_residue": 53,
+            "global_index_of_second_residue_prime": 16,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "even_cyclotomic_exponent_m": 68,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -25735480123138746169,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 25735480123138746170,
+            "forced_total_prime_count_T": 283090281354526207870,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 13,
+            "global_index_of_second_residue_prime": 6,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "even_cyclotomic_exponent_m": 108,
+            "reflected_nonzero_residue_m_mod_q": 9,
+            "cyclic_coefficient_c0": -18753897811577899567743427279196,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 18753897811577899567743427279197,
+            "forced_total_prime_count_T": 206292875927356895245177700071167,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 31,
+            "second_prime_in_reflected_residue": 53,
+            "global_index_of_second_residue_prime": 16,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "even_cyclotomic_exponent_m": 112,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -288024674723986855774454789861231,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 288024674723986855774454789861232,
+            "forced_total_prime_count_T": 3168271421963855413519002688473552,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 13,
+            "global_index_of_second_residue_prime": 6,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "even_cyclotomic_exponent_m": 152,
+            "reflected_nonzero_residue_m_mod_q": 9,
+            "cyclic_coefficient_c0": -210320479804397371333120902006965318203543379,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 210320479804397371333120902006965318203543380,
+            "forced_total_prime_count_T": 2313525277848371084664329922076618500238977180,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 31,
+            "second_prime_in_reflected_residue": 53,
+            "global_index_of_second_residue_prime": 16,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "even_cyclotomic_exponent_m": 156,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -3230195078604920615173944856627956510833000464,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 3230195078604920615173944856627956510833000465,
+            "forced_total_prime_count_T": 35532145864654126766913393422907521619163005115,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 13,
+            "global_index_of_second_residue_prime": 6,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "even_cyclotomic_exponent_m": 24,
+            "reflected_nonzero_residue_m_mod_q": 11,
+            "cyclic_coefficient_c0": -2496143,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 2496144,
+            "forced_total_prime_count_T": 32449872,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 11,
+            "second_prime_in_reflected_residue": 37,
+            "global_index_of_second_residue_prime": 12,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "even_cyclotomic_exponent_m": 28,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -37441781,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 37441782,
+            "forced_total_prime_count_T": 486743166,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 41,
+            "global_index_of_second_residue_prime": 13,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "even_cyclotomic_exponent_m": 76,
+            "reflected_nonzero_residue_m_mod_q": 11,
+            "cyclic_coefficient_c0": -6524490014868110472551,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 6524490014868110472552,
+            "forced_total_prime_count_T": 84818370193285436143176,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 11,
+            "second_prime_in_reflected_residue": 37,
+            "global_index_of_second_residue_prime": 12,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "even_cyclotomic_exponent_m": 80,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -101206023809146168724279,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 101206023809146168724280,
+            "forced_total_prime_count_T": 1315678309518900193415640,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 41,
+            "global_index_of_second_residue_prime": 13,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "even_cyclotomic_exponent_m": 128,
+            "reflected_nonzero_residue_m_mod_q": 11,
+            "cyclic_coefficient_c0": -19928756229577829489555813031351715919,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 19928756229577829489555813031351715920,
+            "forced_total_prime_count_T": 259073830984511783364225569407572306960,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 11,
+            "second_prime_in_reflected_residue": 37,
+            "global_index_of_second_residue_prime": 12,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "even_cyclotomic_exponent_m": 132,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -309638052090819296952340895447785081433,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 309638052090819296952340895447785081434,
+            "forced_total_prime_count_T": 4025294677180650860380431640821206058642,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 41,
+            "global_index_of_second_residue_prime": 13,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 17,
+            "even_cyclotomic_exponent_m": 32,
+            "reflected_nonzero_residue_m_mod_q": 15,
+            "cyclic_coefficient_c0": -565722719,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 565722720,
+            "forced_total_prime_count_T": 9617286240,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 83,
+            "second_prime_in_reflected_residue": 151,
+            "global_index_of_second_residue_prime": 36,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 17,
+            "even_cyclotomic_exponent_m": 36,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -8597495969,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 8597495970,
+            "forced_total_prime_count_T": 146157431490,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 19,
+            "global_index_of_second_residue_prime": 8,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 17,
+            "even_cyclotomic_exponent_m": 100,
+            "reflected_nonzero_residue_m_mod_q": 15,
+            "cyclic_coefficient_c0": -98189352963641442358428705014,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 98189352963641442358428705015,
+            "forced_total_prime_count_T": 1669219000381904520093287985255,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 83,
+            "second_prime_in_reflected_residue": 151,
+            "global_index_of_second_residue_prime": 36,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 17,
+            "even_cyclotomic_exponent_m": 104,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -1539120888472834600314605486157,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 1539120888472834600314605486158,
+            "forced_total_prime_count_T": 26165055104038188205348293264686,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 19,
+            "global_index_of_second_residue_prime": 8,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 19,
+            "even_cyclotomic_exponent_m": 36,
+            "reflected_nonzero_residue_m_mod_q": 17,
+            "cyclic_coefficient_c0": -8597496599,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 8597496600,
+            "forced_total_prime_count_T": 163352435400,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 17,
+            "second_prime_in_reflected_residue": 131,
+            "global_index_of_second_residue_prime": 32,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 19,
+            "even_cyclotomic_exponent_m": 40,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -131282407619,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 131282407620,
+            "forced_total_prime_count_T": 2494365744780,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 59,
+            "global_index_of_second_residue_prime": 17,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 19,
+            "even_cyclotomic_exponent_m": 112,
+            "reflected_nonzero_residue_m_mod_q": 17,
+            "cyclic_coefficient_c0": -382314806939815185625736034982283,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 382314806939815185625736034982284,
+            "forced_total_prime_count_T": 7263981331856488526888984664663396,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 17,
+            "second_prime_in_reflected_residue": 131,
+            "global_index_of_second_residue_prime": 32,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 19,
+            "even_cyclotomic_exponent_m": 116,
+            "reflected_nonzero_residue_m_mod_q": 2,
+            "cyclic_coefficient_c0": -6009345825162380758572965305599235,
+            "reflected_coefficient_equals_c0": true,
+            "forced_uniform_shift_t": 6009345825162380758572965305599236,
+            "forced_total_prime_count_T": 114177570678085234412886340806385484,
+            "forced_count_at_reflected_residue": 1,
+            "first_prime_in_reflected_residue": 2,
+            "second_prime_in_reflected_residue": 59,
+            "global_index_of_second_residue_prime": 17,
+            "threshold_T_at_least_second_index": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact cyclic binomial folding plus deterministic enumeration of the first two primes in one nonzero residue class",
+        "complexity": "O(sum m + sum kappa log kappa) integer operations for the finite replay; the reflection-threshold theorem is algebraic",
+        "random_seed": null,
+        "transcript_sha256": "253518284e5b939aa42449fd309978e3fe0c7bda7d83944ee96217eed38394f6",
+        "aggregate": {
+          "scanned_even_pair_count": 480,
+          "compatible_non_q_divisible_even_pair_count": 50,
+          "all_selected_pairs_excluded": true,
+          "largest_forced_prefix_length": 35532145864654126766913393422907521619163005115,
+          "even_reflection_identity_proved": true,
+          "odd_or_q_divisible_compatible_tails_excluded": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "480 even pairs scanned; 50 compatible non-q-divisible rows have exact two-prime certificates.",
+      "logical_limit": "The reflection theorem excludes only even m with q not dividing m and a verified prefix threshold. It is not a uniform theorem for every compatible tail and does not prove strong Goldbach.",
+      "route_decision": {
+        "discard": "treating compatible even cyclotomic tails with q not dividing m as unconstrained after the unique-prefix reduction",
+        "parked": [
+          "odd compatible exponents",
+          "compatible exponents divisible by q",
+          "reflection rows below the second-residue-prime threshold"
+        ],
+        "retain": "the exact reflection identity and second-residue-prime prefix obstruction",
+        "next_single_lemma": "OddOrQDivisibleCompatibleTailPrimePrefixExclusion"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T253",
+            "label": "PrimeOrderingUniquePrefixRealizabilityCriterion",
+            "status": "proved"
+          },
+          {
+            "id": "GB-T254",
+            "label": "EvenCyclotomicReflectionPrimePrefixExclusion",
+            "status": "proved"
+          },
+          {
+            "id": "GB-REJECT254",
+            "label": "EveryCompatibleEvenTailCanSurviveActualPrimeOrdering",
+            "status": "disproved"
+          },
+          {
+            "id": "GB-OPEN254",
+            "label": "OddOrQDivisibleCompatibleTailPrimePrefixExclusion",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T253",
+            "GB-T254"
+          ],
+          [
+            "GB-T254",
+            "GB-REJECT254"
+          ],
+          [
+            "GB-T254",
+            "GB-OPEN254"
+          ]
+        ],
+        "resolution_path": [
+          "GB-T253",
+          "GB-T254",
+          "GB-OPEN254"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No strong Goldbach proof or counterexample; one infinite conditional exclusion theorem and finite certificates for selected compatible tails."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-254",
+      "theorem_name": "ExponentSeventeenUnitTwistedThueReduction",
+      "declared_proposition": "Positive integer solutions of x^2-2=y^17 are equivalent to admissible integer points on seventeen explicit homogeneous degree-17 equations. For 0<=j<17 write (1+sqrt(2))^j=a_j+b_j sqrt(2) and define A_j(u,v)+B_j(u,v)sqrt(2)=(a_j+b_j sqrt(2))(u+v sqrt(2))^17. A solution exists iff for some j,u,v, B_j(u,v)=1, A_j(u,v)>0, and y=(-1)^j(u^2-2v^2)>0; then x=A_j(u,v).",
+      "mathematical_argument": "First y is odd: if y and x were even then v_2(x^2-2)=1, not a multiple of 17. Thus the conjugate factors x+sqrt(2) and x-sqrt(2) are coprime in Z[sqrt(2)]. This ring is norm-Euclidean, hence a UFD, so x+sqrt(2)=epsilon alpha^17. Its units are +/- (1+sqrt(2))^n; absorb a 17th unit power and the sign into alpha to leave the unique twist j modulo 17. Comparing sqrt(2) coefficients gives B_j=1, and norms give y=(-1)^j(u^2-2v^2). The converse follows by multiplying out and taking norms. The reduction is exact, but no global integral-point exclusion for the seventeen equations is proved.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Positive integer solutions of x^2-2=y^17 are equivalent to admissible integer points on seventeen explicit homogeneous degree-17 equations. For 0<=j<17 write (1+sqrt(2))^j=a_j+b_j sqrt(2) and define A_j(u,v)+B_j(u,v)sqrt(2)=(a_j+b_j sqrt(2))(u+v sqrt(2))^17. A solution exists iff for some j,u,v, B_j(u,v)=1, A_j(u,v)>0, and y=(-1)^j(u^2-2v^2)>0; then x=A_j(u,v).",
+        "proof": "First y is odd: if y and x were even then v_2(x^2-2)=1, not a multiple of 17. Thus the conjugate factors x+sqrt(2) and x-sqrt(2) are coprime in Z[sqrt(2)]. This ring is norm-Euclidean, hence a UFD, so x+sqrt(2)=epsilon alpha^17. Its units are +/- (1+sqrt(2))^n; absorb a 17th unit power and the sign into alpha to leave the unique twist j modulo 17. Comparing sqrt(2) coefficients gives B_j=1, and norms give y=(-1)^j(u^2-2v^2). The converse follows by multiplying out and taking norms. The reduction is exact, but no global integral-point exclusion for the seventeen equations is proved.",
+        "exact_unit_twisted_thue_polynomials": [
+          {
+            "unit_twist_j": 0,
+            "unit_rational_part_a_j": 1,
+            "unit_sqrt2_part_b_j": 0,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              1,
+              0,
+              272,
+              0,
+              9520,
+              0,
+              99008,
+              0,
+              388960,
+              0,
+              622336,
+              0,
+              396032,
+              0,
+              87040,
+              0,
+              4352,
+              0
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              0,
+              17,
+              0,
+              1360,
+              0,
+              24752,
+              0,
+              155584,
+              0,
+              388960,
+              0,
+              396032,
+              0,
+              152320,
+              0,
+              17408,
+              0,
+              256
+            ]
+          },
+          {
+            "unit_twist_j": 1,
+            "unit_rational_part_a_j": 1,
+            "unit_sqrt2_part_b_j": 1,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              1,
+              34,
+              272,
+              2720,
+              9520,
+              49504,
+              99008,
+              311168,
+              388960,
+              777920,
+              622336,
+              792064,
+              396032,
+              304640,
+              87040,
+              34816,
+              4352,
+              512
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              1,
+              17,
+              272,
+              1360,
+              9520,
+              24752,
+              99008,
+              155584,
+              388960,
+              388960,
+              622336,
+              396032,
+              396032,
+              152320,
+              87040,
+              17408,
+              4352,
+              256
+            ]
+          },
+          {
+            "unit_twist_j": 2,
+            "unit_rational_part_a_j": 3,
+            "unit_sqrt2_part_b_j": 2,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              3,
+              68,
+              816,
+              5440,
+              28560,
+              99008,
+              297024,
+              622336,
+              1166880,
+              1555840,
+              1867008,
+              1584128,
+              1188096,
+              609280,
+              261120,
+              69632,
+              13056,
+              1024
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              2,
+              51,
+              544,
+              4080,
+              19040,
+              74256,
+              198016,
+              466752,
+              777920,
+              1166880,
+              1244672,
+              1188096,
+              792064,
+              456960,
+              174080,
+              52224,
+              8704,
+              768
+            ]
+          },
+          {
+            "unit_twist_j": 3,
+            "unit_rational_part_a_j": 7,
+            "unit_sqrt2_part_b_j": 5,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              7,
+              170,
+              1904,
+              13600,
+              66640,
+              247520,
+              693056,
+              1555840,
+              2722720,
+              3889600,
+              4356352,
+              3960320,
+              2772224,
+              1523200,
+              609280,
+              174080,
+              30464,
+              2560
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              5,
+              119,
+              1360,
+              9520,
+              47600,
+              173264,
+              495040,
+              1089088,
+              1944800,
+              2722720,
+              3111680,
+              2772224,
+              1980160,
+              1066240,
+              435200,
+              121856,
+              21760,
+              1792
+            ]
+          },
+          {
+            "unit_twist_j": 4,
+            "unit_rational_part_a_j": 17,
+            "unit_sqrt2_part_b_j": 12,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              17,
+              408,
+              4624,
+              32640,
+              161840,
+              594048,
+              1683136,
+              3734016,
+              6612320,
+              9335040,
+              10579712,
+              9504768,
+              6732544,
+              3655680,
+              1479680,
+              417792,
+              73984,
+              6144
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              12,
+              289,
+              3264,
+              23120,
+              114240,
+              420784,
+              1188096,
+              2644928,
+              4667520,
+              6612320,
+              7468032,
+              6732544,
+              4752384,
+              2589440,
+              1044480,
+              295936,
+              52224,
+              4352
+            ]
+          },
+          {
+            "unit_twist_j": 5,
+            "unit_rational_part_a_j": 41,
+            "unit_sqrt2_part_b_j": 29,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              41,
+              986,
+              11152,
+              78880,
+              390320,
+              1435616,
+              4059328,
+              9023872,
+              15947360,
+              22559680,
+              25515776,
+              22969856,
+              16237312,
+              8834560,
+              3568640,
+              1009664,
+              178432,
+              14848
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              29,
+              697,
+              7888,
+              55760,
+              276080,
+              1014832,
+              2871232,
+              6378944,
+              11279840,
+              15947360,
+              18047744,
+              16237312,
+              11484928,
+              6245120,
+              2524160,
+              713728,
+              126208,
+              10496
+            ]
+          },
+          {
+            "unit_twist_j": 6,
+            "unit_rational_part_a_j": 99,
+            "unit_sqrt2_part_b_j": 70,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              99,
+              2380,
+              26928,
+              190400,
+              942480,
+              3465280,
+              9801792,
+              21781760,
+              38507040,
+              54454400,
+              61611264,
+              55444480,
+              39207168,
+              21324800,
+              8616960,
+              2437120,
+              430848,
+              35840
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              70,
+              1683,
+              19040,
+              134640,
+              666400,
+              2450448,
+              6930560,
+              15402816,
+              27227200,
+              38507040,
+              43563520,
+              39207168,
+              27722240,
+              15079680,
+              6092800,
+              1723392,
+              304640,
+              25344
+            ]
+          },
+          {
+            "unit_twist_j": 7,
+            "unit_rational_part_a_j": 239,
+            "unit_sqrt2_part_b_j": 169,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              239,
+              5746,
+              65008,
+              459680,
+              2275280,
+              8366176,
+              23662912,
+              52587392,
+              92961440,
+              131468480,
+              148738304,
+              133858816,
+              94651648,
+              51484160,
+              20802560,
+              5883904,
+              1040128,
+              86528
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              169,
+              4063,
+              45968,
+              325040,
+              1608880,
+              5915728,
+              16732352,
+              37184576,
+              65734240,
+              92961440,
+              105174784,
+              94651648,
+              66929408,
+              36404480,
+              14709760,
+              4160512,
+              735488,
+              61184
+            ]
+          },
+          {
+            "unit_twist_j": 8,
+            "unit_rational_part_a_j": 577,
+            "unit_sqrt2_part_b_j": 408,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              577,
+              13872,
+              156944,
+              1109760,
+              5493040,
+              20197632,
+              57127616,
+              126956544,
+              224429920,
+              317391360,
+              359087872,
+              323162112,
+              228510464,
+              124293120,
+              50222080,
+              14204928,
+              2511104,
+              208896
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              408,
+              9809,
+              110976,
+              784720,
+              3884160,
+              14281904,
+              40395264,
+              89771968,
+              158695680,
+              224429920,
+              253913088,
+              228510464,
+              161581056,
+              87888640,
+              35512320,
+              10044416,
+              1775616,
+              147712
+            ]
+          },
+          {
+            "unit_twist_j": 9,
+            "unit_rational_part_a_j": 1393,
+            "unit_sqrt2_part_b_j": 985,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              1393,
+              33490,
+              378896,
+              2679200,
+              13261360,
+              48761440,
+              137918144,
+              306500480,
+              541821280,
+              766251200,
+              866914048,
+              780183040,
+              551672576,
+              300070400,
+              121246720,
+              34293760,
+              6062336,
+              504320
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              985,
+              23681,
+              267920,
+              1894480,
+              9377200,
+              34479536,
+              97522880,
+              216728512,
+              383125600,
+              541821280,
+              613000960,
+              551672576,
+              390091520,
+              212181760,
+              85734400,
+              24249344,
+              4286720,
+              356608
+            ]
+          },
+          {
+            "unit_twist_j": 10,
+            "unit_rational_part_a_j": 3363,
+            "unit_sqrt2_part_b_j": 2378,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              3363,
+              80852,
+              914736,
+              6468160,
+              32015760,
+              117720512,
+              332963904,
+              739957504,
+              1308072480,
+              1849893760,
+              2092915968,
+              1883528192,
+              1331855616,
+              724433920,
+              292715520,
+              82792448,
+              14635776,
+              1217536
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              2378,
+              57171,
+              646816,
+              4573680,
+              22638560,
+              83240976,
+              235441024,
+              523228992,
+              924946880,
+              1308072480,
+              1479915008,
+              1331855616,
+              941764096,
+              512252160,
+              206981120,
+              58543104,
+              10349056,
+              860928
+            ]
+          },
+          {
+            "unit_twist_j": 11,
+            "unit_rational_part_a_j": 8119,
+            "unit_sqrt2_part_b_j": 5741,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              8119,
+              195194,
+              2208368,
+              15615520,
+              77292880,
+              284202464,
+              803845952,
+              1786415488,
+              3157966240,
+              4466038720,
+              5052745984,
+              4547239424,
+              3215383808,
+              1748938240,
+              706677760,
+              199878656,
+              35333888,
+              2939392
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              5741,
+              138023,
+              1561552,
+              11041840,
+              54654320,
+              200961488,
+              568404928,
+              1263186496,
+              2233019360,
+              3157966240,
+              3572830976,
+              3215383808,
+              2273619712,
+              1236686080,
+              499696640,
+              141335552,
+              24984832,
+              2078464
+            ]
+          },
+          {
+            "unit_twist_j": 12,
+            "unit_rational_part_a_j": 19601,
+            "unit_sqrt2_part_b_j": 13860,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              19601,
+              471240,
+              5331472,
+              37699200,
+              186601520,
+              686125440,
+              1940655808,
+              4312788480,
+              7624004960,
+              10781971200,
+              12198407936,
+              10978007040,
+              7762623232,
+              4222310400,
+              1706071040,
+              482549760,
+              85303552,
+              7096320
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              13860,
+              333217,
+              3769920,
+              26657360,
+              131947200,
+              485163952,
+              1372250880,
+              3049601984,
+              5390985600,
+              7624004960,
+              8625576960,
+              7762623232,
+              5489003520,
+              2985624320,
+              1206374400,
+              341214208,
+              60318720,
+              5017856
+            ]
+          },
+          {
+            "unit_twist_j": 13,
+            "unit_rational_part_a_j": 47321,
+            "unit_sqrt2_part_b_j": 33461,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              47321,
+              1137674,
+              12871312,
+              91013920,
+              450495920,
+              1656453344,
+              4685157568,
+              10411992448,
+              18405976160,
+              26029981120,
+              29449561856,
+              26503253504,
+              18740630272,
+              10193559040,
+              4118819840,
+              1164978176,
+              205940992,
+              17132032
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              33461,
+              804457,
+              9101392,
+              64356560,
+              318548720,
+              1171289392,
+              3312906688,
+              7362390464,
+              13014990560,
+              18405976160,
+              20823984896,
+              18740630272,
+              13251626752,
+              7207934720,
+              2912445440,
+              823763968,
+              145622272,
+              12114176
+            ]
+          },
+          {
+            "unit_twist_j": 14,
+            "unit_rational_part_a_j": 114243,
+            "unit_sqrt2_part_b_j": 80782,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              114243,
+              2746588,
+              31074096,
+              219727040,
+              1087593360,
+              3999032128,
+              11310970944,
+              25136773376,
+              44435957280,
+              62841933440,
+              71097531648,
+              63984514048,
+              45243883776,
+              24609428480,
+              9943710720,
+              2812506112,
+              497185536,
+              41360384
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              80782,
+              1942131,
+              21972704,
+              155370480,
+              769044640,
+              2827742736,
+              7998064256,
+              17774382912,
+              31420966720,
+              44435957280,
+              50273546752,
+              45243883776,
+              31992257024,
+              17401493760,
+              7031265280,
+              1988742144,
+              351563264,
+              29246208
+            ]
+          },
+          {
+            "unit_twist_j": 15,
+            "unit_rational_part_a_j": 275807,
+            "unit_sqrt2_part_b_j": 195025,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              275807,
+              6630850,
+              75019504,
+              530468000,
+              2625682640,
+              9654517600,
+              27307099456,
+              60685539200,
+              107277890720,
+              151713848000,
+              171644625152,
+              154472281600,
+              109228397824,
+              59412416000,
+              24006241280,
+              6789990400,
+              1200312064,
+              99852800
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              195025,
+              4688719,
+              53046800,
+              375097520,
+              1856638000,
+              6826774864,
+              19309035200,
+              42911156288,
+              75856924000,
+              107277890720,
+              121371078400,
+              109228397824,
+              77236140800,
+              42010922240,
+              16974976000,
+              4801248256,
+              848748800,
+              70606592
+            ]
+          },
+          {
+            "unit_twist_j": 16,
+            "unit_rational_part_a_j": 665857,
+            "unit_sqrt2_part_b_j": 470832,
+            "A_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              665857,
+              16008288,
+              181113104,
+              1280663040,
+              6338958640,
+              23308067328,
+              65925169856,
+              146507851776,
+              258991738720,
+              366269629440,
+              414386781952,
+              372929077248,
+              263700679424,
+              143434260480,
+              57956193280,
+              16392486912,
+              2897809664,
+              241065984
+            ],
+            "B_j_coefficients_for_u_power_17_minus_k_v_power_k": [
+              470832,
+              11319569,
+              128066304,
+              905565520,
+              4482320640,
+              16481292464,
+              46616134656,
+              103596695488,
+              183134814720,
+              258991738720,
+              293015703552,
+              263700679424,
+              186464538624,
+              101423338240,
+              40981217280,
+              11591238656,
+              2049060864,
+              170459392
+            ]
+          }
+        ],
+        "finite_box_audit": {
+          "coordinate_radius": 12,
+          "exact_grid_case_count": 10608,
+          "coefficient_one_point_count": 2,
+          "admissible_positive_point_count": 0,
+          "coefficient_one_points": [
+            {
+              "unit_twist_j": 1,
+              "u": 1,
+              "v": 0,
+              "A_j_u_v": 1,
+              "B_j_u_v": 1,
+              "reduced_y": -1
+            },
+            {
+              "unit_twist_j": 16,
+              "u": -1,
+              "v": 1,
+              "A_j_u_v": -1,
+              "B_j_u_v": 1,
+              "reduced_y": -1
+            }
+          ],
+          "admissible_positive_points": []
+        },
+        "algorithm": "exact quadratic-ring binary exponentiation, explicit homogeneous coefficient evaluation, and integer norm identities",
+        "complexity": "O(17 R^2 log 17) quadratic-ring multiplications for box radius R=12; the equivalence is algebraic for all integers",
+        "random_seed": null,
+        "transcript_sha256": "1cc60a2de6cbf63644bb1751a558602cdf696651b181a1a14606b62ec457fcf3",
+        "aggregate": {
+          "z_sqrt2_norm_euclidean_used": true,
+          "unit_twist_count": 17,
+          "coefficient_one_thue_equivalence_proved": true,
+          "finite_box_contains_admissible_positive_solution": false,
+          "all_seventeen_thue_equations_solved": false,
+          "exponent_seventeen_excluded": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "17 exact polynomials and 10608 integer grid cases verify coefficient and norm identities; global integral points remain open.",
+      "logical_limit": "The reduction has seventeen equations but solves none globally. The finite box is only an implementation audit and cannot use the prior y>10^1000 bound as a proof.",
+      "route_decision": {
+        "discard": "treating x^2-2=y^17 as one opaque two-variable exponential equation without exposing its finite unit-twist classes",
+        "parked": [
+          "global integral-point exclusion on the seventeen coefficient-one Thue equations"
+        ],
+        "retain": "the exact Z[sqrt(2)] factorization and seventeen explicit homogeneous equations",
+        "next_single_lemma": "AllSeventeenUnitTwistedCoefficientOneThueEquationsHaveNoAdmissibleIntegralPoint"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T253",
+            "label": "RightEvenContaminationReducesToEightyFourLebesgueNagellExponents",
+            "status": "proved"
+          },
+          {
+            "id": "TP-T254",
+            "label": "ExponentSeventeenUnitTwistedThueReduction",
+            "status": "proved"
+          },
+          {
+            "id": "TP-REJECT254",
+            "label": "ExponentSeventeenRequiresInfinitelyManyIndependentUnitTwistEquations",
+            "status": "disproved"
+          },
+          {
+            "id": "TP-OPEN254",
+            "label": "AllSeventeenUnitTwistedCoefficientOneThueEquationsHaveNoAdmissibleIntegralPoint",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T253",
+            "TP-T254"
+          ],
+          [
+            "TP-T254",
+            "TP-REJECT254"
+          ],
+          [
+            "TP-T254",
+            "TP-OPEN254"
+          ]
+        ],
+        "resolution_path": [
+          "TP-T253",
+          "TP-T254",
+          "TP-OPEN254"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No twin-prime proof or counterexample; one exact exponent-17 Thue reduction with no admissible point found in a finite box."
+    },
+    "research_baselines": {
+      "riemann_status": "https://www.claymath.org/millennium/Riemann-Hypothesis/",
+      "collatz_fixed_representative_context": "https://arxiv.org/abs/1104.3909",
+      "goldbach_major_arcs": "https://arxiv.org/abs/1205.5252",
+      "twin_prime_parity": "https://arxiv.org/abs/1407.4897"
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_partial_theorem_count": 2,
+      "exact_no_go_count": 2,
+      "candidate_resolution_count": 0,
+      "conjecture_resolution_count": 0,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "deep_focus_problem": "goldbach",
+      "stagnated_problem_count": 0,
+      "riemann_block_case_count": 8,
+      "collatz_detector_case_count": 48,
+      "collatz_weighted_case_count": 12,
+      "goldbach_reflection_certificate_count": 50,
+      "twin_thue_polynomial_count": 17,
+      "twin_thue_grid_case_count": 10608,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-254",
+      "declared_proposition": "For every N>=1 there is a bounded positive self-adjoint operator A_N on l2(Z), with <A_N e_n,e_n>=1 for every Fourier basis vector, but <A_N d_N,d_N>=0 for d_N=(2N+1)^(-1/2)sum_(|n|<=N)e_n. On the L=2N+1 packet block take A_N=L/(L-1)I-J/(L-1), and take the identity off that block. Its packet-block spectrum is {0,L/(L-1)}. Thus even a uniform strictly positive Fourier diagonal does not imply Dirichlet-packet domination without off-diagonal information.",
+      "new_result": "PositiveDiagonalDirichletPacketDominationNoGo",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/diagonal_weighted_reflection_thue_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "inferring a positive Dirichlet-packet lower bound from uniform positivity of Fourier diagonal entries alone",
+      "parked_routes": [
+        "actual Weil-form block matrices and their off-diagonal row sums"
+      ],
+      "remaining_gap": "The counterexample ranges over abstract positive operators and does not compute or refute the actual Guinand-Weil form.",
+      "stagnation_count": 0,
+      "candidate_theorem": "ActualWeilDirichletBlocksHaveUniformStrictDiagonalDominance"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-254",
+      "declared_proposition": "For every finite set Q of primes q>5, every nonnegative weights w_q, and arbitrary pairs (U_q,V_q) in F_q^2, let D_q=5U_q-3V_q and C_q(D)=sum_(h=1)^(q-1)exp(2pi ihD/q). Then sum_q w_q[(1+C_q(D_q))/q-1_(U_q=V_q=0)] equals exactly sum_q w_q 1_(D_q=0,(U_q,V_q)!=(0,0)). Every summand is nonnegative. Hence nonnegative cross-prime averaging of the complete detector creates no cancellation or smoothing; bounding it is exactly the original weighted incidence problem.",
+      "new_result": "NonnegativeCrossPrimeCompleteDetectorAverageNoGo",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/diagonal_weighted_reflection_thue_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "using any nonnegative weighted cross-prime average of the normalized complete slope detector as an independent cancellation statistic",
+      "parked_routes": [
+        "signed incomplete character kernels with a proved recovery inequality"
+      ],
+      "remaining_gap": "The theorem blocks only normalized complete detectors with nonnegative weights; it says nothing about a genuinely signed incomplete transform or canonical occurrence.",
+      "stagnation_count": 0,
+      "candidate_theorem": "IncompleteSlopeCharacterKernelHasSignedRecoveryAndCrossPrimeCancellation"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-254",
+      "declared_proposition": "Let q>=5 be prime, m be even with q not dividing m, and c_r be the cyclic coefficients of (1-X)^m modulo X^q-1. Suppose the tail is zero-residue compatible, set t=1-c_0 and T=qt, and put r=m mod q. Let kappa_q(r) be the global prime index of the second prime congruent to r modulo q. If T>=kappa_q(r), then the tail cannot be realized by the actual prime prefix. Indeed c_r=c_0 by even reflection, so the forced count N*_r=c_r+t is one, whereas the first T primes contain at least two primes in residue r.",
+      "new_result": "EvenCyclotomicReflectionPrimePrefixExclusion",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/diagonal_weighted_reflection_thue_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "treating compatible even cyclotomic tails with q not dividing m as unconstrained after the unique-prefix reduction",
+      "parked_routes": [
+        "odd compatible exponents",
+        "compatible exponents divisible by q",
+        "reflection rows below the second-residue-prime threshold"
+      ],
+      "remaining_gap": "The reflection theorem excludes only even m with q not dividing m and a verified prefix threshold. It is not a uniform theorem for every compatible tail and does not prove strong Goldbach.",
+      "stagnation_count": 0,
+      "candidate_theorem": "OddOrQDivisibleCompatibleTailPrimePrefixExclusion"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-254",
+      "declared_proposition": "Positive integer solutions of x^2-2=y^17 are equivalent to admissible integer points on seventeen explicit homogeneous degree-17 equations. For 0<=j<17 write (1+sqrt(2))^j=a_j+b_j sqrt(2) and define A_j(u,v)+B_j(u,v)sqrt(2)=(a_j+b_j sqrt(2))(u+v sqrt(2))^17. A solution exists iff for some j,u,v, B_j(u,v)=1, A_j(u,v)>0, and y=(-1)^j(u^2-2v^2)>0; then x=A_j(u,v).",
+      "new_result": "ExponentSeventeenUnitTwistedThueReduction",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/diagonal_weighted_reflection_thue_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "treating x^2-2=y^17 as one opaque two-variable exponential equation without exposing its finite unit-twist classes",
+      "parked_routes": [
+        "global integral-point exclusion on the seventeen coefficient-one Thue equations"
+      ],
+      "remaining_gap": "The reduction has seventeen equations but solves none globally. The finite box is only an implementation audit and cannot use the prior y>10^1000 bound as a proof.",
+      "stagnation_count": 0,
+      "candidate_theorem": "AllSeventeenUnitTwistedCoefficientOneThueEquationsHaveNoAdmissibleIntegralPoint"
+    }
+  ]
+}

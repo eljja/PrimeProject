@@ -628,3 +628,17 @@ promotion of ten finite prime-prefix mismatches to all compatible tails, or
 promotion of the external 84-exponent reduction and the `k<=9999` scan to a
 solution of the remaining Lebesgue-Nagell equations. Resolution and
 candidate-resolution counts are zero.
+## TICKET-254 publication boundary
+
+TICKET-254 adds two exact route no-go results and two partial theorems. Allowed
+`exact_no_go` wording is limited to the abstract positive-diagonal operator
+counterexample and nonnegative finite weightings of the normalized complete
+Collatz detector. Allowed `partial_theorem` wording is limited to the exact
+even/non-q-divisible Goldbach reflection-threshold exclusion and the
+coefficient-one reduction of `x^2-2=y^17` to 17 unit-twisted Thue equations.
+Blocked wording includes every parent-conjecture proof or disproof,
+identification of the abstract operator with the actual Weil form, promotion
+of the Collatz complete-detector identity to canonical avoidance, extension of
+the Goldbach theorem to odd or q-divisible exponents without proof, or
+promotion of the finite Thue box to a global Diophantine exclusion. Resolution
+and candidate-resolution counts are zero.

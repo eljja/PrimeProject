@@ -44,7 +44,35 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-253
+## Latest handoff: TICKET-254
+
+Canonical artifact:
+`data/open-problem/ticket254-diagonal-weighted-reflection-thue.json`.
+
+All four parent conjectures remain `open_not_proven`. TICKET-254 established:
+
+- RH: an explicit positive self-adjoint block has every Fourier diagonal equal to one and normalized Dirichlet-packet energy zero, so diagonal information alone cannot prove packet domination;
+- Collatz: every finite nonnegative weighting of the normalized complete slope detector is exactly the same weighted incidence count, so this cross-prime average has no cancellation;
+- Goldbach: cyclic reflection forces count one at `m mod q` for every even, non-q-divisible compatible tail, and the second residue-prime threshold excludes the tail;
+- Twin: the exponent-17 equation `x^2-2=y^17` is equivalent to 17 explicit unit-twisted coefficient-one Thue equations in `Z[sqrt(2)]`.
+
+The exact next frontiers are:
+
+```text
+RH: ActualWeilDirichletBlocksHaveUniformStrictDiagonalDominance
+Collatz: IncompleteSlopeCharacterKernelHasSignedRecoveryAndCrossPrimeCancellation
+Goldbach: OddOrQDivisibleCompatibleTailPrimePrefixExclusion
+Twin: AllSeventeenUnitTwistedCoefficientOneThueEquationsHaveNoAdmissibleIntegralPoint
+```
+
+The eight operator rows, 60 Collatz detector/weight rows, 50 Goldbach
+certificates, and 10,608 Twin twist-points audit exact formulas only. The
+abstract RH operator is not the Weil form, the Collatz no-go leaves signed
+incomplete kernels open, the Goldbach theorem has stated parity/divisibility
+hypotheses, and the finite Thue box has no global force. None of the four
+conjectures is resolved.
+
+## Preserved handoff: TICKET-253
 
 Canonical artifact:
 `data/open-problem/ticket253-density-character-prefix-lebesgue.json`.

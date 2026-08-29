@@ -15,7 +15,26 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-253
+## Current research boundary: TICKET-254
+
+The current machine-readable boundary is
+`data/open-problem/ticket254-diagonal-weighted-reflection-thue.json`.
+TICKET-254 proves two exact route no-go results and two partial theorems while
+resolving none of the parent conjectures:
+
+- positive Fourier diagonal alone cannot force RH Dirichlet-packet domination;
+- every nonnegative complete Collatz detector average is its weighted incidence count;
+- even, non-q-divisible compatible Goldbach tails are excluded past the second residue-prime threshold;
+- `x^2-2=y^17` is equivalent to 17 explicit unit-twisted coefficient-one Thue equations.
+
+The next single lemmas are uniform strict diagonal dominance for actual finite
+Weil blocks, signed incomplete slope-kernel recovery with cross-prime
+cancellation, exclusion of odd or q-divisible compatible tails, and exclusion
+of all admissible integral points on the 17 Thue equations. All statuses remain
+`open_not_proven`. Reports: [English](diagonal-weighted-reflection-thue.md) and
+[한국어](diagonal-weighted-reflection-thue.ko.md).
+
+## Preserved research boundary: TICKET-253
 
 The current machine-readable boundary is
 `data/open-problem/ticket253-density-character-prefix-lebesgue.json`.

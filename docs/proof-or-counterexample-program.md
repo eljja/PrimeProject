@@ -9000,3 +9000,25 @@ Canonical artifact:
 `data/open-problem/ticket253-density-character-prefix-lebesgue.json`.
 Reports: [English](density-character-prefix-lebesgue.md) and
 [한국어](density-character-prefix-lebesgue.ko.md).
+## TICKET-254 continuation: positive diagonal, weighted detectors, even reflection, and exponent-17 Thue equations
+
+TICKET-254 attacks the four TICKET-253 frontiers and resolves no parent
+conjecture. It proves `PositiveDiagonalDirichletPacketDominationNoGo`,
+`NonnegativeCrossPrimeCompleteDetectorAverageNoGo`,
+`EvenCyclotomicReflectionPrimePrefixExclusion`, and
+`ExponentSeventeenUnitTwistedThueReduction`.
+
+The exact finite replay contains eight rational operator blocks, 48 complete
+Collatz detector rows plus 12 nonnegative weighted rows, 50 even-reflection
+Goldbach exclusion certificates, 17 explicit degree-17 polynomial pairs, and
+10,608 exact Twin twist-points. These checks certify arithmetic and
+implementation only. The four next single lemmas are actual Weil-block strict
+diagonal dominance, a signed incomplete Collatz recovery/cancellation kernel,
+exclusion of odd or q-divisible compatible Goldbach tails, and absence of
+admissible integral points on all 17 unit-twisted coefficient-one Thue
+equations.
+
+Canonical artifact:
+`data/open-problem/ticket254-diagonal-weighted-reflection-thue.json`.
+Reports: [English](diagonal-weighted-reflection-thue.md) and
+[한국어](diagonal-weighted-reflection-thue.ko.md).

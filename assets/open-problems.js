@@ -48,6 +48,7 @@ let ticket249AttemptGlobal = null;
 let ticket250AttemptGlobal = null;
 let ticket251AttemptGlobal = null;
 let ticket252AttemptGlobal = null;
+let ticket254AttemptGlobal = null;
 let ticket253AttemptGlobal = null;
 let ticket248AttemptGlobal = null;
 let ticket244AttemptGlobal = null;
@@ -18044,7 +18045,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket253DensityCharacterPrefixLebesgue(ticket253AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket254DiagonalWeightedReflectionThue(ticket254AttemptGlobal) ||
+      renderTicket253DensityCharacterPrefixLebesgue(ticket253AttemptGlobal) ||
       renderTicket252SparseMarginalZeroResidueLocal(ticket252AttemptGlobal) ||
       renderTicket251InteriorCrtCyclotomicRightEven(ticket251AttemptGlobal) ||
       renderTicket250MultiplierLiftGaloisEvenRight(ticket250AttemptGlobal) ||
@@ -18620,7 +18622,25 @@ async function loadTicket219Attempt() {
     return false;
   }
 }
-async function loadTicket253Attempt() {
+async function loadTicket254Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket254-diagonal-weighted-reflection-thue.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket254AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket254AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket254AttemptGlobal) {
+      ticket254AttemptGlobal.bounded_result = ticket254AttemptGlobal.bounded_result || {};
+      ticket254AttemptGlobal.bounded_result.diagonal_weighted_reflection_thue_audit = payload.diagonal_weighted_reflection_thue_audit || {};
+    }
+    return Boolean(ticket254AttemptGlobal);
+  } catch (_error) {
+    ticket254AttemptGlobal = null;
+    return false;
+  }
+}async function loadTicket253Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket253-density-character-prefix-lebesgue.json", { cache: "no-store" });
     if (!response.ok) {
@@ -20865,7 +20885,11 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket253Loaded = await loadTicket253Attempt();
+  const ticket254Loaded = await loadTicket254Attempt();
+  if (!ticket254Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket254AttemptGlobal) await loadTicket254Attempt();
+  }  const ticket253Loaded = await loadTicket253Attempt();
   if (!ticket253Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));
     if (!ticket253AttemptGlobal) await loadTicket253Attempt();

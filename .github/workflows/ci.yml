@@ -116,6 +116,12 @@ jobs:
         run: |
           python -m unittest tests.test_ticket253_density_character_prefix_lebesgue
           python scripts/verify_ticket253_structure.py
+
+      - name: Unit and structure check TICKET-254
+        run: |
+          python -m unittest tests.test_ticket254_diagonal_weighted_reflection_thue
+          python scripts/verify_ticket254_structure.py
+
       - name: Verify open problem structure
         run: python scripts/verify_open_problem_structure.py
 
@@ -141,6 +147,7 @@ jobs:
           node --check assets/ticket251-open-problem.js
           node --check assets/ticket252-open-problem.js
           node --check assets/ticket253-open-problem.js
+          node --check assets/ticket254-open-problem.js
 
       - name: Verify GitHub Pages surface
         run: node scripts/verify_pages.cjs

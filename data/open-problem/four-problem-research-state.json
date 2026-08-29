@@ -1,17 +1,17 @@
 {
   "schema": "primeproject.four-problem-research-state.v1",
-  "ticket": 253,
-  "parent_ticket": 252,
-  "generated_at": "2026-08-29T13:07:59+09:00",
+  "ticket": 254,
+  "parent_ticket": 253,
+  "generated_at": "2026-08-29T14:19:28+09:00",
   "iteration_complete": true,
   "program_complete": false,
   "resolved_count": 0,
   "candidate_resolution_count": 0,
-  "deep_focus_problem": "twin_prime",
+  "deep_focus_problem": "goldbach",
   "problems": {
     "riemann": {
       "problem_status": "open_not_proven",
-      "current_target": "DirichletPacketSpectralDensityLimit",
+      "current_target": "PositiveDiagonalDirichletPacketDominationNoGo",
       "established_results": [
         "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
         "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
@@ -24,7 +24,8 @@
         "NoncompactMultiplierLegendreEscapeInsufficiencyNoGo",
         "InteriorZeroLocalMultiplierCoercivityNoGo",
         "SparseFourierProjectionInteriorConcentrationNoGo",
-        "DirichletPacketSpectralDensityLimit"
+        "DirichletPacketSpectralDensityLimit",
+        "PositiveDiagonalDirichletPacketDominationNoGo"
       ],
       "retired_routes": [
         "frequency support or frequency tightness alone as compactness of a normalized even Weil-test family",
@@ -37,20 +38,22 @@
         "using a positive diagonal limit on the Legendre sequence for one noncompact multiplier as a certificate of full-sphere coercivity",
         "using any continuous nonnegative local multiplier with an interior zero as a full-unit-sphere coercivity repair for the raw moment form",
         "using noncompactness and nonlocality alone, or a zero-density spectral projection, as a certificate that an arithmetic operator excludes interior concentration",
-        "treating the TICKET-252 zero-density escape as representative after imposing positive symmetric spectral density on normalized Dirichlet packets"
+        "treating the TICKET-252 zero-density escape as representative after imposing positive symmetric spectral density on normalized Dirichlet packets",
+        "inferring a positive Dirichlet-packet lower bound from uniform positivity of Fourier diagonal entries alone"
       ],
       "parked_routes": [
         "endpoint-only zero multipliers and strictly positive local floors",
         "abstract Fourier projections not identified with the actual Weil operator",
-        "extension from periodic Fourier projections to the signed arithmetic Weil form"
+        "extension from periodic Fourier projections to the signed arithmetic Weil form",
+        "actual Weil-form block matrices and their off-diagonal row sums"
       ],
-      "remaining_gap": "The theorem concerns Fourier projections and one canonical concentrating family. No domination by the signed Guinand-Weil form, admissible-form-core transfer, or all-packet lower bound is proved.",
-      "next_single_lemma": "ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets",
+      "remaining_gap": "The counterexample ranges over abstract positive operators and does not compute or refute the actual Guinand-Weil form.",
+      "next_single_lemma": "ActualWeilDirichletBlocksHaveUniformStrictDiagonalDominance",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets"
+        "ActualWeilDirichletBlocksHaveUniformStrictDiagonalDominance"
       ],
-      "finite_computation_boundary": "11 exact rational periodic-density rows illustrate the analytic all-density theorem; spatial concentration uses a proved Dirichlet-kernel bound.",
+      "finite_computation_boundary": "8 exact rational blocks replay the all-N algebraic construction.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -60,7 +63,7 @@
     },
     "collatz": {
       "problem_status": "open_not_proven",
-      "current_target": "CompleteSlopeCharacterSumDichotomyNoGo",
+      "current_target": "NonnegativeCrossPrimeCompleteDetectorAverageNoGo",
       "established_results": [
         "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
         "UnboundedOrderPrincipalUnitTransferCountermodels",
@@ -73,7 +76,8 @@
         "LocalFermatQuotientLiftTransitivityNoGo",
         "FinitePrimeCanonicalLiftPatternCRTInterpolationNoGo",
         "UniformMarginalsCannotDetectProjectiveFermatSlopeNoGo",
-        "CompleteSlopeCharacterSumDichotomyNoGo"
+        "CompleteSlopeCharacterSumDichotomyNoGo",
+        "NonnegativeCrossPrimeCompleteDetectorAverageNoGo"
       ],
       "retired_routes": [
         "deducing the fixed-base 32/27 to 2/3 square-depth transfer from universal order, LTE, and principal-unit algebra",
@@ -83,7 +87,8 @@
         "excluding projective slope [3:5] from the residue classes 2 and 3 modulo q using only lift-invariant local Fermat-quotient structure",
         "deducing the cross-prime behavior of the canonical Fermat-quotient pair from any finite collection of lift-compatible local constraints",
         "deducing occurrence, avoidance, or density of [3:5] from separate marginal equidistribution statements for F_q(2) and F_q(3)",
-        "treating the complete additive-character sum over h as an independently smooth statistic to which generic square-root cancellation can be applied"
+        "treating the complete additive-character sum over h as an independently smooth statistic to which generic square-root cancellation can be applied",
+        "using any nonnegative weighted cross-prime average of the normalized complete slope detector as an independent cancellation statistic"
       ],
       "parked_routes": [
         "all-prime exclusion of separated generalized-Wieferich primes without a structural theorem",
@@ -91,15 +96,16 @@
         "all-prime occurrence or avoidance of the canonical projective point [3:5] without cross-prime distribution input",
         "statistical extrapolation from interpolated noncanonical representatives",
         "one-coordinate Fermat-quotient statistics without joint character information",
-        "cross-prime averages whose arithmetic data genuinely vary with q"
+        "cross-prime averages whose arithmetic data genuinely vary with q",
+        "signed incomplete character kernels with a proved recovery inequality"
       ],
-      "remaining_gap": "The exact dichotomy diagnoses a circular complete-sum route but does not prove occurrence or avoidance of [3:5] for the canonical pair as q varies.",
-      "next_single_lemma": "CrossPrimeCanonicalSlopeCharacterAverageCancellation",
+      "remaining_gap": "The theorem blocks only normalized complete detectors with nonnegative weights; it says nothing about a genuinely signed incomplete transform or canonical occurrence.",
+      "next_single_lemma": "IncompleteSlopeCharacterKernelHasSignedRecoveryAndCrossPrimeCancellation",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "CrossPrimeCanonicalSlopeCharacterAverageCancellation"
+        "IncompleteSlopeCharacterKernelHasSignedRecoveryAndCrossPrimeCancellation"
       ],
-      "finite_computation_boundary": "12 canonical exact modular rows replay the identity; prior scans to much larger q remain finite and are not promoted.",
+      "finite_computation_boundary": "48 detector rows and 12 exact weighted rows replay the universal identity.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -109,7 +115,7 @@
     },
     "goldbach": {
       "problem_status": "open_not_proven",
-      "current_target": "PrimeOrderingUniquePrefixRealizabilityCriterion",
+      "current_target": "EvenCyclotomicReflectionPrimePrefixExclusion",
       "established_results": [
         "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
         "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
@@ -122,7 +128,8 @@
         "PrimeModulusRationalFourierFullSupportAndNormBarrier",
         "CyclotomicUnitFullSupportEnergyConcentrationNoGo",
         "PrimeCountZeroResidueCyclotomicCompatibilityCriterion",
-        "PrimeOrderingUniquePrefixRealizabilityCriterion"
+        "PrimeOrderingUniquePrefixRealizabilityCriterion",
+        "EvenCyclotomicReflectionPrimePrefixExclusion"
       ],
       "retired_routes": [
         "placing the parity rational neighborhood around one half in a minor set while demanding an absolute-energy o(X/log^2 X) budget",
@@ -135,19 +142,23 @@
         "identifying the exact TICKET-249 two-frequency cosine spike with a rational or integer prime-count residue vector at prime moduli q>=5",
         "deriving a quantitative Fourier-energy anti-concentration bound from centeredness, integrality, nonnegativity, exact reduced-frequency support, and a nonzero Galois norm alone",
         "using only the fact N_0(X) is zero or one to exclude every cyclotomic-unit exponent m",
-        "treating actual prime ordering as an unstructured extra condition with no exact finite realization test for a fixed compatible cyclotomic tail"
+        "treating actual prime ordering as an unstructured extra condition with no exact finite realization test for a fixed compatible cyclotomic tail",
+        "treating compatible even cyclotomic tails with q not dividing m as unconstrained after the unique-prefix reduction"
       ],
       "parked_routes": [
         "zero-residue compatible tail exponents with c_0-min(c)<=1",
-        "compatible cyclotomic exponents outside the ten certified prime prefixes"
+        "compatible cyclotomic exponents outside the ten certified prime prefixes",
+        "odd compatible exponents",
+        "compatible exponents divisible by q",
+        "reflection rows below the second-residue-prime threshold"
       ],
-      "remaining_gap": "Each fixed compatible pair is decidable by one finite prefix, but no uniform discrepancy theorem over all q,m is proved. Strong Goldbach is untouched beyond this auxiliary spectral route.",
-      "next_single_lemma": "UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail",
+      "remaining_gap": "The reflection theorem excludes only even m with q not dividing m and a verified prefix threshold. It is not a uniform theorem for every compatible tail and does not prove strong Goldbach.",
+      "next_single_lemma": "OddOrQDivisibleCompatibleTailPrimePrefixExclusion",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail"
+        "OddOrQDivisibleCompatibleTailPrimePrefixExclusion"
       ],
-      "finite_computation_boundary": "10 exact prime-prefix rows, maximum prefix length 79240; untested compatible tails remain open.",
+      "finite_computation_boundary": "480 even pairs scanned; 50 compatible non-q-divisible rows have exact two-prime certificates.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -157,7 +168,7 @@
     },
     "twin_prime": {
       "problem_status": "open_not_proven",
-      "current_target": "RightEvenContaminationReducesToEightyFourLebesgueNagellExponents",
+      "current_target": "ExponentSeventeenUnitTwistedThueReduction",
       "established_results": [
         "GrowingPeriodDiagonalCRTMimicryForShiftTwo",
         "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock",
@@ -170,7 +181,8 @@
         "AllBaseEvenLeftRightActiveClassification",
         "RightEvenModuloEightConstraintAndSharpness",
         "FiniteCongruenceLocalSolubilityNoGoForRightEvenPrimePowers",
-        "RightEvenContaminationReducesToEightyFourLebesgueNagellExponents"
+        "RightEvenContaminationReducesToEightyFourLebesgueNagellExponents",
+        "ExponentSeventeenUnitTwistedThueReduction"
       ],
       "retired_routes": [
         "using fixed periodic features even with eventual per-dyadic-scale sampling as a twin-prime certificate",
@@ -184,20 +196,22 @@
         "retaining a right-even active pair p^k to r^(2m) with composite left member p^k",
         "using the withdrawn x^2-2=y^n source as a dependency, or claiming modulo eight forces the left exponent to equal one",
         "proving x^2-2=p^k has no odd-prime-power solutions by a fixed finite collection of congruence obstructions",
-        "treating every odd exponent k>=3 as an equally open right-even contamination case after the equation is reduced to x^2-2=y^k"
+        "treating every odd exponent k>=3 as an equally open right-even contamination case after the equation is reduced to x^2-2=y^k",
+        "treating x^2-2=y^17 as one opaque two-variable exponential equation without exposing its finite unit-twist classes"
       ],
       "parked_routes": [
         "the all-X Diophantine exclusion x^2-2=y^k for odd k>=3",
         "pure fixed-modulus congruence sieves for the all-X Diophantine equation",
-        "the 84 remaining prime-exponent Lebesgue-Nagell equations and exponents supported on them"
+        "the 84 remaining prime-exponent Lebesgue-Nagell equations and exponents supported on them",
+        "global integral-point exclusion on the seventeen coefficient-one Thue equations"
       ],
-      "remaining_gap": "The corollary depends on a checked 2025 arXiv primary source and does not independently reprove its deep Diophantine inputs. That source explicitly leaves 84 prime exponents unresolved; twin-prime infinitude and Type-II estimates remain open.",
-      "next_single_lemma": "LebesgueNagellExponent17HasNoPositiveSolution",
+      "remaining_gap": "The reduction has seventeen equations but solves none globally. The finite box is only an implementation audit and cannot use the prior y>10^1000 bound as a proof.",
+      "next_single_lemma": "AllSeventeenUnitTwistedCoefficientOneThueEquationsHaveNoAdmissibleIntegralPoint",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "LebesgueNagellExponent17HasNoPositiveSolution"
+        "AllSeventeenUnitTwistedCoefficientOneThueEquationsHaveNoAdmissibleIntegralPoint"
       ],
-      "finite_computation_boundary": "84 exact prime-exponent rows and 4999 finite odd-k factor rows replay the filter; the all-k conclusion relies on the cited external theorems.",
+      "finite_computation_boundary": "17 exact polynomials and 10608 integer grid cases verify coefficient and norm identities; global integral points remain open.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,

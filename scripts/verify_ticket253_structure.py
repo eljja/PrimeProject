@@ -111,14 +111,15 @@ def verify_ticket253_structure() -> str | None:
         return "TICKET-253 unexpected external dependency"
     state = json.loads((ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8"))
     if (
-        state.get("ticket") != 253
-        or state.get("parent_ticket") != 252
-        or state.get("deep_focus_problem") != "twin_prime"
+        state.get("ticket", 0) < 253
         or state.get("resolved_count") != 0
         or state.get("candidate_resolution_count") != 0
         or state.get("program_complete")
     ):
         return "TICKET-253 persistent research state changed"
+    for key, (_, theorem, _, _, _) in expected.items():
+        if theorem not in state.get("problems", {}).get(key, {}).get("established_results", []):
+            return f"TICKET-253 result missing from persistent history: {key}"
     for report in (
         ROOT / "docs/density-character-prefix-lebesgue.md",
         ROOT / "docs/density-character-prefix-lebesgue.ko.md",

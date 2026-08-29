@@ -1,0 +1,1061 @@
+{
+  "schema": "primeproject.ticket254-diagonal-weighted-reflection-thue.v1",
+  "generated_at": "2026-08-29T14:19:28+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-254",
+  "theorem_name": "NonnegativeCrossPrimeCompleteDetectorAverageNoGo",
+  "declared_proposition": "For every finite set Q of primes q>5, every nonnegative weights w_q, and arbitrary pairs (U_q,V_q) in F_q^2, let D_q=5U_q-3V_q and C_q(D)=sum_(h=1)^(q-1)exp(2pi ihD/q). Then sum_q w_q[(1+C_q(D_q))/q-1_(U_q=V_q=0)] equals exactly sum_q w_q 1_(D_q=0,(U_q,V_q)!=(0,0)). Every summand is nonnegative. Hence nonnegative cross-prime averaging of the complete detector creates no cancellation or smoothing; bounding it is exactly the original weighted incidence problem.",
+  "mathematical_argument": "Additive-character orthogonality gives (1+C_q(D))/q=1_(D=0) pointwise. Subtract the origin indicator and multiply by w_q>=0. Summing preserves equality and nonnegativity. Therefore a claimed cancellation estimate for this normalized complete detector cannot be an independent route to canonical slope avoidance. Signed incomplete kernels may still contain information and are not ruled out.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every finite set Q of primes q>5, every nonnegative weights w_q, and arbitrary pairs (U_q,V_q) in F_q^2, let D_q=5U_q-3V_q and C_q(D)=sum_(h=1)^(q-1)exp(2pi ihD/q). Then sum_q w_q[(1+C_q(D_q))/q-1_(U_q=V_q=0)] equals exactly sum_q w_q 1_(D_q=0,(U_q,V_q)!=(0,0)). Every summand is nonnegative. Hence nonnegative cross-prime averaging of the complete detector creates no cancellation or smoothing; bounding it is exactly the original weighted incidence problem.",
+    "proof": "Additive-character orthogonality gives (1+C_q(D))/q=1_(D=0) pointwise. Subtract the origin indicator and multiply by w_q>=0. Summing preserves equality and nonnegativity. Therefore a claimed cancellation estimate for this normalized complete detector cannot be an independent route to canonical slope avoidance. Signed incomplete kernels may still contain information and are not ruled out.",
+    "exact_detector_rows": [
+      {
+        "prime_q": 7,
+        "scenario": "canonical",
+        "U_q": 2,
+        "V_q": 6,
+        "slope_residue_D_q": 6,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 7,
+        "scenario": "synthetic_hit",
+        "U_q": 3,
+        "V_q": 5,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 6,
+        "normalized_separated_detector": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "separated_incidence": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 7,
+        "scenario": "synthetic_miss",
+        "U_q": 1,
+        "V_q": 1,
+        "slope_residue_D_q": 2,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 7,
+        "scenario": "origin",
+        "U_q": 0,
+        "V_q": 0,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 6,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "scenario": "canonical",
+        "U_q": 5,
+        "V_q": 0,
+        "slope_residue_D_q": 3,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "scenario": "synthetic_hit",
+        "U_q": 3,
+        "V_q": 5,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 10,
+        "normalized_separated_detector": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "separated_incidence": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "scenario": "synthetic_miss",
+        "U_q": 1,
+        "V_q": 1,
+        "slope_residue_D_q": 2,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "scenario": "origin",
+        "U_q": 0,
+        "V_q": 0,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 10,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 13,
+        "scenario": "canonical",
+        "U_q": 3,
+        "V_q": 8,
+        "slope_residue_D_q": 4,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 13,
+        "scenario": "synthetic_hit",
+        "U_q": 3,
+        "V_q": 5,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 12,
+        "normalized_separated_detector": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "separated_incidence": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 13,
+        "scenario": "synthetic_miss",
+        "U_q": 1,
+        "V_q": 1,
+        "slope_residue_D_q": 2,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 13,
+        "scenario": "origin",
+        "U_q": 0,
+        "V_q": 0,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 12,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 17,
+        "scenario": "canonical",
+        "U_q": 13,
+        "V_q": 10,
+        "slope_residue_D_q": 1,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 17,
+        "scenario": "synthetic_hit",
+        "U_q": 3,
+        "V_q": 5,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 16,
+        "normalized_separated_detector": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "separated_incidence": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 17,
+        "scenario": "synthetic_miss",
+        "U_q": 1,
+        "V_q": 1,
+        "slope_residue_D_q": 2,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 17,
+        "scenario": "origin",
+        "U_q": 0,
+        "V_q": 0,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 16,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 19,
+        "scenario": "canonical",
+        "U_q": 3,
+        "V_q": 18,
+        "slope_residue_D_q": 18,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 19,
+        "scenario": "synthetic_hit",
+        "U_q": 3,
+        "V_q": 5,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 18,
+        "normalized_separated_detector": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "separated_incidence": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 19,
+        "scenario": "synthetic_miss",
+        "U_q": 1,
+        "V_q": 1,
+        "slope_residue_D_q": 2,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 19,
+        "scenario": "origin",
+        "U_q": 0,
+        "V_q": 0,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 18,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "scenario": "canonical",
+        "U_q": 17,
+        "V_q": 17,
+        "slope_residue_D_q": 11,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "scenario": "synthetic_hit",
+        "U_q": 3,
+        "V_q": 5,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 22,
+        "normalized_separated_detector": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "separated_incidence": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "scenario": "synthetic_miss",
+        "U_q": 1,
+        "V_q": 1,
+        "slope_residue_D_q": 2,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "scenario": "origin",
+        "U_q": 0,
+        "V_q": 0,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 22,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 29,
+        "scenario": "canonical",
+        "U_q": 1,
+        "V_q": 15,
+        "slope_residue_D_q": 18,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 29,
+        "scenario": "synthetic_hit",
+        "U_q": 3,
+        "V_q": 5,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 28,
+        "normalized_separated_detector": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "separated_incidence": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 29,
+        "scenario": "synthetic_miss",
+        "U_q": 1,
+        "V_q": 1,
+        "slope_residue_D_q": 2,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 29,
+        "scenario": "origin",
+        "U_q": 0,
+        "V_q": 0,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 28,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 31,
+        "scenario": "canonical",
+        "U_q": 6,
+        "V_q": 17,
+        "slope_residue_D_q": 10,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 31,
+        "scenario": "synthetic_hit",
+        "U_q": 3,
+        "V_q": 5,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 30,
+        "normalized_separated_detector": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "separated_incidence": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 31,
+        "scenario": "synthetic_miss",
+        "U_q": 1,
+        "V_q": 1,
+        "slope_residue_D_q": 2,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 31,
+        "scenario": "origin",
+        "U_q": 0,
+        "V_q": 0,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 30,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 37,
+        "scenario": "canonical",
+        "U_q": 1,
+        "V_q": 18,
+        "slope_residue_D_q": 25,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 37,
+        "scenario": "synthetic_hit",
+        "U_q": 3,
+        "V_q": 5,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 36,
+        "normalized_separated_detector": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "separated_incidence": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 37,
+        "scenario": "synthetic_miss",
+        "U_q": 1,
+        "V_q": 1,
+        "slope_residue_D_q": 2,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 37,
+        "scenario": "origin",
+        "U_q": 0,
+        "V_q": 0,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 36,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 41,
+        "scenario": "canonical",
+        "U_q": 23,
+        "V_q": 21,
+        "slope_residue_D_q": 11,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 41,
+        "scenario": "synthetic_hit",
+        "U_q": 3,
+        "V_q": 5,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 40,
+        "normalized_separated_detector": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "separated_incidence": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 41,
+        "scenario": "synthetic_miss",
+        "U_q": 1,
+        "V_q": 1,
+        "slope_residue_D_q": 2,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 41,
+        "scenario": "origin",
+        "U_q": 0,
+        "V_q": 0,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 40,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 43,
+        "scenario": "canonical",
+        "U_q": 25,
+        "V_q": 2,
+        "slope_residue_D_q": 33,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 43,
+        "scenario": "synthetic_hit",
+        "U_q": 3,
+        "V_q": 5,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 42,
+        "normalized_separated_detector": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "separated_incidence": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 43,
+        "scenario": "synthetic_miss",
+        "U_q": 1,
+        "V_q": 1,
+        "slope_residue_D_q": 2,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 43,
+        "scenario": "origin",
+        "U_q": 0,
+        "V_q": 0,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 42,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 47,
+        "scenario": "canonical",
+        "U_q": 44,
+        "V_q": 11,
+        "slope_residue_D_q": 46,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 47,
+        "scenario": "synthetic_hit",
+        "U_q": 3,
+        "V_q": 5,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 46,
+        "normalized_separated_detector": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "separated_incidence": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 47,
+        "scenario": "synthetic_miss",
+        "U_q": 1,
+        "V_q": 1,
+        "slope_residue_D_q": 2,
+        "complete_character_sum": -1,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 47,
+        "scenario": "origin",
+        "U_q": 0,
+        "V_q": 0,
+        "slope_residue_D_q": 0,
+        "complete_character_sum": 46,
+        "normalized_separated_detector": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "separated_incidence": false,
+        "certificate_verified": true
+      }
+    ],
+    "exact_nonnegative_weighted_rows": [
+      {
+        "scenario": "canonical",
+        "nonnegative_weight_family": "unit",
+        "weighted_complete_detector_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "weighted_incidence_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "scenario": "canonical",
+        "nonnegative_weight_family": "prime",
+        "weighted_complete_detector_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "weighted_incidence_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "scenario": "canonical",
+        "nonnegative_weight_family": "reciprocal_prime",
+        "weighted_complete_detector_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "weighted_incidence_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "scenario": "synthetic_hit",
+        "nonnegative_weight_family": "unit",
+        "weighted_complete_detector_sum": {
+          "exact": "12/1",
+          "numerator": 12,
+          "denominator": 1,
+          "display_float": 12.0
+        },
+        "weighted_incidence_sum": {
+          "exact": "12/1",
+          "numerator": 12,
+          "denominator": 1,
+          "display_float": 12.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "scenario": "synthetic_hit",
+        "nonnegative_weight_family": "prime",
+        "weighted_complete_detector_sum": {
+          "exact": "318/1",
+          "numerator": 318,
+          "denominator": 1,
+          "display_float": 318.0
+        },
+        "weighted_incidence_sum": {
+          "exact": "318/1",
+          "numerator": 318,
+          "denominator": 1,
+          "display_float": 318.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "scenario": "synthetic_hit",
+        "nonnegative_weight_family": "reciprocal_prime",
+        "weighted_complete_detector_sum": {
+          "exact": "12878111897066418/20496326086283047",
+          "numerator": 12878111897066418,
+          "denominator": 20496326086283047,
+          "display_float": 0.628313183682463
+        },
+        "weighted_incidence_sum": {
+          "exact": "12878111897066418/20496326086283047",
+          "numerator": 12878111897066418,
+          "denominator": 20496326086283047,
+          "display_float": 0.628313183682463
+        },
+        "certificate_verified": true
+      },
+      {
+        "scenario": "synthetic_miss",
+        "nonnegative_weight_family": "unit",
+        "weighted_complete_detector_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "weighted_incidence_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "scenario": "synthetic_miss",
+        "nonnegative_weight_family": "prime",
+        "weighted_complete_detector_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "weighted_incidence_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "scenario": "synthetic_miss",
+        "nonnegative_weight_family": "reciprocal_prime",
+        "weighted_complete_detector_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "weighted_incidence_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "scenario": "origin",
+        "nonnegative_weight_family": "unit",
+        "weighted_complete_detector_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "weighted_incidence_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "scenario": "origin",
+        "nonnegative_weight_family": "prime",
+        "weighted_complete_detector_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "weighted_incidence_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "scenario": "origin",
+        "nonnegative_weight_family": "reciprocal_prime",
+        "weighted_complete_detector_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "weighted_incidence_sum": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "exact q^2 Fermat quotients, integer character dichotomy, and Fraction-weighted identities",
+    "complexity": "O(sum log q) modular multiplications for canonical rows; the weighted identity is algebraic for arbitrary finite Q",
+    "random_seed": null,
+    "transcript_sha256": "6ce9f4399b2372016d2c0bb7d9aa02e8bc14b7b5ee124687ba55c6f76638be46",
+    "aggregate": {
+      "pointwise_separated_detector_identity_proved": true,
+      "all_nonnegative_weighted_complete_averages_equal_incidence": true,
+      "cross_prime_complete_detector_cancellation_route_rejected": true,
+      "signed_incomplete_character_route_rejected": false,
+      "canonical_cross_prime_distribution_controlled": false,
+      "collatz_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "48 detector rows and 12 exact weighted rows replay the universal identity.",
+  "logical_limit": "The theorem blocks only normalized complete detectors with nonnegative weights; it says nothing about a genuinely signed incomplete transform or canonical occurrence.",
+  "route_decision": {
+    "discard": "using any nonnegative weighted cross-prime average of the normalized complete slope detector as an independent cancellation statistic",
+    "parked": [
+      "signed incomplete character kernels with a proved recovery inequality"
+    ],
+    "retain": "character truncation or another signed transform not identical to incidence",
+    "next_single_lemma": "IncompleteSlopeCharacterKernelHasSignedRecoveryAndCrossPrimeCancellation"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T253",
+        "label": "CompleteSlopeCharacterSumDichotomyNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T254",
+        "label": "NonnegativeCrossPrimeCompleteDetectorAverageNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-REJECT254",
+        "label": "NonnegativeCompleteDetectorAveragingCreatesCrossPrimeCancellation",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN254",
+        "label": "IncompleteSlopeCharacterKernelHasSignedRecoveryAndCrossPrimeCancellation",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T253",
+        "CO-T254"
+      ],
+      [
+        "CO-T254",
+        "CO-REJECT254"
+      ],
+      [
+        "CO-T254",
+        "CO-OPEN254"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T253",
+      "CO-T254",
+      "CO-OPEN254"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz proof or counterexample; one exact no-go for the proposed cross-prime complete-average implementation."
+}
