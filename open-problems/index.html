@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260829-ticket254-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260829-ticket255-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-254</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-255</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-254 actually changed</h2>
-          <p>TICKET-254 did not solve a parent conjecture. It gives a positive-diagonal operator counterexample to a diagonal-only RH route, proves that every nonnegative complete Collatz detector average is exactly an incidence count, excludes every even non-q-divisible compatible Goldbach tail beyond its second residue-prime threshold, and reduces the exponent-17 twin obstruction to 17 explicit unit-twisted Thue equations.</p>
-          <p class="proof-boundary">TICKET-254는 상위 난제를 해결하지 않았습니다. RH 대각 전용 경로와 Collatz 비음 완전 평균 경로의 exact no-go, Goldbach 짝수 반사 부분류의 배제, Twin 지수 17의 17개 단위 twist Thue 방정식 축약을 확정했습니다.</p>
+          <h2>What TICKET-255 actually changed</h2>
+          <p>TICKET-255 did not solve a parent conjecture. It proves strict diagonal dominance is unnecessary for positive packet energy, proves exact pointwise incidence recovery is impossible on a proper additive-character support, extends the Goldbach reflection exclusion to four certified odd rows, and uses split primes 103, 137, and 409 to reduce the 17 exponent-17 Thue twists to two.</p>
+          <p class="proof-boundary">TICKET-255는 상위 난제를 해결하지 않았습니다. RH 엄격 대각우세 필요성 및 Collatz 불완전 support exact 복원의 no-go, Goldbach 홀수 반사 prefix 배제, Twin 지수 17의 17개 twist를 두 개로 줄이는 세 소수 obstruction을 확정했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -55,58 +55,58 @@
           <header><span>01 · SIGNED CANCELLATION</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>PositiveDiagonalDirichletPacketDominationNoGo</code>: positive self-adjoint blocks can have diagonal 1 and zero Dirichlet-packet energy.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Uniform positive Fourier diagonal alone cannot establish Dirichlet-packet domination; the actual Weil form is not analyzed.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ActualWeilDirichletBlocksHaveUniformStrictDiagonalDominance</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>StrictDiagonalDominanceNecessityNoGo</code>: positive-definite blocks can have positive packet energy without strict diagonal dominance.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Strict diagonal dominance is not a necessary packet bridge; the actual Weil aggregate remains unanalyzed.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ActualWeilDirichletPacketAggregateRowSumHasRequiredLowerBound</code></dd></div>
           </dl>
-          <p class="workbench-ko">양의 푸리에 대각만으로는 Dirichlet packet 지배를 얻을 수 없습니다. 실제 Weil 블록의 엄격 대각 우세가 남습니다.</p>
+          <p class="workbench-ko">엄격 대각우세는 양의 packet 에너지의 필요조건이 아닙니다. 실제 Weil packet의 aggregate row-sum 하한이 남습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · LOCAL LIFTING</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>NonnegativeCrossPrimeCompleteDetectorAverageNoGo</code>: every nonnegative complete-detector average equals the weighted incidence count.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Nonnegative cross-prime complete averages contain no cancellation; signed incomplete kernels remain available.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>IncompleteSlopeCharacterKernelHasSignedRecoveryAndCrossPrimeCancellation</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>IncompleteAdditiveCharacterExactRecoveryNoGo</code>: a proper frequency support cannot recover the point mass exactly, even with complex signs.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Exact pointwise incomplete recovery is impossible; controlled canonical error remains available.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>SignedIncompleteSlopeKernelHasControlledCanonicalErrorAndCrossPrimeCancellation</code></dd></div>
           </dl>
-          <p class="workbench-ko">비음 complete-detector 평균은 가중 incidence와 정확히 같습니다. 부호 있는 incomplete kernel의 복원과 상쇄가 남습니다.</p>
+          <p class="workbench-ko">진부분집합 주파수로는 점질량을 exact 복원할 수 없습니다. canonical error를 제어한 부호 kernel이 남습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · SIGNED FOURIER PHASE</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>EvenCyclotomicReflectionPrimePrefixExclusion</code>: reflection excludes the even, non-q-divisible compatible tails past the second residue-prime threshold.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The theorem does not cover odd m, q-divisible m, or a prefix below the second residue-prime threshold.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>OddOrQDivisibleCompatibleTailPrimePrefixExclusion</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>OddCyclotomicReflectionPrimePrefixExclusion</code>: odd reflection forces 2t-1 primes in one class and excludes four exact prefixes.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The conditional theorem does not certify the 46 rows above the replay cap or exponents divisible by q.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>QDivisibleCompatibleTailPrimePrefixExclusion</code></dd></div>
           </dl>
-          <p class="workbench-ko">짝수 m의 반사 잔여류 강제 개수 1이 두 번째 잔여류 소수와 모순됩니다. 홀수 또는 q-가분 경우가 남습니다.</p>
+          <p class="workbench-ko">홀수 m의 반사가 한 잔여류 count를 2t-1로 강제하고 네 prefix를 배제합니다. q-가분 경우가 남습니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · PARITY-SENSITIVE TRANSFER</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>ExponentSeventeenUnitTwistedThueReduction</code>: x²-2=y¹⁷ is equivalent to 17 explicit unit-twisted coefficient-one Thue equations.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The exact reduction does not solve any of the 17 Thue equations; the finite coordinate box has no global force.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>AllSeventeenUnitTwistedCoefficientOneThueEquationsHaveNoAdmissibleIntegralPoint</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>ThreePrimeLocalObstructionReducesSeventeenTwistsToTwo</code>: mod 103, 137, and 409 eliminate 15 of 17 twists.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Twists 1 and 16 have exact B=1 integer witnesses, so coefficient-only congruences cannot finish them.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>TwoSurvivingUnitTwistsHaveNoAdmissibleIntegralPoint</code></dd></div>
           </dl>
-          <p class="workbench-ko">지수 17 방정식은 17개 단위 twist Thue 방정식과 동치입니다. 모든 허용 정수점 배제가 남습니다.</p>
+          <p class="workbench-ko">세 split 소수가 15개 twist를 배제합니다. 생존한 1,16 twist의 양의 허용 정수점 배제가 남습니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>254 tickets reduced to four meaningful eras</h2>
+          <h2>255 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–254 · Signed transfer barriers and route correction</strong><p>positive-diagonal no-go, weighted-detector no-go, even reflection exclusion, exponent-17 Thue reduction으로 다음 무한 추정의 정확한 대상을 다시 설정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–255 · Signed transfer barriers and route correction</strong><p>packet aggregate, incomplete Fourier recovery, odd reflection, three-prime Thue obstruction으로 다음 무한 추정의 정확한 대상을 다시 설정했습니다.</p></li>
         </ol>
       </section>
 
@@ -116,6 +116,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/aggregate-incomplete-odd-local.ko.md">TICKET-255 한국어 보고서</a>
+          <a href="../docs/aggregate-incomplete-odd-local.md">TICKET-255 English report</a>
+          <a href="../data/open-problem/ticket255-aggregate-incomplete-odd-local.json">TICKET-255 machine JSON</a>
           <a href="../docs/diagonal-weighted-reflection-thue.ko.md">TICKET-254 한국어 보고서</a>
           <a href="../docs/diagonal-weighted-reflection-thue.md">TICKET-254 English report</a>
           <a href="../data/open-problem/ticket254-diagonal-weighted-reflection-thue.json">TICKET-254 machine JSON</a>

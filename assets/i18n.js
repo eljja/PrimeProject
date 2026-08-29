@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, quantifier and scale shortcuts removed",
-      ko: "네 미해결 문제, 양화사와 척도 지름길을 분리하다",
+      en: "Four open problems, local obstructions sharpened",
+      ko: "네 미해결 문제, 국소 obstruction을 더 날카롭게 하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-254 proves two exact no-gos and two partial theorems: positive-diagonal and nonnegative-detector obstructions, an even-reflection exclusion, and an exponent-17 Thue reduction.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-254는 positive-diagonal 및 nonnegative-detector no-go, even-reflection 배제, 지수 17 Thue 축약을 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-255 proves two exact no-gos and two partial theorems: strict-dominance and incomplete-recovery obstructions, an odd-reflection exclusion, and a three-prime reduction from 17 Thue twists to two.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-255는 strict-dominance 및 incomplete-recovery no-go, odd-reflection 배제, 지수 17 Thue twist를 17개에서 2개로 줄이는 세 소수 obstruction을 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-254 proves two exact route no-gos and two partial theorems, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-254는 exact route no-go 두 개와 부분정리 두 개를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-255 proves two exact route no-gos and two partial theorems, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-255는 exact route no-go 두 개와 부분정리 두 개를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

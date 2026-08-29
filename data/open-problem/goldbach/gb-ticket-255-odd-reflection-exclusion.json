@@ -1,0 +1,168 @@
+{
+  "schema": "primeproject.ticket255-aggregate-incomplete-odd-local.v1",
+  "generated_at": "2026-08-29T18:10:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-255",
+  "theorem_name": "OddCyclotomicReflectionPrimePrefixExclusion",
+  "declared_proposition": "Let q>=5 be prime and m be odd with q not dividing m. Put c_r=sum_(0<=j<=m,j congruent r mod q)(-1)^j binom(m,j). Suppose t=1-c_0>0 and c_r+t>=0 for every r, and put T=qt. The unique candidate prime-prefix counts force N*_(m mod q)=2t-1. If T<lambda_q(m mod q,2t-1), where lambda_q(r,k) is the global prime index of the kth prime congruent to r mod q, then the cyclotomic tail cannot equal the actual first-T-prime residue vector.",
+  "mathematical_argument": "For a_j=(-1)^j binom(m,j), the involution j->m-j gives a_(m-j)=-a_j because m is odd. Folding modulo q yields c_(m-r)=-c_r. At r=0, c_(m mod q)=-c_0, so the compatible shifted count there is -c_0+(1-c_0)=1-2c_0=2t-1. If T is strictly below the global index of the (2t-1)st prime in that class, the actual prefix has at most 2t-2 such primes. This contradicts the TICKET-253 unique-prefix criterion. No claim is made when q divides m or the strict threshold is unavailable.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let q>=5 be prime and m be odd with q not dividing m. Put c_r=sum_(0<=j<=m,j congruent r mod q)(-1)^j binom(m,j). Suppose t=1-c_0>0 and c_r+t>=0 for every r, and put T=qt. The unique candidate prime-prefix counts force N*_(m mod q)=2t-1. If T<lambda_q(m mod q,2t-1), where lambda_q(r,k) is the global prime index of the kth prime congruent to r mod q, then the cyclotomic tail cannot equal the actual first-T-prime residue vector.",
+    "proof": "For a_j=(-1)^j binom(m,j), the involution j->m-j gives a_(m-j)=-a_j because m is odd. Folding modulo q yields c_(m-r)=-c_r. At r=0, c_(m mod q)=-c_0, so the compatible shifted count there is -c_0+(1-c_0)=1-2c_0=2t-1. If T is strictly below the global index of the (2t-1)st prime in that class, the actual prefix has at most 2t-2 such primes. This contradicts the TICKET-253 unique-prefix criterion. No claim is made when q divides m or the strict threshold is unavailable.",
+    "exact_odd_reflection_prefix_exclusion_rows": [
+      {
+        "prime_modulus_q": 5,
+        "odd_cyclotomic_exponent_m": 9,
+        "reflected_nonzero_residue_m_mod_q": 4,
+        "cyclic_coefficient_c0": -125,
+        "coefficient_at_m_mod_q": 125,
+        "odd_reflection_identity_c_m_equals_minus_c0": true,
+        "forced_uniform_shift_t": 126,
+        "forced_total_prime_count_T": 630,
+        "forced_count_at_m_mod_q_2t_minus_1": 251,
+        "actual_first_T_prime_count_at_m_mod_q": 153,
+        "forced_count_th_residue_prime": 8069,
+        "global_index_lambda_of_forced_count_th_residue_prime": 1014,
+        "threshold_T_strictly_below_lambda": true,
+        "unique_prime_prefix_excluded": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 5,
+        "odd_cyclotomic_exponent_m": 11,
+        "reflected_nonzero_residue_m_mod_q": 1,
+        "cyclic_coefficient_c0": -450,
+        "coefficient_at_m_mod_q": 450,
+        "odd_reflection_identity_c_m_equals_minus_c0": true,
+        "forced_uniform_shift_t": 451,
+        "forced_total_prime_count_T": 2255,
+        "forced_count_at_m_mod_q_2t_minus_1": 901,
+        "actual_first_T_prime_count_at_m_mod_q": 561,
+        "forced_count_th_residue_prime": 33931,
+        "global_index_lambda_of_forced_count_th_residue_prime": 3633,
+        "threshold_T_strictly_below_lambda": true,
+        "unique_prime_prefix_excluded": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "odd_cyclotomic_exponent_m": 13,
+        "reflected_nonzero_residue_m_mod_q": 6,
+        "cyclic_coefficient_c0": -1715,
+        "coefficient_at_m_mod_q": 1715,
+        "odd_reflection_identity_c_m_equals_minus_c0": true,
+        "forced_uniform_shift_t": 1716,
+        "forced_total_prime_count_T": 12012,
+        "forced_count_at_m_mod_q_2t_minus_1": 3431,
+        "actual_first_T_prime_count_at_m_mod_q": 2000,
+        "forced_count_th_residue_prime": 231559,
+        "global_index_lambda_of_forced_count_th_residue_prime": 20566,
+        "threshold_T_strictly_below_lambda": true,
+        "unique_prime_prefix_excluded": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "odd_cyclotomic_exponent_m": 15,
+        "reflected_nonzero_residue_m_mod_q": 1,
+        "cyclic_coefficient_c0": -6419,
+        "coefficient_at_m_mod_q": 6419,
+        "odd_reflection_identity_c_m_equals_minus_c0": true,
+        "forced_uniform_shift_t": 6420,
+        "forced_total_prime_count_T": 44940,
+        "forced_count_at_m_mod_q_2t_minus_1": 12839,
+        "actual_first_T_prime_count_at_m_mod_q": 7464,
+        "forced_count_th_residue_prime": 979063,
+        "global_index_lambda_of_forced_count_th_residue_prime": 77008,
+        "threshold_T_strictly_below_lambda": true,
+        "unique_prime_prefix_excluded": true,
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "exact cyclic binomial folding and deterministic prime enumeration to the required residue occurrence",
+    "complexity": "O(sum m + sum lambda sqrt(p_lambda)) trial divisions for the bounded replay; the conditional reflection theorem is algebraic",
+    "random_seed": null,
+    "transcript_sha256": "ab8cb879f9a4dbdc1825584e054a56687f770fc0b6c3a40f939be7f06dc2b3fb",
+    "aggregate": {
+      "scanned_odd_pair_count": 480,
+      "compatible_non_q_divisible_odd_pair_count": 50,
+      "finite_prefix_certificate_count": 4,
+      "skipped_large_prefix_pair_count": 46,
+      "all_replayed_pairs_excluded": true,
+      "odd_reflection_identity_proved": true,
+      "q_divisible_compatible_tails_excluded": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "480 odd pairs scanned; 4 bounded compatible rows have exact prime-prefix certificates.",
+  "logical_limit": "The theorem is conditional on a strict prime-index threshold; only four bounded rows are enumerated and q-divisible exponents remain open.",
+  "route_decision": {
+    "discard": "treating odd compatible non-q-divisible cyclotomic tails as having no exact reflection-based prime-prefix obstruction",
+    "parked": [
+      "odd rows above the finite replay limit",
+      "compatible exponents divisible by q",
+      "odd rows where the strict lambda threshold fails"
+    ],
+    "retain": "the odd reflection forced count 2t-1 and its exact residue-prime index threshold",
+    "next_single_lemma": "QDivisibleCompatibleTailPrimePrefixExclusion"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T254",
+        "label": "EvenCyclotomicReflectionPrimePrefixExclusion",
+        "status": "proved"
+      },
+      {
+        "id": "GB-CERT255",
+        "label": "OddCyclotomicReflectionPrimePrefixExclusionExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "GB-T255",
+        "label": "OddCyclotomicReflectionPrimePrefixExclusion",
+        "status": "proved"
+      },
+      {
+        "id": "GB-REJECT255",
+        "label": "OddCompatibleTailsHaveNoReflectionPrefixConstraint",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN255",
+        "label": "QDivisibleCompatibleTailPrimePrefixExclusion",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T254",
+        "GB-T255"
+      ],
+      [
+        "GB-T255",
+        "GB-CERT255"
+      ],
+      [
+        "GB-T255",
+        "GB-REJECT255"
+      ],
+      [
+        "GB-T255",
+        "GB-OPEN255"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T254",
+      "GB-T255",
+      "GB-OPEN255"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; one universal conditional odd-reflection exclusion and four finite certificates."
+}

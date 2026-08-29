@@ -48,6 +48,7 @@ let ticket249AttemptGlobal = null;
 let ticket250AttemptGlobal = null;
 let ticket251AttemptGlobal = null;
 let ticket252AttemptGlobal = null;
+let ticket255AttemptGlobal = null;
 let ticket254AttemptGlobal = null;
 let ticket253AttemptGlobal = null;
 let ticket248AttemptGlobal = null;
@@ -18045,7 +18046,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket254DiagonalWeightedReflectionThue(ticket254AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket255AggregateIncompleteOddLocal(ticket255AttemptGlobal) ||
+      renderTicket254DiagonalWeightedReflectionThue(ticket254AttemptGlobal) ||
       renderTicket253DensityCharacterPrefixLebesgue(ticket253AttemptGlobal) ||
       renderTicket252SparseMarginalZeroResidueLocal(ticket252AttemptGlobal) ||
       renderTicket251InteriorCrtCyclotomicRightEven(ticket251AttemptGlobal) ||
@@ -18619,6 +18621,25 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+async function loadTicket255Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket255-aggregate-incomplete-odd-local.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket255AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket255AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket255AttemptGlobal) {
+      ticket255AttemptGlobal.bounded_result = ticket255AttemptGlobal.bounded_result || {};
+      ticket255AttemptGlobal.bounded_result.aggregate_incomplete_odd_local_audit = payload.aggregate_incomplete_odd_local_audit || {};
+    }
+    return Boolean(ticket255AttemptGlobal);
+  } catch (_error) {
+    ticket255AttemptGlobal = null;
     return false;
   }
 }
@@ -20885,6 +20906,11 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket255Loaded = await loadTicket255Attempt();
+  if (!ticket255Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket255AttemptGlobal) await loadTicket255Attempt();
+  }
   const ticket254Loaded = await loadTicket254Attempt();
   if (!ticket254Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));

@@ -15,7 +15,27 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-254
+## Current research boundary: TICKET-255
+
+The current machine-readable boundary is
+`data/open-problem/ticket255-aggregate-incomplete-odd-local.json`.
+TICKET-255 proves two exact route no-go results and two partial theorems while
+resolving none of the parent conjectures:
+
+- strict diagonal dominance is not necessary for positive Dirichlet-packet energy;
+- proper incomplete additive-character support cannot recover incidence exactly;
+- odd Goldbach reflection forces a `2t-1` residue count and excludes four exact prefixes;
+- split primes 103, 137, and 409 reduce seventeen exponent-17 Thue twists to two.
+
+The next single lemmas are an actual Weil aggregate packet bound, a
+controlled-error signed incomplete Collatz kernel with cross-prime
+cancellation, exclusion of `q`-divisible compatible Goldbach tails, and
+admissible-point exclusion on the two surviving unit twists. All statuses
+remain `open_not_proven`. Reports:
+[English](aggregate-incomplete-odd-local.md) and
+[한국어](aggregate-incomplete-odd-local.ko.md).
+
+## Preserved research boundary: TICKET-254
 
 The current machine-readable boundary is
 `data/open-problem/ticket254-diagonal-weighted-reflection-thue.json`.

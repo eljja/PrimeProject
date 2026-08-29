@@ -44,7 +44,35 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-254
+## Latest handoff: TICKET-255
+
+Canonical artifact:
+`data/open-problem/ticket255-aggregate-incomplete-odd-local.json`.
+
+All four parent conjectures remain `open_not_proven`. TICKET-255 established:
+
+- RH: `J_L+I_L/L` is positive definite with positive all-ones packet energy but is not strictly diagonally dominant for every `L>=3`, so strict dominance is not a necessary packet bridge;
+- Collatz: Fourier-basis uniqueness makes exact pointwise recovery of a point mass impossible from any proper additive-character support, even with complex signed weights;
+- Goldbach: odd cyclic reflection forces count `2t-1` at `m mod q`; the exact residue-prime index criterion excludes four bounded compatible prefixes;
+- Twin: split-ring certificates at 103, 137, and 409 eliminate fifteen exponent-17 unit twists and leave exactly `j=1,16`. Integer `B_j=1` witnesses with reduced `y=-1` show coefficient-only congruences cannot eliminate the survivors.
+
+The exact next frontiers are:
+
+```text
+RH: ActualWeilDirichletPacketAggregateRowSumHasRequiredLowerBound
+Collatz: SignedIncompleteSlopeKernelHasControlledCanonicalErrorAndCrossPrimeCancellation
+Goldbach: QDivisibleCompatibleTailPrimePrefixExclusion
+Twin: TwoSurvivingUnitTwistsHaveNoAdmissibleIntegralPoint
+```
+
+The eight RH blocks, 48 Collatz missing-frequency rows, four Goldbach prefix
+certificates, and three Twin split-prime convolutions are exact. The RH blocks
+are not the actual Weil form; the Collatz theorem leaves controlled-error
+canonical recovery open; 46 Goldbach rows exceed the replay cap and `q|m` is
+untreated; local solubility of the two surviving Thue twists is not a global
+integral point. None of the four conjectures is resolved.
+
+## Preserved handoff: TICKET-254
 
 Canonical artifact:
 `data/open-problem/ticket254-diagonal-weighted-reflection-thue.json`.

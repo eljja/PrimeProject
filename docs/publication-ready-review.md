@@ -642,3 +642,19 @@ of the Collatz complete-detector identity to canonical avoidance, extension of
 the Goldbach theorem to odd or q-divisible exponents without proof, or
 promotion of the finite Thue box to a global Diophantine exclusion. Resolution
 and candidate-resolution counts are zero.
+
+## TICKET-255 publication boundary
+
+TICKET-255 adds two exact route no-go results and two partial theorems. Allowed
+`exact_no_go` wording is limited to non-necessity of strict diagonal dominance
+for positive packet energy in the stated abstract matrix class, and
+impossibility of exact all-residue point-mass recovery from proper additive-
+character support. Allowed `partial_theorem` wording is limited to the
+conditional odd Goldbach reflection/prime-index exclusion and the exact
+three-prime reduction of seventeen exponent-17 Thue twists to two. Blocked
+wording includes every parent-conjecture proof or disproof, identification of
+the abstract RH blocks with the actual Weil form, extension of Fourier
+uniqueness to approximate canonical Collatz cancellation, promotion of four
+Goldbach certificates to the 46 unenumerated rows or `q`-divisible exponents,
+and promotion of local solubility of twists 1 and 16 to global admissible
+integral points. Resolution and candidate-resolution counts are zero.

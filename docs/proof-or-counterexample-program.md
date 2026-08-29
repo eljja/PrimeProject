@@ -9022,3 +9022,26 @@ Canonical artifact:
 `data/open-problem/ticket254-diagonal-weighted-reflection-thue.json`.
 Reports: [English](diagonal-weighted-reflection-thue.md) and
 [한국어](diagonal-weighted-reflection-thue.ko.md).
+
+## TICKET-255 continuation: aggregate packets, incomplete recovery, odd reflection, and three-prime Thue obstruction
+
+TICKET-255 attacks the four TICKET-254 frontiers and resolves no parent
+conjecture. It proves `StrictDiagonalDominanceNecessityNoGo`,
+`IncompleteAdditiveCharacterExactRecoveryNoGo`,
+`OddCyclotomicReflectionPrimePrefixExclusion`, and
+`ThreePrimeLocalObstructionReducesSeventeenTwistsToTwo`.
+
+The exact finite replay contains eight rational RH blocks, 48 missing-Fourier-
+coefficient Collatz certificates, four odd-reflection Goldbach prefix
+certificates, and split-prime convolutions representing 3,343,203 Twin
+`(u,v,j)` residue cases. The Twin deep-focus certificate excludes fifteen of
+seventeen unit twists. Exact integer coefficient-one witnesses on the two
+survivors have reduced `y=-1`, proving coefficient-only congruence sieves
+cannot complete the argument. These results do not analyze the actual Weil
+form, prove canonical Collatz cancellation, cover `q`-divisible Goldbach
+tails, or solve the surviving Thue equations.
+
+Canonical artifact:
+`data/open-problem/ticket255-aggregate-incomplete-odd-local.json`.
+Reports: [English](aggregate-incomplete-odd-local.md) and
+[한국어](aggregate-incomplete-odd-local.ko.md).
