@@ -105,14 +105,18 @@ def verify_ticket255_structure() -> str | None:
             return f"TICKET-255 track JSON changed: {key}"
     state = json.loads((ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8"))
     if (
-        state.get("ticket") != 255
-        or state.get("parent_ticket") != 254
-        or state.get("deep_focus_problem") != "twin_prime"
+        state.get("ticket", 0) < 255
+        or state.get("parent_ticket") != state.get("ticket", 0) - 1
         or state.get("resolved_count") != 0
         or state.get("candidate_resolution_count") != 0
         or state.get("program_complete")
     ):
-        return "TICKET-255 persistent research state changed"
+        return "TICKET-255 persistent research history changed"
+    if state.get("ticket") == 255 and state.get("deep_focus_problem") != "twin_prime":
+        return "TICKET-255 deep-focus boundary changed"
+    for key, (_, theorem, _, _, _) in expected.items():
+        if theorem not in state.get("problems", {}).get(key, {}).get("established_results", []):
+            return f"TICKET-255 result missing from persistent history: {key}"
     for report in (
         ROOT / "docs/aggregate-incomplete-odd-local.md",
         ROOT / "docs/aggregate-incomplete-odd-local.ko.md",
