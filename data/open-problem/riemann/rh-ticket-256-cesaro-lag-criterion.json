@@ -1,0 +1,1368 @@
+{
+  "schema": "primeproject.ticket256-cesaro-kernel-qdiv-gl2.v1",
+  "generated_at": "2026-08-29T21:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-256",
+  "theorem_name": "ToeplitzPacketCesaroLagPartialSumCriterion",
+  "declared_proposition": "Let (a_k)_(k>=0) be a real sequence and let T_L=(a_|r-s|)_(0<=r,s<L). For the normalized all-ones packet d_L, put E_L=<d_L,T_L d_L> and S_n=a_0+2 sum_(k=1)^n a_k. Then for every L>=1, E_L=L^(-1)sum_(n=0)^(L-1)S_n. Consequently, S_n>=c for every n implies E_L>=c for every L. This condition is not necessary: a_0=1,a_1=-1,a_2=1,a_k=0 for k>=3 has S_1=-1 but E_L>=0 for every L.",
+  "mathematical_argument": "Counting the L diagonal entries and the 2(L-k) entries at lag k gives E_L=a_0+2 sum_(k=1)^(L-1)(1-k/L)a_k. On the other hand, sum_(n=0)^(L-1)S_n=L a_0+2 sum_(k=1)^(L-1)(L-k)a_k, proving the identity and the lower-bound transfer. For the displayed counterexample the partial sums are 1,-1,1,1,...; hence E_1=1, E_2=0, and E_L=(L-2)/L for L>=3. This is an abstract Toeplitz identity. No actual Guinand-Weil lag is estimated.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let (a_k)_(k>=0) be a real sequence and let T_L=(a_|r-s|)_(0<=r,s<L). For the normalized all-ones packet d_L, put E_L=<d_L,T_L d_L> and S_n=a_0+2 sum_(k=1)^n a_k. Then for every L>=1, E_L=L^(-1)sum_(n=0)^(L-1)S_n. Consequently, S_n>=c for every n implies E_L>=c for every L. This condition is not necessary: a_0=1,a_1=-1,a_2=1,a_k=0 for k>=3 has S_1=-1 but E_L>=0 for every L.",
+    "proof": "Counting the L diagonal entries and the 2(L-k) entries at lag k gives E_L=a_0+2 sum_(k=1)^(L-1)(1-k/L)a_k. On the other hand, sum_(n=0)^(L-1)S_n=L a_0+2 sum_(k=1)^(L-1)(L-k)a_k, proving the identity and the lower-bound transfer. For the displayed counterexample the partial sums are 1,-1,1,1,...; hence E_1=1, E_2=0, and E_L=(L-2)/L for L>=3. This is an abstract Toeplitz identity. No actual Guinand-Weil lag is estimated.",
+    "exact_packet_cesaro_rows": [
+      {
+        "packet_dimension_L": 1,
+        "lag_coefficients_a_0_through_a_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "minimum_partial_sum": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "normalized_packet_energy": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "cesaro_mean_of_partial_sums": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "all_partial_sums_nonnegative": true,
+        "packet_energy_nonnegative": true,
+        "identity_verified": true
+      },
+      {
+        "packet_dimension_L": 2,
+        "lag_coefficients_a_0_through_a_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          }
+        ],
+        "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          }
+        ],
+        "minimum_partial_sum": {
+          "exact": "-1/1",
+          "numerator": -1,
+          "denominator": 1,
+          "display_float": -1.0
+        },
+        "normalized_packet_energy": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "cesaro_mean_of_partial_sums": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "all_partial_sums_nonnegative": false,
+        "packet_energy_nonnegative": true,
+        "identity_verified": true
+      },
+      {
+        "packet_dimension_L": 3,
+        "lag_coefficients_a_0_through_a_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "minimum_partial_sum": {
+          "exact": "-1/1",
+          "numerator": -1,
+          "denominator": 1,
+          "display_float": -1.0
+        },
+        "normalized_packet_energy": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "cesaro_mean_of_partial_sums": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "all_partial_sums_nonnegative": false,
+        "packet_energy_nonnegative": true,
+        "identity_verified": true
+      },
+      {
+        "packet_dimension_L": 4,
+        "lag_coefficients_a_0_through_a_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          }
+        ],
+        "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "minimum_partial_sum": {
+          "exact": "-1/1",
+          "numerator": -1,
+          "denominator": 1,
+          "display_float": -1.0
+        },
+        "normalized_packet_energy": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "cesaro_mean_of_partial_sums": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "all_partial_sums_nonnegative": false,
+        "packet_energy_nonnegative": true,
+        "identity_verified": true
+      },
+      {
+        "packet_dimension_L": 5,
+        "lag_coefficients_a_0_through_a_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          }
+        ],
+        "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "minimum_partial_sum": {
+          "exact": "-1/1",
+          "numerator": -1,
+          "denominator": 1,
+          "display_float": -1.0
+        },
+        "normalized_packet_energy": {
+          "exact": "3/5",
+          "numerator": 3,
+          "denominator": 5,
+          "display_float": 0.6
+        },
+        "cesaro_mean_of_partial_sums": {
+          "exact": "3/5",
+          "numerator": 3,
+          "denominator": 5,
+          "display_float": 0.6
+        },
+        "all_partial_sums_nonnegative": false,
+        "packet_energy_nonnegative": true,
+        "identity_verified": true
+      },
+      {
+        "packet_dimension_L": 6,
+        "lag_coefficients_a_0_through_a_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          }
+        ],
+        "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "minimum_partial_sum": {
+          "exact": "-1/1",
+          "numerator": -1,
+          "denominator": 1,
+          "display_float": -1.0
+        },
+        "normalized_packet_energy": {
+          "exact": "2/3",
+          "numerator": 2,
+          "denominator": 3,
+          "display_float": 0.6666666666666666
+        },
+        "cesaro_mean_of_partial_sums": {
+          "exact": "2/3",
+          "numerator": 2,
+          "denominator": 3,
+          "display_float": 0.6666666666666666
+        },
+        "all_partial_sums_nonnegative": false,
+        "packet_energy_nonnegative": true,
+        "identity_verified": true
+      },
+      {
+        "packet_dimension_L": 7,
+        "lag_coefficients_a_0_through_a_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          }
+        ],
+        "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "minimum_partial_sum": {
+          "exact": "-1/1",
+          "numerator": -1,
+          "denominator": 1,
+          "display_float": -1.0
+        },
+        "normalized_packet_energy": {
+          "exact": "5/7",
+          "numerator": 5,
+          "denominator": 7,
+          "display_float": 0.7142857142857143
+        },
+        "cesaro_mean_of_partial_sums": {
+          "exact": "5/7",
+          "numerator": 5,
+          "denominator": 7,
+          "display_float": 0.7142857142857143
+        },
+        "all_partial_sums_nonnegative": false,
+        "packet_energy_nonnegative": true,
+        "identity_verified": true
+      },
+      {
+        "packet_dimension_L": 8,
+        "lag_coefficients_a_0_through_a_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          }
+        ],
+        "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "minimum_partial_sum": {
+          "exact": "-1/1",
+          "numerator": -1,
+          "denominator": 1,
+          "display_float": -1.0
+        },
+        "normalized_packet_energy": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "cesaro_mean_of_partial_sums": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "all_partial_sums_nonnegative": false,
+        "packet_energy_nonnegative": true,
+        "identity_verified": true
+      },
+      {
+        "packet_dimension_L": 9,
+        "lag_coefficients_a_0_through_a_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          }
+        ],
+        "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "minimum_partial_sum": {
+          "exact": "-1/1",
+          "numerator": -1,
+          "denominator": 1,
+          "display_float": -1.0
+        },
+        "normalized_packet_energy": {
+          "exact": "7/9",
+          "numerator": 7,
+          "denominator": 9,
+          "display_float": 0.7777777777777778
+        },
+        "cesaro_mean_of_partial_sums": {
+          "exact": "7/9",
+          "numerator": 7,
+          "denominator": 9,
+          "display_float": 0.7777777777777778
+        },
+        "all_partial_sums_nonnegative": false,
+        "packet_energy_nonnegative": true,
+        "identity_verified": true
+      },
+      {
+        "packet_dimension_L": 10,
+        "lag_coefficients_a_0_through_a_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          }
+        ],
+        "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "minimum_partial_sum": {
+          "exact": "-1/1",
+          "numerator": -1,
+          "denominator": 1,
+          "display_float": -1.0
+        },
+        "normalized_packet_energy": {
+          "exact": "4/5",
+          "numerator": 4,
+          "denominator": 5,
+          "display_float": 0.8
+        },
+        "cesaro_mean_of_partial_sums": {
+          "exact": "4/5",
+          "numerator": 4,
+          "denominator": 5,
+          "display_float": 0.8
+        },
+        "all_partial_sums_nonnegative": false,
+        "packet_energy_nonnegative": true,
+        "identity_verified": true
+      },
+      {
+        "packet_dimension_L": 11,
+        "lag_coefficients_a_0_through_a_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          }
+        ],
+        "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "minimum_partial_sum": {
+          "exact": "-1/1",
+          "numerator": -1,
+          "denominator": 1,
+          "display_float": -1.0
+        },
+        "normalized_packet_energy": {
+          "exact": "9/11",
+          "numerator": 9,
+          "denominator": 11,
+          "display_float": 0.8181818181818182
+        },
+        "cesaro_mean_of_partial_sums": {
+          "exact": "9/11",
+          "numerator": 9,
+          "denominator": 11,
+          "display_float": 0.8181818181818182
+        },
+        "all_partial_sums_nonnegative": false,
+        "packet_energy_nonnegative": true,
+        "identity_verified": true
+      },
+      {
+        "packet_dimension_L": 12,
+        "lag_coefficients_a_0_through_a_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          },
+          {
+            "exact": "0/1",
+            "numerator": 0,
+            "denominator": 1,
+            "display_float": 0.0
+          }
+        ],
+        "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "-1/1",
+            "numerator": -1,
+            "denominator": 1,
+            "display_float": -1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          }
+        ],
+        "minimum_partial_sum": {
+          "exact": "-1/1",
+          "numerator": -1,
+          "denominator": 1,
+          "display_float": -1.0
+        },
+        "normalized_packet_energy": {
+          "exact": "5/6",
+          "numerator": 5,
+          "denominator": 6,
+          "display_float": 0.8333333333333334
+        },
+        "cesaro_mean_of_partial_sums": {
+          "exact": "5/6",
+          "numerator": 5,
+          "denominator": 6,
+          "display_float": 0.8333333333333334
+        },
+        "all_partial_sums_nonnegative": false,
+        "packet_energy_nonnegative": true,
+        "identity_verified": true
+      }
+    ],
+    "algorithm": "exact Fraction evaluation of Toeplitz lag counts, partial sums, and their Cesaro mean",
+    "complexity": "O(sum L) for the replay; the all-L identity is algebraic",
+    "random_seed": null,
+    "transcript_sha256": "a4d61abe3161c28b13f5f333e2fae644f2c9171107dde94d92e38adc6b8615d1",
+    "aggregate": {
+      "packet_energy_cesaro_identity_proved": true,
+      "uniform_partial_sum_lower_bound_is_sufficient": true,
+      "uniform_partial_sum_lower_bound_is_necessary": false,
+      "necessity_counterexample_negative_partial_sum": -1,
+      "actual_weil_lag_partial_sums_analyzed": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "12 rational rows replay one necessity counterexample; the identity itself holds for every real lag sequence.",
+  "logical_limit": "The transfer is exact, but no lower bound is proved for the actual Guinand-Weil lag partial sums, so no zero-free conclusion follows.",
+  "route_decision": {
+    "discard": "treating nonnegative symmetric lag partial sums as necessary for nonnegative Dirichlet-packet energies",
+    "parked": [
+      "direct estimates of the actual Guinand-Weil lag partial sums"
+    ],
+    "retain": "the exact Cesaro transfer from scalar lag partial sums to every packet size",
+    "next_single_lemma": "ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T255",
+        "label": "StrictDiagonalDominanceNecessityNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-T256",
+        "label": "ToeplitzPacketCesaroLagPartialSumCriterion",
+        "status": "proved"
+      },
+      {
+        "id": "RH-CERT256",
+        "label": "ToeplitzPacketCesaroLagPartialSumCriterionExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "RH-REJECT256",
+        "label": "NonnegativeLagPartialSumsAreNecessaryForPacketPositivity",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-OPEN256",
+        "label": "ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T255",
+        "RH-T256"
+      ],
+      [
+        "RH-T256",
+        "RH-CERT256"
+      ],
+      [
+        "RH-T256",
+        "RH-REJECT256"
+      ],
+      [
+        "RH-T256",
+        "RH-OPEN256"
+      ]
+    ],
+    "resolution_path": [
+      "RH-T255",
+      "RH-T256",
+      "RH-OPEN256"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No RH proof or disproof; the packet aggregate is reduced to one explicit scalar partial-sum frontier."
+}

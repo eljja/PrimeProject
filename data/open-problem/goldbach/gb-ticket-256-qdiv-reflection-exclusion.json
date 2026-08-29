@@ -1,0 +1,186 @@
+{
+  "schema": "primeproject.ticket256-cesaro-kernel-qdiv-gl2.v1",
+  "generated_at": "2026-08-29T21:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-256",
+  "theorem_name": "QDivisibleReflectionAsymmetryPrimePrefixExclusion",
+  "declared_proposition": "Let q>=5 be prime, q divide m, and let c_r=sum_(j congruent r mod q) (-1)^j binom(m,j). Put t=1-c_0 and suppose t>0 and c_r+t>=0 for every r. Then m is even. For even m, c_(-r)=c_r, so the forced candidate vector N*_r=c_r+t is reflection-symmetric. Therefore any actual first-T-prime residue vector, T=qt, with N_r(T)!=N_(-r)(T) for some r cannot equal this tail.",
+  "mathematical_argument": "The binomial involution j->m-j gives c_(m-r)=(-1)^m c_r. Since q divides m, odd m would give c_(-r)=-c_r and c_0=0. Compatibility then has t=1 and forces every integer c_r into [-1,1], hence sum c_r^2<=q. Parseval for (1-X)^m modulo X^q-1 gives sum c_r^2=q^(-1)sum_a |1-zeta_q^a|^(2m). At a=(q-1)/2, the squared modulus is 4cos^2(pi/(2q))>=4cos^2(pi/10)=(5+sqrt(5))/2>3. Thus sum c_r^2>3^m/q>=3^q/q>q, since 3^q>q^2 for q>=5, a contradiction. Hence m is even, and the same involution proves reflection symmetry. TICKET-253's unique-prefix criterion then turns any exact actual asymmetry into an exclusion. The finite replay proves asymmetry only for the displayed bounded rows.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let q>=5 be prime, q divide m, and let c_r=sum_(j congruent r mod q) (-1)^j binom(m,j). Put t=1-c_0 and suppose t>0 and c_r+t>=0 for every r. Then m is even. For even m, c_(-r)=c_r, so the forced candidate vector N*_r=c_r+t is reflection-symmetric. Therefore any actual first-T-prime residue vector, T=qt, with N_r(T)!=N_(-r)(T) for some r cannot equal this tail.",
+    "proof": "The binomial involution j->m-j gives c_(m-r)=(-1)^m c_r. Since q divides m, odd m would give c_(-r)=-c_r and c_0=0. Compatibility then has t=1 and forces every integer c_r into [-1,1], hence sum c_r^2<=q. Parseval for (1-X)^m modulo X^q-1 gives sum c_r^2=q^(-1)sum_a |1-zeta_q^a|^(2m). At a=(q-1)/2, the squared modulus is 4cos^2(pi/(2q))>=4cos^2(pi/10)=(5+sqrt(5))/2>3. Thus sum c_r^2>3^m/q>=3^q/q>q, since 3^q>q^2 for q>=5, a contradiction. Hence m is even, and the same involution proves reflection symmetry. TICKET-253's unique-prefix criterion then turns any exact actual asymmetry into an exclusion. The finite replay proves asymmetry only for the displayed bounded rows.",
+    "exact_q_divisible_prefix_exclusion_rows": [
+      {
+        "prime_modulus_q": 5,
+        "q_divisible_even_exponent_m": 10,
+        "cyclic_coefficients": [
+          -250,
+          200,
+          -75,
+          -75,
+          200
+        ],
+        "forced_uniform_shift_t": 251,
+        "forced_total_prime_count_T": 1255,
+        "forced_symmetric_residue_counts": [
+          1,
+          451,
+          176,
+          176,
+          451
+        ],
+        "actual_first_T_prime_residue_counts": [
+          1,
+          313,
+          313,
+          317,
+          311
+        ],
+        "actual_reflection_differences_N_r_minus_N_minus_r": [
+          0,
+          2,
+          -4,
+          4,
+          -2
+        ],
+        "least_asymmetry_witness_residue": 1,
+        "last_prime_in_prefix": 10243,
+        "forced_target_is_reflection_symmetric": true,
+        "unique_prime_prefix_excluded": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "q_divisible_even_exponent_m": 14,
+        "cyclic_coefficients": [
+          -3430,
+          2989,
+          -1911,
+          637,
+          637,
+          -1911,
+          2989
+        ],
+        "forced_uniform_shift_t": 3431,
+        "forced_total_prime_count_T": 24017,
+        "forced_symmetric_residue_counts": [
+          1,
+          6420,
+          1520,
+          4068,
+          4068,
+          1520,
+          6420
+        ],
+        "actual_first_T_prime_residue_counts": [
+          1,
+          3993,
+          3991,
+          4003,
+          3998,
+          4016,
+          4015
+        ],
+        "actual_reflection_differences_N_r_minus_N_minus_r": [
+          0,
+          -22,
+          -25,
+          5,
+          -5,
+          25,
+          22
+        ],
+        "least_asymmetry_witness_residue": 1,
+        "last_prime_in_prefix": 274783,
+        "forced_target_is_reflection_symmetric": true,
+        "unique_prime_prefix_excluded": true,
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "exact cyclic binomial folding plus deterministic enumeration of the required prime prefixes and integer residue comparison",
+    "complexity": "O(sum m) for the scan plus trial division through the largest bounded prefix; the parity and reflection theorem is algebraic",
+    "random_seed": null,
+    "transcript_sha256": "6ded0f179c955a164110a035c40971e60b948905edbb9c3377af7ac985ef8619",
+    "aggregate": {
+      "scanned_q_divisible_pair_count": 97,
+      "scanned_odd_q_divisible_pair_count": 49,
+      "compatible_q_divisible_pair_count": 25,
+      "odd_q_divisible_compatible_pair_count": 0,
+      "odd_q_divisible_compatibility_impossible_proved": true,
+      "bounded_prefix_limit_T": 100000,
+      "bounded_prefix_certificate_count": 2,
+      "all_bounded_prefixes_excluded": true,
+      "all_q_divisible_compatible_tails_excluded": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "97 q-divisible pairs were scanned through m=160; only 2 rows with T<=100000 were enumerated as prime prefixes.",
+  "logical_limit": "Odd q-divisible compatibility is ruled out, but the universal actual-prefix asymmetry needed for every even compatible exponent remains unproved.",
+  "route_decision": {
+    "discard": "retaining odd q-divisible compatible cyclotomic tails",
+    "parked": [
+      "even q-divisible compatible prefixes above the exact replay limit"
+    ],
+    "retain": "the parity obstruction plus the exact reflection-asymmetry prefix test",
+    "next_single_lemma": "EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T255",
+        "label": "OddCyclotomicReflectionPrimePrefixExclusion",
+        "status": "proved"
+      },
+      {
+        "id": "GB-T256",
+        "label": "QDivisibleReflectionAsymmetryPrimePrefixExclusion",
+        "status": "proved"
+      },
+      {
+        "id": "GB-CERT256",
+        "label": "QDivisibleReflectionAsymmetryPrimePrefixExclusionExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "GB-REJECT256",
+        "label": "OddQDivisibleCompatibleCyclotomicTailExists",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN256",
+        "label": "EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T255",
+        "GB-T256"
+      ],
+      [
+        "GB-T256",
+        "GB-CERT256"
+      ],
+      [
+        "GB-T256",
+        "GB-REJECT256"
+      ],
+      [
+        "GB-T256",
+        "GB-OPEN256"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T255",
+      "GB-T256",
+      "GB-OPEN256"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; one infinite parity theorem, one conditional prefix exclusion, and two bounded certificates."
+}

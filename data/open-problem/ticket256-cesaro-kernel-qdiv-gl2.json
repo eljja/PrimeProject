@@ -1,0 +1,2524 @@
+{
+  "schema": "primeproject.ticket256-cesaro-kernel-qdiv-gl2.v1",
+  "generated_at": "2026-08-29T21:40:00+09:00",
+  "status": "open_not_proven",
+  "iteration_complete": true,
+  "program_complete": false,
+  "cesaro_kernel_qdiv_gl2_audit": {
+    "theorem_name": "FourConjectureCesaroKernelQDivGL2Audit",
+    "summary": "TICKET-256 proves four project-local partial theorems: a packet-Cesaro identity, a sharp incomplete kernel, a q-divisible Goldbach reflection obstruction, and a GL2 reduction of two Thue survivors to one; every parent conjecture remains open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-256",
+      "theorem_name": "ToeplitzPacketCesaroLagPartialSumCriterion",
+      "declared_proposition": "Let (a_k)_(k>=0) be a real sequence and let T_L=(a_|r-s|)_(0<=r,s<L). For the normalized all-ones packet d_L, put E_L=<d_L,T_L d_L> and S_n=a_0+2 sum_(k=1)^n a_k. Then for every L>=1, E_L=L^(-1)sum_(n=0)^(L-1)S_n. Consequently, S_n>=c for every n implies E_L>=c for every L. This condition is not necessary: a_0=1,a_1=-1,a_2=1,a_k=0 for k>=3 has S_1=-1 but E_L>=0 for every L.",
+      "mathematical_argument": "Counting the L diagonal entries and the 2(L-k) entries at lag k gives E_L=a_0+2 sum_(k=1)^(L-1)(1-k/L)a_k. On the other hand, sum_(n=0)^(L-1)S_n=L a_0+2 sum_(k=1)^(L-1)(L-k)a_k, proving the identity and the lower-bound transfer. For the displayed counterexample the partial sums are 1,-1,1,1,...; hence E_1=1, E_2=0, and E_L=(L-2)/L for L>=3. This is an abstract Toeplitz identity. No actual Guinand-Weil lag is estimated.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let (a_k)_(k>=0) be a real sequence and let T_L=(a_|r-s|)_(0<=r,s<L). For the normalized all-ones packet d_L, put E_L=<d_L,T_L d_L> and S_n=a_0+2 sum_(k=1)^n a_k. Then for every L>=1, E_L=L^(-1)sum_(n=0)^(L-1)S_n. Consequently, S_n>=c for every n implies E_L>=c for every L. This condition is not necessary: a_0=1,a_1=-1,a_2=1,a_k=0 for k>=3 has S_1=-1 but E_L>=0 for every L.",
+        "proof": "Counting the L diagonal entries and the 2(L-k) entries at lag k gives E_L=a_0+2 sum_(k=1)^(L-1)(1-k/L)a_k. On the other hand, sum_(n=0)^(L-1)S_n=L a_0+2 sum_(k=1)^(L-1)(L-k)a_k, proving the identity and the lower-bound transfer. For the displayed counterexample the partial sums are 1,-1,1,1,...; hence E_1=1, E_2=0, and E_L=(L-2)/L for L>=3. This is an abstract Toeplitz identity. No actual Guinand-Weil lag is estimated.",
+        "exact_packet_cesaro_rows": [
+          {
+            "packet_dimension_L": 1,
+            "lag_coefficients_a_0_through_a_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "minimum_partial_sum": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "normalized_packet_energy": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "cesaro_mean_of_partial_sums": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "all_partial_sums_nonnegative": true,
+            "packet_energy_nonnegative": true,
+            "identity_verified": true
+          },
+          {
+            "packet_dimension_L": 2,
+            "lag_coefficients_a_0_through_a_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              }
+            ],
+            "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              }
+            ],
+            "minimum_partial_sum": {
+              "exact": "-1/1",
+              "numerator": -1,
+              "denominator": 1,
+              "display_float": -1.0
+            },
+            "normalized_packet_energy": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "cesaro_mean_of_partial_sums": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "all_partial_sums_nonnegative": false,
+            "packet_energy_nonnegative": true,
+            "identity_verified": true
+          },
+          {
+            "packet_dimension_L": 3,
+            "lag_coefficients_a_0_through_a_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "minimum_partial_sum": {
+              "exact": "-1/1",
+              "numerator": -1,
+              "denominator": 1,
+              "display_float": -1.0
+            },
+            "normalized_packet_energy": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "cesaro_mean_of_partial_sums": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "all_partial_sums_nonnegative": false,
+            "packet_energy_nonnegative": true,
+            "identity_verified": true
+          },
+          {
+            "packet_dimension_L": 4,
+            "lag_coefficients_a_0_through_a_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              }
+            ],
+            "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "minimum_partial_sum": {
+              "exact": "-1/1",
+              "numerator": -1,
+              "denominator": 1,
+              "display_float": -1.0
+            },
+            "normalized_packet_energy": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "cesaro_mean_of_partial_sums": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "all_partial_sums_nonnegative": false,
+            "packet_energy_nonnegative": true,
+            "identity_verified": true
+          },
+          {
+            "packet_dimension_L": 5,
+            "lag_coefficients_a_0_through_a_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              }
+            ],
+            "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "minimum_partial_sum": {
+              "exact": "-1/1",
+              "numerator": -1,
+              "denominator": 1,
+              "display_float": -1.0
+            },
+            "normalized_packet_energy": {
+              "exact": "3/5",
+              "numerator": 3,
+              "denominator": 5,
+              "display_float": 0.6
+            },
+            "cesaro_mean_of_partial_sums": {
+              "exact": "3/5",
+              "numerator": 3,
+              "denominator": 5,
+              "display_float": 0.6
+            },
+            "all_partial_sums_nonnegative": false,
+            "packet_energy_nonnegative": true,
+            "identity_verified": true
+          },
+          {
+            "packet_dimension_L": 6,
+            "lag_coefficients_a_0_through_a_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              }
+            ],
+            "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "minimum_partial_sum": {
+              "exact": "-1/1",
+              "numerator": -1,
+              "denominator": 1,
+              "display_float": -1.0
+            },
+            "normalized_packet_energy": {
+              "exact": "2/3",
+              "numerator": 2,
+              "denominator": 3,
+              "display_float": 0.6666666666666666
+            },
+            "cesaro_mean_of_partial_sums": {
+              "exact": "2/3",
+              "numerator": 2,
+              "denominator": 3,
+              "display_float": 0.6666666666666666
+            },
+            "all_partial_sums_nonnegative": false,
+            "packet_energy_nonnegative": true,
+            "identity_verified": true
+          },
+          {
+            "packet_dimension_L": 7,
+            "lag_coefficients_a_0_through_a_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              }
+            ],
+            "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "minimum_partial_sum": {
+              "exact": "-1/1",
+              "numerator": -1,
+              "denominator": 1,
+              "display_float": -1.0
+            },
+            "normalized_packet_energy": {
+              "exact": "5/7",
+              "numerator": 5,
+              "denominator": 7,
+              "display_float": 0.7142857142857143
+            },
+            "cesaro_mean_of_partial_sums": {
+              "exact": "5/7",
+              "numerator": 5,
+              "denominator": 7,
+              "display_float": 0.7142857142857143
+            },
+            "all_partial_sums_nonnegative": false,
+            "packet_energy_nonnegative": true,
+            "identity_verified": true
+          },
+          {
+            "packet_dimension_L": 8,
+            "lag_coefficients_a_0_through_a_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              }
+            ],
+            "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "minimum_partial_sum": {
+              "exact": "-1/1",
+              "numerator": -1,
+              "denominator": 1,
+              "display_float": -1.0
+            },
+            "normalized_packet_energy": {
+              "exact": "3/4",
+              "numerator": 3,
+              "denominator": 4,
+              "display_float": 0.75
+            },
+            "cesaro_mean_of_partial_sums": {
+              "exact": "3/4",
+              "numerator": 3,
+              "denominator": 4,
+              "display_float": 0.75
+            },
+            "all_partial_sums_nonnegative": false,
+            "packet_energy_nonnegative": true,
+            "identity_verified": true
+          },
+          {
+            "packet_dimension_L": 9,
+            "lag_coefficients_a_0_through_a_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              }
+            ],
+            "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "minimum_partial_sum": {
+              "exact": "-1/1",
+              "numerator": -1,
+              "denominator": 1,
+              "display_float": -1.0
+            },
+            "normalized_packet_energy": {
+              "exact": "7/9",
+              "numerator": 7,
+              "denominator": 9,
+              "display_float": 0.7777777777777778
+            },
+            "cesaro_mean_of_partial_sums": {
+              "exact": "7/9",
+              "numerator": 7,
+              "denominator": 9,
+              "display_float": 0.7777777777777778
+            },
+            "all_partial_sums_nonnegative": false,
+            "packet_energy_nonnegative": true,
+            "identity_verified": true
+          },
+          {
+            "packet_dimension_L": 10,
+            "lag_coefficients_a_0_through_a_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              }
+            ],
+            "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "minimum_partial_sum": {
+              "exact": "-1/1",
+              "numerator": -1,
+              "denominator": 1,
+              "display_float": -1.0
+            },
+            "normalized_packet_energy": {
+              "exact": "4/5",
+              "numerator": 4,
+              "denominator": 5,
+              "display_float": 0.8
+            },
+            "cesaro_mean_of_partial_sums": {
+              "exact": "4/5",
+              "numerator": 4,
+              "denominator": 5,
+              "display_float": 0.8
+            },
+            "all_partial_sums_nonnegative": false,
+            "packet_energy_nonnegative": true,
+            "identity_verified": true
+          },
+          {
+            "packet_dimension_L": 11,
+            "lag_coefficients_a_0_through_a_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              }
+            ],
+            "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "minimum_partial_sum": {
+              "exact": "-1/1",
+              "numerator": -1,
+              "denominator": 1,
+              "display_float": -1.0
+            },
+            "normalized_packet_energy": {
+              "exact": "9/11",
+              "numerator": 9,
+              "denominator": 11,
+              "display_float": 0.8181818181818182
+            },
+            "cesaro_mean_of_partial_sums": {
+              "exact": "9/11",
+              "numerator": 9,
+              "denominator": 11,
+              "display_float": 0.8181818181818182
+            },
+            "all_partial_sums_nonnegative": false,
+            "packet_energy_nonnegative": true,
+            "identity_verified": true
+          },
+          {
+            "packet_dimension_L": 12,
+            "lag_coefficients_a_0_through_a_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              },
+              {
+                "exact": "0/1",
+                "numerator": 0,
+                "denominator": 1,
+                "display_float": 0.0
+              }
+            ],
+            "symmetric_lag_partial_sums_S_0_through_S_L_minus_1": [
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "-1/1",
+                "numerator": -1,
+                "denominator": 1,
+                "display_float": -1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              },
+              {
+                "exact": "1/1",
+                "numerator": 1,
+                "denominator": 1,
+                "display_float": 1.0
+              }
+            ],
+            "minimum_partial_sum": {
+              "exact": "-1/1",
+              "numerator": -1,
+              "denominator": 1,
+              "display_float": -1.0
+            },
+            "normalized_packet_energy": {
+              "exact": "5/6",
+              "numerator": 5,
+              "denominator": 6,
+              "display_float": 0.8333333333333334
+            },
+            "cesaro_mean_of_partial_sums": {
+              "exact": "5/6",
+              "numerator": 5,
+              "denominator": 6,
+              "display_float": 0.8333333333333334
+            },
+            "all_partial_sums_nonnegative": false,
+            "packet_energy_nonnegative": true,
+            "identity_verified": true
+          }
+        ],
+        "algorithm": "exact Fraction evaluation of Toeplitz lag counts, partial sums, and their Cesaro mean",
+        "complexity": "O(sum L) for the replay; the all-L identity is algebraic",
+        "random_seed": null,
+        "transcript_sha256": "a4d61abe3161c28b13f5f333e2fae644f2c9171107dde94d92e38adc6b8615d1",
+        "aggregate": {
+          "packet_energy_cesaro_identity_proved": true,
+          "uniform_partial_sum_lower_bound_is_sufficient": true,
+          "uniform_partial_sum_lower_bound_is_necessary": false,
+          "necessity_counterexample_negative_partial_sum": -1,
+          "actual_weil_lag_partial_sums_analyzed": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "12 rational rows replay one necessity counterexample; the identity itself holds for every real lag sequence.",
+      "logical_limit": "The transfer is exact, but no lower bound is proved for the actual Guinand-Weil lag partial sums, so no zero-free conclusion follows.",
+      "route_decision": {
+        "discard": "treating nonnegative symmetric lag partial sums as necessary for nonnegative Dirichlet-packet energies",
+        "parked": [
+          "direct estimates of the actual Guinand-Weil lag partial sums"
+        ],
+        "retain": "the exact Cesaro transfer from scalar lag partial sums to every packet size",
+        "next_single_lemma": "ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T255",
+            "label": "StrictDiagonalDominanceNecessityNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "RH-T256",
+            "label": "ToeplitzPacketCesaroLagPartialSumCriterion",
+            "status": "proved"
+          },
+          {
+            "id": "RH-CERT256",
+            "label": "ToeplitzPacketCesaroLagPartialSumCriterionExactReplay",
+            "status": "computed_finite"
+          },
+          {
+            "id": "RH-REJECT256",
+            "label": "NonnegativeLagPartialSumsAreNecessaryForPacketPositivity",
+            "status": "disproved"
+          },
+          {
+            "id": "RH-OPEN256",
+            "label": "ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T255",
+            "RH-T256"
+          ],
+          [
+            "RH-T256",
+            "RH-CERT256"
+          ],
+          [
+            "RH-T256",
+            "RH-REJECT256"
+          ],
+          [
+            "RH-T256",
+            "RH-OPEN256"
+          ]
+        ],
+        "resolution_path": [
+          "RH-T255",
+          "RH-T256",
+          "RH-OPEN256"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No RH proof or disproof; the packet aggregate is reduced to one explicit scalar partial-sum frontier."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-256",
+      "theorem_name": "SharpIncompleteKernelErrorAndDecayOnlyPrimeAverage",
+      "declared_proposition": "For prime q and h_0 in F_q define K_(q,h_0)(D)=q^(-1) sum_(h!=h_0) exp(2 pi i hD/q). Then K_(q,h_0)(D)=delta_0(D)-q^(-1)exp(2 pi i h_0D/q), so its uniform error is exactly 1/q. Moreover 1/q is minimax-sharp among all kernels supported on any proper H missing h_0: the error has Fourier coefficient 1/q at h_0, whence its sup norm is at least 1/q. At the canonical Collatz slope D_q=5F_q(2)-3F_q(3), the unnormalized prime-Cesaro average of the errors tends to zero in absolute value, but only because the mean of 1/q tends to zero.",
+      "mathematical_argument": "Subtract the omitted character from the complete Fourier expansion of delta_0. Fourier inversion gives the exact pointwise error and its modulus. For any H-supported approximation, the missing error coefficient is 1/q; a normalized Fourier coefficient is bounded by the sup norm, proving sharpness. If q_j is the jth replayed prime, then q_j>=j+1, so n^(-1)sum_(j<=n)1/q_j is at most n^(-1)sum_(j<=n)1/(j+1), which tends to zero. The same triangle bound applies at D_q. This proves decay, not cancellation of the renormalized phases exp(2 pi i D_q/q), and supplies no Collatz trajectory theorem.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "For prime q and h_0 in F_q define K_(q,h_0)(D)=q^(-1) sum_(h!=h_0) exp(2 pi i hD/q). Then K_(q,h_0)(D)=delta_0(D)-q^(-1)exp(2 pi i h_0D/q), so its uniform error is exactly 1/q. Moreover 1/q is minimax-sharp among all kernels supported on any proper H missing h_0: the error has Fourier coefficient 1/q at h_0, whence its sup norm is at least 1/q. At the canonical Collatz slope D_q=5F_q(2)-3F_q(3), the unnormalized prime-Cesaro average of the errors tends to zero in absolute value, but only because the mean of 1/q tends to zero.",
+        "proof": "Subtract the omitted character from the complete Fourier expansion of delta_0. Fourier inversion gives the exact pointwise error and its modulus. For any H-supported approximation, the missing error coefficient is 1/q; a normalized Fourier coefficient is bounded by the sup norm, proving sharpness. If q_j is the jth replayed prime, then q_j>=j+1, so n^(-1)sum_(j<=n)1/q_j is at most n^(-1)sum_(j<=n)1/(j+1), which tends to zero. The same triangle bound applies at D_q. This proves decay, not cancellation of the renormalized phases exp(2 pi i D_q/q), and supplies no Collatz trajectory theorem.",
+        "exact_canonical_incomplete_kernel_rows": [
+          {
+            "prime_index_in_replay": 1,
+            "prime_q": 7,
+            "fermat_quotient_F_q_2": 2,
+            "fermat_quotient_F_q_3": 6,
+            "canonical_slope_D_q": 6,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 6,
+            "canonical_error_phase_exponent_mod_q": 6,
+            "exact_error_magnitude": {
+              "exact": "1/7",
+              "numerator": 1,
+              "denominator": 7,
+              "display_float": 0.14285714285714285
+            },
+            "running_mean_absolute_error": {
+              "exact": "1/7",
+              "numerator": 1,
+              "denominator": 7,
+              "display_float": 0.14285714285714285
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 2,
+            "prime_q": 11,
+            "fermat_quotient_F_q_2": 5,
+            "fermat_quotient_F_q_3": 0,
+            "canonical_slope_D_q": 3,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 10,
+            "canonical_error_phase_exponent_mod_q": 3,
+            "exact_error_magnitude": {
+              "exact": "1/11",
+              "numerator": 1,
+              "denominator": 11,
+              "display_float": 0.09090909090909091
+            },
+            "running_mean_absolute_error": {
+              "exact": "9/77",
+              "numerator": 9,
+              "denominator": 77,
+              "display_float": 0.11688311688311688
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 3,
+            "prime_q": 13,
+            "fermat_quotient_F_q_2": 3,
+            "fermat_quotient_F_q_3": 8,
+            "canonical_slope_D_q": 4,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 12,
+            "canonical_error_phase_exponent_mod_q": 4,
+            "exact_error_magnitude": {
+              "exact": "1/13",
+              "numerator": 1,
+              "denominator": 13,
+              "display_float": 0.07692307692307693
+            },
+            "running_mean_absolute_error": {
+              "exact": "311/3003",
+              "numerator": 311,
+              "denominator": 3003,
+              "display_float": 0.10356310356310357
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 4,
+            "prime_q": 17,
+            "fermat_quotient_F_q_2": 13,
+            "fermat_quotient_F_q_3": 10,
+            "canonical_slope_D_q": 1,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 16,
+            "canonical_error_phase_exponent_mod_q": 1,
+            "exact_error_magnitude": {
+              "exact": "1/17",
+              "numerator": 1,
+              "denominator": 17,
+              "display_float": 0.058823529411764705
+            },
+            "running_mean_absolute_error": {
+              "exact": "1572/17017",
+              "numerator": 1572,
+              "denominator": 17017,
+              "display_float": 0.09237821002526884
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 5,
+            "prime_q": 19,
+            "fermat_quotient_F_q_2": 3,
+            "fermat_quotient_F_q_3": 18,
+            "canonical_slope_D_q": 18,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 18,
+            "canonical_error_phase_exponent_mod_q": 18,
+            "exact_error_magnitude": {
+              "exact": "1/19",
+              "numerator": 1,
+              "denominator": 19,
+              "display_float": 0.05263157894736842
+            },
+            "running_mean_absolute_error": {
+              "exact": "136489/1616615",
+              "numerator": 136489,
+              "denominator": 1616615,
+              "display_float": 0.08442888380968876
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 6,
+            "prime_q": 23,
+            "fermat_quotient_F_q_2": 17,
+            "fermat_quotient_F_q_3": 17,
+            "canonical_slope_D_q": 11,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 22,
+            "canonical_error_phase_exponent_mod_q": 11,
+            "exact_error_magnitude": {
+              "exact": "1/23",
+              "numerator": 1,
+              "denominator": 23,
+              "display_float": 0.043478260869565216
+            },
+            "running_mean_absolute_error": {
+              "exact": "577095/7436429",
+              "numerator": 577095,
+              "denominator": 7436429,
+              "display_float": 0.07760377998633484
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 7,
+            "prime_q": 29,
+            "fermat_quotient_F_q_2": 1,
+            "fermat_quotient_F_q_3": 15,
+            "canonical_slope_D_q": 18,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 28,
+            "canonical_error_phase_exponent_mod_q": 18,
+            "exact_error_magnitude": {
+              "exact": "1/29",
+              "numerator": 1,
+              "denominator": 29,
+              "display_float": 0.034482758620689655
+            },
+            "running_mean_absolute_error": {
+              "exact": "107850959/1509595087",
+              "numerator": 107850959,
+              "denominator": 1509595087,
+              "display_float": 0.07144363407695696
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 8,
+            "prime_q": 31,
+            "fermat_quotient_F_q_2": 6,
+            "fermat_quotient_F_q_3": 17,
+            "canonical_slope_D_q": 10,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 30,
+            "canonical_error_phase_exponent_mod_q": 10,
+            "exact_error_magnitude": {
+              "exact": "1/31",
+              "numerator": 1,
+              "denominator": 31,
+              "display_float": 0.03225806451612903
+            },
+            "running_mean_absolute_error": {
+              "exact": "1779518085/26741398684",
+              "numerator": 1779518085,
+              "denominator": 26741398684,
+              "display_float": 0.06654543788185346
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 9,
+            "prime_q": 37,
+            "fermat_quotient_F_q_2": 1,
+            "fermat_quotient_F_q_3": 18,
+            "canonical_slope_D_q": 25,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 36,
+            "canonical_error_phase_exponent_mod_q": 25,
+            "exact_error_magnitude": {
+              "exact": "1/37",
+              "numerator": 1,
+              "denominator": 37,
+              "display_float": 0.02702702702702703
+            },
+            "running_mean_absolute_error": {
+              "exact": "138369687961/2226221440443",
+              "numerator": 138369687961,
+              "denominator": 2226221440443,
+              "display_float": 0.06215450334242831
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 10,
+            "prime_q": 41,
+            "fermat_quotient_F_q_2": 23,
+            "fermat_quotient_F_q_3": 21,
+            "canonical_slope_D_q": 11,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 40,
+            "canonical_error_phase_exponent_mod_q": 11,
+            "exact_error_magnitude": {
+              "exact": "1/41",
+              "numerator": 1,
+              "denominator": 41,
+              "display_float": 0.024390243902439025
+            },
+            "running_mean_absolute_error": {
+              "exact": "2960257572114/50708377254535",
+              "numerator": 2960257572114,
+              "denominator": 50708377254535,
+              "display_float": 0.05837807739842938
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 11,
+            "prime_q": 43,
+            "fermat_quotient_F_q_2": 25,
+            "fermat_quotient_F_q_3": 2,
+            "canonical_slope_D_q": 33,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 42,
+            "canonical_error_phase_exponent_mod_q": 33,
+            "exact_error_magnitude": {
+              "exact": "1/43",
+              "numerator": 1,
+              "denominator": 43,
+              "display_float": 0.023255813953488372
+            },
+            "running_mean_absolute_error": {
+              "exact": "264723826652711/4797012488279011",
+              "numerator": 264723826652711,
+              "denominator": 4797012488279011,
+              "display_float": 0.05518514435798019
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 12,
+            "prime_q": 47,
+            "fermat_quotient_F_q_2": 44,
+            "fermat_quotient_F_q_3": 11,
+            "canonical_slope_D_q": 46,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 46,
+            "canonical_error_phase_exponent_mod_q": 46,
+            "exact_error_magnitude": {
+              "exact": "1/47",
+              "numerator": 1,
+              "denominator": 47,
+              "display_float": 0.02127659574468085
+            },
+            "running_mean_absolute_error": {
+              "exact": "2146351982844403/40992652172566094",
+              "numerator": 2146351982844403,
+              "denominator": 40992652172566094,
+              "display_float": 0.05235943197353858
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 13,
+            "prime_q": 53,
+            "fermat_quotient_F_q_2": 36,
+            "fermat_quotient_F_q_3": 23,
+            "canonical_slope_D_q": 5,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 52,
+            "canonical_error_phase_exponent_mod_q": 5,
+            "exact_error_magnitude": {
+              "exact": "1/53",
+              "numerator": 1,
+              "denominator": 53,
+              "display_float": 0.018867924528301886
+            },
+            "running_mean_absolute_error": {
+              "exact": "703036256630803201/14121968673449019383",
+              "numerator": 703036256630803201,
+              "denominator": 14121968673449019383,
+              "display_float": 0.049783162170058834
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 14,
+            "prime_q": 59,
+            "fermat_quotient_F_q_2": 8,
+            "fermat_quotient_F_q_3": 41,
+            "canonical_slope_D_q": 35,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 58,
+            "canonical_error_phase_exponent_mod_q": 35,
+            "exact_error_magnitude": {
+              "exact": "1/59",
+              "numerator": 1,
+              "denominator": 59,
+              "display_float": 0.01694915254237288
+            },
+            "running_mean_absolute_error": {
+              "exact": "21282722211895195175/448644081702649615783",
+              "numerator": 21282722211895195175,
+              "denominator": 448644081702649615783,
+              "display_float": 0.04743787576808127
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 15,
+            "prime_q": 61,
+            "fermat_quotient_F_q_2": 36,
+            "fermat_quotient_F_q_3": 13,
+            "canonical_slope_D_q": 19,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 60,
+            "canonical_error_phase_exponent_mod_q": 19,
+            "exact_error_magnitude": {
+              "exact": "1/61",
+              "numerator": 1,
+              "denominator": 61,
+              "display_float": 0.01639344262295082
+            },
+            "running_mean_absolute_error": {
+              "exact": "2660584121523020899319/58644190679703485491635",
+              "numerator": 2660584121523020899319,
+              "denominator": 58644190679703485491635,
+              "display_float": 0.04536824689173924
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 16,
+            "prime_q": 67,
+            "fermat_quotient_F_q_2": 10,
+            "fermat_quotient_F_q_3": 15,
+            "canonical_slope_D_q": 5,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 66,
+            "canonical_error_phase_exponent_mod_q": 5,
+            "exact_error_magnitude": {
+              "exact": "1/67",
+              "numerator": 1,
+              "denominator": 67,
+              "display_float": 0.014925373134328358
+            },
+            "running_mean_absolute_error": {
+              "exact": "91084374427011316310241/2095552413621404548234424",
+              "numerator": 91084374427011316310241,
+              "denominator": 2095552413621404548234424,
+              "display_float": 0.04346556728190106
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 17,
+            "prime_q": 71,
+            "fermat_quotient_F_q_2": 2,
+            "fermat_quotient_F_q_3": 32,
+            "canonical_slope_D_q": 56,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 70,
+            "canonical_error_phase_exponent_mod_q": 56,
+            "exact_error_magnitude": {
+              "exact": "1/71",
+              "numerator": 1,
+              "denominator": 71,
+              "display_float": 0.014084507042253521
+            },
+            "running_mean_absolute_error": {
+              "exact": "13195925220338282484583525/316166470405129411214868721",
+              "numerator": 13195925220338282484583525,
+              "denominator": 316166470405129411214868721,
+              "display_float": 0.041737269620745324
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 18,
+            "prime_q": 73,
+            "fermat_quotient_F_q_2": 56,
+            "fermat_quotient_F_q_3": 26,
+            "canonical_slope_D_q": 56,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 72,
+            "canonical_error_phase_exponent_mod_q": 56,
+            "exact_error_magnitude": {
+              "exact": "1/73",
+              "numerator": 1,
+              "denominator": 73,
+              "display_float": 0.0136986301369863
+            },
+            "running_mean_absolute_error": {
+              "exact": "54550031597532477041120991/1357656019974967471687377449",
+              "numerator": 54550031597532477041120991,
+              "denominator": 1357656019974967471687377449,
+              "display_float": 0.040179567427203154
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 19,
+            "prime_q": 79,
+            "fermat_quotient_F_q_2": 19,
+            "fermat_quotient_F_q_3": 54,
+            "canonical_slope_D_q": 12,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 78,
+            "canonical_error_phase_exponent_mod_q": 12,
+            "exact_error_magnitude": {
+              "exact": "1/79",
+              "numerator": 1,
+              "denominator": 79,
+              "display_float": 0.012658227848101266
+            },
+            "running_mean_absolute_error": {
+              "exact": "78927800951666149824161426651/2037841685982426175002753550949",
+              "numerator": 78927800951666149824161426651,
+              "denominator": 2037841685982426175002753550949,
+              "display_float": 0.03873107587040832
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 20,
+            "prime_q": 83,
+            "fermat_quotient_F_q_2": 48,
+            "fermat_quotient_F_q_3": 64,
+            "canonical_slope_D_q": 48,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 82,
+            "canonical_error_phase_exponent_mod_q": 48,
+            "exact_error_magnitude": {
+              "exact": "1/83",
+              "numerator": 1,
+              "denominator": 83,
+              "display_float": 0.012048192771084338
+            },
+            "running_mean_absolute_error": {
+              "exact": "1664565576141578216417175307626/44510752614879308559270669665465",
+              "numerator": 1664565576141578216417175307626,
+              "denominator": 44510752614879308559270669665465,
+              "display_float": 0.03739693171544212
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 21,
+            "prime_q": 89,
+            "fermat_quotient_F_q_2": 6,
+            "fermat_quotient_F_q_3": 24,
+            "canonical_slope_D_q": 47,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 88,
+            "canonical_error_phase_exponent_mod_q": 47,
+            "exact_error_magnitude": {
+              "exact": "1/89",
+              "numerator": 1,
+              "denominator": 89,
+              "display_float": 0.011235955056179775
+            },
+            "running_mean_absolute_error": {
+              "exact": "601487495629377706756368543447949/16638119327441885539455376320950817",
+              "numerator": 601487495629377706756368543447949,
+              "denominator": 16638119327441885539455376320950817,
+              "display_float": 0.03615117092214391
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_index_in_replay": 22,
+            "prime_q": 97,
+            "fermat_quotient_F_q_2": 57,
+            "fermat_quotient_F_q_3": 7,
+            "canonical_slope_D_q": 70,
+            "slope_hit": false,
+            "omitted_frequency_h0": 1,
+            "support_size_q_minus_one": 96,
+            "canonical_error_phase_exponent_mod_q": 70,
+            "exact_error_magnitude": {
+              "exact": "1/97",
+              "numerator": 1,
+              "denominator": 97,
+              "display_float": 0.010309278350515464
+            },
+            "running_mean_absolute_error": {
+              "exact": "29568289236297244623861383317248165/845374920113356755742804120688310559",
+              "numerator": 29568289236297244623861383317248165,
+              "denominator": 845374920113356755742804120688310559,
+              "display_float": 0.03497653944161534
+            },
+            "renormalized_error_has_unit_modulus": true,
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact modular Fermat quotients and Fraction error magnitudes; complex phases are stored only by their exact residue exponents",
+        "complexity": "O(sum log q) modular exponentiation for replay; Fourier uniqueness and the harmonic bound prove the universal statements",
+        "random_seed": null,
+        "transcript_sha256": "e50be6fa63328562b64c1fa1023ad706493a60e47d84705d24aebec05d412de3",
+        "aggregate": {
+          "prime_count": 22,
+          "uniform_error_exactly_one_over_q": true,
+          "one_missing_frequency_minimax_sharp": true,
+          "unnormalized_canonical_prime_average_tends_to_zero": true,
+          "decay_only_not_nontrivial_phase_cancellation": true,
+          "renormalized_cross_prime_cancellation_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "22 exact modular rows store phases by residue exponent; no floating complex value is used.",
+      "logical_limit": "The exact 1/q error is optimal and its average vanishes trivially; no cancellation is proved after multiplying by q, and no Collatz orbit is controlled.",
+      "route_decision": {
+        "discard": "counting decay of an unnormalized O(1/q) error average as arithmetic cross-prime phase cancellation",
+        "parked": [
+          "renormalized canonical phase cancellation for the fixed bases 2 and 3"
+        ],
+        "retain": "the minimax-sharp one-frequency omission and its exact canonical residue phase",
+        "next_single_lemma": "RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T255",
+            "label": "IncompleteAdditiveCharacterExactRecoveryNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "CO-T256",
+            "label": "SharpIncompleteKernelErrorAndDecayOnlyPrimeAverage",
+            "status": "proved"
+          },
+          {
+            "id": "CO-CERT256",
+            "label": "SharpIncompleteKernelErrorAndDecayOnlyPrimeAverageExactReplay",
+            "status": "computed_finite"
+          },
+          {
+            "id": "CO-REJECT256",
+            "label": "UnnormalizedCrossPrimeDecayImpliesRenormalizedPhaseCancellation",
+            "status": "disproved"
+          },
+          {
+            "id": "CO-OPEN256",
+            "label": "RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T255",
+            "CO-T256"
+          ],
+          [
+            "CO-T256",
+            "CO-CERT256"
+          ],
+          [
+            "CO-T256",
+            "CO-REJECT256"
+          ],
+          [
+            "CO-T256",
+            "CO-OPEN256"
+          ]
+        ],
+        "resolution_path": [
+          "CO-T255",
+          "CO-T256",
+          "CO-OPEN256"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No Collatz proof or counterexample; controlled error is achieved but the claimed cross-prime cancellation is shown to be decay-only."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-256",
+      "theorem_name": "QDivisibleReflectionAsymmetryPrimePrefixExclusion",
+      "declared_proposition": "Let q>=5 be prime, q divide m, and let c_r=sum_(j congruent r mod q) (-1)^j binom(m,j). Put t=1-c_0 and suppose t>0 and c_r+t>=0 for every r. Then m is even. For even m, c_(-r)=c_r, so the forced candidate vector N*_r=c_r+t is reflection-symmetric. Therefore any actual first-T-prime residue vector, T=qt, with N_r(T)!=N_(-r)(T) for some r cannot equal this tail.",
+      "mathematical_argument": "The binomial involution j->m-j gives c_(m-r)=(-1)^m c_r. Since q divides m, odd m would give c_(-r)=-c_r and c_0=0. Compatibility then has t=1 and forces every integer c_r into [-1,1], hence sum c_r^2<=q. Parseval for (1-X)^m modulo X^q-1 gives sum c_r^2=q^(-1)sum_a |1-zeta_q^a|^(2m). At a=(q-1)/2, the squared modulus is 4cos^2(pi/(2q))>=4cos^2(pi/10)=(5+sqrt(5))/2>3. Thus sum c_r^2>3^m/q>=3^q/q>q, since 3^q>q^2 for q>=5, a contradiction. Hence m is even, and the same involution proves reflection symmetry. TICKET-253's unique-prefix criterion then turns any exact actual asymmetry into an exclusion. The finite replay proves asymmetry only for the displayed bounded rows.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let q>=5 be prime, q divide m, and let c_r=sum_(j congruent r mod q) (-1)^j binom(m,j). Put t=1-c_0 and suppose t>0 and c_r+t>=0 for every r. Then m is even. For even m, c_(-r)=c_r, so the forced candidate vector N*_r=c_r+t is reflection-symmetric. Therefore any actual first-T-prime residue vector, T=qt, with N_r(T)!=N_(-r)(T) for some r cannot equal this tail.",
+        "proof": "The binomial involution j->m-j gives c_(m-r)=(-1)^m c_r. Since q divides m, odd m would give c_(-r)=-c_r and c_0=0. Compatibility then has t=1 and forces every integer c_r into [-1,1], hence sum c_r^2<=q. Parseval for (1-X)^m modulo X^q-1 gives sum c_r^2=q^(-1)sum_a |1-zeta_q^a|^(2m). At a=(q-1)/2, the squared modulus is 4cos^2(pi/(2q))>=4cos^2(pi/10)=(5+sqrt(5))/2>3. Thus sum c_r^2>3^m/q>=3^q/q>q, since 3^q>q^2 for q>=5, a contradiction. Hence m is even, and the same involution proves reflection symmetry. TICKET-253's unique-prefix criterion then turns any exact actual asymmetry into an exclusion. The finite replay proves asymmetry only for the displayed bounded rows.",
+        "exact_q_divisible_prefix_exclusion_rows": [
+          {
+            "prime_modulus_q": 5,
+            "q_divisible_even_exponent_m": 10,
+            "cyclic_coefficients": [
+              -250,
+              200,
+              -75,
+              -75,
+              200
+            ],
+            "forced_uniform_shift_t": 251,
+            "forced_total_prime_count_T": 1255,
+            "forced_symmetric_residue_counts": [
+              1,
+              451,
+              176,
+              176,
+              451
+            ],
+            "actual_first_T_prime_residue_counts": [
+              1,
+              313,
+              313,
+              317,
+              311
+            ],
+            "actual_reflection_differences_N_r_minus_N_minus_r": [
+              0,
+              2,
+              -4,
+              4,
+              -2
+            ],
+            "least_asymmetry_witness_residue": 1,
+            "last_prime_in_prefix": 10243,
+            "forced_target_is_reflection_symmetric": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "q_divisible_even_exponent_m": 14,
+            "cyclic_coefficients": [
+              -3430,
+              2989,
+              -1911,
+              637,
+              637,
+              -1911,
+              2989
+            ],
+            "forced_uniform_shift_t": 3431,
+            "forced_total_prime_count_T": 24017,
+            "forced_symmetric_residue_counts": [
+              1,
+              6420,
+              1520,
+              4068,
+              4068,
+              1520,
+              6420
+            ],
+            "actual_first_T_prime_residue_counts": [
+              1,
+              3993,
+              3991,
+              4003,
+              3998,
+              4016,
+              4015
+            ],
+            "actual_reflection_differences_N_r_minus_N_minus_r": [
+              0,
+              -22,
+              -25,
+              5,
+              -5,
+              25,
+              22
+            ],
+            "least_asymmetry_witness_residue": 1,
+            "last_prime_in_prefix": 274783,
+            "forced_target_is_reflection_symmetric": true,
+            "unique_prime_prefix_excluded": true,
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact cyclic binomial folding plus deterministic enumeration of the required prime prefixes and integer residue comparison",
+        "complexity": "O(sum m) for the scan plus trial division through the largest bounded prefix; the parity and reflection theorem is algebraic",
+        "random_seed": null,
+        "transcript_sha256": "6ded0f179c955a164110a035c40971e60b948905edbb9c3377af7ac985ef8619",
+        "aggregate": {
+          "scanned_q_divisible_pair_count": 97,
+          "scanned_odd_q_divisible_pair_count": 49,
+          "compatible_q_divisible_pair_count": 25,
+          "odd_q_divisible_compatible_pair_count": 0,
+          "odd_q_divisible_compatibility_impossible_proved": true,
+          "bounded_prefix_limit_T": 100000,
+          "bounded_prefix_certificate_count": 2,
+          "all_bounded_prefixes_excluded": true,
+          "all_q_divisible_compatible_tails_excluded": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "97 q-divisible pairs were scanned through m=160; only 2 rows with T<=100000 were enumerated as prime prefixes.",
+      "logical_limit": "Odd q-divisible compatibility is ruled out, but the universal actual-prefix asymmetry needed for every even compatible exponent remains unproved.",
+      "route_decision": {
+        "discard": "retaining odd q-divisible compatible cyclotomic tails",
+        "parked": [
+          "even q-divisible compatible prefixes above the exact replay limit"
+        ],
+        "retain": "the parity obstruction plus the exact reflection-asymmetry prefix test",
+        "next_single_lemma": "EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T255",
+            "label": "OddCyclotomicReflectionPrimePrefixExclusion",
+            "status": "proved"
+          },
+          {
+            "id": "GB-T256",
+            "label": "QDivisibleReflectionAsymmetryPrimePrefixExclusion",
+            "status": "proved"
+          },
+          {
+            "id": "GB-CERT256",
+            "label": "QDivisibleReflectionAsymmetryPrimePrefixExclusionExactReplay",
+            "status": "computed_finite"
+          },
+          {
+            "id": "GB-REJECT256",
+            "label": "OddQDivisibleCompatibleCyclotomicTailExists",
+            "status": "disproved"
+          },
+          {
+            "id": "GB-OPEN256",
+            "label": "EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T255",
+            "GB-T256"
+          ],
+          [
+            "GB-T256",
+            "GB-CERT256"
+          ],
+          [
+            "GB-T256",
+            "GB-REJECT256"
+          ],
+          [
+            "GB-T256",
+            "GB-OPEN256"
+          ]
+        ],
+        "resolution_path": [
+          "GB-T255",
+          "GB-T256",
+          "GB-OPEN256"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No strong Goldbach proof or counterexample; one infinite parity theorem, one conditional prefix exclusion, and two bounded certificates."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-256",
+      "theorem_name": "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReduction",
+      "declared_proposition": "Let epsilon=1+sqrt(2), define epsilon^j(u+v sqrt(2))^17=A_j(u,v)+B_j(u,v)sqrt(2), and set T(u,v)=(-u-2v,u+v). Then T is in GL_2(Z), B_16(T(u,v))=B_1(u,v), A_16(T(u,v))=-A_1(u,v), and N(T(u,v))=-N(u,v). Consequently the admissible points on the two TICKET-255 surviving twists j=1,16 are in bijection with the single absolute branch B_1(u,v)=1 and -(u^2-2v^2)>0; the associated x is |A_1(u,v)|.",
+      "mathematical_argument": "The matrix of T is [[-1,-2],[1,1]], has determinant one, and inverse [[1,2],[-1,-1]]. If alpha=u+v sqrt(2), then T(alpha)=epsilon^(-1) conjugate(alpha). Since conjugate(epsilon)=-epsilon^(-1), epsilon^16 T(alpha)^17=-conjugate(epsilon alpha^17), which proves the A/B identities. Norm(epsilon)=-1 proves the norm identity and preservation of reduced y. A positive-A point on twist 1 stays in the positive sign branch; a negative-A point maps to a positive-A twist-16 point, and the inverse handles the converse. If B_1=1 and -N(alpha)>0, then A_1^2-2=(-N(alpha))^17>0, so A_1 is nonzero and |A_1| is valid. This reduces two equations to one but does not prove the remaining branch has no integral point.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let epsilon=1+sqrt(2), define epsilon^j(u+v sqrt(2))^17=A_j(u,v)+B_j(u,v)sqrt(2), and set T(u,v)=(-u-2v,u+v). Then T is in GL_2(Z), B_16(T(u,v))=B_1(u,v), A_16(T(u,v))=-A_1(u,v), and N(T(u,v))=-N(u,v). Consequently the admissible points on the two TICKET-255 surviving twists j=1,16 are in bijection with the single absolute branch B_1(u,v)=1 and -(u^2-2v^2)>0; the associated x is |A_1(u,v)|.",
+        "proof": "The matrix of T is [[-1,-2],[1,1]], has determinant one, and inverse [[1,2],[-1,-1]]. If alpha=u+v sqrt(2), then T(alpha)=epsilon^(-1) conjugate(alpha). Since conjugate(epsilon)=-epsilon^(-1), epsilon^16 T(alpha)^17=-conjugate(epsilon alpha^17), which proves the A/B identities. Norm(epsilon)=-1 proves the norm identity and preservation of reduced y. A positive-A point on twist 1 stays in the positive sign branch; a negative-A point maps to a positive-A twist-16 point, and the inverse handles the converse. If B_1=1 and -N(alpha)>0, then A_1^2-2=(-N(alpha))^17>0, so A_1 is nonzero and |A_1| is valid. This reduces two equations to one but does not prove the remaining branch has no integral point.",
+        "transformation_matrix": [
+          [
+            -1,
+            -2
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "inverse_transformation_matrix": [
+          [
+            1,
+            2
+          ],
+          [
+            -1,
+            -1
+          ]
+        ],
+        "determinant": 1,
+        "exact_sample_rows": [
+          {
+            "u": -7,
+            "v": 3,
+            "transformed_u": 1,
+            "transformed_v": -4,
+            "A_1_u_v": 151689648275203967,
+            "B_1_u_v": -107260778983758100,
+            "A_16_transformed": -151689648275203967,
+            "B_16_transformed": -107260778983758100,
+            "reduced_y": -31,
+            "identities_verified": true
+          },
+          {
+            "u": -2,
+            "v": -1,
+            "transformed_u": 4,
+            "transformed_v": -3,
+            "A_1_u_v": -1405035520,
+            "B_1_u_v": -993510144,
+            "A_16_transformed": 1405035520,
+            "B_16_transformed": -993510144,
+            "reduced_y": -2,
+            "identities_verified": true
+          },
+          {
+            "u": -1,
+            "v": 1,
+            "transformed_u": -1,
+            "transformed_v": 0,
+            "A_1_u_v": 665857,
+            "B_1_u_v": -470832,
+            "A_16_transformed": -665857,
+            "B_16_transformed": -470832,
+            "reduced_y": 1,
+            "identities_verified": true
+          },
+          {
+            "u": 0,
+            "v": 0,
+            "transformed_u": 0,
+            "transformed_v": 0,
+            "A_1_u_v": 0,
+            "B_1_u_v": 0,
+            "A_16_transformed": 0,
+            "B_16_transformed": 0,
+            "reduced_y": 0,
+            "identities_verified": true
+          },
+          {
+            "u": 1,
+            "v": 0,
+            "transformed_u": -1,
+            "transformed_v": 1,
+            "A_1_u_v": 1,
+            "B_1_u_v": 1,
+            "A_16_transformed": -1,
+            "B_16_transformed": 1,
+            "reduced_y": -1,
+            "identities_verified": true
+          },
+          {
+            "u": 2,
+            "v": -3,
+            "transformed_u": 4,
+            "transformed_v": -1,
+            "A_1_u_v": -6877904561152,
+            "B_1_u_v": 4863411388160,
+            "A_16_transformed": 6877904561152,
+            "B_16_transformed": 4863411388160,
+            "reduced_y": 14,
+            "identities_verified": true
+          },
+          {
+            "u": 5,
+            "v": 8,
+            "transformed_u": -21,
+            "transformed_v": 13,
+            "A_1_u_v": 495611711803828117461,
+            "B_1_u_v": 350450390461078282573,
+            "A_16_transformed": -495611711803828117461,
+            "B_16_transformed": 350450390461078282573,
+            "reduced_y": 103,
+            "identities_verified": true
+          }
+        ],
+        "finite_box_audit": {
+          "coordinate_radius": 64,
+          "exact_grid_case_count": 16641,
+          "coefficient_one_point_count": 1,
+          "admissible_absolute_branch_point_count": 0,
+          "coefficient_one_points": [
+            {
+              "u": 1,
+              "v": 0,
+              "transformed_u": -1,
+              "transformed_v": 1,
+              "A_1_u_v": 1,
+              "B_1_u_v": 1,
+              "A_16_transformed": -1,
+              "B_16_transformed": 1,
+              "reduced_y": -1,
+              "identities_verified": true,
+              "negative_norm_condition": false,
+              "admissible_absolute_branch": false
+            }
+          ]
+        },
+        "algorithm": "exact integer quadratic-ring exponentiation and GL2 forward/inverse replay",
+        "complexity": "O(R^2 log 17) integer-ring multiplications for radius R; the all-integer bijection is algebraic",
+        "random_seed": null,
+        "transcript_sha256": "b16cc63924090d6e214ecdaaa8c47018fced6bae337cc3445ed9cbd3a85eb7a9",
+        "aggregate": {
+          "two_surviving_twists_gl2_equivalent": true,
+          "independent_surviving_branch_count": 1,
+          "single_absolute_branch_globally_solved": false,
+          "exponent_seventeen_excluded": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "16641 exact grid points replay the all-integer identities; absence of an admissible point in that box is not an infinite exclusion.",
+      "logical_limit": "The GL2 bijection halves the global branch count but does not exclude a negative-norm integral point of B_1=1, so exponent 17 and twin primes remain open.",
+      "route_decision": {
+        "discard": "treating the two surviving exponent-17 unit twists as independent global Thue branches",
+        "parked": [
+          "global integral-point exclusion on the remaining absolute coefficient-one branch"
+        ],
+        "retain": "the determinant-one conjugation-unit bijection reducing two sign branches to one equation",
+        "next_single_lemma": "SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T255",
+            "label": "ThreePrimeLocalObstructionReducesSeventeenTwistsToTwo",
+            "status": "proved"
+          },
+          {
+            "id": "TP-T256",
+            "label": "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReduction",
+            "status": "proved"
+          },
+          {
+            "id": "TP-CERT256",
+            "label": "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReductionExactReplay",
+            "status": "computed_finite"
+          },
+          {
+            "id": "TP-REJECT256",
+            "label": "TwoSurvivingUnitTwistsAreIndependentIntegralPointProblems",
+            "status": "disproved"
+          },
+          {
+            "id": "TP-OPEN256",
+            "label": "SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T255",
+            "TP-T256"
+          ],
+          [
+            "TP-T256",
+            "TP-CERT256"
+          ],
+          [
+            "TP-T256",
+            "TP-REJECT256"
+          ],
+          [
+            "TP-T256",
+            "TP-OPEN256"
+          ]
+        ],
+        "resolution_path": [
+          "TP-T255",
+          "TP-T256",
+          "TP-OPEN256"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No twin-prime proof or counterexample; the two surviving exponent-17 branches are proved equivalent and reduced to one absolute branch."
+    },
+    "research_baselines": {
+      "riemann_status": "https://www.claymath.org/millennium/Riemann-Hypothesis/",
+      "collatz_fixed_representative_context": "https://arxiv.org/abs/1104.3909",
+      "goldbach_major_arcs": "https://arxiv.org/abs/1205.5252",
+      "twin_prime_parity": "https://arxiv.org/abs/1407.4897"
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_partial_theorem_count": 4,
+      "exact_no_go_count": 0,
+      "candidate_resolution_count": 0,
+      "conjecture_resolution_count": 0,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "deep_focus_problem": "twin_prime",
+      "stagnated_problem_count": 0,
+      "riemann_packet_case_count": 12,
+      "collatz_prime_case_count": 22,
+      "goldbach_q_divisible_scan_count": 97,
+      "goldbach_bounded_certificate_count": 2,
+      "twin_exact_grid_case_count": 16641,
+      "twin_independent_surviving_branch_count": 1,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-256",
+      "declared_proposition": "Let (a_k)_(k>=0) be a real sequence and let T_L=(a_|r-s|)_(0<=r,s<L). For the normalized all-ones packet d_L, put E_L=<d_L,T_L d_L> and S_n=a_0+2 sum_(k=1)^n a_k. Then for every L>=1, E_L=L^(-1)sum_(n=0)^(L-1)S_n. Consequently, S_n>=c for every n implies E_L>=c for every L. This condition is not necessary: a_0=1,a_1=-1,a_2=1,a_k=0 for k>=3 has S_1=-1 but E_L>=0 for every L.",
+      "new_result": "ToeplitzPacketCesaroLagPartialSumCriterion",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/cesaro_kernel_qdiv_gl2_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "treating nonnegative symmetric lag partial sums as necessary for nonnegative Dirichlet-packet energies",
+      "parked_routes": [
+        "direct estimates of the actual Guinand-Weil lag partial sums"
+      ],
+      "remaining_gap": "The transfer is exact, but no lower bound is proved for the actual Guinand-Weil lag partial sums, so no zero-free conclusion follows.",
+      "stagnation_count": 0,
+      "candidate_theorem": "ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-256",
+      "declared_proposition": "For prime q and h_0 in F_q define K_(q,h_0)(D)=q^(-1) sum_(h!=h_0) exp(2 pi i hD/q). Then K_(q,h_0)(D)=delta_0(D)-q^(-1)exp(2 pi i h_0D/q), so its uniform error is exactly 1/q. Moreover 1/q is minimax-sharp among all kernels supported on any proper H missing h_0: the error has Fourier coefficient 1/q at h_0, whence its sup norm is at least 1/q. At the canonical Collatz slope D_q=5F_q(2)-3F_q(3), the unnormalized prime-Cesaro average of the errors tends to zero in absolute value, but only because the mean of 1/q tends to zero.",
+      "new_result": "SharpIncompleteKernelErrorAndDecayOnlyPrimeAverage",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/cesaro_kernel_qdiv_gl2_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "counting decay of an unnormalized O(1/q) error average as arithmetic cross-prime phase cancellation",
+      "parked_routes": [
+        "renormalized canonical phase cancellation for the fixed bases 2 and 3"
+      ],
+      "remaining_gap": "The exact 1/q error is optimal and its average vanishes trivially; no cancellation is proved after multiplying by q, and no Collatz orbit is controlled.",
+      "stagnation_count": 0,
+      "candidate_theorem": "RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-256",
+      "declared_proposition": "Let q>=5 be prime, q divide m, and let c_r=sum_(j congruent r mod q) (-1)^j binom(m,j). Put t=1-c_0 and suppose t>0 and c_r+t>=0 for every r. Then m is even. For even m, c_(-r)=c_r, so the forced candidate vector N*_r=c_r+t is reflection-symmetric. Therefore any actual first-T-prime residue vector, T=qt, with N_r(T)!=N_(-r)(T) for some r cannot equal this tail.",
+      "new_result": "QDivisibleReflectionAsymmetryPrimePrefixExclusion",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/cesaro_kernel_qdiv_gl2_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "retaining odd q-divisible compatible cyclotomic tails",
+      "parked_routes": [
+        "even q-divisible compatible prefixes above the exact replay limit"
+      ],
+      "remaining_gap": "Odd q-divisible compatibility is ruled out, but the universal actual-prefix asymmetry needed for every even compatible exponent remains unproved.",
+      "stagnation_count": 0,
+      "candidate_theorem": "EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-256",
+      "declared_proposition": "Let epsilon=1+sqrt(2), define epsilon^j(u+v sqrt(2))^17=A_j(u,v)+B_j(u,v)sqrt(2), and set T(u,v)=(-u-2v,u+v). Then T is in GL_2(Z), B_16(T(u,v))=B_1(u,v), A_16(T(u,v))=-A_1(u,v), and N(T(u,v))=-N(u,v). Consequently the admissible points on the two TICKET-255 surviving twists j=1,16 are in bijection with the single absolute branch B_1(u,v)=1 and -(u^2-2v^2)>0; the associated x is |A_1(u,v)|.",
+      "new_result": "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReduction",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/cesaro_kernel_qdiv_gl2_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "treating the two surviving exponent-17 unit twists as independent global Thue branches",
+      "parked_routes": [
+        "global integral-point exclusion on the remaining absolute coefficient-one branch"
+      ],
+      "remaining_gap": "The GL2 bijection halves the global branch count but does not exclude a negative-norm integral point of B_1=1, so exponent 17 and twin primes remain open.",
+      "stagnation_count": 0,
+      "candidate_theorem": "SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint"
+    }
+  ]
+}

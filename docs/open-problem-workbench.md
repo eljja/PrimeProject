@@ -15,7 +15,26 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-255
+## Current research boundary: TICKET-256
+
+The current machine-readable boundary is
+`data/open-problem/ticket256-cesaro-kernel-qdiv-gl2.json`.
+TICKET-256 proves four partial theorems while resolving none of the parent
+conjectures:
+
+- Toeplitz packet energy is the Cesaro mean of symmetric lag partial sums;
+- a one-frequency-omission kernel has minimax-sharp error `1/q`, with only trivial unnormalized prime-average decay;
+- odd `q`-divisible compatible Goldbach tails are impossible and two bounded even prefixes are exactly excluded;
+- the two surviving exponent-17 Thue twists are GL2-equivalent and reduce to one absolute branch.
+
+The next single lemmas are an actual Weil lag-partial-sum lower bound,
+renormalized canonical Collatz phase cancellation, reflection asymmetry of
+every even `q`-divisible Goldbach prefix, and negative-norm integral-point
+exclusion on the single surviving coefficient-one branch. All statuses remain
+`open_not_proven`. Reports: [English](cesaro-kernel-qdiv-gl2.md) and
+[한국어](cesaro-kernel-qdiv-gl2.ko.md).
+
+## Preserved research boundary: TICKET-255
 
 The current machine-readable boundary is
 `data/open-problem/ticket255-aggregate-incomplete-odd-local.json`.

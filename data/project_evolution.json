@@ -52,10 +52,10 @@
     "classifier_claim_scope": "controlled_synthetic_only",
     "publication_claim_level": "public_demo_only",
     "checksummed_artifacts": 21,
-    "claim_language_scanned_files": 284,
-    "claim_language_scanned_lines": 98327,
-    "claim_language_triggered_mentions": 135,
-    "claim_language_guarded_mentions": 135,
+    "claim_language_scanned_files": 286,
+    "claim_language_scanned_lines": 99174,
+    "claim_language_triggered_mentions": 134,
+    "claim_language_guarded_mentions": 134,
     "claim_language_failures": 0,
     "blocking_gaps": 2,
     "claim_ledger_allowed": 3,
@@ -1616,6 +1616,20 @@
           "state": "bounded",
           "measure": "RH 8 exact operator blocks / Collatz 48 detector plus 12 weighted rows / Goldbach 50 reflection certificates / Twin 17 polynomial pairs and 10,608 twist-points / 2 partial theorems plus 2 exact no-gos / 0 conjecture resolutions",
           "proof": "TICKET-254 proves diagonal-only RH packet domination is impossible in the abstract positive-operator class, nonnegative complete Collatz detector averages equal incidence, even non-q-divisible compatible Goldbach tails are excluded past their second residue-prime threshold, and the exponent-17 Twin obstruction reduces exactly to 17 unit-twisted coefficient-one Thue equations while leaving all four parent conjectures open"
+        },
+        {
+          "marker": "216",
+          "title": "Aggregate packet no-go, incomplete-recovery no-go, odd reflection, and three-prime Thue obstruction sharpen four gates",
+          "state": "bounded",
+          "measure": "RH 8 exact positive blocks / Collatz 48 missing-frequency certificates / Goldbach 4 exact odd-prefix certificates / Twin 3 split primes representing 3,343,203 residue cases and excluding 15 of 17 twists / 2 partial theorems plus 2 exact no-gos / 0 conjecture resolutions",
+          "proof": "TICKET-255 proves strict diagonal dominance is unnecessary for positive packet energy, proper incomplete character support cannot exactly recover incidence, odd Goldbach reflection forces a 2t-1 prefix obstruction, and split primes 103, 137, and 409 reduce the exponent-17 Twin obstruction from 17 Thue twists to two while leaving all four parent conjectures open"
+        },
+        {
+          "marker": "217",
+          "title": "Packet-Cesaro identity, sharp incomplete kernel, q-divisible reflection, and GL2 survivor reduction sharpen four gates",
+          "state": "bounded",
+          "measure": "RH 12 exact packet rows / Collatz 22 exact prime rows / Goldbach 97 q-divisible scans and 2 prefix certificates / Twin 16,641 GL2 grid identities reducing 2 branches to 1 / 4 partial theorems / 0 conjecture resolutions",
+          "proof": "TICKET-256 proves the packet-energy Cesaro identity, the minimax-sharp 1/q incomplete-kernel error with decay-only unnormalized averaging, impossibility of odd q-divisible compatible Goldbach tails plus two bounded prefix exclusions, and a determinant-one equivalence reducing the two surviving exponent-17 Thue twists to one absolute branch while leaving all four parent conjectures open"
         }
       ],
       "evidence_flow": [
@@ -1737,17 +1751,17 @@
           "layer": "Open-Proof",
           "score": 99,
           "status": "open",
-          "artifacts": ["data/open-problem/ticket255-aggregate-incomplete-odd-local.json", "docs/aggregate-incomplete-odd-local.md", "docs/aggregate-incomplete-odd-local.ko.md", "docs/proof-or-counterexample-program.md"],
-          "gate": "TICKET-255 proves two exact route no-gos and two partial theorems, records four acyclic proof DAGs with zero machine failures, checks 8 RH blocks, 48 Collatz missing-frequency certificates, 4 Goldbach odd-prefix certificates, and 3 split-prime Twin certificates eliminating 15 of 17 twists while every resolution counter stays zero. The displayed score measures workflow coverage, not proof probability or conjecture completion.",
-          "proof": "The current workbench requires an actual Weil aggregate packet bound, controlled-error signed Collatz cancellation, q-divisible Goldbach-tail exclusion, and admissible-point exclusion for the two surviving exponent-17 twists."
+          "artifacts": ["data/open-problem/ticket256-cesaro-kernel-qdiv-gl2.json", "docs/cesaro-kernel-qdiv-gl2.md", "docs/cesaro-kernel-qdiv-gl2.ko.md", "docs/proof-or-counterexample-program.md"],
+          "gate": "TICKET-256 proves four partial theorems, records four acyclic proof DAGs with zero machine failures, checks 12 RH packet rows, 22 Collatz prime rows, 2 Goldbach prefix certificates, and 16,641 Twin GL2 grid identities while every resolution counter stays zero. The displayed score measures workflow coverage, not proof probability or conjecture completion.",
+          "proof": "The current workbench requires an actual Weil lag-partial-sum bound, renormalized canonical Collatz phase cancellation, every-prefix q-divisible Goldbach asymmetry, and negative-norm integral-point exclusion on one exponent-17 branch."
         }
       ]
     },
     "latest_changes": [
       {
         "label": "Evidence-first Pages",
-        "impact": "The public entry points now lead with TICKET-255: aggregate packets, incomplete recovery, odd reflection, and the three-prime exponent-17 obstruction, while preserving TICKET-254 and the full research ledger.",
-        "metric": "4 current cards / 255 tickets"
+        "impact": "The public entry points now lead with TICKET-256: packet Cesaro, a sharp incomplete kernel, q-divisible reflection, and the GL2 exponent-17 survivor reduction, while preserving TICKET-255 and the full research ledger.",
+        "metric": "4 current cards / 256 tickets"
       },
       {
         "label": "Scale evidence",

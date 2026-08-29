@@ -31,16 +31,19 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-255: Aggregate Packets, Incomplete Recovery, Odd Reflection, and a Three-Prime Thue Obstruction](docs/aggregate-incomplete-odd-local.md),
-with a separate [Korean report](docs/aggregate-incomplete-odd-local.ko.md).
-It proves two exact route no-go results and two partial theorems. Strict
-diagonal dominance is not necessary for positive packet energy; a proper
-additive-character support cannot recover point incidence exactly; odd
-Goldbach reflection gives a `2t-1` prime-prefix obstruction with four exact
-certificates; and split primes 103, 137, and 409 reduce the seventeen
-exponent-17 unit twists to `j=1,16`. Both survivors remain globally open.
-All parent conjectures remain `open_not_proven`.
+[TICKET-256: Cesaro Lag Sums, a Sharp Incomplete Kernel, Q-Divisible Reflection, and a GL2 Survivor Reduction](docs/cesaro-kernel-qdiv-gl2.md),
+with a separate [Korean report](docs/cesaro-kernel-qdiv-gl2.ko.md).
+It proves four partial theorems. Dirichlet-packet Toeplitz energy is the
+Cesaro mean of symmetric lag partial sums; one omitted additive character has
+the minimax-sharp error `1/q`, whose unnormalized prime average is decay-only;
+odd `q`-divisible Goldbach-compatible tails are impossible and two bounded
+even prefixes fail exact reflection symmetry; and a determinant-one map
+reduces the surviving exponent-17 twists `j=1,16` to one absolute branch.
+All four parent conjectures remain `open_not_proven`.
 
+The preserved [TICKET-255 report](docs/aggregate-incomplete-odd-local.md)
+records the preceding aggregate-packet, incomplete-recovery, odd-reflection,
+and three-prime Thue boundary.
 The preserved [TICKET-254 report](docs/diagonal-weighted-reflection-thue.md) records the preceding positive-diagonal, weighted-detector, even-reflection, and seventeen-equation reduction boundary.
 
 The preserved [TICKET-253 report](docs/density-character-prefix-lebesgue.md)
@@ -670,15 +673,14 @@ See [TICKET236 EN](docs/contraction-order-phase-degree2.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-255입니다. 리만 트랙은 양의 packet
-에너지에 엄격 대각우세가 필요하지 않음을 exact 반례로 증명했습니다.
-콜라츠 트랙은 진부분집합 additive-character support가 점질량을 exact
-복원할 수 없음을 Fourier 유일성으로 증명했습니다. 골드바흐 트랙은 홀수
-반사가 한 잔여류 count를 `2t-1`로 강제함을 보이고 네 prime prefix를
-배제했습니다. 쌍둥이 소수 트랙은 mod 103, 137, 409 certificate로 지수 17
-unit twist 17개 중 15개를 제거해 `j=1,16`만 남겼습니다. 두 생존 twist의
-양의 허용 정수점 배제와 네 원래 추측은 미해결이며 해결 수는 0입니다.
-
+한국어 최신 요약: 최신 탐색은 TICKET-256입니다. 리만 트랙은 Toeplitz
+packet 에너지가 symmetric lag 부분합의 Cesaro 평균임을 증명했습니다.
+콜라츠 트랙은 주파수 하나를 뺀 kernel의 최적 error가 `1/q`임을 증명하고
+그 비정규화 평균 감소가 산술 상쇄가 아니라 자동 감쇠임을 확정했습니다.
+골드바흐 트랙은 홀수 `q`-배수 호환 tail의 불가능성과 두 bounded 짝수
+prefix 배제를 증명했습니다. 쌍둥이 소수 트랙은 생존 twist `j=1,16`을
+GL2 전단사로 단일 absolute branch로 줄였습니다. 네 원 추측의 해결 수는
+0이며 모두 미해결입니다.
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
 The Attribution Grid panel displays a bundled paired benchmark from `data/attribution_confound_grid.json`, `data/null_calibration.json`, and `data/replication_audit.json`, highlighting which fingerprint profiles survive bit-length control, which ones are likely range confounds, whether the strongest controlled profiles survive random-label null simulation after family-wise profile selection, and whether those profiles replicate across settings.
@@ -697,18 +699,17 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-255입니다.
-[packet aggregate·incomplete recovery·odd reflection·three-prime Thue obstruction 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/aggregate-incomplete-odd-local.ko.md)와
-[영문 보고서](docs/aggregate-incomplete-odd-local.md)는 네 트랙의 정확 명제,
+최신 난제 연구 트랙은 TICKET-256입니다.
+[packet Cesaro·sharp incomplete kernel·q-배수 reflection·GL2 survivor reduction 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/cesaro-kernel-qdiv-gl2.ko.md)와
+[영문 보고서](docs/cesaro-kernel-qdiv-gl2.md)는 네 트랙의 정확 명제,
 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 현재 결정적
-미해결 보조정리는 actual Weil aggregate packet 하한, controlled-error
-signed incomplete Collatz cancellation, q-divisible Goldbach tail 배제,
-두 생존 unit twist `j=1,16`의 허용 정수점 배제입니다.
-
+미해결 보조정리는 actual Weil lag 부분합 하한, renormalized canonical
+Collatz phase 상쇄, 모든 짝수 q-배수 Goldbach prefix의 반사 비대칭,
+단일 coefficient-one branch의 negative-norm 정수점 배제입니다.
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-255의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 255개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-256의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 256개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

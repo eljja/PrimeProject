@@ -44,7 +44,34 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-255
+## Latest handoff: TICKET-256
+
+Canonical artifact:
+`data/open-problem/ticket256-cesaro-kernel-qdiv-gl2.json`.
+
+All four parent conjectures remain `open_not_proven`. TICKET-256 established:
+
+- RH: normalized Toeplitz packet energy is exactly the Cesaro mean of symmetric lag partial sums; nonnegative partial sums are sufficient but not necessary;
+- Collatz: omitting one additive character gives the minimax-sharp uniform error `1/q`; its unnormalized prime average vanishes by scale decay only;
+- Goldbach: odd `q`-divisible compatible tails are impossible, even candidates are reflection-symmetric, and the bounded `(q,m)=(5,10),(7,14)` prefixes are excluded by exact actual asymmetry;
+- Twin: `T(u,v)=(-u-2v,u+v)` is a determinant-one bijection between the two surviving exponent-17 twists, reducing them to the single branch `B_1=1`, `-(u^2-2v^2)>0`.
+
+The exact next frontiers are:
+
+```text
+RH: ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound
+Collatz: RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation
+Goldbach: EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry
+Twin: SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint
+```
+
+The 12 RH rows, 22 Collatz prime rows, two Goldbach prime-prefix certificates,
+and 16,641 Twin grid rows are exact replays. They do not estimate actual Weil
+lags, prove renormalized canonical phase cancellation, cover every even
+`q`-divisible prefix, or exclude all integral points on the remaining Thue
+branch. None of the four conjectures is resolved.
+
+## Preserved handoff: TICKET-255
 
 Canonical artifact:
 `data/open-problem/ticket255-aggregate-incomplete-odd-local.json`.

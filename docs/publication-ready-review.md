@@ -658,3 +658,17 @@ uniqueness to approximate canonical Collatz cancellation, promotion of four
 Goldbach certificates to the 46 unenumerated rows or `q`-divisible exponents,
 and promotion of local solubility of twists 1 and 16 to global admissible
 integral points. Resolution and candidate-resolution counts are zero.
+## TICKET-256 publication boundary
+
+TICKET-256 adds four `partial_theorem` results. Allowed wording is limited to
+the exact packet-Cesaro identity and its abstract necessity counterexample, the
+minimax-sharp `1/q` incomplete-character error and decay-only average, the
+impossibility of odd `q`-divisible compatible cyclotomic tails plus the
+conditional reflection-asymmetry criterion and two bounded certificates, and
+the determinant-one equivalence reducing the two surviving exponent-17 twists
+to one absolute branch. Blocked wording includes every parent-conjecture proof
+or disproof, any actual Weil lag lower bound, renormalized canonical Collatz
+phase cancellation, extension of two Goldbach prefixes to every even
+`q`-divisible tail, and promotion of the finite Twin box or GL2 reduction to a
+global integral-point exclusion. Resolution and candidate-resolution counts
+are zero.

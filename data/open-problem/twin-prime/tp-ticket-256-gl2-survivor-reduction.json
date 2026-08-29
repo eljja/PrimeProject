@@ -1,0 +1,222 @@
+{
+  "schema": "primeproject.ticket256-cesaro-kernel-qdiv-gl2.v1",
+  "generated_at": "2026-08-29T21:40:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-256",
+  "theorem_name": "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReduction",
+  "declared_proposition": "Let epsilon=1+sqrt(2), define epsilon^j(u+v sqrt(2))^17=A_j(u,v)+B_j(u,v)sqrt(2), and set T(u,v)=(-u-2v,u+v). Then T is in GL_2(Z), B_16(T(u,v))=B_1(u,v), A_16(T(u,v))=-A_1(u,v), and N(T(u,v))=-N(u,v). Consequently the admissible points on the two TICKET-255 surviving twists j=1,16 are in bijection with the single absolute branch B_1(u,v)=1 and -(u^2-2v^2)>0; the associated x is |A_1(u,v)|.",
+  "mathematical_argument": "The matrix of T is [[-1,-2],[1,1]], has determinant one, and inverse [[1,2],[-1,-1]]. If alpha=u+v sqrt(2), then T(alpha)=epsilon^(-1) conjugate(alpha). Since conjugate(epsilon)=-epsilon^(-1), epsilon^16 T(alpha)^17=-conjugate(epsilon alpha^17), which proves the A/B identities. Norm(epsilon)=-1 proves the norm identity and preservation of reduced y. A positive-A point on twist 1 stays in the positive sign branch; a negative-A point maps to a positive-A twist-16 point, and the inverse handles the converse. If B_1=1 and -N(alpha)>0, then A_1^2-2=(-N(alpha))^17>0, so A_1 is nonzero and |A_1| is valid. This reduces two equations to one but does not prove the remaining branch has no integral point.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let epsilon=1+sqrt(2), define epsilon^j(u+v sqrt(2))^17=A_j(u,v)+B_j(u,v)sqrt(2), and set T(u,v)=(-u-2v,u+v). Then T is in GL_2(Z), B_16(T(u,v))=B_1(u,v), A_16(T(u,v))=-A_1(u,v), and N(T(u,v))=-N(u,v). Consequently the admissible points on the two TICKET-255 surviving twists j=1,16 are in bijection with the single absolute branch B_1(u,v)=1 and -(u^2-2v^2)>0; the associated x is |A_1(u,v)|.",
+    "proof": "The matrix of T is [[-1,-2],[1,1]], has determinant one, and inverse [[1,2],[-1,-1]]. If alpha=u+v sqrt(2), then T(alpha)=epsilon^(-1) conjugate(alpha). Since conjugate(epsilon)=-epsilon^(-1), epsilon^16 T(alpha)^17=-conjugate(epsilon alpha^17), which proves the A/B identities. Norm(epsilon)=-1 proves the norm identity and preservation of reduced y. A positive-A point on twist 1 stays in the positive sign branch; a negative-A point maps to a positive-A twist-16 point, and the inverse handles the converse. If B_1=1 and -N(alpha)>0, then A_1^2-2=(-N(alpha))^17>0, so A_1 is nonzero and |A_1| is valid. This reduces two equations to one but does not prove the remaining branch has no integral point.",
+    "transformation_matrix": [
+      [
+        -1,
+        -2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "inverse_transformation_matrix": [
+      [
+        1,
+        2
+      ],
+      [
+        -1,
+        -1
+      ]
+    ],
+    "determinant": 1,
+    "exact_sample_rows": [
+      {
+        "u": -7,
+        "v": 3,
+        "transformed_u": 1,
+        "transformed_v": -4,
+        "A_1_u_v": 151689648275203967,
+        "B_1_u_v": -107260778983758100,
+        "A_16_transformed": -151689648275203967,
+        "B_16_transformed": -107260778983758100,
+        "reduced_y": -31,
+        "identities_verified": true
+      },
+      {
+        "u": -2,
+        "v": -1,
+        "transformed_u": 4,
+        "transformed_v": -3,
+        "A_1_u_v": -1405035520,
+        "B_1_u_v": -993510144,
+        "A_16_transformed": 1405035520,
+        "B_16_transformed": -993510144,
+        "reduced_y": -2,
+        "identities_verified": true
+      },
+      {
+        "u": -1,
+        "v": 1,
+        "transformed_u": -1,
+        "transformed_v": 0,
+        "A_1_u_v": 665857,
+        "B_1_u_v": -470832,
+        "A_16_transformed": -665857,
+        "B_16_transformed": -470832,
+        "reduced_y": 1,
+        "identities_verified": true
+      },
+      {
+        "u": 0,
+        "v": 0,
+        "transformed_u": 0,
+        "transformed_v": 0,
+        "A_1_u_v": 0,
+        "B_1_u_v": 0,
+        "A_16_transformed": 0,
+        "B_16_transformed": 0,
+        "reduced_y": 0,
+        "identities_verified": true
+      },
+      {
+        "u": 1,
+        "v": 0,
+        "transformed_u": -1,
+        "transformed_v": 1,
+        "A_1_u_v": 1,
+        "B_1_u_v": 1,
+        "A_16_transformed": -1,
+        "B_16_transformed": 1,
+        "reduced_y": -1,
+        "identities_verified": true
+      },
+      {
+        "u": 2,
+        "v": -3,
+        "transformed_u": 4,
+        "transformed_v": -1,
+        "A_1_u_v": -6877904561152,
+        "B_1_u_v": 4863411388160,
+        "A_16_transformed": 6877904561152,
+        "B_16_transformed": 4863411388160,
+        "reduced_y": 14,
+        "identities_verified": true
+      },
+      {
+        "u": 5,
+        "v": 8,
+        "transformed_u": -21,
+        "transformed_v": 13,
+        "A_1_u_v": 495611711803828117461,
+        "B_1_u_v": 350450390461078282573,
+        "A_16_transformed": -495611711803828117461,
+        "B_16_transformed": 350450390461078282573,
+        "reduced_y": 103,
+        "identities_verified": true
+      }
+    ],
+    "finite_box_audit": {
+      "coordinate_radius": 64,
+      "exact_grid_case_count": 16641,
+      "coefficient_one_point_count": 1,
+      "admissible_absolute_branch_point_count": 0,
+      "coefficient_one_points": [
+        {
+          "u": 1,
+          "v": 0,
+          "transformed_u": -1,
+          "transformed_v": 1,
+          "A_1_u_v": 1,
+          "B_1_u_v": 1,
+          "A_16_transformed": -1,
+          "B_16_transformed": 1,
+          "reduced_y": -1,
+          "identities_verified": true,
+          "negative_norm_condition": false,
+          "admissible_absolute_branch": false
+        }
+      ]
+    },
+    "algorithm": "exact integer quadratic-ring exponentiation and GL2 forward/inverse replay",
+    "complexity": "O(R^2 log 17) integer-ring multiplications for radius R; the all-integer bijection is algebraic",
+    "random_seed": null,
+    "transcript_sha256": "b16cc63924090d6e214ecdaaa8c47018fced6bae337cc3445ed9cbd3a85eb7a9",
+    "aggregate": {
+      "two_surviving_twists_gl2_equivalent": true,
+      "independent_surviving_branch_count": 1,
+      "single_absolute_branch_globally_solved": false,
+      "exponent_seventeen_excluded": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "16641 exact grid points replay the all-integer identities; absence of an admissible point in that box is not an infinite exclusion.",
+  "logical_limit": "The GL2 bijection halves the global branch count but does not exclude a negative-norm integral point of B_1=1, so exponent 17 and twin primes remain open.",
+  "route_decision": {
+    "discard": "treating the two surviving exponent-17 unit twists as independent global Thue branches",
+    "parked": [
+      "global integral-point exclusion on the remaining absolute coefficient-one branch"
+    ],
+    "retain": "the determinant-one conjugation-unit bijection reducing two sign branches to one equation",
+    "next_single_lemma": "SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T255",
+        "label": "ThreePrimeLocalObstructionReducesSeventeenTwistsToTwo",
+        "status": "proved"
+      },
+      {
+        "id": "TP-T256",
+        "label": "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReduction",
+        "status": "proved"
+      },
+      {
+        "id": "TP-CERT256",
+        "label": "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReductionExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "TP-REJECT256",
+        "label": "TwoSurvivingUnitTwistsAreIndependentIntegralPointProblems",
+        "status": "disproved"
+      },
+      {
+        "id": "TP-OPEN256",
+        "label": "SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T255",
+        "TP-T256"
+      ],
+      [
+        "TP-T256",
+        "TP-CERT256"
+      ],
+      [
+        "TP-T256",
+        "TP-REJECT256"
+      ],
+      [
+        "TP-T256",
+        "TP-OPEN256"
+      ]
+    ],
+    "resolution_path": [
+      "TP-T255",
+      "TP-T256",
+      "TP-OPEN256"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No twin-prime proof or counterexample; the two surviving exponent-17 branches are proved equivalent and reduced to one absolute branch."
+}

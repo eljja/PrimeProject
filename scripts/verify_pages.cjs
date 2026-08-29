@@ -21,6 +21,7 @@ async function main() {
   const ticket248Load = openProblemSource.indexOf("const ticket248Loaded = await loadTicket248Attempt();");
   const ticket249Load = openProblemSource.indexOf("const ticket249Loaded = await loadTicket249Attempt();");
   const ticket250Load = openProblemSource.indexOf("const ticket250Loaded = await loadTicket250Attempt();");
+  const ticket256Load = openProblemSource.indexOf("const ticket256Loaded = await loadTicket256Attempt();");
   const ticket255Load = openProblemSource.indexOf("const ticket255Loaded = await loadTicket255Attempt();");
   const ticket254Load = openProblemSource.indexOf("const ticket254Loaded = await loadTicket254Attempt();");
   const ticket253Load = openProblemSource.indexOf("const ticket253Loaded = await loadTicket253Attempt();");
@@ -129,6 +130,9 @@ async function main() {
   if (!(ticket250Load >= 0 && ticket250Load < ticket249Load)) {
     errors.push("TICKET250 must load before TICKET249");
   }
+  if (!(ticket256Load >= 0 && ticket256Load < ticket255Load)) {
+    errors.push("TICKET256 must load before TICKET255");
+  }
   if (!(ticket255Load >= 0 && ticket255Load < ticket254Load)) {
     errors.push("TICKET255 must load before TICKET254");
   }
@@ -146,10 +150,10 @@ async function main() {
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260829-ticket255") || !source.includes("ticket255-open-problem.js?v=20260829-ticket255") || !source.includes("ticket254-open-problem.js?v=20260829-ticket254") || !source.includes("ticket253-open-problem.js?v=20260829-ticket253") || !source.includes("ticket252-open-problem.js?v=20260829-ticket252") || !source.includes("ticket251-open-problem.js?v=20260827-ticket251") || !source.includes("ticket250-open-problem.js?v=20260827-ticket250") || !source.includes("ticket249-open-problem.js?v=20260826-ticket249") || !source.includes("ticket248-open-problem.js?v=20260826-ticket248") || !source.includes("ticket247-open-problem.js?v=20260826-ticket247") || !source.includes("ticket246-open-problem.js?v=20260826-ticket246") || !source.includes("ticket245-open-problem.js?v=20260826-ticket245") || !source.includes("ticket244-open-problem.js?v=20260826-ticket244") || !source.includes("ticket243-open-problem.js?v=20260826-ticket243") || !source.includes("ticket242-open-problem.js?v=20260825-ticket242")) {
+    if (!source.includes("open-problems.js?v=20260829-ticket256") || !source.includes("ticket256-open-problem.js?v=20260829-ticket256") || !source.includes("ticket255-open-problem.js?v=20260829-ticket255") || !source.includes("ticket254-open-problem.js?v=20260829-ticket254") || !source.includes("ticket253-open-problem.js?v=20260829-ticket253") || !source.includes("ticket252-open-problem.js?v=20260829-ticket252") || !source.includes("ticket251-open-problem.js?v=20260827-ticket251") || !source.includes("ticket250-open-problem.js?v=20260827-ticket250") || !source.includes("ticket249-open-problem.js?v=20260826-ticket249") || !source.includes("ticket248-open-problem.js?v=20260826-ticket248") || !source.includes("ticket247-open-problem.js?v=20260826-ticket247") || !source.includes("ticket246-open-problem.js?v=20260826-ticket246") || !source.includes("ticket245-open-problem.js?v=20260826-ticket245") || !source.includes("ticket244-open-problem.js?v=20260826-ticket244") || !source.includes("ticket243-open-problem.js?v=20260826-ticket243") || !source.includes("ticket242-open-problem.js?v=20260825-ticket242")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260829-ticket255-layout")) {
+    if (!source.includes("styles.css?v=20260829-ticket256-layout")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -460,7 +464,7 @@ async function main() {
       try {
         await problemPage.waitForFunction(() => document.querySelectorAll(".proof-metric").length >= 3);
         await problemPage.waitForFunction(
-          () => document.querySelector("#currentResearch")?.textContent.includes("TICKET-255")
+          () => document.querySelector("#currentResearch")?.textContent.includes("TICKET-256")
             && document.querySelector("#proofOrCounterexampleLab")?.textContent.includes("Ticket 71"),
           null,
           { timeout: 120000 },
@@ -559,9 +563,9 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
-          ticket255AuditOverflow: (() => {
+          ticket256AuditOverflow: (() => {
             const wrapper = document.querySelector(
-              "#ticket255-aggregate-incomplete-odd-local .ticket254-audit-table .proof-table-wrap",
+              "#ticket256-cesaro-kernel-qdiv-gl2 .ticket256-audit-table .proof-table-wrap",
             );
             return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
           })(),          ticket252AuditOverflow: (() => {
@@ -849,15 +853,15 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-255") ||
-    !metrics.currentBriefText.includes("ActualWeilDirichletPacketAggregateRowSumHasRequiredLowerBound") ||
-    !metrics.currentBriefText.includes("SignedIncompleteSlopeKernelHasControlledCanonicalErrorAndCrossPrimeCancellation") ||
-    !metrics.currentBriefText.includes("QDivisibleCompatibleTailPrimePrefixExclusion") ||
-    !metrics.currentBriefText.includes("TwoSurvivingUnitTwistsHaveNoAdmissibleIntegralPoint") ||
+    !metrics.currentBriefText.includes("TICKET-256") ||
+    !metrics.currentBriefText.includes("ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound") ||
+    !metrics.currentBriefText.includes("RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation") ||
+    !metrics.currentBriefText.includes("EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry") ||
+    !metrics.currentBriefText.includes("SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
-    metrics.railResearchTicket.trim() !== "TICKET-255" ||
-    !metrics.railResearchText.includes("TICKET-255") ||
+    metrics.railResearchTicket.trim() !== "TICKET-256" ||
+    !metrics.railResearchText.includes("TICKET-256") ||
     !metrics.railResearchText.includes("resolution count of zero") ||
     metrics.mobileHorizontalOverflow ||
     !metrics.mobileNavigationCollapsed
@@ -874,12 +878,12 @@ async function main() {
     ["Collatz link", metrics.proofHub?.links.includes("collatz.html")],
     ["Goldbach link", metrics.proofHub?.links.includes("goldbach.html")],
     ["Twin link", metrics.proofHub?.links.includes("twin-prime.html")],
-    ["TICKET-255 boundary", metrics.proofHub?.boundary.includes("What TICKET-255 actually changed")],
-    ["Riemann next lemma", metrics.proofHub?.boundary.includes("ActualWeilDirichletPacketAggregateRowSumHasRequiredLowerBound")],
-    ["Collatz next lemma", metrics.proofHub?.boundary.includes("SignedIncompleteSlopeKernelHasControlledCanonicalErrorAndCrossPrimeCancellation")],
-    ["Goldbach next lemma", metrics.proofHub?.boundary.includes("QDivisibleCompatibleTailPrimePrefixExclusion")],
-    ["Twin next lemma", metrics.proofHub?.boundary.includes("TwoSurvivingUnitTwistsHaveNoAdmissibleIntegralPoint")],
-    ["progression range", metrics.proofHub?.boundary.includes("TICKET-161–255")],
+    ["TICKET-256 boundary", metrics.proofHub?.boundary.includes("What TICKET-256 actually changed")],
+    ["Riemann next lemma", metrics.proofHub?.boundary.includes("ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound")],
+    ["Collatz next lemma", metrics.proofHub?.boundary.includes("RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation")],
+    ["Goldbach next lemma", metrics.proofHub?.boundary.includes("EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry")],
+    ["Twin next lemma", metrics.proofHub?.boundary.includes("SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint")],
+    ["progression range", metrics.proofHub?.boundary.includes("TICKET-161–256")],
     ["resolution count label", metrics.proofHub?.boundary.includes("Resolution count")],
     ["zero resolution count", metrics.proofHub?.boundary.includes("0")],
     ["claim boundary", metrics.proofHub?.boundary.includes("not present a conjecture as solved")],
@@ -893,8 +897,8 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentBoundaryLabel.includes("TICKET-255 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-255 boundary label missing`);
-    if (!page.currentResearchText.includes("TICKET-255 aggregate packets, incomplete recovery, odd reflection, and a three-prime Thue obstruction")) failures.push(`${page.problemId}: current TICKET-255 boundary missing`);
+    if (!page.currentBoundaryLabel.includes("TICKET-256 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-256 boundary label missing`);
+    if (!page.currentResearchText.includes("TICKET-256 Cesaro lag sums, sharp incomplete kernels, q-divisible reflection, and a GL2 survivor reduction")) failures.push(`${page.problemId}: current TICKET-256 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -1764,37 +1768,37 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
-    requireCurrentText("ticket255 title", "TICKET-255 aggregate packets, incomplete recovery, odd reflection, and a three-prime Thue obstruction");
-    requireCurrentText("ticket255 table", "TICKET255 audit");
-    requireCurrentText("ticket255 latest", "LATEST / 최신 연구 경계");
-    requireCurrentText("ticket255 resolutions", "Resolution count0");
-    requireCurrentText("ticket255 proof DAG", "Proof DAG / 증명 의존성");
-    requireCurrentText("ticket255 completion guard", "TICKET-255 resolves none of the four parent conjectures");
-    if (page.ticket255AuditOverflow) checks.push(`${page.problemId}: ticket255 audit table overflow`);
+    requireCurrentText("ticket256 title", "TICKET-256 Cesaro lag sums, sharp incomplete kernels, q-divisible reflection, and a GL2 survivor reduction");
+    requireCurrentText("ticket256 table", "TICKET256 audit");
+    requireCurrentText("ticket256 latest", "LATEST / 최신 연구 경계");
+    requireCurrentText("ticket256 resolutions", "Resolution count0");
+    requireCurrentText("ticket256 proof DAG", "Proof DAG / 증명 의존성");
+    requireCurrentText("ticket256 completion guard", "TICKET-256 resolves none of the four parent conjectures");
+    if (page.ticket256AuditOverflow) checks.push(`${page.problemId}: ticket256 audit table overflow`);
     if (page.problemId === "riemann") {
-      requireCurrentText("ticket255 RH theorem", "StrictDiagonalDominanceNecessityNoGo");
-      requireCurrentText("ticket255 RH target", "ActualWeilDirichletPacketAggregateRowSumHasRequiredLowerBound");
-      requireCurrentText("ticket255 RH positive", "Positive blocksproved");
-      requireCurrentText("ticket255 RH no-go", "Strict-DD necessityrejected");
-      requireCurrentText("ticket255 RH open", "Actual Weil formopen");
+      requireCurrentText("ticket256 RH theorem", "ToeplitzPacketCesaroLagPartialSumCriterion");
+      requireCurrentText("ticket256 RH target", "ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound");
+      requireCurrentText("ticket256 RH identity", "Cesaro identityproved");
+      requireCurrentText("ticket256 RH no-go", "Partial-sum necessityrejected");
+      requireCurrentText("ticket256 RH open", "Actual Weil lagsopen");
     } else if (page.problemId === "collatz") {
-      requireCurrentText("ticket255 Collatz theorem", "IncompleteAdditiveCharacterExactRecoveryNoGo");
-      requireCurrentText("ticket255 Collatz target", "SignedIncompleteSlopeKernelHasControlledCanonicalErrorAndCrossPrimeCancellation");
-      requireCurrentText("ticket255 Collatz cases", "Exact replay48");
-      requireCurrentText("ticket255 Collatz no-go", "Incomplete exact recoveryimpossible");
-      requireCurrentText("ticket255 Collatz open", "Approximate recoveryopen");
+      requireCurrentText("ticket256 Collatz theorem", "SharpIncompleteKernelErrorAndDecayOnlyPrimeAverage");
+      requireCurrentText("ticket256 Collatz target", "RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation");
+      requireCurrentText("ticket256 Collatz sharp", "Sharp uniform error1/q proved");
+      requireCurrentText("ticket256 Collatz decay", "Unnormalized meandecays");
+      requireCurrentText("ticket256 Collatz open", "Renormalized cancellationopen");
     } else if (page.problemId === "goldbach") {
-      requireCurrentText("ticket255 Goldbach theorem", "OddCyclotomicReflectionPrimePrefixExclusion");
-      requireCurrentText("ticket255 Goldbach target", "QDivisibleCompatibleTailPrimePrefixExclusion");
-      requireCurrentText("ticket255 Goldbach identity", "Odd reflectionproved");
-      requireCurrentText("ticket255 Goldbach finite", "Replayed rowsexcluded");
-      requireCurrentText("ticket255 Goldbach open", "q-divisible tailsopen");
+      requireCurrentText("ticket256 Goldbach theorem", "QDivisibleReflectionAsymmetryPrimePrefixExclusion");
+      requireCurrentText("ticket256 Goldbach target", "EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry");
+      requireCurrentText("ticket256 Goldbach parity", "Odd q-divisible compatibilityimpossible");
+      requireCurrentText("ticket256 Goldbach finite", "Bounded prefixesexcluded");
+      requireCurrentText("ticket256 Goldbach open", "All even tailsopen");
     } else {
-      requireCurrentText("ticket255 Twin theorem", "ThreePrimeLocalObstructionReducesSeventeenTwistsToTwo");
-      requireCurrentText("ticket255 Twin target", "TwoSurvivingUnitTwistsHaveNoAdmissibleIntegralPoint");
-      requireCurrentText("ticket255 Twin excluded", "Locally excluded15 / 17");
-      requireCurrentText("ticket255 Twin survivors", "Survivors1, 16");
-      requireCurrentText("ticket255 Twin open", "Survivors globally solvedopen");
+      requireCurrentText("ticket256 Twin theorem", "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReduction");
+      requireCurrentText("ticket256 Twin target", "SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint");
+      requireCurrentText("ticket256 Twin equivalence", "GL2 equivalenceproved");
+      requireCurrentText("ticket256 Twin branch", "Independent branches1");
+      requireCurrentText("ticket256 Twin open", "Remaining branch solvedopen");
     }    requireText("ticket194 historical title", "Ticket 194 dense-core extension, ten-one cycles, and theta layers");
     requireText("ticket194 historical table", "TICKET194 audit");
     requireText("ticket194 historical label", "PREVIOUS / 이전 연구 경계");
@@ -3824,6 +3828,8 @@ async function main() {
     ["panel", metrics.evolutionPanel, "Evidence pack"],
     ["panel", metrics.evolutionPanel, "Publication consistency"],
     ["panel", metrics.evolutionPanel, "TICKET-245"],
+    ["panel", metrics.evolutionPanel, "TICKET-256"],
+    ["panel", metrics.evolutionPanel, "4 current cards / 256 tickets"],
     ["panel", metrics.evolutionPanel, "TICKET-247"],
     ["panel", metrics.evolutionPanel, "TICKET-249"],
     ["panel", metrics.evolutionPanel, "TICKET-248"],
@@ -3873,11 +3879,11 @@ async function main() {
     !metrics.atlasPanel.includes("Publication claims governed") ||
     !metrics.atlasPanel.includes("Evidence ladder") ||
     !metrics.atlasPanel.includes("Proof workbench") ||
-    !metrics.atlasPanel.includes("TICKET-255") ||
-    !metrics.atlasPanel.includes("ActualWeilDirichletPacketAggregateRowSumHasRequiredLowerBound") ||
-    !metrics.atlasPanel.includes("SignedIncompleteSlopeKernelHasControlledCanonicalErrorAndCrossPrimeCancellation") ||
-    !metrics.atlasPanel.includes("QDivisibleCompatibleTailPrimePrefixExclusion") ||
-    !metrics.atlasPanel.includes("TwoSurvivingUnitTwistsHaveNoAdmissibleIntegralPoint") ||
+    !metrics.atlasPanel.includes("TICKET-256") ||
+    !metrics.atlasPanel.includes("ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound") ||
+    !metrics.atlasPanel.includes("RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation") ||
+    !metrics.atlasPanel.includes("EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry") ||
+    !metrics.atlasPanel.includes("SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint") ||
     !metrics.atlasPanel.includes("Riemann Hypothesis") ||
     !metrics.atlasPanel.includes("Twin Prime Conjecture") ||
     !metrics.atlasPanel.includes("Next academic work")
