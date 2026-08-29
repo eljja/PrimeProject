@@ -114,15 +114,27 @@ def verify_ticket251_structure() -> str | None:
     if source_audit.get("status") != "withdrawn_major_mistake" or source_audit.get("used_as_dependency") is not False:
         return "TICKET-251 Twin withdrawn-source boundary changed"
     state = json.loads((ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8"))
+    current_ticket = state.get("ticket")
     if (
-        state.get("ticket") != 251
-        or state.get("parent_ticket") != 250
-        or state.get("deep_focus_problem") != "goldbach"
+        not isinstance(current_ticket, int)
+        or current_ticket < 251
+        or state.get("parent_ticket") != current_ticket - 1
         or state.get("resolved_count") != 0
         or state.get("candidate_resolution_count") != 0
         or state.get("program_complete")
     ):
         return "TICKET-251 persistent research state changed"
+    if current_ticket == 251 and state.get("deep_focus_problem") != "goldbach":
+        return "TICKET-251 deep-focus boundary changed"
+    historical = {
+        "riemann": "InteriorZeroLocalMultiplierCoercivityNoGo",
+        "collatz": "FinitePrimeCanonicalLiftPatternCRTInterpolationNoGo",
+        "goldbach": "CyclotomicUnitFullSupportEnergyConcentrationNoGo",
+        "twin_prime": "RightEvenModuloEightConstraintAndSharpness",
+    }
+    for problem_key, theorem in historical.items():
+        if theorem not in state.get("problems", {}).get(problem_key, {}).get("established_results", []):
+            return f"TICKET-251 result missing from persistent history: {theorem}"
     for report in (
         ROOT / "docs/interior-crt-cyclotomic-righteven.md",
         ROOT / "docs/interior-crt-cyclotomic-righteven.ko.md",

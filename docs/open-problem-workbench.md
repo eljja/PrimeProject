@@ -15,7 +15,26 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-251
+## Current research boundary: TICKET-252
+
+The current machine-readable boundary is
+`data/open-problem/ticket252-sparse-marginal-zeroresidue-local.json`.
+TICKET-252 proves three exact route no-go theorems and one partial theorem
+while resolving none of the parent conjectures:
+
+- sparse zero-density Fourier projections can still admit RH concentration escape;
+- exact Collatz marginal uniformity cannot determine the joint `[3:5]` slope;
+- Goldbach zero-residue compatibility is exactly `c_0-min(c)<=1`, excluding all `1<=m<q` but not the tail;
+- every fixed finite congruence system is locally soluble for right-even twin prime powers.
+
+The next single lemmas are an actual-Weil-kernel wave-packet density bound,
+joint Fermat-quotient character cancellation at slope three-fifths, an actual
+prime-ordering exclusion of the compatible cyclotomic tail, and a quadratic-
+unit coefficient-one exclusion of odd prime exponents. All statuses remain
+`open_not_proven`. Reports: [English](sparse-marginal-zeroresidue-local.md)
+and [한국어](sparse-marginal-zeroresidue-local.ko.md).
+
+## Preserved research boundary: TICKET-251
 
 The current machine-readable boundary is
 `data/open-problem/ticket251-interior-crt-cyclotomic-righteven.json`.

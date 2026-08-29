@@ -47,6 +47,7 @@ let ticket247AttemptGlobal = null;
 let ticket249AttemptGlobal = null;
 let ticket250AttemptGlobal = null;
 let ticket251AttemptGlobal = null;
+let ticket252AttemptGlobal = null;
 let ticket248AttemptGlobal = null;
 let ticket244AttemptGlobal = null;
 let ticket243AttemptGlobal = null;
@@ -18042,7 +18043,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket251InteriorCrtCyclotomicRightEven(ticket251AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket252SparseMarginalZeroResidueLocal(ticket252AttemptGlobal) ||
+      renderTicket251InteriorCrtCyclotomicRightEven(ticket251AttemptGlobal) ||
       renderTicket250MultiplierLiftGaloisEvenRight(ticket250AttemptGlobal) ||
       renderTicket249CompactProjectiveParsevalLebesgue(ticket249AttemptGlobal) ||
       renderTicket248UnweightedWieferichJetActive(ticket248AttemptGlobal) ||
@@ -18616,6 +18618,26 @@ async function loadTicket219Attempt() {
     return false;
   }
 }
+async function loadTicket252Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket252-sparse-marginal-zeroresidue-local.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket252AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket252AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket252AttemptGlobal) {
+      ticket252AttemptGlobal.bounded_result = ticket252AttemptGlobal.bounded_result || {};
+      ticket252AttemptGlobal.bounded_result.sparse_marginal_zeroresidue_local_audit = payload.sparse_marginal_zeroresidue_local_audit || {};
+    }
+    return Boolean(ticket252AttemptGlobal);
+  } catch (_error) {
+    ticket252AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket251Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket251-interior-crt-cyclotomic-righteven.json", { cache: "no-store" });
@@ -20822,6 +20844,11 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket252Loaded = await loadTicket252Attempt();
+  if (!ticket252Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket252AttemptGlobal) await loadTicket252Attempt();
+  }
   const ticket251Loaded = await loadTicket251Attempt();
   if (!ticket251Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));

@@ -44,7 +44,33 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-251
+## Latest handoff: TICKET-252
+
+Canonical artifact:
+`data/open-problem/ticket252-sparse-marginal-zeroresidue-local.json`.
+
+All four parent conjectures remain `open_not_proven`. TICKET-252 established:
+
+- RH: every infinite symmetric zero-density Fourier projection admits normalized interior concentration escape, even though it is positive, self-adjoint, noncompact, and nonlocal;
+- Collatz: exactly uniform one-coordinate marginals do not determine mass on the joint Fermat-quotient slope `[3:5]`;
+- Goldbach: zero-residue compatibility is equivalent to `c_0-min(c)<=1`, which excludes every `1<=m<q` but admits the exact `(q,m)=(5,8)` tail vector `(1,76,76,1,126)`;
+- Twin: Dirichlet prime residue classes give local prime solutions modulo every fixed modulus, so no fixed finite congruence list closes the right-even equation.
+
+The exact next frontiers are:
+
+```text
+RH: ActualWeilKernelHasPositiveDensityAgainstEveryInteriorWavePacket
+Collatz: JointFermatQuotientCharacterCancellationAtSlopeThreeFifths
+Goldbach: ActualPrimeOrderingExcludesZeroResidueCompatibleCyclotomicTail
+Twin: QuadraticUnitCoefficientOneExcludesOddPrimeExponents
+```
+
+The sparse projection and probability-graph countermodels are not the actual
+arithmetic objects; the compatible Goldbach vector is not an actual prime
+count; and local congruence solubility is not an integer solution. These
+boundaries must remain explicit in every continuation.
+
+## Preserved handoff: TICKET-251
 
 Canonical artifact:
 `data/open-problem/ticket251-interior-crt-cyclotomic-righteven.json`.

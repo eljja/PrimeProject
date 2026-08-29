@@ -157,12 +157,21 @@ class Ticket251InteriorCrtCyclotomicRightEvenTests(unittest.TestCase):
         integrated = ROOT / "data/open-problem/ticket251-interior-crt-cyclotomic-righteven.json"
         self.assertEqual(json.loads(integrated.read_text(encoding="utf-8")), build_audit())
         state = json.loads((ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["ticket"], 251)
-        self.assertEqual(state["parent_ticket"], 250)
+        self.assertGreaterEqual(state["ticket"], 251)
+        self.assertEqual(state["parent_ticket"], state["ticket"] - 1)
         self.assertEqual(state["resolved_count"], 0)
         self.assertEqual(state["candidate_resolution_count"], 0)
         self.assertFalse(state["program_complete"])
-        self.assertEqual(state["deep_focus_problem"], "goldbach")
+        if state["ticket"] == 251:
+            self.assertEqual(state["deep_focus_problem"], "goldbach")
+        historical = {
+            "riemann": "InteriorZeroLocalMultiplierCoercivityNoGo",
+            "collatz": "FinitePrimeCanonicalLiftPatternCRTInterpolationNoGo",
+            "goldbach": "CyclotomicUnitFullSupportEnergyConcentrationNoGo",
+            "twin_prime": "RightEvenModuloEightConstraintAndSharpness",
+        }
+        for problem_key, theorem in historical.items():
+            self.assertIn(theorem, state["problems"][problem_key]["established_results"])
         self.assertTrue(all(problem["stagnation_count"] == 0 for problem in state["problems"].values()))
         self.assertNotIn(
             "RightEvenActivePrimePowerClassification",

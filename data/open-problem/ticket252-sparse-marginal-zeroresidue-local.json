@@ -1,0 +1,2830 @@
+{
+  "schema": "primeproject.ticket252-sparse-marginal-zeroresidue-local.v1",
+  "generated_at": "2026-08-29T04:30:00+09:00",
+  "status": "open_not_proven",
+  "iteration_complete": true,
+  "program_complete": false,
+  "sparse_marginal_zeroresidue_local_audit": {
+    "theorem_name": "FourConjectureSparseMarginalZeroResidueLocalAudit",
+    "summary": "TICKET-252 proves three exact route no-go theorems and one partial theorem while leaving all four parent conjectures open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-252",
+      "theorem_name": "SparseFourierProjectionInteriorConcentrationNoGo",
+      "declared_proposition": "Let H=L2_even([-1,1]), Q0(f)=sum_(k>=0)|integral x^(2k)f(x)dx|^2, and let S be an infinite symmetric subset of the nonzero integers with #(S intersect [-N,N])=o(N). For the orthogonal Fourier projection P_S onto {2^(-1/2) exp(pi i n x): n in S}, P_S is bounded, positive, self-adjoint, noncompact, and is not a multiplication operator, yet inf_(||f||=1)(Q0(f)+<P_S f,f>)=0. Thus even a noncompact nonlocal positive operator can fail to exclude interior concentration.",
+      "mathematical_argument": "Use g_delta=(2 delta)^(-1/2)1_[-delta,delta]. Its nth normalized Fourier coefficient has square delta*sinc(pi n delta)^2. Split S at A/delta. The low part is delta*o(1/delta), while the full-integer tail is O(1/A); first let delta tend to zero and then A tend to infinity. Hence <P_S g_delta,g_delta> tends to zero. Also Q0(g_delta)<=2 delta/(1-delta^4). Infinite rank proves noncompactness; positivity and self-adjointness follow from orthogonal projection. Since 0 is not in S, P_S(1)=0 but P_S is nonzero, so it cannot be a multiplication operator. For S={plus or minus 2^j}, delta=2^(-s), the low-frequency contribution is at most 2 delta(s+1); the geometric tail is at most 2 delta/(3 pi^2)<2 delta/27, giving the exact replay.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let H=L2_even([-1,1]), Q0(f)=sum_(k>=0)|integral x^(2k)f(x)dx|^2, and let S be an infinite symmetric subset of the nonzero integers with #(S intersect [-N,N])=o(N). For the orthogonal Fourier projection P_S onto {2^(-1/2) exp(pi i n x): n in S}, P_S is bounded, positive, self-adjoint, noncompact, and is not a multiplication operator, yet inf_(||f||=1)(Q0(f)+<P_S f,f>)=0. Thus even a noncompact nonlocal positive operator can fail to exclude interior concentration.",
+        "proof": "Use g_delta=(2 delta)^(-1/2)1_[-delta,delta]. Its nth normalized Fourier coefficient has square delta*sinc(pi n delta)^2. Split S at A/delta. The low part is delta*o(1/delta), while the full-integer tail is O(1/A); first let delta tend to zero and then A tend to infinity. Hence <P_S g_delta,g_delta> tends to zero. Also Q0(g_delta)<=2 delta/(1-delta^4). Infinite rank proves noncompactness; positivity and self-adjointness follow from orthogonal projection. Since 0 is not in S, P_S(1)=0 but P_S is nonzero, so it cannot be a multiplication operator. For S={plus or minus 2^j}, delta=2^(-s), the low-frequency contribution is at most 2 delta(s+1); the geometric tail is at most 2 delta/(3 pi^2)<2 delta/27, giving the exact replay.",
+        "exact_sparse_projection_rows": [
+          {
+            "delta_power": 3,
+            "delta": {
+              "exact": "1/8",
+              "numerator": 1,
+              "denominator": 8,
+              "display_float": 0.125
+            },
+            "sparse_frequency_pair_count_below_inverse_scale": 4,
+            "proved_low_frequency_energy_upper": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "proved_tail_energy_upper_using_pi_squared_gt_9": {
+              "exact": "1/108",
+              "numerator": 1,
+              "denominator": 108,
+              "display_float": 0.009259259259259259
+            },
+            "proved_sparse_projection_energy_upper": {
+              "exact": "109/108",
+              "numerator": 109,
+              "denominator": 108,
+              "display_float": 1.0092592592592593
+            },
+            "proved_raw_moment_energy_upper": {
+              "exact": "1024/4095",
+              "numerator": 1024,
+              "denominator": 4095,
+              "display_float": 0.25006105006105006
+            },
+            "proved_combined_upper": {
+              "exact": "61883/49140",
+              "numerator": 61883,
+              "denominator": 49140,
+              "display_float": 1.2593203093203094
+            },
+            "certificate_verified": true
+          },
+          {
+            "delta_power": 4,
+            "delta": {
+              "exact": "1/16",
+              "numerator": 1,
+              "denominator": 16,
+              "display_float": 0.0625
+            },
+            "sparse_frequency_pair_count_below_inverse_scale": 5,
+            "proved_low_frequency_energy_upper": {
+              "exact": "5/8",
+              "numerator": 5,
+              "denominator": 8,
+              "display_float": 0.625
+            },
+            "proved_tail_energy_upper_using_pi_squared_gt_9": {
+              "exact": "1/216",
+              "numerator": 1,
+              "denominator": 216,
+              "display_float": 0.004629629629629629
+            },
+            "proved_sparse_projection_energy_upper": {
+              "exact": "17/27",
+              "numerator": 17,
+              "denominator": 27,
+              "display_float": 0.6296296296296297
+            },
+            "proved_raw_moment_energy_upper": {
+              "exact": "8192/65535",
+              "numerator": 8192,
+              "denominator": 65535,
+              "display_float": 0.1250019073777371
+            },
+            "proved_combined_upper": {
+              "exact": "445093/589815",
+              "numerator": 445093,
+              "denominator": 589815,
+              "display_float": 0.7546315370073667
+            },
+            "certificate_verified": true
+          },
+          {
+            "delta_power": 5,
+            "delta": {
+              "exact": "1/32",
+              "numerator": 1,
+              "denominator": 32,
+              "display_float": 0.03125
+            },
+            "sparse_frequency_pair_count_below_inverse_scale": 6,
+            "proved_low_frequency_energy_upper": {
+              "exact": "3/8",
+              "numerator": 3,
+              "denominator": 8,
+              "display_float": 0.375
+            },
+            "proved_tail_energy_upper_using_pi_squared_gt_9": {
+              "exact": "1/432",
+              "numerator": 1,
+              "denominator": 432,
+              "display_float": 0.0023148148148148147
+            },
+            "proved_sparse_projection_energy_upper": {
+              "exact": "163/432",
+              "numerator": 163,
+              "denominator": 432,
+              "display_float": 0.3773148148148148
+            },
+            "proved_raw_moment_energy_upper": {
+              "exact": "65536/1048575",
+              "numerator": 65536,
+              "denominator": 1048575,
+              "display_float": 0.06250005960470162
+            },
+            "proved_combined_upper": {
+              "exact": "66409759/150994800",
+              "numerator": 66409759,
+              "denominator": 150994800,
+              "display_float": 0.43981487441951644
+            },
+            "certificate_verified": true
+          },
+          {
+            "delta_power": 6,
+            "delta": {
+              "exact": "1/64",
+              "numerator": 1,
+              "denominator": 64,
+              "display_float": 0.015625
+            },
+            "sparse_frequency_pair_count_below_inverse_scale": 7,
+            "proved_low_frequency_energy_upper": {
+              "exact": "7/32",
+              "numerator": 7,
+              "denominator": 32,
+              "display_float": 0.21875
+            },
+            "proved_tail_energy_upper_using_pi_squared_gt_9": {
+              "exact": "1/864",
+              "numerator": 1,
+              "denominator": 864,
+              "display_float": 0.0011574074074074073
+            },
+            "proved_sparse_projection_energy_upper": {
+              "exact": "95/432",
+              "numerator": 95,
+              "denominator": 432,
+              "display_float": 0.2199074074074074
+            },
+            "proved_raw_moment_energy_upper": {
+              "exact": "524288/16777215",
+              "numerator": 524288,
+              "denominator": 16777215,
+              "display_float": 0.03125000186264526
+            },
+            "proved_combined_upper": {
+              "exact": "202258649/805306320",
+              "numerator": 202258649,
+              "denominator": 805306320,
+              "display_float": 0.25115740927005265
+            },
+            "certificate_verified": true
+          },
+          {
+            "delta_power": 7,
+            "delta": {
+              "exact": "1/128",
+              "numerator": 1,
+              "denominator": 128,
+              "display_float": 0.0078125
+            },
+            "sparse_frequency_pair_count_below_inverse_scale": 8,
+            "proved_low_frequency_energy_upper": {
+              "exact": "1/8",
+              "numerator": 1,
+              "denominator": 8,
+              "display_float": 0.125
+            },
+            "proved_tail_energy_upper_using_pi_squared_gt_9": {
+              "exact": "1/1728",
+              "numerator": 1,
+              "denominator": 1728,
+              "display_float": 0.0005787037037037037
+            },
+            "proved_sparse_projection_energy_upper": {
+              "exact": "217/1728",
+              "numerator": 217,
+              "denominator": 1728,
+              "display_float": 0.1255787037037037
+            },
+            "proved_raw_moment_energy_upper": {
+              "exact": "4194304/268435455",
+              "numerator": 4194304,
+              "denominator": 268435455,
+              "display_float": 0.01562500005820766
+            },
+            "proved_combined_upper": {
+              "exact": "21832750349/154618822080",
+              "numerator": 21832750349,
+              "denominator": 154618822080,
+              "display_float": 0.14120370376191135
+            },
+            "certificate_verified": true
+          },
+          {
+            "delta_power": 8,
+            "delta": {
+              "exact": "1/256",
+              "numerator": 1,
+              "denominator": 256,
+              "display_float": 0.00390625
+            },
+            "sparse_frequency_pair_count_below_inverse_scale": 9,
+            "proved_low_frequency_energy_upper": {
+              "exact": "9/128",
+              "numerator": 9,
+              "denominator": 128,
+              "display_float": 0.0703125
+            },
+            "proved_tail_energy_upper_using_pi_squared_gt_9": {
+              "exact": "1/3456",
+              "numerator": 1,
+              "denominator": 3456,
+              "display_float": 0.00028935185185185184
+            },
+            "proved_sparse_projection_energy_upper": {
+              "exact": "61/864",
+              "numerator": 61,
+              "denominator": 864,
+              "display_float": 0.07060185185185185
+            },
+            "proved_raw_moment_energy_upper": {
+              "exact": "33554432/4294967295",
+              "numerator": 33554432,
+              "denominator": 4294967295,
+              "display_float": 0.00781250000181899
+            },
+            "proved_combined_upper": {
+              "exact": "96994678081/1236950580960",
+              "numerator": 96994678081,
+              "denominator": 1236950580960,
+              "display_float": 0.07841435185367084
+            },
+            "certificate_verified": true
+          },
+          {
+            "delta_power": 9,
+            "delta": {
+              "exact": "1/512",
+              "numerator": 1,
+              "denominator": 512,
+              "display_float": 0.001953125
+            },
+            "sparse_frequency_pair_count_below_inverse_scale": 10,
+            "proved_low_frequency_energy_upper": {
+              "exact": "5/128",
+              "numerator": 5,
+              "denominator": 128,
+              "display_float": 0.0390625
+            },
+            "proved_tail_energy_upper_using_pi_squared_gt_9": {
+              "exact": "1/6912",
+              "numerator": 1,
+              "denominator": 6912,
+              "display_float": 0.00014467592592592592
+            },
+            "proved_sparse_projection_energy_upper": {
+              "exact": "271/6912",
+              "numerator": 271,
+              "denominator": 6912,
+              "display_float": 0.03920717592592592
+            },
+            "proved_raw_moment_energy_upper": {
+              "exact": "268435456/68719476735",
+              "numerator": 268435456,
+              "denominator": 68719476735,
+              "display_float": 0.003906250000056843
+            },
+            "proved_combined_upper": {
+              "exact": "252819803297/5864062014720",
+              "numerator": 252819803297,
+              "denominator": 5864062014720,
+              "display_float": 0.043113425925982767
+            },
+            "certificate_verified": true
+          },
+          {
+            "delta_power": 10,
+            "delta": {
+              "exact": "1/1024",
+              "numerator": 1,
+              "denominator": 1024,
+              "display_float": 0.0009765625
+            },
+            "sparse_frequency_pair_count_below_inverse_scale": 11,
+            "proved_low_frequency_energy_upper": {
+              "exact": "11/512",
+              "numerator": 11,
+              "denominator": 512,
+              "display_float": 0.021484375
+            },
+            "proved_tail_energy_upper_using_pi_squared_gt_9": {
+              "exact": "1/13824",
+              "numerator": 1,
+              "denominator": 13824,
+              "display_float": 7.233796296296296e-05
+            },
+            "proved_sparse_projection_energy_upper": {
+              "exact": "149/6912",
+              "numerator": 149,
+              "denominator": 6912,
+              "display_float": 0.02155671296296296
+            },
+            "proved_raw_moment_energy_upper": {
+              "exact": "2147483648/1099511627775",
+              "numerator": 2147483648,
+              "denominator": 1099511627775,
+              "display_float": 0.0019531250000017764
+            },
+            "proved_combined_upper": {
+              "exact": "59556879837817/2533274790393600",
+              "numerator": 59556879837817,
+              "denominator": 2533274790393600,
+              "display_float": 0.023509837962964738
+            },
+            "certificate_verified": true
+          },
+          {
+            "delta_power": 11,
+            "delta": {
+              "exact": "1/2048",
+              "numerator": 1,
+              "denominator": 2048,
+              "display_float": 0.00048828125
+            },
+            "sparse_frequency_pair_count_below_inverse_scale": 12,
+            "proved_low_frequency_energy_upper": {
+              "exact": "3/256",
+              "numerator": 3,
+              "denominator": 256,
+              "display_float": 0.01171875
+            },
+            "proved_tail_energy_upper_using_pi_squared_gt_9": {
+              "exact": "1/27648",
+              "numerator": 1,
+              "denominator": 27648,
+              "display_float": 3.616898148148148e-05
+            },
+            "proved_sparse_projection_energy_upper": {
+              "exact": "325/27648",
+              "numerator": 325,
+              "denominator": 27648,
+              "display_float": 0.01175491898148148
+            },
+            "proved_raw_moment_energy_upper": {
+              "exact": "17179869184/17592186044415",
+              "numerator": 17179869184,
+              "denominator": 17592186044415,
+              "display_float": 0.0009765625000000555
+            },
+            "proved_combined_upper": {
+              "exact": "2064149829211369/162129586585328640",
+              "numerator": 2064149829211369,
+              "denominator": 162129586585328640,
+              "display_float": 0.012731481481481536
+            },
+            "certificate_verified": true
+          },
+          {
+            "delta_power": 12,
+            "delta": {
+              "exact": "1/4096",
+              "numerator": 1,
+              "denominator": 4096,
+              "display_float": 0.000244140625
+            },
+            "sparse_frequency_pair_count_below_inverse_scale": 13,
+            "proved_low_frequency_energy_upper": {
+              "exact": "13/2048",
+              "numerator": 13,
+              "denominator": 2048,
+              "display_float": 0.00634765625
+            },
+            "proved_tail_energy_upper_using_pi_squared_gt_9": {
+              "exact": "1/55296",
+              "numerator": 1,
+              "denominator": 55296,
+              "display_float": 1.808449074074074e-05
+            },
+            "proved_sparse_projection_energy_upper": {
+              "exact": "11/1728",
+              "numerator": 11,
+              "denominator": 1728,
+              "display_float": 0.00636574074074074
+            },
+            "proved_raw_moment_energy_upper": {
+              "exact": "137438953472/281474976710655",
+              "numerator": 137438953472,
+              "denominator": 281474976710655,
+              "display_float": 0.0004882812500000017
+            },
+            "proved_combined_upper": {
+              "exact": "370413250601869/54043195528445760",
+              "numerator": 370413250601869,
+              "denominator": 54043195528445760,
+              "display_float": 0.006854021990740742
+            },
+            "certificate_verified": true
+          },
+          {
+            "delta_power": 13,
+            "delta": {
+              "exact": "1/8192",
+              "numerator": 1,
+              "denominator": 8192,
+              "display_float": 0.0001220703125
+            },
+            "sparse_frequency_pair_count_below_inverse_scale": 14,
+            "proved_low_frequency_energy_upper": {
+              "exact": "7/2048",
+              "numerator": 7,
+              "denominator": 2048,
+              "display_float": 0.00341796875
+            },
+            "proved_tail_energy_upper_using_pi_squared_gt_9": {
+              "exact": "1/110592",
+              "numerator": 1,
+              "denominator": 110592,
+              "display_float": 9.04224537037037e-06
+            },
+            "proved_sparse_projection_energy_upper": {
+              "exact": "379/110592",
+              "numerator": 379,
+              "denominator": 110592,
+              "display_float": 0.00342701099537037
+            },
+            "proved_raw_moment_energy_upper": {
+              "exact": "1099511627776/4503599627370495",
+              "numerator": 1099511627776,
+              "denominator": 4503599627370495,
+              "display_float": 0.00024414062500000005
+            },
+            "proved_combined_upper": {
+              "exact": "609487149570806999/166020696663385927680",
+              "numerator": 609487149570806999,
+              "denominator": 166020696663385927680,
+              "display_float": 0.0036711516203703706
+            },
+            "certificate_verified": true
+          },
+          {
+            "delta_power": 14,
+            "delta": {
+              "exact": "1/16384",
+              "numerator": 1,
+              "denominator": 16384,
+              "display_float": 6.103515625e-05
+            },
+            "sparse_frequency_pair_count_below_inverse_scale": 15,
+            "proved_low_frequency_energy_upper": {
+              "exact": "15/8192",
+              "numerator": 15,
+              "denominator": 8192,
+              "display_float": 0.0018310546875
+            },
+            "proved_tail_energy_upper_using_pi_squared_gt_9": {
+              "exact": "1/221184",
+              "numerator": 1,
+              "denominator": 221184,
+              "display_float": 4.521122685185185e-06
+            },
+            "proved_sparse_projection_energy_upper": {
+              "exact": "203/110592",
+              "numerator": 203,
+              "denominator": 110592,
+              "display_float": 0.001835575810185185
+            },
+            "proved_raw_moment_energy_upper": {
+              "exact": "8796093022208/72057594037927935",
+              "numerator": 8796093022208,
+              "denominator": 72057594037927935,
+              "display_float": 0.0001220703125
+            },
+            "proved_combined_upper": {
+              "exact": "5200156369737132647/2656331146614175395840",
+              "numerator": 5200156369737132647,
+              "denominator": 2656331146614175395840,
+              "display_float": 0.0019576461226851853
+            },
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact Fraction upper bounds for dyadic-frequency Fourier projections and centered indicator packets",
+        "complexity": "O(E) exact rational operations for E replay rows; the zero-density theorem is analytic",
+        "random_seed": null,
+        "transcript_sha256": "3e7c26600452d330e977e7880ca71b028709cad8966df6c63c41be6a1e910294",
+        "aggregate": {
+          "zero_density_projection_escape_proved": true,
+          "operator_positive_selfadjoint_noncompact_proved": true,
+          "operator_nonmultiplication_proved": true,
+          "actual_weil_kernel_controlled": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "12 exact rational dyadic rows replay S={plus/minus 2^j}; the zero-density conclusion is analytic.",
+      "logical_limit": "The sparse projection is an abstract periodic Fourier operator, not the actual Weil form. The missing step is a proved positive-density or stronger lower bound for the genuine arithmetic kernel on every admissible concentration packet.",
+      "route_decision": {
+        "discard": "using noncompactness and nonlocality alone, or a zero-density spectral projection, as a certificate that an arithmetic operator excludes interior concentration",
+        "parked": [
+          "abstract Fourier projections not identified with the actual Weil operator"
+        ],
+        "retain": "a quantitative spectral-thickness property tied to the actual arithmetic Weil kernel",
+        "next_single_lemma": "ActualWeilKernelHasPositiveDensityAgainstEveryInteriorWavePacket"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T251",
+            "label": "InteriorZeroLocalMultiplierCoercivityNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "RH-T252",
+            "label": "SparseFourierProjectionInteriorConcentrationNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "RH-REJECT252",
+            "label": "EveryPositiveNoncompactNonlocalOperatorExcludesInteriorConcentration",
+            "status": "disproved"
+          },
+          {
+            "id": "RH-OPEN252",
+            "label": "ActualWeilKernelHasPositiveDensityAgainstEveryInteriorWavePacket",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T251",
+            "RH-T252"
+          ],
+          [
+            "RH-T252",
+            "RH-REJECT252"
+          ],
+          [
+            "RH-T252",
+            "RH-OPEN252"
+          ]
+        ],
+        "resolution_path": [
+          "RH-T251",
+          "RH-T252",
+          "RH-OPEN252"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No RH proof or disproof; one exact noncompact nonlocal operator no-go theorem."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-252",
+      "theorem_name": "UniformMarginalsCannotDetectProjectiveFermatSlopeNoGo",
+      "declared_proposition": "For every prime q>5 there are two probability measures on F_q^2 with identical exactly uniform U- and V-marginals but radically different mass on the separated projective target [3:5]: the uniform measure on (3t,5t) has mass (q-1)/q, while the uniform measure on (t,t) has mass zero. Therefore marginal equidistribution of F_q(2) and F_q(3), even if exact, cannot by itself prove occurrence, avoidance, or density of the canonical joint slope [3:5].",
+      "mathematical_argument": "Multiplication by 3 and by 5 permutes F_q, so both coordinates of the hit graph are uniform. Both coordinates of the diagonal miss graph are also uniform. Every nonzero hit-graph point equals t(3,5), yielding q-1 separated targets. On the miss graph the target equation is 5t-3t=2t=0, so q>5 forces t=0, which is not separated. For the actual canonical pair (U_q,V_q), the exact detector is 1_(5U_q-3V_q=0)-1_(U_q=0,V_q=0); additive-character orthogonality shows that a joint, not marginal, character estimate is required.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "For every prime q>5 there are two probability measures on F_q^2 with identical exactly uniform U- and V-marginals but radically different mass on the separated projective target [3:5]: the uniform measure on (3t,5t) has mass (q-1)/q, while the uniform measure on (t,t) has mass zero. Therefore marginal equidistribution of F_q(2) and F_q(3), even if exact, cannot by itself prove occurrence, avoidance, or density of the canonical joint slope [3:5].",
+        "proof": "Multiplication by 3 and by 5 permutes F_q, so both coordinates of the hit graph are uniform. Both coordinates of the diagonal miss graph are also uniform. Every nonzero hit-graph point equals t(3,5), yielding q-1 separated targets. On the miss graph the target equation is 5t-3t=2t=0, so q>5 forces t=0, which is not separated. For the actual canonical pair (U_q,V_q), the exact detector is 1_(5U_q-3V_q=0)-1_(U_q=0,V_q=0); additive-character orthogonality shows that a joint, not marginal, character estimate is required.",
+        "exact_uniform_marginal_countermodel_rows": [
+          {
+            "prime_q": 7,
+            "hit_graph": "(U,V)=(3t,5t)",
+            "miss_graph": "(U,V)=(t,t)",
+            "each_of_four_marginals_is_exactly_uniform": true,
+            "hit_graph_separated_target_count": 6,
+            "miss_graph_separated_target_count": 0,
+            "hit_graph_target_mass": {
+              "exact": "6/7",
+              "numerator": 6,
+              "denominator": 7,
+              "display_float": 0.8571428571428571
+            },
+            "miss_graph_target_mass": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "hit_graph": "(U,V)=(3t,5t)",
+            "miss_graph": "(U,V)=(t,t)",
+            "each_of_four_marginals_is_exactly_uniform": true,
+            "hit_graph_separated_target_count": 10,
+            "miss_graph_separated_target_count": 0,
+            "hit_graph_target_mass": {
+              "exact": "10/11",
+              "numerator": 10,
+              "denominator": 11,
+              "display_float": 0.9090909090909091
+            },
+            "miss_graph_target_mass": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 13,
+            "hit_graph": "(U,V)=(3t,5t)",
+            "miss_graph": "(U,V)=(t,t)",
+            "each_of_four_marginals_is_exactly_uniform": true,
+            "hit_graph_separated_target_count": 12,
+            "miss_graph_separated_target_count": 0,
+            "hit_graph_target_mass": {
+              "exact": "12/13",
+              "numerator": 12,
+              "denominator": 13,
+              "display_float": 0.9230769230769231
+            },
+            "miss_graph_target_mass": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 17,
+            "hit_graph": "(U,V)=(3t,5t)",
+            "miss_graph": "(U,V)=(t,t)",
+            "each_of_four_marginals_is_exactly_uniform": true,
+            "hit_graph_separated_target_count": 16,
+            "miss_graph_separated_target_count": 0,
+            "hit_graph_target_mass": {
+              "exact": "16/17",
+              "numerator": 16,
+              "denominator": 17,
+              "display_float": 0.9411764705882353
+            },
+            "miss_graph_target_mass": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 19,
+            "hit_graph": "(U,V)=(3t,5t)",
+            "miss_graph": "(U,V)=(t,t)",
+            "each_of_four_marginals_is_exactly_uniform": true,
+            "hit_graph_separated_target_count": 18,
+            "miss_graph_separated_target_count": 0,
+            "hit_graph_target_mass": {
+              "exact": "18/19",
+              "numerator": 18,
+              "denominator": 19,
+              "display_float": 0.9473684210526315
+            },
+            "miss_graph_target_mass": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "hit_graph": "(U,V)=(3t,5t)",
+            "miss_graph": "(U,V)=(t,t)",
+            "each_of_four_marginals_is_exactly_uniform": true,
+            "hit_graph_separated_target_count": 22,
+            "miss_graph_separated_target_count": 0,
+            "hit_graph_target_mass": {
+              "exact": "22/23",
+              "numerator": 22,
+              "denominator": 23,
+              "display_float": 0.9565217391304348
+            },
+            "miss_graph_target_mass": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 29,
+            "hit_graph": "(U,V)=(3t,5t)",
+            "miss_graph": "(U,V)=(t,t)",
+            "each_of_four_marginals_is_exactly_uniform": true,
+            "hit_graph_separated_target_count": 28,
+            "miss_graph_separated_target_count": 0,
+            "hit_graph_target_mass": {
+              "exact": "28/29",
+              "numerator": 28,
+              "denominator": 29,
+              "display_float": 0.9655172413793104
+            },
+            "miss_graph_target_mass": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 31,
+            "hit_graph": "(U,V)=(3t,5t)",
+            "miss_graph": "(U,V)=(t,t)",
+            "each_of_four_marginals_is_exactly_uniform": true,
+            "hit_graph_separated_target_count": 30,
+            "miss_graph_separated_target_count": 0,
+            "hit_graph_target_mass": {
+              "exact": "30/31",
+              "numerator": 30,
+              "denominator": 31,
+              "display_float": 0.967741935483871
+            },
+            "miss_graph_target_mass": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 37,
+            "hit_graph": "(U,V)=(3t,5t)",
+            "miss_graph": "(U,V)=(t,t)",
+            "each_of_four_marginals_is_exactly_uniform": true,
+            "hit_graph_separated_target_count": 36,
+            "miss_graph_separated_target_count": 0,
+            "hit_graph_target_mass": {
+              "exact": "36/37",
+              "numerator": 36,
+              "denominator": 37,
+              "display_float": 0.972972972972973
+            },
+            "miss_graph_target_mass": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 41,
+            "hit_graph": "(U,V)=(3t,5t)",
+            "miss_graph": "(U,V)=(t,t)",
+            "each_of_four_marginals_is_exactly_uniform": true,
+            "hit_graph_separated_target_count": 40,
+            "miss_graph_separated_target_count": 0,
+            "hit_graph_target_mass": {
+              "exact": "40/41",
+              "numerator": 40,
+              "denominator": 41,
+              "display_float": 0.975609756097561
+            },
+            "miss_graph_target_mass": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 43,
+            "hit_graph": "(U,V)=(3t,5t)",
+            "miss_graph": "(U,V)=(t,t)",
+            "each_of_four_marginals_is_exactly_uniform": true,
+            "hit_graph_separated_target_count": 42,
+            "miss_graph_separated_target_count": 0,
+            "hit_graph_target_mass": {
+              "exact": "42/43",
+              "numerator": 42,
+              "denominator": 43,
+              "display_float": 0.9767441860465116
+            },
+            "miss_graph_target_mass": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "certificate_verified": true
+          }
+        ],
+        "canonical_exact_indicator": "1_(5U_q-3V_q=0)-1_(U_q=0 and V_q=0)",
+        "algorithm": "exact finite-field graph enumeration and integer marginal counts",
+        "complexity": "O(sum q) integer operations for replay rows; the theorem is algebraic for every prime q>5",
+        "random_seed": null,
+        "transcript_sha256": "d134c93741ae3151e80bc4443e7abbbbab5ba578292ade37cef147e17cfb324c",
+        "aggregate": {
+          "uniform_marginals_do_not_control_joint_slope_proved": true,
+          "joint_character_control_required": true,
+          "canonical_fixed_pair_distribution_controlled": false,
+          "collatz_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "11 exact finite-field graph rows replay the universal algebraic theorem; no canonical-prime occurrence is inferred.",
+      "logical_limit": "The countermodels are probability measures on F_q^2, not the actual cross-prime distribution of (F_q(2),F_q(3)); they prove only that marginal information is logically insufficient.",
+      "route_decision": {
+        "discard": "deducing occurrence, avoidance, or density of [3:5] from separate marginal equidistribution statements for F_q(2) and F_q(3)",
+        "parked": [
+          "one-coordinate Fermat-quotient statistics without joint character information"
+        ],
+        "retain": "joint additive-character cancellation for the canonical pair on the linear form 5U_q-3V_q",
+        "next_single_lemma": "JointFermatQuotientCharacterCancellationAtSlopeThreeFifths"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T251",
+            "label": "FinitePrimeCanonicalLiftPatternCRTInterpolationNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "CO-T252",
+            "label": "UniformMarginalsCannotDetectProjectiveFermatSlopeNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "CO-REJECT252",
+            "label": "ExactMarginalEquidistributionForcesCanonicalSlopeDensity",
+            "status": "disproved"
+          },
+          {
+            "id": "CO-OPEN252",
+            "label": "JointFermatQuotientCharacterCancellationAtSlopeThreeFifths",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T251",
+            "CO-T252"
+          ],
+          [
+            "CO-T252",
+            "CO-REJECT252"
+          ],
+          [
+            "CO-T252",
+            "CO-OPEN252"
+          ]
+        ],
+        "resolution_path": [
+          "CO-T251",
+          "CO-T252",
+          "CO-OPEN252"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No Collatz orbit proof or counterexample; one exact joint-versus-marginal distribution no-go theorem."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-252",
+      "theorem_name": "PrimeCountZeroResidueCyclotomicCompatibilityCriterion",
+      "declared_proposition": "Let q>=5 be prime, m>=1, and c_r be the cyclic coefficients of (1-X)^m modulo X^q-1. If an unweighted prime-count vector N_r(X) has the same centered nonzero Fourier data q(1-zeta_q^a)^m as the TICKET-251 cyclotomic family, then N_r=c_r+t for one integer t. Since N_0(X) is 0 or 1, such a nonnegative integer vector is compatible with the prime zero-residue constraint if and only if c_0-min_r c_r<=1. Consequently every 1<=m<q is excluded. This constraint alone does not exclude the tail: at (q,m)=(5,8), c=(-55,20,20,-55,70) and adding 56 gives (1,76,76,1,126), which passes the zero-residue constraint.",
+      "mathematical_argument": "Equality of all nonzero Fourier coefficients and equality of the zero sum imply by Fourier inversion that qN_r-N=q c_r for every r. Thus N_r=c_r+t, where t=N/q is an integer because both sides are integral. Only the prime q lies in residue zero, so epsilon=N_0 is in {0,1} and t=epsilon-c_0. Nonnegativity is possible exactly when epsilon-c_0+min c>=0, which for some epsilon in {0,1} is equivalent to c_0-min c<=1. If m<q then c_0=1 and c_1=-m, so the gap is at least m+1>=2. The displayed (5,8) vector is an exact counterexample to using the zero-residue constraint alone for every m; it is not asserted to be an actual prime-count vector.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let q>=5 be prime, m>=1, and c_r be the cyclic coefficients of (1-X)^m modulo X^q-1. If an unweighted prime-count vector N_r(X) has the same centered nonzero Fourier data q(1-zeta_q^a)^m as the TICKET-251 cyclotomic family, then N_r=c_r+t for one integer t. Since N_0(X) is 0 or 1, such a nonnegative integer vector is compatible with the prime zero-residue constraint if and only if c_0-min_r c_r<=1. Consequently every 1<=m<q is excluded. This constraint alone does not exclude the tail: at (q,m)=(5,8), c=(-55,20,20,-55,70) and adding 56 gives (1,76,76,1,126), which passes the zero-residue constraint.",
+        "proof": "Equality of all nonzero Fourier coefficients and equality of the zero sum imply by Fourier inversion that qN_r-N=q c_r for every r. Thus N_r=c_r+t, where t=N/q is an integer because both sides are integral. Only the prime q lies in residue zero, so epsilon=N_0 is in {0,1} and t=epsilon-c_0. Nonnegativity is possible exactly when epsilon-c_0+min c>=0, which for some epsilon in {0,1} is equivalent to c_0-min c<=1. If m<q then c_0=1 and c_1=-m, so the gap is at least m+1>=2. The displayed (5,8) vector is an exact counterexample to using the zero-residue constraint alone for every m; it is not asserted to be an actual prime-count vector.",
+        "exact_zero_residue_criterion_rows": [
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 1,
+            "cyclic_coefficients_c": [
+              1,
+              -1,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 2,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 2,
+            "cyclic_coefficients_c": [
+              1,
+              -2,
+              1,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 3,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 3,
+            "cyclic_coefficients_c": [
+              1,
+              -3,
+              3,
+              -1,
+              0
+            ],
+            "c0_minus_min_c": 4,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 4,
+            "cyclic_coefficients_c": [
+              1,
+              -4,
+              6,
+              -4,
+              1
+            ],
+            "c0_minus_min_c": 5,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 5,
+            "cyclic_coefficients_c": [
+              0,
+              -5,
+              10,
+              -10,
+              5
+            ],
+            "c0_minus_min_c": 10,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 6,
+            "cyclic_coefficients_c": [
+              -5,
+              -5,
+              15,
+              -20,
+              15
+            ],
+            "c0_minus_min_c": 15,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 7,
+            "cyclic_coefficients_c": [
+              -20,
+              0,
+              20,
+              -35,
+              35
+            ],
+            "c0_minus_min_c": 15,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 8,
+            "cyclic_coefficients_c": [
+              -55,
+              20,
+              20,
+              -55,
+              70
+            ],
+            "c0_minus_min_c": 0,
+            "zero_residue_compatibility": true,
+            "compatible_zero_residue_epsilon": 1,
+            "compatible_uniform_shift": 56,
+            "compatible_nonnegative_integer_vector": [
+              1,
+              76,
+              76,
+              1,
+              126
+            ],
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 9,
+            "cyclic_coefficients_c": [
+              -125,
+              75,
+              0,
+              -75,
+              125
+            ],
+            "c0_minus_min_c": 0,
+            "zero_residue_compatibility": true,
+            "compatible_zero_residue_epsilon": 1,
+            "compatible_uniform_shift": 126,
+            "compatible_nonnegative_integer_vector": [
+              1,
+              201,
+              126,
+              51,
+              251
+            ],
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 10,
+            "cyclic_coefficients_c": [
+              -250,
+              200,
+              -75,
+              -75,
+              200
+            ],
+            "c0_minus_min_c": 0,
+            "zero_residue_compatibility": true,
+            "compatible_zero_residue_epsilon": 1,
+            "compatible_uniform_shift": 251,
+            "compatible_nonnegative_integer_vector": [
+              1,
+              451,
+              176,
+              176,
+              451
+            ],
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 11,
+            "cyclic_coefficients_c": [
+              -450,
+              450,
+              -275,
+              0,
+              275
+            ],
+            "c0_minus_min_c": 0,
+            "zero_residue_compatibility": true,
+            "compatible_zero_residue_epsilon": 1,
+            "compatible_uniform_shift": 451,
+            "compatible_nonnegative_integer_vector": [
+              1,
+              901,
+              176,
+              451,
+              726
+            ],
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 12,
+            "cyclic_coefficients_c": [
+              -725,
+              900,
+              -725,
+              275,
+              275
+            ],
+            "c0_minus_min_c": 0,
+            "zero_residue_compatibility": true,
+            "compatible_zero_residue_epsilon": 1,
+            "compatible_uniform_shift": 726,
+            "compatible_nonnegative_integer_vector": [
+              1,
+              1626,
+              1,
+              1001,
+              1001
+            ],
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 13,
+            "cyclic_coefficients_c": [
+              -1000,
+              1625,
+              -1625,
+              1000,
+              0
+            ],
+            "c0_minus_min_c": 625,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 14,
+            "cyclic_coefficients_c": [
+              -1000,
+              2625,
+              -3250,
+              2625,
+              -1000
+            ],
+            "c0_minus_min_c": 2250,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 15,
+            "cyclic_coefficients_c": [
+              0,
+              3625,
+              -5875,
+              5875,
+              -3625
+            ],
+            "c0_minus_min_c": 5875,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 16,
+            "cyclic_coefficients_c": [
+              3625,
+              3625,
+              -9500,
+              11750,
+              -9500
+            ],
+            "c0_minus_min_c": 13125,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "exponent_m": 17,
+            "cyclic_coefficients_c": [
+              13125,
+              0,
+              -13125,
+              21250,
+              -21250
+            ],
+            "c0_minus_min_c": 34375,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 1,
+            "cyclic_coefficients_c": [
+              1,
+              -1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 2,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 2,
+            "cyclic_coefficients_c": [
+              1,
+              -2,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 3,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 3,
+            "cyclic_coefficients_c": [
+              1,
+              -3,
+              3,
+              -1,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 4,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 4,
+            "cyclic_coefficients_c": [
+              1,
+              -4,
+              6,
+              -4,
+              1,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 5,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 5,
+            "cyclic_coefficients_c": [
+              1,
+              -5,
+              10,
+              -10,
+              5,
+              -1,
+              0
+            ],
+            "c0_minus_min_c": 11,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 6,
+            "cyclic_coefficients_c": [
+              1,
+              -6,
+              15,
+              -20,
+              15,
+              -6,
+              1
+            ],
+            "c0_minus_min_c": 21,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 7,
+            "cyclic_coefficients_c": [
+              0,
+              -7,
+              21,
+              -35,
+              35,
+              -21,
+              7
+            ],
+            "c0_minus_min_c": 35,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 8,
+            "cyclic_coefficients_c": [
+              -7,
+              -7,
+              28,
+              -56,
+              70,
+              -56,
+              28
+            ],
+            "c0_minus_min_c": 49,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 9,
+            "cyclic_coefficients_c": [
+              -35,
+              0,
+              35,
+              -84,
+              126,
+              -126,
+              84
+            ],
+            "c0_minus_min_c": 91,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 10,
+            "cyclic_coefficients_c": [
+              -119,
+              35,
+              35,
+              -119,
+              210,
+              -252,
+              210
+            ],
+            "c0_minus_min_c": 133,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 11,
+            "cyclic_coefficients_c": [
+              -329,
+              154,
+              0,
+              -154,
+              329,
+              -462,
+              462
+            ],
+            "c0_minus_min_c": 133,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 12,
+            "cyclic_coefficients_c": [
+              -791,
+              483,
+              -154,
+              -154,
+              483,
+              -791,
+              924
+            ],
+            "c0_minus_min_c": 0,
+            "zero_residue_compatibility": true,
+            "compatible_zero_residue_epsilon": 1,
+            "compatible_uniform_shift": 792,
+            "compatible_nonnegative_integer_vector": [
+              1,
+              1275,
+              638,
+              638,
+              1275,
+              1,
+              1716
+            ],
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 13,
+            "cyclic_coefficients_c": [
+              -1715,
+              1274,
+              -637,
+              0,
+              637,
+              -1274,
+              1715
+            ],
+            "c0_minus_min_c": 0,
+            "zero_residue_compatibility": true,
+            "compatible_zero_residue_epsilon": 1,
+            "compatible_uniform_shift": 1716,
+            "compatible_nonnegative_integer_vector": [
+              1,
+              2990,
+              1079,
+              1716,
+              2353,
+              442,
+              3431
+            ],
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 14,
+            "cyclic_coefficients_c": [
+              -3430,
+              2989,
+              -1911,
+              637,
+              637,
+              -1911,
+              2989
+            ],
+            "c0_minus_min_c": 0,
+            "zero_residue_compatibility": true,
+            "compatible_zero_residue_epsilon": 1,
+            "compatible_uniform_shift": 3431,
+            "compatible_nonnegative_integer_vector": [
+              1,
+              6420,
+              1520,
+              4068,
+              4068,
+              1520,
+              6420
+            ],
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 15,
+            "cyclic_coefficients_c": [
+              -6419,
+              6419,
+              -4900,
+              2548,
+              0,
+              -2548,
+              4900
+            ],
+            "c0_minus_min_c": 0,
+            "zero_residue_compatibility": true,
+            "compatible_zero_residue_epsilon": 1,
+            "compatible_uniform_shift": 6420,
+            "compatible_nonnegative_integer_vector": [
+              1,
+              12839,
+              1520,
+              8968,
+              6420,
+              3872,
+              11320
+            ],
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 16,
+            "cyclic_coefficients_c": [
+              -11319,
+              12838,
+              -11319,
+              7448,
+              -2548,
+              -2548,
+              7448
+            ],
+            "c0_minus_min_c": 0,
+            "zero_residue_compatibility": true,
+            "compatible_zero_residue_epsilon": 1,
+            "compatible_uniform_shift": 11320,
+            "compatible_nonnegative_integer_vector": [
+              1,
+              24158,
+              1,
+              18768,
+              8772,
+              8772,
+              18768
+            ],
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "exponent_m": 17,
+            "cyclic_coefficients_c": [
+              -18767,
+              24157,
+              -24157,
+              18767,
+              -9996,
+              0,
+              9996
+            ],
+            "c0_minus_min_c": 5390,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 1,
+            "cyclic_coefficients_c": [
+              1,
+              -1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 2,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 2,
+            "cyclic_coefficients_c": [
+              1,
+              -2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 3,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 3,
+            "cyclic_coefficients_c": [
+              1,
+              -3,
+              3,
+              -1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 4,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 4,
+            "cyclic_coefficients_c": [
+              1,
+              -4,
+              6,
+              -4,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 5,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 5,
+            "cyclic_coefficients_c": [
+              1,
+              -5,
+              10,
+              -10,
+              5,
+              -1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 11,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 6,
+            "cyclic_coefficients_c": [
+              1,
+              -6,
+              15,
+              -20,
+              15,
+              -6,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 21,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 7,
+            "cyclic_coefficients_c": [
+              1,
+              -7,
+              21,
+              -35,
+              35,
+              -21,
+              7,
+              -1,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 36,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 8,
+            "cyclic_coefficients_c": [
+              1,
+              -8,
+              28,
+              -56,
+              70,
+              -56,
+              28,
+              -8,
+              1,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 57,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 9,
+            "cyclic_coefficients_c": [
+              1,
+              -9,
+              36,
+              -84,
+              126,
+              -126,
+              84,
+              -36,
+              9,
+              -1,
+              0
+            ],
+            "c0_minus_min_c": 127,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 10,
+            "cyclic_coefficients_c": [
+              1,
+              -10,
+              45,
+              -120,
+              210,
+              -252,
+              210,
+              -120,
+              45,
+              -10,
+              1
+            ],
+            "c0_minus_min_c": 253,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 11,
+            "cyclic_coefficients_c": [
+              0,
+              -11,
+              55,
+              -165,
+              330,
+              -462,
+              462,
+              -330,
+              165,
+              -55,
+              11
+            ],
+            "c0_minus_min_c": 462,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 12,
+            "cyclic_coefficients_c": [
+              -11,
+              -11,
+              66,
+              -220,
+              495,
+              -792,
+              924,
+              -792,
+              495,
+              -220,
+              66
+            ],
+            "c0_minus_min_c": 781,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 13,
+            "cyclic_coefficients_c": [
+              -77,
+              0,
+              77,
+              -286,
+              715,
+              -1287,
+              1716,
+              -1716,
+              1287,
+              -715,
+              286
+            ],
+            "c0_minus_min_c": 1639,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 14,
+            "cyclic_coefficients_c": [
+              -363,
+              77,
+              77,
+              -363,
+              1001,
+              -2002,
+              3003,
+              -3432,
+              3003,
+              -2002,
+              1001
+            ],
+            "c0_minus_min_c": 3069,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 15,
+            "cyclic_coefficients_c": [
+              -1364,
+              440,
+              0,
+              -440,
+              1364,
+              -3003,
+              5005,
+              -6435,
+              6435,
+              -5005,
+              3003
+            ],
+            "c0_minus_min_c": 5071,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 16,
+            "cyclic_coefficients_c": [
+              -4367,
+              1804,
+              -440,
+              -440,
+              1804,
+              -4367,
+              8008,
+              -11440,
+              12870,
+              -11440,
+              8008
+            ],
+            "c0_minus_min_c": 7073,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 11,
+            "exponent_m": 17,
+            "cyclic_coefficients_c": [
+              -12375,
+              6171,
+              -2244,
+              0,
+              2244,
+              -6171,
+              12375,
+              -19448,
+              24310,
+              -24310,
+              19448
+            ],
+            "c0_minus_min_c": 11935,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 1,
+            "cyclic_coefficients_c": [
+              1,
+              -1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 2,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 2,
+            "cyclic_coefficients_c": [
+              1,
+              -2,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 3,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 3,
+            "cyclic_coefficients_c": [
+              1,
+              -3,
+              3,
+              -1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 4,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 4,
+            "cyclic_coefficients_c": [
+              1,
+              -4,
+              6,
+              -4,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 5,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 5,
+            "cyclic_coefficients_c": [
+              1,
+              -5,
+              10,
+              -10,
+              5,
+              -1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 11,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 6,
+            "cyclic_coefficients_c": [
+              1,
+              -6,
+              15,
+              -20,
+              15,
+              -6,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 21,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 7,
+            "cyclic_coefficients_c": [
+              1,
+              -7,
+              21,
+              -35,
+              35,
+              -21,
+              7,
+              -1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 36,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 8,
+            "cyclic_coefficients_c": [
+              1,
+              -8,
+              28,
+              -56,
+              70,
+              -56,
+              28,
+              -8,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 57,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 9,
+            "cyclic_coefficients_c": [
+              1,
+              -9,
+              36,
+              -84,
+              126,
+              -126,
+              84,
+              -36,
+              9,
+              -1,
+              0,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 127,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 10,
+            "cyclic_coefficients_c": [
+              1,
+              -10,
+              45,
+              -120,
+              210,
+              -252,
+              210,
+              -120,
+              45,
+              -10,
+              1,
+              0,
+              0
+            ],
+            "c0_minus_min_c": 253,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 11,
+            "cyclic_coefficients_c": [
+              1,
+              -11,
+              55,
+              -165,
+              330,
+              -462,
+              462,
+              -330,
+              165,
+              -55,
+              11,
+              -1,
+              0
+            ],
+            "c0_minus_min_c": 463,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 12,
+            "cyclic_coefficients_c": [
+              1,
+              -12,
+              66,
+              -220,
+              495,
+              -792,
+              924,
+              -792,
+              495,
+              -220,
+              66,
+              -12,
+              1
+            ],
+            "c0_minus_min_c": 793,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 13,
+            "cyclic_coefficients_c": [
+              0,
+              -13,
+              78,
+              -286,
+              715,
+              -1287,
+              1716,
+              -1716,
+              1287,
+              -715,
+              286,
+              -78,
+              13
+            ],
+            "c0_minus_min_c": 1716,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 14,
+            "cyclic_coefficients_c": [
+              -13,
+              -13,
+              91,
+              -364,
+              1001,
+              -2002,
+              3003,
+              -3432,
+              3003,
+              -2002,
+              1001,
+              -364,
+              91
+            ],
+            "c0_minus_min_c": 3419,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 15,
+            "cyclic_coefficients_c": [
+              -104,
+              0,
+              104,
+              -455,
+              1365,
+              -3003,
+              5005,
+              -6435,
+              6435,
+              -5005,
+              3003,
+              -1365,
+              455
+            ],
+            "c0_minus_min_c": 6331,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 16,
+            "cyclic_coefficients_c": [
+              -559,
+              104,
+              104,
+              -559,
+              1820,
+              -4368,
+              8008,
+              -11440,
+              12870,
+              -11440,
+              8008,
+              -4368,
+              1820
+            ],
+            "c0_minus_min_c": 10881,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 13,
+            "exponent_m": 17,
+            "cyclic_coefficients_c": [
+              -2379,
+              663,
+              0,
+              -663,
+              2379,
+              -6188,
+              12376,
+              -19448,
+              24310,
+              -24310,
+              19448,
+              -12376,
+              6188
+            ],
+            "c0_minus_min_c": 21931,
+            "zero_residue_compatibility": false,
+            "compatible_zero_residue_epsilon": null,
+            "compatible_uniform_shift": null,
+            "compatible_nonnegative_integer_vector": null,
+            "low_degree_m_less_than_q_excluded": false,
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact cyclic binomial folding, integer gap criterion, and exact compatible-vector construction",
+        "complexity": "O(sum_(q,m)(q+m)) integer operations for replay rows; the compatibility criterion is analytic for all q,m",
+        "random_seed": null,
+        "transcript_sha256": "5c95a4a8bf5019dc499a4fc45abcd82b1c10ede06659f59d0d28ee036eb06717",
+        "aggregate": {
+          "zero_residue_compatibility_iff_proved": true,
+          "all_low_degree_m_less_than_q_excluded": true,
+          "low_degree_excluded_replay_count": 32,
+          "compatible_tail_replay_count": 10,
+          "zero_residue_only_global_exclusion_refuted": true,
+          "actual_prime_count_vectors_fully_excluded": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "68 exact integer rows replay the criterion; only the stated all-q low-degree theorem is infinite.",
+      "logical_limit": "Low degrees m<q are excluded, but compatible tail vectors such as (q,m)=(5,8) need not be actual prime counts. Prime ordering and quantitative discrepancy constraints remain unproved.",
+      "route_decision": {
+        "discard": "using only the fact N_0(X) is zero or one to exclude every cyclotomic-unit exponent m",
+        "parked": [
+          "zero-residue compatible tail exponents with c_0-min(c)<=1"
+        ],
+        "retain": "the exact zero-residue criterion and complete exclusion of every low-degree exponent 1<=m<q",
+        "next_single_lemma": "ActualPrimeOrderingExcludesZeroResidueCompatibleCyclotomicTail"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T251",
+            "label": "CyclotomicUnitFullSupportEnergyConcentrationNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "GB-T252",
+            "label": "PrimeCountZeroResidueCyclotomicCompatibilityCriterion",
+            "status": "proved"
+          },
+          {
+            "id": "GB-REJECT252",
+            "label": "PrimeZeroResidueConstraintExcludesEveryCyclotomicExponent",
+            "status": "disproved"
+          },
+          {
+            "id": "GB-OPEN252",
+            "label": "ActualPrimeOrderingExcludesZeroResidueCompatibleCyclotomicTail",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T251",
+            "GB-T252"
+          ],
+          [
+            "GB-T252",
+            "GB-REJECT252"
+          ],
+          [
+            "GB-T252",
+            "GB-OPEN252"
+          ]
+        ],
+        "resolution_path": [
+          "GB-T251",
+          "GB-T252",
+          "GB-OPEN252"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No strong Goldbach proof or counterexample; one exact compatibility iff and an all-q low-degree exclusion."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-252",
+      "theorem_name": "FiniteCongruenceLocalSolubilityNoGoForRightEvenPrimePowers",
+      "declared_proposition": "For every integer M>=1 and every odd k>=3 and m>=1, there are infinitely many pairs of distinct odd primes p,r such that p=7 modulo 8 and p^k+2=r^(2m) modulo M. Hence the Diophantine equation p^k+2=r^(2m) has prime-residue local solutions modulo every fixed finite collection of moduli, and no fixed-modulus local-insolubility argument can prove the required all-X exclusion.",
+      "mathematical_argument": "Let L=8M. The reduced residue classes -1 and 1 modulo L each contain infinitely many primes by Dirichlet's theorem. Choose distinct primes p=-1 mod L and r=1 mod L. Since k is odd, p^k+2=-1+2=1 mod M, while r^(2m)=1 mod M; also p=7 mod 8. A finite list of congruence moduli is absorbed into their least common multiple M. This proves local compatibility only and supplies no integer equality or twin-prime lower bound.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "For every integer M>=1 and every odd k>=3 and m>=1, there are infinitely many pairs of distinct odd primes p,r such that p=7 modulo 8 and p^k+2=r^(2m) modulo M. Hence the Diophantine equation p^k+2=r^(2m) has prime-residue local solutions modulo every fixed finite collection of moduli, and no fixed-modulus local-insolubility argument can prove the required all-X exclusion.",
+        "proof": "Let L=8M. The reduced residue classes -1 and 1 modulo L each contain infinitely many primes by Dirichlet's theorem. Choose distinct primes p=-1 mod L and r=1 mod L. Since k is odd, p^k+2=-1+2=1 mod M, while r^(2m)=1 mod M; also p=7 mod 8. A finite list of congruence moduli is absorbed into their least common multiple M. This proves local compatibility only and supplies no integer equality or twin-prime lower bound.",
+        "exact_finite_modulus_rows": [
+          {
+            "modulus_M": 1,
+            "combined_modulus_8M": 8,
+            "prime_p_minus_one_class": 7,
+            "prime_r_plus_one_class": 17,
+            "odd_left_exponent_k": 3,
+            "right_half_exponent_m": 1,
+            "equation_residual_mod_M": 0,
+            "certificate_verified": true
+          },
+          {
+            "modulus_M": 3,
+            "combined_modulus_8M": 24,
+            "prime_p_minus_one_class": 23,
+            "prime_r_plus_one_class": 73,
+            "odd_left_exponent_k": 5,
+            "right_half_exponent_m": 2,
+            "equation_residual_mod_M": 0,
+            "certificate_verified": true
+          },
+          {
+            "modulus_M": 5,
+            "combined_modulus_8M": 40,
+            "prime_p_minus_one_class": 79,
+            "prime_r_plus_one_class": 41,
+            "odd_left_exponent_k": 7,
+            "right_half_exponent_m": 3,
+            "equation_residual_mod_M": 0,
+            "certificate_verified": true
+          },
+          {
+            "modulus_M": 7,
+            "combined_modulus_8M": 56,
+            "prime_p_minus_one_class": 167,
+            "prime_r_plus_one_class": 113,
+            "odd_left_exponent_k": 3,
+            "right_half_exponent_m": 1,
+            "equation_residual_mod_M": 0,
+            "certificate_verified": true
+          },
+          {
+            "modulus_M": 11,
+            "combined_modulus_8M": 88,
+            "prime_p_minus_one_class": 263,
+            "prime_r_plus_one_class": 89,
+            "odd_left_exponent_k": 5,
+            "right_half_exponent_m": 2,
+            "equation_residual_mod_M": 0,
+            "certificate_verified": true
+          },
+          {
+            "modulus_M": 30,
+            "combined_modulus_8M": 240,
+            "prime_p_minus_one_class": 239,
+            "prime_r_plus_one_class": 241,
+            "odd_left_exponent_k": 7,
+            "right_half_exponent_m": 3,
+            "equation_residual_mod_M": 0,
+            "certificate_verified": true
+          },
+          {
+            "modulus_M": 210,
+            "combined_modulus_8M": 1680,
+            "prime_p_minus_one_class": 3359,
+            "prime_r_plus_one_class": 3361,
+            "odd_left_exponent_k": 3,
+            "right_half_exponent_m": 1,
+            "equation_residual_mod_M": 0,
+            "certificate_verified": true
+          },
+          {
+            "modulus_M": 2310,
+            "combined_modulus_8M": 18480,
+            "prime_p_minus_one_class": 55439,
+            "prime_r_plus_one_class": 18481,
+            "odd_left_exponent_k": 5,
+            "right_half_exponent_m": 2,
+            "equation_residual_mod_M": 0,
+            "certificate_verified": true
+          }
+        ],
+        "external_theorem": {
+          "name": "Dirichlet theorem on primes in reduced arithmetic progressions",
+          "statement_used": "If gcd(a,L)=1, then a modulo L contains infinitely many primes.",
+          "status": "external_theorem",
+          "dependency_boundary": "Only local prime-residue existence uses Dirichlet; no Diophantine equality is imported."
+        },
+        "algorithm": "deterministic trial-division primality and first-prime search in plus/minus one residue classes",
+        "complexity": "finite replay uses trial division through sqrt(candidate); the all-M result uses Dirichlet's theorem",
+        "random_seed": null,
+        "transcript_sha256": "079a60fde7d3f69814681f455edadebbe8b8d0aaf199e7821a0dad94d3ee02b4",
+        "aggregate": {
+          "prime_residue_local_solutions_for_every_fixed_modulus_proved": true,
+          "fixed_finite_congruence_obstruction_excluded": true,
+          "global_integer_equation_solved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "8 exact prime residue rows replay selected moduli; the every-M conclusion uses Dirichlet's theorem.",
+      "logical_limit": "Local solutions modulo every fixed M are not integer solutions. The all-X equation, a Type-II lower bound, and twin-prime infinitude remain open.",
+      "route_decision": {
+        "discard": "proving x^2-2=p^k has no odd-prime-power solutions by a fixed finite collection of congruence obstructions",
+        "parked": [
+          "pure fixed-modulus congruence sieves for the all-X Diophantine equation"
+        ],
+        "retain": "a global archimedean, unit-equation, or primitive-divisor obstruction beyond local congruence compatibility",
+        "next_single_lemma": "QuadraticUnitCoefficientOneExcludesOddPrimeExponents"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T251",
+            "label": "RightEvenModuloEightConstraintAndSharpness",
+            "status": "proved"
+          },
+          {
+            "id": "TP-EXT-DIRICHLET",
+            "label": "Dirichlet primes in reduced arithmetic progressions",
+            "status": "external_theorem"
+          },
+          {
+            "id": "TP-T252",
+            "label": "FiniteCongruenceLocalSolubilityNoGoForRightEvenPrimePowers",
+            "status": "proved"
+          },
+          {
+            "id": "TP-REJECT252",
+            "label": "SomeFixedFiniteModulusLocallyExcludesAllRightEvenCandidates",
+            "status": "disproved"
+          },
+          {
+            "id": "TP-OPEN252",
+            "label": "QuadraticUnitCoefficientOneExcludesOddPrimeExponents",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-EXT-DIRICHLET",
+            "TP-T252"
+          ],
+          [
+            "TP-T251",
+            "TP-T252"
+          ],
+          [
+            "TP-T252",
+            "TP-REJECT252"
+          ],
+          [
+            "TP-T252",
+            "TP-OPEN252"
+          ]
+        ],
+        "resolution_path": [
+          "TP-T251",
+          "TP-EXT-DIRICHLET",
+          "TP-T252",
+          "TP-OPEN252"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No twin-prime proof or counterexample; one Dirichlet-dependent exact local-solubility no-go theorem."
+    },
+    "research_baselines": {
+      "riemann_status": "https://www.claymath.org/millennium/Riemann-Hypothesis/",
+      "collatz_fixed_representative_context": "https://arxiv.org/abs/1104.3909",
+      "goldbach_major_arcs": "https://arxiv.org/abs/1205.5252",
+      "twin_prime_parity": "https://arxiv.org/abs/1407.4897",
+      "dirichlet_theorem": "https://encyclopediaofmath.org/wiki/Dirichlet_theorem"
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_partial_theorem_count": 1,
+      "exact_no_go_count": 3,
+      "candidate_resolution_count": 0,
+      "conjecture_resolution_count": 0,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "deep_focus_problem": "goldbach",
+      "stagnated_problem_count": 0,
+      "riemann_sparse_projection_case_count": 12,
+      "collatz_marginal_countermodel_case_count": 11,
+      "goldbach_zero_residue_case_count": 68,
+      "twin_finite_modulus_case_count": 8,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-252",
+      "declared_proposition": "Let H=L2_even([-1,1]), Q0(f)=sum_(k>=0)|integral x^(2k)f(x)dx|^2, and let S be an infinite symmetric subset of the nonzero integers with #(S intersect [-N,N])=o(N). For the orthogonal Fourier projection P_S onto {2^(-1/2) exp(pi i n x): n in S}, P_S is bounded, positive, self-adjoint, noncompact, and is not a multiplication operator, yet inf_(||f||=1)(Q0(f)+<P_S f,f>)=0. Thus even a noncompact nonlocal positive operator can fail to exclude interior concentration.",
+      "new_result": "SparseFourierProjectionInteriorConcentrationNoGo",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/sparse_marginal_zeroresidue_local_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "using noncompactness and nonlocality alone, or a zero-density spectral projection, as a certificate that an arithmetic operator excludes interior concentration",
+      "parked_routes": [
+        "abstract Fourier projections not identified with the actual Weil operator"
+      ],
+      "remaining_gap": "The sparse projection is an abstract periodic Fourier operator, not the actual Weil form. The missing step is a proved positive-density or stronger lower bound for the genuine arithmetic kernel on every admissible concentration packet.",
+      "stagnation_count": 0,
+      "candidate_theorem": "ActualWeilKernelHasPositiveDensityAgainstEveryInteriorWavePacket"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-252",
+      "declared_proposition": "For every prime q>5 there are two probability measures on F_q^2 with identical exactly uniform U- and V-marginals but radically different mass on the separated projective target [3:5]: the uniform measure on (3t,5t) has mass (q-1)/q, while the uniform measure on (t,t) has mass zero. Therefore marginal equidistribution of F_q(2) and F_q(3), even if exact, cannot by itself prove occurrence, avoidance, or density of the canonical joint slope [3:5].",
+      "new_result": "UniformMarginalsCannotDetectProjectiveFermatSlopeNoGo",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/sparse_marginal_zeroresidue_local_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "deducing occurrence, avoidance, or density of [3:5] from separate marginal equidistribution statements for F_q(2) and F_q(3)",
+      "parked_routes": [
+        "one-coordinate Fermat-quotient statistics without joint character information"
+      ],
+      "remaining_gap": "The countermodels are probability measures on F_q^2, not the actual cross-prime distribution of (F_q(2),F_q(3)); they prove only that marginal information is logically insufficient.",
+      "stagnation_count": 0,
+      "candidate_theorem": "JointFermatQuotientCharacterCancellationAtSlopeThreeFifths"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-252",
+      "declared_proposition": "Let q>=5 be prime, m>=1, and c_r be the cyclic coefficients of (1-X)^m modulo X^q-1. If an unweighted prime-count vector N_r(X) has the same centered nonzero Fourier data q(1-zeta_q^a)^m as the TICKET-251 cyclotomic family, then N_r=c_r+t for one integer t. Since N_0(X) is 0 or 1, such a nonnegative integer vector is compatible with the prime zero-residue constraint if and only if c_0-min_r c_r<=1. Consequently every 1<=m<q is excluded. This constraint alone does not exclude the tail: at (q,m)=(5,8), c=(-55,20,20,-55,70) and adding 56 gives (1,76,76,1,126), which passes the zero-residue constraint.",
+      "new_result": "PrimeCountZeroResidueCyclotomicCompatibilityCriterion",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/sparse_marginal_zeroresidue_local_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "using only the fact N_0(X) is zero or one to exclude every cyclotomic-unit exponent m",
+      "parked_routes": [
+        "zero-residue compatible tail exponents with c_0-min(c)<=1"
+      ],
+      "remaining_gap": "Low degrees m<q are excluded, but compatible tail vectors such as (q,m)=(5,8) need not be actual prime counts. Prime ordering and quantitative discrepancy constraints remain unproved.",
+      "stagnation_count": 0,
+      "candidate_theorem": "ActualPrimeOrderingExcludesZeroResidueCompatibleCyclotomicTail"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-252",
+      "declared_proposition": "For every integer M>=1 and every odd k>=3 and m>=1, there are infinitely many pairs of distinct odd primes p,r such that p=7 modulo 8 and p^k+2=r^(2m) modulo M. Hence the Diophantine equation p^k+2=r^(2m) has prime-residue local solutions modulo every fixed finite collection of moduli, and no fixed-modulus local-insolubility argument can prove the required all-X exclusion.",
+      "new_result": "FiniteCongruenceLocalSolubilityNoGoForRightEvenPrimePowers",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/sparse_marginal_zeroresidue_local_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "proving x^2-2=p^k has no odd-prime-power solutions by a fixed finite collection of congruence obstructions",
+      "parked_routes": [
+        "pure fixed-modulus congruence sieves for the all-X Diophantine equation"
+      ],
+      "remaining_gap": "Local solutions modulo every fixed M are not integer solutions. The all-X equation, a Type-II lower bound, and twin-prime infinitude remain open.",
+      "stagnation_count": 0,
+      "candidate_theorem": "QuadraticUnitCoefficientOneExcludesOddPrimeExponents"
+    }
+  ]
+}

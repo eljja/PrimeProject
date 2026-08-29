@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260827-ticket251-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260829-ticket252-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-251 · CURRENT RESEARCH BOUNDARY</p>
+                <p class="brief-kicker">TICKET-252 · CURRENT RESEARCH BOUNDARY</p>
                 <h1 data-i18n="brief.title">Four open problems, sharper obstructions isolated</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-251 proves three exact route no-go results and one partial theorem: interior-zero local RH multipliers fail coercivity, finite-prime Collatz patterns are CRT-interpolable, structural Goldbach full support permits two-frequency concentration, and right-even twin active pairs reduce to prime values r^(2m)−2.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-251은 RH 내부 영점 local multiplier, Collatz 유한 소수 pattern, Goldbach 구조적 anti-concentration의 세 경로를 no-go로 닫고 Twin right-even 해의 k 홀수·p≡7 (mod 8) 필요조건과 그 합동 경로의 한계를 증명했습니다.</p>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-252 proves three exact no-go results and one partial theorem: sparse RH projections still permit concentration escape, Collatz marginals miss joint slope mass, Goldbach zero-residue compatibility has an exact criterion and tail countermodel, and fixed finite congruences cannot exclude the right-even twin equation.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-252는 RH sparse projection, Collatz marginal-only 통계, Goldbach zero-residue-only 전역 배제, Twin 고정 유한 합동 obstruction의 네 경계를 정리와 반례로 확정했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>251</strong><small>2026-08-27</small></div>
-              <div><span>Exact no-go</span><strong>3</strong><small>interior zero, finite CRT, cyclotomic concentration</small></div>
-              <div><span>Partial theorems</span><strong>1</strong><small>right-even mod-8 constraint</small></div>
+              <div><span>Latest ticket</span><strong>252</strong><small>2026-08-29</small></div>
+              <div><span>Exact no-go</span><strong>3</strong><small>sparse projection, joint marginals, finite congruences</small></div>
+              <div><span>Partial theorems</span><strong>1</strong><small>zero-residue compatibility criterion</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 내부 영점이 있는 모든 연속·짝·비음수 local multiplier에서 Q0+multiplier가 집중열을 따라 0으로 갑니다.</p>
-                <p><strong>폐기:</strong> 내부 영점 local multiplier로 full-sphere coercivity를 복구하는 전체 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>NonlocalArithmeticWeilKernelExcludesInteriorConcentration</code>.</p>
+                <p><strong>확립:</strong> 양·자기수반·비콤팩트인 sparse Fourier projection도 정규화된 내부 집중열에서 Q0와 함께 0으로 갑니다.</p>
+                <p><strong>폐기:</strong> positivity·self-adjointness·noncompactness·nonmultiplication만으로 coercivity를 얻는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ActualWeilKernelHasPositiveDensityAgainstEveryInteriorWavePacket</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 임의의 유한 소수 Fermat-quotient target pattern은 2,3의 lift와 CRT로 동시에 실현됩니다.</p>
-                <p><strong>폐기:</strong> 유한 개 lift-compatible local 정보로 canonical cross-prime 거동을 결정하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>CanonicalRepresentativeFermatQuotientDistributionBeyondFiniteCRTInterpolation</code>.</p>
+                <p><strong>확립:</strong> 동일한 uniform marginals를 가진 두 joint law가 [3:5] slope 질량에서는 (q−1)/q와 0으로 갈립니다.</p>
+                <p><strong>폐기:</strong> marginal equidistribution만으로 canonical joint slope를 결정하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>JointFermatQuotientCharacterCancellationAtSlopeThreeFifths</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 비음수 정수 중심벡터가 full reduced support와 nonzero norm을 유지하면서 두 켤레 주파수로 에너지를 집중할 수 있습니다.</p>
-                <p><strong>폐기:</strong> 구조적 full support와 nonzero norm만으로 정량 Fourier anti-concentration을 얻는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>ActualPrimeCountResidueVectorsExcludeCyclotomicUnitConcentration</code>.</p>
+                <p><strong>확립:</strong> zero-residue compatibility는 c0−min(c)≤1과 동치이고, 모든 1≤m&lt;q는 배제됩니다.</p>
+                <p><strong>폐기:</strong> q=5,m=8의 정확한 비음수 벡터 때문에 zero-residue-only 전역 배제 경로는 실패합니다.</p>
+                <p><strong>다음 핵심:</strong> <code>ActualPrimeOrderingExcludesZeroResidueCompatibleCyclotomicTail</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> p^k+2=r^(2m)이면 k가 홀수이고 p≡7 (mod 8)임을 초등적으로 증명했습니다. 이 합동만으로 k=1은 강제되지 않습니다.</p>
-                <p><strong>폐기:</strong> 철회 출처 의존과 mod 8 조건만으로 k=1을 강제하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>NoPositivePrimePowerSolutionsOfXSquareMinusTwoEqualsYOddPower</code>.</p>
+                <p><strong>확립:</strong> 모든 고정 M에서 p≡−1, r≡1 (mod 8M)인 소수가 무한히 존재하여 right-even 방정식은 mod M에서 국소적으로 풀립니다.</p>
+                <p><strong>폐기:</strong> 고정된 유한 합동 조건들로 all-X 정수해를 전역 배제하는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>QuadraticUnitCoefficientOneExcludesOddPrimeExponents</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>251개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-251은 내부 집중, 유한 소수 CRT, cyclotomic-unit 집중, right-even mod 8 제약과 한계의 경계를 확정했습니다.</p>
+                <p>252개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-252는 sparse projection, joint marginal, zero-residue tail, finite-congruence local-solubility 경계를 확정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/interior-crt-cyclotomic-righteven.ko.md">최신 한국어 보고서</a>
-              <a href="docs/multiplier-lift-galois-evenright.md">Latest English report</a>
+              <a href="docs/sparse-marginal-zeroresidue-local.ko.md">최신 한국어 보고서</a>
+              <a href="docs/sparse-marginal-zeroresidue-local.md">Latest English report</a>
             </div>
           </section>
           <section id="overview-panel" class="overview-grid">
@@ -658,8 +658,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-251</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-251 proves three exact route no-go results and one partial theorem, with a resolution count of zero.</p>
+              <strong>TICKET-252</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-252 proves three exact route no-go results and one partial theorem, with a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -795,8 +795,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260827-ticket251"></script>
-    <script src="assets/app.js?v=20260827-ticket251"></script>
+    <script src="assets/i18n.js?v=20260829-ticket252"></script>
+    <script src="assets/app.js?v=20260829-ticket252"></script>
   </body>
 </html>
 

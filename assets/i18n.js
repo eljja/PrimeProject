@@ -62,12 +62,12 @@
       ko: "네 미해결 문제, 양화사와 척도 지름길을 분리하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-251 proves three exact route no-go results for interior-zero RH multipliers, finite-prime Collatz interpolation, and structural Goldbach anti-concentration, plus one right-even twin partial theorem.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-251은 RH 내부 영점 multiplier, Collatz 유한 소수 CRT, Goldbach 구조적 anti-concentration의 세 no-go와 Twin right-even 분류 부분정리 하나를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-252 proves three exact route no-go results for sparse RH projections, marginal-only Collatz statistics, and fixed finite twin congruences, plus one Goldbach zero-residue compatibility theorem.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-252는 RH sparse projection, Collatz marginal-only, Twin 고정 유한 합동의 세 no-go와 Goldbach zero-residue compatibility 부분정리 하나를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-251 proves three exact route no-go results and one partial theorem, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-251은 exact route no-go 세 개와 부분정리 한 개를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-252 proves three exact route no-go results and one partial theorem, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-252는 exact route no-go 세 개와 부분정리 한 개를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

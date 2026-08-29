@@ -597,3 +597,18 @@ model with the actual Weil form, promotion of finite-prime interpolation to
 canonical cross-prime distribution, identification of the cyclotomic vectors
 with actual prime counts, any claim that modulo eight excludes odd composite
 left exponents, and any all-X `k=1` classification. Resolution and candidate-resolution counts are zero.
+## TICKET-252 publication boundary
+
+TICKET-252 adds three exact route no-go theorems and one partial theorem.
+Allowed `exact_no_go` wording is limited to zero-density sparse Fourier
+projections in the stated even-L2 model, abstract finite-field laws with
+uniform marginals, and fixed finite congruence obstructions for the right-even
+prime-power equation. Allowed `partial_theorem` wording is limited to the
+exact Goldbach zero-residue compatibility criterion and its all-prime,
+low-degree `1<=m<q` exclusion. Blocked wording includes every parent-
+conjecture proof or disproof, identification of the sparse projection with
+the actual Weil kernel, identification of the finite-field laws with the
+canonical Fermat-quotient distribution, identification of the `(5,8)` vector
+with actual prime counts, or promotion of local congruence solubility to a
+global integer solution. Resolution and candidate-resolution counts are
+zero.

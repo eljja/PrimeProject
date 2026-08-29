@@ -1,0 +1,317 @@
+{
+  "schema": "primeproject.ticket252-sparse-marginal-zeroresidue-local.v1",
+  "generated_at": "2026-08-29T04:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-252",
+  "theorem_name": "UniformMarginalsCannotDetectProjectiveFermatSlopeNoGo",
+  "declared_proposition": "For every prime q>5 there are two probability measures on F_q^2 with identical exactly uniform U- and V-marginals but radically different mass on the separated projective target [3:5]: the uniform measure on (3t,5t) has mass (q-1)/q, while the uniform measure on (t,t) has mass zero. Therefore marginal equidistribution of F_q(2) and F_q(3), even if exact, cannot by itself prove occurrence, avoidance, or density of the canonical joint slope [3:5].",
+  "mathematical_argument": "Multiplication by 3 and by 5 permutes F_q, so both coordinates of the hit graph are uniform. Both coordinates of the diagonal miss graph are also uniform. Every nonzero hit-graph point equals t(3,5), yielding q-1 separated targets. On the miss graph the target equation is 5t-3t=2t=0, so q>5 forces t=0, which is not separated. For the actual canonical pair (U_q,V_q), the exact detector is 1_(5U_q-3V_q=0)-1_(U_q=0,V_q=0); additive-character orthogonality shows that a joint, not marginal, character estimate is required.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every prime q>5 there are two probability measures on F_q^2 with identical exactly uniform U- and V-marginals but radically different mass on the separated projective target [3:5]: the uniform measure on (3t,5t) has mass (q-1)/q, while the uniform measure on (t,t) has mass zero. Therefore marginal equidistribution of F_q(2) and F_q(3), even if exact, cannot by itself prove occurrence, avoidance, or density of the canonical joint slope [3:5].",
+    "proof": "Multiplication by 3 and by 5 permutes F_q, so both coordinates of the hit graph are uniform. Both coordinates of the diagonal miss graph are also uniform. Every nonzero hit-graph point equals t(3,5), yielding q-1 separated targets. On the miss graph the target equation is 5t-3t=2t=0, so q>5 forces t=0, which is not separated. For the actual canonical pair (U_q,V_q), the exact detector is 1_(5U_q-3V_q=0)-1_(U_q=0,V_q=0); additive-character orthogonality shows that a joint, not marginal, character estimate is required.",
+    "exact_uniform_marginal_countermodel_rows": [
+      {
+        "prime_q": 7,
+        "hit_graph": "(U,V)=(3t,5t)",
+        "miss_graph": "(U,V)=(t,t)",
+        "each_of_four_marginals_is_exactly_uniform": true,
+        "hit_graph_separated_target_count": 6,
+        "miss_graph_separated_target_count": 0,
+        "hit_graph_target_mass": {
+          "exact": "6/7",
+          "numerator": 6,
+          "denominator": 7,
+          "display_float": 0.8571428571428571
+        },
+        "miss_graph_target_mass": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "hit_graph": "(U,V)=(3t,5t)",
+        "miss_graph": "(U,V)=(t,t)",
+        "each_of_four_marginals_is_exactly_uniform": true,
+        "hit_graph_separated_target_count": 10,
+        "miss_graph_separated_target_count": 0,
+        "hit_graph_target_mass": {
+          "exact": "10/11",
+          "numerator": 10,
+          "denominator": 11,
+          "display_float": 0.9090909090909091
+        },
+        "miss_graph_target_mass": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 13,
+        "hit_graph": "(U,V)=(3t,5t)",
+        "miss_graph": "(U,V)=(t,t)",
+        "each_of_four_marginals_is_exactly_uniform": true,
+        "hit_graph_separated_target_count": 12,
+        "miss_graph_separated_target_count": 0,
+        "hit_graph_target_mass": {
+          "exact": "12/13",
+          "numerator": 12,
+          "denominator": 13,
+          "display_float": 0.9230769230769231
+        },
+        "miss_graph_target_mass": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 17,
+        "hit_graph": "(U,V)=(3t,5t)",
+        "miss_graph": "(U,V)=(t,t)",
+        "each_of_four_marginals_is_exactly_uniform": true,
+        "hit_graph_separated_target_count": 16,
+        "miss_graph_separated_target_count": 0,
+        "hit_graph_target_mass": {
+          "exact": "16/17",
+          "numerator": 16,
+          "denominator": 17,
+          "display_float": 0.9411764705882353
+        },
+        "miss_graph_target_mass": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 19,
+        "hit_graph": "(U,V)=(3t,5t)",
+        "miss_graph": "(U,V)=(t,t)",
+        "each_of_four_marginals_is_exactly_uniform": true,
+        "hit_graph_separated_target_count": 18,
+        "miss_graph_separated_target_count": 0,
+        "hit_graph_target_mass": {
+          "exact": "18/19",
+          "numerator": 18,
+          "denominator": 19,
+          "display_float": 0.9473684210526315
+        },
+        "miss_graph_target_mass": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "hit_graph": "(U,V)=(3t,5t)",
+        "miss_graph": "(U,V)=(t,t)",
+        "each_of_four_marginals_is_exactly_uniform": true,
+        "hit_graph_separated_target_count": 22,
+        "miss_graph_separated_target_count": 0,
+        "hit_graph_target_mass": {
+          "exact": "22/23",
+          "numerator": 22,
+          "denominator": 23,
+          "display_float": 0.9565217391304348
+        },
+        "miss_graph_target_mass": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 29,
+        "hit_graph": "(U,V)=(3t,5t)",
+        "miss_graph": "(U,V)=(t,t)",
+        "each_of_four_marginals_is_exactly_uniform": true,
+        "hit_graph_separated_target_count": 28,
+        "miss_graph_separated_target_count": 0,
+        "hit_graph_target_mass": {
+          "exact": "28/29",
+          "numerator": 28,
+          "denominator": 29,
+          "display_float": 0.9655172413793104
+        },
+        "miss_graph_target_mass": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 31,
+        "hit_graph": "(U,V)=(3t,5t)",
+        "miss_graph": "(U,V)=(t,t)",
+        "each_of_four_marginals_is_exactly_uniform": true,
+        "hit_graph_separated_target_count": 30,
+        "miss_graph_separated_target_count": 0,
+        "hit_graph_target_mass": {
+          "exact": "30/31",
+          "numerator": 30,
+          "denominator": 31,
+          "display_float": 0.967741935483871
+        },
+        "miss_graph_target_mass": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 37,
+        "hit_graph": "(U,V)=(3t,5t)",
+        "miss_graph": "(U,V)=(t,t)",
+        "each_of_four_marginals_is_exactly_uniform": true,
+        "hit_graph_separated_target_count": 36,
+        "miss_graph_separated_target_count": 0,
+        "hit_graph_target_mass": {
+          "exact": "36/37",
+          "numerator": 36,
+          "denominator": 37,
+          "display_float": 0.972972972972973
+        },
+        "miss_graph_target_mass": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 41,
+        "hit_graph": "(U,V)=(3t,5t)",
+        "miss_graph": "(U,V)=(t,t)",
+        "each_of_four_marginals_is_exactly_uniform": true,
+        "hit_graph_separated_target_count": 40,
+        "miss_graph_separated_target_count": 0,
+        "hit_graph_target_mass": {
+          "exact": "40/41",
+          "numerator": 40,
+          "denominator": 41,
+          "display_float": 0.975609756097561
+        },
+        "miss_graph_target_mass": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 43,
+        "hit_graph": "(U,V)=(3t,5t)",
+        "miss_graph": "(U,V)=(t,t)",
+        "each_of_four_marginals_is_exactly_uniform": true,
+        "hit_graph_separated_target_count": 42,
+        "miss_graph_separated_target_count": 0,
+        "hit_graph_target_mass": {
+          "exact": "42/43",
+          "numerator": 42,
+          "denominator": 43,
+          "display_float": 0.9767441860465116
+        },
+        "miss_graph_target_mass": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "certificate_verified": true
+      }
+    ],
+    "canonical_exact_indicator": "1_(5U_q-3V_q=0)-1_(U_q=0 and V_q=0)",
+    "algorithm": "exact finite-field graph enumeration and integer marginal counts",
+    "complexity": "O(sum q) integer operations for replay rows; the theorem is algebraic for every prime q>5",
+    "random_seed": null,
+    "transcript_sha256": "d134c93741ae3151e80bc4443e7abbbbab5ba578292ade37cef147e17cfb324c",
+    "aggregate": {
+      "uniform_marginals_do_not_control_joint_slope_proved": true,
+      "joint_character_control_required": true,
+      "canonical_fixed_pair_distribution_controlled": false,
+      "collatz_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "11 exact finite-field graph rows replay the universal algebraic theorem; no canonical-prime occurrence is inferred.",
+  "logical_limit": "The countermodels are probability measures on F_q^2, not the actual cross-prime distribution of (F_q(2),F_q(3)); they prove only that marginal information is logically insufficient.",
+  "route_decision": {
+    "discard": "deducing occurrence, avoidance, or density of [3:5] from separate marginal equidistribution statements for F_q(2) and F_q(3)",
+    "parked": [
+      "one-coordinate Fermat-quotient statistics without joint character information"
+    ],
+    "retain": "joint additive-character cancellation for the canonical pair on the linear form 5U_q-3V_q",
+    "next_single_lemma": "JointFermatQuotientCharacterCancellationAtSlopeThreeFifths"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T251",
+        "label": "FinitePrimeCanonicalLiftPatternCRTInterpolationNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T252",
+        "label": "UniformMarginalsCannotDetectProjectiveFermatSlopeNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-REJECT252",
+        "label": "ExactMarginalEquidistributionForcesCanonicalSlopeDensity",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN252",
+        "label": "JointFermatQuotientCharacterCancellationAtSlopeThreeFifths",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T251",
+        "CO-T252"
+      ],
+      [
+        "CO-T252",
+        "CO-REJECT252"
+      ],
+      [
+        "CO-T252",
+        "CO-OPEN252"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T251",
+      "CO-T252",
+      "CO-OPEN252"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz orbit proof or counterexample; one exact joint-versus-marginal distribution no-go theorem."
+}

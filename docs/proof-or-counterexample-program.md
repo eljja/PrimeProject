@@ -8954,3 +8954,26 @@ Machine artifact:
 `data/open-problem/ticket251-interior-crt-cyclotomic-righteven.json`.
 Reports: [English](interior-crt-cyclotomic-righteven.md) and
 [한국어](interior-crt-cyclotomic-righteven.ko.md).
+## TICKET-252 continuation: sparse projection, marginal blindness, zero-residue compatibility, and finite local solubility
+
+TICKET-252 attacks the four TICKET-251 frontiers and resolves no parent
+conjecture.
+
+| Track | Exact theorem now closed | Route discarded or retained | Next single lemma |
+|---|---|---|---|
+| RH | `SparseFourierProjectionInteriorConcentrationNoGo` | discard abstract positive, self-adjoint, noncompact, nonlocal projection properties as a coercivity certificate | `ActualWeilKernelHasPositiveDensityAgainstEveryInteriorWavePacket` |
+| Collatz | `UniformMarginalsCannotDetectProjectiveFermatSlopeNoGo` | discard all marginal-only distribution arguments; retain joint additive characters | `JointFermatQuotientCharacterCancellationAtSlopeThreeFifths` |
+| Goldbach | `PrimeCountZeroResidueCyclotomicCompatibilityCriterion` | exclude every `1<=m<q`; discard zero-residue-only tail exclusion using `(5,8)` | `ActualPrimeOrderingExcludesZeroResidueCompatibleCyclotomicTail` |
+| Twin | `FiniteCongruenceLocalSolubilityNoGoForRightEvenPrimePowers` | discard every fixed finite congruence obstruction; retain a global Diophantine coefficient argument | `QuadraticUnitCoefficientOneExcludesOddPrimeExponents` |
+
+The RH operator is abstract, the Collatz measures are countermodels rather
+than the canonical cross-prime law, the Goldbach tail vector is not an actual
+prime-count vector, and the Twin theorem proves congruences rather than an
+integer equality. Every proof DAG has one open frontier, the single external
+node is Dirichlet's theorem for the Twin local-solubility argument, and all
+four parent problems remain `open_not_proven`.
+
+Machine artifact:
+`data/open-problem/ticket252-sparse-marginal-zeroresidue-local.json`.
+Reports: [English](sparse-marginal-zeroresidue-local.md) and
+[한국어](sparse-marginal-zeroresidue-local.ko.md).

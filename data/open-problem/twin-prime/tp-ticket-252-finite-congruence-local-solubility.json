@@ -1,0 +1,181 @@
+{
+  "schema": "primeproject.ticket252-sparse-marginal-zeroresidue-local.v1",
+  "generated_at": "2026-08-29T04:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-252",
+  "theorem_name": "FiniteCongruenceLocalSolubilityNoGoForRightEvenPrimePowers",
+  "declared_proposition": "For every integer M>=1 and every odd k>=3 and m>=1, there are infinitely many pairs of distinct odd primes p,r such that p=7 modulo 8 and p^k+2=r^(2m) modulo M. Hence the Diophantine equation p^k+2=r^(2m) has prime-residue local solutions modulo every fixed finite collection of moduli, and no fixed-modulus local-insolubility argument can prove the required all-X exclusion.",
+  "mathematical_argument": "Let L=8M. The reduced residue classes -1 and 1 modulo L each contain infinitely many primes by Dirichlet's theorem. Choose distinct primes p=-1 mod L and r=1 mod L. Since k is odd, p^k+2=-1+2=1 mod M, while r^(2m)=1 mod M; also p=7 mod 8. A finite list of congruence moduli is absorbed into their least common multiple M. This proves local compatibility only and supplies no integer equality or twin-prime lower bound.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every integer M>=1 and every odd k>=3 and m>=1, there are infinitely many pairs of distinct odd primes p,r such that p=7 modulo 8 and p^k+2=r^(2m) modulo M. Hence the Diophantine equation p^k+2=r^(2m) has prime-residue local solutions modulo every fixed finite collection of moduli, and no fixed-modulus local-insolubility argument can prove the required all-X exclusion.",
+    "proof": "Let L=8M. The reduced residue classes -1 and 1 modulo L each contain infinitely many primes by Dirichlet's theorem. Choose distinct primes p=-1 mod L and r=1 mod L. Since k is odd, p^k+2=-1+2=1 mod M, while r^(2m)=1 mod M; also p=7 mod 8. A finite list of congruence moduli is absorbed into their least common multiple M. This proves local compatibility only and supplies no integer equality or twin-prime lower bound.",
+    "exact_finite_modulus_rows": [
+      {
+        "modulus_M": 1,
+        "combined_modulus_8M": 8,
+        "prime_p_minus_one_class": 7,
+        "prime_r_plus_one_class": 17,
+        "odd_left_exponent_k": 3,
+        "right_half_exponent_m": 1,
+        "equation_residual_mod_M": 0,
+        "certificate_verified": true
+      },
+      {
+        "modulus_M": 3,
+        "combined_modulus_8M": 24,
+        "prime_p_minus_one_class": 23,
+        "prime_r_plus_one_class": 73,
+        "odd_left_exponent_k": 5,
+        "right_half_exponent_m": 2,
+        "equation_residual_mod_M": 0,
+        "certificate_verified": true
+      },
+      {
+        "modulus_M": 5,
+        "combined_modulus_8M": 40,
+        "prime_p_minus_one_class": 79,
+        "prime_r_plus_one_class": 41,
+        "odd_left_exponent_k": 7,
+        "right_half_exponent_m": 3,
+        "equation_residual_mod_M": 0,
+        "certificate_verified": true
+      },
+      {
+        "modulus_M": 7,
+        "combined_modulus_8M": 56,
+        "prime_p_minus_one_class": 167,
+        "prime_r_plus_one_class": 113,
+        "odd_left_exponent_k": 3,
+        "right_half_exponent_m": 1,
+        "equation_residual_mod_M": 0,
+        "certificate_verified": true
+      },
+      {
+        "modulus_M": 11,
+        "combined_modulus_8M": 88,
+        "prime_p_minus_one_class": 263,
+        "prime_r_plus_one_class": 89,
+        "odd_left_exponent_k": 5,
+        "right_half_exponent_m": 2,
+        "equation_residual_mod_M": 0,
+        "certificate_verified": true
+      },
+      {
+        "modulus_M": 30,
+        "combined_modulus_8M": 240,
+        "prime_p_minus_one_class": 239,
+        "prime_r_plus_one_class": 241,
+        "odd_left_exponent_k": 7,
+        "right_half_exponent_m": 3,
+        "equation_residual_mod_M": 0,
+        "certificate_verified": true
+      },
+      {
+        "modulus_M": 210,
+        "combined_modulus_8M": 1680,
+        "prime_p_minus_one_class": 3359,
+        "prime_r_plus_one_class": 3361,
+        "odd_left_exponent_k": 3,
+        "right_half_exponent_m": 1,
+        "equation_residual_mod_M": 0,
+        "certificate_verified": true
+      },
+      {
+        "modulus_M": 2310,
+        "combined_modulus_8M": 18480,
+        "prime_p_minus_one_class": 55439,
+        "prime_r_plus_one_class": 18481,
+        "odd_left_exponent_k": 5,
+        "right_half_exponent_m": 2,
+        "equation_residual_mod_M": 0,
+        "certificate_verified": true
+      }
+    ],
+    "external_theorem": {
+      "name": "Dirichlet theorem on primes in reduced arithmetic progressions",
+      "statement_used": "If gcd(a,L)=1, then a modulo L contains infinitely many primes.",
+      "status": "external_theorem",
+      "dependency_boundary": "Only local prime-residue existence uses Dirichlet; no Diophantine equality is imported."
+    },
+    "algorithm": "deterministic trial-division primality and first-prime search in plus/minus one residue classes",
+    "complexity": "finite replay uses trial division through sqrt(candidate); the all-M result uses Dirichlet's theorem",
+    "random_seed": null,
+    "transcript_sha256": "079a60fde7d3f69814681f455edadebbe8b8d0aaf199e7821a0dad94d3ee02b4",
+    "aggregate": {
+      "prime_residue_local_solutions_for_every_fixed_modulus_proved": true,
+      "fixed_finite_congruence_obstruction_excluded": true,
+      "global_integer_equation_solved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "8 exact prime residue rows replay selected moduli; the every-M conclusion uses Dirichlet's theorem.",
+  "logical_limit": "Local solutions modulo every fixed M are not integer solutions. The all-X equation, a Type-II lower bound, and twin-prime infinitude remain open.",
+  "route_decision": {
+    "discard": "proving x^2-2=p^k has no odd-prime-power solutions by a fixed finite collection of congruence obstructions",
+    "parked": [
+      "pure fixed-modulus congruence sieves for the all-X Diophantine equation"
+    ],
+    "retain": "a global archimedean, unit-equation, or primitive-divisor obstruction beyond local congruence compatibility",
+    "next_single_lemma": "QuadraticUnitCoefficientOneExcludesOddPrimeExponents"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T251",
+        "label": "RightEvenModuloEightConstraintAndSharpness",
+        "status": "proved"
+      },
+      {
+        "id": "TP-EXT-DIRICHLET",
+        "label": "Dirichlet primes in reduced arithmetic progressions",
+        "status": "external_theorem"
+      },
+      {
+        "id": "TP-T252",
+        "label": "FiniteCongruenceLocalSolubilityNoGoForRightEvenPrimePowers",
+        "status": "proved"
+      },
+      {
+        "id": "TP-REJECT252",
+        "label": "SomeFixedFiniteModulusLocallyExcludesAllRightEvenCandidates",
+        "status": "disproved"
+      },
+      {
+        "id": "TP-OPEN252",
+        "label": "QuadraticUnitCoefficientOneExcludesOddPrimeExponents",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-EXT-DIRICHLET",
+        "TP-T252"
+      ],
+      [
+        "TP-T251",
+        "TP-T252"
+      ],
+      [
+        "TP-T252",
+        "TP-REJECT252"
+      ],
+      [
+        "TP-T252",
+        "TP-OPEN252"
+      ]
+    ],
+    "resolution_path": [
+      "TP-T251",
+      "TP-EXT-DIRICHLET",
+      "TP-T252",
+      "TP-OPEN252"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No twin-prime proof or counterexample; one Dirichlet-dependent exact local-solubility no-go theorem."
+}

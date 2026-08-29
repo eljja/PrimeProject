@@ -1,0 +1,578 @@
+{
+  "schema": "primeproject.ticket252-sparse-marginal-zeroresidue-local.v1",
+  "generated_at": "2026-08-29T04:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-252",
+  "theorem_name": "SparseFourierProjectionInteriorConcentrationNoGo",
+  "declared_proposition": "Let H=L2_even([-1,1]), Q0(f)=sum_(k>=0)|integral x^(2k)f(x)dx|^2, and let S be an infinite symmetric subset of the nonzero integers with #(S intersect [-N,N])=o(N). For the orthogonal Fourier projection P_S onto {2^(-1/2) exp(pi i n x): n in S}, P_S is bounded, positive, self-adjoint, noncompact, and is not a multiplication operator, yet inf_(||f||=1)(Q0(f)+<P_S f,f>)=0. Thus even a noncompact nonlocal positive operator can fail to exclude interior concentration.",
+  "mathematical_argument": "Use g_delta=(2 delta)^(-1/2)1_[-delta,delta]. Its nth normalized Fourier coefficient has square delta*sinc(pi n delta)^2. Split S at A/delta. The low part is delta*o(1/delta), while the full-integer tail is O(1/A); first let delta tend to zero and then A tend to infinity. Hence <P_S g_delta,g_delta> tends to zero. Also Q0(g_delta)<=2 delta/(1-delta^4). Infinite rank proves noncompactness; positivity and self-adjointness follow from orthogonal projection. Since 0 is not in S, P_S(1)=0 but P_S is nonzero, so it cannot be a multiplication operator. For S={plus or minus 2^j}, delta=2^(-s), the low-frequency contribution is at most 2 delta(s+1); the geometric tail is at most 2 delta/(3 pi^2)<2 delta/27, giving the exact replay.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let H=L2_even([-1,1]), Q0(f)=sum_(k>=0)|integral x^(2k)f(x)dx|^2, and let S be an infinite symmetric subset of the nonzero integers with #(S intersect [-N,N])=o(N). For the orthogonal Fourier projection P_S onto {2^(-1/2) exp(pi i n x): n in S}, P_S is bounded, positive, self-adjoint, noncompact, and is not a multiplication operator, yet inf_(||f||=1)(Q0(f)+<P_S f,f>)=0. Thus even a noncompact nonlocal positive operator can fail to exclude interior concentration.",
+    "proof": "Use g_delta=(2 delta)^(-1/2)1_[-delta,delta]. Its nth normalized Fourier coefficient has square delta*sinc(pi n delta)^2. Split S at A/delta. The low part is delta*o(1/delta), while the full-integer tail is O(1/A); first let delta tend to zero and then A tend to infinity. Hence <P_S g_delta,g_delta> tends to zero. Also Q0(g_delta)<=2 delta/(1-delta^4). Infinite rank proves noncompactness; positivity and self-adjointness follow from orthogonal projection. Since 0 is not in S, P_S(1)=0 but P_S is nonzero, so it cannot be a multiplication operator. For S={plus or minus 2^j}, delta=2^(-s), the low-frequency contribution is at most 2 delta(s+1); the geometric tail is at most 2 delta/(3 pi^2)<2 delta/27, giving the exact replay.",
+    "exact_sparse_projection_rows": [
+      {
+        "delta_power": 3,
+        "delta": {
+          "exact": "1/8",
+          "numerator": 1,
+          "denominator": 8,
+          "display_float": 0.125
+        },
+        "sparse_frequency_pair_count_below_inverse_scale": 4,
+        "proved_low_frequency_energy_upper": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "proved_tail_energy_upper_using_pi_squared_gt_9": {
+          "exact": "1/108",
+          "numerator": 1,
+          "denominator": 108,
+          "display_float": 0.009259259259259259
+        },
+        "proved_sparse_projection_energy_upper": {
+          "exact": "109/108",
+          "numerator": 109,
+          "denominator": 108,
+          "display_float": 1.0092592592592593
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "1024/4095",
+          "numerator": 1024,
+          "denominator": 4095,
+          "display_float": 0.25006105006105006
+        },
+        "proved_combined_upper": {
+          "exact": "61883/49140",
+          "numerator": 61883,
+          "denominator": 49140,
+          "display_float": 1.2593203093203094
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 4,
+        "delta": {
+          "exact": "1/16",
+          "numerator": 1,
+          "denominator": 16,
+          "display_float": 0.0625
+        },
+        "sparse_frequency_pair_count_below_inverse_scale": 5,
+        "proved_low_frequency_energy_upper": {
+          "exact": "5/8",
+          "numerator": 5,
+          "denominator": 8,
+          "display_float": 0.625
+        },
+        "proved_tail_energy_upper_using_pi_squared_gt_9": {
+          "exact": "1/216",
+          "numerator": 1,
+          "denominator": 216,
+          "display_float": 0.004629629629629629
+        },
+        "proved_sparse_projection_energy_upper": {
+          "exact": "17/27",
+          "numerator": 17,
+          "denominator": 27,
+          "display_float": 0.6296296296296297
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "8192/65535",
+          "numerator": 8192,
+          "denominator": 65535,
+          "display_float": 0.1250019073777371
+        },
+        "proved_combined_upper": {
+          "exact": "445093/589815",
+          "numerator": 445093,
+          "denominator": 589815,
+          "display_float": 0.7546315370073667
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 5,
+        "delta": {
+          "exact": "1/32",
+          "numerator": 1,
+          "denominator": 32,
+          "display_float": 0.03125
+        },
+        "sparse_frequency_pair_count_below_inverse_scale": 6,
+        "proved_low_frequency_energy_upper": {
+          "exact": "3/8",
+          "numerator": 3,
+          "denominator": 8,
+          "display_float": 0.375
+        },
+        "proved_tail_energy_upper_using_pi_squared_gt_9": {
+          "exact": "1/432",
+          "numerator": 1,
+          "denominator": 432,
+          "display_float": 0.0023148148148148147
+        },
+        "proved_sparse_projection_energy_upper": {
+          "exact": "163/432",
+          "numerator": 163,
+          "denominator": 432,
+          "display_float": 0.3773148148148148
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "65536/1048575",
+          "numerator": 65536,
+          "denominator": 1048575,
+          "display_float": 0.06250005960470162
+        },
+        "proved_combined_upper": {
+          "exact": "66409759/150994800",
+          "numerator": 66409759,
+          "denominator": 150994800,
+          "display_float": 0.43981487441951644
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 6,
+        "delta": {
+          "exact": "1/64",
+          "numerator": 1,
+          "denominator": 64,
+          "display_float": 0.015625
+        },
+        "sparse_frequency_pair_count_below_inverse_scale": 7,
+        "proved_low_frequency_energy_upper": {
+          "exact": "7/32",
+          "numerator": 7,
+          "denominator": 32,
+          "display_float": 0.21875
+        },
+        "proved_tail_energy_upper_using_pi_squared_gt_9": {
+          "exact": "1/864",
+          "numerator": 1,
+          "denominator": 864,
+          "display_float": 0.0011574074074074073
+        },
+        "proved_sparse_projection_energy_upper": {
+          "exact": "95/432",
+          "numerator": 95,
+          "denominator": 432,
+          "display_float": 0.2199074074074074
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "524288/16777215",
+          "numerator": 524288,
+          "denominator": 16777215,
+          "display_float": 0.03125000186264526
+        },
+        "proved_combined_upper": {
+          "exact": "202258649/805306320",
+          "numerator": 202258649,
+          "denominator": 805306320,
+          "display_float": 0.25115740927005265
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 7,
+        "delta": {
+          "exact": "1/128",
+          "numerator": 1,
+          "denominator": 128,
+          "display_float": 0.0078125
+        },
+        "sparse_frequency_pair_count_below_inverse_scale": 8,
+        "proved_low_frequency_energy_upper": {
+          "exact": "1/8",
+          "numerator": 1,
+          "denominator": 8,
+          "display_float": 0.125
+        },
+        "proved_tail_energy_upper_using_pi_squared_gt_9": {
+          "exact": "1/1728",
+          "numerator": 1,
+          "denominator": 1728,
+          "display_float": 0.0005787037037037037
+        },
+        "proved_sparse_projection_energy_upper": {
+          "exact": "217/1728",
+          "numerator": 217,
+          "denominator": 1728,
+          "display_float": 0.1255787037037037
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "4194304/268435455",
+          "numerator": 4194304,
+          "denominator": 268435455,
+          "display_float": 0.01562500005820766
+        },
+        "proved_combined_upper": {
+          "exact": "21832750349/154618822080",
+          "numerator": 21832750349,
+          "denominator": 154618822080,
+          "display_float": 0.14120370376191135
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 8,
+        "delta": {
+          "exact": "1/256",
+          "numerator": 1,
+          "denominator": 256,
+          "display_float": 0.00390625
+        },
+        "sparse_frequency_pair_count_below_inverse_scale": 9,
+        "proved_low_frequency_energy_upper": {
+          "exact": "9/128",
+          "numerator": 9,
+          "denominator": 128,
+          "display_float": 0.0703125
+        },
+        "proved_tail_energy_upper_using_pi_squared_gt_9": {
+          "exact": "1/3456",
+          "numerator": 1,
+          "denominator": 3456,
+          "display_float": 0.00028935185185185184
+        },
+        "proved_sparse_projection_energy_upper": {
+          "exact": "61/864",
+          "numerator": 61,
+          "denominator": 864,
+          "display_float": 0.07060185185185185
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "33554432/4294967295",
+          "numerator": 33554432,
+          "denominator": 4294967295,
+          "display_float": 0.00781250000181899
+        },
+        "proved_combined_upper": {
+          "exact": "96994678081/1236950580960",
+          "numerator": 96994678081,
+          "denominator": 1236950580960,
+          "display_float": 0.07841435185367084
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 9,
+        "delta": {
+          "exact": "1/512",
+          "numerator": 1,
+          "denominator": 512,
+          "display_float": 0.001953125
+        },
+        "sparse_frequency_pair_count_below_inverse_scale": 10,
+        "proved_low_frequency_energy_upper": {
+          "exact": "5/128",
+          "numerator": 5,
+          "denominator": 128,
+          "display_float": 0.0390625
+        },
+        "proved_tail_energy_upper_using_pi_squared_gt_9": {
+          "exact": "1/6912",
+          "numerator": 1,
+          "denominator": 6912,
+          "display_float": 0.00014467592592592592
+        },
+        "proved_sparse_projection_energy_upper": {
+          "exact": "271/6912",
+          "numerator": 271,
+          "denominator": 6912,
+          "display_float": 0.03920717592592592
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "268435456/68719476735",
+          "numerator": 268435456,
+          "denominator": 68719476735,
+          "display_float": 0.003906250000056843
+        },
+        "proved_combined_upper": {
+          "exact": "252819803297/5864062014720",
+          "numerator": 252819803297,
+          "denominator": 5864062014720,
+          "display_float": 0.043113425925982767
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 10,
+        "delta": {
+          "exact": "1/1024",
+          "numerator": 1,
+          "denominator": 1024,
+          "display_float": 0.0009765625
+        },
+        "sparse_frequency_pair_count_below_inverse_scale": 11,
+        "proved_low_frequency_energy_upper": {
+          "exact": "11/512",
+          "numerator": 11,
+          "denominator": 512,
+          "display_float": 0.021484375
+        },
+        "proved_tail_energy_upper_using_pi_squared_gt_9": {
+          "exact": "1/13824",
+          "numerator": 1,
+          "denominator": 13824,
+          "display_float": 7.233796296296296e-05
+        },
+        "proved_sparse_projection_energy_upper": {
+          "exact": "149/6912",
+          "numerator": 149,
+          "denominator": 6912,
+          "display_float": 0.02155671296296296
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "2147483648/1099511627775",
+          "numerator": 2147483648,
+          "denominator": 1099511627775,
+          "display_float": 0.0019531250000017764
+        },
+        "proved_combined_upper": {
+          "exact": "59556879837817/2533274790393600",
+          "numerator": 59556879837817,
+          "denominator": 2533274790393600,
+          "display_float": 0.023509837962964738
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 11,
+        "delta": {
+          "exact": "1/2048",
+          "numerator": 1,
+          "denominator": 2048,
+          "display_float": 0.00048828125
+        },
+        "sparse_frequency_pair_count_below_inverse_scale": 12,
+        "proved_low_frequency_energy_upper": {
+          "exact": "3/256",
+          "numerator": 3,
+          "denominator": 256,
+          "display_float": 0.01171875
+        },
+        "proved_tail_energy_upper_using_pi_squared_gt_9": {
+          "exact": "1/27648",
+          "numerator": 1,
+          "denominator": 27648,
+          "display_float": 3.616898148148148e-05
+        },
+        "proved_sparse_projection_energy_upper": {
+          "exact": "325/27648",
+          "numerator": 325,
+          "denominator": 27648,
+          "display_float": 0.01175491898148148
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "17179869184/17592186044415",
+          "numerator": 17179869184,
+          "denominator": 17592186044415,
+          "display_float": 0.0009765625000000555
+        },
+        "proved_combined_upper": {
+          "exact": "2064149829211369/162129586585328640",
+          "numerator": 2064149829211369,
+          "denominator": 162129586585328640,
+          "display_float": 0.012731481481481536
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 12,
+        "delta": {
+          "exact": "1/4096",
+          "numerator": 1,
+          "denominator": 4096,
+          "display_float": 0.000244140625
+        },
+        "sparse_frequency_pair_count_below_inverse_scale": 13,
+        "proved_low_frequency_energy_upper": {
+          "exact": "13/2048",
+          "numerator": 13,
+          "denominator": 2048,
+          "display_float": 0.00634765625
+        },
+        "proved_tail_energy_upper_using_pi_squared_gt_9": {
+          "exact": "1/55296",
+          "numerator": 1,
+          "denominator": 55296,
+          "display_float": 1.808449074074074e-05
+        },
+        "proved_sparse_projection_energy_upper": {
+          "exact": "11/1728",
+          "numerator": 11,
+          "denominator": 1728,
+          "display_float": 0.00636574074074074
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "137438953472/281474976710655",
+          "numerator": 137438953472,
+          "denominator": 281474976710655,
+          "display_float": 0.0004882812500000017
+        },
+        "proved_combined_upper": {
+          "exact": "370413250601869/54043195528445760",
+          "numerator": 370413250601869,
+          "denominator": 54043195528445760,
+          "display_float": 0.006854021990740742
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 13,
+        "delta": {
+          "exact": "1/8192",
+          "numerator": 1,
+          "denominator": 8192,
+          "display_float": 0.0001220703125
+        },
+        "sparse_frequency_pair_count_below_inverse_scale": 14,
+        "proved_low_frequency_energy_upper": {
+          "exact": "7/2048",
+          "numerator": 7,
+          "denominator": 2048,
+          "display_float": 0.00341796875
+        },
+        "proved_tail_energy_upper_using_pi_squared_gt_9": {
+          "exact": "1/110592",
+          "numerator": 1,
+          "denominator": 110592,
+          "display_float": 9.04224537037037e-06
+        },
+        "proved_sparse_projection_energy_upper": {
+          "exact": "379/110592",
+          "numerator": 379,
+          "denominator": 110592,
+          "display_float": 0.00342701099537037
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "1099511627776/4503599627370495",
+          "numerator": 1099511627776,
+          "denominator": 4503599627370495,
+          "display_float": 0.00024414062500000005
+        },
+        "proved_combined_upper": {
+          "exact": "609487149570806999/166020696663385927680",
+          "numerator": 609487149570806999,
+          "denominator": 166020696663385927680,
+          "display_float": 0.0036711516203703706
+        },
+        "certificate_verified": true
+      },
+      {
+        "delta_power": 14,
+        "delta": {
+          "exact": "1/16384",
+          "numerator": 1,
+          "denominator": 16384,
+          "display_float": 6.103515625e-05
+        },
+        "sparse_frequency_pair_count_below_inverse_scale": 15,
+        "proved_low_frequency_energy_upper": {
+          "exact": "15/8192",
+          "numerator": 15,
+          "denominator": 8192,
+          "display_float": 0.0018310546875
+        },
+        "proved_tail_energy_upper_using_pi_squared_gt_9": {
+          "exact": "1/221184",
+          "numerator": 1,
+          "denominator": 221184,
+          "display_float": 4.521122685185185e-06
+        },
+        "proved_sparse_projection_energy_upper": {
+          "exact": "203/110592",
+          "numerator": 203,
+          "denominator": 110592,
+          "display_float": 0.001835575810185185
+        },
+        "proved_raw_moment_energy_upper": {
+          "exact": "8796093022208/72057594037927935",
+          "numerator": 8796093022208,
+          "denominator": 72057594037927935,
+          "display_float": 0.0001220703125
+        },
+        "proved_combined_upper": {
+          "exact": "5200156369737132647/2656331146614175395840",
+          "numerator": 5200156369737132647,
+          "denominator": 2656331146614175395840,
+          "display_float": 0.0019576461226851853
+        },
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "exact Fraction upper bounds for dyadic-frequency Fourier projections and centered indicator packets",
+    "complexity": "O(E) exact rational operations for E replay rows; the zero-density theorem is analytic",
+    "random_seed": null,
+    "transcript_sha256": "3e7c26600452d330e977e7880ca71b028709cad8966df6c63c41be6a1e910294",
+    "aggregate": {
+      "zero_density_projection_escape_proved": true,
+      "operator_positive_selfadjoint_noncompact_proved": true,
+      "operator_nonmultiplication_proved": true,
+      "actual_weil_kernel_controlled": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "12 exact rational dyadic rows replay S={plus/minus 2^j}; the zero-density conclusion is analytic.",
+  "logical_limit": "The sparse projection is an abstract periodic Fourier operator, not the actual Weil form. The missing step is a proved positive-density or stronger lower bound for the genuine arithmetic kernel on every admissible concentration packet.",
+  "route_decision": {
+    "discard": "using noncompactness and nonlocality alone, or a zero-density spectral projection, as a certificate that an arithmetic operator excludes interior concentration",
+    "parked": [
+      "abstract Fourier projections not identified with the actual Weil operator"
+    ],
+    "retain": "a quantitative spectral-thickness property tied to the actual arithmetic Weil kernel",
+    "next_single_lemma": "ActualWeilKernelHasPositiveDensityAgainstEveryInteriorWavePacket"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T251",
+        "label": "InteriorZeroLocalMultiplierCoercivityNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-T252",
+        "label": "SparseFourierProjectionInteriorConcentrationNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-REJECT252",
+        "label": "EveryPositiveNoncompactNonlocalOperatorExcludesInteriorConcentration",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-OPEN252",
+        "label": "ActualWeilKernelHasPositiveDensityAgainstEveryInteriorWavePacket",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T251",
+        "RH-T252"
+      ],
+      [
+        "RH-T252",
+        "RH-REJECT252"
+      ],
+      [
+        "RH-T252",
+        "RH-OPEN252"
+      ]
+    ],
+    "resolution_path": [
+      "RH-T251",
+      "RH-T252",
+      "RH-OPEN252"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No RH proof or disproof; one exact noncompact nonlocal operator no-go theorem."
+}
