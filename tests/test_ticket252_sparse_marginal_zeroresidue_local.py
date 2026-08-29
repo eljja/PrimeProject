@@ -168,13 +168,18 @@ class Ticket252SparseMarginalZeroResidueLocalTests(unittest.TestCase):
         integrated = ROOT / "data/open-problem/ticket252-sparse-marginal-zeroresidue-local.json"
         self.assertEqual(json.loads(integrated.read_text(encoding="utf-8")), build_audit())
         state = json.loads((ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8"))
-        self.assertEqual(state["ticket"], 252)
-        self.assertEqual(state["parent_ticket"], 251)
+        self.assertGreaterEqual(state["ticket"], 252)
         self.assertEqual(state["resolved_count"], 0)
         self.assertEqual(state["candidate_resolution_count"], 0)
         self.assertFalse(state["program_complete"])
-        self.assertEqual(state["deep_focus_problem"], "goldbach")
-        self.assertTrue(all(problem["stagnation_count"] == 0 for problem in state["problems"].values()))
+        expected = {
+            "riemann": "SparseFourierProjectionInteriorConcentrationNoGo",
+            "collatz": "UniformMarginalsCannotDetectProjectiveFermatSlopeNoGo",
+            "goldbach": "PrimeCountZeroResidueCyclotomicCompatibilityCriterion",
+            "twin_prime": "FiniteCongruenceLocalSolubilityNoGoForRightEvenPrimePowers",
+        }
+        for key, theorem in expected.items():
+            self.assertIn(theorem, state["problems"][key]["established_results"])
 
 
 if __name__ == "__main__":

@@ -31,16 +31,18 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-252: Sparse Spectral Escape, Marginal Joint No-Go, Zero-Residue Compatibility, and Finite Congruence Solubility](docs/sparse-marginal-zeroresidue-local.md),
-with a separate [Korean report](docs/sparse-marginal-zeroresidue-local.ko.md).
-It proves three exact route no-go theorems and one partial theorem. Sparse
-positive noncompact Fourier projections still permit RH concentration escape;
-uniform Collatz marginals cannot determine the joint `[3:5]` slope; Goldbach
-zero-residue compatibility is exactly `c_0-min(c)<=1`, excluding all
-`1<=m<q` but admitting an exact tail countermodel; and every fixed finite
-congruence system is locally soluble for the right-even twin equation. All
-parent conjectures remain `open_not_proven`.
+[TICKET-253: Density Packets, Complete-Character Dichotomy, Forced Prime Prefixes, and the 84-Exponent Frontier](docs/density-character-prefix-lebesgue.md),
+with a separate [Korean report](docs/density-character-prefix-lebesgue.ko.md).
+It proves one exact route no-go and three partial theorems. Dirichlet-packet
+projection energy is exact symmetric spectral density; the complete fixed-`q`
+Collatz character sum is the target indicator itself; every compatible
+Goldbach tail is equivalent to one forced actual-prime prefix; and,
+conditional on the cited Katz-Pratt theorem, right-even Twin contamination
+reduces to exactly 84 Lebesgue-Nagell prime exponents. All parent conjectures
+remain `open_not_proven`.
 
+The preserved [TICKET-252 report](docs/sparse-marginal-zeroresidue-local.md)
+records the preceding three route no-go results and one partial theorem.
 The preserved [TICKET-250 report](docs/multiplier-lift-galois-evenright.md)
 records its preceding two no-go and two partial results.
 
@@ -478,7 +480,7 @@ TICKET78 is documented in [Collatz Finite-Cylinder Natural-Admissibility No-Go](
 
 Open the GitHub Pages app: [https://eljja.github.io/PrimeProject/](https://eljja.github.io/PrimeProject/)
 
-The landing view is evidence-first. It starts with the current TICKET-252 boundary, four exact boundary lemmas, four discarded or narrowed routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
+The landing view is evidence-first. It starts with the current TICKET-253 boundary, four exact boundary lemmas, four discarded or narrowed routes, the unresolved lemma for each problem, and a visible `0 / 4 resolved` guard. The historical experiment dashboard remains available as **Prime Explorer**, while detailed evidence is grouped under Research, Open Problems, Applied Labs, Evidence, and More Analysis.
 
 Open problem subpages:
 
@@ -664,15 +666,14 @@ See [TICKET236 EN](docs/contraction-order-phase-degree2.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-252입니다. 리만 트랙은 positive,
-self-adjoint, noncompact, nonlocal인 sparse Fourier projection도 내부 집중을
-막지 못한다는 no-go를 증명했습니다. 콜라츠 트랙은 uniform marginal만으로
-joint `[3:5]` slope를 결정할 수 없음을 exact countermodel로 닫았습니다.
-골드바흐 트랙은 zero-residue compatibility의 필요충분조건과 모든
-`1<=m<q` 배제를 증명하면서 `(q,m)=(5,8)` tail 반례를 기록했습니다.
-쌍둥이 소수 트랙은 모든 고정 유한 합동계가 Dirichlet prime residue로
-국소적으로 풀림을 증명했습니다. 해결 수는 0입니다.
-
+한국어 최신 요약: 최신 탐색은 TICKET-253입니다. 리만 트랙은 Dirichlet
+packet projection energy가 정확한 대칭 주파수 밀도이며 양의 밀도로
+수렴함을 증명했습니다. 콜라츠 트랙은 complete fixed-`q` character sum이
+목표 slope의 지시함수 자체여서 pointwise cancellation 경로가 순환임을
+확정했습니다. 골드바흐 트랙은 compatible tail을 하나의 강제 actual-prime
+prefix 일치로 환원했습니다. 쌍둥이 소수 트랙은 인용한 Katz-Pratt 정리에
+의존하여 right-even 오염을 정확히 84개 Lebesgue-Nagell 소수 지수로
+축약했습니다. 외부 정리는 독립 재증명하지 않았고 해결 수는 0입니다.
 The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
 The Attribution Grid panel displays a bundled paired benchmark from `data/attribution_confound_grid.json`, `data/null_calibration.json`, and `data/replication_audit.json`, highlighting which fingerprint profiles survive bit-length control, which ones are likely range confounds, whether the strongest controlled profiles survive random-label null simulation after family-wise profile selection, and whether those profiles replicate across settings.
@@ -691,18 +692,18 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-252입니다.
-[sparse projection·marginal joint·zero-residue·finite congruence 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/sparse-marginal-zeroresidue-local.ko.md)와
-[영문 보고서](docs/sparse-marginal-zeroresidue-local.md)는 네 트랙의
+최신 난제 연구 트랙은 TICKET-253입니다.
+[density packet·complete character·prime prefix·84 exponent 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/density-character-prefix-lebesgue.ko.md)와
+[영문 보고서](docs/density-character-prefix-lebesgue.md)는 네 트랙의
 정확 명제, 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다.
-현재 결정적 미해결 보조정리는 actual Weil wave-packet density,
-joint Fermat-quotient character cancellation, actual prime ordering의
-cyclotomic tail 배제, quadratic-unit coefficient-one odd-exponent 배제입니다.
+현재 결정적 미해결 보조정리는 actual Weil-form density domination,
+cross-prime slope-character cancellation, uniform prime-prefix discrepancy,
+Lebesgue-Nagell exponent 17 배제입니다.
 
 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-252의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 252개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-253의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 253개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

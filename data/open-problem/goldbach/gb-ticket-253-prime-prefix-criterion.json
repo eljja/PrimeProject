@@ -1,0 +1,518 @@
+{
+  "schema": "primeproject.ticket253-density-character-prefix-lebesgue.v1",
+  "generated_at": "2026-08-29T13:07:59+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-253",
+  "theorem_name": "PrimeOrderingUniquePrefixRealizabilityCriterion",
+  "declared_proposition": "Let q>=5 be prime and let c be the cyclic coefficient vector of (1-X)^m modulo X^q-1. Suppose c is zero-residue compatible, and set t=1-c_0, N*=c+t, and T=qt. Then there exists X for which the actual prime-count vector N_r(X) has the cyclotomic centered nonzero Fourier data q(1-zeta_q^a)^m if and only if the residue-count vector of the first T primes is exactly N*. Equivalently one need test the unique prefix p_T<=X<p_(T+1); there is no free choice of X. Exact prefix computation rejects all ten selected compatible tails (q,m)=(5,8..12),(7,12..16).",
+  "mathematical_argument": "TICKET-252 Fourier inversion gives N_r(X)=c_r+t and the prime-zero condition forces t=1-c_0. Summing gives pi(X)=qt=T. Prime counts are constant precisely between the T-th and (T+1)-st primes, so their residue vector is the vector of the first T primes. This proves both directions of the criterion. The ten finite rejections use a sieve to enumerate those exact prefixes and compare integer vectors; no claim is made for untested compatible pairs or all exponents.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let q>=5 be prime and let c be the cyclic coefficient vector of (1-X)^m modulo X^q-1. Suppose c is zero-residue compatible, and set t=1-c_0, N*=c+t, and T=qt. Then there exists X for which the actual prime-count vector N_r(X) has the cyclotomic centered nonzero Fourier data q(1-zeta_q^a)^m if and only if the residue-count vector of the first T primes is exactly N*. Equivalently one need test the unique prefix p_T<=X<p_(T+1); there is no free choice of X. Exact prefix computation rejects all ten selected compatible tails (q,m)=(5,8..12),(7,12..16).",
+    "proof": "TICKET-252 Fourier inversion gives N_r(X)=c_r+t and the prime-zero condition forces t=1-c_0. Summing gives pi(X)=qt=T. Prime counts are constant precisely between the T-th and (T+1)-st primes, so their residue vector is the vector of the first T primes. This proves both directions of the criterion. The ten finite rejections use a sieve to enumerate those exact prefixes and compare integer vectors; no claim is made for untested compatible pairs or all exponents.",
+    "exact_compatible_tail_prefix_rows": [
+      {
+        "prime_modulus_q": 5,
+        "cyclotomic_exponent_m": 8,
+        "cyclic_coefficients_c": [
+          -55,
+          20,
+          20,
+          -55,
+          70
+        ],
+        "forced_uniform_shift_t": 56,
+        "forced_total_prime_count_qt": 280,
+        "forced_prime_count_vector": [
+          1,
+          76,
+          76,
+          1,
+          126
+        ],
+        "actual_first_qt_prime_residue_counts": [
+          1,
+          67,
+          72,
+          72,
+          68
+        ],
+        "difference_actual_minus_forced": [
+          0,
+          -9,
+          -4,
+          71,
+          -58
+        ],
+        "l1_discrepancy": 142,
+        "linfinity_discrepancy": 71,
+        "first_mismatch_residue": 1,
+        "actual_prefix_match": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 5,
+        "cyclotomic_exponent_m": 9,
+        "cyclic_coefficients_c": [
+          -125,
+          75,
+          0,
+          -75,
+          125
+        ],
+        "forced_uniform_shift_t": 126,
+        "forced_total_prime_count_qt": 630,
+        "forced_prime_count_vector": [
+          1,
+          201,
+          126,
+          51,
+          251
+        ],
+        "actual_first_qt_prime_residue_counts": [
+          1,
+          154,
+          163,
+          159,
+          153
+        ],
+        "difference_actual_minus_forced": [
+          0,
+          -47,
+          37,
+          108,
+          -98
+        ],
+        "l1_discrepancy": 290,
+        "linfinity_discrepancy": 108,
+        "first_mismatch_residue": 1,
+        "actual_prefix_match": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 5,
+        "cyclotomic_exponent_m": 10,
+        "cyclic_coefficients_c": [
+          -250,
+          200,
+          -75,
+          -75,
+          200
+        ],
+        "forced_uniform_shift_t": 251,
+        "forced_total_prime_count_qt": 1255,
+        "forced_prime_count_vector": [
+          1,
+          451,
+          176,
+          176,
+          451
+        ],
+        "actual_first_qt_prime_residue_counts": [
+          1,
+          313,
+          313,
+          317,
+          311
+        ],
+        "difference_actual_minus_forced": [
+          0,
+          -138,
+          137,
+          141,
+          -140
+        ],
+        "l1_discrepancy": 556,
+        "linfinity_discrepancy": 141,
+        "first_mismatch_residue": 1,
+        "actual_prefix_match": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 5,
+        "cyclotomic_exponent_m": 11,
+        "cyclic_coefficients_c": [
+          -450,
+          450,
+          -275,
+          0,
+          275
+        ],
+        "forced_uniform_shift_t": 451,
+        "forced_total_prime_count_qt": 2255,
+        "forced_prime_count_vector": [
+          1,
+          901,
+          176,
+          451,
+          726
+        ],
+        "actual_first_qt_prime_residue_counts": [
+          1,
+          561,
+          569,
+          566,
+          558
+        ],
+        "difference_actual_minus_forced": [
+          0,
+          -340,
+          393,
+          115,
+          -168
+        ],
+        "l1_discrepancy": 1016,
+        "linfinity_discrepancy": 393,
+        "first_mismatch_residue": 1,
+        "actual_prefix_match": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 5,
+        "cyclotomic_exponent_m": 12,
+        "cyclic_coefficients_c": [
+          -725,
+          900,
+          -725,
+          275,
+          275
+        ],
+        "forced_uniform_shift_t": 726,
+        "forced_total_prime_count_qt": 3630,
+        "forced_prime_count_vector": [
+          1,
+          1626,
+          1,
+          1001,
+          1001
+        ],
+        "actual_first_qt_prime_residue_counts": [
+          1,
+          899,
+          912,
+          916,
+          902
+        ],
+        "difference_actual_minus_forced": [
+          0,
+          -727,
+          911,
+          -85,
+          -99
+        ],
+        "l1_discrepancy": 1822,
+        "linfinity_discrepancy": 911,
+        "first_mismatch_residue": 1,
+        "actual_prefix_match": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "cyclotomic_exponent_m": 12,
+        "cyclic_coefficients_c": [
+          -791,
+          483,
+          -154,
+          -154,
+          483,
+          -791,
+          924
+        ],
+        "forced_uniform_shift_t": 792,
+        "forced_total_prime_count_qt": 5544,
+        "forced_prime_count_vector": [
+          1,
+          1275,
+          638,
+          638,
+          1275,
+          1,
+          1716
+        ],
+        "actual_first_qt_prime_residue_counts": [
+          1,
+          918,
+          927,
+          925,
+          912,
+          927,
+          934
+        ],
+        "difference_actual_minus_forced": [
+          0,
+          -357,
+          289,
+          287,
+          -363,
+          926,
+          -782
+        ],
+        "l1_discrepancy": 3004,
+        "linfinity_discrepancy": 926,
+        "first_mismatch_residue": 1,
+        "actual_prefix_match": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "cyclotomic_exponent_m": 13,
+        "cyclic_coefficients_c": [
+          -1715,
+          1274,
+          -637,
+          0,
+          637,
+          -1274,
+          1715
+        ],
+        "forced_uniform_shift_t": 1716,
+        "forced_total_prime_count_qt": 12012,
+        "forced_prime_count_vector": [
+          1,
+          2990,
+          1079,
+          1716,
+          2353,
+          442,
+          3431
+        ],
+        "actual_first_qt_prime_residue_counts": [
+          1,
+          2005,
+          1991,
+          2013,
+          1992,
+          2010,
+          2000
+        ],
+        "difference_actual_minus_forced": [
+          0,
+          -985,
+          912,
+          297,
+          -361,
+          1568,
+          -1431
+        ],
+        "l1_discrepancy": 5554,
+        "linfinity_discrepancy": 1568,
+        "first_mismatch_residue": 1,
+        "actual_prefix_match": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "cyclotomic_exponent_m": 14,
+        "cyclic_coefficients_c": [
+          -3430,
+          2989,
+          -1911,
+          637,
+          637,
+          -1911,
+          2989
+        ],
+        "forced_uniform_shift_t": 3431,
+        "forced_total_prime_count_qt": 24017,
+        "forced_prime_count_vector": [
+          1,
+          6420,
+          1520,
+          4068,
+          4068,
+          1520,
+          6420
+        ],
+        "actual_first_qt_prime_residue_counts": [
+          1,
+          3993,
+          3991,
+          4003,
+          3998,
+          4016,
+          4015
+        ],
+        "difference_actual_minus_forced": [
+          0,
+          -2427,
+          2471,
+          -65,
+          -70,
+          2496,
+          -2405
+        ],
+        "l1_discrepancy": 9934,
+        "linfinity_discrepancy": 2496,
+        "first_mismatch_residue": 1,
+        "actual_prefix_match": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "cyclotomic_exponent_m": 15,
+        "cyclic_coefficients_c": [
+          -6419,
+          6419,
+          -4900,
+          2548,
+          0,
+          -2548,
+          4900
+        ],
+        "forced_uniform_shift_t": 6420,
+        "forced_total_prime_count_qt": 44940,
+        "forced_prime_count_vector": [
+          1,
+          12839,
+          1520,
+          8968,
+          6420,
+          3872,
+          11320
+        ],
+        "actual_first_qt_prime_residue_counts": [
+          1,
+          7464,
+          7485,
+          7518,
+          7463,
+          7505,
+          7504
+        ],
+        "difference_actual_minus_forced": [
+          0,
+          -5375,
+          5965,
+          -1450,
+          1043,
+          3633,
+          -3816
+        ],
+        "l1_discrepancy": 21282,
+        "linfinity_discrepancy": 5965,
+        "first_mismatch_residue": 1,
+        "actual_prefix_match": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_modulus_q": 7,
+        "cyclotomic_exponent_m": 16,
+        "cyclic_coefficients_c": [
+          -11319,
+          12838,
+          -11319,
+          7448,
+          -2548,
+          -2548,
+          7448
+        ],
+        "forced_uniform_shift_t": 11320,
+        "forced_total_prime_count_qt": 79240,
+        "forced_prime_count_vector": [
+          1,
+          24158,
+          1,
+          18768,
+          8772,
+          8772,
+          18768
+        ],
+        "actual_first_qt_prime_residue_counts": [
+          1,
+          13189,
+          13189,
+          13235,
+          13184,
+          13223,
+          13219
+        ],
+        "difference_actual_minus_forced": [
+          0,
+          -10969,
+          13188,
+          -5533,
+          4412,
+          4451,
+          -5549
+        ],
+        "l1_discrepancy": 44102,
+        "linfinity_discrepancy": 13188,
+        "first_mismatch_residue": 1,
+        "actual_prefix_match": false,
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "exact cyclic binomial folding, Eratosthenes prime-prefix enumeration, and integer residue-vector comparison",
+    "complexity": "O(B log log B + sum T) bit operations for the finite replay; the unique-prefix criterion is exact for every compatible q,m",
+    "random_seed": null,
+    "transcript_sha256": "a14b831094b7733f9186b166b2346c3e295617c705ded50c46ef38a62994e0ff",
+    "aggregate": {
+      "actual_realizability_iff_unique_prime_prefix_match_proved": true,
+      "selected_compatible_tail_count": 10,
+      "selected_compatible_tails_excluded": true,
+      "accidental_prefix_match_count": 0,
+      "maximum_prime_prefix_length": 79240,
+      "all_compatible_tail_exponents_excluded": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "10 exact prime-prefix rows, maximum prefix length 79240; untested compatible tails remain open.",
+  "logical_limit": "Each fixed compatible pair is decidable by one finite prefix, but no uniform discrepancy theorem over all q,m is proved. Strong Goldbach is untouched beyond this auxiliary spectral route.",
+  "route_decision": {
+    "discard": "treating actual prime ordering as an unstructured extra condition with no exact finite realization test for a fixed compatible cyclotomic tail",
+    "parked": [
+      "compatible cyclotomic exponents outside the ten certified prime prefixes"
+    ],
+    "retain": "the unique-prefix iff criterion and exact rejection of ten compatible tails",
+    "next_single_lemma": "UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T252",
+        "label": "PrimeCountZeroResidueCyclotomicCompatibilityCriterion",
+        "status": "proved"
+      },
+      {
+        "id": "GB-T253",
+        "label": "PrimeOrderingUniquePrefixRealizabilityCriterion",
+        "status": "proved"
+      },
+      {
+        "id": "GB-REJECT253",
+        "label": "ACompatibleCyclotomicTailCanBeRealizedAtSomeUnconstrainedChoiceOfXWithoutMatchingOneForcedPrimePrefix",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN253",
+        "label": "UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T252",
+        "GB-T253"
+      ],
+      [
+        "GB-T253",
+        "GB-REJECT253"
+      ],
+      [
+        "GB-T253",
+        "GB-OPEN253"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T252",
+      "GB-T253",
+      "GB-OPEN253"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; one exact realizability iff and ten finite nonrealization certificates."
+}

@@ -1,0 +1,405 @@
+{
+  "schema": "primeproject.ticket253-density-character-prefix-lebesgue.v1",
+  "generated_at": "2026-08-29T13:07:59+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-253",
+  "theorem_name": "DirichletPacketSpectralDensityLimit",
+  "declared_proposition": "Let e_n(x)=2^(-1/2)exp(pi i n x) on [-1,1] and let D_N=(2N+1)^(-1/2) sum_(|n|<=N)e_n. Then D_N is an even unit vector whose L2 mass outside every fixed neighborhood of zero tends to zero. For every symmetric S subset Z and its Fourier projection P_S, <P_S D_N,D_N>=#(S intersect [-N,N])/(2N+1). Consequently, if S has symmetric natural density d, the projection energy tends exactly to d. Positive spectral density therefore blocks the zero-energy escape of this canonical interior-concentrating packet family, while zero density recovers the TICKET-252 escape.",
+  "mathematical_argument": "Orthonormality gives norm one, evenness, and the displayed projection identity by counting coefficients. The Dirichlet-kernel formula gives |D_N(x)|^2=|sin((2N+1)pi x/2)/sin(pi x/2)|^2/(2(2N+1)). For epsilon<=|x|<=1 its integral is at most 1/((2N+1)sin(pi epsilon/2)^2), hence the mass concentrates at zero. The density conclusion is now the definition of symmetric natural density. For the replay set S={n:n mod 6 is 1 or 5}, elementary residue counting gives density 1/3 and |3#S_N-(2N+1)|<=3.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let e_n(x)=2^(-1/2)exp(pi i n x) on [-1,1] and let D_N=(2N+1)^(-1/2) sum_(|n|<=N)e_n. Then D_N is an even unit vector whose L2 mass outside every fixed neighborhood of zero tends to zero. For every symmetric S subset Z and its Fourier projection P_S, <P_S D_N,D_N>=#(S intersect [-N,N])/(2N+1). Consequently, if S has symmetric natural density d, the projection energy tends exactly to d. Positive spectral density therefore blocks the zero-energy escape of this canonical interior-concentrating packet family, while zero density recovers the TICKET-252 escape.",
+    "proof": "Orthonormality gives norm one, evenness, and the displayed projection identity by counting coefficients. The Dirichlet-kernel formula gives |D_N(x)|^2=|sin((2N+1)pi x/2)/sin(pi x/2)|^2/(2(2N+1)). For epsilon<=|x|<=1 its integral is at most 1/((2N+1)sin(pi epsilon/2)^2), hence the mass concentrates at zero. The density conclusion is now the definition of symmetric natural density. For the replay set S={n:n mod 6 is 1 or 5}, elementary residue counting gives density 1/3 and |3#S_N-(2N+1)|<=3.",
+    "exact_periodic_density_rows": [
+      {
+        "dirichlet_half_bandwidth_N": 7,
+        "frequency_count_2N_plus_1": 15,
+        "selected_residues_mod_6": [
+          1,
+          5
+        ],
+        "selected_frequency_count": 6,
+        "exact_projection_energy": {
+          "exact": "2/5",
+          "numerator": 2,
+          "denominator": 5,
+          "display_float": 0.4
+        },
+        "limiting_spectral_density": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "exact_absolute_density_error": {
+          "exact": "1/15",
+          "numerator": 1,
+          "denominator": 15,
+          "display_float": 0.06666666666666667
+        },
+        "integer_discrepancy_abs_3count_minus_total": 3,
+        "certificate_verified": true
+      },
+      {
+        "dirichlet_half_bandwidth_N": 15,
+        "frequency_count_2N_plus_1": 31,
+        "selected_residues_mod_6": [
+          1,
+          5
+        ],
+        "selected_frequency_count": 10,
+        "exact_projection_energy": {
+          "exact": "10/31",
+          "numerator": 10,
+          "denominator": 31,
+          "display_float": 0.3225806451612903
+        },
+        "limiting_spectral_density": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "exact_absolute_density_error": {
+          "exact": "1/93",
+          "numerator": 1,
+          "denominator": 93,
+          "display_float": 0.010752688172043012
+        },
+        "integer_discrepancy_abs_3count_minus_total": 1,
+        "certificate_verified": true
+      },
+      {
+        "dirichlet_half_bandwidth_N": 31,
+        "frequency_count_2N_plus_1": 63,
+        "selected_residues_mod_6": [
+          1,
+          5
+        ],
+        "selected_frequency_count": 22,
+        "exact_projection_energy": {
+          "exact": "22/63",
+          "numerator": 22,
+          "denominator": 63,
+          "display_float": 0.3492063492063492
+        },
+        "limiting_spectral_density": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "exact_absolute_density_error": {
+          "exact": "1/63",
+          "numerator": 1,
+          "denominator": 63,
+          "display_float": 0.015873015873015872
+        },
+        "integer_discrepancy_abs_3count_minus_total": 3,
+        "certificate_verified": true
+      },
+      {
+        "dirichlet_half_bandwidth_N": 63,
+        "frequency_count_2N_plus_1": 127,
+        "selected_residues_mod_6": [
+          1,
+          5
+        ],
+        "selected_frequency_count": 42,
+        "exact_projection_energy": {
+          "exact": "42/127",
+          "numerator": 42,
+          "denominator": 127,
+          "display_float": 0.33070866141732286
+        },
+        "limiting_spectral_density": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "exact_absolute_density_error": {
+          "exact": "1/381",
+          "numerator": 1,
+          "denominator": 381,
+          "display_float": 0.0026246719160104987
+        },
+        "integer_discrepancy_abs_3count_minus_total": 1,
+        "certificate_verified": true
+      },
+      {
+        "dirichlet_half_bandwidth_N": 127,
+        "frequency_count_2N_plus_1": 255,
+        "selected_residues_mod_6": [
+          1,
+          5
+        ],
+        "selected_frequency_count": 86,
+        "exact_projection_energy": {
+          "exact": "86/255",
+          "numerator": 86,
+          "denominator": 255,
+          "display_float": 0.33725490196078434
+        },
+        "limiting_spectral_density": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "exact_absolute_density_error": {
+          "exact": "1/255",
+          "numerator": 1,
+          "denominator": 255,
+          "display_float": 0.00392156862745098
+        },
+        "integer_discrepancy_abs_3count_minus_total": 3,
+        "certificate_verified": true
+      },
+      {
+        "dirichlet_half_bandwidth_N": 255,
+        "frequency_count_2N_plus_1": 511,
+        "selected_residues_mod_6": [
+          1,
+          5
+        ],
+        "selected_frequency_count": 170,
+        "exact_projection_energy": {
+          "exact": "170/511",
+          "numerator": 170,
+          "denominator": 511,
+          "display_float": 0.33268101761252444
+        },
+        "limiting_spectral_density": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "exact_absolute_density_error": {
+          "exact": "1/1533",
+          "numerator": 1,
+          "denominator": 1533,
+          "display_float": 0.0006523157208088715
+        },
+        "integer_discrepancy_abs_3count_minus_total": 1,
+        "certificate_verified": true
+      },
+      {
+        "dirichlet_half_bandwidth_N": 511,
+        "frequency_count_2N_plus_1": 1023,
+        "selected_residues_mod_6": [
+          1,
+          5
+        ],
+        "selected_frequency_count": 342,
+        "exact_projection_energy": {
+          "exact": "114/341",
+          "numerator": 114,
+          "denominator": 341,
+          "display_float": 0.3343108504398827
+        },
+        "limiting_spectral_density": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "exact_absolute_density_error": {
+          "exact": "1/1023",
+          "numerator": 1,
+          "denominator": 1023,
+          "display_float": 0.0009775171065493646
+        },
+        "integer_discrepancy_abs_3count_minus_total": 3,
+        "certificate_verified": true
+      },
+      {
+        "dirichlet_half_bandwidth_N": 1023,
+        "frequency_count_2N_plus_1": 2047,
+        "selected_residues_mod_6": [
+          1,
+          5
+        ],
+        "selected_frequency_count": 682,
+        "exact_projection_energy": {
+          "exact": "682/2047",
+          "numerator": 682,
+          "denominator": 2047,
+          "display_float": 0.3331704934049829
+        },
+        "limiting_spectral_density": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "exact_absolute_density_error": {
+          "exact": "1/6141",
+          "numerator": 1,
+          "denominator": 6141,
+          "display_float": 0.00016283992835043154
+        },
+        "integer_discrepancy_abs_3count_minus_total": 1,
+        "certificate_verified": true
+      },
+      {
+        "dirichlet_half_bandwidth_N": 2047,
+        "frequency_count_2N_plus_1": 4095,
+        "selected_residues_mod_6": [
+          1,
+          5
+        ],
+        "selected_frequency_count": 1366,
+        "exact_projection_energy": {
+          "exact": "1366/4095",
+          "numerator": 1366,
+          "denominator": 4095,
+          "display_float": 0.33357753357753356
+        },
+        "limiting_spectral_density": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "exact_absolute_density_error": {
+          "exact": "1/4095",
+          "numerator": 1,
+          "denominator": 4095,
+          "display_float": 0.0002442002442002442
+        },
+        "integer_discrepancy_abs_3count_minus_total": 3,
+        "certificate_verified": true
+      },
+      {
+        "dirichlet_half_bandwidth_N": 4095,
+        "frequency_count_2N_plus_1": 8191,
+        "selected_residues_mod_6": [
+          1,
+          5
+        ],
+        "selected_frequency_count": 2730,
+        "exact_projection_energy": {
+          "exact": "2730/8191",
+          "numerator": 2730,
+          "denominator": 8191,
+          "display_float": 0.3332926382615065
+        },
+        "limiting_spectral_density": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "exact_absolute_density_error": {
+          "exact": "1/24573",
+          "numerator": 1,
+          "denominator": 24573,
+          "display_float": 4.069507182680177e-05
+        },
+        "integer_discrepancy_abs_3count_minus_total": 1,
+        "certificate_verified": true
+      },
+      {
+        "dirichlet_half_bandwidth_N": 8191,
+        "frequency_count_2N_plus_1": 16383,
+        "selected_residues_mod_6": [
+          1,
+          5
+        ],
+        "selected_frequency_count": 5462,
+        "exact_projection_energy": {
+          "exact": "5462/16383",
+          "numerator": 5462,
+          "denominator": 16383,
+          "display_float": 0.33339437221510104
+        },
+        "limiting_spectral_density": {
+          "exact": "1/3",
+          "numerator": 1,
+          "denominator": 3,
+          "display_float": 0.3333333333333333
+        },
+        "exact_absolute_density_error": {
+          "exact": "1/16383",
+          "numerator": 1,
+          "denominator": 16383,
+          "display_float": 6.103888176768602e-05
+        },
+        "integer_discrepancy_abs_3count_minus_total": 3,
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "exact integer residue counts and Fraction projection energies for normalized Dirichlet packets",
+    "complexity": "O(sum N) direct replay operations; the density and concentration statements are analytic",
+    "random_seed": null,
+    "transcript_sha256": "00bebb686b3544d67b49612c512f28feee544d678ceab6c5fa269f64e9e16299",
+    "aggregate": {
+      "dirichlet_packet_concentrates_at_interior_zero_proved": true,
+      "projection_energy_equals_symmetric_frequency_density_proved": true,
+      "positive_density_blocks_this_packet_escape_proved": true,
+      "actual_weil_form_dominates_projection": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "11 exact rational periodic-density rows illustrate the analytic all-density theorem; spatial concentration uses a proved Dirichlet-kernel bound.",
+  "logical_limit": "The theorem concerns Fourier projections and one canonical concentrating family. No domination by the signed Guinand-Weil form, admissible-form-core transfer, or all-packet lower bound is proved.",
+  "route_decision": {
+    "discard": "treating the TICKET-252 zero-density escape as representative after imposing positive symmetric spectral density on normalized Dirichlet packets",
+    "parked": [
+      "extension from periodic Fourier projections to the signed arithmetic Weil form"
+    ],
+    "retain": "the exact packet-energy identity and positive-density threshold",
+    "next_single_lemma": "ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T252",
+        "label": "SparseFourierProjectionInteriorConcentrationNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-T253",
+        "label": "DirichletPacketSpectralDensityLimit",
+        "status": "proved"
+      },
+      {
+        "id": "RH-REJECT253",
+        "label": "PositiveSpectralDensityStillAllowsZeroEnergyForNormalizedDirichletPackets",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-OPEN253",
+        "label": "ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T252",
+        "RH-T253"
+      ],
+      [
+        "RH-T253",
+        "RH-REJECT253"
+      ],
+      [
+        "RH-T253",
+        "RH-OPEN253"
+      ]
+    ],
+    "resolution_path": [
+      "RH-T252",
+      "RH-T253",
+      "RH-OPEN253"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No RH proof or disproof; one exact density-to-packet-energy transfer theorem."
+}

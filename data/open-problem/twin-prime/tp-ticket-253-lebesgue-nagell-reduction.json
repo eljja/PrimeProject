@@ -1,0 +1,729 @@
+{
+  "schema": "primeproject.ticket253-density-character-prefix-lebesgue.v1",
+  "generated_at": "2026-08-29T13:07:59+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-253",
+  "theorem_name": "RightEvenContaminationReducesToEightyFourLebesgueNagellExponents",
+  "declared_proposition": "Assume the verified external results summarized in Katz-Pratt, arXiv:2507.12397v2: for x^2-2=y^ell with ell an odd prime and y>0, there is no solution for ell<=13 or ell>911, Chen's congruence theorem leaves only ell=13,17,19,23 modulo 24, and any nontrivial y exceeds 10^1000. If odd primes p,r and odd k>=3,m>=1 satisfy p^k+2=r^(2m), then every prime divisor ell of k belongs to the exact 84-element set P={17<=ell<=911 prime: ell mod 24 in {13,17,19,23}}, and p^(k/ell)>10^1000. Thus the right-even contamination frontier is reduced from all odd k to exponents supported on P; it is not solved.",
+  "mathematical_argument": "Put x=r^m. For any prime ell dividing k, put y=p^(k/ell)>0. Then x^2-2=y^ell is a nontrivial Lebesgue-Nagell solution. Applying the external exponent bounds, congruence restriction, and lower bound places ell in P and gives y>10^1000. Since ell was an arbitrary prime divisor of k, every prime factor of k lies in P. Direct primality and residue enumeration independently confirms that P has 84 elements. The external paper explicitly leaves those 84 prime exponents open, so this corollary cannot be promoted to a Diophantine exclusion.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Assume the verified external results summarized in Katz-Pratt, arXiv:2507.12397v2: for x^2-2=y^ell with ell an odd prime and y>0, there is no solution for ell<=13 or ell>911, Chen's congruence theorem leaves only ell=13,17,19,23 modulo 24, and any nontrivial y exceeds 10^1000. If odd primes p,r and odd k>=3,m>=1 satisfy p^k+2=r^(2m), then every prime divisor ell of k belongs to the exact 84-element set P={17<=ell<=911 prime: ell mod 24 in {13,17,19,23}}, and p^(k/ell)>10^1000. Thus the right-even contamination frontier is reduced from all odd k to exponents supported on P; it is not solved.",
+    "proof": "Put x=r^m. For any prime ell dividing k, put y=p^(k/ell)>0. Then x^2-2=y^ell is a nontrivial Lebesgue-Nagell solution. Applying the external exponent bounds, congruence restriction, and lower bound places ell in P and gives y>10^1000. Since ell was an arbitrary prime divisor of k, every prime factor of k lies in P. Direct primality and residue enumeration independently confirms that P has 84 elements. The external paper explicitly leaves those 84 prime exponents open, so this corollary cannot be promoted to a Diophantine exclusion.",
+    "exact_remaining_prime_exponent_rows": [
+      {
+        "candidate_index": 1,
+        "prime_exponent_ell": 17,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 2,
+        "prime_exponent_ell": 19,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 3,
+        "prime_exponent_ell": 23,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 4,
+        "prime_exponent_ell": 37,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 5,
+        "prime_exponent_ell": 41,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 6,
+        "prime_exponent_ell": 43,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 7,
+        "prime_exponent_ell": 47,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 8,
+        "prime_exponent_ell": 61,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 9,
+        "prime_exponent_ell": 67,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 10,
+        "prime_exponent_ell": 71,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 11,
+        "prime_exponent_ell": 89,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 12,
+        "prime_exponent_ell": 109,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 13,
+        "prime_exponent_ell": 113,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 14,
+        "prime_exponent_ell": 137,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 15,
+        "prime_exponent_ell": 139,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 16,
+        "prime_exponent_ell": 157,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 17,
+        "prime_exponent_ell": 163,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 18,
+        "prime_exponent_ell": 167,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 19,
+        "prime_exponent_ell": 181,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 20,
+        "prime_exponent_ell": 191,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 21,
+        "prime_exponent_ell": 211,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 22,
+        "prime_exponent_ell": 229,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 23,
+        "prime_exponent_ell": 233,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 24,
+        "prime_exponent_ell": 239,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 25,
+        "prime_exponent_ell": 257,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 26,
+        "prime_exponent_ell": 263,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 27,
+        "prime_exponent_ell": 277,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 28,
+        "prime_exponent_ell": 281,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 29,
+        "prime_exponent_ell": 283,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 30,
+        "prime_exponent_ell": 307,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 31,
+        "prime_exponent_ell": 311,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 32,
+        "prime_exponent_ell": 331,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 33,
+        "prime_exponent_ell": 349,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 34,
+        "prime_exponent_ell": 353,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 35,
+        "prime_exponent_ell": 359,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 36,
+        "prime_exponent_ell": 373,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 37,
+        "prime_exponent_ell": 379,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 38,
+        "prime_exponent_ell": 383,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 39,
+        "prime_exponent_ell": 397,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 40,
+        "prime_exponent_ell": 401,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 41,
+        "prime_exponent_ell": 421,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 42,
+        "prime_exponent_ell": 431,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 43,
+        "prime_exponent_ell": 449,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 44,
+        "prime_exponent_ell": 479,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 45,
+        "prime_exponent_ell": 499,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 46,
+        "prime_exponent_ell": 503,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 47,
+        "prime_exponent_ell": 521,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 48,
+        "prime_exponent_ell": 523,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 49,
+        "prime_exponent_ell": 541,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 50,
+        "prime_exponent_ell": 547,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 51,
+        "prime_exponent_ell": 569,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 52,
+        "prime_exponent_ell": 571,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 53,
+        "prime_exponent_ell": 593,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 54,
+        "prime_exponent_ell": 599,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 55,
+        "prime_exponent_ell": 613,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 56,
+        "prime_exponent_ell": 617,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 57,
+        "prime_exponent_ell": 619,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 58,
+        "prime_exponent_ell": 641,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 59,
+        "prime_exponent_ell": 643,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 60,
+        "prime_exponent_ell": 647,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 61,
+        "prime_exponent_ell": 661,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 62,
+        "prime_exponent_ell": 691,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 63,
+        "prime_exponent_ell": 709,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 64,
+        "prime_exponent_ell": 719,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 65,
+        "prime_exponent_ell": 733,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 66,
+        "prime_exponent_ell": 739,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 67,
+        "prime_exponent_ell": 743,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 68,
+        "prime_exponent_ell": 757,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 69,
+        "prime_exponent_ell": 761,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 70,
+        "prime_exponent_ell": 787,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 71,
+        "prime_exponent_ell": 809,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 72,
+        "prime_exponent_ell": 811,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 73,
+        "prime_exponent_ell": 829,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 74,
+        "prime_exponent_ell": 839,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 75,
+        "prime_exponent_ell": 853,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 76,
+        "prime_exponent_ell": 857,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 77,
+        "prime_exponent_ell": 859,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 78,
+        "prime_exponent_ell": 863,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 79,
+        "prime_exponent_ell": 877,
+        "residue_mod_24": 13,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 80,
+        "prime_exponent_ell": 881,
+        "residue_mod_24": 17,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 81,
+        "prime_exponent_ell": 883,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 82,
+        "prime_exponent_ell": 887,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 83,
+        "prime_exponent_ell": 907,
+        "residue_mod_24": 19,
+        "certificate_verified": true
+      },
+      {
+        "candidate_index": 84,
+        "prime_exponent_ell": 911,
+        "residue_mod_24": 23,
+        "certificate_verified": true
+      }
+    ],
+    "remaining_prime_exponents": [
+      17,
+      19,
+      23,
+      37,
+      41,
+      43,
+      47,
+      61,
+      67,
+      71,
+      89,
+      109,
+      113,
+      137,
+      139,
+      157,
+      163,
+      167,
+      181,
+      191,
+      211,
+      229,
+      233,
+      239,
+      257,
+      263,
+      277,
+      281,
+      283,
+      307,
+      311,
+      331,
+      349,
+      353,
+      359,
+      373,
+      379,
+      383,
+      397,
+      401,
+      421,
+      431,
+      449,
+      479,
+      499,
+      503,
+      521,
+      523,
+      541,
+      547,
+      569,
+      571,
+      593,
+      599,
+      613,
+      617,
+      619,
+      641,
+      643,
+      647,
+      661,
+      691,
+      709,
+      719,
+      733,
+      739,
+      743,
+      757,
+      761,
+      787,
+      809,
+      811,
+      829,
+      839,
+      853,
+      857,
+      859,
+      863,
+      877,
+      881,
+      883,
+      887,
+      907,
+      911
+    ],
+    "residue_class_counts": {
+      "13": 20,
+      "17": 20,
+      "19": 23,
+      "23": 21
+    },
+    "finite_odd_exponent_factor_scan": {
+      "limit": 10000,
+      "tested_odd_exponent_count": 4999,
+      "allowed_exponent_count": 331,
+      "rejected_exponent_count": 4668,
+      "first_twenty_allowed_exponents": [
+        17,
+        19,
+        23,
+        37,
+        41,
+        43,
+        47,
+        61,
+        67,
+        71,
+        89,
+        109,
+        113,
+        137,
+        139,
+        157,
+        163,
+        167,
+        181,
+        191
+      ]
+    },
+    "external_theorem": {
+      "name": "Katz-Pratt and cited Chen reduction for x^2-2=y^ell",
+      "source": "https://arxiv.org/abs/2507.12397v2",
+      "source_version": "arXiv:2507.12397v2, 25 July 2025",
+      "statement_used": "Nontrivial positive solutions are excluded for prime ell<=13 and ell>911; only 84 primes ell in 17..911 with ell mod 24 in {13,17,19,23} remain; every nontrivial y exceeds 10^1000.",
+      "status": "external_theorem",
+      "dependency_boundary": "PrimeProject proves only the factor-reduction corollary and independently enumerates the 84 exponents; it does not independently reprove the paper's Diophantine theorems."
+    },
+    "algorithm": "deterministic trial-division primality, exact residue filtering, and exact odd-exponent factor scanning",
+    "complexity": "O(911 sqrt(911)+K sqrt(K)) integer operations for K=10000; the all-k reduction relies on the cited external theorem",
+    "random_seed": null,
+    "transcript_sha256": "b98e7851ac77f39a65148a17da8a40600d25774928d13483a1fcef4d4b7b8bb6",
+    "aggregate": {
+      "remaining_prime_exponent_count": 84,
+      "all_prime_factors_of_k_restricted_to_remaining_set": true,
+      "nontrivial_reduced_base_lower_bound_10_power_1000": true,
+      "all_remaining_84_prime_exponents_excluded": false,
+      "global_integer_equation_solved": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "84 exact prime-exponent rows and 4999 finite odd-k factor rows replay the filter; the all-k conclusion relies on the cited external theorems.",
+  "logical_limit": "The corollary depends on a checked 2025 arXiv primary source and does not independently reprove its deep Diophantine inputs. That source explicitly leaves 84 prime exponents unresolved; twin-prime infinitude and Type-II estimates remain open.",
+  "route_decision": {
+    "discard": "treating every odd exponent k>=3 as an equally open right-even contamination case after the equation is reduced to x^2-2=y^k",
+    "parked": [
+      "the 84 remaining prime-exponent Lebesgue-Nagell equations and exponents supported on them"
+    ],
+    "retain": "the external-theorem factor reduction, exact 84-exponent frontier, and y>10^1000 lower boundary",
+    "next_single_lemma": "LebesgueNagellExponent17HasNoPositiveSolution"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T252",
+        "label": "FiniteCongruenceLocalSolubilityNoGoForRightEvenPrimePowers",
+        "status": "proved"
+      },
+      {
+        "id": "TP-EXT-KATZ-PRATT",
+        "label": "Katz-Pratt v2 exponent bounds, Chen congruence reduction, and y>10^1000 bound",
+        "status": "external_theorem"
+      },
+      {
+        "id": "TP-T253",
+        "label": "RightEvenContaminationReducesToEightyFourLebesgueNagellExponents",
+        "status": "proved"
+      },
+      {
+        "id": "TP-REJECT253",
+        "label": "EveryOddPrimeExponentRemainsASeparateRightEvenContaminationCase",
+        "status": "disproved"
+      },
+      {
+        "id": "TP-OPEN253",
+        "label": "LebesgueNagellExponent17HasNoPositiveSolution",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-EXT-KATZ-PRATT",
+        "TP-T253"
+      ],
+      [
+        "TP-T252",
+        "TP-T253"
+      ],
+      [
+        "TP-T253",
+        "TP-REJECT253"
+      ],
+      [
+        "TP-T253",
+        "TP-OPEN253"
+      ]
+    ],
+    "resolution_path": [
+      "TP-T252",
+      "TP-EXT-KATZ-PRATT",
+      "TP-T253",
+      "TP-OPEN253"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No twin-prime proof or counterexample; one external-theorem corollary that rigorously narrows the Diophantine contamination frontier."
+}

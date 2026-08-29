@@ -48,6 +48,7 @@ let ticket249AttemptGlobal = null;
 let ticket250AttemptGlobal = null;
 let ticket251AttemptGlobal = null;
 let ticket252AttemptGlobal = null;
+let ticket253AttemptGlobal = null;
 let ticket248AttemptGlobal = null;
 let ticket244AttemptGlobal = null;
 let ticket243AttemptGlobal = null;
@@ -18043,7 +18044,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket252SparseMarginalZeroResidueLocal(ticket252AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket253DensityCharacterPrefixLebesgue(ticket253AttemptGlobal) ||
+      renderTicket252SparseMarginalZeroResidueLocal(ticket252AttemptGlobal) ||
       renderTicket251InteriorCrtCyclotomicRightEven(ticket251AttemptGlobal) ||
       renderTicket250MultiplierLiftGaloisEvenRight(ticket250AttemptGlobal) ||
       renderTicket249CompactProjectiveParsevalLebesgue(ticket249AttemptGlobal) ||
@@ -18615,6 +18617,25 @@ async function loadTicket219Attempt() {
     return Boolean(ticket219AttemptGlobal);
   } catch (_error) {
     ticket219AttemptGlobal = null;
+    return false;
+  }
+}
+async function loadTicket253Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket253-density-character-prefix-lebesgue.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket253AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket253AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket253AttemptGlobal) {
+      ticket253AttemptGlobal.bounded_result = ticket253AttemptGlobal.bounded_result || {};
+      ticket253AttemptGlobal.bounded_result.density_character_prefix_lebesgue_audit = payload.density_character_prefix_lebesgue_audit || {};
+    }
+    return Boolean(ticket253AttemptGlobal);
+  } catch (_error) {
+    ticket253AttemptGlobal = null;
     return false;
   }
 }
@@ -20844,7 +20865,11 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket252Loaded = await loadTicket252Attempt();
+  const ticket253Loaded = await loadTicket253Attempt();
+  if (!ticket253Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket253AttemptGlobal) await loadTicket253Attempt();
+  }  const ticket252Loaded = await loadTicket252Attempt();
   if (!ticket252Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));
     if (!ticket252AttemptGlobal) await loadTicket252Attempt();

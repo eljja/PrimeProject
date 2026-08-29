@@ -612,3 +612,19 @@ canonical Fermat-quotient distribution, identification of the `(5,8)` vector
 with actual prime counts, or promotion of local congruence solubility to a
 global integer solution. Resolution and candidate-resolution counts are
 zero.
+
+## TICKET-253 publication boundary
+
+TICKET-253 adds one exact route no-go and three partial theorems. Allowed
+`exact_no_go` wording is limited to the complete fixed-modulus character-sum
+representation of the canonical Collatz slope indicator. Allowed
+`partial_theorem` wording is limited to the abstract Dirichlet-packet density
+identity, the Goldbach unique-prime-prefix realizability criterion, and the
+right-even Twin reduction conditional on the cited Katz-Pratt theorem.
+Blocked wording includes every parent-conjecture proof or disproof, any
+identification of the abstract projection with the actual Weil form, any
+pointwise complete-character cancellation claim that assumes slope avoidance,
+promotion of ten finite prime-prefix mismatches to all compatible tails, or
+promotion of the external 84-exponent reduction and the `k<=9999` scan to a
+solution of the remaining Lebesgue-Nagell equations. Resolution and
+candidate-resolution counts are zero.

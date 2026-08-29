@@ -1,0 +1,2043 @@
+{
+  "schema": "primeproject.ticket253-density-character-prefix-lebesgue.v1",
+  "generated_at": "2026-08-29T13:07:59+09:00",
+  "status": "open_not_proven",
+  "iteration_complete": true,
+  "program_complete": false,
+  "density_character_prefix_lebesgue_audit": {
+    "theorem_name": "FourConjectureDensityCharacterPrefixLebesgueAudit",
+    "summary": "TICKET-253 proves three partial theorems and one exact route no-go while leaving all four parent conjectures open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-253",
+      "theorem_name": "DirichletPacketSpectralDensityLimit",
+      "declared_proposition": "Let e_n(x)=2^(-1/2)exp(pi i n x) on [-1,1] and let D_N=(2N+1)^(-1/2) sum_(|n|<=N)e_n. Then D_N is an even unit vector whose L2 mass outside every fixed neighborhood of zero tends to zero. For every symmetric S subset Z and its Fourier projection P_S, <P_S D_N,D_N>=#(S intersect [-N,N])/(2N+1). Consequently, if S has symmetric natural density d, the projection energy tends exactly to d. Positive spectral density therefore blocks the zero-energy escape of this canonical interior-concentrating packet family, while zero density recovers the TICKET-252 escape.",
+      "mathematical_argument": "Orthonormality gives norm one, evenness, and the displayed projection identity by counting coefficients. The Dirichlet-kernel formula gives |D_N(x)|^2=|sin((2N+1)pi x/2)/sin(pi x/2)|^2/(2(2N+1)). For epsilon<=|x|<=1 its integral is at most 1/((2N+1)sin(pi epsilon/2)^2), hence the mass concentrates at zero. The density conclusion is now the definition of symmetric natural density. For the replay set S={n:n mod 6 is 1 or 5}, elementary residue counting gives density 1/3 and |3#S_N-(2N+1)|<=3.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let e_n(x)=2^(-1/2)exp(pi i n x) on [-1,1] and let D_N=(2N+1)^(-1/2) sum_(|n|<=N)e_n. Then D_N is an even unit vector whose L2 mass outside every fixed neighborhood of zero tends to zero. For every symmetric S subset Z and its Fourier projection P_S, <P_S D_N,D_N>=#(S intersect [-N,N])/(2N+1). Consequently, if S has symmetric natural density d, the projection energy tends exactly to d. Positive spectral density therefore blocks the zero-energy escape of this canonical interior-concentrating packet family, while zero density recovers the TICKET-252 escape.",
+        "proof": "Orthonormality gives norm one, evenness, and the displayed projection identity by counting coefficients. The Dirichlet-kernel formula gives |D_N(x)|^2=|sin((2N+1)pi x/2)/sin(pi x/2)|^2/(2(2N+1)). For epsilon<=|x|<=1 its integral is at most 1/((2N+1)sin(pi epsilon/2)^2), hence the mass concentrates at zero. The density conclusion is now the definition of symmetric natural density. For the replay set S={n:n mod 6 is 1 or 5}, elementary residue counting gives density 1/3 and |3#S_N-(2N+1)|<=3.",
+        "exact_periodic_density_rows": [
+          {
+            "dirichlet_half_bandwidth_N": 7,
+            "frequency_count_2N_plus_1": 15,
+            "selected_residues_mod_6": [
+              1,
+              5
+            ],
+            "selected_frequency_count": 6,
+            "exact_projection_energy": {
+              "exact": "2/5",
+              "numerator": 2,
+              "denominator": 5,
+              "display_float": 0.4
+            },
+            "limiting_spectral_density": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "exact_absolute_density_error": {
+              "exact": "1/15",
+              "numerator": 1,
+              "denominator": 15,
+              "display_float": 0.06666666666666667
+            },
+            "integer_discrepancy_abs_3count_minus_total": 3,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 15,
+            "frequency_count_2N_plus_1": 31,
+            "selected_residues_mod_6": [
+              1,
+              5
+            ],
+            "selected_frequency_count": 10,
+            "exact_projection_energy": {
+              "exact": "10/31",
+              "numerator": 10,
+              "denominator": 31,
+              "display_float": 0.3225806451612903
+            },
+            "limiting_spectral_density": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "exact_absolute_density_error": {
+              "exact": "1/93",
+              "numerator": 1,
+              "denominator": 93,
+              "display_float": 0.010752688172043012
+            },
+            "integer_discrepancy_abs_3count_minus_total": 1,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 31,
+            "frequency_count_2N_plus_1": 63,
+            "selected_residues_mod_6": [
+              1,
+              5
+            ],
+            "selected_frequency_count": 22,
+            "exact_projection_energy": {
+              "exact": "22/63",
+              "numerator": 22,
+              "denominator": 63,
+              "display_float": 0.3492063492063492
+            },
+            "limiting_spectral_density": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "exact_absolute_density_error": {
+              "exact": "1/63",
+              "numerator": 1,
+              "denominator": 63,
+              "display_float": 0.015873015873015872
+            },
+            "integer_discrepancy_abs_3count_minus_total": 3,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 63,
+            "frequency_count_2N_plus_1": 127,
+            "selected_residues_mod_6": [
+              1,
+              5
+            ],
+            "selected_frequency_count": 42,
+            "exact_projection_energy": {
+              "exact": "42/127",
+              "numerator": 42,
+              "denominator": 127,
+              "display_float": 0.33070866141732286
+            },
+            "limiting_spectral_density": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "exact_absolute_density_error": {
+              "exact": "1/381",
+              "numerator": 1,
+              "denominator": 381,
+              "display_float": 0.0026246719160104987
+            },
+            "integer_discrepancy_abs_3count_minus_total": 1,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 127,
+            "frequency_count_2N_plus_1": 255,
+            "selected_residues_mod_6": [
+              1,
+              5
+            ],
+            "selected_frequency_count": 86,
+            "exact_projection_energy": {
+              "exact": "86/255",
+              "numerator": 86,
+              "denominator": 255,
+              "display_float": 0.33725490196078434
+            },
+            "limiting_spectral_density": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "exact_absolute_density_error": {
+              "exact": "1/255",
+              "numerator": 1,
+              "denominator": 255,
+              "display_float": 0.00392156862745098
+            },
+            "integer_discrepancy_abs_3count_minus_total": 3,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 255,
+            "frequency_count_2N_plus_1": 511,
+            "selected_residues_mod_6": [
+              1,
+              5
+            ],
+            "selected_frequency_count": 170,
+            "exact_projection_energy": {
+              "exact": "170/511",
+              "numerator": 170,
+              "denominator": 511,
+              "display_float": 0.33268101761252444
+            },
+            "limiting_spectral_density": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "exact_absolute_density_error": {
+              "exact": "1/1533",
+              "numerator": 1,
+              "denominator": 1533,
+              "display_float": 0.0006523157208088715
+            },
+            "integer_discrepancy_abs_3count_minus_total": 1,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 511,
+            "frequency_count_2N_plus_1": 1023,
+            "selected_residues_mod_6": [
+              1,
+              5
+            ],
+            "selected_frequency_count": 342,
+            "exact_projection_energy": {
+              "exact": "114/341",
+              "numerator": 114,
+              "denominator": 341,
+              "display_float": 0.3343108504398827
+            },
+            "limiting_spectral_density": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "exact_absolute_density_error": {
+              "exact": "1/1023",
+              "numerator": 1,
+              "denominator": 1023,
+              "display_float": 0.0009775171065493646
+            },
+            "integer_discrepancy_abs_3count_minus_total": 3,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 1023,
+            "frequency_count_2N_plus_1": 2047,
+            "selected_residues_mod_6": [
+              1,
+              5
+            ],
+            "selected_frequency_count": 682,
+            "exact_projection_energy": {
+              "exact": "682/2047",
+              "numerator": 682,
+              "denominator": 2047,
+              "display_float": 0.3331704934049829
+            },
+            "limiting_spectral_density": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "exact_absolute_density_error": {
+              "exact": "1/6141",
+              "numerator": 1,
+              "denominator": 6141,
+              "display_float": 0.00016283992835043154
+            },
+            "integer_discrepancy_abs_3count_minus_total": 1,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 2047,
+            "frequency_count_2N_plus_1": 4095,
+            "selected_residues_mod_6": [
+              1,
+              5
+            ],
+            "selected_frequency_count": 1366,
+            "exact_projection_energy": {
+              "exact": "1366/4095",
+              "numerator": 1366,
+              "denominator": 4095,
+              "display_float": 0.33357753357753356
+            },
+            "limiting_spectral_density": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "exact_absolute_density_error": {
+              "exact": "1/4095",
+              "numerator": 1,
+              "denominator": 4095,
+              "display_float": 0.0002442002442002442
+            },
+            "integer_discrepancy_abs_3count_minus_total": 3,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 4095,
+            "frequency_count_2N_plus_1": 8191,
+            "selected_residues_mod_6": [
+              1,
+              5
+            ],
+            "selected_frequency_count": 2730,
+            "exact_projection_energy": {
+              "exact": "2730/8191",
+              "numerator": 2730,
+              "denominator": 8191,
+              "display_float": 0.3332926382615065
+            },
+            "limiting_spectral_density": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "exact_absolute_density_error": {
+              "exact": "1/24573",
+              "numerator": 1,
+              "denominator": 24573,
+              "display_float": 4.069507182680177e-05
+            },
+            "integer_discrepancy_abs_3count_minus_total": 1,
+            "certificate_verified": true
+          },
+          {
+            "dirichlet_half_bandwidth_N": 8191,
+            "frequency_count_2N_plus_1": 16383,
+            "selected_residues_mod_6": [
+              1,
+              5
+            ],
+            "selected_frequency_count": 5462,
+            "exact_projection_energy": {
+              "exact": "5462/16383",
+              "numerator": 5462,
+              "denominator": 16383,
+              "display_float": 0.33339437221510104
+            },
+            "limiting_spectral_density": {
+              "exact": "1/3",
+              "numerator": 1,
+              "denominator": 3,
+              "display_float": 0.3333333333333333
+            },
+            "exact_absolute_density_error": {
+              "exact": "1/16383",
+              "numerator": 1,
+              "denominator": 16383,
+              "display_float": 6.103888176768602e-05
+            },
+            "integer_discrepancy_abs_3count_minus_total": 3,
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact integer residue counts and Fraction projection energies for normalized Dirichlet packets",
+        "complexity": "O(sum N) direct replay operations; the density and concentration statements are analytic",
+        "random_seed": null,
+        "transcript_sha256": "00bebb686b3544d67b49612c512f28feee544d678ceab6c5fa269f64e9e16299",
+        "aggregate": {
+          "dirichlet_packet_concentrates_at_interior_zero_proved": true,
+          "projection_energy_equals_symmetric_frequency_density_proved": true,
+          "positive_density_blocks_this_packet_escape_proved": true,
+          "actual_weil_form_dominates_projection": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "11 exact rational periodic-density rows illustrate the analytic all-density theorem; spatial concentration uses a proved Dirichlet-kernel bound.",
+      "logical_limit": "The theorem concerns Fourier projections and one canonical concentrating family. No domination by the signed Guinand-Weil form, admissible-form-core transfer, or all-packet lower bound is proved.",
+      "route_decision": {
+        "discard": "treating the TICKET-252 zero-density escape as representative after imposing positive symmetric spectral density on normalized Dirichlet packets",
+        "parked": [
+          "extension from periodic Fourier projections to the signed arithmetic Weil form"
+        ],
+        "retain": "the exact packet-energy identity and positive-density threshold",
+        "next_single_lemma": "ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T252",
+            "label": "SparseFourierProjectionInteriorConcentrationNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "RH-T253",
+            "label": "DirichletPacketSpectralDensityLimit",
+            "status": "proved"
+          },
+          {
+            "id": "RH-REJECT253",
+            "label": "PositiveSpectralDensityStillAllowsZeroEnergyForNormalizedDirichletPackets",
+            "status": "disproved"
+          },
+          {
+            "id": "RH-OPEN253",
+            "label": "ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T252",
+            "RH-T253"
+          ],
+          [
+            "RH-T253",
+            "RH-REJECT253"
+          ],
+          [
+            "RH-T253",
+            "RH-OPEN253"
+          ]
+        ],
+        "resolution_path": [
+          "RH-T252",
+          "RH-T253",
+          "RH-OPEN253"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No RH proof or disproof; one exact density-to-packet-energy transfer theorem."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-253",
+      "theorem_name": "CompleteSlopeCharacterSumDichotomyNoGo",
+      "declared_proposition": "For every prime q>5 and D in F_q, let C_q(D)=sum_(h=1)^(q-1) exp(2 pi i hD/q). Then C_q(D)=q-1 when D=0 and C_q(D)=-1 otherwise, so (1+C_q(D))/q=1_(D=0) exactly. For D_q=5F_q(2)-3F_q(3), subtracting the origin indicator gives the separated [3:5] detector. Thus the complete h-character sum proposed after TICKET-252 is not a softened statistic: pointwise cancellation is exactly equivalent to canonical slope avoidance. Generic complete character-sum bounds cannot supply new information without a separate cross-prime estimate that varies the arithmetic data.",
+      "mathematical_argument": "If D=0 every summand is one. If D is nonzero, multiplication by D permutes F_q^*, and the sum of all q additive characters is zero, so the nonzero-h sum is -1. Fermat-quotient additivity gives D_q=F_q(32)-F_q(27), hence D_q=0 exactly when 32^(q-1)=27^(q-1) modulo q^2. On this line U_q-V_q=-2t, so removing U_q=V_q=0 is exactly the separated condition. The dichotomy also shows why a square-root bound for this complete sum would already assume the desired avoidance at every sufficiently large target prime.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "For every prime q>5 and D in F_q, let C_q(D)=sum_(h=1)^(q-1) exp(2 pi i hD/q). Then C_q(D)=q-1 when D=0 and C_q(D)=-1 otherwise, so (1+C_q(D))/q=1_(D=0) exactly. For D_q=5F_q(2)-3F_q(3), subtracting the origin indicator gives the separated [3:5] detector. Thus the complete h-character sum proposed after TICKET-252 is not a softened statistic: pointwise cancellation is exactly equivalent to canonical slope avoidance. Generic complete character-sum bounds cannot supply new information without a separate cross-prime estimate that varies the arithmetic data.",
+        "proof": "If D=0 every summand is one. If D is nonzero, multiplication by D permutes F_q^*, and the sum of all q additive characters is zero, so the nonzero-h sum is -1. Fermat-quotient additivity gives D_q=F_q(32)-F_q(27), hence D_q=0 exactly when 32^(q-1)=27^(q-1) modulo q^2. On this line U_q-V_q=-2t, so removing U_q=V_q=0 is exactly the separated condition. The dichotomy also shows why a square-root bound for this complete sum would already assume the desired avoidance at every sufficiently large target prime.",
+        "exact_canonical_character_rows": [
+          {
+            "prime_q": 7,
+            "canonical_U_q": 2,
+            "canonical_V_q": 6,
+            "slope_residue_D_q": 6,
+            "complete_nontrivial_character_sum_exact_integer": -1,
+            "full_orthogonality_average": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "rational_wieferich_32_over_27": false,
+            "origin_double_wieferich": false,
+            "separated_projective_slope_hit": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "canonical_U_q": 5,
+            "canonical_V_q": 0,
+            "slope_residue_D_q": 3,
+            "complete_nontrivial_character_sum_exact_integer": -1,
+            "full_orthogonality_average": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "rational_wieferich_32_over_27": false,
+            "origin_double_wieferich": false,
+            "separated_projective_slope_hit": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 13,
+            "canonical_U_q": 3,
+            "canonical_V_q": 8,
+            "slope_residue_D_q": 4,
+            "complete_nontrivial_character_sum_exact_integer": -1,
+            "full_orthogonality_average": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "rational_wieferich_32_over_27": false,
+            "origin_double_wieferich": false,
+            "separated_projective_slope_hit": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 17,
+            "canonical_U_q": 13,
+            "canonical_V_q": 10,
+            "slope_residue_D_q": 1,
+            "complete_nontrivial_character_sum_exact_integer": -1,
+            "full_orthogonality_average": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "rational_wieferich_32_over_27": false,
+            "origin_double_wieferich": false,
+            "separated_projective_slope_hit": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 19,
+            "canonical_U_q": 3,
+            "canonical_V_q": 18,
+            "slope_residue_D_q": 18,
+            "complete_nontrivial_character_sum_exact_integer": -1,
+            "full_orthogonality_average": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "rational_wieferich_32_over_27": false,
+            "origin_double_wieferich": false,
+            "separated_projective_slope_hit": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 23,
+            "canonical_U_q": 17,
+            "canonical_V_q": 17,
+            "slope_residue_D_q": 11,
+            "complete_nontrivial_character_sum_exact_integer": -1,
+            "full_orthogonality_average": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "rational_wieferich_32_over_27": false,
+            "origin_double_wieferich": false,
+            "separated_projective_slope_hit": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 29,
+            "canonical_U_q": 1,
+            "canonical_V_q": 15,
+            "slope_residue_D_q": 18,
+            "complete_nontrivial_character_sum_exact_integer": -1,
+            "full_orthogonality_average": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "rational_wieferich_32_over_27": false,
+            "origin_double_wieferich": false,
+            "separated_projective_slope_hit": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 31,
+            "canonical_U_q": 6,
+            "canonical_V_q": 17,
+            "slope_residue_D_q": 10,
+            "complete_nontrivial_character_sum_exact_integer": -1,
+            "full_orthogonality_average": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "rational_wieferich_32_over_27": false,
+            "origin_double_wieferich": false,
+            "separated_projective_slope_hit": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 37,
+            "canonical_U_q": 1,
+            "canonical_V_q": 18,
+            "slope_residue_D_q": 25,
+            "complete_nontrivial_character_sum_exact_integer": -1,
+            "full_orthogonality_average": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "rational_wieferich_32_over_27": false,
+            "origin_double_wieferich": false,
+            "separated_projective_slope_hit": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 41,
+            "canonical_U_q": 23,
+            "canonical_V_q": 21,
+            "slope_residue_D_q": 11,
+            "complete_nontrivial_character_sum_exact_integer": -1,
+            "full_orthogonality_average": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "rational_wieferich_32_over_27": false,
+            "origin_double_wieferich": false,
+            "separated_projective_slope_hit": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 43,
+            "canonical_U_q": 25,
+            "canonical_V_q": 2,
+            "slope_residue_D_q": 33,
+            "complete_nontrivial_character_sum_exact_integer": -1,
+            "full_orthogonality_average": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "rational_wieferich_32_over_27": false,
+            "origin_double_wieferich": false,
+            "separated_projective_slope_hit": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 47,
+            "canonical_U_q": 44,
+            "canonical_V_q": 11,
+            "slope_residue_D_q": 46,
+            "complete_nontrivial_character_sum_exact_integer": -1,
+            "full_orthogonality_average": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "rational_wieferich_32_over_27": false,
+            "origin_double_wieferich": false,
+            "separated_projective_slope_hit": false,
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact modular exponentiation modulo q^2 plus the algebraic complete-linear-character dichotomy",
+        "complexity": "O(sum log q) modular multiplications for replay rows; the character identity is algebraic for every prime q>5",
+        "random_seed": null,
+        "transcript_sha256": "455240ed72e4017bfbc63ba310348eb9e2618370d829ee093253e1d66e6883c2",
+        "aggregate": {
+          "complete_character_sum_is_exact_indicator_proved": true,
+          "generic_pointwise_character_cancellation_route_rejected": true,
+          "canonical_replay_slope_hit_count": 0,
+          "canonical_replay_separated_hit_count": 0,
+          "cross_prime_distribution_controlled": false,
+          "collatz_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "12 canonical exact modular rows replay the identity; prior scans to much larger q remain finite and are not promoted.",
+      "logical_limit": "The exact dichotomy diagnoses a circular complete-sum route but does not prove occurrence or avoidance of [3:5] for the canonical pair as q varies.",
+      "route_decision": {
+        "discard": "treating the complete additive-character sum over h as an independently smooth statistic to which generic square-root cancellation can be applied",
+        "parked": [
+          "cross-prime averages whose arithmetic data genuinely vary with q"
+        ],
+        "retain": "a nontrivial cross-prime joint estimate rather than fixed-q orthogonality",
+        "next_single_lemma": "CrossPrimeCanonicalSlopeCharacterAverageCancellation"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T252",
+            "label": "UniformMarginalsCannotDetectProjectiveFermatSlopeNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "CO-T253",
+            "label": "CompleteSlopeCharacterSumDichotomyNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "CO-REJECT253",
+            "label": "CompleteFixedPrimeCharacterOrthogonalitySoftensTheCanonicalSlopeIndicator",
+            "status": "disproved"
+          },
+          {
+            "id": "CO-OPEN253",
+            "label": "CrossPrimeCanonicalSlopeCharacterAverageCancellation",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T252",
+            "CO-T253"
+          ],
+          [
+            "CO-T253",
+            "CO-REJECT253"
+          ],
+          [
+            "CO-T253",
+            "CO-OPEN253"
+          ]
+        ],
+        "resolution_path": [
+          "CO-T252",
+          "CO-T253",
+          "CO-OPEN253"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No Collatz orbit proof or counterexample; one exact no-go for a proposed character-sum implementation."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-253",
+      "theorem_name": "PrimeOrderingUniquePrefixRealizabilityCriterion",
+      "declared_proposition": "Let q>=5 be prime and let c be the cyclic coefficient vector of (1-X)^m modulo X^q-1. Suppose c is zero-residue compatible, and set t=1-c_0, N*=c+t, and T=qt. Then there exists X for which the actual prime-count vector N_r(X) has the cyclotomic centered nonzero Fourier data q(1-zeta_q^a)^m if and only if the residue-count vector of the first T primes is exactly N*. Equivalently one need test the unique prefix p_T<=X<p_(T+1); there is no free choice of X. Exact prefix computation rejects all ten selected compatible tails (q,m)=(5,8..12),(7,12..16).",
+      "mathematical_argument": "TICKET-252 Fourier inversion gives N_r(X)=c_r+t and the prime-zero condition forces t=1-c_0. Summing gives pi(X)=qt=T. Prime counts are constant precisely between the T-th and (T+1)-st primes, so their residue vector is the vector of the first T primes. This proves both directions of the criterion. The ten finite rejections use a sieve to enumerate those exact prefixes and compare integer vectors; no claim is made for untested compatible pairs or all exponents.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let q>=5 be prime and let c be the cyclic coefficient vector of (1-X)^m modulo X^q-1. Suppose c is zero-residue compatible, and set t=1-c_0, N*=c+t, and T=qt. Then there exists X for which the actual prime-count vector N_r(X) has the cyclotomic centered nonzero Fourier data q(1-zeta_q^a)^m if and only if the residue-count vector of the first T primes is exactly N*. Equivalently one need test the unique prefix p_T<=X<p_(T+1); there is no free choice of X. Exact prefix computation rejects all ten selected compatible tails (q,m)=(5,8..12),(7,12..16).",
+        "proof": "TICKET-252 Fourier inversion gives N_r(X)=c_r+t and the prime-zero condition forces t=1-c_0. Summing gives pi(X)=qt=T. Prime counts are constant precisely between the T-th and (T+1)-st primes, so their residue vector is the vector of the first T primes. This proves both directions of the criterion. The ten finite rejections use a sieve to enumerate those exact prefixes and compare integer vectors; no claim is made for untested compatible pairs or all exponents.",
+        "exact_compatible_tail_prefix_rows": [
+          {
+            "prime_modulus_q": 5,
+            "cyclotomic_exponent_m": 8,
+            "cyclic_coefficients_c": [
+              -55,
+              20,
+              20,
+              -55,
+              70
+            ],
+            "forced_uniform_shift_t": 56,
+            "forced_total_prime_count_qt": 280,
+            "forced_prime_count_vector": [
+              1,
+              76,
+              76,
+              1,
+              126
+            ],
+            "actual_first_qt_prime_residue_counts": [
+              1,
+              67,
+              72,
+              72,
+              68
+            ],
+            "difference_actual_minus_forced": [
+              0,
+              -9,
+              -4,
+              71,
+              -58
+            ],
+            "l1_discrepancy": 142,
+            "linfinity_discrepancy": 71,
+            "first_mismatch_residue": 1,
+            "actual_prefix_match": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "cyclotomic_exponent_m": 9,
+            "cyclic_coefficients_c": [
+              -125,
+              75,
+              0,
+              -75,
+              125
+            ],
+            "forced_uniform_shift_t": 126,
+            "forced_total_prime_count_qt": 630,
+            "forced_prime_count_vector": [
+              1,
+              201,
+              126,
+              51,
+              251
+            ],
+            "actual_first_qt_prime_residue_counts": [
+              1,
+              154,
+              163,
+              159,
+              153
+            ],
+            "difference_actual_minus_forced": [
+              0,
+              -47,
+              37,
+              108,
+              -98
+            ],
+            "l1_discrepancy": 290,
+            "linfinity_discrepancy": 108,
+            "first_mismatch_residue": 1,
+            "actual_prefix_match": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "cyclotomic_exponent_m": 10,
+            "cyclic_coefficients_c": [
+              -250,
+              200,
+              -75,
+              -75,
+              200
+            ],
+            "forced_uniform_shift_t": 251,
+            "forced_total_prime_count_qt": 1255,
+            "forced_prime_count_vector": [
+              1,
+              451,
+              176,
+              176,
+              451
+            ],
+            "actual_first_qt_prime_residue_counts": [
+              1,
+              313,
+              313,
+              317,
+              311
+            ],
+            "difference_actual_minus_forced": [
+              0,
+              -138,
+              137,
+              141,
+              -140
+            ],
+            "l1_discrepancy": 556,
+            "linfinity_discrepancy": 141,
+            "first_mismatch_residue": 1,
+            "actual_prefix_match": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "cyclotomic_exponent_m": 11,
+            "cyclic_coefficients_c": [
+              -450,
+              450,
+              -275,
+              0,
+              275
+            ],
+            "forced_uniform_shift_t": 451,
+            "forced_total_prime_count_qt": 2255,
+            "forced_prime_count_vector": [
+              1,
+              901,
+              176,
+              451,
+              726
+            ],
+            "actual_first_qt_prime_residue_counts": [
+              1,
+              561,
+              569,
+              566,
+              558
+            ],
+            "difference_actual_minus_forced": [
+              0,
+              -340,
+              393,
+              115,
+              -168
+            ],
+            "l1_discrepancy": 1016,
+            "linfinity_discrepancy": 393,
+            "first_mismatch_residue": 1,
+            "actual_prefix_match": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 5,
+            "cyclotomic_exponent_m": 12,
+            "cyclic_coefficients_c": [
+              -725,
+              900,
+              -725,
+              275,
+              275
+            ],
+            "forced_uniform_shift_t": 726,
+            "forced_total_prime_count_qt": 3630,
+            "forced_prime_count_vector": [
+              1,
+              1626,
+              1,
+              1001,
+              1001
+            ],
+            "actual_first_qt_prime_residue_counts": [
+              1,
+              899,
+              912,
+              916,
+              902
+            ],
+            "difference_actual_minus_forced": [
+              0,
+              -727,
+              911,
+              -85,
+              -99
+            ],
+            "l1_discrepancy": 1822,
+            "linfinity_discrepancy": 911,
+            "first_mismatch_residue": 1,
+            "actual_prefix_match": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "cyclotomic_exponent_m": 12,
+            "cyclic_coefficients_c": [
+              -791,
+              483,
+              -154,
+              -154,
+              483,
+              -791,
+              924
+            ],
+            "forced_uniform_shift_t": 792,
+            "forced_total_prime_count_qt": 5544,
+            "forced_prime_count_vector": [
+              1,
+              1275,
+              638,
+              638,
+              1275,
+              1,
+              1716
+            ],
+            "actual_first_qt_prime_residue_counts": [
+              1,
+              918,
+              927,
+              925,
+              912,
+              927,
+              934
+            ],
+            "difference_actual_minus_forced": [
+              0,
+              -357,
+              289,
+              287,
+              -363,
+              926,
+              -782
+            ],
+            "l1_discrepancy": 3004,
+            "linfinity_discrepancy": 926,
+            "first_mismatch_residue": 1,
+            "actual_prefix_match": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "cyclotomic_exponent_m": 13,
+            "cyclic_coefficients_c": [
+              -1715,
+              1274,
+              -637,
+              0,
+              637,
+              -1274,
+              1715
+            ],
+            "forced_uniform_shift_t": 1716,
+            "forced_total_prime_count_qt": 12012,
+            "forced_prime_count_vector": [
+              1,
+              2990,
+              1079,
+              1716,
+              2353,
+              442,
+              3431
+            ],
+            "actual_first_qt_prime_residue_counts": [
+              1,
+              2005,
+              1991,
+              2013,
+              1992,
+              2010,
+              2000
+            ],
+            "difference_actual_minus_forced": [
+              0,
+              -985,
+              912,
+              297,
+              -361,
+              1568,
+              -1431
+            ],
+            "l1_discrepancy": 5554,
+            "linfinity_discrepancy": 1568,
+            "first_mismatch_residue": 1,
+            "actual_prefix_match": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "cyclotomic_exponent_m": 14,
+            "cyclic_coefficients_c": [
+              -3430,
+              2989,
+              -1911,
+              637,
+              637,
+              -1911,
+              2989
+            ],
+            "forced_uniform_shift_t": 3431,
+            "forced_total_prime_count_qt": 24017,
+            "forced_prime_count_vector": [
+              1,
+              6420,
+              1520,
+              4068,
+              4068,
+              1520,
+              6420
+            ],
+            "actual_first_qt_prime_residue_counts": [
+              1,
+              3993,
+              3991,
+              4003,
+              3998,
+              4016,
+              4015
+            ],
+            "difference_actual_minus_forced": [
+              0,
+              -2427,
+              2471,
+              -65,
+              -70,
+              2496,
+              -2405
+            ],
+            "l1_discrepancy": 9934,
+            "linfinity_discrepancy": 2496,
+            "first_mismatch_residue": 1,
+            "actual_prefix_match": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "cyclotomic_exponent_m": 15,
+            "cyclic_coefficients_c": [
+              -6419,
+              6419,
+              -4900,
+              2548,
+              0,
+              -2548,
+              4900
+            ],
+            "forced_uniform_shift_t": 6420,
+            "forced_total_prime_count_qt": 44940,
+            "forced_prime_count_vector": [
+              1,
+              12839,
+              1520,
+              8968,
+              6420,
+              3872,
+              11320
+            ],
+            "actual_first_qt_prime_residue_counts": [
+              1,
+              7464,
+              7485,
+              7518,
+              7463,
+              7505,
+              7504
+            ],
+            "difference_actual_minus_forced": [
+              0,
+              -5375,
+              5965,
+              -1450,
+              1043,
+              3633,
+              -3816
+            ],
+            "l1_discrepancy": 21282,
+            "linfinity_discrepancy": 5965,
+            "first_mismatch_residue": 1,
+            "actual_prefix_match": false,
+            "certificate_verified": true
+          },
+          {
+            "prime_modulus_q": 7,
+            "cyclotomic_exponent_m": 16,
+            "cyclic_coefficients_c": [
+              -11319,
+              12838,
+              -11319,
+              7448,
+              -2548,
+              -2548,
+              7448
+            ],
+            "forced_uniform_shift_t": 11320,
+            "forced_total_prime_count_qt": 79240,
+            "forced_prime_count_vector": [
+              1,
+              24158,
+              1,
+              18768,
+              8772,
+              8772,
+              18768
+            ],
+            "actual_first_qt_prime_residue_counts": [
+              1,
+              13189,
+              13189,
+              13235,
+              13184,
+              13223,
+              13219
+            ],
+            "difference_actual_minus_forced": [
+              0,
+              -10969,
+              13188,
+              -5533,
+              4412,
+              4451,
+              -5549
+            ],
+            "l1_discrepancy": 44102,
+            "linfinity_discrepancy": 13188,
+            "first_mismatch_residue": 1,
+            "actual_prefix_match": false,
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact cyclic binomial folding, Eratosthenes prime-prefix enumeration, and integer residue-vector comparison",
+        "complexity": "O(B log log B + sum T) bit operations for the finite replay; the unique-prefix criterion is exact for every compatible q,m",
+        "random_seed": null,
+        "transcript_sha256": "a14b831094b7733f9186b166b2346c3e295617c705ded50c46ef38a62994e0ff",
+        "aggregate": {
+          "actual_realizability_iff_unique_prime_prefix_match_proved": true,
+          "selected_compatible_tail_count": 10,
+          "selected_compatible_tails_excluded": true,
+          "accidental_prefix_match_count": 0,
+          "maximum_prime_prefix_length": 79240,
+          "all_compatible_tail_exponents_excluded": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "10 exact prime-prefix rows, maximum prefix length 79240; untested compatible tails remain open.",
+      "logical_limit": "Each fixed compatible pair is decidable by one finite prefix, but no uniform discrepancy theorem over all q,m is proved. Strong Goldbach is untouched beyond this auxiliary spectral route.",
+      "route_decision": {
+        "discard": "treating actual prime ordering as an unstructured extra condition with no exact finite realization test for a fixed compatible cyclotomic tail",
+        "parked": [
+          "compatible cyclotomic exponents outside the ten certified prime prefixes"
+        ],
+        "retain": "the unique-prefix iff criterion and exact rejection of ten compatible tails",
+        "next_single_lemma": "UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T252",
+            "label": "PrimeCountZeroResidueCyclotomicCompatibilityCriterion",
+            "status": "proved"
+          },
+          {
+            "id": "GB-T253",
+            "label": "PrimeOrderingUniquePrefixRealizabilityCriterion",
+            "status": "proved"
+          },
+          {
+            "id": "GB-REJECT253",
+            "label": "ACompatibleCyclotomicTailCanBeRealizedAtSomeUnconstrainedChoiceOfXWithoutMatchingOneForcedPrimePrefix",
+            "status": "disproved"
+          },
+          {
+            "id": "GB-OPEN253",
+            "label": "UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T252",
+            "GB-T253"
+          ],
+          [
+            "GB-T253",
+            "GB-REJECT253"
+          ],
+          [
+            "GB-T253",
+            "GB-OPEN253"
+          ]
+        ],
+        "resolution_path": [
+          "GB-T252",
+          "GB-T253",
+          "GB-OPEN253"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No strong Goldbach proof or counterexample; one exact realizability iff and ten finite nonrealization certificates."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-253",
+      "theorem_name": "RightEvenContaminationReducesToEightyFourLebesgueNagellExponents",
+      "declared_proposition": "Assume the verified external results summarized in Katz-Pratt, arXiv:2507.12397v2: for x^2-2=y^ell with ell an odd prime and y>0, there is no solution for ell<=13 or ell>911, Chen's congruence theorem leaves only ell=13,17,19,23 modulo 24, and any nontrivial y exceeds 10^1000. If odd primes p,r and odd k>=3,m>=1 satisfy p^k+2=r^(2m), then every prime divisor ell of k belongs to the exact 84-element set P={17<=ell<=911 prime: ell mod 24 in {13,17,19,23}}, and p^(k/ell)>10^1000. Thus the right-even contamination frontier is reduced from all odd k to exponents supported on P; it is not solved.",
+      "mathematical_argument": "Put x=r^m. For any prime ell dividing k, put y=p^(k/ell)>0. Then x^2-2=y^ell is a nontrivial Lebesgue-Nagell solution. Applying the external exponent bounds, congruence restriction, and lower bound places ell in P and gives y>10^1000. Since ell was an arbitrary prime divisor of k, every prime factor of k lies in P. Direct primality and residue enumeration independently confirms that P has 84 elements. The external paper explicitly leaves those 84 prime exponents open, so this corollary cannot be promoted to a Diophantine exclusion.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Assume the verified external results summarized in Katz-Pratt, arXiv:2507.12397v2: for x^2-2=y^ell with ell an odd prime and y>0, there is no solution for ell<=13 or ell>911, Chen's congruence theorem leaves only ell=13,17,19,23 modulo 24, and any nontrivial y exceeds 10^1000. If odd primes p,r and odd k>=3,m>=1 satisfy p^k+2=r^(2m), then every prime divisor ell of k belongs to the exact 84-element set P={17<=ell<=911 prime: ell mod 24 in {13,17,19,23}}, and p^(k/ell)>10^1000. Thus the right-even contamination frontier is reduced from all odd k to exponents supported on P; it is not solved.",
+        "proof": "Put x=r^m. For any prime ell dividing k, put y=p^(k/ell)>0. Then x^2-2=y^ell is a nontrivial Lebesgue-Nagell solution. Applying the external exponent bounds, congruence restriction, and lower bound places ell in P and gives y>10^1000. Since ell was an arbitrary prime divisor of k, every prime factor of k lies in P. Direct primality and residue enumeration independently confirms that P has 84 elements. The external paper explicitly leaves those 84 prime exponents open, so this corollary cannot be promoted to a Diophantine exclusion.",
+        "exact_remaining_prime_exponent_rows": [
+          {
+            "candidate_index": 1,
+            "prime_exponent_ell": 17,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 2,
+            "prime_exponent_ell": 19,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 3,
+            "prime_exponent_ell": 23,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 4,
+            "prime_exponent_ell": 37,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 5,
+            "prime_exponent_ell": 41,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 6,
+            "prime_exponent_ell": 43,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 7,
+            "prime_exponent_ell": 47,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 8,
+            "prime_exponent_ell": 61,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 9,
+            "prime_exponent_ell": 67,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 10,
+            "prime_exponent_ell": 71,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 11,
+            "prime_exponent_ell": 89,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 12,
+            "prime_exponent_ell": 109,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 13,
+            "prime_exponent_ell": 113,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 14,
+            "prime_exponent_ell": 137,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 15,
+            "prime_exponent_ell": 139,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 16,
+            "prime_exponent_ell": 157,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 17,
+            "prime_exponent_ell": 163,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 18,
+            "prime_exponent_ell": 167,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 19,
+            "prime_exponent_ell": 181,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 20,
+            "prime_exponent_ell": 191,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 21,
+            "prime_exponent_ell": 211,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 22,
+            "prime_exponent_ell": 229,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 23,
+            "prime_exponent_ell": 233,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 24,
+            "prime_exponent_ell": 239,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 25,
+            "prime_exponent_ell": 257,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 26,
+            "prime_exponent_ell": 263,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 27,
+            "prime_exponent_ell": 277,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 28,
+            "prime_exponent_ell": 281,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 29,
+            "prime_exponent_ell": 283,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 30,
+            "prime_exponent_ell": 307,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 31,
+            "prime_exponent_ell": 311,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 32,
+            "prime_exponent_ell": 331,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 33,
+            "prime_exponent_ell": 349,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 34,
+            "prime_exponent_ell": 353,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 35,
+            "prime_exponent_ell": 359,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 36,
+            "prime_exponent_ell": 373,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 37,
+            "prime_exponent_ell": 379,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 38,
+            "prime_exponent_ell": 383,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 39,
+            "prime_exponent_ell": 397,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 40,
+            "prime_exponent_ell": 401,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 41,
+            "prime_exponent_ell": 421,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 42,
+            "prime_exponent_ell": 431,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 43,
+            "prime_exponent_ell": 449,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 44,
+            "prime_exponent_ell": 479,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 45,
+            "prime_exponent_ell": 499,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 46,
+            "prime_exponent_ell": 503,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 47,
+            "prime_exponent_ell": 521,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 48,
+            "prime_exponent_ell": 523,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 49,
+            "prime_exponent_ell": 541,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 50,
+            "prime_exponent_ell": 547,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 51,
+            "prime_exponent_ell": 569,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 52,
+            "prime_exponent_ell": 571,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 53,
+            "prime_exponent_ell": 593,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 54,
+            "prime_exponent_ell": 599,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 55,
+            "prime_exponent_ell": 613,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 56,
+            "prime_exponent_ell": 617,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 57,
+            "prime_exponent_ell": 619,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 58,
+            "prime_exponent_ell": 641,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 59,
+            "prime_exponent_ell": 643,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 60,
+            "prime_exponent_ell": 647,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 61,
+            "prime_exponent_ell": 661,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 62,
+            "prime_exponent_ell": 691,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 63,
+            "prime_exponent_ell": 709,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 64,
+            "prime_exponent_ell": 719,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 65,
+            "prime_exponent_ell": 733,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 66,
+            "prime_exponent_ell": 739,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 67,
+            "prime_exponent_ell": 743,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 68,
+            "prime_exponent_ell": 757,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 69,
+            "prime_exponent_ell": 761,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 70,
+            "prime_exponent_ell": 787,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 71,
+            "prime_exponent_ell": 809,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 72,
+            "prime_exponent_ell": 811,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 73,
+            "prime_exponent_ell": 829,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 74,
+            "prime_exponent_ell": 839,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 75,
+            "prime_exponent_ell": 853,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 76,
+            "prime_exponent_ell": 857,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 77,
+            "prime_exponent_ell": 859,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 78,
+            "prime_exponent_ell": 863,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 79,
+            "prime_exponent_ell": 877,
+            "residue_mod_24": 13,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 80,
+            "prime_exponent_ell": 881,
+            "residue_mod_24": 17,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 81,
+            "prime_exponent_ell": 883,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 82,
+            "prime_exponent_ell": 887,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 83,
+            "prime_exponent_ell": 907,
+            "residue_mod_24": 19,
+            "certificate_verified": true
+          },
+          {
+            "candidate_index": 84,
+            "prime_exponent_ell": 911,
+            "residue_mod_24": 23,
+            "certificate_verified": true
+          }
+        ],
+        "remaining_prime_exponents": [
+          17,
+          19,
+          23,
+          37,
+          41,
+          43,
+          47,
+          61,
+          67,
+          71,
+          89,
+          109,
+          113,
+          137,
+          139,
+          157,
+          163,
+          167,
+          181,
+          191,
+          211,
+          229,
+          233,
+          239,
+          257,
+          263,
+          277,
+          281,
+          283,
+          307,
+          311,
+          331,
+          349,
+          353,
+          359,
+          373,
+          379,
+          383,
+          397,
+          401,
+          421,
+          431,
+          449,
+          479,
+          499,
+          503,
+          521,
+          523,
+          541,
+          547,
+          569,
+          571,
+          593,
+          599,
+          613,
+          617,
+          619,
+          641,
+          643,
+          647,
+          661,
+          691,
+          709,
+          719,
+          733,
+          739,
+          743,
+          757,
+          761,
+          787,
+          809,
+          811,
+          829,
+          839,
+          853,
+          857,
+          859,
+          863,
+          877,
+          881,
+          883,
+          887,
+          907,
+          911
+        ],
+        "residue_class_counts": {
+          "13": 20,
+          "17": 20,
+          "19": 23,
+          "23": 21
+        },
+        "finite_odd_exponent_factor_scan": {
+          "limit": 10000,
+          "tested_odd_exponent_count": 4999,
+          "allowed_exponent_count": 331,
+          "rejected_exponent_count": 4668,
+          "first_twenty_allowed_exponents": [
+            17,
+            19,
+            23,
+            37,
+            41,
+            43,
+            47,
+            61,
+            67,
+            71,
+            89,
+            109,
+            113,
+            137,
+            139,
+            157,
+            163,
+            167,
+            181,
+            191
+          ]
+        },
+        "external_theorem": {
+          "name": "Katz-Pratt and cited Chen reduction for x^2-2=y^ell",
+          "source": "https://arxiv.org/abs/2507.12397v2",
+          "source_version": "arXiv:2507.12397v2, 25 July 2025",
+          "statement_used": "Nontrivial positive solutions are excluded for prime ell<=13 and ell>911; only 84 primes ell in 17..911 with ell mod 24 in {13,17,19,23} remain; every nontrivial y exceeds 10^1000.",
+          "status": "external_theorem",
+          "dependency_boundary": "PrimeProject proves only the factor-reduction corollary and independently enumerates the 84 exponents; it does not independently reprove the paper's Diophantine theorems."
+        },
+        "algorithm": "deterministic trial-division primality, exact residue filtering, and exact odd-exponent factor scanning",
+        "complexity": "O(911 sqrt(911)+K sqrt(K)) integer operations for K=10000; the all-k reduction relies on the cited external theorem",
+        "random_seed": null,
+        "transcript_sha256": "b98e7851ac77f39a65148a17da8a40600d25774928d13483a1fcef4d4b7b8bb6",
+        "aggregate": {
+          "remaining_prime_exponent_count": 84,
+          "all_prime_factors_of_k_restricted_to_remaining_set": true,
+          "nontrivial_reduced_base_lower_bound_10_power_1000": true,
+          "all_remaining_84_prime_exponents_excluded": false,
+          "global_integer_equation_solved": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "84 exact prime-exponent rows and 4999 finite odd-k factor rows replay the filter; the all-k conclusion relies on the cited external theorems.",
+      "logical_limit": "The corollary depends on a checked 2025 arXiv primary source and does not independently reprove its deep Diophantine inputs. That source explicitly leaves 84 prime exponents unresolved; twin-prime infinitude and Type-II estimates remain open.",
+      "route_decision": {
+        "discard": "treating every odd exponent k>=3 as an equally open right-even contamination case after the equation is reduced to x^2-2=y^k",
+        "parked": [
+          "the 84 remaining prime-exponent Lebesgue-Nagell equations and exponents supported on them"
+        ],
+        "retain": "the external-theorem factor reduction, exact 84-exponent frontier, and y>10^1000 lower boundary",
+        "next_single_lemma": "LebesgueNagellExponent17HasNoPositiveSolution"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T252",
+            "label": "FiniteCongruenceLocalSolubilityNoGoForRightEvenPrimePowers",
+            "status": "proved"
+          },
+          {
+            "id": "TP-EXT-KATZ-PRATT",
+            "label": "Katz-Pratt v2 exponent bounds, Chen congruence reduction, and y>10^1000 bound",
+            "status": "external_theorem"
+          },
+          {
+            "id": "TP-T253",
+            "label": "RightEvenContaminationReducesToEightyFourLebesgueNagellExponents",
+            "status": "proved"
+          },
+          {
+            "id": "TP-REJECT253",
+            "label": "EveryOddPrimeExponentRemainsASeparateRightEvenContaminationCase",
+            "status": "disproved"
+          },
+          {
+            "id": "TP-OPEN253",
+            "label": "LebesgueNagellExponent17HasNoPositiveSolution",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-EXT-KATZ-PRATT",
+            "TP-T253"
+          ],
+          [
+            "TP-T252",
+            "TP-T253"
+          ],
+          [
+            "TP-T253",
+            "TP-REJECT253"
+          ],
+          [
+            "TP-T253",
+            "TP-OPEN253"
+          ]
+        ],
+        "resolution_path": [
+          "TP-T252",
+          "TP-EXT-KATZ-PRATT",
+          "TP-T253",
+          "TP-OPEN253"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No twin-prime proof or counterexample; one external-theorem corollary that rigorously narrows the Diophantine contamination frontier."
+    },
+    "research_baselines": {
+      "riemann_status": "https://www.claymath.org/millennium/Riemann-Hypothesis/",
+      "collatz_fixed_representative_context": "https://arxiv.org/abs/1104.3909",
+      "goldbach_major_arcs": "https://arxiv.org/abs/1205.5252",
+      "twin_prime_parity": "https://arxiv.org/abs/1407.4897",
+      "lebesgue_nagell_2025": "https://arxiv.org/abs/2507.12397v2"
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_partial_theorem_count": 3,
+      "exact_no_go_count": 1,
+      "candidate_resolution_count": 0,
+      "conjecture_resolution_count": 0,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "deep_focus_problem": "twin_prime",
+      "stagnated_problem_count": 0,
+      "riemann_density_packet_case_count": 11,
+      "collatz_character_case_count": 12,
+      "goldbach_prime_prefix_case_count": 10,
+      "twin_remaining_prime_exponent_count": 84,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-253",
+      "declared_proposition": "Let e_n(x)=2^(-1/2)exp(pi i n x) on [-1,1] and let D_N=(2N+1)^(-1/2) sum_(|n|<=N)e_n. Then D_N is an even unit vector whose L2 mass outside every fixed neighborhood of zero tends to zero. For every symmetric S subset Z and its Fourier projection P_S, <P_S D_N,D_N>=#(S intersect [-N,N])/(2N+1). Consequently, if S has symmetric natural density d, the projection energy tends exactly to d. Positive spectral density therefore blocks the zero-energy escape of this canonical interior-concentrating packet family, while zero density recovers the TICKET-252 escape.",
+      "new_result": "DirichletPacketSpectralDensityLimit",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/density_character_prefix_lebesgue_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "treating the TICKET-252 zero-density escape as representative after imposing positive symmetric spectral density on normalized Dirichlet packets",
+      "parked_routes": [
+        "extension from periodic Fourier projections to the signed arithmetic Weil form"
+      ],
+      "remaining_gap": "The theorem concerns Fourier projections and one canonical concentrating family. No domination by the signed Guinand-Weil form, admissible-form-core transfer, or all-packet lower bound is proved.",
+      "stagnation_count": 0,
+      "candidate_theorem": "ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-253",
+      "declared_proposition": "For every prime q>5 and D in F_q, let C_q(D)=sum_(h=1)^(q-1) exp(2 pi i hD/q). Then C_q(D)=q-1 when D=0 and C_q(D)=-1 otherwise, so (1+C_q(D))/q=1_(D=0) exactly. For D_q=5F_q(2)-3F_q(3), subtracting the origin indicator gives the separated [3:5] detector. Thus the complete h-character sum proposed after TICKET-252 is not a softened statistic: pointwise cancellation is exactly equivalent to canonical slope avoidance. Generic complete character-sum bounds cannot supply new information without a separate cross-prime estimate that varies the arithmetic data.",
+      "new_result": "CompleteSlopeCharacterSumDichotomyNoGo",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/density_character_prefix_lebesgue_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "treating the complete additive-character sum over h as an independently smooth statistic to which generic square-root cancellation can be applied",
+      "parked_routes": [
+        "cross-prime averages whose arithmetic data genuinely vary with q"
+      ],
+      "remaining_gap": "The exact dichotomy diagnoses a circular complete-sum route but does not prove occurrence or avoidance of [3:5] for the canonical pair as q varies.",
+      "stagnation_count": 0,
+      "candidate_theorem": "CrossPrimeCanonicalSlopeCharacterAverageCancellation"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-253",
+      "declared_proposition": "Let q>=5 be prime and let c be the cyclic coefficient vector of (1-X)^m modulo X^q-1. Suppose c is zero-residue compatible, and set t=1-c_0, N*=c+t, and T=qt. Then there exists X for which the actual prime-count vector N_r(X) has the cyclotomic centered nonzero Fourier data q(1-zeta_q^a)^m if and only if the residue-count vector of the first T primes is exactly N*. Equivalently one need test the unique prefix p_T<=X<p_(T+1); there is no free choice of X. Exact prefix computation rejects all ten selected compatible tails (q,m)=(5,8..12),(7,12..16).",
+      "new_result": "PrimeOrderingUniquePrefixRealizabilityCriterion",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/density_character_prefix_lebesgue_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "treating actual prime ordering as an unstructured extra condition with no exact finite realization test for a fixed compatible cyclotomic tail",
+      "parked_routes": [
+        "compatible cyclotomic exponents outside the ten certified prime prefixes"
+      ],
+      "remaining_gap": "Each fixed compatible pair is decidable by one finite prefix, but no uniform discrepancy theorem over all q,m is proved. Strong Goldbach is untouched beyond this auxiliary spectral route.",
+      "stagnation_count": 0,
+      "candidate_theorem": "UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-253",
+      "declared_proposition": "Assume the verified external results summarized in Katz-Pratt, arXiv:2507.12397v2: for x^2-2=y^ell with ell an odd prime and y>0, there is no solution for ell<=13 or ell>911, Chen's congruence theorem leaves only ell=13,17,19,23 modulo 24, and any nontrivial y exceeds 10^1000. If odd primes p,r and odd k>=3,m>=1 satisfy p^k+2=r^(2m), then every prime divisor ell of k belongs to the exact 84-element set P={17<=ell<=911 prime: ell mod 24 in {13,17,19,23}}, and p^(k/ell)>10^1000. Thus the right-even contamination frontier is reduced from all odd k to exponents supported on P; it is not solved.",
+      "new_result": "RightEvenContaminationReducesToEightyFourLebesgueNagellExponents",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/density_character_prefix_lebesgue_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "treating every odd exponent k>=3 as an equally open right-even contamination case after the equation is reduced to x^2-2=y^k",
+      "parked_routes": [
+        "the 84 remaining prime-exponent Lebesgue-Nagell equations and exponents supported on them"
+      ],
+      "remaining_gap": "The corollary depends on a checked 2025 arXiv primary source and does not independently reprove its deep Diophantine inputs. That source explicitly leaves 84 prime exponents unresolved; twin-prime infinitude and Type-II estimates remain open.",
+      "stagnation_count": 0,
+      "candidate_theorem": "LebesgueNagellExponent17HasNoPositiveSolution"
+    }
+  ]
+}

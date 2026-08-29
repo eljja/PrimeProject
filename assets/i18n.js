@@ -62,12 +62,12 @@
       ko: "네 미해결 문제, 양화사와 척도 지름길을 분리하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-252 proves three exact route no-go results for sparse RH projections, marginal-only Collatz statistics, and fixed finite twin congruences, plus one Goldbach zero-residue compatibility theorem.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-252는 RH sparse projection, Collatz marginal-only, Twin 고정 유한 합동의 세 no-go와 Goldbach zero-residue compatibility 부분정리 하나를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-253 proves an RH spectral-density identity, a Collatz complete-character no-go, a Goldbach unique-prefix theorem, and an external-theorem-dependent reduction to 84 Twin Lebesgue–Nagell exponents.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-253은 RH spectral-density 항등식, Collatz complete-character no-go, Goldbach unique-prefix 정리, 외부 정리에 의존한 Twin 84개 Lebesgue–Nagell 지수 축약을 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-252 proves three exact route no-go results and one partial theorem, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-252는 exact route no-go 세 개와 부분정리 한 개를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-253 proves one exact route no-go and three partial theorems, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-253은 exact route no-go 한 개와 부분정리 세 개를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

@@ -44,7 +44,33 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-252
+## Latest handoff: TICKET-253
+
+Canonical artifact:
+`data/open-problem/ticket253-density-character-prefix-lebesgue.json`.
+
+All four parent conjectures remain `open_not_proven`. TICKET-253 established:
+
+- RH: normalized Dirichlet packets concentrate at the interior point zero and have exact projection energy `#(S cap [-N,N])/(2N+1)`; a symmetric density limit is therefore a positive packet limit, but no actual Weil-form domination is proved;
+- Collatz: the complete nontrivial character sum is exactly `q-1` on the canonical slope and `-1` off it, so a fixed-`q` pointwise cancellation bound is circular rather than smoothing;
+- Goldbach: a compatible cyclotomic tail is realizable by actual prime counts iff its one forced total `T=qt` gives an exact match with the residue vector of the first `T` primes; ten selected tails fail this finite test;
+- Twin: conditional on the cited Katz-Pratt theorem for `x^2-2=y^ell`, every prime factor of the odd exponent `k` in right-even contamination belongs to an explicit set of 84 primes, and `p^(k/ell)>10^1000`.
+
+The exact next frontiers are:
+
+```text
+RH: ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets
+Collatz: CrossPrimeCanonicalSlopeCharacterAverageCancellation
+Goldbach: UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail
+Twin: LebesgueNagellExponent17HasNoPositiveSolution
+```
+
+Finite density rows, 12 moduli, ten prime prefixes, and the scan through odd
+`k<=9999` cannot settle infinite statements. The Twin reduction depends on,
+and does not independently reprove, the cited external theorem. None of the
+four conjectures is resolved.
+
+## Preserved handoff: TICKET-252
 
 Canonical artifact:
 `data/open-problem/ticket252-sparse-marginal-zeroresidue-local.json`.

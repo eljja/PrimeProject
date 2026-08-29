@@ -15,7 +15,26 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-252
+## Current research boundary: TICKET-253
+
+The current machine-readable boundary is
+`data/open-problem/ticket253-density-character-prefix-lebesgue.json`.
+TICKET-253 proves one exact route no-go and three partial theorems while
+resolving none of the parent conjectures:
+
+- the Dirichlet-packet projection energy is exactly symmetric spectral density;
+- the complete fixed-`q` Collatz character sum is the target slope indicator itself;
+- every compatible Goldbach tail is equivalent to one forced actual-prime prefix match;
+- conditional on the cited Katz-Pratt theorem, right-even Twin contamination reduces to exactly 84 Lebesgue-Nagell prime exponents.
+
+The next single lemmas are actual Weil-form domination on Dirichlet packets,
+cross-prime canonical slope-character cancellation, a uniform actual-prime
+prefix discrepancy, and exclusion of exponent 17 from `x^2-2=y^17`.
+All statuses remain `open_not_proven`. Reports:
+[English](density-character-prefix-lebesgue.md) and
+[한국어](density-character-prefix-lebesgue.ko.md).
+
+## Preserved research boundary: TICKET-252
 
 The current machine-readable boundary is
 `data/open-problem/ticket252-sparse-marginal-zeroresidue-local.json`.

@@ -8977,3 +8977,26 @@ Machine artifact:
 `data/open-problem/ticket252-sparse-marginal-zeroresidue-local.json`.
 Reports: [English](sparse-marginal-zeroresidue-local.md) and
 [한국어](sparse-marginal-zeroresidue-local.ko.md).
+
+## TICKET-253 continuation: density packets, complete characters, forced prefixes, and 84 exponents
+
+TICKET-253 attacks the four TICKET-252 frontiers and resolves no parent
+conjecture. It proves `DirichletPacketSpectralDensityLimit`,
+`CompleteSlopeCharacterSumDichotomyNoGo`,
+`PrimeOrderingUniquePrefixRealizabilityCriterion`, and—conditional on the
+explicitly cited Katz-Pratt theorem—
+`RightEvenContaminationReducesToEightyFourLebesgueNagellExponents`.
+
+The exact finite replay contains 11 RH periodic-density rows, 12 Collatz
+character rows, ten Goldbach prime-prefix rows, 84 explicit Twin exponent
+rows, and 4,999 odd-exponent factor scans through `k<=9999`. These checks
+certify arithmetic and implementation only; they do not prove the required
+infinite estimates. The four next single lemmas are actual Weil-form
+domination on Dirichlet packets, cross-prime slope-character cancellation,
+uniform prime-prefix discrepancy, and absence of positive solutions to
+`x^2-2=y^17`.
+
+Canonical artifact:
+`data/open-problem/ticket253-density-character-prefix-lebesgue.json`.
+Reports: [English](density-character-prefix-lebesgue.md) and
+[한국어](density-character-prefix-lebesgue.ko.md).

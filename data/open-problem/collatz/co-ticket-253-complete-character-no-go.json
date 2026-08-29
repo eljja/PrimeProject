@@ -1,0 +1,291 @@
+{
+  "schema": "primeproject.ticket253-density-character-prefix-lebesgue.v1",
+  "generated_at": "2026-08-29T13:07:59+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-253",
+  "theorem_name": "CompleteSlopeCharacterSumDichotomyNoGo",
+  "declared_proposition": "For every prime q>5 and D in F_q, let C_q(D)=sum_(h=1)^(q-1) exp(2 pi i hD/q). Then C_q(D)=q-1 when D=0 and C_q(D)=-1 otherwise, so (1+C_q(D))/q=1_(D=0) exactly. For D_q=5F_q(2)-3F_q(3), subtracting the origin indicator gives the separated [3:5] detector. Thus the complete h-character sum proposed after TICKET-252 is not a softened statistic: pointwise cancellation is exactly equivalent to canonical slope avoidance. Generic complete character-sum bounds cannot supply new information without a separate cross-prime estimate that varies the arithmetic data.",
+  "mathematical_argument": "If D=0 every summand is one. If D is nonzero, multiplication by D permutes F_q^*, and the sum of all q additive characters is zero, so the nonzero-h sum is -1. Fermat-quotient additivity gives D_q=F_q(32)-F_q(27), hence D_q=0 exactly when 32^(q-1)=27^(q-1) modulo q^2. On this line U_q-V_q=-2t, so removing U_q=V_q=0 is exactly the separated condition. The dichotomy also shows why a square-root bound for this complete sum would already assume the desired avoidance at every sufficiently large target prime.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every prime q>5 and D in F_q, let C_q(D)=sum_(h=1)^(q-1) exp(2 pi i hD/q). Then C_q(D)=q-1 when D=0 and C_q(D)=-1 otherwise, so (1+C_q(D))/q=1_(D=0) exactly. For D_q=5F_q(2)-3F_q(3), subtracting the origin indicator gives the separated [3:5] detector. Thus the complete h-character sum proposed after TICKET-252 is not a softened statistic: pointwise cancellation is exactly equivalent to canonical slope avoidance. Generic complete character-sum bounds cannot supply new information without a separate cross-prime estimate that varies the arithmetic data.",
+    "proof": "If D=0 every summand is one. If D is nonzero, multiplication by D permutes F_q^*, and the sum of all q additive characters is zero, so the nonzero-h sum is -1. Fermat-quotient additivity gives D_q=F_q(32)-F_q(27), hence D_q=0 exactly when 32^(q-1)=27^(q-1) modulo q^2. On this line U_q-V_q=-2t, so removing U_q=V_q=0 is exactly the separated condition. The dichotomy also shows why a square-root bound for this complete sum would already assume the desired avoidance at every sufficiently large target prime.",
+    "exact_canonical_character_rows": [
+      {
+        "prime_q": 7,
+        "canonical_U_q": 2,
+        "canonical_V_q": 6,
+        "slope_residue_D_q": 6,
+        "complete_nontrivial_character_sum_exact_integer": -1,
+        "full_orthogonality_average": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "rational_wieferich_32_over_27": false,
+        "origin_double_wieferich": false,
+        "separated_projective_slope_hit": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "canonical_U_q": 5,
+        "canonical_V_q": 0,
+        "slope_residue_D_q": 3,
+        "complete_nontrivial_character_sum_exact_integer": -1,
+        "full_orthogonality_average": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "rational_wieferich_32_over_27": false,
+        "origin_double_wieferich": false,
+        "separated_projective_slope_hit": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 13,
+        "canonical_U_q": 3,
+        "canonical_V_q": 8,
+        "slope_residue_D_q": 4,
+        "complete_nontrivial_character_sum_exact_integer": -1,
+        "full_orthogonality_average": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "rational_wieferich_32_over_27": false,
+        "origin_double_wieferich": false,
+        "separated_projective_slope_hit": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 17,
+        "canonical_U_q": 13,
+        "canonical_V_q": 10,
+        "slope_residue_D_q": 1,
+        "complete_nontrivial_character_sum_exact_integer": -1,
+        "full_orthogonality_average": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "rational_wieferich_32_over_27": false,
+        "origin_double_wieferich": false,
+        "separated_projective_slope_hit": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 19,
+        "canonical_U_q": 3,
+        "canonical_V_q": 18,
+        "slope_residue_D_q": 18,
+        "complete_nontrivial_character_sum_exact_integer": -1,
+        "full_orthogonality_average": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "rational_wieferich_32_over_27": false,
+        "origin_double_wieferich": false,
+        "separated_projective_slope_hit": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 23,
+        "canonical_U_q": 17,
+        "canonical_V_q": 17,
+        "slope_residue_D_q": 11,
+        "complete_nontrivial_character_sum_exact_integer": -1,
+        "full_orthogonality_average": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "rational_wieferich_32_over_27": false,
+        "origin_double_wieferich": false,
+        "separated_projective_slope_hit": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 29,
+        "canonical_U_q": 1,
+        "canonical_V_q": 15,
+        "slope_residue_D_q": 18,
+        "complete_nontrivial_character_sum_exact_integer": -1,
+        "full_orthogonality_average": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "rational_wieferich_32_over_27": false,
+        "origin_double_wieferich": false,
+        "separated_projective_slope_hit": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 31,
+        "canonical_U_q": 6,
+        "canonical_V_q": 17,
+        "slope_residue_D_q": 10,
+        "complete_nontrivial_character_sum_exact_integer": -1,
+        "full_orthogonality_average": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "rational_wieferich_32_over_27": false,
+        "origin_double_wieferich": false,
+        "separated_projective_slope_hit": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 37,
+        "canonical_U_q": 1,
+        "canonical_V_q": 18,
+        "slope_residue_D_q": 25,
+        "complete_nontrivial_character_sum_exact_integer": -1,
+        "full_orthogonality_average": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "rational_wieferich_32_over_27": false,
+        "origin_double_wieferich": false,
+        "separated_projective_slope_hit": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 41,
+        "canonical_U_q": 23,
+        "canonical_V_q": 21,
+        "slope_residue_D_q": 11,
+        "complete_nontrivial_character_sum_exact_integer": -1,
+        "full_orthogonality_average": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "rational_wieferich_32_over_27": false,
+        "origin_double_wieferich": false,
+        "separated_projective_slope_hit": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 43,
+        "canonical_U_q": 25,
+        "canonical_V_q": 2,
+        "slope_residue_D_q": 33,
+        "complete_nontrivial_character_sum_exact_integer": -1,
+        "full_orthogonality_average": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "rational_wieferich_32_over_27": false,
+        "origin_double_wieferich": false,
+        "separated_projective_slope_hit": false,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 47,
+        "canonical_U_q": 44,
+        "canonical_V_q": 11,
+        "slope_residue_D_q": 46,
+        "complete_nontrivial_character_sum_exact_integer": -1,
+        "full_orthogonality_average": {
+          "exact": "0/1",
+          "numerator": 0,
+          "denominator": 1,
+          "display_float": 0.0
+        },
+        "rational_wieferich_32_over_27": false,
+        "origin_double_wieferich": false,
+        "separated_projective_slope_hit": false,
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "exact modular exponentiation modulo q^2 plus the algebraic complete-linear-character dichotomy",
+    "complexity": "O(sum log q) modular multiplications for replay rows; the character identity is algebraic for every prime q>5",
+    "random_seed": null,
+    "transcript_sha256": "455240ed72e4017bfbc63ba310348eb9e2618370d829ee093253e1d66e6883c2",
+    "aggregate": {
+      "complete_character_sum_is_exact_indicator_proved": true,
+      "generic_pointwise_character_cancellation_route_rejected": true,
+      "canonical_replay_slope_hit_count": 0,
+      "canonical_replay_separated_hit_count": 0,
+      "cross_prime_distribution_controlled": false,
+      "collatz_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "12 canonical exact modular rows replay the identity; prior scans to much larger q remain finite and are not promoted.",
+  "logical_limit": "The exact dichotomy diagnoses a circular complete-sum route but does not prove occurrence or avoidance of [3:5] for the canonical pair as q varies.",
+  "route_decision": {
+    "discard": "treating the complete additive-character sum over h as an independently smooth statistic to which generic square-root cancellation can be applied",
+    "parked": [
+      "cross-prime averages whose arithmetic data genuinely vary with q"
+    ],
+    "retain": "a nontrivial cross-prime joint estimate rather than fixed-q orthogonality",
+    "next_single_lemma": "CrossPrimeCanonicalSlopeCharacterAverageCancellation"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T252",
+        "label": "UniformMarginalsCannotDetectProjectiveFermatSlopeNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T253",
+        "label": "CompleteSlopeCharacterSumDichotomyNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-REJECT253",
+        "label": "CompleteFixedPrimeCharacterOrthogonalitySoftensTheCanonicalSlopeIndicator",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN253",
+        "label": "CrossPrimeCanonicalSlopeCharacterAverageCancellation",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T252",
+        "CO-T253"
+      ],
+      [
+        "CO-T253",
+        "CO-REJECT253"
+      ],
+      [
+        "CO-T253",
+        "CO-OPEN253"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T252",
+      "CO-T253",
+      "CO-OPEN253"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz orbit proof or counterexample; one exact no-go for a proposed character-sum implementation."
+}

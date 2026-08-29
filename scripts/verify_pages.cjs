@@ -21,6 +21,7 @@ async function main() {
   const ticket248Load = openProblemSource.indexOf("const ticket248Loaded = await loadTicket248Attempt();");
   const ticket249Load = openProblemSource.indexOf("const ticket249Loaded = await loadTicket249Attempt();");
   const ticket250Load = openProblemSource.indexOf("const ticket250Loaded = await loadTicket250Attempt();");
+  const ticket253Load = openProblemSource.indexOf("const ticket253Loaded = await loadTicket253Attempt();");
   const ticket252Load = openProblemSource.indexOf("const ticket252Loaded = await loadTicket252Attempt();");
   const ticket251Load = openProblemSource.indexOf("const ticket251Loaded = await loadTicket251Attempt();");
   const ticket244Load = openProblemSource.indexOf("const ticket244Loaded = await loadTicket244Attempt();");
@@ -126,6 +127,9 @@ async function main() {
   if (!(ticket250Load >= 0 && ticket250Load < ticket249Load)) {
     errors.push("TICKET250 must load before TICKET249");
   }
+  if (!(ticket253Load >= 0 && ticket253Load < ticket252Load)) {
+    errors.push("TICKET253 must load before TICKET252");
+  }
   if (!(ticket252Load >= 0 && ticket252Load < ticket251Load)) {
     errors.push("TICKET252 must load before TICKET251");
   }
@@ -134,10 +138,10 @@ async function main() {
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260829-ticket252") || !source.includes("ticket252-open-problem.js?v=20260829-ticket252") || !source.includes("ticket251-open-problem.js?v=20260827-ticket251") || !source.includes("ticket250-open-problem.js?v=20260827-ticket250") || !source.includes("ticket249-open-problem.js?v=20260826-ticket249") || !source.includes("ticket248-open-problem.js?v=20260826-ticket248") || !source.includes("ticket247-open-problem.js?v=20260826-ticket247") || !source.includes("ticket246-open-problem.js?v=20260826-ticket246") || !source.includes("ticket245-open-problem.js?v=20260826-ticket245") || !source.includes("ticket244-open-problem.js?v=20260826-ticket244") || !source.includes("ticket243-open-problem.js?v=20260826-ticket243") || !source.includes("ticket242-open-problem.js?v=20260825-ticket242")) {
+    if (!source.includes("open-problems.js?v=20260829-ticket253") || !source.includes("ticket253-open-problem.js?v=20260829-ticket253") || !source.includes("ticket252-open-problem.js?v=20260829-ticket252") || !source.includes("ticket251-open-problem.js?v=20260827-ticket251") || !source.includes("ticket250-open-problem.js?v=20260827-ticket250") || !source.includes("ticket249-open-problem.js?v=20260826-ticket249") || !source.includes("ticket248-open-problem.js?v=20260826-ticket248") || !source.includes("ticket247-open-problem.js?v=20260826-ticket247") || !source.includes("ticket246-open-problem.js?v=20260826-ticket246") || !source.includes("ticket245-open-problem.js?v=20260826-ticket245") || !source.includes("ticket244-open-problem.js?v=20260826-ticket244") || !source.includes("ticket243-open-problem.js?v=20260826-ticket243") || !source.includes("ticket242-open-problem.js?v=20260825-ticket242")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260829-ticket252-layout")) {
+    if (!source.includes("styles.css?v=20260829-ticket253-layout")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -448,7 +452,7 @@ async function main() {
       try {
         await problemPage.waitForFunction(() => document.querySelectorAll(".proof-metric").length >= 3);
         await problemPage.waitForFunction(
-          () => document.querySelector("#currentResearch")?.textContent.includes("TICKET-252")
+          () => document.querySelector("#currentResearch")?.textContent.includes("TICKET-253")
             && document.querySelector("#proofOrCounterexampleLab")?.textContent.includes("Ticket 71"),
           null,
           { timeout: 120000 },
@@ -547,7 +551,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
-          ticket252AuditOverflow: (() => {
+          ticket253AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket253-density-character-prefix-lebesgue .ticket253-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),          ticket252AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket252-sparse-marginal-zeroresidue-local .ticket252-audit-table .proof-table-wrap",
             );
@@ -832,15 +841,15 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-252") ||
-    !metrics.currentBriefText.includes("ActualWeilKernelHasPositiveDensityAgainstEveryInteriorWavePacket") ||
-    !metrics.currentBriefText.includes("JointFermatQuotientCharacterCancellationAtSlopeThreeFifths") ||
-    !metrics.currentBriefText.includes("ActualPrimeOrderingExcludesZeroResidueCompatibleCyclotomicTail") ||
-    !metrics.currentBriefText.includes("QuadraticUnitCoefficientOneExcludesOddPrimeExponents") ||
+    !metrics.currentBriefText.includes("TICKET-253") ||
+    !metrics.currentBriefText.includes("ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets") ||
+    !metrics.currentBriefText.includes("CrossPrimeCanonicalSlopeCharacterAverageCancellation") ||
+    !metrics.currentBriefText.includes("UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail") ||
+    !metrics.currentBriefText.includes("LebesgueNagellExponent17HasNoPositiveSolution") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
-    metrics.railResearchTicket.trim() !== "TICKET-252" ||
-    !metrics.railResearchText.includes("TICKET-252") ||
+    metrics.railResearchTicket.trim() !== "TICKET-253" ||
+    !metrics.railResearchText.includes("TICKET-253") ||
     !metrics.railResearchText.includes("resolution count of zero") ||
     metrics.mobileHorizontalOverflow ||
     !metrics.mobileNavigationCollapsed
@@ -857,12 +866,12 @@ async function main() {
     ["Collatz link", metrics.proofHub?.links.includes("collatz.html")],
     ["Goldbach link", metrics.proofHub?.links.includes("goldbach.html")],
     ["Twin link", metrics.proofHub?.links.includes("twin-prime.html")],
-    ["TICKET-252 boundary", metrics.proofHub?.boundary.includes("What TICKET-252 actually changed")],
-    ["Riemann next lemma", metrics.proofHub?.boundary.includes("ActualWeilKernelHasPositiveDensityAgainstEveryInteriorWavePacket")],
-    ["Collatz next lemma", metrics.proofHub?.boundary.includes("JointFermatQuotientCharacterCancellationAtSlopeThreeFifths")],
-    ["Goldbach next lemma", metrics.proofHub?.boundary.includes("ActualPrimeOrderingExcludesZeroResidueCompatibleCyclotomicTail")],
-    ["Twin next lemma", metrics.proofHub?.boundary.includes("QuadraticUnitCoefficientOneExcludesOddPrimeExponents")],
-    ["progression range", metrics.proofHub?.boundary.includes("TICKET-161–252")],
+    ["TICKET-253 boundary", metrics.proofHub?.boundary.includes("What TICKET-253 actually changed")],
+    ["Riemann next lemma", metrics.proofHub?.boundary.includes("ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets")],
+    ["Collatz next lemma", metrics.proofHub?.boundary.includes("CrossPrimeCanonicalSlopeCharacterAverageCancellation")],
+    ["Goldbach next lemma", metrics.proofHub?.boundary.includes("UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail")],
+    ["Twin next lemma", metrics.proofHub?.boundary.includes("LebesgueNagellExponent17HasNoPositiveSolution")],
+    ["progression range", metrics.proofHub?.boundary.includes("TICKET-161–253")],
     ["resolution count label", metrics.proofHub?.boundary.includes("Resolution count")],
     ["zero resolution count", metrics.proofHub?.boundary.includes("0")],
     ["claim boundary", metrics.proofHub?.boundary.includes("not present a conjecture as solved")],
@@ -876,8 +885,8 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentBoundaryLabel.includes("TICKET-252 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-252 boundary label missing`);
-    if (!page.currentResearchText.includes("TICKET-252 sparse projection, marginal blindness, zero-residue compatibility, and finite-congruence local solubility")) failures.push(`${page.problemId}: current TICKET-252 boundary missing`);
+    if (!page.currentBoundaryLabel.includes("TICKET-253 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-253 boundary label missing`);
+    if (!page.currentResearchText.includes("TICKET-253 density packets, character dichotomy, forced prime prefixes, and the 84-exponent frontier")) failures.push(`${page.problemId}: current TICKET-253 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -1747,37 +1756,40 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
-    requireCurrentText("ticket252 title", "TICKET-252 sparse projection, marginal blindness, zero-residue compatibility, and finite-congruence local solubility");
-    requireCurrentText("ticket252 table", "TICKET252 audit");
-    requireCurrentText("ticket252 latest", "LATEST / 최신 연구 경계");
-    requireCurrentText("ticket252 resolutions", "Resolution count0");
-    requireCurrentText("ticket252 proof DAG", "Proof DAG / 증명 의존성");
-    requireCurrentText("ticket252 completion guard", "TICKET-252 resolves none of the four parent conjectures");
-    if (page.ticket252AuditOverflow) checks.push(`${page.problemId}: ticket252 audit table overflow`);
+    requireCurrentText("ticket253 title", "TICKET-253 density packets, character dichotomy, forced prime prefixes, and the 84-exponent frontier");
+    requireCurrentText("ticket253 table", "TICKET253 audit");
+    requireCurrentText("ticket253 latest", "LATEST / 최신 연구 경계");
+    requireCurrentText("ticket253 resolutions", "Resolution count0");
+    requireCurrentText("ticket253 proof DAG", "Proof DAG / 증명 의존성");
+    requireCurrentText("ticket253 completion guard", "TICKET-253 resolves none of the four parent conjectures");
+    if (page.ticket253AuditOverflow) checks.push(`${page.problemId}: ticket253 audit table overflow`);
     if (page.problemId === "riemann") {
-      requireCurrentText("ticket252 RH theorem", "SparseFourierProjectionInteriorConcentrationNoGo");
-      requireCurrentText("ticket252 RH target", "ActualWeilKernelHasPositiveDensityAgainstEveryInteriorWavePacket");
-      requireCurrentText("ticket252 RH no-go", "Projection escapeproved");
-      requireCurrentText("ticket252 RH operator", "Nonmultiplicationproved");
-      requireCurrentText("ticket252 RH open", "Actual Weil kernelopen");
+      requireCurrentText("ticket253 RH theorem", "DirichletPacketSpectralDensityLimit");
+      requireCurrentText("ticket253 RH target", "ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets");
+      requireCurrentText("ticket253 RH concentration", "Packet concentrationproved");
+      requireCurrentText("ticket253 RH identity", "Density identityproved");
+      requireCurrentText("ticket253 RH open", "Actual Weil dominationopen");
     } else if (page.problemId === "collatz") {
-      requireCurrentText("ticket252 Collatz theorem", "UniformMarginalsCannotDetectProjectiveFermatSlopeNoGo");
-      requireCurrentText("ticket252 Collatz target", "JointFermatQuotientCharacterCancellationAtSlopeThreeFifths");
-      requireCurrentText("ticket252 Collatz detector", "1_(5U_q-3V_q=0)-1_(U_q=0 and V_q=0)");
-      requireCurrentText("ticket252 Collatz no-go", "Marginal no-goproved");
-      requireCurrentText("ticket252 Collatz open", "Canonical pairopen");
+      requireCurrentText("ticket253 Collatz theorem", "CompleteSlopeCharacterSumDichotomyNoGo");
+      requireCurrentText("ticket253 Collatz target", "CrossPrimeCanonicalSlopeCharacterAverageCancellation");
+      requireCurrentText("ticket253 Collatz detector", "Cq(D)=q-1 for D=0 and -1 otherwise");
+      requireCurrentText("ticket253 Collatz identity", "Exact indicatorproved");
+      requireCurrentText("ticket253 Collatz no-go", "Pointwise cancellation routerejected");
+      requireCurrentText("ticket253 Collatz open", "Cross-prime distributionopen");
     } else if (page.problemId === "goldbach") {
-      requireCurrentText("ticket252 Goldbach theorem", "PrimeCountZeroResidueCyclotomicCompatibilityCriterion");
-      requireCurrentText("ticket252 Goldbach target", "ActualPrimeOrderingExcludesZeroResidueCompatibleCyclotomicTail");
-      requireCurrentText("ticket252 Goldbach countermodel", "[1, 76, 76, 1, 126]");
-      requireCurrentText("ticket252 Goldbach criterion", "Criterioniff proved");
-      requireCurrentText("ticket252 Goldbach open", "Actual prime countsopen");
+      requireCurrentText("ticket253 Goldbach theorem", "PrimeOrderingUniquePrefixRealizabilityCriterion");
+      requireCurrentText("ticket253 Goldbach target", "UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail");
+      requireCurrentText("ticket253 Goldbach vector", "[1, 76, 76, 1, 126]");
+      requireCurrentText("ticket253 Goldbach criterion", "Unique-prefix iffproved");
+      requireCurrentText("ticket253 Goldbach finite", "Selected tails10 excluded");
+      requireCurrentText("ticket253 Goldbach open", "All compatible tailsopen");
     } else {
-      requireCurrentText("ticket252 Twin theorem", "FiniteCongruenceLocalSolubilityNoGoForRightEvenPrimePowers");
-      requireCurrentText("ticket252 Twin target", "QuadraticUnitCoefficientOneExcludesOddPrimeExponents");
-      requireCurrentText("ticket252 Twin external", "Dirichlet theorem on primes in reduced arithmetic progressions");
-      requireCurrentText("ticket252 Twin no-go", "Finite congruence obstructionexcluded");
-      requireCurrentText("ticket252 Twin open", "Global equationopen");
+      requireCurrentText("ticket253 Twin theorem", "RightEvenContaminationReducesToEightyFourLebesgueNagellExponents");
+      requireCurrentText("ticket253 Twin target", "LebesgueNagellExponent17HasNoPositiveSolution");
+      requireCurrentText("ticket253 Twin external", "Katz-Pratt and cited Chen reduction");
+      requireCurrentText("ticket253 Twin count", "Remaining prime exponents84");
+      requireCurrentText("ticket253 Twin reduction", "Factor reductionproved");
+      requireCurrentText("ticket253 Twin open", "Global equationopen");
     }
     requireText("ticket194 historical title", "Ticket 194 dense-core extension, ten-one cycles, and theta layers");
     requireText("ticket194 historical table", "TICKET194 audit");
@@ -3857,11 +3869,11 @@ async function main() {
     !metrics.atlasPanel.includes("Publication claims governed") ||
     !metrics.atlasPanel.includes("Evidence ladder") ||
     !metrics.atlasPanel.includes("Proof workbench") ||
-    !metrics.atlasPanel.includes("TICKET-252") ||
-    !metrics.atlasPanel.includes("ActualWeilKernelHasPositiveDensityAgainstEveryInteriorWavePacket") ||
-    !metrics.atlasPanel.includes("JointFermatQuotientCharacterCancellationAtSlopeThreeFifths") ||
-    !metrics.atlasPanel.includes("ActualPrimeOrderingExcludesZeroResidueCompatibleCyclotomicTail") ||
-    !metrics.atlasPanel.includes("QuadraticUnitCoefficientOneExcludesOddPrimeExponents") ||
+    !metrics.atlasPanel.includes("TICKET-253") ||
+    !metrics.atlasPanel.includes("ActualWeilFormDominatesPositiveDensityProjectionOnDirichletPackets") ||
+    !metrics.atlasPanel.includes("CrossPrimeCanonicalSlopeCharacterAverageCancellation") ||
+    !metrics.atlasPanel.includes("UniformPrimePrefixDiscrepancyExcludesEveryCompatibleCyclotomicTail") ||
+    !metrics.atlasPanel.includes("LebesgueNagellExponent17HasNoPositiveSolution") ||
     !metrics.atlasPanel.includes("Riemann Hypothesis") ||
     !metrics.atlasPanel.includes("Twin Prime Conjecture") ||
     !metrics.atlasPanel.includes("Next academic work")
@@ -3954,6 +3966,7 @@ async function main() {
     !metrics.evolutionPanel.includes("Provenance") ||
     !metrics.evolutionPanel.includes("TICKET-245") ||
     !metrics.evolutionPanel.includes("TICKET-247") ||
+    !metrics.evolutionPanel.includes("TICKET-253") ||
     !metrics.evolutionPanel.includes("TICKET-252") ||
     !metrics.evolutionPanel.includes("TICKET-251") ||
     !metrics.evolutionPanel.includes("TICKET-250") ||
