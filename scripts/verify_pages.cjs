@@ -3873,11 +3873,11 @@ async function main() {
     !metrics.atlasPanel.includes("Publication claims governed") ||
     !metrics.atlasPanel.includes("Evidence ladder") ||
     !metrics.atlasPanel.includes("Proof workbench") ||
-    !metrics.atlasPanel.includes("TICKET-254") ||
-    !metrics.atlasPanel.includes("ActualWeilDirichletBlocksHaveUniformStrictDiagonalDominance") ||
-    !metrics.atlasPanel.includes("IncompleteSlopeCharacterKernelHasSignedRecoveryAndCrossPrimeCancellation") ||
-    !metrics.atlasPanel.includes("OddOrQDivisibleCompatibleTailPrimePrefixExclusion") ||
-    !metrics.atlasPanel.includes("AllSeventeenUnitTwistedCoefficientOneThueEquationsHaveNoAdmissibleIntegralPoint") ||
+    !metrics.atlasPanel.includes("TICKET-255") ||
+    !metrics.atlasPanel.includes("ActualWeilDirichletPacketAggregateRowSumHasRequiredLowerBound") ||
+    !metrics.atlasPanel.includes("SignedIncompleteSlopeKernelHasControlledCanonicalErrorAndCrossPrimeCancellation") ||
+    !metrics.atlasPanel.includes("QDivisibleCompatibleTailPrimePrefixExclusion") ||
+    !metrics.atlasPanel.includes("TwoSurvivingUnitTwistsHaveNoAdmissibleIntegralPoint") ||
     !metrics.atlasPanel.includes("Riemann Hypothesis") ||
     !metrics.atlasPanel.includes("Twin Prime Conjecture") ||
     !metrics.atlasPanel.includes("Next academic work")
