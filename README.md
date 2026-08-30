@@ -31,15 +31,15 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-257: Sparse Spikes, Cyclotomic Noncancellation, Character Prefixes, and Root Neighbors](docs/spike-cyclotomic-character-root.md),
-with a separate [Korean report](docs/spike-cyclotomic-character-root.ko.md).
-It proves two exact route no-gos and two partial theorems. Positive convergent
-packet energies do not force lag partial sums to be bounded below; finite sums
-with one root from each distinct prime conductor cannot vanish exactly; the
-`(q,m)=(11,22)` Goldbach prefix is excluded at `T=7,759,741`; and every
-surviving exponent-17 coefficient-one solution is reduced to one root-neighbor
-sequence, with `0<|v|<=200,000` excluded. All four parent conjectures remain
-`open_not_proven`.
+[TICKET-258: Bounded Variation, Rational Independence, Character Completeness, and Root Convergents](docs/variation-character-convergent.md),
+with a separate [Korean report](docs/variation-character-convergent.ko.md).
+It proves two exact route no-gos and two partial theorems. Finite total
+variation still does not force packet lag partial sums to be bounded below;
+nontrivial phases of distinct odd-prime orders are rationally independent; a
+single primitive odd character is a complete reflection detector exactly for
+power-of-two `q-1`; and every surviving exponent-17 unit solution is a
+continued-fraction convergent, with 128 convergents excluding denominators
+through a 62-digit bound. All four parent conjectures remain `open_not_proven`.
 
 The preserved [TICKET-256 report](docs/cesaro-kernel-qdiv-gl2.md) records the
 preceding packet-Cesaro, sharp-kernel, q-divisible-reflection, and GL2-survivor
@@ -676,14 +676,14 @@ See [TICKET236 EN](docs/contraction-order-phase-degree2.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-257입니다. 리만 트랙은 양이고 1로
-수렴하는 packet energy만으로 lag 부분합 하한을 얻을 수 없음을 정확한
-스파이크 반례로 증명했습니다. 콜라츠 트랙은 서로 다른 소수 conductor의
-원분 위상 유한합이 정확히 0이 될 수 없음을 증명했습니다. 골드바흐 트랙은
-`q=11,m=22`, `T=7,759,741` 소수 prefix를 quadratic character mismatch로
-배제했고, 쌍둥이 소수 트랙은 surviving coefficient-one branch를 하나의
-근 이웃 열로 줄여 `0<|v|<=200,000`을 배제했습니다. 네 원 추측의 해결 수는
-0이며 모두 미해결입니다.The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
+한국어 최신 요약: 최신 탐색은 TICKET-258입니다. 리만 트랙은 총변동이
+유한해도 packet lag 하한이 나오지 않음을 증명했습니다. 콜라츠 트랙은
+서로 다른 홀수 소수 차수의 비자명 원분 위상이 유리 선형독립임을
+증명했습니다. 골드바흐 트랙은 primitive odd character 하나의 완전성을
+`q-1`이 2의 거듭제곱인 경우로 정확히 분류했습니다. 쌍둥이 소수 트랙은
+surviving coefficient-one branch의 모든 해를 유일 실근의 연분수
+수렴분수로 줄이고 128개 수렴분수로 62자리 분모 경계를 배제했습니다.
+네 원 추측의 해결 수는 0이며 모두 미해결입니다.The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
 The Attribution Grid panel displays a bundled paired benchmark from `data/attribution_confound_grid.json`, `data/null_calibration.json`, and `data/replication_audit.json`, highlighting which fingerprint profiles survive bit-length control, which ones are likely range confounds, whether the strongest controlled profiles survive random-label null simulation after family-wise profile selection, and whether those profiles replicate across settings.
 
@@ -701,17 +701,17 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-257입니다.
-[sparse spike·원분 noncancellation·odd-character prefix·root-neighbor 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/spike-cyclotomic-character-root.ko.md)와
-[영문 보고서](docs/spike-cyclotomic-character-root.md)는 네 트랙의 정확 명제,
+최신 난제 연구 트랙은 TICKET-258입니다.
+[총변동·유리 선형독립·character 완전성·root convergent 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/variation-character-convergent.ko.md)와
+[영문 보고서](docs/variation-character-convergent.md)는 네 트랙의 정확 명제,
 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 현재 결정적
 미해결 보조정리는 actual Weil packet margin과 scaled variation의 엄격한
 비교, canonical Fermat-quotient phase 접두사의 sublinear 크기, 모든 호환
 짝수 q-배수 Goldbach prefix에서 홀수 지표 moment의 nonvanishing, 모든
-비영 분모에서 unique-root neighbor가 coefficient one을 피한다는 정리입니다.주요 진입점:
+unique-root continued-fraction convergent가 unit coefficient를 피한다는 정리입니다.주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-257의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 257개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-258의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 258개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

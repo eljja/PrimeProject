@@ -672,6 +672,10 @@ phase cancellation, extension of two Goldbach prefixes to every even
 `q`-divisible tail, and promotion of the finite Twin box or GL2 reduction to a
 global integral-point exclusion. Resolution and candidate-resolution counts
 are zero.
+## TICKET-258 publication boundary
+
+TICKET-258 adds two `exact_no_go` results and two `partial_theorem` results. Allowed exact-no-go wording is limited to the abstract finite-total-variation packet counterexample and rational independence of nontrivial roots from distinct odd-prime conductors. Allowed partial-theorem wording is limited to the primitive odd-character completeness classification and the theorem that every surviving exponent-17 unit solution is a continued-fraction convergent, plus the exact 128-convergent certificate. Blocked wording includes every parent-conjecture proof or disproof, identification of the abstract packet sequence with the actual Weil form, any Collatz sublinear phase estimate, universal Goldbach prime-prefix moment nonvanishing, and promotion of the finite convergent audit to all convergents. Resolution and candidate-resolution counts are zero.
+
 ## TICKET-257 publication boundary
 
 TICKET-257 adds two `exact_no_go` results and two `partial_theorem` results.

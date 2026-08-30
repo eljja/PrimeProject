@@ -44,7 +44,13 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-257
+## Latest handoff: TICKET-258
+
+Canonical artifact: `data/open-problem/ticket258-variation-character-convergent.json`.
+
+TICKET-258 establishes `BoundedTotalVariationPacketEnergyLagNoGo`, `DistinctPrimeCyclotomicPhaseRationalIndependence`, `PrimitiveOddCharacterCompletenessClassification`, and `UnitCoefficientSolutionsAreRootConvergents`. Twin Prime is the deep-focus track. The exact continued-fraction certificate checks 128 convergents and excludes every nonzero denominator through `67076610336720215425112731771403002965838278844687475228751003`, but later convergents remain open. All conjecture and candidate-resolution counters are zero. Continue from the four `next_single_lemma` fields in `data/open-problem/four-problem-research-state.json`; do not reinterpret finite certificates as infinite proofs.
+
+## Preserved handoff: TICKET-257
 
 Canonical artifact:
 `data/open-problem/ticket257-spike-cyclotomic-character-root.json`.

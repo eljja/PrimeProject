@@ -1,0 +1,310 @@
+{
+  "schema": "primeproject.ticket258-variation-character-convergent.v1",
+  "generated_at": "2026-08-31T18:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-258",
+  "theorem_name": "PrimitiveOddCharacterCompletenessClassification",
+  "declared_proposition": "Let q be an odd prime, n=q-1=2h, g a primitive root, and chi(g) a primitive nth root of unity. The single odd-character moment sum_(r!=0)N_r chi(r) detects reflection symmetry N_r=N_(-r) for every rational count vector if and only if n is a power of two. If n=2^a, the antisymmetric polynomial has degree below h=phi(n) and cannot vanish at a primitive nth root unless it is zero. Otherwise Phi_n has degree phi(n)<h and its coefficient vector is an exact nonzero reflection-asymmetric blind vector. For the actual q=5, T=1255 prime prefix, the quartic moment is represented by 2-4i and detects the asymmetry missed by TICKET-257's quadratic bit.",
+  "mathematical_argument": "Index nonzero residues by g^j. Oddness gives chi(g^(j+h))=-chi(g^j), so the moment equals A(zeta_n), where A(x)=sum_(j<h) (N_(g^j)-N_(-g^j))x^j. If n is a power of two, Phi_n=x^h+1 has degree h, hence a polynomial of degree below h vanishes at zeta_n only when A=0. If n is not a power of two, phi(n)<h; taking A=Phi_n and splitting each coefficient into nonnegative positive and negative residue counts gives a nonsymmetric vector with zero moment. This is a theorem about detectors, not a proof that actual prime prefixes always have a nonzero odd-character moment.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let q be an odd prime, n=q-1=2h, g a primitive root, and chi(g) a primitive nth root of unity. The single odd-character moment sum_(r!=0)N_r chi(r) detects reflection symmetry N_r=N_(-r) for every rational count vector if and only if n is a power of two. If n=2^a, the antisymmetric polynomial has degree below h=phi(n) and cannot vanish at a primitive nth root unless it is zero. Otherwise Phi_n has degree phi(n)<h and its coefficient vector is an exact nonzero reflection-asymmetric blind vector. For the actual q=5, T=1255 prime prefix, the quartic moment is represented by 2-4i and detects the asymmetry missed by TICKET-257's quadratic bit.",
+    "proof": "Index nonzero residues by g^j. Oddness gives chi(g^(j+h))=-chi(g^j), so the moment equals A(zeta_n), where A(x)=sum_(j<h) (N_(g^j)-N_(-g^j))x^j. If n is a power of two, Phi_n=x^h+1 has degree h, hence a polynomial of degree below h vanishes at zeta_n only when A=0. If n is not a power of two, phi(n)<h; taking A=Phi_n and splitting each coefficient into nonnegative positive and negative residue counts gives a nonsymmetric vector with zero moment. This is a theorem about detectors, not a proof that actual prime prefixes always have a nonzero odd-character moment.",
+    "exact_modulus_classification_rows": [
+      {
+        "prime_q": 5,
+        "character_order_q_minus_1": 4,
+        "q_minus_1_is_power_of_two": true,
+        "one_primitive_odd_character_is_complete": true,
+        "blind_vector_certificate": null,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 7,
+        "character_order_q_minus_1": 6,
+        "q_minus_1_is_power_of_two": false,
+        "one_primitive_odd_character_is_complete": false,
+        "blind_vector_certificate": {
+          "primitive_root_g": 3,
+          "cyclotomic_polynomial_coefficients_low_to_high": [
+            1,
+            -1,
+            1
+          ],
+          "antisymmetric_half_vector": [
+            1,
+            -1,
+            1
+          ],
+          "nonnegative_residue_counts": [
+            0,
+            1,
+            1,
+            0,
+            1,
+            0,
+            0
+          ],
+          "primitive_character_moment_remainder": [
+            0
+          ],
+          "reflection_asymmetric": true,
+          "primitive_character_moment_is_zero": true
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "character_order_q_minus_1": 10,
+        "q_minus_1_is_power_of_two": false,
+        "one_primitive_odd_character_is_complete": false,
+        "blind_vector_certificate": {
+          "primitive_root_g": 2,
+          "cyclotomic_polynomial_coefficients_low_to_high": [
+            1,
+            -1,
+            1,
+            -1,
+            1
+          ],
+          "antisymmetric_half_vector": [
+            1,
+            -1,
+            1,
+            -1,
+            1
+          ],
+          "nonnegative_residue_counts": [
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "primitive_character_moment_remainder": [
+            0
+          ],
+          "reflection_asymmetric": true,
+          "primitive_character_moment_is_zero": true
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 13,
+        "character_order_q_minus_1": 12,
+        "q_minus_1_is_power_of_two": false,
+        "one_primitive_odd_character_is_complete": false,
+        "blind_vector_certificate": {
+          "primitive_root_g": 2,
+          "cyclotomic_polynomial_coefficients_low_to_high": [
+            1,
+            0,
+            -1,
+            0,
+            1
+          ],
+          "antisymmetric_half_vector": [
+            1,
+            0,
+            -1,
+            0,
+            1,
+            0
+          ],
+          "nonnegative_residue_counts": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "primitive_character_moment_remainder": [
+            0
+          ],
+          "reflection_asymmetric": true,
+          "primitive_character_moment_is_zero": true
+        },
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 17,
+        "character_order_q_minus_1": 16,
+        "q_minus_1_is_power_of_two": true,
+        "one_primitive_odd_character_is_complete": true,
+        "blind_vector_certificate": null,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 19,
+        "character_order_q_minus_1": 18,
+        "q_minus_1_is_power_of_two": false,
+        "one_primitive_odd_character_is_complete": false,
+        "blind_vector_certificate": {
+          "primitive_root_g": 2,
+          "cyclotomic_polynomial_coefficients_low_to_high": [
+            1,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            1
+          ],
+          "antisymmetric_half_vector": [
+            1,
+            0,
+            0,
+            -1,
+            0,
+            0,
+            1,
+            0,
+            0
+          ],
+          "nonnegative_residue_counts": [
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "primitive_character_moment_remainder": [
+            0
+          ],
+          "reflection_asymmetric": true,
+          "primitive_character_moment_is_zero": true
+        },
+        "certificate_verified": true
+      }
+    ],
+    "actual_q5_quartic_certificate": {
+      "prime_prefix_length": 1255,
+      "last_prime": 10243,
+      "residue_counts": [
+        1,
+        313,
+        313,
+        317,
+        311
+      ],
+      "primitive_root_g": 2,
+      "antisymmetric_half_vector": [
+        2,
+        -4
+      ],
+      "quartic_character_moment_remainder": [
+        2,
+        -4
+      ],
+      "quartic_character_detects_asymmetry": true
+    },
+    "algorithm": "exact integer cyclotomic polynomial division, primitive-root indexing, and a deterministic sieve for the first 1255 primes",
+    "complexity": "finite polynomial arithmetic in degree q-1 for sample moduli plus O(10243 log log 10243) sieve time",
+    "random_seed": null,
+    "transcript_sha256": "6067f098366c338c9b8387b32f532cb54c58e2d6a838e9e29a2704c3fb657570",
+    "aggregate": {
+      "single_primitive_character_complete_iff_fermat_modulus_proved": true,
+      "non_power_two_blind_vector_count": 4,
+      "actual_q5_quartic_character_detects_asymmetry": true,
+      "universal_single_character_detector_route_refuted": true,
+      "all_compatible_even_q_divisible_prefixes_excluded": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "6 sample moduli and the first 1255 primes modulo five are replayed; the detector theorem is exact for every odd prime.",
+  "logical_limit": "Detector completeness is now classified, but no theorem forces an actual compatible prime prefix to activate one of the required odd-character coordinates.",
+  "route_decision": {
+    "discard": "using one fixed primitive odd character as a complete reflection-asymmetry detector for every prime modulus",
+    "parked": [
+      "uniform nonvanishing of an odd multiplicative-character moment for every compatible even q-divisible prime prefix"
+    ],
+    "retain": "the exact power-of-two classification, explicit blind vectors otherwise, and the actual q=5 quartic certificate",
+    "next_single_lemma": "EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T257",
+        "label": "QuadraticCharacterReflectionObstructionAndNextPrefixExclusion",
+        "status": "proved"
+      },
+      {
+        "id": "GB-T258",
+        "label": "PrimitiveOddCharacterCompletenessClassification",
+        "status": "proved"
+      },
+      {
+        "id": "GB-CERT258",
+        "label": "PrimitiveOddCharacterCompletenessClassificationExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "GB-REJECT258",
+        "label": "OnePrimitiveOddCharacterDetectsReflectionAsymmetryForEveryPrimeModulus",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN258",
+        "label": "EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T257",
+        "GB-T258"
+      ],
+      [
+        "GB-T258",
+        "GB-CERT258"
+      ],
+      [
+        "GB-T258",
+        "GB-REJECT258"
+      ],
+      [
+        "GB-T258",
+        "GB-OPEN258"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T257",
+      "GB-T258",
+      "GB-OPEN258"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; the minimal character detector is determined for Fermat moduli and proved insufficient in general."
+}

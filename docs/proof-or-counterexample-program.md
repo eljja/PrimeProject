@@ -9065,6 +9065,12 @@ Canonical artifact:
 `data/open-problem/ticket256-cesaro-kernel-qdiv-gl2.json`.
 Reports: [English](cesaro-kernel-qdiv-gl2.md) and
 [한국어](cesaro-kernel-qdiv-gl2.ko.md).
+## TICKET-258 continuation: bounded variation, rational independence, character completeness, and root convergents
+
+TICKET-258 attacks the four TICKET-257 frontiers and resolves no parent conjecture. It proves an exact finite-total-variation packet no-go, rational linear independence for nontrivial distinct odd-prime cyclotomic phases, an if-and-only-if classification for single primitive odd-character reflection detection, and a continued-fraction necessary condition for the last degree-17 unit branch. The deep-focus Twin certificate checks 128 exact convergents and excludes all denominators through a 62-digit boundary without extending that finite result to every convergent.
+
+The canonical audit is `data/open-problem/ticket258-variation-character-convergent.json`. Reports: [English](variation-character-convergent.md) and [한국어](variation-character-convergent.ko.md).
+
 ## TICKET-257 continuation: sparse spikes, cyclotomic noncancellation, character prefixes, and root neighbors
 
 TICKET-257 attacks the four TICKET-256 frontiers and resolves no parent

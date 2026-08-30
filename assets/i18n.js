@@ -62,12 +62,12 @@
       ko: "네 미해결 문제, 두 no-go와 두 환원을 더 날카롭게 하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-257 proves two exact no-gos and two partial theorems: sparse packet-energy obstruction, finite cyclotomic noncancellation, a q=11 Goldbach character certificate, and a Twin root-neighbor reduction.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-257은 sparse packet no-go, 유한 원분 위상 noncancellation, q=11 Goldbach character certificate, Twin 근 이웃 환원을 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-258 proves two exact no-gos and two partial theorems: bounded-variation packet obstruction, rational independence of nontrivial phases, primitive-character completeness, and a Twin continued-fraction reduction.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-258은 bounded-variation packet no-go, 비자명 원분 위상 유리 선형독립, primitive-character 완전성 분류, Twin 연분수 환원을 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-257 proves two exact no-gos and two partial theorems, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-257은 정확한 no-go 두 개와 부분정리 두 개를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-258 proves two exact no-gos and two partial theorems, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-258은 정확한 no-go 두 개와 부분정리 두 개를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

@@ -15,7 +15,20 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-257
+## Current research boundary: TICKET-258
+
+The current machine-readable boundary is
+`data/open-problem/ticket258-variation-character-convergent.json`.
+TICKET-258 proves two exact route no-gos and two partial theorems while resolving none of the parent conjectures:
+
+- even finite total variation does not repair the RH packet lag obstruction;
+- nontrivial phases of distinct odd-prime orders are rationally independent;
+- one primitive odd character is a complete reflection detector exactly when `q-1` is a power of two;
+- every surviving exponent-17 unit solution is a continued-fraction convergent, and 128 exact convergents exclude denominators through a 62-digit bound.
+
+The next single lemmas are the actual-Weil scaled-variation margin, sublinear canonical Fermat-quotient phase sums, nonzero odd-character moments for every compatible Goldbach prefix, and exclusion of unit coefficients on every Twin root convergent. All statuses remain `open_not_proven`. Reports: [English](variation-character-convergent.md) and [한국어](variation-character-convergent.ko.md).
+
+## Preserved research boundary: TICKET-257
 
 The current machine-readable boundary is
 `data/open-problem/ticket257-spike-cyclotomic-character-root.json`.

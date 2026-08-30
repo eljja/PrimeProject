@@ -240,11 +240,13 @@ class Ticket257SpikeCyclotomicCharacterRootTests(unittest.TestCase):
         state = json.loads(
             (ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8")
         )
-        self.assertEqual((state["ticket"], state["parent_ticket"]), (257, 256))
+        self.assertGreaterEqual(state["ticket"], 257)
+        if state["ticket"] == 257:
+            self.assertEqual(state["parent_ticket"], 256)
+            self.assertEqual(state["deep_focus_problem"], "goldbach")
         self.assertEqual(state["resolved_count"], 0)
         self.assertEqual(state["candidate_resolution_count"], 0)
         self.assertFalse(state["program_complete"])
-        self.assertEqual(state["deep_focus_problem"], "goldbach")
         expected = {
             "riemann": "PositiveConvergentPacketEnergyLagPartialSumNoGo",
             "collatz": "DistinctPrimeCyclotomicPhaseExactCancellationNoGo",

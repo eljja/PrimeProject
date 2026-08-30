@@ -5,16 +5,11 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCHEMA = "primeproject.ticket257-spike-cyclotomic-character-root.v1"
-AUDIT_KEY = "spike_cyclotomic_character_root_audit"
+SCHEMA = "primeproject.ticket258-variation-character-convergent.v1"
+AUDIT_KEY = "variation_character_convergent_audit"
 ALLOWED = {
-    "proved",
-    "disproved",
-    "computed_finite",
-    "external_theorem",
-    "assumption",
-    "heuristic",
-    "open",
+    "proved", "disproved", "computed_finite", "external_theorem",
+    "assumption", "heuristic", "open",
 }
 
 
@@ -41,15 +36,15 @@ def acyclic(nodes: list[dict], edges: list[list[str]]) -> bool:
     return visited == len(ids)
 
 
-def verify_ticket257_structure() -> str | None:
-    integrated = ROOT / "data/open-problem/ticket257-spike-cyclotomic-character-root.json"
+def verify_ticket258_structure() -> str | None:
+    integrated = ROOT / "data/open-problem/ticket258-variation-character-convergent.json"
     if not integrated.exists():
-        return "missing TICKET-257 integrated audit"
+        return "missing TICKET-258 integrated audit"
     payload = json.loads(integrated.read_text(encoding="utf-8"))
     if payload.get("schema") != SCHEMA or payload.get("status") != "open_not_proven":
-        return "TICKET-257 schema or status changed"
+        return "TICKET-258 schema or status changed"
     if not payload.get("iteration_complete") or payload.get("program_complete"):
-        return "TICKET-257 completion boundary changed"
+        return "TICKET-258 completion boundary changed"
     root = payload.get(AUDIT_KEY, {})
     expected_machine = {
         "exact_theorem_count": 4,
@@ -59,55 +54,47 @@ def verify_ticket257_structure() -> str | None:
         "conjecture_resolution_count": 0,
         "proof_dag_count": 4,
         "next_single_lemma_count": 4,
-        "deep_focus_problem": "goldbach",
+        "deep_focus_problem": "twin_prime",
         "stagnated_problem_count": 0,
-        "riemann_spike_case_count": 8,
-        "collatz_prime_case_count": 22,
-        "goldbach_character_row_count": 3,
-        "goldbach_maximum_prime_prefix_length": 7_759_741,
-        "goldbach_new_q11_certificate_count": 1,
-        "twin_root_neighbor_candidate_count": 400_399,
-        "twin_denominator_limit": 200_000,
+        "riemann_spike_case_count": 12,
+        "collatz_prime_case_count": 166,
+        "collatz_trivial_phase_count": 0,
+        "goldbach_modulus_case_count": 6,
+        "goldbach_blind_vector_count": 4,
+        "twin_convergent_count": 128,
+        "twin_maximum_excluded_denominator": "67076610336720215425112731771403002965838278844687475228751003",
         "total_failure_count": 0,
     }
     for key, expected in expected_machine.items():
         if root.get("machine_audit", {}).get(key) != expected:
-            return f"TICKET-257 machine field changed: {key}"
+            return f"TICKET-258 machine field changed: {key}"
     expected = {
         "riemann": (
-            "riemann",
-            "PositiveConvergentPacketEnergyLagPartialSumNoGo",
-            "exact_no_go",
+            "riemann", "BoundedTotalVariationPacketEnergyLagNoGo", "exact_no_go",
             "ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation",
-            "2654791b7d15314396158a2a60a103f76cb57f74a2ee477bf32d47213a767f56",
+            "38b8848a883363638d20c80bab9be204bfde0d9fabd6e0c2d17f34244845215b",
         ),
         "collatz": (
-            "collatz",
-            "DistinctPrimeCyclotomicPhaseExactCancellationNoGo",
-            "exact_no_go",
+            "collatz", "DistinctPrimeCyclotomicPhaseRationalIndependence", "exact_no_go",
             "CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude",
-            "627c0da86ba9bd0f734d01ace2f1fb18df1778244c975655a877f52ca7ecf9a5",
+            "7314b839d426d6ba0b5fdfbf9d259d9c585f2a7f9f06510d8f325fb060b72dd1",
         ),
         "goldbach": (
-            "goldbach",
-            "QuadraticCharacterReflectionObstructionAndNextPrefixExclusion",
-            "partial_theorem",
+            "goldbach", "PrimitiveOddCharacterCompletenessClassification", "partial_theorem",
             "EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment",
-            "b294b8571a28f6988cdb0fd7d0353f683eb02d8aeae4b42b031ab4801f4b022f",
+            "6067f098366c338c9b8387b32f532cb54c58e2d6a838e9e29a2704c3fb657570",
         ),
         "twin_prime": (
-            "twin-prime",
-            "UniqueRealRootNeighborReductionAndBoundedExclusion",
-            "partial_theorem",
-            "EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne",
-            "70e6d98d1a8476ac6ea9db6eb2bc27895a7a84622e256f3cdd12d8881f92e5b1",
+            "twin-prime", "UnitCoefficientSolutionsAreRootConvergents", "partial_theorem",
+            "EveryUniqueRootConvergentMissesUnitCoefficient",
+            "317333a17662c51bd54e8fe174948df0548dfb1c43a1f41af389c2b02df3dd1d",
         ),
     }
     paths = {
-        "riemann": ROOT / "data/open-problem/riemann/rh-ticket-257-positive-convergent-spike-no-go.json",
-        "collatz": ROOT / "data/open-problem/collatz/co-ticket-257-cyclotomic-exact-cancellation-no-go.json",
-        "goldbach": ROOT / "data/open-problem/goldbach/gb-ticket-257-character-prefix-exclusion.json",
-        "twin_prime": ROOT / "data/open-problem/twin-prime/tp-ticket-257-unique-root-neighbor.json",
+        "riemann": ROOT / "data/open-problem/riemann/rh-ticket-258-bounded-variation-no-go.json",
+        "collatz": ROOT / "data/open-problem/collatz/co-ticket-258-rational-independence.json",
+        "goldbach": ROOT / "data/open-problem/goldbach/gb-ticket-258-character-completeness.json",
+        "twin_prime": ROOT / "data/open-problem/twin-prime/tp-ticket-258-root-convergents.json",
     }
     for key, (problem_id, theorem, classification, next_lemma, digest) in expected.items():
         section = root.get(key, {})
@@ -119,47 +106,41 @@ def verify_ticket257_structure() -> str | None:
             or section.get("route_decision", {}).get("next_single_lemma") != next_lemma
             or section.get("reproducible_computation", {}).get("transcript_sha256") != digest
         ):
-            return f"TICKET-257 problem boundary changed: {key}"
+            return f"TICKET-258 problem boundary changed: {key}"
         dag = section.get("proof_dag", {})
         nodes = dag.get("nodes", [])
         if any(node.get("status") not in ALLOWED for node in nodes):
-            return f"TICKET-257 DAG status changed: {key}"
+            return f"TICKET-258 DAG status changed: {key}"
         if sum(node.get("status") == "open" for node in nodes) != 1:
-            return f"TICKET-257 open frontier changed: {key}"
+            return f"TICKET-258 open frontier changed: {key}"
         if not acyclic(nodes, dag.get("edges", [])):
-            return f"TICKET-257 DAG malformed: {key}"
+            return f"TICKET-258 DAG malformed: {key}"
         if not paths[key].exists():
-            return f"missing TICKET-257 track JSON: {key}"
+            return f"missing TICKET-258 track JSON: {key}"
         track = json.loads(paths[key].read_text(encoding="utf-8"))
         if track.get("schema") != SCHEMA or track.get("theorem_name") != theorem:
-            return f"TICKET-257 track JSON changed: {key}"
-    state = json.loads(
-        (ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8")
-    )
+            return f"TICKET-258 track JSON changed: {key}"
+    state = json.loads((ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8"))
     if (
-        not isinstance(state.get("ticket"), int)
-        or state.get("ticket") < 257
+        state.get("ticket") != 258
+        or state.get("parent_ticket") != 257
+        or state.get("deep_focus_problem") != "twin_prime"
         or state.get("resolved_count") != 0
         or state.get("candidate_resolution_count") != 0
         or state.get("program_complete")
     ):
-        return "TICKET-257 persistent research state changed"
-    if state.get("ticket") == 257 and (
-        state.get("parent_ticket") != 256
-        or state.get("deep_focus_problem") != "goldbach"
-    ):
-        return "TICKET-257 original persistent research state changed"
+        return "TICKET-258 persistent research state changed"
     for report in (
-        ROOT / "docs/spike-cyclotomic-character-root.md",
-        ROOT / "docs/spike-cyclotomic-character-root.ko.md",
+        ROOT / "docs/variation-character-convergent.md",
+        ROOT / "docs/variation-character-convergent.ko.md",
     ):
         if not report.exists():
-            return "missing TICKET-257 bilingual report"
+            return "missing TICKET-258 bilingual report"
     return None
 
 
 if __name__ == "__main__":
-    error = verify_ticket257_structure()
+    error = verify_ticket258_structure()
     if error:
         raise SystemExit(error)
-    print("TICKET-257 structure verification passed")
+    print("TICKET-258 structure verification passed")

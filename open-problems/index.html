@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260831-ticket257-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260831-ticket258-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,16 +31,16 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-257</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-258</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-257 actually changed</h2>
-          <p>TICKET-257 did not solve a parent conjecture. It proves a sparse packet-energy no-go and its exact variation repair, rules out exact finite cancellation across distinct-prime cyclotomic phases, excludes the next q=11 Goldbach prefix by a character mismatch, and reduces the surviving exponent-17 coefficient-one branch to one root-neighbor candidate sequence.</p>
-          <p class="proof-boundary">TICKET-257은 상위 난제를 해결하지 않았습니다. RH sparse packet no-go와 variation 수선, Collatz 서로 다른 소수 원분 위상의 유한 exact-nonzero, Goldbach q=11 character prefix 배제, Twin 지수 17 coefficient-one branch의 단일 근 이웃 열 환원을 확정했습니다.</p>
+          <h2>What TICKET-258 actually changed</h2>
+          <p>TICKET-258 did not solve a parent conjecture. It rules out ordinary bounded variation as an RH packet repair, proves rational independence of nontrivial distinct-prime phases, classifies when one primitive odd character detects every reflection asymmetry, and reduces the remaining exponent-17 unit branch to continued-fraction convergents.</p>
+          <p class="proof-boundary">TICKET-258은 상위 난제를 해결하지 않았습니다. RH bounded-variation no-go, Collatz 비자명 원분 위상 유리 선형독립, Goldbach primitive odd-character 완전성 분류, Twin 지수 17 단위 분기의 연분수 수렴분수 환원을 확정했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
@@ -54,58 +54,58 @@
           <header><span>01 · SIGNED CANCELLATION</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>PositiveConvergentPacketEnergyLagPartialSumNoGo</code>: positive convergent packet energies can have lag partial sums unbounded below.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Positivity plus convergence alone cannot supply the TICKET-256 lower bound; scaled downward variation is necessary in the repaired criterion.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>BoundedTotalVariationPacketEnergyLagNoGo</code>: even positive convergent packet energies of total variation two can have lag partial sums unbounded below.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Ordinary bounded variation cannot replace scaled one-sided variation in the repaired criterion.</dd></div>
             <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation</code></dd></div>
           </dl>
-          <p class="workbench-ko">양이고 1로 수렴하는 packet energy도 lag 부분합이 아래로 무계일 수 있습니다. 실제 Weil packet의 margin과 scaled variation 비교가 남습니다.</p>
+          <p class="workbench-ko">총변동이 2인 양의 수렴 packet energy도 lag 부분합이 아래로 무계일 수 있습니다. 실제 Weil packet의 margin과 scaled variation 비교가 남습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · CYCLOTOMIC PHASE</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>DistinctPrimeCyclotomicPhaseExactCancellationNoGo</code>: a finite sum with one root from each distinct prime conductor is never zero.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Exact zero cannot arise from finite pairing or grouping; this says nothing quantitative about near-cancellation.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>DistinctPrimeCyclotomicPhaseRationalIndependence</code>: nontrivial roots from distinct odd-prime conductors, together with 1, are Q-linearly independent.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>No nonzero rationally weighted finite telescoping identity exists; this says nothing quantitative about near-cancellation.</dd></div>
             <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude</code></dd></div>
           </dl>
-          <p class="workbench-ko">서로 다른 소수 conductor의 위상 유한합은 정확히 0이 아닙니다. 점근적인 sublinear 상쇄는 여전히 별도의 문제입니다.</p>
+          <p class="workbench-ko">서로 다른 홀수 소수 conductor의 비자명 위상은 유리 선형독립입니다. 점근적인 sublinear 상쇄는 여전히 별도의 문제입니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · CHARACTER REFLECTION</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>QuadraticCharacterReflectionObstructionAndNextPrefixExclusion</code>: odd character moments characterize reflection symmetry, and the q=11, m=22 prefix is excluded.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>A single quadratic character is not a complete detector: q=5 and q=7 give asymmetric prefixes with matching products.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>PrimitiveOddCharacterCompletenessClassification</code>: one primitive odd character detects all reflection asymmetry exactly when q-1 is a power of two.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>For non-power-of-two q-1, the cyclotomic polynomial gives an exact nonnegative blind-vector counterexample to one-character completeness.</dd></div>
             <div><dt>Next lemma / 다음 보조정리</dt><dd><code>EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment</code></dd></div>
           </dl>
-          <p class="workbench-ko">첫 7,759,741개 소수의 q=11 prefix를 quadratic mismatch로 배제했습니다. 모든 호환 prefix에서 홀수 지표 moment가 0이 아님을 보이는 전칭 정리가 남습니다.</p>
+          <p class="workbench-ko">q=5 실제 prefix의 quartic moment는 비대칭을 검출하지만, 일반 modulus에는 한 character의 blind vector가 존재합니다. 모든 호환 prefix의 홀수 지표 moment 비소멸이 남습니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
-          <header><span>04 · ROOT-NEIGHBOR REDUCTION</span><b>OPEN</b></header>
+          <header><span>04 · ROOT CONVERGENTS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>UniqueRealRootNeighborReductionAndBoundedExclusion</code>: every coefficient-one solution lies on one exact root-neighbor sequence.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>A two-dimensional integer box is unnecessary; 400,399 candidate evaluations exclude 0&lt;|v|≤200,000.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>UnitCoefficientSolutionsAreRootConvergents</code>: every surviving unit-coefficient solution is a continued-fraction convergent of one algebraic root.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>A linear scan of every denominator is unnecessary; 128 exact convergents exclude a 62-digit denominator boundary.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>EveryUniqueRootConvergentMissesUnitCoefficient</code></dd></div>
           </dl>
-          <p class="workbench-ko">2차원 탐색을 단일 근 이웃 열로 줄이고 |v|≤200,000을 배제했습니다. 모든 분모에 대한 배제가 남습니다.</p>
+          <p class="workbench-ko">모든 해를 연분수 수렴분수로 줄이고 128개 후보로 62자리 분모까지 배제했습니다. 모든 이후 수렴분수에 대한 배제가 남습니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>257 tickets reduced to four meaningful eras</h2>
+          <h2>258 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–257 · Signed transfer barriers and route correction</strong><p>sparse packet no-go, 원분 위상 exact-nonzero, Goldbach odd-character certificate, Twin 근 이웃 환원으로 다음 무한 추정의 정확한 대상을 다시 설정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–258 · Signed transfer barriers and route correction</strong><p>bounded-variation no-go, 원분 위상 유리 선형독립, Goldbach character 완전성, Twin 연분수 환원으로 다음 무한 추정의 정확한 대상을 다시 설정했습니다.</p></li>
         </ol>
       </section>
 
@@ -115,6 +115,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/variation-character-convergent.ko.md">TICKET-258 한국어 보고서</a>
+          <a href="../docs/variation-character-convergent.md">TICKET-258 English report</a>
+          <a href="../data/open-problem/ticket258-variation-character-convergent.json">TICKET-258 machine JSON</a>
           <a href="../docs/spike-cyclotomic-character-root.ko.md">TICKET-257 한국어 보고서</a>
           <a href="../docs/spike-cyclotomic-character-root.md">TICKET-257 English report</a>
           <a href="../data/open-problem/ticket257-spike-cyclotomic-character-root.json">TICKET-257 machine JSON</a>
@@ -251,7 +254,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260831-ticket257"></script>
+    <script src="../assets/i18n.js?v=20260831-ticket258"></script>
   </body>
 </html>
 
