@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, four exact reductions sharpened",
-      ko: "네 미해결 문제, 네 정확 환원을 더 날카롭게 하다",
+      en: "Four open problems, two no-gos and two reductions sharpened",
+      ko: "네 미해결 문제, 두 no-go와 두 환원을 더 날카롭게 하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-256 proves four partial theorems: packet-Cesaro transfer, a sharp incomplete kernel, q-divisible reflection, and a GL2 reduction from two exponent-17 survivors to one branch.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-256은 packet-Cesaro 환원, 최적 불완전 핵, q-배수 반사, 지수 17 생존 twist 두 개를 단일 branch로 줄이는 GL2 환원을 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-257 proves two exact no-gos and two partial theorems: sparse packet-energy obstruction, finite cyclotomic noncancellation, a q=11 Goldbach character certificate, and a Twin root-neighbor reduction.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-257은 sparse packet no-go, 유한 원분 위상 noncancellation, q=11 Goldbach character certificate, Twin 근 이웃 환원을 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-256 proves four partial theorems, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-256은 부분정리 네 개를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-257 proves two exact no-gos and two partial theorems, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-257은 정확한 no-go 두 개와 부분정리 두 개를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

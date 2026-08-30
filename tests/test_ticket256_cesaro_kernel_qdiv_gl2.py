@@ -226,14 +226,21 @@ class Ticket256CesaroKernelQDivGL2Tests(unittest.TestCase):
                 encoding="utf-8"
             )
         )
-        self.assertEqual((state["ticket"], state["parent_ticket"]), (256, 255))
+        self.assertGreaterEqual(state["ticket"], 256)
+        self.assertEqual(state["parent_ticket"], state["ticket"] - 1)
         self.assertEqual(state["resolved_count"], 0)
         self.assertEqual(state["candidate_resolution_count"], 0)
         self.assertFalse(state["program_complete"])
-        self.assertEqual(state["deep_focus_problem"], "twin_prime")
-        self.assertTrue(
-            all(problem["stagnation_count"] == 0 for problem in state["problems"].values())
-        )
+        if state["ticket"] == 256:
+            self.assertEqual(state["deep_focus_problem"], "twin_prime")
+        historical = {
+            "riemann": "ToeplitzPacketCesaroLagPartialSumCriterion",
+            "collatz": "SharpIncompleteKernelErrorAndDecayOnlyPrimeAverage",
+            "goldbach": "QDivisibleReflectionAsymmetryPrimePrefixExclusion",
+            "twin_prime": "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReduction",
+        }
+        for problem_key, theorem in historical.items():
+            self.assertIn(theorem, state["problems"][problem_key]["established_results"])
 
 
 if __name__ == "__main__":

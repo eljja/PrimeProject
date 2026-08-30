@@ -9065,3 +9065,23 @@ Canonical artifact:
 `data/open-problem/ticket256-cesaro-kernel-qdiv-gl2.json`.
 Reports: [English](cesaro-kernel-qdiv-gl2.md) and
 [한국어](cesaro-kernel-qdiv-gl2.ko.md).
+## TICKET-257 continuation: sparse spikes, cyclotomic noncancellation, character prefixes, and root neighbors
+
+TICKET-257 attacks the four TICKET-256 frontiers and resolves no parent
+conjecture. It proves `PositiveConvergentPacketEnergyLagPartialSumNoGo`,
+`DistinctPrimeCyclotomicPhaseExactCancellationNoGo`,
+`QuadraticCharacterReflectionObstructionAndNextPrefixExclusion`, and
+`UniqueRealRootNeighborReductionAndBoundedExclusion`.
+
+The exact replay contains eight rational sparse-spike rows, 22 symbolic
+canonical cyclotomic phase rows, three exact prime-prefix residue vectors with
+the new `(q,m)=(11,22)`, `T=7,759,741` character certificate, and 400,399
+root-neighbor evaluations through `0<|v|<=200,000`. These checks do not identify
+the abstract lag sequence with the actual Weil form, prove sublinear canonical
+phase cancellation, force an odd character moment for every compatible
+Goldbach prefix, or exclude every denominator in the surviving Twin branch.
+
+Canonical artifact:
+`data/open-problem/ticket257-spike-cyclotomic-character-root.json`.
+Reports: [English](spike-cyclotomic-character-root.md) and
+[한국어](spike-cyclotomic-character-root.ko.md).

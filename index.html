@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260829-ticket256-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260831-ticket257-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-256 · CURRENT RESEARCH BOUNDARY</p>
-                <h1 data-i18n="brief.title">Four open problems, four exact reductions sharpened</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-256 proves four partial theorems: a packet-Cesaro identity, a minimax-sharp incomplete kernel, a q-divisible Goldbach reflection obstruction with two certificates, and a GL2 reduction of two exponent-17 survivors to one branch.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-256은 RH packet-Cesaro 항등식, Collatz 최적 불완전 핵, Goldbach q-배수 반사 obstruction과 두 certificate, Twin 생존 twist 2개를 단일 branch로 줄이는 GL2 환원을 확정했습니다.</p>
+                <p class="brief-kicker">TICKET-257 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, two route no-gos and two reductions sharpened</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-257 proves two exact no-gos and two partial theorems: a sparse packet-energy obstruction, finite cyclotomic phase noncancellation, a q=11 Goldbach character certificate, and a one-dimensional Twin root-neighbor reduction.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-257은 RH sparse packet no-go, Collatz 원분 위상 유한 exact-nonzero, Goldbach q=11 character certificate, Twin 단일 근 이웃 환원을 확정했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>256</strong><small>2026-08-29</small></div>
-              <div><span>Exact no-go</span><strong>0</strong><small>this iteration classification count</small></div>
-              <div><span>Partial theorems</span><strong>4</strong><small>Cesaro · kernel · reflection · GL2</small></div>
+              <div><span>Latest ticket</span><strong>257</strong><small>2026-08-31</small></div>
+              <div><span>Exact no-go</span><strong>2</strong><small>RH · Collatz route exclusions</small></div>
+              <div><span>Partial theorems</span><strong>2</strong><small>Goldbach · Twin</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> Toeplitz packet 에너지는 symmetric lag 부분합의 Cesaro 평균입니다.</p>
-                <p><strong>폐기:</strong> lag 부분합 비음성을 packet 양성의 필요조건으로 요구하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound</code>.</p>
+                <p><strong>확립:</strong> 양이고 1로 수렴하는 packet energy도 lag 부분합이 아래로 무계일 수 있습니다.</p>
+                <p><strong>폐기:</strong> packet energy의 양성과 수렴만으로 균일 부분합 하한을 얻는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 한 주파수를 뺀 kernel의 최적 균일 error는 정확히 1/q입니다.</p>
-                <p><strong>폐기:</strong> 비정규화 O(1/q) 평균 감소를 산술 위상 상쇄로 해석하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation</code>.</p>
+                <p><strong>확립:</strong> 서로 다른 소수 conductor에서 하나씩 고른 원분 위상 유한합은 정확히 0이 아닙니다.</p>
+                <p><strong>폐기:</strong> 유한 pairing/grouping으로 exact cancellation을 얻는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 홀수 q-배수 호환 tail은 불가능하고 두 짝수 prefix가 반사 비대칭으로 배제됩니다.</p>
-                <p><strong>폐기:</strong> 홀수 q-배수 호환 tail; 큰 짝수 prefix는 보류합니다.</p>
-                <p><strong>다음 핵심:</strong> <code>EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry</code>.</p>
+                <p><strong>확립:</strong> q=11, m=22의 첫 7,759,741개 소수 prefix가 quadratic character mismatch로 배제됩니다.</p>
+                <p><strong>폐기:</strong> quadratic character 한 비트를 완전한 반사 비대칭 검출기로 쓰는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 생존한 지수 17 twist 1과 16은 GL2 전단사로 하나의 absolute branch입니다.</p>
-                <p><strong>폐기:</strong> twist 1과 16을 서로 독립인 global 방정식으로 다루는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint</code>.</p>
+                <p><strong>확립:</strong> 지수 17 coefficient-one branch의 모든 해 후보는 하나의 근 이웃 열에 놓입니다.</p>
+                <p><strong>폐기:</strong> surviving branch를 본질적인 2차원 box search로 다루는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>256개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-256은 packet Cesaro, sharp kernel, q-배수 reflection, GL2 Thue 경계를 확정했습니다.</p>
+                <p>257개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-257은 sparse spike, cyclotomic nonzero, odd-character prefix, unique-root-neighbor 경계를 확정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,11 +140,10 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/cesaro-kernel-qdiv-gl2.ko.md">최신 한국어 보고서</a>
-              <a href="docs/cesaro-kernel-qdiv-gl2.md">Latest English report</a>
+              <a href="docs/spike-cyclotomic-character-root.ko.md">최신 한국어 보고서</a>
+              <a href="docs/spike-cyclotomic-character-root.md">Latest English report</a>
             </div>
-          </section>
-          <section id="overview-panel" class="overview-grid">
+          </section>          <section id="overview-panel" class="overview-grid">
             <section class="panel main-panel">
               <div class="panel-heading">
                 <div>
@@ -658,8 +657,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-256</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-256 proves four partial theorems, with a resolution count of zero.</p>
+              <strong>TICKET-257</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-257 proves two exact no-gos and two partial theorems, with a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -795,8 +794,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260829-ticket256"></script>
-    <script src="assets/app.js?v=20260829-ticket256"></script>
+    <script src="assets/i18n.js?v=20260831-ticket257"></script>
+    <script src="assets/app.js?v=20260831-ticket257"></script>
   </body>
 </html>
 

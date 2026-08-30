@@ -1,0 +1,339 @@
+{
+  "schema": "primeproject.ticket257-spike-cyclotomic-character-root.v1",
+  "generated_at": "2026-08-31T12:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-257",
+  "theorem_name": "PositiveConvergentPacketEnergyLagPartialSumNoGo",
+  "declared_proposition": "There is a real Toeplitz lag sequence whose normalized all-ones packet energies satisfy E_L>=1/2 for every L and E_L->1, while its symmetric lag partial sums are unbounded below. Explicitly prescribe E_L=1-2^(-k) when L=4^k (k>=1) and E_L=1 otherwise, set S_n=(n+1)E_(n+1)-nE_n, and reconstruct a_0=S_0, a_n=(S_n-S_(n-1))/2. Then at L=4^k, S_(L-1)=1-2^k. Hence positivity and convergence of packet energies alone cannot imply the TICKET-256 lag-partial-sum lower bound. A valid repair is: if delta=inf E_L>0 and V=sup_L L(E_L-E_(L+1))_+<delta, then every S_L>=delta-V>0.",
+  "mathematical_argument": "TICKET-256 gives E_L=L^(-1)sum_(n<L)S_n, whose exact inversion is S_n=(n+1)E_(n+1)-nE_n. The displayed reconstruction therefore realizes the prescribed E_L. Every spike is at least one half and the spike depth 2^(-k) tends to zero, so E_L tends to one. Immediately before L=4^k, E_(L-1)=1 and S_(L-1)=L(1-2^(-k))-(L-1)=1-2^k, which tends to minus infinity. For the repair criterion, S_L=E_(L+1)-L(E_L-E_(L+1))>=delta-V. The construction is abstract and does not identify these lags with the Guinand-Weil form.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "There is a real Toeplitz lag sequence whose normalized all-ones packet energies satisfy E_L>=1/2 for every L and E_L->1, while its symmetric lag partial sums are unbounded below. Explicitly prescribe E_L=1-2^(-k) when L=4^k (k>=1) and E_L=1 otherwise, set S_n=(n+1)E_(n+1)-nE_n, and reconstruct a_0=S_0, a_n=(S_n-S_(n-1))/2. Then at L=4^k, S_(L-1)=1-2^k. Hence positivity and convergence of packet energies alone cannot imply the TICKET-256 lag-partial-sum lower bound. A valid repair is: if delta=inf E_L>0 and V=sup_L L(E_L-E_(L+1))_+<delta, then every S_L>=delta-V>0.",
+    "proof": "TICKET-256 gives E_L=L^(-1)sum_(n<L)S_n, whose exact inversion is S_n=(n+1)E_(n+1)-nE_n. The displayed reconstruction therefore realizes the prescribed E_L. Every spike is at least one half and the spike depth 2^(-k) tends to zero, so E_L tends to one. Immediately before L=4^k, E_(L-1)=1 and S_(L-1)=L(1-2^(-k))-(L-1)=1-2^k, which tends to minus infinity. For the repair criterion, S_L=E_(L+1)-L(E_L-E_(L+1))>=delta-V. The construction is abstract and does not identify these lags with the Guinand-Weil form.",
+    "exact_sparse_spike_rows": [
+      {
+        "spike_level_k": 1,
+        "packet_dimension_L_equals_4_power_k": 4,
+        "packet_energy_E_L": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "preceding_packet_energy_E_L_minus_1": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "symmetric_lag_partial_sum_S_L_minus_1": {
+          "exact": "-1/1",
+          "numerator": -1,
+          "denominator": 1,
+          "display_float": -1.0
+        },
+        "direct_energy_from_reconstructed_lags": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "identity_verified": true
+      },
+      {
+        "spike_level_k": 2,
+        "packet_dimension_L_equals_4_power_k": 16,
+        "packet_energy_E_L": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "preceding_packet_energy_E_L_minus_1": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "symmetric_lag_partial_sum_S_L_minus_1": {
+          "exact": "-3/1",
+          "numerator": -3,
+          "denominator": 1,
+          "display_float": -3.0
+        },
+        "direct_energy_from_reconstructed_lags": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "identity_verified": true
+      },
+      {
+        "spike_level_k": 3,
+        "packet_dimension_L_equals_4_power_k": 64,
+        "packet_energy_E_L": {
+          "exact": "7/8",
+          "numerator": 7,
+          "denominator": 8,
+          "display_float": 0.875
+        },
+        "preceding_packet_energy_E_L_minus_1": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "symmetric_lag_partial_sum_S_L_minus_1": {
+          "exact": "-7/1",
+          "numerator": -7,
+          "denominator": 1,
+          "display_float": -7.0
+        },
+        "direct_energy_from_reconstructed_lags": {
+          "exact": "7/8",
+          "numerator": 7,
+          "denominator": 8,
+          "display_float": 0.875
+        },
+        "identity_verified": true
+      },
+      {
+        "spike_level_k": 4,
+        "packet_dimension_L_equals_4_power_k": 256,
+        "packet_energy_E_L": {
+          "exact": "15/16",
+          "numerator": 15,
+          "denominator": 16,
+          "display_float": 0.9375
+        },
+        "preceding_packet_energy_E_L_minus_1": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "symmetric_lag_partial_sum_S_L_minus_1": {
+          "exact": "-15/1",
+          "numerator": -15,
+          "denominator": 1,
+          "display_float": -15.0
+        },
+        "direct_energy_from_reconstructed_lags": {
+          "exact": "15/16",
+          "numerator": 15,
+          "denominator": 16,
+          "display_float": 0.9375
+        },
+        "identity_verified": true
+      },
+      {
+        "spike_level_k": 5,
+        "packet_dimension_L_equals_4_power_k": 1024,
+        "packet_energy_E_L": {
+          "exact": "31/32",
+          "numerator": 31,
+          "denominator": 32,
+          "display_float": 0.96875
+        },
+        "preceding_packet_energy_E_L_minus_1": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "symmetric_lag_partial_sum_S_L_minus_1": {
+          "exact": "-31/1",
+          "numerator": -31,
+          "denominator": 1,
+          "display_float": -31.0
+        },
+        "direct_energy_from_reconstructed_lags": {
+          "exact": "31/32",
+          "numerator": 31,
+          "denominator": 32,
+          "display_float": 0.96875
+        },
+        "identity_verified": true
+      },
+      {
+        "spike_level_k": 6,
+        "packet_dimension_L_equals_4_power_k": 4096,
+        "packet_energy_E_L": {
+          "exact": "63/64",
+          "numerator": 63,
+          "denominator": 64,
+          "display_float": 0.984375
+        },
+        "preceding_packet_energy_E_L_minus_1": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "symmetric_lag_partial_sum_S_L_minus_1": {
+          "exact": "-63/1",
+          "numerator": -63,
+          "denominator": 1,
+          "display_float": -63.0
+        },
+        "direct_energy_from_reconstructed_lags": {
+          "exact": "63/64",
+          "numerator": 63,
+          "denominator": 64,
+          "display_float": 0.984375
+        },
+        "identity_verified": true
+      },
+      {
+        "spike_level_k": 7,
+        "packet_dimension_L_equals_4_power_k": 16384,
+        "packet_energy_E_L": {
+          "exact": "127/128",
+          "numerator": 127,
+          "denominator": 128,
+          "display_float": 0.9921875
+        },
+        "preceding_packet_energy_E_L_minus_1": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "symmetric_lag_partial_sum_S_L_minus_1": {
+          "exact": "-127/1",
+          "numerator": -127,
+          "denominator": 1,
+          "display_float": -127.0
+        },
+        "direct_energy_from_reconstructed_lags": {
+          "exact": "127/128",
+          "numerator": 127,
+          "denominator": 128,
+          "display_float": 0.9921875
+        },
+        "identity_verified": true
+      },
+      {
+        "spike_level_k": 8,
+        "packet_dimension_L_equals_4_power_k": 65536,
+        "packet_energy_E_L": {
+          "exact": "255/256",
+          "numerator": 255,
+          "denominator": 256,
+          "display_float": 0.99609375
+        },
+        "preceding_packet_energy_E_L_minus_1": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "symmetric_lag_partial_sum_S_L_minus_1": {
+          "exact": "-255/1",
+          "numerator": -255,
+          "denominator": 1,
+          "display_float": -255.0
+        },
+        "direct_energy_from_reconstructed_lags": {
+          "exact": "255/256",
+          "numerator": 255,
+          "denominator": 256,
+          "display_float": 0.99609375
+        },
+        "identity_verified": true
+      }
+    ],
+    "algorithm": "exact Fraction inversion from prescribed packet energies to lag partial sums and coefficients",
+    "complexity": "O(sum 4^k) exact rational operations for direct replay; the counterexample and repair criterion are algebraic for all L",
+    "random_seed": null,
+    "transcript_sha256": "2654791b7d15314396158a2a60a103f76cb57f74a2ee477bf32d47213a767f56",
+    "aggregate": {
+      "packet_energy_uniform_lower_bound": {
+        "exact": "1/2",
+        "numerator": 1,
+        "denominator": 2,
+        "display_float": 0.5
+      },
+      "packet_energy_limit": {
+        "exact": "1/1",
+        "numerator": 1,
+        "denominator": 1,
+        "display_float": 1.0
+      },
+      "lag_partial_sums_unbounded_below_proved": true,
+      "positivity_and_convergence_only_route_refuted": true,
+      "scaled_downward_variation_repair_proved": true,
+      "actual_weil_packet_analyzed": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "8 exact spike rows replay the all-L construction; no actual Weil coefficient is computed.",
+  "logical_limit": "The abstract implication is false. The repaired criterion is exact, but neither its positive margin nor its scaled-variation bound is proved for actual Guinand-Weil packets.",
+  "route_decision": {
+    "discard": "deriving a uniform lag-partial-sum lower bound from strict positivity and convergence of packet energies alone",
+    "parked": [
+      "direct arithmetic control of scaled downward variation for actual Weil packets"
+    ],
+    "retain": "the exact sparse-spike counterexample and the scaled-downward-variation repair criterion",
+    "next_single_lemma": "ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T256",
+        "label": "ToeplitzPacketCesaroLagPartialSumCriterion",
+        "status": "proved"
+      },
+      {
+        "id": "RH-T257",
+        "label": "PositiveConvergentPacketEnergyLagPartialSumNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-CERT257",
+        "label": "PositiveConvergentPacketEnergyLagPartialSumNoGoExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "RH-REJECT257",
+        "label": "PositiveConvergentPacketEnergiesForceUniformLagPartialSumLowerBound",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-OPEN257",
+        "label": "ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T256",
+        "RH-T257"
+      ],
+      [
+        "RH-T257",
+        "RH-CERT257"
+      ],
+      [
+        "RH-T257",
+        "RH-REJECT257"
+      ],
+      [
+        "RH-T257",
+        "RH-OPEN257"
+      ]
+    ],
+    "resolution_path": [
+      "RH-T256",
+      "RH-T257",
+      "RH-OPEN257"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No RH proof or disproof; a tempting analytic shortcut is refuted and replaced by one quantitative actual-Weil target."
+}

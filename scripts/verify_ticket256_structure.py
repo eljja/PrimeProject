@@ -139,14 +139,18 @@ def verify_ticket256_structure() -> str | None:
         )
     )
     if (
-        state.get("ticket") != 256
-        or state.get("parent_ticket") != 255
-        or state.get("deep_focus_problem") != "twin_prime"
+        state.get("ticket", 0) < 256
+        or state.get("parent_ticket") != state.get("ticket", 0) - 1
         or state.get("resolved_count") != 0
         or state.get("candidate_resolution_count") != 0
         or state.get("program_complete")
     ):
-        return "TICKET-256 persistent research state changed"
+        return "TICKET-256 persistent research history changed"
+    if state.get("ticket") == 256 and state.get("deep_focus_problem") != "twin_prime":
+        return "TICKET-256 deep-focus boundary changed"
+    for key, (_, theorem, _, _) in expected.items():
+        if theorem not in state.get("problems", {}).get(key, {}).get("established_results", []):
+            return f"TICKET-256 result missing from persistent history: {key}"
     for report in (
         ROOT / "docs/cesaro-kernel-qdiv-gl2.md",
         ROOT / "docs/cesaro-kernel-qdiv-gl2.ko.md",

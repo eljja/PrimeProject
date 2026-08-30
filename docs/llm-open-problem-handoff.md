@@ -44,7 +44,45 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-256
+## Latest handoff: TICKET-257
+
+Canonical artifact:
+`data/open-problem/ticket257-spike-cyclotomic-character-root.json`.
+
+All four parent conjectures remain `open_not_proven`. TICKET-257 established:
+
+- RH: `PositiveConvergentPacketEnergyLagPartialSumNoGo`, an exact sparse-energy counterexample to positivity-plus-convergence implying a lag-partial-sum lower bound, together with a scaled-downward-variation repair criterion;
+- Collatz: `DistinctPrimeCyclotomicPhaseExactCancellationNoGo`, proving every finite sum with one root from each distinct odd-prime conductor is nonzero;
+- Goldbach: `QuadraticCharacterReflectionObstructionAndNextPrefixExclusion`, proving the odd-character symmetry criterion and excluding `(q,m)=(11,22)` at `T=7,759,741`;
+- Twin: `UniqueRealRootNeighborReductionAndBoundedExclusion`, reducing every surviving coefficient-one solution to one root-neighbor sequence and excluding `0<|v|<=200,000`.
+
+The exact next frontiers are:
+
+```text
+RH: ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation
+Collatz: CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude
+Goldbach: EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment
+Twin: EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne
+```
+
+The 8 RH spike rows, 22 Collatz phase rows, three Goldbach prefixes through
+7,759,741 primes, and 400,399 Twin root-neighbor evaluations are exact replays.
+They do not identify the abstract lags with the actual Weil form, prove a
+sublinear canonical phase sum, cover every compatible Goldbach prefix, or
+exclude every Twin denominator.
+
+Reproduce with:
+
+```text
+python scripts/ticket257_spike_cyclotomic_character_root.py
+python -m unittest tests.test_ticket257_spike_cyclotomic_character_root -v
+python scripts/verify_ticket257_structure.py
+```
+
+Reports: [English](spike-cyclotomic-character-root.md) and
+[한국어](spike-cyclotomic-character-root.ko.md).
+
+## Preserved handoff: TICKET-256
 
 Canonical artifact:
 `data/open-problem/ticket256-cesaro-kernel-qdiv-gl2.json`.

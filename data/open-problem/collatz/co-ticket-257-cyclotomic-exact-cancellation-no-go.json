@@ -1,0 +1,360 @@
+{
+  "schema": "primeproject.ticket257-spike-cyclotomic-character-root.v1",
+  "generated_at": "2026-08-31T12:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-257",
+  "theorem_name": "DistinctPrimeCyclotomicPhaseExactCancellationNoGo",
+  "declared_proposition": "Let q_1,...,q_N be distinct odd primes, let zeta_q be a primitive qth root of unity, and let d_j be any residue modulo q_j. Then sum_(j=1)^N zeta_(q_j)^(d_j) is never zero. In particular no finite prefix of the renormalized canonical Collatz phases exp(2 pi i D_q/q), D_q=5F_q(2)-3F_q(3), can cancel exactly. This rules out exact finite pairing or grouping, but does not rule out sublinear asymptotic magnitude.",
+  "mathematical_argument": "If every d_j is zero, the sum is N. Otherwise select j with d_j nonzero and put m=product_(i!=j)q_i and F=Q(zeta_m). Coprimality gives Q(zeta_m,zeta_(q_j))=Q(zeta_(m q_j)); Euler-phi multiplicativity shows its degree is [F:Q](q_j-1), hence F intersect Q(zeta_(q_j))=Q. A zero relation would place the primitive root zeta_(q_j)^(d_j) in F. Since d_j is invertible modulo q_j, this would place zeta_(q_j) in F, contradicting the trivial intersection. No estimate on how close the nonzero sum can be to zero follows.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let q_1,...,q_N be distinct odd primes, let zeta_q be a primitive qth root of unity, and let d_j be any residue modulo q_j. Then sum_(j=1)^N zeta_(q_j)^(d_j) is never zero. In particular no finite prefix of the renormalized canonical Collatz phases exp(2 pi i D_q/q), D_q=5F_q(2)-3F_q(3), can cancel exactly. This rules out exact finite pairing or grouping, but does not rule out sublinear asymptotic magnitude.",
+    "proof": "If every d_j is zero, the sum is N. Otherwise select j with d_j nonzero and put m=product_(i!=j)q_i and F=Q(zeta_m). Coprimality gives Q(zeta_m,zeta_(q_j))=Q(zeta_(m q_j)); Euler-phi multiplicativity shows its degree is [F:Q](q_j-1), hence F intersect Q(zeta_(q_j))=Q. A zero relation would place the primitive root zeta_(q_j)^(d_j) in F. Since d_j is invertible modulo q_j, this would place zeta_(q_j) in F, contradicting the trivial intersection. No estimate on how close the nonzero sum can be to zero follows.",
+    "exact_canonical_phase_prefix_rows": [
+      {
+        "prefix_length": 1,
+        "prime_q": 7,
+        "fermat_quotient_F_q_2": 2,
+        "fermat_quotient_F_q_3": 6,
+        "canonical_phase_exponent_D_q": 6,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 7,
+        "cyclotomic_compositum_degree": 6,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 2,
+        "prime_q": 11,
+        "fermat_quotient_F_q_2": 5,
+        "fermat_quotient_F_q_3": 0,
+        "canonical_phase_exponent_D_q": 3,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 77,
+        "cyclotomic_compositum_degree": 60,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 3,
+        "prime_q": 13,
+        "fermat_quotient_F_q_2": 3,
+        "fermat_quotient_F_q_3": 8,
+        "canonical_phase_exponent_D_q": 4,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 1001,
+        "cyclotomic_compositum_degree": 720,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 4,
+        "prime_q": 17,
+        "fermat_quotient_F_q_2": 13,
+        "fermat_quotient_F_q_3": 10,
+        "canonical_phase_exponent_D_q": 1,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 17017,
+        "cyclotomic_compositum_degree": 11520,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 5,
+        "prime_q": 19,
+        "fermat_quotient_F_q_2": 3,
+        "fermat_quotient_F_q_3": 18,
+        "canonical_phase_exponent_D_q": 18,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 323323,
+        "cyclotomic_compositum_degree": 207360,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 6,
+        "prime_q": 23,
+        "fermat_quotient_F_q_2": 17,
+        "fermat_quotient_F_q_3": 17,
+        "canonical_phase_exponent_D_q": 11,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 7436429,
+        "cyclotomic_compositum_degree": 4561920,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 7,
+        "prime_q": 29,
+        "fermat_quotient_F_q_2": 1,
+        "fermat_quotient_F_q_3": 15,
+        "canonical_phase_exponent_D_q": 18,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 215656441,
+        "cyclotomic_compositum_degree": 127733760,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 8,
+        "prime_q": 31,
+        "fermat_quotient_F_q_2": 6,
+        "fermat_quotient_F_q_3": 17,
+        "canonical_phase_exponent_D_q": 10,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 6685349671,
+        "cyclotomic_compositum_degree": 3832012800,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 9,
+        "prime_q": 37,
+        "fermat_quotient_F_q_2": 1,
+        "fermat_quotient_F_q_3": 18,
+        "canonical_phase_exponent_D_q": 25,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 247357937827,
+        "cyclotomic_compositum_degree": 137952460800,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 10,
+        "prime_q": 41,
+        "fermat_quotient_F_q_2": 23,
+        "fermat_quotient_F_q_3": 21,
+        "canonical_phase_exponent_D_q": 11,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 10141675450907,
+        "cyclotomic_compositum_degree": 5518098432000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 11,
+        "prime_q": 43,
+        "fermat_quotient_F_q_2": 25,
+        "fermat_quotient_F_q_3": 2,
+        "canonical_phase_exponent_D_q": 33,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 436092044389001,
+        "cyclotomic_compositum_degree": 231760134144000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 12,
+        "prime_q": 47,
+        "fermat_quotient_F_q_2": 44,
+        "fermat_quotient_F_q_3": 11,
+        "canonical_phase_exponent_D_q": 46,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 20496326086283047,
+        "cyclotomic_compositum_degree": 10660966170624000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 13,
+        "prime_q": 53,
+        "fermat_quotient_F_q_2": 36,
+        "fermat_quotient_F_q_3": 23,
+        "canonical_phase_exponent_D_q": 5,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 1086305282573001491,
+        "cyclotomic_compositum_degree": 554370240872448000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 14,
+        "prime_q": 59,
+        "fermat_quotient_F_q_2": 8,
+        "fermat_quotient_F_q_3": 41,
+        "canonical_phase_exponent_D_q": 35,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 64092011671807087969,
+        "cyclotomic_compositum_degree": 32153473970601984000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 15,
+        "prime_q": 61,
+        "fermat_quotient_F_q_2": 36,
+        "fermat_quotient_F_q_3": 13,
+        "canonical_phase_exponent_D_q": 19,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 3909612711980232366109,
+        "cyclotomic_compositum_degree": 1929208438236119040000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 16,
+        "prime_q": 67,
+        "fermat_quotient_F_q_2": 10,
+        "fermat_quotient_F_q_3": 15,
+        "canonical_phase_exponent_D_q": 5,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 261944051702675568529303,
+        "cyclotomic_compositum_degree": 127327756923583856640000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 17,
+        "prime_q": 71,
+        "fermat_quotient_F_q_2": 2,
+        "fermat_quotient_F_q_3": 32,
+        "canonical_phase_exponent_D_q": 56,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 18598027670889965365580513,
+        "cyclotomic_compositum_degree": 8912942984650869964800000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 18,
+        "prime_q": 73,
+        "fermat_quotient_F_q_2": 56,
+        "fermat_quotient_F_q_3": 26,
+        "canonical_phase_exponent_D_q": 56,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 1357656019974967471687377449,
+        "cyclotomic_compositum_degree": 641731894894862637465600000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 19,
+        "prime_q": 79,
+        "fermat_quotient_F_q_2": 19,
+        "fermat_quotient_F_q_3": 54,
+        "canonical_phase_exponent_D_q": 12,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 107254825578022430263302818471,
+        "cyclotomic_compositum_degree": 50055087801799285722316800000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 20,
+        "prime_q": 83,
+        "fermat_quotient_F_q_2": 48,
+        "fermat_quotient_F_q_3": 64,
+        "canonical_phase_exponent_D_q": 48,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 8902150522975861711854133933093,
+        "cyclotomic_compositum_degree": 4104517199747541429229977600000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 21,
+        "prime_q": 89,
+        "fermat_quotient_F_q_2": 6,
+        "fermat_quotient_F_q_3": 24,
+        "canonical_phase_exponent_D_q": 47,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 792291396544851692355017920045277,
+        "cyclotomic_compositum_degree": 361197513577783645772238028800000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      },
+      {
+        "prefix_length": 22,
+        "prime_q": 97,
+        "fermat_quotient_F_q_2": 57,
+        "fermat_quotient_F_q_3": 7,
+        "canonical_phase_exponent_D_q": 70,
+        "phase_is_primitive_qth_root": true,
+        "coprime_conductor_product": 76852265464850614158436738244391869,
+        "cyclotomic_compositum_degree": 34674961303467229994134850764800000,
+        "finite_prefix_exact_zero_impossible": true,
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "exact modular Fermat quotients plus coprime cyclotomic conductor and degree products; roots are stored only by exponents",
+    "complexity": "O(sum log q) modular exponentiation for replay; the all-prefix no-go is a cyclotomic degree argument",
+    "random_seed": null,
+    "transcript_sha256": "627c0da86ba9bd0f734d01ace2f1fb18df1778244c975655a877f52ca7ecf9a5",
+    "aggregate": {
+      "prime_count": 22,
+      "nonzero_canonical_phase_exponent_count": 22,
+      "every_finite_distinct_prime_phase_sum_nonzero_proved": true,
+      "exact_finite_pairing_or_grouping_route_refuted": true,
+      "sublinear_phase_sum_bound_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "22 canonical exponents are replayed; the no-go itself holds for every finite family of distinct odd primes.",
+  "logical_limit": "Every finite prefix is nonzero, but no upper bound smaller than its length is proved; the canonical phase sum may still cancel asymptotically or fail to do so.",
+  "route_decision": {
+    "discard": "seeking exact zero by pairing or grouping one canonical phase from each distinct prime modulus in a finite prefix",
+    "parked": [
+      "quantitative sublinear cancellation of canonical fixed-base Fermat-quotient phases"
+    ],
+    "retain": "the cyclotomic linear-disjointness obstruction separating exact zero from asymptotic cancellation",
+    "next_single_lemma": "CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T256",
+        "label": "SharpIncompleteKernelErrorAndDecayOnlyPrimeAverage",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T257",
+        "label": "DistinctPrimeCyclotomicPhaseExactCancellationNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-CERT257",
+        "label": "DistinctPrimeCyclotomicPhaseExactCancellationNoGoExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "CO-REJECT257",
+        "label": "FiniteDistinctPrimeCanonicalPhasePrefixCanVanishExactly",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN257",
+        "label": "CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T256",
+        "CO-T257"
+      ],
+      [
+        "CO-T257",
+        "CO-CERT257"
+      ],
+      [
+        "CO-T257",
+        "CO-REJECT257"
+      ],
+      [
+        "CO-T257",
+        "CO-OPEN257"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T256",
+      "CO-T257",
+      "CO-OPEN257"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz proof or counterexample; exact finite cancellation is impossible, while the required quantitative cross-prime estimate remains open."
+}

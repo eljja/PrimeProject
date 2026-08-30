@@ -1,0 +1,1309 @@
+{
+  "schema": "primeproject.ticket257-spike-cyclotomic-character-root.v1",
+  "generated_at": "2026-08-31T12:00:00+09:00",
+  "status": "open_not_proven",
+  "iteration_complete": true,
+  "program_complete": false,
+  "spike_cyclotomic_character_root_audit": {
+    "theorem_name": "FourConjectureSpikeCyclotomicCharacterRootAudit",
+    "summary": "TICKET-257 proves two exact route no-gos and two partial theorems: a sparse packet spike obstruction, finite cyclotomic phase noncancellation, a q=11 Goldbach character certificate, and a one-dimensional Twin root-neighbor reduction; every parent conjecture remains open.",
+    "riemann": {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-257",
+      "theorem_name": "PositiveConvergentPacketEnergyLagPartialSumNoGo",
+      "declared_proposition": "There is a real Toeplitz lag sequence whose normalized all-ones packet energies satisfy E_L>=1/2 for every L and E_L->1, while its symmetric lag partial sums are unbounded below. Explicitly prescribe E_L=1-2^(-k) when L=4^k (k>=1) and E_L=1 otherwise, set S_n=(n+1)E_(n+1)-nE_n, and reconstruct a_0=S_0, a_n=(S_n-S_(n-1))/2. Then at L=4^k, S_(L-1)=1-2^k. Hence positivity and convergence of packet energies alone cannot imply the TICKET-256 lag-partial-sum lower bound. A valid repair is: if delta=inf E_L>0 and V=sup_L L(E_L-E_(L+1))_+<delta, then every S_L>=delta-V>0.",
+      "mathematical_argument": "TICKET-256 gives E_L=L^(-1)sum_(n<L)S_n, whose exact inversion is S_n=(n+1)E_(n+1)-nE_n. The displayed reconstruction therefore realizes the prescribed E_L. Every spike is at least one half and the spike depth 2^(-k) tends to zero, so E_L tends to one. Immediately before L=4^k, E_(L-1)=1 and S_(L-1)=L(1-2^(-k))-(L-1)=1-2^k, which tends to minus infinity. For the repair criterion, S_L=E_(L+1)-L(E_L-E_(L+1))>=delta-V. The construction is abstract and does not identify these lags with the Guinand-Weil form.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "There is a real Toeplitz lag sequence whose normalized all-ones packet energies satisfy E_L>=1/2 for every L and E_L->1, while its symmetric lag partial sums are unbounded below. Explicitly prescribe E_L=1-2^(-k) when L=4^k (k>=1) and E_L=1 otherwise, set S_n=(n+1)E_(n+1)-nE_n, and reconstruct a_0=S_0, a_n=(S_n-S_(n-1))/2. Then at L=4^k, S_(L-1)=1-2^k. Hence positivity and convergence of packet energies alone cannot imply the TICKET-256 lag-partial-sum lower bound. A valid repair is: if delta=inf E_L>0 and V=sup_L L(E_L-E_(L+1))_+<delta, then every S_L>=delta-V>0.",
+        "proof": "TICKET-256 gives E_L=L^(-1)sum_(n<L)S_n, whose exact inversion is S_n=(n+1)E_(n+1)-nE_n. The displayed reconstruction therefore realizes the prescribed E_L. Every spike is at least one half and the spike depth 2^(-k) tends to zero, so E_L tends to one. Immediately before L=4^k, E_(L-1)=1 and S_(L-1)=L(1-2^(-k))-(L-1)=1-2^k, which tends to minus infinity. For the repair criterion, S_L=E_(L+1)-L(E_L-E_(L+1))>=delta-V. The construction is abstract and does not identify these lags with the Guinand-Weil form.",
+        "exact_sparse_spike_rows": [
+          {
+            "spike_level_k": 1,
+            "packet_dimension_L_equals_4_power_k": 4,
+            "packet_energy_E_L": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "preceding_packet_energy_E_L_minus_1": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "symmetric_lag_partial_sum_S_L_minus_1": {
+              "exact": "-1/1",
+              "numerator": -1,
+              "denominator": 1,
+              "display_float": -1.0
+            },
+            "direct_energy_from_reconstructed_lags": {
+              "exact": "1/2",
+              "numerator": 1,
+              "denominator": 2,
+              "display_float": 0.5
+            },
+            "identity_verified": true
+          },
+          {
+            "spike_level_k": 2,
+            "packet_dimension_L_equals_4_power_k": 16,
+            "packet_energy_E_L": {
+              "exact": "3/4",
+              "numerator": 3,
+              "denominator": 4,
+              "display_float": 0.75
+            },
+            "preceding_packet_energy_E_L_minus_1": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "symmetric_lag_partial_sum_S_L_minus_1": {
+              "exact": "-3/1",
+              "numerator": -3,
+              "denominator": 1,
+              "display_float": -3.0
+            },
+            "direct_energy_from_reconstructed_lags": {
+              "exact": "3/4",
+              "numerator": 3,
+              "denominator": 4,
+              "display_float": 0.75
+            },
+            "identity_verified": true
+          },
+          {
+            "spike_level_k": 3,
+            "packet_dimension_L_equals_4_power_k": 64,
+            "packet_energy_E_L": {
+              "exact": "7/8",
+              "numerator": 7,
+              "denominator": 8,
+              "display_float": 0.875
+            },
+            "preceding_packet_energy_E_L_minus_1": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "symmetric_lag_partial_sum_S_L_minus_1": {
+              "exact": "-7/1",
+              "numerator": -7,
+              "denominator": 1,
+              "display_float": -7.0
+            },
+            "direct_energy_from_reconstructed_lags": {
+              "exact": "7/8",
+              "numerator": 7,
+              "denominator": 8,
+              "display_float": 0.875
+            },
+            "identity_verified": true
+          },
+          {
+            "spike_level_k": 4,
+            "packet_dimension_L_equals_4_power_k": 256,
+            "packet_energy_E_L": {
+              "exact": "15/16",
+              "numerator": 15,
+              "denominator": 16,
+              "display_float": 0.9375
+            },
+            "preceding_packet_energy_E_L_minus_1": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "symmetric_lag_partial_sum_S_L_minus_1": {
+              "exact": "-15/1",
+              "numerator": -15,
+              "denominator": 1,
+              "display_float": -15.0
+            },
+            "direct_energy_from_reconstructed_lags": {
+              "exact": "15/16",
+              "numerator": 15,
+              "denominator": 16,
+              "display_float": 0.9375
+            },
+            "identity_verified": true
+          },
+          {
+            "spike_level_k": 5,
+            "packet_dimension_L_equals_4_power_k": 1024,
+            "packet_energy_E_L": {
+              "exact": "31/32",
+              "numerator": 31,
+              "denominator": 32,
+              "display_float": 0.96875
+            },
+            "preceding_packet_energy_E_L_minus_1": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "symmetric_lag_partial_sum_S_L_minus_1": {
+              "exact": "-31/1",
+              "numerator": -31,
+              "denominator": 1,
+              "display_float": -31.0
+            },
+            "direct_energy_from_reconstructed_lags": {
+              "exact": "31/32",
+              "numerator": 31,
+              "denominator": 32,
+              "display_float": 0.96875
+            },
+            "identity_verified": true
+          },
+          {
+            "spike_level_k": 6,
+            "packet_dimension_L_equals_4_power_k": 4096,
+            "packet_energy_E_L": {
+              "exact": "63/64",
+              "numerator": 63,
+              "denominator": 64,
+              "display_float": 0.984375
+            },
+            "preceding_packet_energy_E_L_minus_1": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "symmetric_lag_partial_sum_S_L_minus_1": {
+              "exact": "-63/1",
+              "numerator": -63,
+              "denominator": 1,
+              "display_float": -63.0
+            },
+            "direct_energy_from_reconstructed_lags": {
+              "exact": "63/64",
+              "numerator": 63,
+              "denominator": 64,
+              "display_float": 0.984375
+            },
+            "identity_verified": true
+          },
+          {
+            "spike_level_k": 7,
+            "packet_dimension_L_equals_4_power_k": 16384,
+            "packet_energy_E_L": {
+              "exact": "127/128",
+              "numerator": 127,
+              "denominator": 128,
+              "display_float": 0.9921875
+            },
+            "preceding_packet_energy_E_L_minus_1": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "symmetric_lag_partial_sum_S_L_minus_1": {
+              "exact": "-127/1",
+              "numerator": -127,
+              "denominator": 1,
+              "display_float": -127.0
+            },
+            "direct_energy_from_reconstructed_lags": {
+              "exact": "127/128",
+              "numerator": 127,
+              "denominator": 128,
+              "display_float": 0.9921875
+            },
+            "identity_verified": true
+          },
+          {
+            "spike_level_k": 8,
+            "packet_dimension_L_equals_4_power_k": 65536,
+            "packet_energy_E_L": {
+              "exact": "255/256",
+              "numerator": 255,
+              "denominator": 256,
+              "display_float": 0.99609375
+            },
+            "preceding_packet_energy_E_L_minus_1": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "symmetric_lag_partial_sum_S_L_minus_1": {
+              "exact": "-255/1",
+              "numerator": -255,
+              "denominator": 1,
+              "display_float": -255.0
+            },
+            "direct_energy_from_reconstructed_lags": {
+              "exact": "255/256",
+              "numerator": 255,
+              "denominator": 256,
+              "display_float": 0.99609375
+            },
+            "identity_verified": true
+          }
+        ],
+        "algorithm": "exact Fraction inversion from prescribed packet energies to lag partial sums and coefficients",
+        "complexity": "O(sum 4^k) exact rational operations for direct replay; the counterexample and repair criterion are algebraic for all L",
+        "random_seed": null,
+        "transcript_sha256": "2654791b7d15314396158a2a60a103f76cb57f74a2ee477bf32d47213a767f56",
+        "aggregate": {
+          "packet_energy_uniform_lower_bound": {
+            "exact": "1/2",
+            "numerator": 1,
+            "denominator": 2,
+            "display_float": 0.5
+          },
+          "packet_energy_limit": {
+            "exact": "1/1",
+            "numerator": 1,
+            "denominator": 1,
+            "display_float": 1.0
+          },
+          "lag_partial_sums_unbounded_below_proved": true,
+          "positivity_and_convergence_only_route_refuted": true,
+          "scaled_downward_variation_repair_proved": true,
+          "actual_weil_packet_analyzed": false,
+          "riemann_hypothesis_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "8 exact spike rows replay the all-L construction; no actual Weil coefficient is computed.",
+      "logical_limit": "The abstract implication is false. The repaired criterion is exact, but neither its positive margin nor its scaled-variation bound is proved for actual Guinand-Weil packets.",
+      "route_decision": {
+        "discard": "deriving a uniform lag-partial-sum lower bound from strict positivity and convergence of packet energies alone",
+        "parked": [
+          "direct arithmetic control of scaled downward variation for actual Weil packets"
+        ],
+        "retain": "the exact sparse-spike counterexample and the scaled-downward-variation repair criterion",
+        "next_single_lemma": "ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "RH-T256",
+            "label": "ToeplitzPacketCesaroLagPartialSumCriterion",
+            "status": "proved"
+          },
+          {
+            "id": "RH-T257",
+            "label": "PositiveConvergentPacketEnergyLagPartialSumNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "RH-CERT257",
+            "label": "PositiveConvergentPacketEnergyLagPartialSumNoGoExactReplay",
+            "status": "computed_finite"
+          },
+          {
+            "id": "RH-REJECT257",
+            "label": "PositiveConvergentPacketEnergiesForceUniformLagPartialSumLowerBound",
+            "status": "disproved"
+          },
+          {
+            "id": "RH-OPEN257",
+            "label": "ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "RH-T256",
+            "RH-T257"
+          ],
+          [
+            "RH-T257",
+            "RH-CERT257"
+          ],
+          [
+            "RH-T257",
+            "RH-REJECT257"
+          ],
+          [
+            "RH-T257",
+            "RH-OPEN257"
+          ]
+        ],
+        "resolution_path": [
+          "RH-T256",
+          "RH-T257",
+          "RH-OPEN257"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No RH proof or disproof; a tempting analytic shortcut is refuted and replaced by one quantitative actual-Weil target."
+    },
+    "collatz": {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-257",
+      "theorem_name": "DistinctPrimeCyclotomicPhaseExactCancellationNoGo",
+      "declared_proposition": "Let q_1,...,q_N be distinct odd primes, let zeta_q be a primitive qth root of unity, and let d_j be any residue modulo q_j. Then sum_(j=1)^N zeta_(q_j)^(d_j) is never zero. In particular no finite prefix of the renormalized canonical Collatz phases exp(2 pi i D_q/q), D_q=5F_q(2)-3F_q(3), can cancel exactly. This rules out exact finite pairing or grouping, but does not rule out sublinear asymptotic magnitude.",
+      "mathematical_argument": "If every d_j is zero, the sum is N. Otherwise select j with d_j nonzero and put m=product_(i!=j)q_i and F=Q(zeta_m). Coprimality gives Q(zeta_m,zeta_(q_j))=Q(zeta_(m q_j)); Euler-phi multiplicativity shows its degree is [F:Q](q_j-1), hence F intersect Q(zeta_(q_j))=Q. A zero relation would place the primitive root zeta_(q_j)^(d_j) in F. Since d_j is invertible modulo q_j, this would place zeta_(q_j) in F, contradicting the trivial intersection. No estimate on how close the nonzero sum can be to zero follows.",
+      "result_classification": "exact_no_go",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let q_1,...,q_N be distinct odd primes, let zeta_q be a primitive qth root of unity, and let d_j be any residue modulo q_j. Then sum_(j=1)^N zeta_(q_j)^(d_j) is never zero. In particular no finite prefix of the renormalized canonical Collatz phases exp(2 pi i D_q/q), D_q=5F_q(2)-3F_q(3), can cancel exactly. This rules out exact finite pairing or grouping, but does not rule out sublinear asymptotic magnitude.",
+        "proof": "If every d_j is zero, the sum is N. Otherwise select j with d_j nonzero and put m=product_(i!=j)q_i and F=Q(zeta_m). Coprimality gives Q(zeta_m,zeta_(q_j))=Q(zeta_(m q_j)); Euler-phi multiplicativity shows its degree is [F:Q](q_j-1), hence F intersect Q(zeta_(q_j))=Q. A zero relation would place the primitive root zeta_(q_j)^(d_j) in F. Since d_j is invertible modulo q_j, this would place zeta_(q_j) in F, contradicting the trivial intersection. No estimate on how close the nonzero sum can be to zero follows.",
+        "exact_canonical_phase_prefix_rows": [
+          {
+            "prefix_length": 1,
+            "prime_q": 7,
+            "fermat_quotient_F_q_2": 2,
+            "fermat_quotient_F_q_3": 6,
+            "canonical_phase_exponent_D_q": 6,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 7,
+            "cyclotomic_compositum_degree": 6,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 2,
+            "prime_q": 11,
+            "fermat_quotient_F_q_2": 5,
+            "fermat_quotient_F_q_3": 0,
+            "canonical_phase_exponent_D_q": 3,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 77,
+            "cyclotomic_compositum_degree": 60,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 3,
+            "prime_q": 13,
+            "fermat_quotient_F_q_2": 3,
+            "fermat_quotient_F_q_3": 8,
+            "canonical_phase_exponent_D_q": 4,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 1001,
+            "cyclotomic_compositum_degree": 720,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 4,
+            "prime_q": 17,
+            "fermat_quotient_F_q_2": 13,
+            "fermat_quotient_F_q_3": 10,
+            "canonical_phase_exponent_D_q": 1,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 17017,
+            "cyclotomic_compositum_degree": 11520,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 5,
+            "prime_q": 19,
+            "fermat_quotient_F_q_2": 3,
+            "fermat_quotient_F_q_3": 18,
+            "canonical_phase_exponent_D_q": 18,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 323323,
+            "cyclotomic_compositum_degree": 207360,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 6,
+            "prime_q": 23,
+            "fermat_quotient_F_q_2": 17,
+            "fermat_quotient_F_q_3": 17,
+            "canonical_phase_exponent_D_q": 11,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 7436429,
+            "cyclotomic_compositum_degree": 4561920,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 7,
+            "prime_q": 29,
+            "fermat_quotient_F_q_2": 1,
+            "fermat_quotient_F_q_3": 15,
+            "canonical_phase_exponent_D_q": 18,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 215656441,
+            "cyclotomic_compositum_degree": 127733760,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 8,
+            "prime_q": 31,
+            "fermat_quotient_F_q_2": 6,
+            "fermat_quotient_F_q_3": 17,
+            "canonical_phase_exponent_D_q": 10,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 6685349671,
+            "cyclotomic_compositum_degree": 3832012800,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 9,
+            "prime_q": 37,
+            "fermat_quotient_F_q_2": 1,
+            "fermat_quotient_F_q_3": 18,
+            "canonical_phase_exponent_D_q": 25,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 247357937827,
+            "cyclotomic_compositum_degree": 137952460800,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 10,
+            "prime_q": 41,
+            "fermat_quotient_F_q_2": 23,
+            "fermat_quotient_F_q_3": 21,
+            "canonical_phase_exponent_D_q": 11,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 10141675450907,
+            "cyclotomic_compositum_degree": 5518098432000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 11,
+            "prime_q": 43,
+            "fermat_quotient_F_q_2": 25,
+            "fermat_quotient_F_q_3": 2,
+            "canonical_phase_exponent_D_q": 33,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 436092044389001,
+            "cyclotomic_compositum_degree": 231760134144000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 12,
+            "prime_q": 47,
+            "fermat_quotient_F_q_2": 44,
+            "fermat_quotient_F_q_3": 11,
+            "canonical_phase_exponent_D_q": 46,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 20496326086283047,
+            "cyclotomic_compositum_degree": 10660966170624000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 13,
+            "prime_q": 53,
+            "fermat_quotient_F_q_2": 36,
+            "fermat_quotient_F_q_3": 23,
+            "canonical_phase_exponent_D_q": 5,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 1086305282573001491,
+            "cyclotomic_compositum_degree": 554370240872448000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 14,
+            "prime_q": 59,
+            "fermat_quotient_F_q_2": 8,
+            "fermat_quotient_F_q_3": 41,
+            "canonical_phase_exponent_D_q": 35,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 64092011671807087969,
+            "cyclotomic_compositum_degree": 32153473970601984000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 15,
+            "prime_q": 61,
+            "fermat_quotient_F_q_2": 36,
+            "fermat_quotient_F_q_3": 13,
+            "canonical_phase_exponent_D_q": 19,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 3909612711980232366109,
+            "cyclotomic_compositum_degree": 1929208438236119040000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 16,
+            "prime_q": 67,
+            "fermat_quotient_F_q_2": 10,
+            "fermat_quotient_F_q_3": 15,
+            "canonical_phase_exponent_D_q": 5,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 261944051702675568529303,
+            "cyclotomic_compositum_degree": 127327756923583856640000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 17,
+            "prime_q": 71,
+            "fermat_quotient_F_q_2": 2,
+            "fermat_quotient_F_q_3": 32,
+            "canonical_phase_exponent_D_q": 56,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 18598027670889965365580513,
+            "cyclotomic_compositum_degree": 8912942984650869964800000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 18,
+            "prime_q": 73,
+            "fermat_quotient_F_q_2": 56,
+            "fermat_quotient_F_q_3": 26,
+            "canonical_phase_exponent_D_q": 56,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 1357656019974967471687377449,
+            "cyclotomic_compositum_degree": 641731894894862637465600000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 19,
+            "prime_q": 79,
+            "fermat_quotient_F_q_2": 19,
+            "fermat_quotient_F_q_3": 54,
+            "canonical_phase_exponent_D_q": 12,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 107254825578022430263302818471,
+            "cyclotomic_compositum_degree": 50055087801799285722316800000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 20,
+            "prime_q": 83,
+            "fermat_quotient_F_q_2": 48,
+            "fermat_quotient_F_q_3": 64,
+            "canonical_phase_exponent_D_q": 48,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 8902150522975861711854133933093,
+            "cyclotomic_compositum_degree": 4104517199747541429229977600000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 21,
+            "prime_q": 89,
+            "fermat_quotient_F_q_2": 6,
+            "fermat_quotient_F_q_3": 24,
+            "canonical_phase_exponent_D_q": 47,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 792291396544851692355017920045277,
+            "cyclotomic_compositum_degree": 361197513577783645772238028800000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          },
+          {
+            "prefix_length": 22,
+            "prime_q": 97,
+            "fermat_quotient_F_q_2": 57,
+            "fermat_quotient_F_q_3": 7,
+            "canonical_phase_exponent_D_q": 70,
+            "phase_is_primitive_qth_root": true,
+            "coprime_conductor_product": 76852265464850614158436738244391869,
+            "cyclotomic_compositum_degree": 34674961303467229994134850764800000,
+            "finite_prefix_exact_zero_impossible": true,
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact modular Fermat quotients plus coprime cyclotomic conductor and degree products; roots are stored only by exponents",
+        "complexity": "O(sum log q) modular exponentiation for replay; the all-prefix no-go is a cyclotomic degree argument",
+        "random_seed": null,
+        "transcript_sha256": "627c0da86ba9bd0f734d01ace2f1fb18df1778244c975655a877f52ca7ecf9a5",
+        "aggregate": {
+          "prime_count": 22,
+          "nonzero_canonical_phase_exponent_count": 22,
+          "every_finite_distinct_prime_phase_sum_nonzero_proved": true,
+          "exact_finite_pairing_or_grouping_route_refuted": true,
+          "sublinear_phase_sum_bound_proved": false,
+          "collatz_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "22 canonical exponents are replayed; the no-go itself holds for every finite family of distinct odd primes.",
+      "logical_limit": "Every finite prefix is nonzero, but no upper bound smaller than its length is proved; the canonical phase sum may still cancel asymptotically or fail to do so.",
+      "route_decision": {
+        "discard": "seeking exact zero by pairing or grouping one canonical phase from each distinct prime modulus in a finite prefix",
+        "parked": [
+          "quantitative sublinear cancellation of canonical fixed-base Fermat-quotient phases"
+        ],
+        "retain": "the cyclotomic linear-disjointness obstruction separating exact zero from asymptotic cancellation",
+        "next_single_lemma": "CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "CO-T256",
+            "label": "SharpIncompleteKernelErrorAndDecayOnlyPrimeAverage",
+            "status": "proved"
+          },
+          {
+            "id": "CO-T257",
+            "label": "DistinctPrimeCyclotomicPhaseExactCancellationNoGo",
+            "status": "proved"
+          },
+          {
+            "id": "CO-CERT257",
+            "label": "DistinctPrimeCyclotomicPhaseExactCancellationNoGoExactReplay",
+            "status": "computed_finite"
+          },
+          {
+            "id": "CO-REJECT257",
+            "label": "FiniteDistinctPrimeCanonicalPhasePrefixCanVanishExactly",
+            "status": "disproved"
+          },
+          {
+            "id": "CO-OPEN257",
+            "label": "CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "CO-T256",
+            "CO-T257"
+          ],
+          [
+            "CO-T257",
+            "CO-CERT257"
+          ],
+          [
+            "CO-T257",
+            "CO-REJECT257"
+          ],
+          [
+            "CO-T257",
+            "CO-OPEN257"
+          ]
+        ],
+        "resolution_path": [
+          "CO-T256",
+          "CO-T257",
+          "CO-OPEN257"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No Collatz proof or counterexample; exact finite cancellation is impossible, while the required quantitative cross-prime estimate remains open."
+    },
+    "goldbach": {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-257",
+      "theorem_name": "QuadraticCharacterReflectionObstructionAndNextPrefixExclusion",
+      "declared_proposition": "Let q>=5 be prime and let N_r be the residue counts of the first T primes, where q itself occurs exactly once, so N_0=1. If N_r=N_(-r) for all nonzero r, then the Legendre-symbol product over the nonzero prefix primes equals chi_q(-1)^((T-1)/2). A mismatch is therefore an exact reflection-asymmetry certificate. More generally, reflection symmetry is equivalent to vanishing of every odd multiplicative-character moment sum_r N_r chi(r), chi(-1)=-1. For the next q-divisible compatible candidate (q,m)=(11,22), T=7,759,741, the actual quadratic product is -1 modulo 11 while symmetry requires +1, so that prefix is excluded.",
+      "mathematical_argument": "Under reflection symmetry, pair residues r and -r. Their product contribution is (-r^2)^(N_r), whose Legendre symbol is chi_q(-1)^(N_r). Since T-1=2 sum_pairs N_r, multiplying gives the stated necessary value. For the full character criterion, odd characters annihilate every symmetric pair. Conversely the antisymmetric function A(r)=N_r-N_(-r) lies in the odd subspace of the multiplicative group; if every odd Fourier coefficient vanishes, character inversion gives A=0. The segmented sieve exactly counts the first T primes. At q=11 the computed product 10 differs from the required value 1. The q=5 and q=7 rows show the quadratic product can match even when the full vector is asymmetric, so this one-bit test is sufficient but not necessary.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let q>=5 be prime and let N_r be the residue counts of the first T primes, where q itself occurs exactly once, so N_0=1. If N_r=N_(-r) for all nonzero r, then the Legendre-symbol product over the nonzero prefix primes equals chi_q(-1)^((T-1)/2). A mismatch is therefore an exact reflection-asymmetry certificate. More generally, reflection symmetry is equivalent to vanishing of every odd multiplicative-character moment sum_r N_r chi(r), chi(-1)=-1. For the next q-divisible compatible candidate (q,m)=(11,22), T=7,759,741, the actual quadratic product is -1 modulo 11 while symmetry requires +1, so that prefix is excluded.",
+        "proof": "Under reflection symmetry, pair residues r and -r. Their product contribution is (-r^2)^(N_r), whose Legendre symbol is chi_q(-1)^(N_r). Since T-1=2 sum_pairs N_r, multiplying gives the stated necessary value. For the full character criterion, odd characters annihilate every symmetric pair. Conversely the antisymmetric function A(r)=N_r-N_(-r) lies in the odd subspace of the multiplicative group; if every odd Fourier coefficient vanishes, character inversion gives A=0. The segmented sieve exactly counts the first T primes. At q=11 the computed product 10 differs from the required value 1. The q=5 and q=7 rows show the quadratic product can match even when the full vector is asymmetric, so this one-bit test is sufficient but not necessary.",
+        "exact_reflection_character_certificate_rows": [
+          {
+            "prime_q": 5,
+            "exponent_m": 10,
+            "coefficients": [
+              -250,
+              200,
+              -75,
+              -75,
+              200
+            ],
+            "shift_t": 251,
+            "prime_prefix_length_T": 1255,
+            "compatible": true,
+            "forced_counts": [
+              1,
+              451,
+              176,
+              176,
+              451
+            ],
+            "last_prime_in_prefix": 10243,
+            "actual_prime_residue_counts": [
+              1,
+              313,
+              313,
+              317,
+              311
+            ],
+            "actual_reflection_differences": [
+              0,
+              2,
+              -4,
+              4,
+              -2
+            ],
+            "actual_quadratic_character_product_mod_q": 1,
+            "reflection_symmetric_expected_product_mod_q": 1,
+            "product_recomputed_independently_from_counts": 1,
+            "quadratic_character_mismatch": false,
+            "quadratic_character_certificate_excludes_prefix": false,
+            "actual_vector_is_reflection_asymmetric": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 7,
+            "exponent_m": 14,
+            "coefficients": [
+              -3430,
+              2989,
+              -1911,
+              637,
+              637,
+              -1911,
+              2989
+            ],
+            "shift_t": 3431,
+            "prime_prefix_length_T": 24017,
+            "compatible": true,
+            "forced_counts": [
+              1,
+              6420,
+              1520,
+              4068,
+              4068,
+              1520,
+              6420
+            ],
+            "last_prime_in_prefix": 274783,
+            "actual_prime_residue_counts": [
+              1,
+              3993,
+              3991,
+              4003,
+              3998,
+              4016,
+              4015
+            ],
+            "actual_reflection_differences": [
+              0,
+              -22,
+              -25,
+              5,
+              -5,
+              25,
+              22
+            ],
+            "actual_quadratic_character_product_mod_q": 1,
+            "reflection_symmetric_expected_product_mod_q": 1,
+            "product_recomputed_independently_from_counts": 1,
+            "quadratic_character_mismatch": false,
+            "quadratic_character_certificate_excludes_prefix": false,
+            "actual_vector_is_reflection_asymmetric": true,
+            "certificate_verified": true
+          },
+          {
+            "prime_q": 11,
+            "exponent_m": 22,
+            "coefficients": [
+              -705430,
+              646624,
+              -497189,
+              318230,
+              -163229,
+              48279,
+              48279,
+              -163229,
+              318230,
+              -497189,
+              646624
+            ],
+            "shift_t": 705431,
+            "prime_prefix_length_T": 7759741,
+            "compatible": true,
+            "forced_counts": [
+              1,
+              1352055,
+              208242,
+              1023661,
+              542202,
+              753710,
+              753710,
+              542202,
+              1023661,
+              208242,
+              1352055
+            ],
+            "last_prime_in_prefix": 137141243,
+            "actual_prime_residue_counts": [
+              1,
+              776123,
+              776078,
+              775943,
+              775798,
+              775646,
+              776178,
+              776150,
+              775928,
+              775841,
+              776055
+            ],
+            "actual_reflection_differences": [
+              0,
+              68,
+              237,
+              15,
+              -352,
+              -532,
+              532,
+              352,
+              -15,
+              -237,
+              -68
+            ],
+            "actual_quadratic_character_product_mod_q": 10,
+            "reflection_symmetric_expected_product_mod_q": 1,
+            "product_recomputed_independently_from_counts": 10,
+            "quadratic_character_mismatch": true,
+            "quadratic_character_certificate_excludes_prefix": true,
+            "actual_vector_is_reflection_asymmetric": true,
+            "certificate_verified": true
+          }
+        ],
+        "algorithm": "exact odd-only segmented sieve, integer residue counts, Euler-criterion products, and an independent product replay from counts",
+        "complexity": "O(p_T log log p_T) sieve time and O(sqrt(p_T)+segment+q) memory; no list of all T primes is stored",
+        "random_seed": null,
+        "input_sieve_limit": 150000000,
+        "segment_odd_count": 1048576,
+        "transcript_sha256": "b294b8571a28f6988cdb0fd7d0353f683eb02d8aeae4b42b031ab4801f4b022f",
+        "aggregate": {
+          "character_row_count": 3,
+          "maximum_prime_prefix_length": 7759741,
+          "maximum_last_prime": 137141243,
+          "quadratic_character_exclusion_count": 1,
+          "new_q11_m22_prefix_excluded": true,
+          "quadratic_character_is_complete_asymmetry_detector": false,
+          "all_odd_character_moments_characterize_symmetry_proved": true,
+          "all_compatible_even_q_divisible_prefixes_excluded": false,
+          "strong_goldbach_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "3 prefixes are sieved, with maximum T=7759741; larger compatible exponents are not computed.",
+      "logical_limit": "The q=11,m=22 prefix is excluded and odd character moments exactly characterize asymmetry, but no arithmetic theorem forces a nonzero odd moment for every compatible even exponent.",
+      "route_decision": {
+        "discard": "using the quadratic-character product obstruction as a complete detector of prime-prefix reflection asymmetry",
+        "parked": [
+          "uniform nonvanishing of an odd multiplicative-character moment for every compatible even q-divisible prime prefix"
+        ],
+        "retain": "the one-bit Legendre-product obstruction, the full odd-character equivalence, and the new q=11 prefix certificate",
+        "next_single_lemma": "EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "GB-T256",
+            "label": "QDivisibleReflectionAsymmetryPrimePrefixExclusion",
+            "status": "proved"
+          },
+          {
+            "id": "GB-T257",
+            "label": "QuadraticCharacterReflectionObstructionAndNextPrefixExclusion",
+            "status": "proved"
+          },
+          {
+            "id": "GB-CERT257",
+            "label": "QuadraticCharacterReflectionObstructionAndNextPrefixExclusionExactReplay",
+            "status": "computed_finite"
+          },
+          {
+            "id": "GB-REJECT257",
+            "label": "QuadraticCharacterProductDetectsEveryReflectionAsymmetricPrimePrefix",
+            "status": "disproved"
+          },
+          {
+            "id": "GB-OPEN257",
+            "label": "EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "GB-T256",
+            "GB-T257"
+          ],
+          [
+            "GB-T257",
+            "GB-CERT257"
+          ],
+          [
+            "GB-T257",
+            "GB-REJECT257"
+          ],
+          [
+            "GB-T257",
+            "GB-OPEN257"
+          ]
+        ],
+        "resolution_path": [
+          "GB-T256",
+          "GB-T257",
+          "GB-OPEN257"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No strong Goldbach proof or counterexample; the next untested q-divisible prefix is exactly excluded and the universal gap is recast spectrally."
+    },
+    "twin_prime": {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-257",
+      "theorem_name": "UniqueRealRootNeighborReductionAndBoundedExclusion",
+      "declared_proposition": "Let B_1(u,v) be the sqrt(2)-coefficient of (1+sqrt(2))(u+v sqrt(2))^17 and put P(x)=B_1(x,1). Then P is strictly increasing on R and has one irrational root rho in (-1,0). Every integral solution B_1(u,v)=1 is either (u,v)=(1,0), or, for v>0, u=ceil(rho v), or, for v<0, u=-floor(rho |v|). Every nonzero-v solution is primitive and satisfies v divides u^17-1 and u divides 256v^17-1. The exact root bracket -0.073255<rho<-0.07325499 reduces all 0<|v|<=200000 to 400399 integer evaluations; none equals one.",
+      "mathematical_argument": "Writing epsilon=1+sqrt(2) gives P(x)=[epsilon(x+sqrt(2))^17+epsilon^(-1)(x-sqrt(2))^17]/(2sqrt(2)). Its derivative is 17 times a sum of two positive even powers, so P is strictly increasing. Exact evaluation gives P(-1)=-470832 and P(0)=256. The root is irrational because P is monic integral and has no integer root in (-1,0). For fixed v>0, B_1(u,v)=v^17P(u/v) is a strictly increasing integer sequence. Its first positive value occurs at ceil(rho v); all later values are at least two. The negative-v case follows from B_1(u,-w)=-B_1(-u,w). Homogeneity gives gcd(u,v)=1, while reduction modulo v and u gives B_1 congruent to u^17 mod v and to 256v^17 mod u. The rational bracket signs are checked after clearing the denominator; its width times 200000 is below one, leaving at most two exact neighbor candidates per sign. The bounded scan is not an all-denominator proof.",
+      "result_classification": "partial_theorem",
+      "problem_status": "open_not_proven",
+      "reproducible_computation": {
+        "theorem": "Let B_1(u,v) be the sqrt(2)-coefficient of (1+sqrt(2))(u+v sqrt(2))^17 and put P(x)=B_1(x,1). Then P is strictly increasing on R and has one irrational root rho in (-1,0). Every integral solution B_1(u,v)=1 is either (u,v)=(1,0), or, for v>0, u=ceil(rho v), or, for v<0, u=-floor(rho |v|). Every nonzero-v solution is primitive and satisfies v divides u^17-1 and u divides 256v^17-1. The exact root bracket -0.073255<rho<-0.07325499 reduces all 0<|v|<=200000 to 400399 integer evaluations; none equals one.",
+        "proof": "Writing epsilon=1+sqrt(2) gives P(x)=[epsilon(x+sqrt(2))^17+epsilon^(-1)(x-sqrt(2))^17]/(2sqrt(2)). Its derivative is 17 times a sum of two positive even powers, so P is strictly increasing. Exact evaluation gives P(-1)=-470832 and P(0)=256. The root is irrational because P is monic integral and has no integer root in (-1,0). For fixed v>0, B_1(u,v)=v^17P(u/v) is a strictly increasing integer sequence. Its first positive value occurs at ceil(rho v); all later values are at least two. The negative-v case follows from B_1(u,-w)=-B_1(-u,w). Homogeneity gives gcd(u,v)=1, while reduction modulo v and u gives B_1 congruent to u^17 mod v and to 256v^17 mod u. The rational bracket signs are checked after clearing the denominator; its width times 200000 is below one, leaving at most two exact neighbor candidates per sign. The bounded scan is not an all-denominator proof.",
+        "exact_root_bracket": {
+          "lower": {
+            "exact": "-14651/200000",
+            "numerator": -14651,
+            "denominator": 200000,
+            "display_float": -0.073255
+          },
+          "upper": {
+            "exact": "-7325499/100000000",
+            "numerator": -7325499,
+            "denominator": 100000000,
+            "display_float": -0.07325499
+          },
+          "cleared_lower_form_value": -216038270040230240162664713964207707308626593126534903076126858647894249910012783119590759277343750000000000000000000000000000000000,
+          "cleared_upper_form_value": 85555643279794874485407222423612626520252773956627710197611980315910466252267812047993455017660062178966806178896926969977809466501,
+          "bracket_verified": true
+        },
+        "exact_candidate_sample_rows": [
+          {
+            "absolute_denominator_v": 1,
+            "positive_v_candidate_values": [
+              {
+                "u": 0,
+                "B_1": 256
+              }
+            ],
+            "negative_v_reflected_candidate_values": [
+              {
+                "x_equals_minus_u": -1,
+                "B_1_x_positive_v": -470832
+              }
+            ]
+          },
+          {
+            "absolute_denominator_v": 2,
+            "positive_v_candidate_values": [
+              {
+                "u": 0,
+                "B_1": 33554432
+              }
+            ],
+            "negative_v_reflected_candidate_values": [
+              {
+                "x_equals_minus_u": -1,
+                "B_1_x_positive_v": -1194034847
+              }
+            ]
+          },
+          {
+            "absolute_denominator_v": 10,
+            "positive_v_candidate_values": [
+              {
+                "u": 0,
+                "B_1": 25600000000000000000
+              }
+            ],
+            "negative_v_reflected_candidate_values": [
+              {
+                "x_equals_minus_u": -1,
+                "B_1_x_positive_v": -8055100636786667031
+              }
+            ]
+          },
+          {
+            "absolute_denominator_v": 100,
+            "positive_v_candidate_values": [
+              {
+                "u": -7,
+                "B_1": 98377487338068787267015175049374493
+              }
+            ],
+            "negative_v_reflected_candidate_values": [
+              {
+                "x_equals_minus_u": -8,
+                "B_1_x_positive_v": -202806024284242154898243975588610048
+              }
+            ]
+          },
+          {
+            "absolute_denominator_v": 1000,
+            "positive_v_candidate_values": [
+              {
+                "u": -73,
+                "B_1": 769159122658390029951054442287787287730212116614047
+              }
+            ],
+            "negative_v_reflected_candidate_values": [
+              {
+                "x_equals_minus_u": -74,
+                "B_1_x_positive_v": -2245937889543941434345260808911948475740598883713024
+              }
+            ]
+          },
+          {
+            "absolute_denominator_v": 10000,
+            "positive_v_candidate_values": [
+              {
+                "u": -732,
+                "B_1": 16586041864457709719344121507714950022118123030144098471543956307968
+              }
+            ],
+            "negative_v_reflected_candidate_values": [
+              {
+                "x_equals_minus_u": -733,
+                "B_1_x_positive_v": -13573528085946525750055231020821552622715115828027234690579800098573
+              }
+            ]
+          },
+          {
+            "absolute_denominator_v": 100000,
+            "positive_v_candidate_values": [
+              {
+                "u": -7325,
+                "B_1": 150581360633930667688738805125776962584192953522549677296836744062602519989013671875
+              }
+            ],
+            "negative_v_reflected_candidate_values": [
+              {
+                "x_equals_minus_u": -7326,
+                "B_1_x_positive_v": -151012551066709047751408777119790961510630335035863573795995663011018709878961995776
+              }
+            ]
+          },
+          {
+            "absolute_denominator_v": 200000,
+            "positive_v_candidate_values": [
+              {
+                "u": -14651,
+                "B_1": -28316568130713058038600789388716632612356304814281182815994099616696795124205195509051
+              },
+              {
+                "u": -14650,
+                "B_1": 19737000101010560475298372665445838039835338804107631302650985717773437500000000000000000
+              }
+            ],
+            "negative_v_reflected_candidate_values": [
+              {
+                "x_equals_minus_u": -14651,
+                "B_1_x_positive_v": -28316568130713058038600789388716632612356304814281182815994099616696795124205195509051
+              }
+            ]
+          }
+        ],
+        "finite_denominator_audit": {
+          "absolute_v_limit": 200000,
+          "candidate_evaluation_count": 400399,
+          "maximum_candidate_span_per_sign": 2,
+          "nonzero_v_coefficient_one_hits": [],
+          "v_zero_integral_solutions": [
+            {
+              "u": 1,
+              "v": 0,
+              "reduced_y": -1
+            }
+          ],
+          "admissible_negative_norm_hit_count": 0
+        },
+        "algorithm": "exact rational root bracketing followed by candidate-complete integer evaluation of at most two root neighbors per sign and denominator",
+        "complexity": "O(V) degree-17 integer evaluations after one exact root bracket, replacing an O(V^2) box scan",
+        "random_seed": null,
+        "transcript_sha256": "70e6d98d1a8476ac6ea9db6eb2bc27895a7a84622e256f3cdd12d8881f92e5b1",
+        "aggregate": {
+          "strict_monotonicity_and_unique_real_root_proved": true,
+          "all_integral_solutions_reduce_to_unique_root_neighbors_proved": true,
+          "primitive_double_divisibility_conditions_proved": true,
+          "bounded_nonzero_v_solution_count": 0,
+          "single_absolute_branch_globally_solved": false,
+          "exponent_seventeen_excluded": false,
+          "twin_prime_conjecture_resolved": false
+        },
+        "failure_count": 0
+      },
+      "finite_computation_boundary": "400399 exact root-neighbor evaluations cover 0<|v|<=200000; absence there is not an infinite exclusion.",
+      "logical_limit": "The search dimension is reduced and |v|<=200000 is excluded, but no argument handles every denominator, so exponent 17 and twin primes remain open.",
+      "route_decision": {
+        "discard": "treating the surviving coefficient-one branch as a two-dimensional integer box search",
+        "parked": [
+          "all-denominator exclusion of the unique-root neighbor sequence"
+        ],
+        "retain": "the exact one-dimensional root-neighbor reduction, primitive divisibility conditions, and bounded certificate",
+        "next_single_lemma": "EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne"
+      },
+      "stagnation_count": 0,
+      "proof_dag": {
+        "nodes": [
+          {
+            "id": "TP-T256",
+            "label": "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReduction",
+            "status": "proved"
+          },
+          {
+            "id": "TP-T257",
+            "label": "UniqueRealRootNeighborReductionAndBoundedExclusion",
+            "status": "proved"
+          },
+          {
+            "id": "TP-CERT257",
+            "label": "UniqueRealRootNeighborReductionAndBoundedExclusionExactReplay",
+            "status": "computed_finite"
+          },
+          {
+            "id": "TP-REJECT257",
+            "label": "TwoDimensionalBoxSearchIsNecessaryForTheSurvivingCoefficientOneBranch",
+            "status": "disproved"
+          },
+          {
+            "id": "TP-OPEN257",
+            "label": "EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne",
+            "status": "open"
+          }
+        ],
+        "edges": [
+          [
+            "TP-T256",
+            "TP-T257"
+          ],
+          [
+            "TP-T257",
+            "TP-CERT257"
+          ],
+          [
+            "TP-T257",
+            "TP-REJECT257"
+          ],
+          [
+            "TP-T257",
+            "TP-OPEN257"
+          ]
+        ],
+        "resolution_path": [
+          "TP-T256",
+          "TP-T257",
+          "TP-OPEN257"
+        ],
+        "acyclic": true
+      },
+      "claim_boundary": "No twin-prime proof or counterexample; the last Thue branch is reduced to one exact candidate sequence and a much larger finite range is excluded."
+    },
+    "machine_audit": {
+      "exact_theorem_count": 4,
+      "new_partial_theorem_count": 2,
+      "exact_no_go_count": 2,
+      "candidate_resolution_count": 0,
+      "conjecture_resolution_count": 0,
+      "proof_dag_count": 4,
+      "next_single_lemma_count": 4,
+      "deep_focus_problem": "goldbach",
+      "stagnated_problem_count": 0,
+      "riemann_spike_case_count": 8,
+      "collatz_prime_case_count": 22,
+      "goldbach_character_row_count": 3,
+      "goldbach_maximum_prime_prefix_length": 7759741,
+      "goldbach_new_q11_certificate_count": 1,
+      "twin_root_neighbor_candidate_count": 400399,
+      "twin_denominator_limit": 200000,
+      "total_failure_count": 0
+    }
+  },
+  "attempts": [
+    {
+      "problem_id": "riemann",
+      "ticket_id": "RH-TICKET-257",
+      "declared_proposition": "There is a real Toeplitz lag sequence whose normalized all-ones packet energies satisfy E_L>=1/2 for every L and E_L->1, while its symmetric lag partial sums are unbounded below. Explicitly prescribe E_L=1-2^(-k) when L=4^k (k>=1) and E_L=1 otherwise, set S_n=(n+1)E_(n+1)-nE_n, and reconstruct a_0=S_0, a_n=(S_n-S_(n-1))/2. Then at L=4^k, S_(L-1)=1-2^k. Hence positivity and convergence of packet energies alone cannot imply the TICKET-256 lag-partial-sum lower bound. A valid repair is: if delta=inf E_L>0 and V=sup_L L(E_L-E_(L+1))_+<delta, then every S_L>=delta-V>0.",
+      "new_result": "PositiveConvergentPacketEnergyLagPartialSumNoGo",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/spike_cyclotomic_character_root_audit/riemann",
+        "failure_count": 0
+      },
+      "discarded_route": "deriving a uniform lag-partial-sum lower bound from strict positivity and convergence of packet energies alone",
+      "parked_routes": [
+        "direct arithmetic control of scaled downward variation for actual Weil packets"
+      ],
+      "remaining_gap": "The abstract implication is false. The repaired criterion is exact, but neither its positive margin nor its scaled-variation bound is proved for actual Guinand-Weil packets.",
+      "stagnation_count": 0,
+      "candidate_theorem": "ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation"
+    },
+    {
+      "problem_id": "collatz",
+      "ticket_id": "CO-TICKET-257",
+      "declared_proposition": "Let q_1,...,q_N be distinct odd primes, let zeta_q be a primitive qth root of unity, and let d_j be any residue modulo q_j. Then sum_(j=1)^N zeta_(q_j)^(d_j) is never zero. In particular no finite prefix of the renormalized canonical Collatz phases exp(2 pi i D_q/q), D_q=5F_q(2)-3F_q(3), can cancel exactly. This rules out exact finite pairing or grouping, but does not rule out sublinear asymptotic magnitude.",
+      "new_result": "DistinctPrimeCyclotomicPhaseExactCancellationNoGo",
+      "result_classification": "exact_no_go",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/spike_cyclotomic_character_root_audit/collatz",
+        "failure_count": 0
+      },
+      "discarded_route": "seeking exact zero by pairing or grouping one canonical phase from each distinct prime modulus in a finite prefix",
+      "parked_routes": [
+        "quantitative sublinear cancellation of canonical fixed-base Fermat-quotient phases"
+      ],
+      "remaining_gap": "Every finite prefix is nonzero, but no upper bound smaller than its length is proved; the canonical phase sum may still cancel asymptotically or fail to do so.",
+      "stagnation_count": 0,
+      "candidate_theorem": "CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude"
+    },
+    {
+      "problem_id": "goldbach",
+      "ticket_id": "GB-TICKET-257",
+      "declared_proposition": "Let q>=5 be prime and let N_r be the residue counts of the first T primes, where q itself occurs exactly once, so N_0=1. If N_r=N_(-r) for all nonzero r, then the Legendre-symbol product over the nonzero prefix primes equals chi_q(-1)^((T-1)/2). A mismatch is therefore an exact reflection-asymmetry certificate. More generally, reflection symmetry is equivalent to vanishing of every odd multiplicative-character moment sum_r N_r chi(r), chi(-1)=-1. For the next q-divisible compatible candidate (q,m)=(11,22), T=7,759,741, the actual quadratic product is -1 modulo 11 while symmetry requires +1, so that prefix is excluded.",
+      "new_result": "QuadraticCharacterReflectionObstructionAndNextPrefixExclusion",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/spike_cyclotomic_character_root_audit/goldbach",
+        "failure_count": 0
+      },
+      "discarded_route": "using the quadratic-character product obstruction as a complete detector of prime-prefix reflection asymmetry",
+      "parked_routes": [
+        "uniform nonvanishing of an odd multiplicative-character moment for every compatible even q-divisible prime prefix"
+      ],
+      "remaining_gap": "The q=11,m=22 prefix is excluded and odd character moments exactly characterize asymmetry, but no arithmetic theorem forces a nonzero odd moment for every compatible even exponent.",
+      "stagnation_count": 0,
+      "candidate_theorem": "EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment"
+    },
+    {
+      "problem_id": "twin-prime",
+      "ticket_id": "TP-TICKET-257",
+      "declared_proposition": "Let B_1(u,v) be the sqrt(2)-coefficient of (1+sqrt(2))(u+v sqrt(2))^17 and put P(x)=B_1(x,1). Then P is strictly increasing on R and has one irrational root rho in (-1,0). Every integral solution B_1(u,v)=1 is either (u,v)=(1,0), or, for v>0, u=ceil(rho v), or, for v<0, u=-floor(rho |v|). Every nonzero-v solution is primitive and satisfies v divides u^17-1 and u divides 256v^17-1. The exact root bracket -0.073255<rho<-0.07325499 reduces all 0<|v|<=200000 to 400399 integer evaluations; none equals one.",
+      "new_result": "UniqueRealRootNeighborReductionAndBoundedExclusion",
+      "result_classification": "partial_theorem",
+      "status": "open_not_proven",
+      "bounded_result": {
+        "audit_ref": "#/spike_cyclotomic_character_root_audit/twin_prime",
+        "failure_count": 0
+      },
+      "discarded_route": "treating the surviving coefficient-one branch as a two-dimensional integer box search",
+      "parked_routes": [
+        "all-denominator exclusion of the unique-root neighbor sequence"
+      ],
+      "remaining_gap": "The search dimension is reduced and |v|<=200000 is excluded, but no argument handles every denominator, so exponent 17 and twin primes remain open.",
+      "stagnation_count": 0,
+      "candidate_theorem": "EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne"
+    }
+  ]
+}

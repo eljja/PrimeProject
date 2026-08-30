@@ -1,0 +1,262 @@
+{
+  "schema": "primeproject.ticket257-spike-cyclotomic-character-root.v1",
+  "generated_at": "2026-08-31T12:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-257",
+  "theorem_name": "QuadraticCharacterReflectionObstructionAndNextPrefixExclusion",
+  "declared_proposition": "Let q>=5 be prime and let N_r be the residue counts of the first T primes, where q itself occurs exactly once, so N_0=1. If N_r=N_(-r) for all nonzero r, then the Legendre-symbol product over the nonzero prefix primes equals chi_q(-1)^((T-1)/2). A mismatch is therefore an exact reflection-asymmetry certificate. More generally, reflection symmetry is equivalent to vanishing of every odd multiplicative-character moment sum_r N_r chi(r), chi(-1)=-1. For the next q-divisible compatible candidate (q,m)=(11,22), T=7,759,741, the actual quadratic product is -1 modulo 11 while symmetry requires +1, so that prefix is excluded.",
+  "mathematical_argument": "Under reflection symmetry, pair residues r and -r. Their product contribution is (-r^2)^(N_r), whose Legendre symbol is chi_q(-1)^(N_r). Since T-1=2 sum_pairs N_r, multiplying gives the stated necessary value. For the full character criterion, odd characters annihilate every symmetric pair. Conversely the antisymmetric function A(r)=N_r-N_(-r) lies in the odd subspace of the multiplicative group; if every odd Fourier coefficient vanishes, character inversion gives A=0. The segmented sieve exactly counts the first T primes. At q=11 the computed product 10 differs from the required value 1. The q=5 and q=7 rows show the quadratic product can match even when the full vector is asymmetric, so this one-bit test is sufficient but not necessary.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let q>=5 be prime and let N_r be the residue counts of the first T primes, where q itself occurs exactly once, so N_0=1. If N_r=N_(-r) for all nonzero r, then the Legendre-symbol product over the nonzero prefix primes equals chi_q(-1)^((T-1)/2). A mismatch is therefore an exact reflection-asymmetry certificate. More generally, reflection symmetry is equivalent to vanishing of every odd multiplicative-character moment sum_r N_r chi(r), chi(-1)=-1. For the next q-divisible compatible candidate (q,m)=(11,22), T=7,759,741, the actual quadratic product is -1 modulo 11 while symmetry requires +1, so that prefix is excluded.",
+    "proof": "Under reflection symmetry, pair residues r and -r. Their product contribution is (-r^2)^(N_r), whose Legendre symbol is chi_q(-1)^(N_r). Since T-1=2 sum_pairs N_r, multiplying gives the stated necessary value. For the full character criterion, odd characters annihilate every symmetric pair. Conversely the antisymmetric function A(r)=N_r-N_(-r) lies in the odd subspace of the multiplicative group; if every odd Fourier coefficient vanishes, character inversion gives A=0. The segmented sieve exactly counts the first T primes. At q=11 the computed product 10 differs from the required value 1. The q=5 and q=7 rows show the quadratic product can match even when the full vector is asymmetric, so this one-bit test is sufficient but not necessary.",
+    "exact_reflection_character_certificate_rows": [
+      {
+        "prime_q": 5,
+        "exponent_m": 10,
+        "coefficients": [
+          -250,
+          200,
+          -75,
+          -75,
+          200
+        ],
+        "shift_t": 251,
+        "prime_prefix_length_T": 1255,
+        "compatible": true,
+        "forced_counts": [
+          1,
+          451,
+          176,
+          176,
+          451
+        ],
+        "last_prime_in_prefix": 10243,
+        "actual_prime_residue_counts": [
+          1,
+          313,
+          313,
+          317,
+          311
+        ],
+        "actual_reflection_differences": [
+          0,
+          2,
+          -4,
+          4,
+          -2
+        ],
+        "actual_quadratic_character_product_mod_q": 1,
+        "reflection_symmetric_expected_product_mod_q": 1,
+        "product_recomputed_independently_from_counts": 1,
+        "quadratic_character_mismatch": false,
+        "quadratic_character_certificate_excludes_prefix": false,
+        "actual_vector_is_reflection_asymmetric": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 7,
+        "exponent_m": 14,
+        "coefficients": [
+          -3430,
+          2989,
+          -1911,
+          637,
+          637,
+          -1911,
+          2989
+        ],
+        "shift_t": 3431,
+        "prime_prefix_length_T": 24017,
+        "compatible": true,
+        "forced_counts": [
+          1,
+          6420,
+          1520,
+          4068,
+          4068,
+          1520,
+          6420
+        ],
+        "last_prime_in_prefix": 274783,
+        "actual_prime_residue_counts": [
+          1,
+          3993,
+          3991,
+          4003,
+          3998,
+          4016,
+          4015
+        ],
+        "actual_reflection_differences": [
+          0,
+          -22,
+          -25,
+          5,
+          -5,
+          25,
+          22
+        ],
+        "actual_quadratic_character_product_mod_q": 1,
+        "reflection_symmetric_expected_product_mod_q": 1,
+        "product_recomputed_independently_from_counts": 1,
+        "quadratic_character_mismatch": false,
+        "quadratic_character_certificate_excludes_prefix": false,
+        "actual_vector_is_reflection_asymmetric": true,
+        "certificate_verified": true
+      },
+      {
+        "prime_q": 11,
+        "exponent_m": 22,
+        "coefficients": [
+          -705430,
+          646624,
+          -497189,
+          318230,
+          -163229,
+          48279,
+          48279,
+          -163229,
+          318230,
+          -497189,
+          646624
+        ],
+        "shift_t": 705431,
+        "prime_prefix_length_T": 7759741,
+        "compatible": true,
+        "forced_counts": [
+          1,
+          1352055,
+          208242,
+          1023661,
+          542202,
+          753710,
+          753710,
+          542202,
+          1023661,
+          208242,
+          1352055
+        ],
+        "last_prime_in_prefix": 137141243,
+        "actual_prime_residue_counts": [
+          1,
+          776123,
+          776078,
+          775943,
+          775798,
+          775646,
+          776178,
+          776150,
+          775928,
+          775841,
+          776055
+        ],
+        "actual_reflection_differences": [
+          0,
+          68,
+          237,
+          15,
+          -352,
+          -532,
+          532,
+          352,
+          -15,
+          -237,
+          -68
+        ],
+        "actual_quadratic_character_product_mod_q": 10,
+        "reflection_symmetric_expected_product_mod_q": 1,
+        "product_recomputed_independently_from_counts": 10,
+        "quadratic_character_mismatch": true,
+        "quadratic_character_certificate_excludes_prefix": true,
+        "actual_vector_is_reflection_asymmetric": true,
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "exact odd-only segmented sieve, integer residue counts, Euler-criterion products, and an independent product replay from counts",
+    "complexity": "O(p_T log log p_T) sieve time and O(sqrt(p_T)+segment+q) memory; no list of all T primes is stored",
+    "random_seed": null,
+    "input_sieve_limit": 150000000,
+    "segment_odd_count": 1048576,
+    "transcript_sha256": "b294b8571a28f6988cdb0fd7d0353f683eb02d8aeae4b42b031ab4801f4b022f",
+    "aggregate": {
+      "character_row_count": 3,
+      "maximum_prime_prefix_length": 7759741,
+      "maximum_last_prime": 137141243,
+      "quadratic_character_exclusion_count": 1,
+      "new_q11_m22_prefix_excluded": true,
+      "quadratic_character_is_complete_asymmetry_detector": false,
+      "all_odd_character_moments_characterize_symmetry_proved": true,
+      "all_compatible_even_q_divisible_prefixes_excluded": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "3 prefixes are sieved, with maximum T=7759741; larger compatible exponents are not computed.",
+  "logical_limit": "The q=11,m=22 prefix is excluded and odd character moments exactly characterize asymmetry, but no arithmetic theorem forces a nonzero odd moment for every compatible even exponent.",
+  "route_decision": {
+    "discard": "using the quadratic-character product obstruction as a complete detector of prime-prefix reflection asymmetry",
+    "parked": [
+      "uniform nonvanishing of an odd multiplicative-character moment for every compatible even q-divisible prime prefix"
+    ],
+    "retain": "the one-bit Legendre-product obstruction, the full odd-character equivalence, and the new q=11 prefix certificate",
+    "next_single_lemma": "EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T256",
+        "label": "QDivisibleReflectionAsymmetryPrimePrefixExclusion",
+        "status": "proved"
+      },
+      {
+        "id": "GB-T257",
+        "label": "QuadraticCharacterReflectionObstructionAndNextPrefixExclusion",
+        "status": "proved"
+      },
+      {
+        "id": "GB-CERT257",
+        "label": "QuadraticCharacterReflectionObstructionAndNextPrefixExclusionExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "GB-REJECT257",
+        "label": "QuadraticCharacterProductDetectsEveryReflectionAsymmetricPrimePrefix",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN257",
+        "label": "EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T256",
+        "GB-T257"
+      ],
+      [
+        "GB-T257",
+        "GB-CERT257"
+      ],
+      [
+        "GB-T257",
+        "GB-REJECT257"
+      ],
+      [
+        "GB-T257",
+        "GB-OPEN257"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T256",
+      "GB-T257",
+      "GB-OPEN257"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; the next untested q-divisible prefix is exactly excluded and the universal gap is recast spectrally."
+}

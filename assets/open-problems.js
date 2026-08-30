@@ -48,6 +48,7 @@ let ticket249AttemptGlobal = null;
 let ticket250AttemptGlobal = null;
 let ticket251AttemptGlobal = null;
 let ticket252AttemptGlobal = null;
+let ticket257AttemptGlobal = null;
 let ticket256AttemptGlobal = null;
 let ticket255AttemptGlobal = null;
 let ticket254AttemptGlobal = null;
@@ -18047,7 +18048,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket256CesaroKernelQDivGL2(ticket256AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket257SpikeCyclotomicCharacterRoot(ticket257AttemptGlobal) ||
+      renderTicket256CesaroKernelQDivGL2(ticket256AttemptGlobal) ||
       renderTicket255AggregateIncompleteOddLocal(ticket255AttemptGlobal) ||
       renderTicket254DiagonalWeightedReflectionThue(ticket254AttemptGlobal) ||
       renderTicket253DensityCharacterPrefixLebesgue(ticket253AttemptGlobal) ||
@@ -18626,7 +18628,25 @@ async function loadTicket219Attempt() {
     return false;
   }
 }
-async function loadTicket256Attempt() {
+async function loadTicket257Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket257-spike-cyclotomic-character-root.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket257AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket257AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket257AttemptGlobal) {
+      ticket257AttemptGlobal.bounded_result = ticket257AttemptGlobal.bounded_result || {};
+      ticket257AttemptGlobal.bounded_result.spike_cyclotomic_character_root_audit = payload.spike_cyclotomic_character_root_audit || {};
+    }
+    return Boolean(ticket257AttemptGlobal);
+  } catch (_error) {
+    ticket257AttemptGlobal = null;
+    return false;
+  }
+}async function loadTicket256Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket256-cesaro-kernel-qdiv-gl2.json", { cache: "no-store" });
     if (!response.ok) {
@@ -20927,7 +20947,11 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
-  const ticket256Loaded = await loadTicket256Attempt();
+  const ticket257Loaded = await loadTicket257Attempt();
+  if (!ticket257Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket257AttemptGlobal) await loadTicket257Attempt();
+  }  const ticket256Loaded = await loadTicket256Attempt();
   if (!ticket256Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));
     if (!ticket256AttemptGlobal) await loadTicket256Attempt();

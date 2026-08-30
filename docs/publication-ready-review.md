@@ -672,3 +672,18 @@ phase cancellation, extension of two Goldbach prefixes to every even
 `q`-divisible tail, and promotion of the finite Twin box or GL2 reduction to a
 global integral-point exclusion. Resolution and candidate-resolution counts
 are zero.
+## TICKET-257 publication boundary
+
+TICKET-257 adds two `exact_no_go` results and two `partial_theorem` results.
+Allowed exact-no-go wording is limited to the stated abstract Toeplitz
+sparse-energy counterexample and repair criterion, and nonvanishing of finite
+sums with one root from each distinct odd-prime conductor. Allowed partial-
+theorem wording is limited to the reflection/odd-character equivalence plus
+the bounded `(q,m)=(11,22)` Goldbach prefix certificate, and the global
+one-dimensional root-neighbor reduction plus the finite `|v|<=200,000` Twin
+exclusion. Blocked wording includes every parent-conjecture proof or disproof,
+identification of the abstract lag sequence with actual Guinand-Weil packets,
+any quantitative or sublinear Collatz phase cancellation, promotion of three
+Goldbach prefix rows to all compatible even exponents, and promotion of the
+finite Twin scan to all denominators or to the twin-prime conjecture.
+Resolution and candidate-resolution counts are zero.

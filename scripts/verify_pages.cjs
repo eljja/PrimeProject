@@ -21,6 +21,7 @@ async function main() {
   const ticket248Load = openProblemSource.indexOf("const ticket248Loaded = await loadTicket248Attempt();");
   const ticket249Load = openProblemSource.indexOf("const ticket249Loaded = await loadTicket249Attempt();");
   const ticket250Load = openProblemSource.indexOf("const ticket250Loaded = await loadTicket250Attempt();");
+  const ticket257Load = openProblemSource.indexOf("const ticket257Loaded = await loadTicket257Attempt();");
   const ticket256Load = openProblemSource.indexOf("const ticket256Loaded = await loadTicket256Attempt();");
   const ticket255Load = openProblemSource.indexOf("const ticket255Loaded = await loadTicket255Attempt();");
   const ticket254Load = openProblemSource.indexOf("const ticket254Loaded = await loadTicket254Attempt();");
@@ -130,6 +131,9 @@ async function main() {
   if (!(ticket250Load >= 0 && ticket250Load < ticket249Load)) {
     errors.push("TICKET250 must load before TICKET249");
   }
+  if (!(ticket257Load >= 0 && ticket257Load < ticket256Load)) {
+    errors.push("TICKET257 must load before TICKET256");
+  }
   if (!(ticket256Load >= 0 && ticket256Load < ticket255Load)) {
     errors.push("TICKET256 must load before TICKET255");
   }
@@ -150,10 +154,10 @@ async function main() {
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260829-ticket256") || !source.includes("ticket256-open-problem.js?v=20260829-ticket256") || !source.includes("ticket255-open-problem.js?v=20260829-ticket255") || !source.includes("ticket254-open-problem.js?v=20260829-ticket254") || !source.includes("ticket253-open-problem.js?v=20260829-ticket253") || !source.includes("ticket252-open-problem.js?v=20260829-ticket252") || !source.includes("ticket251-open-problem.js?v=20260827-ticket251") || !source.includes("ticket250-open-problem.js?v=20260827-ticket250") || !source.includes("ticket249-open-problem.js?v=20260826-ticket249") || !source.includes("ticket248-open-problem.js?v=20260826-ticket248") || !source.includes("ticket247-open-problem.js?v=20260826-ticket247") || !source.includes("ticket246-open-problem.js?v=20260826-ticket246") || !source.includes("ticket245-open-problem.js?v=20260826-ticket245") || !source.includes("ticket244-open-problem.js?v=20260826-ticket244") || !source.includes("ticket243-open-problem.js?v=20260826-ticket243") || !source.includes("ticket242-open-problem.js?v=20260825-ticket242")) {
+    if (!source.includes("open-problems.js?v=20260831-ticket257") || !source.includes("ticket257-open-problem.js?v=20260831-ticket257") || !source.includes("ticket256-open-problem.js?v=20260829-ticket256") || !source.includes("ticket255-open-problem.js?v=20260829-ticket255") || !source.includes("ticket254-open-problem.js?v=20260829-ticket254") || !source.includes("ticket253-open-problem.js?v=20260829-ticket253") || !source.includes("ticket252-open-problem.js?v=20260829-ticket252") || !source.includes("ticket251-open-problem.js?v=20260827-ticket251") || !source.includes("ticket250-open-problem.js?v=20260827-ticket250") || !source.includes("ticket249-open-problem.js?v=20260826-ticket249") || !source.includes("ticket248-open-problem.js?v=20260826-ticket248") || !source.includes("ticket247-open-problem.js?v=20260826-ticket247") || !source.includes("ticket246-open-problem.js?v=20260826-ticket246") || !source.includes("ticket245-open-problem.js?v=20260826-ticket245") || !source.includes("ticket244-open-problem.js?v=20260826-ticket244") || !source.includes("ticket243-open-problem.js?v=20260826-ticket243") || !source.includes("ticket242-open-problem.js?v=20260825-ticket242")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260829-ticket256-layout")) {
+    if (!source.includes("styles.css?v=20260831-ticket257-layout")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -464,7 +468,7 @@ async function main() {
       try {
         await problemPage.waitForFunction(() => document.querySelectorAll(".proof-metric").length >= 3);
         await problemPage.waitForFunction(
-          () => document.querySelector("#currentResearch")?.textContent.includes("TICKET-256")
+          () => document.querySelector("#currentResearch")?.textContent.includes("TICKET-257")
             && document.querySelector("#proofOrCounterexampleLab")?.textContent.includes("Ticket 71"),
           null,
           { timeout: 120000 },
@@ -563,9 +567,9 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
-          ticket256AuditOverflow: (() => {
+          ticket257AuditOverflow: (() => {
             const wrapper = document.querySelector(
-              "#ticket256-cesaro-kernel-qdiv-gl2 .ticket256-audit-table .proof-table-wrap",
+              "#ticket257-spike-cyclotomic-character-root .ticket257-audit-table .proof-table-wrap",
             );
             return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
           })(),          ticket252AuditOverflow: (() => {
@@ -853,15 +857,15 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-256") ||
-    !metrics.currentBriefText.includes("ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound") ||
-    !metrics.currentBriefText.includes("RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation") ||
-    !metrics.currentBriefText.includes("EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry") ||
-    !metrics.currentBriefText.includes("SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint") ||
+    !metrics.currentBriefText.includes("TICKET-257") ||
+    !metrics.currentBriefText.includes("ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation") ||
+    !metrics.currentBriefText.includes("CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude") ||
+    !metrics.currentBriefText.includes("EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment") ||
+    !metrics.currentBriefText.includes("EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
-    metrics.railResearchTicket.trim() !== "TICKET-256" ||
-    !metrics.railResearchText.includes("TICKET-256") ||
+    metrics.railResearchTicket.trim() !== "TICKET-257" ||
+    !metrics.railResearchText.includes("TICKET-257") ||
     !metrics.railResearchText.includes("resolution count of zero") ||
     metrics.mobileHorizontalOverflow ||
     !metrics.mobileNavigationCollapsed
@@ -878,12 +882,12 @@ async function main() {
     ["Collatz link", metrics.proofHub?.links.includes("collatz.html")],
     ["Goldbach link", metrics.proofHub?.links.includes("goldbach.html")],
     ["Twin link", metrics.proofHub?.links.includes("twin-prime.html")],
-    ["TICKET-256 boundary", metrics.proofHub?.boundary.includes("What TICKET-256 actually changed")],
-    ["Riemann next lemma", metrics.proofHub?.boundary.includes("ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound")],
-    ["Collatz next lemma", metrics.proofHub?.boundary.includes("RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation")],
-    ["Goldbach next lemma", metrics.proofHub?.boundary.includes("EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry")],
-    ["Twin next lemma", metrics.proofHub?.boundary.includes("SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint")],
-    ["progression range", metrics.proofHub?.boundary.includes("TICKET-161–256")],
+    ["TICKET-257 boundary", metrics.proofHub?.boundary.includes("What TICKET-257 actually changed")],
+    ["Riemann next lemma", metrics.proofHub?.boundary.includes("ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation")],
+    ["Collatz next lemma", metrics.proofHub?.boundary.includes("CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude")],
+    ["Goldbach next lemma", metrics.proofHub?.boundary.includes("EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment")],
+    ["Twin next lemma", metrics.proofHub?.boundary.includes("EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne")],
+    ["progression range", metrics.proofHub?.boundary.includes("TICKET-161–257")],
     ["resolution count label", metrics.proofHub?.boundary.includes("Resolution count")],
     ["zero resolution count", metrics.proofHub?.boundary.includes("0")],
     ["claim boundary", metrics.proofHub?.boundary.includes("not present a conjecture as solved")],
@@ -897,8 +901,8 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentBoundaryLabel.includes("TICKET-256 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-256 boundary label missing`);
-    if (!page.currentResearchText.includes("TICKET-256 Cesaro lag sums, sharp incomplete kernels, q-divisible reflection, and a GL2 survivor reduction")) failures.push(`${page.problemId}: current TICKET-256 boundary missing`);
+    if (!page.currentBoundaryLabel.includes("TICKET-257 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-257 boundary label missing`);
+    if (!page.currentResearchText.includes("TICKET-257 sparse spikes, cyclotomic noncancellation, Goldbach characters, and a Twin root-neighbor reduction")) failures.push(`${page.problemId}: current TICKET-257 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -1768,38 +1772,39 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
-    requireCurrentText("ticket256 title", "TICKET-256 Cesaro lag sums, sharp incomplete kernels, q-divisible reflection, and a GL2 survivor reduction");
-    requireCurrentText("ticket256 table", "TICKET256 audit");
-    requireCurrentText("ticket256 latest", "LATEST / 최신 연구 경계");
-    requireCurrentText("ticket256 resolutions", "Resolution count0");
-    requireCurrentText("ticket256 proof DAG", "Proof DAG / 증명 의존성");
-    requireCurrentText("ticket256 completion guard", "TICKET-256 resolves none of the four parent conjectures");
-    if (page.ticket256AuditOverflow) checks.push(`${page.problemId}: ticket256 audit table overflow`);
+    requireCurrentText("ticket257 title", "TICKET-257 sparse spikes, cyclotomic noncancellation, Goldbach characters, and a Twin root-neighbor reduction");
+    requireCurrentText("ticket257 table", "TICKET257 audit");
+    requireCurrentText("ticket257 latest", "LATEST / 최신 연구 경계");
+    requireCurrentText("ticket257 resolutions", "Resolution count0");
+    requireCurrentText("ticket257 proof DAG", "Proof DAG / 증명 의존성");
+    requireCurrentText("ticket257 completion guard", "TICKET-257 resolves none of the four parent conjectures");
+    if (page.ticket257AuditOverflow) checks.push(`${page.problemId}: ticket257 audit table overflow`);
     if (page.problemId === "riemann") {
-      requireCurrentText("ticket256 RH theorem", "ToeplitzPacketCesaroLagPartialSumCriterion");
-      requireCurrentText("ticket256 RH target", "ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound");
-      requireCurrentText("ticket256 RH identity", "Cesaro identityproved");
-      requireCurrentText("ticket256 RH no-go", "Partial-sum necessityrejected");
-      requireCurrentText("ticket256 RH open", "Actual Weil lagsopen");
+      requireCurrentText("ticket257 RH theorem", "PositiveConvergentPacketEnergyLagPartialSumNoGo");
+      requireCurrentText("ticket257 RH target", "ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation");
+      requireCurrentText("ticket257 RH no-go", "Abstract routerefuted");
+      requireCurrentText("ticket257 RH repair", "Variation repairproved");
+      requireCurrentText("ticket257 RH open", "Actual Weil packetsopen");
     } else if (page.problemId === "collatz") {
-      requireCurrentText("ticket256 Collatz theorem", "SharpIncompleteKernelErrorAndDecayOnlyPrimeAverage");
-      requireCurrentText("ticket256 Collatz target", "RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation");
-      requireCurrentText("ticket256 Collatz sharp", "Sharp uniform error1/q proved");
-      requireCurrentText("ticket256 Collatz decay", "Unnormalized meandecays");
-      requireCurrentText("ticket256 Collatz open", "Renormalized cancellationopen");
+      requireCurrentText("ticket257 Collatz theorem", "DistinctPrimeCyclotomicPhaseExactCancellationNoGo");
+      requireCurrentText("ticket257 Collatz target", "CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude");
+      requireCurrentText("ticket257 Collatz rows", "Canonical rows22");
+      requireCurrentText("ticket257 Collatz exact", "Finite exact zeroimpossible");
+      requireCurrentText("ticket257 Collatz open", "Sublinear phase sumopen");
     } else if (page.problemId === "goldbach") {
-      requireCurrentText("ticket256 Goldbach theorem", "QDivisibleReflectionAsymmetryPrimePrefixExclusion");
-      requireCurrentText("ticket256 Goldbach target", "EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry");
-      requireCurrentText("ticket256 Goldbach parity", "Odd q-divisible compatibilityimpossible");
-      requireCurrentText("ticket256 Goldbach finite", "Bounded prefixesexcluded");
-      requireCurrentText("ticket256 Goldbach open", "All even tailsopen");
+      requireCurrentText("ticket257 Goldbach theorem", "QuadraticCharacterReflectionObstructionAndNextPrefixExclusion");
+      requireCurrentText("ticket257 Goldbach target", "EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment");
+      requireCurrentText("ticket257 Goldbach q11", "q=11 certificateexcluded");
+      requireCurrentText("ticket257 Goldbach criterion", "Odd-character criterionproved");
+      requireCurrentText("ticket257 Goldbach open", "Universal prefix claimopen");
     } else {
-      requireCurrentText("ticket256 Twin theorem", "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReduction");
-      requireCurrentText("ticket256 Twin target", "SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint");
-      requireCurrentText("ticket256 Twin equivalence", "GL2 equivalenceproved");
-      requireCurrentText("ticket256 Twin branch", "Independent branches1");
-      requireCurrentText("ticket256 Twin open", "Remaining branch solvedopen");
-    }    requireText("ticket194 historical title", "Ticket 194 dense-core extension, ten-one cycles, and theta layers");
+      requireCurrentText("ticket257 Twin theorem", "UniqueRealRootNeighborReductionAndBoundedExclusion");
+      requireCurrentText("ticket257 Twin target", "EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne");
+      requireCurrentText("ticket257 Twin reduction", "Root-neighbor reductionproved");
+      requireCurrentText("ticket257 Twin divisibility", "Primitive divisibilityproved");
+      requireCurrentText("ticket257 Twin open", "All denominatorsopen");
+    }
+    requireText("ticket194 historical title", "Ticket 194 dense-core extension, ten-one cycles, and theta layers");
     requireText("ticket194 historical table", "TICKET194 audit");
     requireText("ticket194 historical label", "PREVIOUS / 이전 연구 경계");
     if (page.ticket194AuditOverflow) checks.push(`${page.problemId}: ticket194 audit table overflow`);
@@ -3828,8 +3833,8 @@ async function main() {
     ["panel", metrics.evolutionPanel, "Evidence pack"],
     ["panel", metrics.evolutionPanel, "Publication consistency"],
     ["panel", metrics.evolutionPanel, "TICKET-245"],
-    ["panel", metrics.evolutionPanel, "TICKET-256"],
-    ["panel", metrics.evolutionPanel, "4 current cards / 256 tickets"],
+    ["panel", metrics.evolutionPanel, "TICKET-257"],
+    ["panel", metrics.evolutionPanel, "4 current cards / 257 tickets"],
     ["panel", metrics.evolutionPanel, "TICKET-247"],
     ["panel", metrics.evolutionPanel, "TICKET-249"],
     ["panel", metrics.evolutionPanel, "TICKET-248"],
@@ -3879,11 +3884,11 @@ async function main() {
     !metrics.atlasPanel.includes("Publication claims governed") ||
     !metrics.atlasPanel.includes("Evidence ladder") ||
     !metrics.atlasPanel.includes("Proof workbench") ||
-    !metrics.atlasPanel.includes("TICKET-256") ||
-    !metrics.atlasPanel.includes("ActualWeilSymmetricLagPartialSumsHaveUniformLowerBound") ||
-    !metrics.atlasPanel.includes("RenormalizedCanonicalSlopePhasesHaveNontrivialCrossPrimeCancellation") ||
-    !metrics.atlasPanel.includes("EveryQDivisibleCompatibleEvenTailHasPrimePrefixReflectionAsymmetry") ||
-    !metrics.atlasPanel.includes("SingleCoefficientOneBranchHasNoNegativeNormIntegralPoint") ||
+    !metrics.atlasPanel.includes("TICKET-257") ||
+    !metrics.atlasPanel.includes("ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation") ||
+    !metrics.atlasPanel.includes("CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude") ||
+    !metrics.atlasPanel.includes("EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment") ||
+    !metrics.atlasPanel.includes("EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne") ||
     !metrics.atlasPanel.includes("Riemann Hypothesis") ||
     !metrics.atlasPanel.includes("Twin Prime Conjecture") ||
     !metrics.atlasPanel.includes("Next academic work")

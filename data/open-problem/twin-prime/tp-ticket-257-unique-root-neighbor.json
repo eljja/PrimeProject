@@ -1,0 +1,252 @@
+{
+  "schema": "primeproject.ticket257-spike-cyclotomic-character-root.v1",
+  "generated_at": "2026-08-31T12:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-257",
+  "theorem_name": "UniqueRealRootNeighborReductionAndBoundedExclusion",
+  "declared_proposition": "Let B_1(u,v) be the sqrt(2)-coefficient of (1+sqrt(2))(u+v sqrt(2))^17 and put P(x)=B_1(x,1). Then P is strictly increasing on R and has one irrational root rho in (-1,0). Every integral solution B_1(u,v)=1 is either (u,v)=(1,0), or, for v>0, u=ceil(rho v), or, for v<0, u=-floor(rho |v|). Every nonzero-v solution is primitive and satisfies v divides u^17-1 and u divides 256v^17-1. The exact root bracket -0.073255<rho<-0.07325499 reduces all 0<|v|<=200000 to 400399 integer evaluations; none equals one.",
+  "mathematical_argument": "Writing epsilon=1+sqrt(2) gives P(x)=[epsilon(x+sqrt(2))^17+epsilon^(-1)(x-sqrt(2))^17]/(2sqrt(2)). Its derivative is 17 times a sum of two positive even powers, so P is strictly increasing. Exact evaluation gives P(-1)=-470832 and P(0)=256. The root is irrational because P is monic integral and has no integer root in (-1,0). For fixed v>0, B_1(u,v)=v^17P(u/v) is a strictly increasing integer sequence. Its first positive value occurs at ceil(rho v); all later values are at least two. The negative-v case follows from B_1(u,-w)=-B_1(-u,w). Homogeneity gives gcd(u,v)=1, while reduction modulo v and u gives B_1 congruent to u^17 mod v and to 256v^17 mod u. The rational bracket signs are checked after clearing the denominator; its width times 200000 is below one, leaving at most two exact neighbor candidates per sign. The bounded scan is not an all-denominator proof.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let B_1(u,v) be the sqrt(2)-coefficient of (1+sqrt(2))(u+v sqrt(2))^17 and put P(x)=B_1(x,1). Then P is strictly increasing on R and has one irrational root rho in (-1,0). Every integral solution B_1(u,v)=1 is either (u,v)=(1,0), or, for v>0, u=ceil(rho v), or, for v<0, u=-floor(rho |v|). Every nonzero-v solution is primitive and satisfies v divides u^17-1 and u divides 256v^17-1. The exact root bracket -0.073255<rho<-0.07325499 reduces all 0<|v|<=200000 to 400399 integer evaluations; none equals one.",
+    "proof": "Writing epsilon=1+sqrt(2) gives P(x)=[epsilon(x+sqrt(2))^17+epsilon^(-1)(x-sqrt(2))^17]/(2sqrt(2)). Its derivative is 17 times a sum of two positive even powers, so P is strictly increasing. Exact evaluation gives P(-1)=-470832 and P(0)=256. The root is irrational because P is monic integral and has no integer root in (-1,0). For fixed v>0, B_1(u,v)=v^17P(u/v) is a strictly increasing integer sequence. Its first positive value occurs at ceil(rho v); all later values are at least two. The negative-v case follows from B_1(u,-w)=-B_1(-u,w). Homogeneity gives gcd(u,v)=1, while reduction modulo v and u gives B_1 congruent to u^17 mod v and to 256v^17 mod u. The rational bracket signs are checked after clearing the denominator; its width times 200000 is below one, leaving at most two exact neighbor candidates per sign. The bounded scan is not an all-denominator proof.",
+    "exact_root_bracket": {
+      "lower": {
+        "exact": "-14651/200000",
+        "numerator": -14651,
+        "denominator": 200000,
+        "display_float": -0.073255
+      },
+      "upper": {
+        "exact": "-7325499/100000000",
+        "numerator": -7325499,
+        "denominator": 100000000,
+        "display_float": -0.07325499
+      },
+      "cleared_lower_form_value": -216038270040230240162664713964207707308626593126534903076126858647894249910012783119590759277343750000000000000000000000000000000000,
+      "cleared_upper_form_value": 85555643279794874485407222423612626520252773956627710197611980315910466252267812047993455017660062178966806178896926969977809466501,
+      "bracket_verified": true
+    },
+    "exact_candidate_sample_rows": [
+      {
+        "absolute_denominator_v": 1,
+        "positive_v_candidate_values": [
+          {
+            "u": 0,
+            "B_1": 256
+          }
+        ],
+        "negative_v_reflected_candidate_values": [
+          {
+            "x_equals_minus_u": -1,
+            "B_1_x_positive_v": -470832
+          }
+        ]
+      },
+      {
+        "absolute_denominator_v": 2,
+        "positive_v_candidate_values": [
+          {
+            "u": 0,
+            "B_1": 33554432
+          }
+        ],
+        "negative_v_reflected_candidate_values": [
+          {
+            "x_equals_minus_u": -1,
+            "B_1_x_positive_v": -1194034847
+          }
+        ]
+      },
+      {
+        "absolute_denominator_v": 10,
+        "positive_v_candidate_values": [
+          {
+            "u": 0,
+            "B_1": 25600000000000000000
+          }
+        ],
+        "negative_v_reflected_candidate_values": [
+          {
+            "x_equals_minus_u": -1,
+            "B_1_x_positive_v": -8055100636786667031
+          }
+        ]
+      },
+      {
+        "absolute_denominator_v": 100,
+        "positive_v_candidate_values": [
+          {
+            "u": -7,
+            "B_1": 98377487338068787267015175049374493
+          }
+        ],
+        "negative_v_reflected_candidate_values": [
+          {
+            "x_equals_minus_u": -8,
+            "B_1_x_positive_v": -202806024284242154898243975588610048
+          }
+        ]
+      },
+      {
+        "absolute_denominator_v": 1000,
+        "positive_v_candidate_values": [
+          {
+            "u": -73,
+            "B_1": 769159122658390029951054442287787287730212116614047
+          }
+        ],
+        "negative_v_reflected_candidate_values": [
+          {
+            "x_equals_minus_u": -74,
+            "B_1_x_positive_v": -2245937889543941434345260808911948475740598883713024
+          }
+        ]
+      },
+      {
+        "absolute_denominator_v": 10000,
+        "positive_v_candidate_values": [
+          {
+            "u": -732,
+            "B_1": 16586041864457709719344121507714950022118123030144098471543956307968
+          }
+        ],
+        "negative_v_reflected_candidate_values": [
+          {
+            "x_equals_minus_u": -733,
+            "B_1_x_positive_v": -13573528085946525750055231020821552622715115828027234690579800098573
+          }
+        ]
+      },
+      {
+        "absolute_denominator_v": 100000,
+        "positive_v_candidate_values": [
+          {
+            "u": -7325,
+            "B_1": 150581360633930667688738805125776962584192953522549677296836744062602519989013671875
+          }
+        ],
+        "negative_v_reflected_candidate_values": [
+          {
+            "x_equals_minus_u": -7326,
+            "B_1_x_positive_v": -151012551066709047751408777119790961510630335035863573795995663011018709878961995776
+          }
+        ]
+      },
+      {
+        "absolute_denominator_v": 200000,
+        "positive_v_candidate_values": [
+          {
+            "u": -14651,
+            "B_1": -28316568130713058038600789388716632612356304814281182815994099616696795124205195509051
+          },
+          {
+            "u": -14650,
+            "B_1": 19737000101010560475298372665445838039835338804107631302650985717773437500000000000000000
+          }
+        ],
+        "negative_v_reflected_candidate_values": [
+          {
+            "x_equals_minus_u": -14651,
+            "B_1_x_positive_v": -28316568130713058038600789388716632612356304814281182815994099616696795124205195509051
+          }
+        ]
+      }
+    ],
+    "finite_denominator_audit": {
+      "absolute_v_limit": 200000,
+      "candidate_evaluation_count": 400399,
+      "maximum_candidate_span_per_sign": 2,
+      "nonzero_v_coefficient_one_hits": [],
+      "v_zero_integral_solutions": [
+        {
+          "u": 1,
+          "v": 0,
+          "reduced_y": -1
+        }
+      ],
+      "admissible_negative_norm_hit_count": 0
+    },
+    "algorithm": "exact rational root bracketing followed by candidate-complete integer evaluation of at most two root neighbors per sign and denominator",
+    "complexity": "O(V) degree-17 integer evaluations after one exact root bracket, replacing an O(V^2) box scan",
+    "random_seed": null,
+    "transcript_sha256": "70e6d98d1a8476ac6ea9db6eb2bc27895a7a84622e256f3cdd12d8881f92e5b1",
+    "aggregate": {
+      "strict_monotonicity_and_unique_real_root_proved": true,
+      "all_integral_solutions_reduce_to_unique_root_neighbors_proved": true,
+      "primitive_double_divisibility_conditions_proved": true,
+      "bounded_nonzero_v_solution_count": 0,
+      "single_absolute_branch_globally_solved": false,
+      "exponent_seventeen_excluded": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "400399 exact root-neighbor evaluations cover 0<|v|<=200000; absence there is not an infinite exclusion.",
+  "logical_limit": "The search dimension is reduced and |v|<=200000 is excluded, but no argument handles every denominator, so exponent 17 and twin primes remain open.",
+  "route_decision": {
+    "discard": "treating the surviving coefficient-one branch as a two-dimensional integer box search",
+    "parked": [
+      "all-denominator exclusion of the unique-root neighbor sequence"
+    ],
+    "retain": "the exact one-dimensional root-neighbor reduction, primitive divisibility conditions, and bounded certificate",
+    "next_single_lemma": "EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T256",
+        "label": "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReduction",
+        "status": "proved"
+      },
+      {
+        "id": "TP-T257",
+        "label": "UniqueRealRootNeighborReductionAndBoundedExclusion",
+        "status": "proved"
+      },
+      {
+        "id": "TP-CERT257",
+        "label": "UniqueRealRootNeighborReductionAndBoundedExclusionExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "TP-REJECT257",
+        "label": "TwoDimensionalBoxSearchIsNecessaryForTheSurvivingCoefficientOneBranch",
+        "status": "disproved"
+      },
+      {
+        "id": "TP-OPEN257",
+        "label": "EveryNonzeroDenominatorUniqueRootNeighborMissesCoefficientOne",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T256",
+        "TP-T257"
+      ],
+      [
+        "TP-T257",
+        "TP-CERT257"
+      ],
+      [
+        "TP-T257",
+        "TP-REJECT257"
+      ],
+      [
+        "TP-T257",
+        "TP-OPEN257"
+      ]
+    ],
+    "resolution_path": [
+      "TP-T256",
+      "TP-T257",
+      "TP-OPEN257"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No twin-prime proof or counterexample; the last Thue branch is reduced to one exact candidate sequence and a much larger finite range is excluded."
+}
