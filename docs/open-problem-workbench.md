@@ -15,7 +15,20 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-259
+## Current research boundary: TICKET-260
+
+The current machine-readable boundary is
+`data/open-problem/ticket260-weighted-equidistribution-primerace-variablemod.json`.
+TICKET-260 proves one exact route no-go and three partial theorems while resolving none of the parent conjectures:
+
+- summable scaled downward variation forces eventual positivity of the RH packet lag sums, but actual-Weil summability remains open;
+- exponent residues can be balanced modulo every fixed integer while their growing-prime-modulus phases align linearly;
+- the compatible q=3 Goldbach family is exactly the nonvanishing of a mod-3 prime race at `T=6*3^(6l+2)+3`, with three levels independently excluded;
+- a Twin unit coefficient forces a second-order variable-denominator congruence modulo `v^2`, and both signs fail it on 256 certified convergents.
+
+The next single lemmas are actual-Weil scaled-downward-variation summability, vanishing canonical Fermat-quotient angular discrepancy, nonvanishing of the special mod-3 prime race at every level, and exclusion of the second-order denominator congruence on every Twin root convergent. All statuses remain `open_not_proven`. Reports: [English](weighted-equidistribution-primerace-variablemod.md) and [한국어](weighted-equidistribution-primerace-variablemod.ko.md).
+
+## Preserved research boundary: TICKET-259
 
 The current machine-readable boundary is
 `data/open-problem/ticket259-critical-alignment-compatibility-local.json`.

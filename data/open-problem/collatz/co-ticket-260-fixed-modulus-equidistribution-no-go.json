@@ -1,0 +1,2278 @@
+{
+  "schema": "primeproject.ticket260-weighted-equidistribution-primerace-variablemod.v1",
+  "generated_at": "2026-08-31T23:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-260",
+  "theorem_name": "FixedModulusExponentEquidistributionPhaseAlignmentNoGo",
+  "declared_proposition": "There are distinct prime moduli q_j and nonzero exponents 1<=d_j<q_j such that d_j is uniformly distributed modulo every fixed integer M in the strongest prefix sense (the residue counts of d_1,...,d_N differ by at most one), while N^(-1) sum_(j<=N) exp(2*pi*i*d_j/q_j) tends to one. Hence equidistribution of the exponents in every fixed modulus does not imply cancellation on their growing prime moduli.",
+  "mathematical_argument": "Choose q_j recursively as the least prime exceeding both q_(j-1) and j^3, and put d_j=j. For every fixed M, consecutive integers have residue counts differing by at most one. The chord bound and pi<4 give |exp(2*pi*i*j/q_j)-1|<8j/q_j<8/j^2. Since sum_(j>=1)1/j^2<=2 by comparison with 1+sum_(j>=2)1/(j(j-1)), the normalized prefix deviation is at most 16/N and tends to zero. This counterfamily is not the canonical Fermat-quotient sequence; it proves that fixed-modulus exponent statistics are the wrong scale for that remaining problem.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "There are distinct prime moduli q_j and nonzero exponents 1<=d_j<q_j such that d_j is uniformly distributed modulo every fixed integer M in the strongest prefix sense (the residue counts of d_1,...,d_N differ by at most one), while N^(-1) sum_(j<=N) exp(2*pi*i*d_j/q_j) tends to one. Hence equidistribution of the exponents in every fixed modulus does not imply cancellation on their growing prime moduli.",
+    "proof": "Choose q_j recursively as the least prime exceeding both q_(j-1) and j^3, and put d_j=j. For every fixed M, consecutive integers have residue counts differing by at most one. The chord bound and pi<4 give |exp(2*pi*i*j/q_j)-1|<8j/q_j<8/j^2. Since sum_(j>=1)1/j^2<=2 by comparison with 1+sum_(j>=2)1/(j(j-1)), the normalized prefix deviation is at most 16/N and tends to zero. This counterfamily is not the canonical Fermat-quotient sequence; it proves that fixed-modulus exponent statistics are the wrong scale for that remaining problem.",
+    "exact_phase_envelope_rows": [
+      {
+        "index_j": 1,
+        "prime_order_q_j": 5,
+        "phase_exponent_d_j": 1,
+        "exponent_over_prime": {
+          "exact": "1/5",
+          "numerator": 1,
+          "denominator": 5,
+          "display_float": 0.2
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "8/5",
+          "numerator": 8,
+          "denominator": 5,
+          "display_float": 1.6
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/1",
+          "numerator": 8,
+          "denominator": 1,
+          "display_float": 8.0
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "8/5",
+          "numerator": 8,
+          "denominator": 5,
+          "display_float": 1.6
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 2,
+        "prime_order_q_j": 11,
+        "phase_exponent_d_j": 2,
+        "exponent_over_prime": {
+          "exact": "2/11",
+          "numerator": 2,
+          "denominator": 11,
+          "display_float": 0.18181818181818182
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "16/11",
+          "numerator": 16,
+          "denominator": 11,
+          "display_float": 1.4545454545454546
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/1",
+          "numerator": 2,
+          "denominator": 1,
+          "display_float": 2.0
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "84/55",
+          "numerator": 84,
+          "denominator": 55,
+          "display_float": 1.5272727272727273
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 3,
+        "prime_order_q_j": 29,
+        "phase_exponent_d_j": 3,
+        "exponent_over_prime": {
+          "exact": "3/29",
+          "numerator": 3,
+          "denominator": 29,
+          "display_float": 0.10344827586206896
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "24/29",
+          "numerator": 24,
+          "denominator": 29,
+          "display_float": 0.8275862068965517
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/9",
+          "numerator": 8,
+          "denominator": 9,
+          "display_float": 0.8888888888888888
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "2064/1595",
+          "numerator": 2064,
+          "denominator": 1595,
+          "display_float": 1.2940438871473354
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 4,
+        "prime_order_q_j": 67,
+        "phase_exponent_d_j": 4,
+        "exponent_over_prime": {
+          "exact": "4/67",
+          "numerator": 4,
+          "denominator": 67,
+          "display_float": 0.05970149253731343
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "32/67",
+          "numerator": 32,
+          "denominator": 67,
+          "display_float": 0.47761194029850745
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "116476/106865",
+          "numerator": 116476,
+          "denominator": 106865,
+          "display_float": 1.0899359004351283
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 5,
+        "prime_order_q_j": 127,
+        "phase_exponent_d_j": 5,
+        "exponent_over_prime": {
+          "exact": "5/127",
+          "numerator": 5,
+          "denominator": 127,
+          "display_float": 0.03937007874015748
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "40/127",
+          "numerator": 40,
+          "denominator": 127,
+          "display_float": 0.31496062992125984
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/25",
+          "numerator": 8,
+          "denominator": 25,
+          "display_float": 0.32
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "63444408/67859275",
+          "numerator": 63444408,
+          "denominator": 67859275,
+          "display_float": 0.9349408463323547
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 6,
+        "prime_order_q_j": 223,
+        "phase_exponent_d_j": 6,
+        "exponent_over_prime": {
+          "exact": "6/223",
+          "numerator": 6,
+          "denominator": 223,
+          "display_float": 0.026905829596412557
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "48/223",
+          "numerator": 48,
+          "denominator": 223,
+          "display_float": 0.21524663677130046
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/9",
+          "numerator": 2,
+          "denominator": 9,
+          "display_float": 0.2222222222222222
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "2466592004/3026523665",
+          "numerator": 2466592004,
+          "denominator": 3026523665,
+          "display_float": 0.8149918114055124
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 7,
+        "prime_order_q_j": 347,
+        "phase_exponent_d_j": 7,
+        "exponent_over_prime": {
+          "exact": "7/347",
+          "numerator": 7,
+          "denominator": 347,
+          "display_float": 0.020172910662824207
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "56/347",
+          "numerator": 56,
+          "denominator": 347,
+          "display_float": 0.16138328530259366
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/49",
+          "numerator": 8,
+          "denominator": 49,
+          "display_float": 0.16326530612244897
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "5304929877568/7351425982285",
+          "numerator": 5304929877568,
+          "denominator": 7351425982285,
+          "display_float": 0.721619164819381
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 8,
+        "prime_order_q_j": 521,
+        "phase_exponent_d_j": 8,
+        "exponent_over_prime": {
+          "exact": "8/521",
+          "numerator": 8,
+          "denominator": 521,
+          "display_float": 0.015355086372360844
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "64/521",
+          "numerator": 64,
+          "denominator": 521,
+          "display_float": 0.12284069097888675
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/8",
+          "numerator": 1,
+          "denominator": 8,
+          "display_float": 0.125
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "353885187970656/547156133824355",
+          "numerator": 353885187970656,
+          "denominator": 547156133824355,
+          "display_float": 0.6467718555893193
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 9,
+        "prime_order_q_j": 733,
+        "phase_exponent_d_j": 9,
+        "exponent_over_prime": {
+          "exact": "9/733",
+          "numerator": 9,
+          "denominator": 733,
+          "display_float": 0.01227830832196453
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "72/733",
+          "numerator": 72,
+          "denominator": 733,
+          "display_float": 0.09822646657571624
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/81",
+          "numerator": 8,
+          "denominator": 81,
+          "display_float": 0.09876543209876543
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "234953109321697816/401065446093252215",
+          "numerator": 234953109321697816,
+          "denominator": 401065446093252215,
+          "display_float": 0.5858223679211412
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 10,
+        "prime_order_q_j": 1009,
+        "phase_exponent_d_j": 10,
+        "exponent_over_prime": {
+          "exact": "10/1009",
+          "numerator": 10,
+          "denominator": 1009,
+          "display_float": 0.009910802775024777
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "80/1009",
+          "numerator": 80,
+          "denominator": 1009,
+          "display_float": 0.07928642220019821
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/25",
+          "numerator": 2,
+          "denominator": 25,
+          "display_float": 0.08
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "1082847210718899022148/2023375175540457424675",
+          "numerator": 1082847210718899022148,
+          "denominator": 2023375175540457424675,
+          "display_float": 0.5351687733490469
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 11,
+        "prime_order_q_j": 1361,
+        "phase_exponent_d_j": 11,
+        "exponent_over_prime": {
+          "exact": "11/1361",
+          "numerator": 11,
+          "denominator": 1361,
+          "display_float": 0.008082292432035268
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "88/1361",
+          "numerator": 88,
+          "denominator": 1361,
+          "display_float": 0.06465833945628215
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/121",
+          "numerator": 8,
+          "denominator": 121,
+          "display_float": 0.06611570247933884
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "2983121510666355188961136/6058389950603237620961885",
+          "numerator": 2983121510666355188961136,
+          "denominator": 6058389950603237620961885,
+          "display_float": 0.4923950975406137
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 12,
+        "prime_order_q_j": 1733,
+        "phase_exponent_d_j": 12,
+        "exponent_over_prime": {
+          "exact": "12/1733",
+          "numerator": 12,
+          "denominator": 1733,
+          "display_float": 0.006924408540103866
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "96/1733",
+          "numerator": 96,
+          "denominator": 1733,
+          "display_float": 0.05539526832083093
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/18",
+          "numerator": 1,
+          "denominator": 18,
+          "display_float": 0.05555555555555555
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "1305655699842969085881329012/2863415395744202944670985465",
+          "numerator": 1305655699842969085881329012,
+          "denominator": 2863415395744202944670985465,
+          "display_float": 0.45597844510563185
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 13,
+        "prime_order_q_j": 2203,
+        "phase_exponent_d_j": 13,
+        "exponent_over_prime": {
+          "exact": "13/2203",
+          "numerator": 13,
+          "denominator": 2203,
+          "display_float": 0.005901044030866999
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "104/2203",
+          "numerator": 104,
+          "denominator": 2203,
+          "display_float": 0.047208352246935995
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/169",
+          "numerator": 8,
+          "denominator": 169,
+          "display_float": 0.047337278106508875
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "11604703094068709286868198749864/27335117839572742710810784244045",
+          "numerator": 11604703094068709286868198749864,
+          "denominator": 27335117839572742710810784244045,
+          "display_float": 0.4245345918088091
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 14,
+        "prime_order_q_j": 2749,
+        "phase_exponent_d_j": 14,
+        "exponent_over_prime": {
+          "exact": "14/2749",
+          "numerator": 14,
+          "denominator": 2749,
+          "display_float": 0.005092761004001455
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "112/2749",
+          "numerator": 112,
+          "denominator": 2749,
+          "display_float": 0.04074208803201164
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/49",
+          "numerator": 2,
+          "denominator": 49,
+          "display_float": 0.04081632653061224
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "16068415679644831191093062559970108/40462282506684483691087070862165995",
+          "numerator": 16068415679644831191093062559970108,
+          "denominator": 40462282506684483691087070862165995,
+          "display_float": 0.3971208415390378
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 15,
+        "prime_order_q_j": 3389,
+        "phase_exponent_d_j": 15,
+        "exponent_over_prime": {
+          "exact": "15/3389",
+          "numerator": 15,
+          "denominator": 3389,
+          "display_float": 0.004426084390675715
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "120/3389",
+          "numerator": 120,
+          "denominator": 3389,
+          "display_float": 0.03540867512540572
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/225",
+          "numerator": 8,
+          "denominator": 225,
+          "display_float": 0.035555555555555556
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "109605360605318685533647413531971666224/293842875889615104062344463896886907975",
+          "numerator": 109605360605318685533647413531971666224,
+          "denominator": 293842875889615104062344463896886907975,
+          "display_float": 0.37300669711146234
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 16,
+        "prime_order_q_j": 4099,
+        "phase_exponent_d_j": 16,
+        "exponent_over_prime": {
+          "exact": "16/4099",
+          "numerator": 16,
+          "denominator": 4099,
+          "display_float": 0.003903391070992925
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "128/4099",
+          "numerator": 128,
+          "denominator": 4099,
+          "display_float": 0.0312271285679434
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/32",
+          "numerator": 1,
+          "denominator": 32,
+          "display_float": 0.03125
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "28236239520549542138984547134966997591681/80297463218102154103436663834222629052635",
+          "numerator": 28236239520549542138984547134966997591681,
+          "denominator": 80297463218102154103436663834222629052635,
+          "display_float": 0.3516454740774924
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 17,
+        "prime_order_q_j": 4919,
+        "phase_exponent_d_j": 17,
+        "exponent_over_prime": {
+          "exact": "17/4919",
+          "numerator": 17,
+          "denominator": 4919,
+          "display_float": 0.0034559869892254523
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "136/4919",
+          "numerator": 136,
+          "denominator": 4919,
+          "display_float": 0.02764789591380362
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/289",
+          "numerator": 8,
+          "denominator": 289,
+          "display_float": 0.02768166089965398
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "2233225450222993057464707183991896856006819784/6714714766687356432591684139809198909268496605",
+          "numerator": 2233225450222993057464707183991896856006819784,
+          "denominator": 6714714766687356432591684139809198909268496605,
+          "display_float": 0.33258679300904015
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 18,
+        "prime_order_q_j": 5839,
+        "phase_exponent_d_j": 18,
+        "exponent_over_prime": {
+          "exact": "18/5839",
+          "numerator": 18,
+          "denominator": 5839,
+          "display_float": 0.003082719643774619
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "144/5839",
+          "numerator": 144,
+          "denominator": 5839,
+          "display_float": 0.02466175715019695
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/81",
+          "numerator": 2,
+          "denominator": 81,
+          "display_float": 0.024691358024691357
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "6548340493879057034982718580021181831198223992068/20756763276716898111125034895947835992998162652315",
+          "numerator": 6548340493879057034982718580021181831198223992068,
+          "denominator": 20756763276716898111125034895947835992998162652315,
+          "display_float": 0.3154798465724377
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 19,
+        "prime_order_q_j": 6863,
+        "phase_exponent_d_j": 19,
+        "exponent_over_prime": {
+          "exact": "19/6863",
+          "numerator": 19,
+          "denominator": 6863,
+          "display_float": 0.002768468599737724
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "152/6863",
+          "numerator": 152,
+          "denominator": 6863,
+          "display_float": 0.02214774879790179
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/361",
+          "numerator": 8,
+          "denominator": 361,
+          "display_float": 0.0221606648199446
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "90233080287657377808049573596502305267353013706586688/300735517888228151444041241702989996664331268374879895",
+          "numerator": 90233080287657377808049573596502305267353013706586688,
+          "denominator": 300735517888228151444041241702989996664331268374879895,
+          "display_float": 0.30004131511062004
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 20,
+        "prime_order_q_j": 8009,
+        "phase_exponent_d_j": 20,
+        "exponent_over_prime": {
+          "exact": "20/8009",
+          "numerator": 20,
+          "denominator": 8009,
+          "display_float": 0.00249719066050693
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "160/8009",
+          "numerator": 160,
+          "denominator": 8009,
+          "display_float": 0.01997752528405544
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/50",
+          "numerator": 1,
+          "denominator": 50,
+          "display_float": 0.02
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "181302312412042465034996819242445140714535111206381364248/633839674412320859188243764420854442969639244319582389225",
+          "numerator": 181302312412042465034996819242445140714535111206381364248,
+          "denominator": 633839674412320859188243764420854442969639244319582389225,
+          "display_float": 0.2860381256192918
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 21,
+        "prime_order_q_j": 9277,
+        "phase_exponent_d_j": 21,
+        "exponent_over_prime": {
+          "exact": "21/9277",
+          "numerator": 21,
+          "denominator": 9277,
+          "display_float": 0.0022636628220329847
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "168/9277",
+          "numerator": 168,
+          "denominator": 9277,
+          "display_float": 0.018109302576263878
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/441",
+          "numerator": 8,
+          "denominator": 441,
+          "display_float": 0.018140589569160998
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "6749063222046325773387386958933194990918748785255537632792744/24696548769997022564895217090635520003203241732121616464329365",
+          "numerator": 6749063222046325773387386958933194990918748785255537632792744,
+          "denominator": 24696548769997022564895217090635520003203241732121616464329365,
+          "display_float": 0.2732796102362905
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 22,
+        "prime_order_q_j": 10651,
+        "phase_exponent_d_j": 22,
+        "exponent_over_prime": {
+          "exact": "22/10651",
+          "numerator": 22,
+          "denominator": 10651,
+          "display_float": 0.002065533752699277
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "176/10651",
+          "numerator": 176,
+          "denominator": 10651,
+          "display_float": 0.016524270021594217
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/121",
+          "numerator": 2,
+          "denominator": 121,
+          "display_float": 0.01652892561983471
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "36045626488615314476922661588083297817484553097422494341954947892/137784397640077198129794691883616579004537857360814319360823463465",
+          "numerator": 36045626488615314476922661588083297817484553097422494341954947892,
+          "denominator": 137784397640077198129794691883616579004537857360814319360823463465,
+          "display_float": 0.2616089129538043
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 23,
+        "prime_order_q_j": 12197,
+        "phase_exponent_d_j": 23,
+        "exponent_over_prime": {
+          "exact": "23/12197",
+          "numerator": 23,
+          "denominator": 12197,
+          "display_float": 0.001885709600721489
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "184/12197",
+          "numerator": 184,
+          "denominator": 12197,
+          "display_float": 0.015085676805771912
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/529",
+          "numerator": 8,
+          "denominator": 529,
+          "display_float": 0.015122873345935728
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "881601769760170545391495245262120826099430457872559766501502773175408/3513890441306226951686312246254803865883819060298781984055560639027265",
+          "numerator": 881601769760170545391495245262120826099430457872559766501502773175408,
+          "denominator": 3513890441306226951686312246254803865883819060298781984055560639027265,
+          "display_float": 0.25089051138215074
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 24,
+        "prime_order_q_j": 13829,
+        "phase_exponent_d_j": 24,
+        "exponent_over_prime": {
+          "exact": "24/13829",
+          "numerator": 24,
+          "denominator": 13829,
+          "display_float": 0.001735483404439945
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "192/13829",
+          "numerator": 192,
+          "denominator": 13829,
+          "display_float": 0.01388386723551956
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/72",
+          "numerator": 1,
+          "denominator": 72,
+          "display_float": 0.013888888888888888
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "509208509179418406586522627039978092639886305622697161943427808330209658/2112764822296687500646522263193812289622057990646602437282797742482958595",
+          "numerator": 509208509179418406586522627039978092639886305622697161943427808330209658,
+          "denominator": 2112764822296687500646522263193812289622057990646602437282797742482958595,
+          "display_float": 0.24101523454270776
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 25,
+        "prime_order_q_j": 15629,
+        "phase_exponent_d_j": 25,
+        "exponent_over_prime": {
+          "exact": "25/15629",
+          "numerator": 25,
+          "denominator": 15629,
+          "display_float": 0.0015995905048307633
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "200/15629",
+          "numerator": 200,
+          "denominator": 15629,
+          "display_float": 0.012796724038646106
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/625",
+          "numerator": 8,
+          "denominator": 625,
+          "display_float": 0.0128
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "191424627923622464137107595764826385094775205291980535143788556741924913596168/825510035191873223690112411286402306862578608395393737307321147931653997031375",
+          "numerator": 191424627923622464137107595764826385094775205291980535143788556741924913596168,
+          "denominator": 825510035191873223690112411286402306862578608395393737307321147931653997031375,
+          "display_float": 0.23188649412254528
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 26,
+        "prime_order_q_j": 17579,
+        "phase_exponent_d_j": 26,
+        "exponent_over_prime": {
+          "exact": "26/17579",
+          "numerator": 26,
+          "denominator": 17579,
+          "display_float": 0.0014790374879117129
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "208/17579",
+          "numerator": 208,
+          "denominator": 17579,
+          "display_float": 0.011832299903293703
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/169",
+          "numerator": 2,
+          "denominator": 169,
+          "display_float": 0.011834319526627219
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "1685960888881077841143658080605892945387074993924787751593527975458544708681169156/7546053272491728487609212760561906399215380065630965784225207198935083719183561385",
+          "numerator": 1685960888881077841143658080605892945387074993924787751593527975458544708681169156,
+          "denominator": 7546053272491728487609212760561906399215380065630965784225207198935083719183561385,
+          "display_float": 0.22342287126795868
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 27,
+        "prime_order_q_j": 19687,
+        "phase_exponent_d_j": 27,
+        "exponent_over_prime": {
+          "exact": "27/19687",
+          "numerator": 27,
+          "denominator": 19687,
+          "display_float": 0.0013714634022451364
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "216/19687",
+          "numerator": 216,
+          "denominator": 19687,
+          "display_float": 0.01097170721796109
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/729",
+          "numerator": 8,
+          "denominator": 729,
+          "display_float": 0.010973936899862825
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "22169468205418063571199966728496793502408961606012974274757924649464912557905237327888/102848642844607840663081780350356943194782975859130108503567299009916533739700073606035",
+          "numerator": 22169468205418063571199966728496793502408961606012974274757924649464912557905237327888,
+          "denominator": 102848642844607840663081780350356943194782975859130108503567299009916533739700073606035,
+          "display_float": 0.2155543096364773
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 28,
+        "prime_order_q_j": 21961,
+        "phase_exponent_d_j": 28,
+        "exponent_over_prime": {
+          "exact": "28/21961",
+          "numerator": 28,
+          "denominator": 21961,
+          "display_float": 0.0012749874778015572
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "224/21961",
+          "numerator": 224,
+          "denominator": 21961,
+          "display_float": 0.010199899822412458
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/98",
+          "numerator": 1,
+          "denominator": 98,
+          "display_float": 0.01020408163265306
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "365787715555422686018356583071124115893014387333139450044435728391791466945275821509637716/1756734813174781057957063649768813534056044725544054909991987797210826553578097023914993605",
+          "numerator": 365787715555422686018356583071124115893014387333139450044435728391791466945275821509637716,
+          "denominator": 1756734813174781057957063649768813534056044725544054909991987797210826553578097023914993605,
+          "display_float": 0.20822022357168926
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 29,
+        "prime_order_q_j": 24391,
+        "phase_exponent_d_j": 29,
+        "exponent_over_prime": {
+          "exact": "29/24391",
+          "numerator": 29,
+          "denominator": 24391,
+          "display_float": 0.0011889631421425936
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "232/24391",
+          "numerator": 232,
+          "denominator": 24391,
+          "display_float": 0.009511705137140749
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/841",
+          "numerator": 8,
+          "denominator": 841,
+          "display_float": 0.009512485136741973
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "35745935891400194539472947208857776777257627453817020266866490428952872932538907179701762483304/177515292288033779822041634994831828052238374303086607996974665213044120511625367257001094509585",
+          "numerator": 35745935891400194539472947208857776777257627453817020266866490428952872932538907179701762483304,
+          "denominator": 177515292288033779822041634994831828052238374303086607996974665213044120511625367257001094509585,
+          "display_float": 0.20136820569463587
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 30,
+        "prime_order_q_j": 27011,
+        "phase_exponent_d_j": 30,
+        "exponent_over_prime": {
+          "exact": "30/27011",
+          "numerator": 30,
+          "denominator": 27011,
+          "display_float": 0.0011106586205619933
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "240/27011",
+          "numerator": 240,
+          "denominator": 27011,
+          "display_float": 0.008885268964495947
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/225",
+          "numerator": 2,
+          "denominator": 225,
+          "display_float": 0.008888888888888889
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "161167094406119753411624709925827726931708072927179513128395783540046356675668013340451064076675324/826700958619324211512614931525069397848105297982874546311428048632678403299915999134285614448000075",
+          "numerator": 161167094406119753411624709925827726931708072927179513128395783540046356675668013340451064076675324,
+          "denominator": 826700958619324211512614931525069397848105297982874546311428048632678403299915999134285614448000075,
+          "display_float": 0.1949521078036312
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 31,
+        "prime_order_q_j": 29803,
+        "phase_exponent_d_j": 31,
+        "exponent_over_prime": {
+          "exact": "31/29803",
+          "numerator": 31,
+          "denominator": 29803,
+          "display_float": 0.0010401637419051772
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "248/29803",
+          "numerator": 248,
+          "denominator": 29803,
+          "display_float": 0.008321309935241418
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/961",
+          "numerator": 8,
+          "denominator": 961,
+          "display_float": 0.008324661810613945
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "28860581855061040546450933080120305916607440207472336756090524052276190256833278643069838942539548890752/152756645752336660749404869386298188237215909613858382643060838827078229611993858437634507837841226658395",
+          "numerator": 28860581855061040546450933080120305916607440207472336756090524052276190256833278643069838942539548890752,
+          "denominator": 152756645752336660749404869386298188237215909613858382643060838827078229611993858437634507837841226658395,
+          "display_float": 0.18893175948529606
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 32,
+        "prime_order_q_j": 32771,
+        "phase_exponent_d_j": 32,
+        "exponent_over_prime": {
+          "exact": "32/32771",
+          "numerator": 32,
+          "denominator": 32771,
+          "display_float": 0.0009764731012175399
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "256/32771",
+          "numerator": 256,
+          "denominator": 32771,
+          "display_float": 0.0078117848097403195
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/128",
+          "numerator": 1,
+          "denominator": 128,
+          "display_float": 0.0078125
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "29595362569002988243278121989506241166508208051484377145973531300374159258959531284811821457229191140814916/161483485095155635787701515311560578281348470127604937341798282232328408471440346285797434075932091574911695",
+          "numerator": 29595362569002988243278121989506241166508208051484377145973531300374159258959531284811821457229191140814916,
+          "denominator": 161483485095155635787701515311560578281348470127604937341798282232328408471440346285797434075932091574911695,
+          "display_float": 0.18327176027668493
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 33,
+        "prime_order_q_j": 35951,
+        "phase_exponent_d_j": 33,
+        "exponent_over_prime": {
+          "exact": "33/35951",
+          "numerator": 33,
+          "denominator": 35951,
+          "display_float": 0.000917916052404662
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "264/35951",
+          "numerator": 264,
+          "denominator": 35951,
+          "display_float": 0.007343328419237296
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/1089",
+          "numerator": 8,
+          "denominator": 1089,
+          "display_float": 0.0073461891643709825
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "34090083791048366858538889636673896030334646801198962672254856307461379484439791746468083905279138894685762131192/191581261497646028652720686839875173543161042035398328378374671469636474227572812347583217231306542598918461449185",
+          "numerator": 34090083791048366858538889636673896030334646801198962672254856307461379484439791746468083905279138894685762131192,
+          "denominator": 191581261497646028652720686839875173543161042035398328378374671469636474227572812347583217231306542598918461449185,
+          "display_float": 0.1779405956749441
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 34,
+        "prime_order_q_j": 39313,
+        "phase_exponent_d_j": 34,
+        "exponent_over_prime": {
+          "exact": "34/39313",
+          "numerator": 34,
+          "denominator": 39313,
+          "display_float": 0.0008648538651336708
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "272/39313",
+          "numerator": 272,
+          "denominator": 39313,
+          "display_float": 0.0069188309210693666
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/289",
+          "numerator": 2,
+          "denominator": 289,
+          "display_float": 0.006920415224913495
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "670881279055823431030529381519347801671844800051307233181100581653671289487252884721397506967254475192283195778960068/3879932735314190651976210368167036844167846387095134733944355721553300548249869379422701918886182419886417729520629345",
+          "numerator": 670881279055823431030529381519347801671844800051307233181100581653671289487252884721397506967254475192283195778960068,
+          "denominator": 3879932735314190651976210368167036844167846387095134733944355721553300548249869379422701918886182419886417729520629345,
+          "display_float": 0.17291054377041837
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 35,
+        "prime_order_q_j": 42899,
+        "phase_exponent_d_j": 35,
+        "exponent_over_prime": {
+          "exact": "35/42899",
+          "numerator": 35,
+          "denominator": 42899,
+          "display_float": 0.0008158698337956596
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "280/42899",
+          "numerator": 280,
+          "denominator": 42899,
+          "display_float": 0.0065269586703652765
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/1225",
+          "numerator": 8,
+          "denominator": 1225,
+          "display_float": 0.006530612244897959
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "57624176754895537169825203340484459765274292918824801388089974740135508363280850263693425452028742467110348746988261574064/342681364966383603957027100025877645601675027976458616076574239027178023981058242810288655096496581592632952720864219970025",
+          "numerator": 57624176754895537169825203340484459765274292918824801388089974740135508363280850263693425452028742467110348746988261574064,
+          "denominator": 342681364966383603957027100025877645601675027976458616076574239027178023981058242810288655096496581592632952720864219970025,
+          "display_float": 0.168156727053274
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 36,
+        "prime_order_q_j": 46663,
+        "phase_exponent_d_j": 36,
+        "exponent_over_prime": {
+          "exact": "36/46663",
+          "numerator": 36,
+          "denominator": 46663,
+          "display_float": 0.0007714891884362343
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "288/46663",
+          "numerator": 288,
+          "denominator": 46663,
+          "display_float": 0.006171913507489874
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/162",
+          "numerator": 1,
+          "denominator": 162,
+          "display_float": 0.006172839506172839
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "672934184500639173295599964475024106234843456961046284517611004116448858623990327348891314628917095403540252969346947424432588/4111853280023920657229165717616221634011390184976839874795161526900767805635802487380242731854582282334665235866376681947185405",
+          "numerator": 672934184500639173295599964475024106234843456961046284517611004116448858623990327348891314628917095403540252969346947424432588,
+          "denominator": 4111853280023920657229165717616221634011390184976839874795161526900767805635802487380242731854582282334665235866376681947185405,
+          "display_float": 0.16365714889922445
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 37,
+        "prime_order_q_j": 50671,
+        "phase_exponent_d_j": 37,
+        "exponent_over_prime": {
+          "exact": "37/50671",
+          "numerator": 37,
+          "denominator": 50671,
+          "display_float": 0.0007302007065185214
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "296/50671",
+          "numerator": 296,
+          "denominator": 50671,
+          "display_float": 0.005841605652148171
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/1369",
+          "numerator": 8,
+          "denominator": 1369,
+          "display_float": 0.005843681519357195
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "136528226536981670257416475761035163904066052507887498975938509626334167935841321901300970752983983270945714956152055302646624319512/856557061047489677114553897206807550825408069592174863549176477777198422526306074445293148914970104071405935573739043942777307922215",
+          "numerator": 136528226536981670257416475761035163904066052507887498975938509626334167935841321901300970752983983270945714956152055302646624319512,
+          "denominator": 856557061047489677114553897206807550825408069592174863549176477777198422526306074445293148914970104071405935573739043942777307922215,
+          "display_float": 0.15939186394660076
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 38,
+        "prime_order_q_j": 54877,
+        "phase_exponent_d_j": 38,
+        "exponent_over_prime": {
+          "exact": "38/54877",
+          "numerator": 38,
+          "denominator": 54877,
+          "display_float": 0.00069245767808007
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "304/54877",
+          "numerator": 304,
+          "denominator": 54877,
+          "display_float": 0.00553966142464056
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/361",
+          "numerator": 2,
+          "denominator": 361,
+          "display_float": 0.00554016620498615
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "3749648572842518003437079056449580500125647787861401156306950278128714233400122611619000322725617929191164370154302719007596486547799652/24137847430890776465116002976306529226115471731491508641966891725638028076393131635117640284517012800578495324408688453365081519191904285",
+          "numerator": 3749648572842518003437079056449580500125647787861401156306950278128714233400122611619000322725617929191164370154302719007596486547799652,
+          "denominator": 24137847430890776465116002976306529226115471731491508641966891725638028076393131635117640284517012800578495324408688453365081519191904285,
+          "display_float": 0.15534312177497023
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 39,
+        "prime_order_q_j": 59333,
+        "phase_exponent_d_j": 39,
+        "exponent_over_prime": {
+          "exact": "39/59333",
+          "numerator": 39,
+          "denominator": 59333,
+          "display_float": 0.0006573070635228288
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "312/59333",
+          "numerator": 312,
+          "denominator": 59333,
+          "display_float": 0.00525845650818263
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/1521",
+          "numerator": 8,
+          "denominator": 1521,
+          "display_float": 0.005259697567389875
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "445352166408005921514660012414151584739412648140688679650967596979074585576439721255125381968598667079808210650899723864147544958680555300912/2939719219108666061062336019954453507597434846607307453047317993870208614442563868050050688897298363124854245275920408849310783650016685301805",
+          "numerator": 445352166408005921514660012414151584739412648140688679650967596979074585576439721255125381968598667079808210650899723864147544958680555300912,
+          "denominator": 2939719219108666061062336019954453507597434846607307453047317993870208614442563868050050688897298363124854245275920408849310783650016685301805,
+          "display_float": 0.15149479702453977
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 40,
+        "prime_order_q_j": 64007,
+        "phase_exponent_d_j": 40,
+        "exponent_over_prime": {
+          "exact": "40/64007",
+          "numerator": 40,
+          "denominator": 64007,
+          "display_float": 0.0006249316481009889
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "320/64007",
+          "numerator": 320,
+          "denominator": 64007,
+          "display_float": 0.004999453184807911
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/200",
+          "numerator": 1,
+          "denominator": 200,
+          "display_float": 0.005
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "3566222111044637624540720643254797576969996822317357983344022365294179229863069015174588521933803961357416778155902887565253089575026894749904098/24123411289421588278258582260157013546255001567537683095794831132519287536490408397728153133878125170324685343253312514002286580652130509758029825",
+          "numerator": 3566222111044637624540720643254797576969996822317357983344022365294179229863069015174588521933803961357416778155902887565253089575026894749904098,
+          "denominator": 24123411289421588278258582260157013546255001567537683095794831132519287536490408397728153133878125170324685343253312514002286580652130509758029825,
+          "display_float": 0.14783241342854647
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 41,
+        "prime_order_q_j": 68927,
+        "phase_exponent_d_j": 41,
+        "exponent_over_prime": {
+          "exact": "41/68927",
+          "numerator": 41,
+          "denominator": 68927,
+          "display_float": 0.0005948322137914025
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "328/68927",
+          "numerator": 328,
+          "denominator": 68927,
+          "display_float": 0.00475865771033122
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/1681",
+          "numerator": 8,
+          "denominator": 1681,
+          "display_float": 0.004759071980963712
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "1968054427364375956564799777217253760791122095877778741754711577503348399476567834862401871256232850167034629502132763950600147640793809956853244859288/13634585833556886885095340255455908276162291642974493038499572668863486842626929912967708970682303775642750610566252787551611978585797077097952118331755",
+          "numerator": 1968054427364375956564799777217253760791122095877778741754711577503348399476567834862401871256232850167034629502132763950600147640793809956853244859288,
+          "denominator": 13634585833556886885095340255455908276162291642974493038499572668863486842626929912967708970682303775642750610566252787551611978585797077097952118331755,
+          "display_float": 0.14434280963054122
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 42,
+        "prime_order_q_j": 74093,
+        "phase_exponent_d_j": 42,
+        "exponent_over_prime": {
+          "exact": "42/74093",
+          "numerator": 42,
+          "denominator": 74093,
+          "display_float": 0.0005668551685044472
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "336/74093",
+          "numerator": 336,
+          "denominator": 74093,
+          "display_float": 0.004534841348035577
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/441",
+          "numerator": 2,
+          "denominator": 441,
+          "display_float": 0.0045351473922902496
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "72965396890184538191870440731140371756231116066302464664476115826913627354124800153385545926105606552842511379962349987703436925974726756394672417530338132/517433530036105824866457316012131386585842589481977838212988429093564608371851206801752333562440063576162554652741285940226666168695285841507070545723150915",
+          "numerator": 72965396890184538191870440731140371756231116066302464664476115826913627354124800153385545926105606552842511379962349987703436925974726756394672417530338132,
+          "denominator": 517433530036105824866457316012131386585842589481977838212988429093564608371851206801752333562440063576162554652741285940226666168695285841507070545723150915,
+          "display_float": 0.14101404848095775
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 43,
+        "prime_order_q_j": 79531,
+        "phase_exponent_d_j": 43,
+        "exponent_over_prime": {
+          "exact": "43/79531",
+          "numerator": 43,
+          "denominator": 79531,
+          "display_float": 0.0005406696759754058
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "344/79531",
+          "numerator": 344,
+          "denominator": 79531,
+          "display_float": 0.004325357407803246
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/1849",
+          "numerator": 8,
+          "denominator": 1849,
+          "display_float": 0.004326663061114116
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "11614498014162362556911203725324658059765135205204002652382103174689496643024652143671135649086089960073483160300549551951866844946155376769910261804245346995744/84263631491617423398596729637605491246762943824567653161401850401539635016292048957640813721135242378088510369797532862896341925889890736438983313599620969671295",
+          "numerator": 11614498014162362556911203725324658059765135205204002652382103174689496643024652143671135649086089960073483160300549551951866844946155376769910261804245346995744,
+          "denominator": 84263631491617423398596729637605491246762943824567653161401850401539635016292048957640813721135242378088510369797532862896341925889890736438983313599620969671295,
+          "display_float": 0.13783524171181463
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 44,
+        "prime_order_q_j": 85193,
+        "phase_exponent_d_j": 44,
+        "exponent_over_prime": {
+          "exact": "44/85193",
+          "numerator": 44,
+          "denominator": 85193,
+          "display_float": 0.0005164743582219196
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "352/85193",
+          "numerator": 352,
+          "denominator": 85193,
+          "display_float": 0.004131794865775357
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/242",
+          "numerator": 1,
+          "denominator": 242,
+          "display_float": 0.004132231404958678
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "247540928831790801891898614794247277201153608071598055385939067610919769269891278921461727433670138778862313623814020957461984730129763297122453571416379313869106368/1836404351960906852734027048097250483107912330365356112408660145438186683380759390589098425041660970769335793099436590443628107781760745967532775809079479115378441495",
+          "numerator": 247540928831790801891898614794247277201153608071598055385939067610919769269891278921461727433670138778862313623814020957461984730129763297122453571416379313869106368,
+          "denominator": 1836404351960906852734027048097250483107912330365356112408660145438186683380759390589098425041660970769335793099436590443628107781760745967532775809079479115378441495,
+          "display_float": 0.13479652701076827
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 45,
+        "prime_order_q_j": 91127,
+        "phase_exponent_d_j": 45,
+        "exponent_over_prime": {
+          "exact": "45/91127",
+          "numerator": 45,
+          "denominator": 91127,
+          "display_float": 0.0004938163222755057
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "360/91127",
+          "numerator": 360,
+          "denominator": 91127,
+          "display_float": 0.003950530578204045
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/2025",
+          "numerator": 8,
+          "denominator": 2025,
+          "display_float": 0.003950617283950617
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "10032305488075841861041598311443953150225635772924386180800644160366568919528706127765231921316460427833716638826232422579270611605181527550817537068682081947670087907016/76066372445973435804133492187253702170079421331456275661574533215157108134744754993733078263077926946953301280805617353343862989922050680810617845979084406066859653688575",
+          "numerator": 10032305488075841861041598311443953150225635772924386180800644160366568919528706127765231921316460427833716638826232422579270611605181527550817537068682081947670087907016,
+          "denominator": 76066372445973435804133492187253702170079421331456275661574533215157108134744754993733078263077926946953301280805617353343862989922050680810617845979084406066859653688575,
+          "display_float": 0.13188883820115574
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 46,
+        "prime_order_q_j": 97367,
+        "phase_exponent_d_j": 46,
+        "exponent_over_prime": {
+          "exact": "46/97367",
+          "numerator": 46,
+          "denominator": 97367,
+          "display_float": 0.00047243932749288774
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "368/97367",
+          "numerator": 368,
+          "denominator": 97367,
+          "display_float": 0.003779514619943102
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/529",
+          "numerator": 2,
+          "denominator": 529,
+          "display_float": 0.003780718336483932
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "4398468940564674047615759975069126174940946575065476782641419382653170503524240489923297391452770378857632577363805622020344341538756825533735860829680687534637830956846660484/34069230635356639410128902375463123608292965877187554684766426847576929879676185773584119703709099160002409594717722506277946775602805419737042167923449352281354849943199217315",
+          "numerator": 4398468940564674047615759975069126174940946575065476782641419382653170503524240489923297391452770378857632577363805622020344341538756825533735860829680687534637830956846660484,
+          "denominator": 34069230635356639410128902375463123608292965877187554684766426847576929879676185773584119703709099160002409594717722506277946775602805419737042167923449352281354849943199217315,
+          "display_float": 0.129103852905912
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 47,
+        "prime_order_q_j": 103837,
+        "phase_exponent_d_j": 47,
+        "exponent_over_prime": {
+          "exact": "47/103837",
+          "numerator": 47,
+          "denominator": 103837,
+          "display_float": 0.00045263249130849314
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "376/103837",
+          "numerator": 376,
+          "denominator": 103837,
+          "display_float": 0.003621059930467945
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/2209",
+          "numerator": 8,
+          "denominator": 2209,
+          "display_float": 0.0036215482118605704
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "914004596620171339747955705205687193362369537081009674078338136546796658350404347584803368081631967019060896828303745428425186784181813457102675416514377405523063402809505669602496/7229104129118512444443003360441970661190125425917723193160795601516380277915173774002945616116520055888130419090221527763739499517331295624089418989624299498410219435519257610081295",
+          "numerator": 914004596620171339747955705205687193362369537081009674078338136546796658350404347584803368081631967019060896828303745428425186784181813457102675416514377405523063402809505669602496,
+          "denominator": 7229104129118512444443003360441970661190125425917723193160795601516380277915173774002945616116520055888130419090221527763739499517331295624089418989624299498410219435519257610081295,
+          "display_float": 0.12643400624686
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 48,
+        "prime_order_q_j": 110597,
+        "phase_exponent_d_j": 48,
+        "exponent_over_prime": {
+          "exact": "48/110597",
+          "numerator": 48,
+          "denominator": 110597,
+          "display_float": 0.0004340081557365932
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "384/110597",
+          "numerator": 384,
+          "denominator": 110597,
+          "display_float": 0.0034720652458927457
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/288",
+          "numerator": 1,
+          "denominator": 288,
+          "display_float": 0.003472222222222222
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "6321576855702703088959554519064067664063699789512404881829981384616073911083728589536612422611208144351853335621497850697600630263313814221453891236413994459020211373414648439295946772/51033014640518305584131670807753231652062402238099304169830075179206836782760711098940666572700346933259120848518376402516146644347975912902388349276307147976106917377241914929925169135",
+          "numerator": 6321576855702703088959554519064067664063699789512404881829981384616073911083728589536612422611208144351853335621497850697600630263313814221453891236413994459020211373414648439295946772,
+          "denominator": 51033014640518305584131670807753231652062402238099304169830075179206836782760711098940666572700346933259120848518376402516146644347975912902388349276307147976106917377241914929925169135,
+          "display_float": 0.12387229914267317
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 49,
+        "prime_order_q_j": 117659,
+        "phase_exponent_d_j": 49,
+        "exponent_over_prime": {
+          "exact": "49/117659",
+          "numerator": 49,
+          "denominator": 117659,
+          "display_float": 0.00041645772954045166
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "392/117659",
+          "numerator": 392,
+          "denominator": 117659,
+          "display_float": 0.0033316618363236133
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/2401",
+          "numerator": 8,
+          "denominator": 2401,
+          "display_float": 0.003331945022907122
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "1701044984879288172737895543931784659835190925300993196895894991268204562600974402872982010992051486223808749187396683480037046294278282371285515185914645369361517538612971267865256053625944/14010484762373734405687812596328687460216690431509227401742085902857360154386632516777273072647150279580781433136921848001843695397123161851091591837502386355348448847274115093726819442261585",
+          "numerator": 1701044984879288172737895543931784659835190925300993196895894991268204562600974402872982010992051486223808749187396683480037046294278282371285515185914645369361517538612971267865256053625944,
+          "denominator": 14010484762373734405687812596328687460216690431509227401742085902857360154386632516777273072647150279580781433136921848001843695397123161851091591837502386355348448847274115093726819442261585,
+          "display_float": 0.12141228613642113
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 50,
+        "prime_order_q_j": 125003,
+        "phase_exponent_d_j": 50,
+        "exponent_over_prime": {
+          "exact": "50/125003",
+          "numerator": 50,
+          "denominator": 125003,
+          "display_float": 0.0003999904002303945
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "400/125003",
+          "numerator": 400,
+          "denominator": 125003,
+          "display_float": 0.003199923201843156
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/625",
+          "numerator": 2,
+          "denominator": 625,
+          "display_float": 0.0032
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "744625341421669057653091271590405034915687633336229019139142668031615165433101800988639146779356431771509700088013571597635657962601327692598056865799609521053623603330109626320611446348263903412/6254830809825014006836405849924553280676667692892671260357021300410280683495686516052533806786113308565844362451480863449194526627594952145971436623083252862777221968770736460932620038360803249125",
+          "numerator": 744625341421669057653091271590405034915687633336229019139142668031615165433101800988639146779356431771509700088013571597635657962601327692598056865799609521053623603330109626320611446348263903412,
+          "denominator": 6254830809825014006836405849924553280676667692892671260357021300410280683495686516052533806786113308565844362451480863449194526627594952145971436623083252862777221968770736460932620038360803249125,
+          "display_float": 0.11904803887772958
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 51,
+        "prime_order_q_j": 132661,
+        "phase_exponent_d_j": 51,
+        "exponent_over_prime": {
+          "exact": "51/132661",
+          "numerator": 51,
+          "denominator": 132661,
+          "display_float": 0.0003844385312940502
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "408/132661",
+          "numerator": 408,
+          "denominator": 132661,
+          "display_float": 0.003075508250352402
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/2601",
+          "numerator": 8,
+          "denominator": 2601,
+          "display_float": 0.0030757400999615533
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "197667563675496421943225052504380213383440717468782964211004637555106894703796085645849693053519156559676291226747145011119378896627871815674523897593372716031710045945281684693679690527040123690104384/1692735104526880213648285850371955972046408722125942710623254517576805621336571388568332182177787258360413097093038841765108533997764482851138902177863888712378933648942153126073315906094324340457630115",
+          "numerator": 197667563675496421943225052504380213383440717468782964211004637555106894703796085645849693053519156559676291226747145011119378896627871815674523897593372716031710045945281684693679690527040123690104384,
+          "denominator": 1692735104526880213648285850371955972046408722125942710623254517576805621336571388568332182177787258360413097093038841765108533997764482851138902177863888712378933648942153126073315906094324340457630115,
+          "display_float": 0.11677406768895748
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 52,
+        "prime_order_q_j": 140611,
+        "phase_exponent_d_j": 52,
+        "exponent_over_prime": {
+          "exact": "52/140611",
+          "numerator": 52,
+          "denominator": 140611,
+          "display_float": 0.00036981459487522313
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "416/140611",
+          "numerator": 416,
+          "denominator": 140611,
+          "display_float": 0.002958516759001785
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/338",
+          "numerator": 1,
+          "denominator": 338,
+          "display_float": 0.0029585798816568047
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "6952010300971665582586653910079012005251859926238036777362605399674656202301201250165791945466438469476091784893539153545383046264038705404070628682821468908701095496024372975441466875571151075329818718616/60671044807336843105429187886009104223733892132334550907545171227899976429075221837916918315423744596257031332147856853581133116891678472085478397327667653422982061000946396308506574457525049369983171868695",
+          "numerator": 6952010300971665582586653910079012005251859926238036777362605399674656202301201250165791945466438469476091784893539153545383046264038705404070628682821468908701095496024372975441466875571151075329818718616,
+          "denominator": 60671044807336843105429187886009104223733892132334550907545171227899976429075221837916918315423744596257031332147856853581133116891678472085478397327667653422982061000946396308506574457525049369983171868695,
+          "display_float": 0.11458530709415064
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 53,
+        "prime_order_q_j": 148891,
+        "phase_exponent_d_j": 53,
+        "exponent_over_prime": {
+          "exact": "53/148891",
+          "numerator": 53,
+          "denominator": 148891,
+          "display_float": 0.0003559651019873599
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "424/148891",
+          "numerator": 424,
+          "denominator": 148891,
+          "display_float": 0.002847720815898879
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/2809",
+          "numerator": 8,
+          "denominator": 2809,
+          "display_float": 0.002847988608045568
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "4142345872349297565756615024353348079756654333591884739087398041682654607236999382435222542930215473535737049415630421004096231676085337673897938580891803084914839575983828995363883838864963989868718375708613784/36828364939822081927765710178261263189209695036476727062791640671734041207428943022882481376907162161854553812305062107975928462929023205194291161153479194080574212950620863408984782770033399435734362727938381845",
+          "numerator": 4142345872349297565756615024353348079756654333591884739087398041682654607236999382435222542930215473535737049415630421004096231676085337673897938580891803084914839575983828995363883838864963989868718375708613784,
+          "denominator": 36828364939822081927765710178261263189209695036476727062791640671734041207428943022882481376907162161854553812305062107975928462929023205194291161153479194080574212950620863408984782770033399435734362727938381845,
+          "display_float": 0.11247705074927797
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 54,
+        "prime_order_q_j": 157477,
+        "phase_exponent_d_j": 54,
+        "exponent_over_prime": {
+          "exact": "54/157477",
+          "numerator": 54,
+          "denominator": 157477,
+          "display_float": 0.00034290721819694303
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "432/157477",
+          "numerator": 432,
+          "denominator": 157477,
+          "display_float": 0.0027432577455755443
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/729",
+          "numerator": 2,
+          "denominator": 729,
+          "display_float": 0.0027434842249657062
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "326312193428975195998240390461055615378841389398880823567228618900974880035341884396384121441367600252181567205477859176218253789676363643687570702815872850520838870104495815700446728270588348517752018096472963610324/2954523613055957997829180000510100405050447715509426977113499214107393648962297487380953623289861278218565630356789342841482693151513061446760330339511206834870147245024016718689260550555978119988882763420828661523335",
+          "numerator": 326312193428975195998240390461055615378841389398880823567228618900974880035341884396384121441367600252181567205477859176218253789676363643687570702815872850520838870104495815700446728270588348517752018096472963610324,
+          "denominator": 2954523613055957997829180000510100405050447715509426977113499214107393648962297487380953623289861278218565630356789342841482693151513061446760330339511206834870147245024016718689260550555978119988882763420828661523335,
+          "display_float": 0.11044494347143162
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 55,
+        "prime_order_q_j": 166393,
+        "phase_exponent_d_j": 55,
+        "exponent_over_prime": {
+          "exact": "55/166393",
+          "numerator": 55,
+          "denominator": 166393,
+          "display_float": 0.00033054275119746623
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "440/166393",
+          "numerator": 440,
+          "denominator": 166393,
+          "display_float": 0.00264434200957973
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/3025",
+          "numerator": 8,
+          "denominator": 3025,
+          "display_float": 0.002644628099173554
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "108640277394667703335435050254055240840878747538230181450530037230846761731350299559047961037773904105019390167647969188663273449539633379196233183364667689507773916255772913685030467678783593052524738220767857764731588864/1001431948707300038974203375198823796976509372961918687598390967048645752916596152591772070118660882283859203750283285251416875440214229845633094094075031597707413428880387657889163599754679544539335530776426181156550942075",
+          "numerator": 108640277394667703335435050254055240840878747538230181450530037230846761731350299559047961037773904105019390167647969188663273449539633379196233183364667689507773916255772913685030467678783593052524738220767857764731588864,
+          "denominator": 1001431948707300038974203375198823796976509372961918687598390967048645752916596152591772070118660882283859203750283285251416875440214229845633094094075031597707413428880387657889163599754679544539335530776426181156550942075,
+          "display_float": 0.1084849325357616
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 56,
+        "prime_order_q_j": 175621,
+        "phase_exponent_d_j": 56,
+        "exponent_over_prime": {
+          "exact": "56/175621",
+          "numerator": 56,
+          "denominator": 175621,
+          "display_float": 0.00031886847244919455
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "448/175621",
+          "numerator": 448,
+          "denominator": 175621,
+          "display_float": 0.0025509477795935564
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/392",
+          "numerator": 1,
+          "denominator": 392,
+          "display_float": 0.002551020408163265
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "2385958909343437250973737695338177324785053715628910654274633047549448741155653495030993231784618533592685764904699651682535081401557303245002353091856573524098261098381065072172874573464888711789120932105929082037850193308408/22383770215408603291142181758009971606212379420411197324418529821242754734741067825458858528803007266418462919141809197708610574032746233055263769550342870355396646846433053201146720070320291528014518486425585391386589654310455",
+          "numerator": 2385958909343437250973737695338177324785053715628910654274633047549448741155653495030993231784618533592685764904699651682535081401557303245002353091856573524098261098381065072172874573464888711789120932105929082037850193308408,
+          "denominator": 22383770215408603291142181758009971606212379420411197324418529821242754734741067825458858528803007266418462919141809197708610574032746233055263769550342870355396646846433053201146720070320291528014518486425585391386589654310455,
+          "display_float": 0.1065932542365443
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 57,
+        "prime_order_q_j": 185221,
+        "phase_exponent_d_j": 57,
+        "exponent_over_prime": {
+          "exact": "57/185221",
+          "numerator": 57,
+          "denominator": 185221,
+          "display_float": 0.0003077404829905896
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "456/185221",
+          "numerator": 456,
+          "denominator": 185221,
+          "display_float": 0.002461923863924717
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/3249",
+          "numerator": 8,
+          "denominator": 3249,
+          "display_float": 0.0024622960911049553
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "3536895703925467231800962048043239273485304166245120754646062297258178233164593500443428956144906945472207774647182517044920231987045466726493961061773410716067755132791910240186273568738502081395595662528996905024271531649979614984/33759832182126746268678974957402971742833285475970713662669871026451863379891156207265852632445006158131109265677543908614404838653771361695079086801913033862217796079423009025323858339179042696470213761247328721620983539225585253805",
+          "numerator": 3536895703925467231800962048043239273485304166245120754646062297258178233164593500443428956144906945472207774647182517044920231987045466726493961061773410716067755132791910240186273568738502081395595662528996905024271531649979614984,
+          "denominator": 33759832182126746268678974957402971742833285475970713662669871026451863379891156207265852632445006158131109265677543908614404838653771361695079086801913033862217796079423009025323858339179042696470213761247328721620983539225585253805,
+          "display_float": 0.10476638879141062
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 58,
+        "prime_order_q_j": 195121,
+        "phase_exponent_d_j": 58,
+        "exponent_over_prime": {
+          "exact": "58/195121",
+          "numerator": 58,
+          "denominator": 195121,
+          "display_float": 0.0002972514491008144
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "464/195121",
+          "numerator": 464,
+          "denominator": 195121,
+          "display_float": 0.002378011592806515
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/841",
+          "numerator": 2,
+          "denominator": 841,
+          "display_float": 0.0023781212841854932
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "345198721762579377537141153014264857236377706974648773656800483735483459486902302239310899409496724605121790060740786624104774361589126010182627392520443850618542865486963161410392506277205431222619240276135805715136514135136087732539212/3351409021772874261439235051004198811115225111672799420993691740912580824594465375775784079181820339488426402803855672013855917704665142703401057340007124900467792264483856339945197900473152029988788996490208084162295262202803985770576785",
+          "numerator": 345198721762579377537141153014264857236377706974648773656800483735483459486902302239310899409496724605121790060740786624104774361589126010182627392520443850618542865486963161410392506277205431222619240276135805715136514135136087732539212,
+          "denominator": 3351409021772874261439235051004198811115225111672799420993691740912580824594465375775784079181820339488426402803855672013855917704665142703401057340007124900467792264483856339945197900473152029988788996490208084162295262202803985770576785,
+          "display_float": 0.10300107194315883
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 59,
+        "prime_order_q_j": 205391,
+        "phase_exponent_d_j": 59,
+        "exponent_over_prime": {
+          "exact": "59/205391",
+          "numerator": 59,
+          "denominator": 205391,
+          "display_float": 0.0002872569878913876
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "472/205391",
+          "numerator": 472,
+          "denominator": 205391,
+          "display_float": 0.002298055903131101
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/3481",
+          "numerator": 8,
+          "denominator": 3481,
+          "display_float": 0.002298190175237001
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "141855968394050943816958445356956573545233927442070847068795023982302150529059342472170891608313739361232123208252719048167508800876669945106426435177246185256959406334218679997809859113874150681529794290364838481748469734416704235130119557664/1400434681829868711325678953630600016648698788061506510577986382107199220707332015233168275883681462742212960365479879293285343682877717971540018879971131035706442722023504155639426357813406515410145320203762047870224178818850713553202332773385",
+          "numerator": 141855968394050943816958445356956573545233927442070847068795023982302150529059342472170891608313739361232123208252719048167508800876669945106426435177246185256959406334218679997809859113874150681529794290364838481748469734416704235130119557664,
+          "denominator": 1400434681829868711325678953630600016648698788061506510577986382107199220707332015233168275883681462742212960365479879293285343682877717971540018879971131035706442722023504155639426357813406515410145320203762047870224178818850713553202332773385,
+          "display_float": 0.10129424116281938
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 60,
+        "prime_order_q_j": 216023,
+        "phase_exponent_d_j": 60,
+        "exponent_over_prime": {
+          "exact": "60/216023",
+          "numerator": 60,
+          "denominator": 216023,
+          "display_float": 0.00027774820273767146
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "480/216023",
+          "numerator": 480,
+          "denominator": 216023,
+          "display_float": 0.0022219856219013717
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/450",
+          "numerator": 1,
+          "denominator": 450,
+          "display_float": 0.0022222222222222222
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "2554628768940924141406093737481845552738352301101072441114793183533070686421666261808463982102665174104479706748787684790474396091501204415505857513606987360007377769412782026321402255900819404852100853278191147570903868043317981048941881828871456/25637805192621502425992130898317212491228971041814476350388843408639279428377964739552094106883094968301785621782377963099438965966635022827626228687118952519187531876244359170652186448637755565969984958167566853141477778049541329991815892602114225",
+          "numerator": 2554628768940924141406093737481845552738352301101072441114793183533070686421666261808463982102665174104479706748787684790474396091501204415505857513606987360007377769412782026321402255900819404852100853278191147570903868043317981048941881828871456,
+          "denominator": 25637805192621502425992130898317212491228971041814476350388843408639279428377964739552094106883094968301785621782377963099438965966635022827626228687118952519187531876244359170652186448637755565969984958167566853141477778049541329991815892602114225,
+          "display_float": 0.09964303690380408
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 61,
+        "prime_order_q_j": 226991,
+        "phase_exponent_d_j": 61,
+        "exponent_over_prime": {
+          "exact": "61/226991",
+          "numerator": 61,
+          "denominator": 226991,
+          "display_float": 0.0002687331215775075
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "488/226991",
+          "numerator": 488,
+          "denominator": 226991,
+          "display_float": 0.00214986497262006
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/3721",
+          "numerator": 8,
+          "denominator": 3721,
+          "display_float": 0.002149959688255845
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "6961035116474831600019704314752575006278719873724483506664854185396946171850695046568560857522424636490705691652054744388493388961549742275989057554373826823791088950192443108695712687027581815264637367969555795864071087163387137269171601609726294375112/70998522669435838977576233373827053043277975462180619575263590240879351856068699649187166599669107441387445564902845825907237953949535895693321604366197381445651343987071116656567227540785339838836132838800852844249533624270369919641301831587287422573095",
+          "numerator": 6961035116474831600019704314752575006278719873724483506664854185396946171850695046568560857522424636490705691652054744388493388961549742275989057554373826823791088950192443108695712687027581815264637367969555795864071087163387137269171601609726294375112,
+          "denominator": 70998522669435838977576233373827053043277975462180619575263590240879351856068699649187166599669107441387445564902845825907237953949535895693321604366197381445651343987071116656567227540785339838836132838800852844249533624270369919641301831587287422573095,
+          "display_float": 0.09804478818362074
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 62,
+        "prime_order_q_j": 238331,
+        "phase_exponent_d_j": 62,
+        "exponent_over_prime": {
+          "exact": "62/238331",
+          "numerator": 62,
+          "denominator": 238331,
+          "display_float": 0.0002601424069885999
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "496/238331",
+          "numerator": 496,
+          "denominator": 238331,
+          "display_float": 0.002081139255908799
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "2/961",
+          "numerator": 2,
+          "denominator": 961,
+          "display_float": 0.002081165452653486
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "829803879903790071066024122156971077060784382258456263799612736682046642800039656924537944069001901849986698713318600228735615417913612942732520656977419784150780641987744360202571223524511772352492428878415816134751010421611545180676862636775209999255738996/8599272395019814772464038681356472733517737348626000763340271286830647885630655523586938109653079990393649999291715813189561242506313967643459606065511571010443105645528885826560099034716561241033103043339862751408326287612875861194409251008933176393234712095",
+          "numerator": 829803879903790071066024122156971077060784382258456263799612736682046642800039656924537944069001901849986698713318600228735615417913612942732520656977419784150780641987744360202571223524511772352492428878415816134751010421611545180676862636775209999255738996,
+          "denominator": 8599272395019814772464038681356472733517737348626000763340271286830647885630655523586938109653079990393649999291715813189561242506313967643459606065511571010443105645528885826560099034716561241033103043339862751408326287612875861194409251008933176393234712095,
+          "display_float": 0.09649698739446409
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 63,
+        "prime_order_q_j": 250049,
+        "phase_exponent_d_j": 63,
+        "exponent_over_prime": {
+          "exact": "63/250049",
+          "numerator": 63,
+          "denominator": 250049,
+          "display_float": 0.00025195061767893494
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "504/250049",
+          "numerator": 504,
+          "denominator": 250049,
+          "display_float": 0.0020156049414314795
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "8/3969",
+          "numerator": 8,
+          "denominator": 3969,
+          "display_float": 0.002015621063240111
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "138374356085838535509726820970016862740128618576162158961377893965530383522965581217117878453235228588900779454266369787341338458532514025894262314218956149327210896211244547408201458773338678334338926919873344818975998188748351565685938166034567531154235308257696/1456613829843500094994744147513696698755190672000588392332964561129517746330169530431135355967532353834734760068734812736031244570215720232286066186405714813270840341765674187514711299166731285707768194856963747214997167023146836146187664997296366719451318613467605",
+          "numerator": 138374356085838535509726820970016862740128618576162158961377893965530383522965581217117878453235228588900779454266369787341338458532514025894262314218956149327210896211244547408201458773338678334338926919873344818975998188748351565685938166034567531154235308257696,
+          "denominator": 1456613829843500094994744147513696698755190672000588392332964561129517746330169530431135355967532353834734760068734812736031244570215720232286066186405714813270840341765674187514711299166731285707768194856963747214997167023146836146187664997296366719451318613467605,
+          "display_float": 0.09499728291108261
+        },
+        "row_verified": true
+      },
+      {
+        "index_j": 64,
+        "prime_order_q_j": 262147,
+        "phase_exponent_d_j": 64,
+        "exponent_over_prime": {
+          "exact": "64/262147",
+          "numerator": 64,
+          "denominator": 262147,
+          "display_float": 0.00024413783106425022
+        },
+        "chord_deviation_upper_bound": {
+          "exact": "512/262147",
+          "numerator": 512,
+          "denominator": 262147,
+          "display_float": 0.0019531026485140018
+        },
+        "eight_over_j_squared_bound": {
+          "exact": "1/512",
+          "numerator": 1,
+          "denominator": 512,
+          "display_float": 0.001953125
+        },
+        "normalized_prefix_deviation_upper_bound": {
+          "exact": "3401836893966431086085630648844685528666907688956593355398094220723746429163686182465744303160284927240359315458038471405621352275628119899647962779282011428092644379802974494728166911320835536465677109906846937599643513946759137808286846616667907051931825069079464453/36366375776379430419294018479835528427483520865994118598562824838706637014020471608945794301030543234353734585498916662315465016223651467784104323101685611538524855530747256308039906946920105367088981807349378613444748794630178443353776934861547680609905221006161166470",
+          "numerator": 3401836893966431086085630648844685528666907688956593355398094220723746429163686182465744303160284927240359315458038471405621352275628119899647962779282011428092644379802974494728166911320835536465677109906846937599643513946759137808286846616667907051931825069079464453,
+          "denominator": 36366375776379430419294018479835528427483520865994118598562824838706637014020471608945794301030543234353734585498916662315465016223651467784104323101685611538524855530747256308039906946920105367088981807349378613444748794630178443353776934861547680609905221006161166470,
+          "display_float": 0.09354346759447998
+        },
+        "row_verified": true
+      }
+    ],
+    "exact_fixed_modulus_balance_rows": [
+      {
+        "fixed_modulus_M": 2,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          32,
+          32
+        ],
+        "maximum_count_difference": 0,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 3,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          21,
+          22,
+          21
+        ],
+        "maximum_count_difference": 1,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 4,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          16,
+          16,
+          16,
+          16
+        ],
+        "maximum_count_difference": 0,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 5,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          12,
+          13,
+          13,
+          13,
+          13
+        ],
+        "maximum_count_difference": 1,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 6,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          10,
+          11,
+          11,
+          11,
+          11,
+          10
+        ],
+        "maximum_count_difference": 1,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 7,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          9,
+          10,
+          9,
+          9,
+          9,
+          9,
+          9
+        ],
+        "maximum_count_difference": 1,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 8,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8,
+          8
+        ],
+        "maximum_count_difference": 0,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 9,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          7,
+          8,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7,
+          7
+        ],
+        "maximum_count_difference": 1,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 10,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          6,
+          7,
+          7,
+          7,
+          7,
+          6,
+          6,
+          6,
+          6,
+          6
+        ],
+        "maximum_count_difference": 1,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 11,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          5,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          6,
+          5
+        ],
+        "maximum_count_difference": 1,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 12,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          5,
+          6,
+          6,
+          6,
+          6,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "maximum_count_difference": 1,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 13,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          4,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5
+        ],
+        "maximum_count_difference": 1,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 14,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          4,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "maximum_count_difference": 1,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 15,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          4,
+          5,
+          5,
+          5,
+          5,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "maximum_count_difference": 1,
+        "balanced_verified": true
+      },
+      {
+        "fixed_modulus_M": 16,
+        "prefix_length_N": 64,
+        "residue_counts": [
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "maximum_count_difference": 0,
+        "balanced_verified": true
+      }
+    ],
+    "algorithm": "deterministic prime search plus exact Fraction chord envelopes and integer residue counts",
+    "complexity": "O(N sqrt(q_N)) trial-division work in the replay and O(NM_max) balance checks; the construction is infinite",
+    "random_seed": null,
+    "input_range": {
+      "term_count": 64,
+      "fixed_modulus_min": 2,
+      "fixed_modulus_max": 16
+    },
+    "transcript_sha256": "044392f39a7829cd995fade3f2b9644d524a989631a3f9ce10a908c6fb984d15",
+    "aggregate": {
+      "fixed_modulus_exponent_equidistribution_proved": true,
+      "normalized_phase_sum_tends_to_one_proved": true,
+      "fixed_modulus_equidistribution_implies_cancellation_refuted": true,
+      "canonical_fermat_quotient_exponents_used": false,
+      "canonical_angular_discrepancy_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "64 phase rows and 15 fixed-modulus balance rows replay the construction; canonical D_q values are not used.",
+  "logical_limit": "Even all fixed-modulus exponent statistics are insufficient; no angular discrepancy theorem is proved for the canonical Fermat-quotient exponents.",
+  "route_decision": {
+    "discard": "deducing growing-prime-modulus phase cancellation from equidistribution of exponents modulo every fixed integer",
+    "parked": [
+      "angular discrepancy of the canonical fixed-base Fermat-quotient exponents on their varying prime moduli"
+    ],
+    "retain": "the exact fixed-modulus-equidistributed aligned counterfamily and the need for moving-modulus angular information",
+    "next_single_lemma": "CanonicalFermatQuotientAngularDiscrepancyTendsToZero"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T259",
+        "label": "DistinctPrimePhaseAlignmentLinearGrowthNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T260",
+        "label": "FixedModulusExponentEquidistributionPhaseAlignmentNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-CERT260",
+        "label": "FixedModulusExponentEquidistributionPhaseAlignmentNoGoExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "CO-REJECT260",
+        "label": "FixedModulusExponentEquidistributionImpliesGrowingModulusPhaseCancellation",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN260",
+        "label": "CanonicalFermatQuotientAngularDiscrepancyTendsToZero",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T259",
+        "CO-T260"
+      ],
+      [
+        "CO-T260",
+        "CO-CERT260"
+      ],
+      [
+        "CO-T260",
+        "CO-REJECT260"
+      ],
+      [
+        "CO-T260",
+        "CO-OPEN260"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T259",
+      "CO-T260",
+      "CO-OPEN260"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz proof or counterexample; a stronger structural shortcut to the canonical phase cancellation is eliminated."
+}

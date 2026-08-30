@@ -31,13 +31,20 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
+[TICKET-260: Weighted Variation, Fixed-Modulus Equidistribution, a Mod-3 Prime Race, and a Variable-Denominator Sieve](docs/weighted-equidistribution-primerace-variablemod.md),
+with a separate [Korean report](docs/weighted-equidistribution-primerace-variablemod.ko.md).
+It proves one exact route no-go and three partial theorems. Summable scaled
+downward variation forces eventual RH-packet lag positivity; fixed-modulus
+exponent equidistribution can coexist with linearly aligned growing-modulus
+phases; the compatible q=3 Goldbach family is exactly a special mod-3
+prime-race problem, with three independently checked prefixes; and a Twin
+unit coefficient forces a new scale-dependent congruence modulo v squared,
+which excludes the first 256 certified convergents. All four parent
+conjectures remain open_not_proven.
+
+The preserved preceding continuation is
 [TICKET-259: Critical Threshold, Aligned Phases, Exact Compatibility, and Local Congruence No-Go](docs/critical-alignment-compatibility-local.md),
 with a separate [Korean report](docs/critical-alignment-compatibility-local.ko.md).
-It proves three exact route no-gos and one partial theorem. Critical scaled-drop
-equality is insufficient; distinct prime-order phases can align linearly;
-q-divisible Goldbach compatibility is classified, with q=13,m=26 independently
-excluded through 135,207,787 primes; and fixed congruences plus a fixed window
-cannot close Twin exponent 17. All four parent conjectures remain open_not_proven.
 
 The preserved preceding continuation is
 [TICKET-258: Bounded Variation, Rational Independence, Character Completeness, and Root Convergents](docs/variation-character-convergent.md),
@@ -685,12 +692,13 @@ See [TICKET236 EN](docs/contraction-order-phase-degree2.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-259입니다. 리만 트랙은 critical
-scaled-drop 등호가 불충분함을, 콜라츠 트랙은 서로 다른 소수 차수 위상도
-선형 크기로 정렬될 수 있음을 증명했습니다. 골드바흐 트랙은 q-divisible
-호환성을 `s=2 mod 4`로 완전 분류하고 q=13,m=26을 135,207,787개 소수의
-두 독립 알고리즘으로 배제했습니다. 쌍둥이 소수 트랙은 고정 합동식과
-고정 root window가 무한한 primitive 국소 증인을 남김을 증명했습니다.
+한국어 최신 요약: 최신 탐색은 TICKET-260입니다. 리만 트랙은 summable
+scaled downward variation이 eventual lag 양성의 충분조건임을, 콜라츠
+트랙은 모든 고정 모듈러스에서 균등한 지수도 성장하는 소수 모듈러스
+위상에서 정렬될 수 있음을 증명했습니다. 골드바흐 트랙은 q=3 호환
+무한족을 특수 mod-3 소수경주 비소멸 문제로 정확히 환원하고 세 prefix를
+독립 두 알고리즘으로 배제했습니다. 쌍둥이 소수 트랙은 unit coefficient가
+mod v² 조건을 강제함을 증명하고 처음 256개 인증 수렴분수를 배제했습니다.
 네 원 추측의 해결 수는 0이며 모두 미해결입니다.The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
 The Attribution Grid panel displays a bundled paired benchmark from `data/attribution_confound_grid.json`, `data/null_calibration.json`, and `data/replication_audit.json`, highlighting which fingerprint profiles survive bit-length control, which ones are likely range confounds, whether the strongest controlled profiles survive random-label null simulation after family-wise profile selection, and whether those profiles replicate across settings.
@@ -709,17 +717,16 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-259입니다.
-[임계 문턱·정렬 위상·정확 호환성·국소 합동 no-go 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/critical-alignment-compatibility-local.ko.md)와
-[영문 보고서](docs/critical-alignment-compatibility-local.md)는 네 트랙의 정확 명제,
+최신 난제 연구 트랙은 TICKET-260입니다.
+[가중 변동·고정 모듈러스 균등분포·mod-3 소수경주·가변 분모 체 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/weighted-equidistribution-primerace-variablemod.ko.md)와
+[영문 보고서](docs/weighted-equidistribution-primerace-variablemod.md)는 네 트랙의 정확 명제,
 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 현재 결정적
-미해결 보조정리는 actual Weil packet margin과 scaled variation의 엄격한
-비교, canonical Fermat-quotient phase 접두사의 sublinear 크기, 모든 호환
-q-divisible `s=2 mod 4` Goldbach prefix에서 홀수 지표 moment의 nonvanishing, 모든
-unique-root continued-fraction convergent가 unit coefficient를 피한다는 정리입니다.주요 진입점:
+미해결 보조정리는 actual Weil packet의 가중 하강변동 합 가능성, canonical
+Fermat-quotient 각도 discrepancy의 0 수렴, 특수 지수에서 mod-3 소수경주의
+비동률, 모든 unique-root convergent에서 mod v² 조건의 실패입니다.주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-259의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 259개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-260의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 260개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

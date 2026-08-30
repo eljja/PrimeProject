@@ -1,0 +1,250 @@
+{
+  "schema": "primeproject.ticket260-weighted-equidistribution-primerace-variablemod.v1",
+  "generated_at": "2026-08-31T23:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-260",
+  "theorem_name": "Q3CompatibleFamilyPrimeRaceEquivalence",
+  "declared_proposition": "For every integer l>=0, put q=3, m=12l+6, and A=3^(6l+2). The cyclic coefficients of (1-X)^m modulo X^3-1 are (-2A,A,A), so the unique compatible forced prime-prefix vector is (1,1+3A,1+3A) with length T_l=6A+3. It equals the actual residue vector of the first T_l primes if and only if the mod-3 prime-race difference N_1(T_l)-N_2(T_l) is zero.",
+  "mathematical_argument": "A root-of-unity filter has a zero contribution at 1. For a primitive cube root zeta, (1-zeta)^m and its conjugate both equal -3^(m/2) because m=12l+6. Fourier inversion gives c_0=-2*3^(m/2-1)=-2A and c_1=c_2=A. The forced shift is 1-c_0=1+2A, yielding the stated vector and T_l. In any actual prefix beyond 3, residue zero contains only the prime 3; the other T_l-1 entries match the equal target counts exactly iff N_1=N_2. Two independent exact residue sieves exclude l=0,1,2, but no finite computation proves nonvanishing for all l.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every integer l>=0, put q=3, m=12l+6, and A=3^(6l+2). The cyclic coefficients of (1-X)^m modulo X^3-1 are (-2A,A,A), so the unique compatible forced prime-prefix vector is (1,1+3A,1+3A) with length T_l=6A+3. It equals the actual residue vector of the first T_l primes if and only if the mod-3 prime-race difference N_1(T_l)-N_2(T_l) is zero.",
+    "proof": "A root-of-unity filter has a zero contribution at 1. For a primitive cube root zeta, (1-zeta)^m and its conjugate both equal -3^(m/2) because m=12l+6. Fourier inversion gives c_0=-2*3^(m/2-1)=-2A and c_1=c_2=A. The forced shift is 1-c_0=1+2A, yielding the stated vector and T_l. In any actual prefix beyond 3, residue zero contains only the prime 3; the other T_l-1 entries match the equal target counts exactly iff N_1=N_2. Two independent exact residue sieves exclude l=0,1,2, but no finite computation proves nonvanishing for all l.",
+    "exact_q3_prime_race_certificate_rows": [
+      {
+        "level_l": 0,
+        "prime_modulus_q": 3,
+        "exponent_m": 6,
+        "scale_A_equals_3_power_6l_plus_2": "9",
+        "cyclic_coefficients": [
+          -18,
+          9,
+          9
+        ],
+        "predicted_cyclic_coefficients": [
+          -18,
+          9,
+          9
+        ],
+        "forced_shift_t": "19",
+        "forced_prefix_length_T": 57,
+        "forced_residue_counts": [
+          1,
+          28,
+          28
+        ],
+        "exact_nth_prime_endpoint": 269,
+        "actual_residue_counts": [
+          1,
+          25,
+          31
+        ],
+        "independent_segmented_residue_counts": [
+          1,
+          25,
+          31
+        ],
+        "mod_3_prime_race_difference_N1_minus_N2": -6,
+        "prime_race_tie": false,
+        "compatible_prefix_excluded": true,
+        "combinatorial_algorithm_metrics": {
+          "quotient_state_count": 31,
+          "sieving_prime_count": 6,
+          "vector_update_count": 69
+        },
+        "segmented_algorithm_metrics": {
+          "segment_count": 1,
+          "enumerated_prime_count": 57,
+          "last_prime": 269,
+          "base_prime_count": 6
+        },
+        "certificate_verified": true
+      },
+      {
+        "level_l": 1,
+        "prime_modulus_q": 3,
+        "exponent_m": 18,
+        "scale_A_equals_3_power_6l_plus_2": "6561",
+        "cyclic_coefficients": [
+          -13122,
+          6561,
+          6561
+        ],
+        "predicted_cyclic_coefficients": [
+          -13122,
+          6561,
+          6561
+        ],
+        "forced_shift_t": "13123",
+        "forced_prefix_length_T": 39369,
+        "forced_residue_counts": [
+          1,
+          19684,
+          19684
+        ],
+        "exact_nth_prime_endpoint": 471749,
+        "actual_residue_counts": [
+          1,
+          19663,
+          19705
+        ],
+        "independent_segmented_residue_counts": [
+          1,
+          19663,
+          19705
+        ],
+        "mod_3_prime_race_difference_N1_minus_N2": -42,
+        "prime_race_tie": false,
+        "compatible_prefix_excluded": true,
+        "combinatorial_algorithm_metrics": {
+          "quotient_state_count": 1372,
+          "sieving_prime_count": 124,
+          "vector_update_count": 14630
+        },
+        "segmented_algorithm_metrics": {
+          "segment_count": 1,
+          "enumerated_prime_count": 39369,
+          "last_prime": 471749,
+          "base_prime_count": 124
+        },
+        "certificate_verified": true
+      },
+      {
+        "level_l": 2,
+        "prime_modulus_q": 3,
+        "exponent_m": 30,
+        "scale_A_equals_3_power_6l_plus_2": "4782969",
+        "cyclic_coefficients": [
+          -9565938,
+          4782969,
+          4782969
+        ],
+        "predicted_cyclic_coefficients": [
+          -9565938,
+          4782969,
+          4782969
+        ],
+        "forced_shift_t": "9565939",
+        "forced_prefix_length_T": 28697817,
+        "forced_residue_counts": [
+          1,
+          14348908,
+          14348908
+        ],
+        "exact_nth_prime_endpoint": 547035959,
+        "actual_residue_counts": [
+          1,
+          14347849,
+          14349967
+        ],
+        "independent_segmented_residue_counts": [
+          1,
+          14347849,
+          14349967
+        ],
+        "mod_3_prime_race_difference_N1_minus_N2": -2118,
+        "prime_race_tie": false,
+        "compatible_prefix_excluded": true,
+        "combinatorial_algorithm_metrics": {
+          "quotient_state_count": 46776,
+          "sieving_prime_count": 2606,
+          "vector_update_count": 2022686
+        },
+        "segmented_algorithm_metrics": {
+          "segment_count": 55,
+          "enumerated_prime_count": 28697817,
+          "last_prime": 547035959,
+          "base_prime_count": 2606
+        },
+        "certificate_verified": true
+      }
+    ],
+    "algorithm": "closed-form integer root-of-unity coefficients, exact Lehmer nth-prime counting, vector combinatorial sieve, and independent segmented sieve",
+    "complexity": "O(1) symbolic arithmetic per l; finite residue certificates use O(sqrt(x)) quotient states and an independent O(x log log x) segmented sieve",
+    "random_seed": null,
+    "input_range": {
+      "level_l_min": 0,
+      "level_l_max": 2
+    },
+    "transcript_sha256": "bd6146858e8e5587274d75e799d05983d0bf67a2a6ca625fe132e7e52b33c625",
+    "aggregate": {
+      "q3_compatible_family_prime_race_equivalence_proved": true,
+      "finite_level_count": 3,
+      "maximum_prefix_length": 28697817,
+      "maximum_endpoint": 547035959,
+      "independent_exact_algorithm_count": 2,
+      "finite_levels_excluded": 3,
+      "all_q3_levels_excluded": false,
+      "all_compatible_even_q_divisible_prefixes_excluded": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "The equivalence holds for all l>=0; exact prime-prefix calculations cover only l=0 through 2.",
+  "logical_limit": "The q=3 family is reduced to one scalar prime-race nonvanishing statement, but no theorem excludes a tie at every special exponential index.",
+  "route_decision": {
+    "discard": "treating the q=3 compatible q-divisible family as requiring the full higher-dimensional odd-character detector",
+    "parked": [
+      "nonvanishing of the mod-3 prime race at the special indices 6*3^(6l+2)+3"
+    ],
+    "retain": "the exact q=3 closed form, prime-race equivalence, and three independently reproduced prefix exclusions",
+    "next_single_lemma": "Q3SpecialPrimeRaceNeverTiesAtSixTimesPowerOfThreePlusThree"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T259",
+        "label": "QDivisibleCompatibilityIffTwoModuloFourAndQ13Certificate",
+        "status": "proved"
+      },
+      {
+        "id": "GB-T260",
+        "label": "Q3CompatibleFamilyPrimeRaceEquivalence",
+        "status": "proved"
+      },
+      {
+        "id": "GB-CERT260",
+        "label": "Q3CompatibleFamilyPrimeRaceEquivalenceExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "GB-REJECT260",
+        "label": "Q3CompatibleFamilyRequiresHigherDimensionalCharacterAnalysis",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN260",
+        "label": "Q3SpecialPrimeRaceNeverTiesAtSixTimesPowerOfThreePlusThree",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T259",
+        "GB-T260"
+      ],
+      [
+        "GB-T260",
+        "GB-CERT260"
+      ],
+      [
+        "GB-T260",
+        "GB-REJECT260"
+      ],
+      [
+        "GB-T260",
+        "GB-OPEN260"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T259",
+      "GB-T260",
+      "GB-OPEN260"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; an infinite compatible subfamily is exactly reduced and only three levels are computationally excluded."
+}

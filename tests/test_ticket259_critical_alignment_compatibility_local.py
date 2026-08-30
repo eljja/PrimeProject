@@ -124,10 +124,17 @@ class Ticket259Tests(unittest.TestCase):
         integrated = ROOT / "data/open-problem/ticket259-critical-alignment-compatibility-local.json"
         self.assertEqual(json.loads(integrated.read_text(encoding="utf-8")), build_audit())
         state = json.loads((ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8"))
-        self.assertEqual((state["ticket"], state["parent_ticket"]), (259, 258))
+        self.assertGreaterEqual(state["ticket"], 259)
         self.assertEqual((state["resolved_count"], state["candidate_resolution_count"]), (0, 0))
         self.assertFalse(state["program_complete"])
-        self.assertEqual(state["deep_focus_problem"], "goldbach")
+        if state["ticket"] == 259:
+            self.assertEqual(state["parent_ticket"], 258)
+            self.assertEqual(state["deep_focus_problem"], "goldbach")
+        for key in ("riemann", "collatz", "goldbach", "twin_prime"):
+            self.assertIn(
+                self.root[key]["theorem_name"],
+                state["problems"][key]["established_results"],
+            )
 
 
 if __name__ == "__main__":

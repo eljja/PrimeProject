@@ -48,6 +48,7 @@ let ticket249AttemptGlobal = null;
 let ticket250AttemptGlobal = null;
 let ticket251AttemptGlobal = null;
 let ticket252AttemptGlobal = null;
+let ticket260AttemptGlobal = null;
 let ticket259AttemptGlobal = null;
 let ticket258AttemptGlobal = null;
 let ticket257AttemptGlobal = null;
@@ -18050,7 +18051,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket259CriticalAlignmentCompatibilityLocal(ticket259AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket260WeightedEquidistributionPrimeRaceVariableMod(ticket260AttemptGlobal) ||
+      renderTicket259CriticalAlignmentCompatibilityLocal(ticket259AttemptGlobal) ||
       renderTicket258VariationCharacterConvergent(ticket258AttemptGlobal) ||
       renderTicket257SpikeCyclotomicCharacterRoot(ticket257AttemptGlobal) ||
       renderTicket256CesaroKernelQDivGL2(ticket256AttemptGlobal) ||
@@ -18632,6 +18634,26 @@ async function loadTicket219Attempt() {
     return false;
   }
 }
+async function loadTicket260Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket260-weighted-equidistribution-primerace-variablemod.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket260AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket260AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket260AttemptGlobal) {
+      ticket260AttemptGlobal.bounded_result = ticket260AttemptGlobal.bounded_result || {};
+      ticket260AttemptGlobal.bounded_result.weighted_equidistribution_primerace_variablemod_audit = payload.weighted_equidistribution_primerace_variablemod_audit || {};
+    }
+    return Boolean(ticket260AttemptGlobal);
+  } catch (_error) {
+    ticket260AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket259Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket259-critical-alignment-compatibility-local.json", { cache: "no-store" });
@@ -20991,9 +21013,14 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket260Loaded = await loadTicket260Attempt();
   const ticket259Loaded = await loadTicket259Attempt();
   const ticket258Loaded = await loadTicket258Attempt();
   const ticket257Loaded = await loadTicket257Attempt();
+  if (!ticket260Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket260AttemptGlobal) await loadTicket260Attempt();
+  }
   if (!ticket259Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));
     if (!ticket259AttemptGlobal) await loadTicket259Attempt();

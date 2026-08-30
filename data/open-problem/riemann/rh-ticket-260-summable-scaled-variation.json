@@ -1,0 +1,573 @@
+{
+  "schema": "primeproject.ticket260-weighted-equidistribution-primerace-variablemod.v1",
+  "generated_at": "2026-08-31T23:30:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-260",
+  "theorem_name": "SummableScaledDownwardVariationForcesEventualLagPositivity",
+  "declared_proposition": "Let (E_n) be a positive real sequence with E_n tending to L>0, put d_n=(E_n-E_(n+1))_+, and S_n=(n+1)E_(n+1)-nE_n. If the nonnegative series sum_(n>=1) n d_n converges, then S_n>0 for all sufficiently large n; more precisely liminf S_n>=L. Thus summable scaled downward variation is a sufficient abstract packet criterion.",
+  "mathematical_argument": "The identity S_n=E_(n+1)-n(E_n-E_(n+1)) gives S_n>=E_(n+1)-n d_n. Convergence of the nonnegative series implies n d_n tends to zero, while E_(n+1) tends to L. Taking lower limits gives liminf S_n>=L, hence eventual positivity. The exact replay uses E_(2^k+1)=1-2^(-3k) and E_n=1 otherwise: its weighted downward variation is sum 4^(-k)=1/3 and every displayed downward lag is 1-(2^k+1)/2^(3k)>0. This theorem does not prove the required summability for actual Guinand-Weil packet energies.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let (E_n) be a positive real sequence with E_n tending to L>0, put d_n=(E_n-E_(n+1))_+, and S_n=(n+1)E_(n+1)-nE_n. If the nonnegative series sum_(n>=1) n d_n converges, then S_n>0 for all sufficiently large n; more precisely liminf S_n>=L. Thus summable scaled downward variation is a sufficient abstract packet criterion.",
+    "proof": "The identity S_n=E_(n+1)-n(E_n-E_(n+1)) gives S_n>=E_(n+1)-n d_n. Convergence of the nonnegative series implies n d_n tends to zero, while E_(n+1) tends to L. Taking lower limits gives liminf S_n>=L, hence eventual positivity. The exact replay uses E_(2^k+1)=1-2^(-3k) and E_n=1 otherwise: its weighted downward variation is sum 4^(-k)=1/3 and every displayed downward lag is 1-(2^k+1)/2^(3k)>0. This theorem does not prove the required summability for actual Guinand-Weil packet energies.",
+    "exact_summable_variation_rows": [
+      {
+        "level_k": 1,
+        "downward_transition_n": 2,
+        "drop": {
+          "exact": "1/8",
+          "numerator": 1,
+          "denominator": 8,
+          "display_float": 0.125
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/4",
+          "numerator": 1,
+          "denominator": 4,
+          "display_float": 0.25
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "5/8",
+          "numerator": 5,
+          "denominator": 8,
+          "display_float": 0.625
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "1/4",
+          "numerator": 1,
+          "denominator": 4,
+          "display_float": 0.25
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 2,
+        "downward_transition_n": 4,
+        "drop": {
+          "exact": "1/64",
+          "numerator": 1,
+          "denominator": 64,
+          "display_float": 0.015625
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/16",
+          "numerator": 1,
+          "denominator": 16,
+          "display_float": 0.0625
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "59/64",
+          "numerator": 59,
+          "denominator": 64,
+          "display_float": 0.921875
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "5/16",
+          "numerator": 5,
+          "denominator": 16,
+          "display_float": 0.3125
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 3,
+        "downward_transition_n": 8,
+        "drop": {
+          "exact": "1/512",
+          "numerator": 1,
+          "denominator": 512,
+          "display_float": 0.001953125
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/64",
+          "numerator": 1,
+          "denominator": 64,
+          "display_float": 0.015625
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "503/512",
+          "numerator": 503,
+          "denominator": 512,
+          "display_float": 0.982421875
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "21/64",
+          "numerator": 21,
+          "denominator": 64,
+          "display_float": 0.328125
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 4,
+        "downward_transition_n": 16,
+        "drop": {
+          "exact": "1/4096",
+          "numerator": 1,
+          "denominator": 4096,
+          "display_float": 0.000244140625
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/256",
+          "numerator": 1,
+          "denominator": 256,
+          "display_float": 0.00390625
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "4079/4096",
+          "numerator": 4079,
+          "denominator": 4096,
+          "display_float": 0.995849609375
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "85/256",
+          "numerator": 85,
+          "denominator": 256,
+          "display_float": 0.33203125
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 5,
+        "downward_transition_n": 32,
+        "drop": {
+          "exact": "1/32768",
+          "numerator": 1,
+          "denominator": 32768,
+          "display_float": 3.0517578125e-05
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/1024",
+          "numerator": 1,
+          "denominator": 1024,
+          "display_float": 0.0009765625
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "32735/32768",
+          "numerator": 32735,
+          "denominator": 32768,
+          "display_float": 0.998992919921875
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "341/1024",
+          "numerator": 341,
+          "denominator": 1024,
+          "display_float": 0.3330078125
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 6,
+        "downward_transition_n": 64,
+        "drop": {
+          "exact": "1/262144",
+          "numerator": 1,
+          "denominator": 262144,
+          "display_float": 3.814697265625e-06
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/4096",
+          "numerator": 1,
+          "denominator": 4096,
+          "display_float": 0.000244140625
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "262079/262144",
+          "numerator": 262079,
+          "denominator": 262144,
+          "display_float": 0.9997520446777344
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "1365/4096",
+          "numerator": 1365,
+          "denominator": 4096,
+          "display_float": 0.333251953125
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 7,
+        "downward_transition_n": 128,
+        "drop": {
+          "exact": "1/2097152",
+          "numerator": 1,
+          "denominator": 2097152,
+          "display_float": 4.76837158203125e-07
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/16384",
+          "numerator": 1,
+          "denominator": 16384,
+          "display_float": 6.103515625e-05
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "2097023/2097152",
+          "numerator": 2097023,
+          "denominator": 2097152,
+          "display_float": 0.9999384880065918
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "5461/16384",
+          "numerator": 5461,
+          "denominator": 16384,
+          "display_float": 0.33331298828125
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 8,
+        "downward_transition_n": 256,
+        "drop": {
+          "exact": "1/16777216",
+          "numerator": 1,
+          "denominator": 16777216,
+          "display_float": 5.960464477539063e-08
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/65536",
+          "numerator": 1,
+          "denominator": 65536,
+          "display_float": 1.52587890625e-05
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "16776959/16777216",
+          "numerator": 16776959,
+          "denominator": 16777216,
+          "display_float": 0.9999846816062927
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "21845/65536",
+          "numerator": 21845,
+          "denominator": 65536,
+          "display_float": 0.3333282470703125
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 9,
+        "downward_transition_n": 512,
+        "drop": {
+          "exact": "1/134217728",
+          "numerator": 1,
+          "denominator": 134217728,
+          "display_float": 7.450580596923828e-09
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/262144",
+          "numerator": 1,
+          "denominator": 262144,
+          "display_float": 3.814697265625e-06
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "134217215/134217728",
+          "numerator": 134217215,
+          "denominator": 134217728,
+          "display_float": 0.9999961778521538
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "87381/262144",
+          "numerator": 87381,
+          "denominator": 262144,
+          "display_float": 0.3333320617675781
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 10,
+        "downward_transition_n": 1024,
+        "drop": {
+          "exact": "1/1073741824",
+          "numerator": 1,
+          "denominator": 1073741824,
+          "display_float": 9.313225746154785e-10
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/1048576",
+          "numerator": 1,
+          "denominator": 1048576,
+          "display_float": 9.5367431640625e-07
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "1073740799/1073741824",
+          "numerator": 1073740799,
+          "denominator": 1073741824,
+          "display_float": 0.999999045394361
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "349525/1048576",
+          "numerator": 349525,
+          "denominator": 1048576,
+          "display_float": 0.33333301544189453
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 11,
+        "downward_transition_n": 2048,
+        "drop": {
+          "exact": "1/8589934592",
+          "numerator": 1,
+          "denominator": 8589934592,
+          "display_float": 1.1641532182693481e-10
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/4194304",
+          "numerator": 1,
+          "denominator": 4194304,
+          "display_float": 2.384185791015625e-07
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "8589932543/8589934592",
+          "numerator": 8589932543,
+          "denominator": 8589934592,
+          "display_float": 0.9999997614650056
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "1398101/4194304",
+          "numerator": 1398101,
+          "denominator": 4194304,
+          "display_float": 0.33333325386047363
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 12,
+        "downward_transition_n": 4096,
+        "drop": {
+          "exact": "1/68719476736",
+          "numerator": 1,
+          "denominator": 68719476736,
+          "display_float": 1.4551915228366852e-11
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/16777216",
+          "numerator": 1,
+          "denominator": 16777216,
+          "display_float": 5.960464477539063e-08
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "68719472639/68719476736",
+          "numerator": 68719472639,
+          "denominator": 68719476736,
+          "display_float": 0.9999999403808033
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "5592405/16777216",
+          "numerator": 5592405,
+          "denominator": 16777216,
+          "display_float": 0.3333333134651184
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 13,
+        "downward_transition_n": 8192,
+        "drop": {
+          "exact": "1/549755813888",
+          "numerator": 1,
+          "denominator": 549755813888,
+          "display_float": 1.8189894035458565e-12
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/67108864",
+          "numerator": 1,
+          "denominator": 67108864,
+          "display_float": 1.4901161193847656e-08
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "549755805695/549755813888",
+          "numerator": 549755805695,
+          "denominator": 549755813888,
+          "display_float": 0.9999999850970198
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "22369621/67108864",
+          "numerator": 22369621,
+          "denominator": 67108864,
+          "display_float": 0.3333333283662796
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 14,
+        "downward_transition_n": 16384,
+        "drop": {
+          "exact": "1/4398046511104",
+          "numerator": 1,
+          "denominator": 4398046511104,
+          "display_float": 2.2737367544323206e-13
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/268435456",
+          "numerator": 1,
+          "denominator": 268435456,
+          "display_float": 3.725290298461914e-09
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "4398046494719/4398046511104",
+          "numerator": 4398046494719,
+          "denominator": 4398046511104,
+          "display_float": 0.9999999962744823
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "89478485/268435456",
+          "numerator": 89478485,
+          "denominator": 268435456,
+          "display_float": 0.3333333320915699
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 15,
+        "downward_transition_n": 32768,
+        "drop": {
+          "exact": "1/35184372088832",
+          "numerator": 1,
+          "denominator": 35184372088832,
+          "display_float": 2.842170943040401e-14
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/1073741824",
+          "numerator": 1,
+          "denominator": 1073741824,
+          "display_float": 9.313225746154785e-10
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "35184372056063/35184372088832",
+          "numerator": 35184372056063,
+          "denominator": 35184372088832,
+          "display_float": 0.999999999068649
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "357913941/1073741824",
+          "numerator": 357913941,
+          "denominator": 1073741824,
+          "display_float": 0.3333333330228925
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 16,
+        "downward_transition_n": 65536,
+        "drop": {
+          "exact": "1/281474976710656",
+          "numerator": 1,
+          "denominator": 281474976710656,
+          "display_float": 3.552713678800501e-15
+        },
+        "weighted_drop_n_times_drop": {
+          "exact": "1/4294967296",
+          "numerator": 1,
+          "denominator": 4294967296,
+          "display_float": 2.3283064365386963e-10
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "281474976645119/281474976710656",
+          "numerator": 281474976645119,
+          "denominator": 281474976710656,
+          "display_float": 0.9999999997671658
+        },
+        "partial_weighted_downward_variation": {
+          "exact": "1431655765/4294967296",
+          "numerator": 1431655765,
+          "denominator": 4294967296,
+          "display_float": 0.3333333332557231
+        },
+        "identity_verified": true
+      }
+    ],
+    "weighted_downward_variation_exact": {
+      "exact": "1/3",
+      "numerator": 1,
+      "denominator": 3,
+      "display_float": 0.3333333333333333
+    },
+    "algorithm": "closed-form Fraction replay of a summable scaled-downward-variation packet sequence",
+    "complexity": "O(K) exact rational operations for K replay rows; the sufficient theorem is unrestricted",
+    "random_seed": null,
+    "input_range": {
+      "level_k_min": 1,
+      "level_k_max": 16
+    },
+    "transcript_sha256": "1fcbc1bb15fcd64f8ce04cd99c19d98ad6dad73dced2e79eb60ed5f19f41beeb",
+    "aggregate": {
+      "summable_scaled_downward_variation_implies_eventual_lag_positivity_proved": true,
+      "demo_weighted_downward_variation": {
+        "exact": "1/3",
+        "numerator": 1,
+        "denominator": 3,
+        "display_float": 0.3333333333333333
+      },
+      "actual_weil_scaled_downward_variation_summable": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "16 Fraction rows replay one infinite model; no actual Weil coefficient is computed.",
+  "logical_limit": "The sufficient abstract criterion is proved, but no estimate establishes its hypothesis for actual Guinand-Weil packet energies.",
+  "route_decision": {
+    "discard": "treating ordinary bounded total variation as sufficient without the summable n-weighted one-sided condition",
+    "parked": [
+      "direct arithmetic proof of summable scaled downward variation for actual Guinand-Weil packet energies"
+    ],
+    "retain": "the exact weighted one-sided sufficient criterion and TICKET-259 sharp critical obstruction",
+    "next_single_lemma": "ActualWeilPacketScaledDownwardVariationIsSummable"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T259",
+        "label": "CriticalScaledDownwardJumpEqualityNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-T260",
+        "label": "SummableScaledDownwardVariationForcesEventualLagPositivity",
+        "status": "proved"
+      },
+      {
+        "id": "RH-CERT260",
+        "label": "SummableScaledDownwardVariationForcesEventualLagPositivityExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "RH-REJECT260",
+        "label": "BoundedTotalVariationAloneForcesEventualLagPositivity",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-OPEN260",
+        "label": "ActualWeilPacketScaledDownwardVariationIsSummable",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T259",
+        "RH-T260"
+      ],
+      [
+        "RH-T260",
+        "RH-CERT260"
+      ],
+      [
+        "RH-T260",
+        "RH-REJECT260"
+      ],
+      [
+        "RH-T260",
+        "RH-OPEN260"
+      ]
+    ],
+    "resolution_path": [
+      "RH-T259",
+      "RH-T260",
+      "RH-OPEN260"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No RH proof or disproof; the actual-Weil gap is reduced to one explicit weighted one-sided summability statement."
+}

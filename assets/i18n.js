@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, three no-gos and one partial theorem sharpened",
-      ko: "네 미해결 문제, 세 no-go와 한 부분정리를 더 날카롭게 하다",
+      en: "Four open problems, one no-go and three partial theorems sharpened",
+      ko: "네 미해결 문제, 한 no-go와 세 부분정리를 더 날카롭게 하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-259 proves three exact no-gos and one partial theorem: critical scaled-drop equality, aligned prime-order phases, exact q-divisible Goldbach compatibility plus q=13, and fixed local congruence windows.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-259는 임계 등호, 정렬 소수 차수 위상, Goldbach q-divisible 호환성 및 q=13 인증, 고정 국소 합동 window의 경계를 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-260 proves one exact no-go and three partial theorems: weighted RH variation, fixed-modulus Collatz phase alignment, a q=3 Goldbach prime-race reduction, and a variable-denominator Twin sieve.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-260은 RH 가중 변동, Collatz 고정 모듈러스 위상 정렬, Goldbach q=3 소수경주 환원, Twin 가변 분모 체를 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-259 proves three exact no-gos and one partial theorem, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-259는 정확한 no-go 세 개와 부분정리 한 개를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-260 proves one exact no-go and three partial theorems, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-260은 정확한 no-go 한 개와 부분정리 세 개를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

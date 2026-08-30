@@ -144,6 +144,10 @@ jobs:
         run: |
           python -m unittest tests.test_ticket259_critical_alignment_compatibility_local
           python scripts/verify_ticket259_structure.py
+      - name: Unit and structure check TICKET-260
+        run: |
+          python -m unittest tests.test_ticket260_weighted_equidistribution_primerace_variablemod
+          python scripts/verify_ticket260_structure.py
 
       - name: Verify open problem structure
         run: python scripts/verify_open_problem_structure.py
@@ -176,6 +180,7 @@ jobs:
           node --check assets/ticket257-open-problem.js
           node --check assets/ticket258-open-problem.js
           node --check assets/ticket259-open-problem.js
+          node --check assets/ticket260-open-problem.js
 
       - name: Verify GitHub Pages surface
         run: node scripts/verify_pages.cjs

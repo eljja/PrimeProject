@@ -44,7 +44,25 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-259
+## Latest handoff: TICKET-260
+
+Canonical artifact: `data/open-problem/ticket260-weighted-equidistribution-primerace-variablemod.json`.
+
+TICKET-260 establishes `SummableScaledDownwardVariationForcesEventualLagPositivity`, `FixedModulusExponentEquidistributionPhaseAlignmentNoGo`, `Q3CompatibleFamilyPrimeRaceEquivalence`, and `SecondOrderDenominatorCongruenceAnd256ConvergentCertificate`. Twin Prime is the deep-focus track. The exact Twin certificate tests both signs on 256 certified convergents through a 121-digit denominator; two convergents pass the weaker modulo-`v` condition and none passes modulo `v^2`. The Goldbach certificates use two independent exact residue algorithms at three q=3 levels through 28,697,817 primes. All conjecture and candidate-resolution counters remain zero.
+
+Continue only from the four `next_single_lemma` fields in `data/open-problem/four-problem-research-state.json`. Do not infer actual-Weil summability from the abstract RH model, canonical Fermat-quotient angular discrepancy from the noncanonical Collatz counterfamily, all-level prime-race nonvanishing from three Goldbach prefixes, or all-convergent exclusion from the finite Twin certificate.
+
+Reproduce with:
+
+```text
+python scripts/ticket260_weighted_equidistribution_primerace_variablemod.py
+python -m unittest tests.test_ticket260_weighted_equidistribution_primerace_variablemod -v
+python scripts/verify_ticket260_structure.py
+```
+
+Reports: [English](weighted-equidistribution-primerace-variablemod.md) and [한국어](weighted-equidistribution-primerace-variablemod.ko.md).
+
+## Preserved handoff: TICKET-259
 
 Canonical artifact: `data/open-problem/ticket259-critical-alignment-compatibility-local.json`.
 
