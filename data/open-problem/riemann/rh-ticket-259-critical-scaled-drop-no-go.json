@@ -1,0 +1,450 @@
+{
+  "schema": "primeproject.ticket259-critical-alignment-compatibility-local.v1",
+  "generated_at": "2026-08-31T22:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-259",
+  "theorem_name": "CriticalScaledDownwardJumpEqualityNoGo",
+  "declared_proposition": "There is a positive packet-energy sequence E_L converging to one, with total variation 2/3 and sup_(n>=1) n(E_n-E_(n+1))_+=1, whose lag partial sums S_n=(n+1)E_(n+1)-nE_n are negative infinitely often. Set E_(4^k+1)=1-4^(-k) and E_L=1 otherwise. Then at n=4^k the scaled drop is exactly one and S_n=-4^(-k). Hence equality at the limiting packet margin cannot replace the strict scaled-drop inequality in the repaired RH packet criterion.",
+  "mathematical_argument": "The isolated down-and-up spikes contribute 2*4^(-k), so their total variation is 2 sum_(k>=1)4^(-k)=2/3. The energies are at least 3/4 and converge to one. At n=4^k, n(E_n-E_(n+1))=1, while direct Cesaro inversion gives S_n=(n+1)(1-1/n)-n=-1/n. Thus the strict constant is sharp at the abstract sequence level. No actual Guinand-Weil coefficient or RH zero is analyzed.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "There is a positive packet-energy sequence E_L converging to one, with total variation 2/3 and sup_(n>=1) n(E_n-E_(n+1))_+=1, whose lag partial sums S_n=(n+1)E_(n+1)-nE_n are negative infinitely often. Set E_(4^k+1)=1-4^(-k) and E_L=1 otherwise. Then at n=4^k the scaled drop is exactly one and S_n=-4^(-k). Hence equality at the limiting packet margin cannot replace the strict scaled-drop inequality in the repaired RH packet criterion.",
+    "proof": "The isolated down-and-up spikes contribute 2*4^(-k), so their total variation is 2 sum_(k>=1)4^(-k)=2/3. The energies are at least 3/4 and converge to one. At n=4^k, n(E_n-E_(n+1))=1, while direct Cesaro inversion gives S_n=(n+1)(1-1/n)-n=-1/n. Thus the strict constant is sharp at the abstract sequence level. No actual Guinand-Weil coefficient or RH zero is analyzed.",
+    "exact_critical_threshold_rows": [
+      {
+        "level_k": 1,
+        "downward_transition_n": 4,
+        "critical_drop": {
+          "exact": "1/4",
+          "numerator": 1,
+          "denominator": 4,
+          "display_float": 0.25
+        },
+        "scaled_downward_jump_n_times_drop": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "partial_total_variation_through_rebound": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 2,
+        "downward_transition_n": 16,
+        "critical_drop": {
+          "exact": "1/16",
+          "numerator": 1,
+          "denominator": 16,
+          "display_float": 0.0625
+        },
+        "scaled_downward_jump_n_times_drop": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "-1/16",
+          "numerator": -1,
+          "denominator": 16,
+          "display_float": -0.0625
+        },
+        "partial_total_variation_through_rebound": {
+          "exact": "5/8",
+          "numerator": 5,
+          "denominator": 8,
+          "display_float": 0.625
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 3,
+        "downward_transition_n": 64,
+        "critical_drop": {
+          "exact": "1/64",
+          "numerator": 1,
+          "denominator": 64,
+          "display_float": 0.015625
+        },
+        "scaled_downward_jump_n_times_drop": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "-1/64",
+          "numerator": -1,
+          "denominator": 64,
+          "display_float": -0.015625
+        },
+        "partial_total_variation_through_rebound": {
+          "exact": "21/32",
+          "numerator": 21,
+          "denominator": 32,
+          "display_float": 0.65625
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 4,
+        "downward_transition_n": 256,
+        "critical_drop": {
+          "exact": "1/256",
+          "numerator": 1,
+          "denominator": 256,
+          "display_float": 0.00390625
+        },
+        "scaled_downward_jump_n_times_drop": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "-1/256",
+          "numerator": -1,
+          "denominator": 256,
+          "display_float": -0.00390625
+        },
+        "partial_total_variation_through_rebound": {
+          "exact": "85/128",
+          "numerator": 85,
+          "denominator": 128,
+          "display_float": 0.6640625
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 5,
+        "downward_transition_n": 1024,
+        "critical_drop": {
+          "exact": "1/1024",
+          "numerator": 1,
+          "denominator": 1024,
+          "display_float": 0.0009765625
+        },
+        "scaled_downward_jump_n_times_drop": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "-1/1024",
+          "numerator": -1,
+          "denominator": 1024,
+          "display_float": -0.0009765625
+        },
+        "partial_total_variation_through_rebound": {
+          "exact": "341/512",
+          "numerator": 341,
+          "denominator": 512,
+          "display_float": 0.666015625
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 6,
+        "downward_transition_n": 4096,
+        "critical_drop": {
+          "exact": "1/4096",
+          "numerator": 1,
+          "denominator": 4096,
+          "display_float": 0.000244140625
+        },
+        "scaled_downward_jump_n_times_drop": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "-1/4096",
+          "numerator": -1,
+          "denominator": 4096,
+          "display_float": -0.000244140625
+        },
+        "partial_total_variation_through_rebound": {
+          "exact": "1365/2048",
+          "numerator": 1365,
+          "denominator": 2048,
+          "display_float": 0.66650390625
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 7,
+        "downward_transition_n": 16384,
+        "critical_drop": {
+          "exact": "1/16384",
+          "numerator": 1,
+          "denominator": 16384,
+          "display_float": 6.103515625e-05
+        },
+        "scaled_downward_jump_n_times_drop": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "-1/16384",
+          "numerator": -1,
+          "denominator": 16384,
+          "display_float": -6.103515625e-05
+        },
+        "partial_total_variation_through_rebound": {
+          "exact": "5461/8192",
+          "numerator": 5461,
+          "denominator": 8192,
+          "display_float": 0.6666259765625
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 8,
+        "downward_transition_n": 65536,
+        "critical_drop": {
+          "exact": "1/65536",
+          "numerator": 1,
+          "denominator": 65536,
+          "display_float": 1.52587890625e-05
+        },
+        "scaled_downward_jump_n_times_drop": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "-1/65536",
+          "numerator": -1,
+          "denominator": 65536,
+          "display_float": -1.52587890625e-05
+        },
+        "partial_total_variation_through_rebound": {
+          "exact": "21845/32768",
+          "numerator": 21845,
+          "denominator": 32768,
+          "display_float": 0.666656494140625
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 9,
+        "downward_transition_n": 262144,
+        "critical_drop": {
+          "exact": "1/262144",
+          "numerator": 1,
+          "denominator": 262144,
+          "display_float": 3.814697265625e-06
+        },
+        "scaled_downward_jump_n_times_drop": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "-1/262144",
+          "numerator": -1,
+          "denominator": 262144,
+          "display_float": -3.814697265625e-06
+        },
+        "partial_total_variation_through_rebound": {
+          "exact": "87381/131072",
+          "numerator": 87381,
+          "denominator": 131072,
+          "display_float": 0.6666641235351562
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 10,
+        "downward_transition_n": 1048576,
+        "critical_drop": {
+          "exact": "1/1048576",
+          "numerator": 1,
+          "denominator": 1048576,
+          "display_float": 9.5367431640625e-07
+        },
+        "scaled_downward_jump_n_times_drop": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "-1/1048576",
+          "numerator": -1,
+          "denominator": 1048576,
+          "display_float": -9.5367431640625e-07
+        },
+        "partial_total_variation_through_rebound": {
+          "exact": "349525/524288",
+          "numerator": 349525,
+          "denominator": 524288,
+          "display_float": 0.6666660308837891
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 11,
+        "downward_transition_n": 4194304,
+        "critical_drop": {
+          "exact": "1/4194304",
+          "numerator": 1,
+          "denominator": 4194304,
+          "display_float": 2.384185791015625e-07
+        },
+        "scaled_downward_jump_n_times_drop": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "-1/4194304",
+          "numerator": -1,
+          "denominator": 4194304,
+          "display_float": -2.384185791015625e-07
+        },
+        "partial_total_variation_through_rebound": {
+          "exact": "1398101/2097152",
+          "numerator": 1398101,
+          "denominator": 2097152,
+          "display_float": 0.6666665077209473
+        },
+        "identity_verified": true
+      },
+      {
+        "level_k": 12,
+        "downward_transition_n": 16777216,
+        "critical_drop": {
+          "exact": "1/16777216",
+          "numerator": 1,
+          "denominator": 16777216,
+          "display_float": 5.960464477539063e-08
+        },
+        "scaled_downward_jump_n_times_drop": {
+          "exact": "1/1",
+          "numerator": 1,
+          "denominator": 1,
+          "display_float": 1.0
+        },
+        "lag_partial_sum_S_n": {
+          "exact": "-1/16777216",
+          "numerator": -1,
+          "denominator": 16777216,
+          "display_float": -5.960464477539063e-08
+        },
+        "partial_total_variation_through_rebound": {
+          "exact": "5592405/8388608",
+          "numerator": 5592405,
+          "denominator": 8388608,
+          "display_float": 0.6666666269302368
+        },
+        "identity_verified": true
+      }
+    ],
+    "total_variation_exact": {
+      "exact": "2/3",
+      "numerator": 2,
+      "denominator": 3,
+      "display_float": 0.6666666666666666
+    },
+    "algorithm": "closed-form Fraction replay of isolated critical scaled drops and Cesaro inversion",
+    "complexity": "O(K) exact rational operations for K rows; the construction and identities hold for every k",
+    "random_seed": null,
+    "transcript_sha256": "aa676e636fbf50546075b2cd12b026a73f9f3a3a12554032b7323a229cc38441",
+    "aggregate": {
+      "positive_convergent_energy_proved": true,
+      "critical_scaled_drop_supremum_exactly_one_proved": true,
+      "negative_lag_partial_sums_infinitely_often_proved": true,
+      "nonstrict_critical_threshold_route_refuted": true,
+      "actual_weil_packet_analyzed": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "12 exact rows replay an all-k construction; no actual Weil coefficient is computed.",
+  "logical_limit": "The equality threshold is now proved insufficient, but neither side of the strict inequality is bounded for actual Guinand-Weil packets.",
+  "route_decision": {
+    "discard": "relaxing the strict actual-Weil packet margin versus scaled downward jumps to a non-strict critical inequality",
+    "parked": [
+      "direct arithmetic control of the strict scaled-drop margin for actual Weil packets"
+    ],
+    "retain": "the sharp abstract threshold and the still-open strict actual-Weil inequality",
+    "next_single_lemma": "ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T258",
+        "label": "BoundedTotalVariationPacketEnergyLagNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-T259",
+        "label": "CriticalScaledDownwardJumpEqualityNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "RH-CERT259",
+        "label": "CriticalScaledDownwardJumpEqualityNoGoExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "RH-REJECT259",
+        "label": "CriticalScaledDownwardJumpBoundImpliesNonnegativeLagPartialSums",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-OPEN259",
+        "label": "ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T258",
+        "RH-T259"
+      ],
+      [
+        "RH-T259",
+        "RH-CERT259"
+      ],
+      [
+        "RH-T259",
+        "RH-REJECT259"
+      ],
+      [
+        "RH-T259",
+        "RH-OPEN259"
+      ]
+    ],
+    "resolution_path": [
+      "RH-T258",
+      "RH-T259",
+      "RH-OPEN259"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No RH proof or disproof; only the exact strictness requirement of one abstract packet criterion is sharpened."
+}

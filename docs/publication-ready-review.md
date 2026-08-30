@@ -676,6 +676,10 @@ are zero.
 
 TICKET-258 adds two `exact_no_go` results and two `partial_theorem` results. Allowed exact-no-go wording is limited to the abstract finite-total-variation packet counterexample and rational independence of nontrivial roots from distinct odd-prime conductors. Allowed partial-theorem wording is limited to the primitive odd-character completeness classification and the theorem that every surviving exponent-17 unit solution is a continued-fraction convergent, plus the exact 128-convergent certificate. Blocked wording includes every parent-conjecture proof or disproof, identification of the abstract packet sequence with the actual Weil form, any Collatz sublinear phase estimate, universal Goldbach prime-prefix moment nonvanishing, and promotion of the finite convergent audit to all convergents. Resolution and candidate-resolution counts are zero.
 
+## TICKET-259 publication boundary
+
+TICKET-259 adds three `exact_no_go` results and one `partial_theorem`. Allowed exact-no-go wording is limited to the abstract critical scaled-drop equality counterexample, the aligned distinct-prime phase counterfamily, and the theorem that every fixed finite coefficient-congruence family plus fixed Twin root window has infinitely many primitive admissible local witnesses. Allowed partial-theorem wording is limited to the exact q-divisible compatibility classification and the independently reproduced finite `q=13,m=26` prefix exclusion through 135,207,787 primes. Blocked wording includes every parent-conjecture proof or disproof, identification of the RH abstract packet sequence with actual Weil coefficients, any canonical Collatz phase cancellation estimate, universal Goldbach prime-prefix odd-character nonvanishing, and exclusion of all Twin root convergents. Resolution and candidate-resolution counts remain zero.
+
 ## TICKET-257 publication boundary
 
 TICKET-257 adds two `exact_no_go` results and two `partial_theorem` results.

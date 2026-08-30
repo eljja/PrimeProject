@@ -172,11 +172,13 @@ class Ticket258VariationCharacterConvergentTests(unittest.TestCase):
         integrated = ROOT / "data/open-problem/ticket258-variation-character-convergent.json"
         self.assertEqual(json.loads(integrated.read_text(encoding="utf-8")), build_audit())
         state = json.loads((ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8"))
-        self.assertEqual((state["ticket"], state["parent_ticket"]), (258, 257))
+        self.assertGreaterEqual(state["ticket"], 258)
         self.assertEqual(state["resolved_count"], 0)
         self.assertEqual(state["candidate_resolution_count"], 0)
         self.assertFalse(state["program_complete"])
-        self.assertEqual(state["deep_focus_problem"], "twin_prime")
+        if state["ticket"] == 258:
+            self.assertEqual(state["parent_ticket"], 257)
+            self.assertEqual(state["deep_focus_problem"], "twin_prime")
         expected = {
             "riemann": "BoundedTotalVariationPacketEnergyLagNoGo",
             "collatz": "DistinctPrimeCyclotomicPhaseRationalIndependence",

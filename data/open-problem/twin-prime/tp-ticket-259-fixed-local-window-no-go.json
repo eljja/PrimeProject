@@ -1,0 +1,560 @@
+{
+  "schema": "primeproject.ticket259-critical-alignment-compatibility-local.v1",
+  "generated_at": "2026-08-31T22:00:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-259",
+  "theorem_name": "FiniteCongruenceFixedRootWindowNoGo",
+  "declared_proposition": "Let B_1(u,v) be the TICKET-258 degree-17 coefficient form. For every integer modulus M>=2 and every nonempty rational interval I contained in (-1,0), there are infinitely many primitive pairs (u,v) with v>0, u/v in I, u^2-2v^2<0, and B_1(u,v)=1 modulo M. Consequently no finite collection of coefficient congruences, even supplemented by primitivity, the admissible norm sign, and any fixed root window, can exclude the remaining unit-coefficient branch.",
+  "mathematical_argument": "Replace finitely many moduli by their least common multiple M. For arbitrarily large N set v=M^N. The interval vI eventually has length greater than M, so it contains u congruent to one modulo M. Every prime divisor of v divides M, while u is one modulo M, hence gcd(u,v)=1. Since I is contained in (-1,0), the norm u^2-2v^2 is negative. All terms of B_1(u,v) except u^17 contain v, so B_1(u,v) is congruent to u^17, hence to one modulo M. The witnesses are only local: exact equality forces the scale-dependent q^(-17) approximation from TICKET-258, which a fixed interval does not encode.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let B_1(u,v) be the TICKET-258 degree-17 coefficient form. For every integer modulus M>=2 and every nonempty rational interval I contained in (-1,0), there are infinitely many primitive pairs (u,v) with v>0, u/v in I, u^2-2v^2<0, and B_1(u,v)=1 modulo M. Consequently no finite collection of coefficient congruences, even supplemented by primitivity, the admissible norm sign, and any fixed root window, can exclude the remaining unit-coefficient branch.",
+    "proof": "Replace finitely many moduli by their least common multiple M. For arbitrarily large N set v=M^N. The interval vI eventually has length greater than M, so it contains u congruent to one modulo M. Every prime divisor of v divides M, while u is one modulo M, hence gcd(u,v)=1. Since I is contained in (-1,0), the norm u^2-2v^2 is negative. All terms of B_1(u,v) except u^17 contain v, so B_1(u,v) is congruent to u^17, hence to one modulo M. The witnesses are only local: exact equality forces the scale-dependent q^(-17) approximation from TICKET-258, which a fixed interval does not encode.",
+    "fixed_ticket258_root_window": {
+      "lower": {
+        "exact": "-14651/200000",
+        "numerator": -14651,
+        "denominator": 200000,
+        "display_float": -0.073255
+      },
+      "upper": {
+        "exact": "-7325499/100000000",
+        "numerator": -7325499,
+        "denominator": 100000000,
+        "display_float": -0.07325499
+      }
+    },
+    "exact_local_witness_rows": [
+      {
+        "modulus_M": 2,
+        "power_exponent_N": 27,
+        "primitive_numerator_u": "-9832119",
+        "denominator_v_equals_M_power_N": "134217728",
+        "ratio_u_over_v": {
+          "exact": "-9832119/134217728",
+          "numerator": -9832119,
+          "denominator": 134217728,
+          "display_float": -0.07325499504804611
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 3,
+        "power_exponent_N": 18,
+        "primitive_numerator_u": "-28380485",
+        "denominator_v_equals_M_power_N": "387420489",
+        "ratio_u_over_v": {
+          "exact": "-28380485/387420489",
+          "numerator": -28380485,
+          "denominator": 387420489,
+          "display_float": -0.07325499245859451
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 4,
+        "power_exponent_N": 14,
+        "primitive_numerator_u": "-19664239",
+        "denominator_v_equals_M_power_N": "268435456",
+        "ratio_u_over_v": {
+          "exact": "-19664239/268435456",
+          "numerator": -19664239,
+          "denominator": 268435456,
+          "display_float": -0.07325499877333641
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 5,
+        "power_exponent_N": 11,
+        "primitive_numerator_u": "-3576904",
+        "denominator_v_equals_M_power_N": "48828125",
+        "ratio_u_over_v": {
+          "exact": "-3576904/48828125",
+          "numerator": -3576904,
+          "denominator": 48828125,
+          "display_float": -0.07325499392
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 6,
+        "power_exponent_N": 12,
+        "primitive_numerator_u": "-159460187",
+        "denominator_v_equals_M_power_N": "2176782336",
+        "ratio_u_over_v": {
+          "exact": "-159460187/2176782336",
+          "numerator": -159460187,
+          "denominator": 2176782336,
+          "display_float": -0.07325499861094058
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 7,
+        "power_exponent_N": 11,
+        "primitive_numerator_u": "-144849067",
+        "denominator_v_equals_M_power_N": "1977326743",
+        "ratio_u_over_v": {
+          "exact": "-144849067/1977326743",
+          "numerator": -144849067,
+          "denominator": 1977326743,
+          "display_float": -0.07325499820036571
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 8,
+        "power_exponent_N": 9,
+        "primitive_numerator_u": "-9832119",
+        "denominator_v_equals_M_power_N": "134217728",
+        "ratio_u_over_v": {
+          "exact": "-9832119/134217728",
+          "numerator": -9832119,
+          "denominator": 134217728,
+          "display_float": -0.07325499504804611
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 9,
+        "power_exponent_N": 10,
+        "primitive_numerator_u": "-255424391",
+        "denominator_v_equals_M_power_N": "3486784401",
+        "ratio_u_over_v": {
+          "exact": "-255424391/3486784401",
+          "numerator": -255424391,
+          "denominator": 3486784401,
+          "display_float": -0.0732549999153217
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 10,
+        "power_exponent_N": 9,
+        "primitive_numerator_u": "-73254999",
+        "denominator_v_equals_M_power_N": "1000000000",
+        "ratio_u_over_v": {
+          "exact": "-73254999/1000000000",
+          "numerator": -73254999,
+          "denominator": 1000000000,
+          "display_float": -0.073254999
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 11,
+        "power_exponent_N": 9,
+        "primitive_numerator_u": "-172731448",
+        "denominator_v_equals_M_power_N": "2357947691",
+        "ratio_u_over_v": {
+          "exact": "-172731448/2357947691",
+          "numerator": -172731448,
+          "denominator": 2357947691,
+          "display_float": -0.07325499571483073
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 12,
+        "power_exponent_N": 8,
+        "primitive_numerator_u": "-31498307",
+        "denominator_v_equals_M_power_N": "429981696",
+        "ratio_u_over_v": {
+          "exact": "-31498307/429981696",
+          "numerator": -31498307,
+          "denominator": 429981696,
+          "display_float": -0.07325499502192763
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 13,
+        "power_exponent_N": 9,
+        "primitive_numerator_u": "-776832601",
+        "denominator_v_equals_M_power_N": "10604499373",
+        "ratio_u_over_v": {
+          "exact": "-776832601/10604499373",
+          "numerator": -776832601,
+          "denominator": 10604499373,
+          "display_float": -0.07325499994633268
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 14,
+        "power_exponent_N": 8,
+        "primitive_numerator_u": "-108108923",
+        "denominator_v_equals_M_power_N": "1475789056",
+        "ratio_u_over_v": {
+          "exact": "-108108923/1475789056",
+          "numerator": -108108923,
+          "denominator": 1475789056,
+          "display_float": -0.07325499708814753
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 15,
+        "power_exponent_N": 8,
+        "primitive_numerator_u": "-187744544",
+        "denominator_v_equals_M_power_N": "2562890625",
+        "ratio_u_over_v": {
+          "exact": "-187744544/2562890625",
+          "numerator": -187744544,
+          "denominator": 2562890625,
+          "display_float": -0.07325499659198292
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 16,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-19664239",
+        "denominator_v_equals_M_power_N": "268435456",
+        "ratio_u_over_v": {
+          "exact": "-19664239/268435456",
+          "numerator": -19664239,
+          "denominator": 268435456,
+          "display_float": -0.07325499877333641
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 17,
+        "power_exponent_N": 8,
+        "primitive_numerator_u": "-511009102",
+        "denominator_v_equals_M_power_N": "6975757441",
+        "ratio_u_over_v": {
+          "exact": "-511009102/6975757441",
+          "numerator": -511009102,
+          "denominator": 6975757441,
+          "display_float": -0.07325499866101207
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 18,
+        "power_exponent_N": 8,
+        "primitive_numerator_u": "-807267203",
+        "denominator_v_equals_M_power_N": "11019960576",
+        "ratio_u_over_v": {
+          "exact": "-807267203/11019960576",
+          "numerator": -807267203,
+          "denominator": 11019960576,
+          "display_float": -0.07325499918376477
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 19,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-65480573",
+        "denominator_v_equals_M_power_N": "893871739",
+        "ratio_u_over_v": {
+          "exact": "-65480573/893871739",
+          "numerator": -65480573,
+          "denominator": 893871739,
+          "display_float": -0.07325499861227854
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 20,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-93766399",
+        "denominator_v_equals_M_power_N": "1280000000",
+        "ratio_u_over_v": {
+          "exact": "-93766399/1280000000",
+          "numerator": -93766399,
+          "denominator": 1280000000,
+          "display_float": -0.07325499921875
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 21,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-131938736",
+        "denominator_v_equals_M_power_N": "1801088541",
+        "ratio_u_over_v": {
+          "exact": "-131938736/1801088541",
+          "numerator": -131938736,
+          "denominator": 1801088541,
+          "display_float": -0.07325499718450544
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 22,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-182724167",
+        "denominator_v_equals_M_power_N": "2494357888",
+        "ratio_u_over_v": {
+          "exact": "-182724167/2494357888",
+          "numerator": -182724167,
+          "denominator": 2494357888,
+          "display_float": -0.0732549919476511
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 23,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-249420486",
+        "denominator_v_equals_M_power_N": "3404825447",
+        "ratio_u_over_v": {
+          "exact": "-249420486/3404825447",
+          "numerator": -249420486,
+          "denominator": 3404825447,
+          "display_float": -0.07325499937735869
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 24,
+        "power_exponent_N": 6,
+        "primitive_numerator_u": "-13999247",
+        "denominator_v_equals_M_power_N": "191102976",
+        "ratio_u_over_v": {
+          "exact": "-13999247/191102976",
+          "numerator": -13999247,
+          "denominator": 191102976,
+          "display_float": -0.07325499211482714
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 25,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-447113024",
+        "denominator_v_equals_M_power_N": "6103515625",
+        "ratio_u_over_v": {
+          "exact": "-447113024/6103515625",
+          "numerator": -447113024,
+          "denominator": 6103515625,
+          "display_float": -0.07325499785216
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 26,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-588370249",
+        "denominator_v_equals_M_power_N": "8031810176",
+        "ratio_u_over_v": {
+          "exact": "-588370249/8031810176",
+          "numerator": -588370249,
+          "denominator": 8031810176,
+          "display_float": -0.07325499932233458
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 27,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-766273148",
+        "denominator_v_equals_M_power_N": "10460353203",
+        "ratio_u_over_v": {
+          "exact": "-766273148/10460353203",
+          "numerator": -766273148,
+          "denominator": 10460353203,
+          "display_float": -0.07325499752534503
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 28,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-988424471",
+        "denominator_v_equals_M_power_N": "13492928512",
+        "ratio_u_over_v": {
+          "exact": "-988424471/13492928512",
+          "numerator": -988424471,
+          "denominator": 13492928512,
+          "display_float": -0.07325499947034775
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 29,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-1263639677",
+        "denominator_v_equals_M_power_N": "17249876309",
+        "ratio_u_over_v": {
+          "exact": "-1263639677/17249876309",
+          "numerator": -1263639677,
+          "denominator": 17249876309,
+          "display_float": -0.07325499930342717
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 30,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-1602086849",
+        "denominator_v_equals_M_power_N": "21870000000",
+        "ratio_u_over_v": {
+          "exact": "-1602086849/21870000000",
+          "numerator": -1602086849,
+          "denominator": 21870000000,
+          "display_float": -0.07325499995427526
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      },
+      {
+        "modulus_M": 31,
+        "power_exponent_N": 7,
+        "primitive_numerator_u": "-2015436541",
+        "denominator_v_equals_M_power_N": "27512614111",
+        "ratio_u_over_v": {
+          "exact": "-2015436541/27512614111",
+          "numerator": -2015436541,
+          "denominator": 27512614111,
+          "display_float": -0.07325499979277487
+        },
+        "norm_u_squared_minus_2v_squared_is_negative": true,
+        "B1_mod_M": 1,
+        "witness_verified": true
+      }
+    ],
+    "algorithm": "exact integer arithmetic and Fraction interval membership for the least power-of-M witness in the fixed TICKET-258 root bracket",
+    "complexity": "O(log_M(M/|I|)) exponent search per replayed modulus; the theorem constructs infinitely many witnesses",
+    "random_seed": null,
+    "transcript_sha256": "8d11c60fee0923ead2f28e5ec4e2f422ff1d8014f42a3b7ea19d24a7475f992d",
+    "aggregate": {
+      "modulus_case_count": 30,
+      "primitive_admissible_fixed_window_local_witnesses_proved": true,
+      "finite_coefficient_congruence_plus_fixed_window_route_refuted": true,
+      "scale_dependent_convergent_exclusion_proved": false,
+      "exponent_seventeen_excluded": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Witnesses are replayed for moduli 2 through 31; the no-go theorem covers every finite modulus family but not variable-modulus constraints.",
+  "logical_limit": "Every fixed local-plus-window test has witnesses; exact equality still requires excluding the scale-dependent convergents globally.",
+  "route_decision": {
+    "discard": "using any fixed finite coefficient-congruence sieve, even with primitivity, negative norm, and a fixed root window, to eliminate the remaining branch",
+    "parked": [
+      "scale-dependent q^(-17) root approximation or an effective global Thue/Lebesgue-Nagell argument"
+    ],
+    "retain": "the infinite primitive admissible local-witness theorem and TICKET-258's scale-dependent convergent necessity",
+    "next_single_lemma": "EveryUniqueRootConvergentMissesUnitCoefficient"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T258",
+        "label": "UnitCoefficientSolutionsAreRootConvergents",
+        "status": "proved"
+      },
+      {
+        "id": "TP-T259",
+        "label": "FiniteCongruenceFixedRootWindowNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "TP-CERT259",
+        "label": "FiniteCongruenceFixedRootWindowNoGoExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "TP-REJECT259",
+        "label": "FiniteCoefficientCongruencesAndFixedRootWindowExcludeAllNonzeroDenominators",
+        "status": "disproved"
+      },
+      {
+        "id": "TP-OPEN259",
+        "label": "EveryUniqueRootConvergentMissesUnitCoefficient",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T258",
+        "TP-T259"
+      ],
+      [
+        "TP-T259",
+        "TP-CERT259"
+      ],
+      [
+        "TP-T259",
+        "TP-REJECT259"
+      ],
+      [
+        "TP-T259",
+        "TP-OPEN259"
+      ]
+    ],
+    "resolution_path": [
+      "TP-T258",
+      "TP-T259",
+      "TP-OPEN259"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No twin-prime proof or counterexample; the remaining exponent-17 branch is shown to require genuinely scale-dependent or global information."
+}

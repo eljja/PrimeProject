@@ -1,17 +1,17 @@
 {
   "schema": "primeproject.four-problem-research-state.v1",
-  "ticket": 258,
-  "parent_ticket": 257,
-  "generated_at": "2026-08-31T18:00:00+09:00",
+  "ticket": 259,
+  "parent_ticket": 258,
+  "generated_at": "2026-08-31T22:00:00+09:00",
   "iteration_complete": true,
   "program_complete": false,
   "resolved_count": 0,
   "candidate_resolution_count": 0,
-  "deep_focus_problem": "twin_prime",
+  "deep_focus_problem": "goldbach",
   "problems": {
     "riemann": {
       "problem_status": "open_not_proven",
-      "current_target": "BoundedTotalVariationPacketEnergyLagNoGo",
+      "current_target": "CriticalScaledDownwardJumpEqualityNoGo",
       "established_results": [
         "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
         "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
@@ -29,7 +29,8 @@
         "StrictDiagonalDominanceNecessityNoGo",
         "ToeplitzPacketCesaroLagPartialSumCriterion",
         "PositiveConvergentPacketEnergyLagPartialSumNoGo",
-        "BoundedTotalVariationPacketEnergyLagNoGo"
+        "BoundedTotalVariationPacketEnergyLagNoGo",
+        "CriticalScaledDownwardJumpEqualityNoGo"
       ],
       "retired_routes": [
         "frequency support or frequency tightness alone as compactness of a normalized even Weil-test family",
@@ -47,7 +48,8 @@
         "treating uniform strict diagonal dominance as a necessary condition for positive Dirichlet-packet energy",
         "treating nonnegative symmetric lag partial sums as necessary for nonnegative Dirichlet-packet energies",
         "deriving a uniform lag-partial-sum lower bound from strict positivity and convergence of packet energies alone",
-        "using ordinary bounded total variation, together with positivity and convergence, as a substitute for scaled one-sided variation"
+        "using ordinary bounded total variation, together with positivity and convergence, as a substitute for scaled one-sided variation",
+        "relaxing the strict actual-Weil packet margin versus scaled downward jumps to a non-strict critical inequality"
       ],
       "parked_routes": [
         "endpoint-only zero multipliers and strictly positive local floors",
@@ -56,15 +58,16 @@
         "actual Weil-form block matrices and their off-diagonal row sums",
         "strict diagonal dominance as a sufficient certificate for actual Weil blocks",
         "direct estimates of the actual Guinand-Weil lag partial sums",
-        "direct arithmetic control of scaled downward variation for actual Weil packets"
+        "direct arithmetic control of scaled downward variation for actual Weil packets",
+        "direct arithmetic control of the strict scaled-drop margin for actual Weil packets"
       ],
-      "remaining_gap": "Even total variation two does not control the scaled drops; no positive margin or weighted variation estimate is known for actual Guinand-Weil packets.",
+      "remaining_gap": "The equality threshold is now proved insufficient, but neither side of the strict inequality is bounded for actual Guinand-Weil packets.",
       "next_single_lemma": "ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation",
       "stagnation_count": 0,
       "unresolved_dependencies": [
         "ActualWeilPacketMarginStrictlyDominatesScaledDownwardVariation"
       ],
-      "finite_computation_boundary": "12 exact rows replay an all-k theorem; no actual Weil coefficient is computed.",
+      "finite_computation_boundary": "12 exact rows replay an all-k construction; no actual Weil coefficient is computed.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -74,7 +77,7 @@
     },
     "collatz": {
       "problem_status": "open_not_proven",
-      "current_target": "DistinctPrimeCyclotomicPhaseRationalIndependence",
+      "current_target": "DistinctPrimePhaseAlignmentLinearGrowthNoGo",
       "established_results": [
         "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
         "UnboundedOrderPrincipalUnitTransferCountermodels",
@@ -92,7 +95,8 @@
         "IncompleteAdditiveCharacterExactRecoveryNoGo",
         "SharpIncompleteKernelErrorAndDecayOnlyPrimeAverage",
         "DistinctPrimeCyclotomicPhaseExactCancellationNoGo",
-        "DistinctPrimeCyclotomicPhaseRationalIndependence"
+        "DistinctPrimeCyclotomicPhaseRationalIndependence",
+        "DistinctPrimePhaseAlignmentLinearGrowthNoGo"
       ],
       "retired_routes": [
         "deducing the fixed-base 32/27 to 2/3 square-depth transfer from universal order, LTE, and principal-unit algebra",
@@ -107,7 +111,8 @@
         "requiring exact pointwise slope-incidence recovery from a proper subset of additive characters, even with signed complex weights",
         "counting decay of an unnormalized O(1/q) error average as arithmetic cross-prime phase cancellation",
         "seeking exact zero by pairing or grouping one canonical phase from each distinct prime modulus in a finite prefix",
-        "seeking a nonzero rationally weighted exact cancellation or telescoping identity among finitely many nontrivial canonical phases"
+        "seeking a nonzero rationally weighted exact cancellation or telescoping identity among finitely many nontrivial canonical phases",
+        "deducing sublinear complex cancellation from distinct prime orders, phase nontriviality, and rational independence alone"
       ],
       "parked_routes": [
         "all-prime exclusion of separated generalized-Wieferich primes without a structural theorem",
@@ -119,15 +124,16 @@
         "signed incomplete character kernels with a proved recovery inequality",
         "approximate, one-sided, or canonical-residue-only incomplete kernels",
         "renormalized canonical phase cancellation for the fixed bases 2 and 3",
-        "quantitative sublinear cancellation of canonical fixed-base Fermat-quotient phases"
+        "quantitative sublinear cancellation of canonical fixed-base Fermat-quotient phases",
+        "quantitative cancellation of the canonical fixed-base Fermat-quotient phases"
       ],
-      "remaining_gap": "Exact rational relations are impossible, but algebraic independence supplies no quantitative complex-magnitude cancellation across primes.",
+      "remaining_gap": "The structural field data are insufficient; no distribution theorem is proved for the canonical Fermat-quotient exponents.",
       "next_single_lemma": "CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude",
       "stagnation_count": 0,
       "unresolved_dependencies": [
         "CanonicalFermatQuotientPhasePrefixSumsHaveSublinearMagnitude"
       ],
-      "finite_computation_boundary": "Canonical D_q values are replayed for primes through 997; the independence theorem itself is unrestricted for finite distinct-prime families with D_q nonzero.",
+      "finite_computation_boundary": "Exact rational envelopes are replayed for 166 primes through 997; the aligned asymptotic theorem is unrestricted.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -137,7 +143,7 @@
     },
     "goldbach": {
       "problem_status": "open_not_proven",
-      "current_target": "PrimitiveOddCharacterCompletenessClassification",
+      "current_target": "QDivisibleCompatibilityIffTwoModuloFourAndQ13Certificate",
       "established_results": [
         "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
         "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
@@ -155,7 +161,8 @@
         "OddCyclotomicReflectionPrimePrefixExclusion",
         "QDivisibleReflectionAsymmetryPrimePrefixExclusion",
         "QuadraticCharacterReflectionObstructionAndNextPrefixExclusion",
-        "PrimitiveOddCharacterCompletenessClassification"
+        "PrimitiveOddCharacterCompletenessClassification",
+        "QDivisibleCompatibilityIffTwoModuloFourAndQ13Certificate"
       ],
       "retired_routes": [
         "placing the parity rational neighborhood around one half in a minor set while demanding an absolute-energy o(X/log^2 X) budget",
@@ -173,7 +180,8 @@
         "treating odd compatible non-q-divisible cyclotomic tails as having no exact reflection-based prime-prefix obstruction",
         "retaining odd q-divisible compatible cyclotomic tails",
         "using the quadratic-character product obstruction as a complete detector of prime-prefix reflection asymmetry",
-        "using one fixed primitive odd character as a complete reflection-asymmetry detector for every prime modulus"
+        "using one fixed primitive odd character as a complete reflection-asymmetry detector for every prime modulus",
+        "treating q-divisible cyclotomic compatibility as a finite-scan property with no exact exponent classification"
       ],
       "parked_routes": [
         "zero-residue compatible tail exponents with c_0-min(c)<=1",
@@ -184,15 +192,16 @@
         "odd rows above the finite replay limit",
         "odd rows where the strict lambda threshold fails",
         "even q-divisible compatible prefixes above the exact replay limit",
-        "uniform nonvanishing of an odd multiplicative-character moment for every compatible even q-divisible prime prefix"
+        "uniform nonvanishing of an odd multiplicative-character moment for every compatible even q-divisible prime prefix",
+        "uniform odd-character nonvanishing for every classified q-divisible compatible prime prefix"
       ],
-      "remaining_gap": "Detector completeness is now classified, but no theorem forces an actual compatible prime prefix to activate one of the required odd-character coordinates.",
-      "next_single_lemma": "EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment",
+      "remaining_gap": "Compatible exponents are now classified exactly and one much larger prefix is excluded, but no theorem controls actual prime reflection discrepancy for all q and all ratio 2 mod 4.",
+      "next_single_lemma": "EveryTwoModuloFourQDivisiblePrimePrefixHasNonzeroOddCharacterMoment",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "EveryCompatibleEvenQDivisiblePrimePrefixHasNonzeroOddCharacterMoment"
+        "EveryTwoModuloFourQDivisiblePrimePrefixHasNonzeroOddCharacterMoment"
       ],
-      "finite_computation_boundary": "6 sample moduli and the first 1255 primes modulo five are replayed; the detector theorem is exact for every odd prime.",
+      "finite_computation_boundary": "The compatibility iff theorem is infinite; the actual-prime calculation covers only (q,m)=(13,26), ending at prime 2798637773.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -202,7 +211,7 @@
     },
     "twin_prime": {
       "problem_status": "open_not_proven",
-      "current_target": "UnitCoefficientSolutionsAreRootConvergents",
+      "current_target": "FiniteCongruenceFixedRootWindowNoGo",
       "established_results": [
         "GrowingPeriodDiagonalCRTMimicryForShiftTwo",
         "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock",
@@ -220,7 +229,8 @@
         "ThreePrimeLocalObstructionReducesSeventeenTwistsToTwo",
         "SurvivingTwistGL2EquivalenceAndSingleAbsoluteBranchReduction",
         "UniqueRealRootNeighborReductionAndBoundedExclusion",
-        "UnitCoefficientSolutionsAreRootConvergents"
+        "UnitCoefficientSolutionsAreRootConvergents",
+        "FiniteCongruenceFixedRootWindowNoGo"
       ],
       "retired_routes": [
         "using fixed periodic features even with eventual per-dyadic-scale sampling as a twin-prime certificate",
@@ -239,7 +249,8 @@
         "treating all seventeen exponent-17 unit twists as equally open after the Thue reduction",
         "treating the two surviving exponent-17 unit twists as independent global Thue branches",
         "treating the surviving coefficient-one branch as a two-dimensional integer box search",
-        "treating a linear scan over every denominator as necessary after the unique-root-neighbor reduction"
+        "treating a linear scan over every denominator as necessary after the unique-root-neighbor reduction",
+        "using any fixed finite coefficient-congruence sieve, even with primitivity, negative norm, and a fixed root window, to eliminate the remaining branch"
       ],
       "parked_routes": [
         "the all-X Diophantine exclusion x^2-2=y^k for odd k>=3",
@@ -250,15 +261,16 @@
         "global admissible integral-point exclusion for twists 1 and 16",
         "global integral-point exclusion on the remaining absolute coefficient-one branch",
         "all-denominator exclusion of the unique-root neighbor sequence",
-        "all-convergent exclusion for the unique real root"
+        "all-convergent exclusion for the unique real root",
+        "scale-dependent q^(-17) root approximation or an effective global Thue/Lebesgue-Nagell argument"
       ],
-      "remaining_gap": "Every solution must be a convergent and a huge finite denominator interval is excluded, but infinitely many later convergents remain.",
+      "remaining_gap": "Every fixed local-plus-window test has witnesses; exact equality still requires excluding the scale-dependent convergents globally.",
       "next_single_lemma": "EveryUniqueRootConvergentMissesUnitCoefficient",
       "stagnation_count": 0,
       "unresolved_dependencies": [
         "EveryUniqueRootConvergentMissesUnitCoefficient"
       ],
-      "finite_computation_boundary": "The first 128 exact convergents are checked; the absence of unit coefficients there is not an infinite exclusion.",
+      "finite_computation_boundary": "Witnesses are replayed for moduli 2 through 31; the no-go theorem covers every finite modulus family but not variable-modulus constraints.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,

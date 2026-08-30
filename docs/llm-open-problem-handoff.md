@@ -44,7 +44,13 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-258
+## Latest handoff: TICKET-259
+
+Canonical artifact: `data/open-problem/ticket259-critical-alignment-compatibility-local.json`.
+
+TICKET-259 establishes `CriticalScaledDownwardJumpEqualityNoGo`, `DistinctPrimePhaseAlignmentLinearGrowthNoGo`, `QDivisibleCompatibilityIffTwoModuloFourAndQ13Certificate`, and `FiniteCongruenceFixedRootWindowNoGo`. Goldbach is the deep-focus track. The q=13,m=26 certificate counts exactly 135,207,787 primes through 2,798,637,773 by two independent residue algorithms; it is one finite prefix, not a universal theorem. All conjecture and candidate-resolution counters are zero. Continue from the four `next_single_lemma` fields in `data/open-problem/four-problem-research-state.json`; do not infer RH from abstract packet sequences, Collatz cancellation from noncanonical phases, universal Goldbach discrepancy from q=13, or a Twin global exclusion from fixed-modulus no-go witnesses.
+
+## Preserved handoff: TICKET-258
 
 Canonical artifact: `data/open-problem/ticket258-variation-character-convergent.json`.
 

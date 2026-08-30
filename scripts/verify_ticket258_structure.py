@@ -122,12 +122,15 @@ def verify_ticket258_structure() -> str | None:
             return f"TICKET-258 track JSON changed: {key}"
     state = json.loads((ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8"))
     if (
-        state.get("ticket") != 258
-        or state.get("parent_ticket") != 257
-        or state.get("deep_focus_problem") != "twin_prime"
+        state.get("ticket", 0) < 258
         or state.get("resolved_count") != 0
         or state.get("candidate_resolution_count") != 0
         or state.get("program_complete")
+    ):
+        return "TICKET-258 persistent research state changed"
+    if state.get("ticket") == 258 and (
+        state.get("parent_ticket") != 257
+        or state.get("deep_focus_problem") != "twin_prime"
     ):
         return "TICKET-258 persistent research state changed"
     for report in (
