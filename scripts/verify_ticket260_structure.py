@@ -175,16 +175,23 @@ def verify_ticket260_structure() -> str | None:
             encoding="utf-8"
         )
     )
-    boundary = (
-        state.get("ticket"),
-        state.get("parent_ticket"),
-        state.get("deep_focus_problem"),
-        state.get("resolved_count"),
-        state.get("candidate_resolution_count"),
-        state.get("program_complete"),
-    )
-    if boundary != (260, 259, "twin_prime", 0, 0, False):
+    if (
+        state.get("ticket", 0) < 260
+        or state.get("resolved_count") != 0
+        or state.get("candidate_resolution_count") != 0
+        or state.get("program_complete")
+    ):
         return "TICKET-260 persistent research state changed"
+    if state.get("ticket") == 260 and (
+        state.get("parent_ticket") != 259
+        or state.get("deep_focus_problem") != "twin_prime"
+    ):
+        return "TICKET-260 persistent research state changed"
+    for key, (_, theorem, _, _, _) in expected.items():
+        if theorem not in state.get("problems", {}).get(key, {}).get(
+            "established_results", []
+        ):
+            return f"TICKET-260 theorem missing from successor state: {key}"
     for report in (
         ROOT / "docs/weighted-equidistribution-primerace-variablemod.md",
         ROOT / "docs/weighted-equidistribution-primerace-variablemod.ko.md",

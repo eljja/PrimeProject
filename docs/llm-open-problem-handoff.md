@@ -44,7 +44,25 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-260
+## Latest handoff: TICKET-261
+
+Canonical artifact: `data/open-problem/ticket261-sharpness-weyl-ties-dualcongruence.json`.
+
+TICKET-261 establishes `SummableScaledVariationNecessityNoGo`, `FirstHarmonicCancellationAngularDiscrepancyNoGo`, `Q3PrimePrefixProductParityObstruction`, and `BidirectionalSecondOrderCongruenceAnd1024ConvergentCertificate`. Twin Prime is the deep-focus track. The exact Twin certificate tests both signs on 1,024 certified convergents through a 519-digit denominator; two denominator-side and one nontrivial numerator-side first-order passes occur, while no row passes both second-order congruences. The Goldbach certificates reproduce three actual q=3 prefixes through 28,697,817 primes and an exact density-only alternating no-go sequence. All conjecture and candidate-resolution counters remain zero.
+
+Continue only from the four `next_single_lemma` fields in `data/open-problem/four-problem-research-state.json`. Do not infer actual-Weil bounds from the abstract RH family, canonical angular equidistribution from the noncanonical Collatz counterfamily or one harmonic, all-level prime-prefix parity from three Goldbach prefixes, or all-convergent exclusion from the finite Twin certificate.
+
+Reproduce with:
+
+```text
+python scripts/ticket261_sharpness_weyl_ties_dualcongruence.py
+python -m unittest tests.test_ticket261_sharpness_weyl_ties_dualcongruence -v
+python scripts/verify_ticket261_structure.py
+```
+
+Reports: [English](sharpness-weyl-ties-dualcongruence.md) and [한국어](sharpness-weyl-ties-dualcongruence.ko.md).
+
+## Preserved handoff: TICKET-260
 
 Canonical artifact: `data/open-problem/ticket260-weighted-equidistribution-primerace-variablemod.json`.
 

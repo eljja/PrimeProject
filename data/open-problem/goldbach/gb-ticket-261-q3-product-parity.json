@@ -1,0 +1,334 @@
+{
+  "schema": "primeproject.ticket261-sharpness-weyl-ties-dualcongruence.v1",
+  "generated_at": "2026-08-31T23:55:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-261",
+  "theorem_name": "Q3PrimePrefixProductParityObstruction",
+  "declared_proposition": "For every l>=0 let T_l=6*3^(6l+2)+3 and let P_l be the product modulo 3 of the first T_l primes after omitting the prime 3. If the mod-3 prime race ties at T_l, then P_l=1 modulo 3. Consequently P_l=-1 modulo 3 is a sufficient exact certificate excluding the TICKET-260 compatible prefix. Moreover asymptotic density balance alone cannot exclude these ties.",
+  "mathematical_argument": "A tie has N_1=N_2=(T_l-1)/2=3*3^(6l+2)+1, an even integer. The product of all nonzero residue symbols is (-1)^N_2=1 modulo 3. Its contrapositive proves the product-minus-one certificate. For the density-only no-go, prepend the unique zero symbol and then alternate +1,-1 forever. Every ordinary prefix discrepancy is at most one, the two symbol densities tend to one half, yet every T_l-1 is even and there is an exact tie at every special prefix. The three actual finite certificates have product -1, but no all-l product theorem is proved.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every l>=0 let T_l=6*3^(6l+2)+3 and let P_l be the product modulo 3 of the first T_l primes after omitting the prime 3. If the mod-3 prime race ties at T_l, then P_l=1 modulo 3. Consequently P_l=-1 modulo 3 is a sufficient exact certificate excluding the TICKET-260 compatible prefix. Moreover asymptotic density balance alone cannot exclude these ties.",
+    "proof": "A tie has N_1=N_2=(T_l-1)/2=3*3^(6l+2)+1, an even integer. The product of all nonzero residue symbols is (-1)^N_2=1 modulo 3. Its contrapositive proves the product-minus-one certificate. For the density-only no-go, prepend the unique zero symbol and then alternate +1,-1 forever. Every ordinary prefix discrepancy is at most one, the two symbol densities tend to one half, yet every T_l-1 is even and there is an exact tie at every special prefix. The three actual finite certificates have product -1, but no all-l product theorem is proved.",
+    "exact_q3_product_parity_certificate_rows": [
+      {
+        "level_l": 0,
+        "scale_A": "9",
+        "special_prime_prefix_length_T_l": 57,
+        "exact_nth_prime_endpoint": 269,
+        "actual_residue_counts_mod_3": [
+          1,
+          25,
+          31
+        ],
+        "minus_one_residue_count_N_2": 31,
+        "prime_prefix_product_mod_3_excluding_prime_3": 2,
+        "tie_would_force_each_nonzero_count": 28,
+        "tie_would_force_product_mod_3": 1,
+        "minus_one_product_excludes_tie": true,
+        "independent_residue_algorithms_agree": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 1,
+        "scale_A": "6561",
+        "special_prime_prefix_length_T_l": 39369,
+        "exact_nth_prime_endpoint": 471749,
+        "actual_residue_counts_mod_3": [
+          1,
+          19663,
+          19705
+        ],
+        "minus_one_residue_count_N_2": 19705,
+        "prime_prefix_product_mod_3_excluding_prime_3": 2,
+        "tie_would_force_each_nonzero_count": 19684,
+        "tie_would_force_product_mod_3": 1,
+        "minus_one_product_excludes_tie": true,
+        "independent_residue_algorithms_agree": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 2,
+        "scale_A": "4782969",
+        "special_prime_prefix_length_T_l": 28697817,
+        "exact_nth_prime_endpoint": 547035959,
+        "actual_residue_counts_mod_3": [
+          1,
+          14347849,
+          14349967
+        ],
+        "minus_one_residue_count_N_2": 14349967,
+        "prime_prefix_product_mod_3_excluding_prime_3": 2,
+        "tie_would_force_each_nonzero_count": 14348908,
+        "tie_would_force_product_mod_3": 1,
+        "minus_one_product_excludes_tie": true,
+        "independent_residue_algorithms_agree": true,
+        "row_verified": true
+      }
+    ],
+    "exact_density_only_tie_countermodel_rows": [
+      {
+        "level_l": 0,
+        "special_prefix_length_T_l": "57",
+        "abstract_nonzero_symbol_length": "56",
+        "alternating_plus_count": "28",
+        "alternating_minus_count": "28",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 1,
+        "special_prefix_length_T_l": "39369",
+        "abstract_nonzero_symbol_length": "39368",
+        "alternating_plus_count": "19684",
+        "alternating_minus_count": "19684",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 2,
+        "special_prefix_length_T_l": "28697817",
+        "abstract_nonzero_symbol_length": "28697816",
+        "alternating_plus_count": "14348908",
+        "alternating_minus_count": "14348908",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 3,
+        "special_prefix_length_T_l": "20920706409",
+        "abstract_nonzero_symbol_length": "20920706408",
+        "alternating_plus_count": "10460353204",
+        "alternating_minus_count": "10460353204",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 4,
+        "special_prefix_length_T_l": "15251194969977",
+        "abstract_nonzero_symbol_length": "15251194969976",
+        "alternating_plus_count": "7625597484988",
+        "alternating_minus_count": "7625597484988",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 5,
+        "special_prefix_length_T_l": "11118121133111049",
+        "abstract_nonzero_symbol_length": "11118121133111048",
+        "alternating_plus_count": "5559060566555524",
+        "alternating_minus_count": "5559060566555524",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 6,
+        "special_prefix_length_T_l": "8105110306037952537",
+        "abstract_nonzero_symbol_length": "8105110306037952536",
+        "alternating_plus_count": "4052555153018976268",
+        "alternating_minus_count": "4052555153018976268",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 7,
+        "special_prefix_length_T_l": "5908625413101667397289",
+        "abstract_nonzero_symbol_length": "5908625413101667397288",
+        "alternating_plus_count": "2954312706550833698644",
+        "alternating_minus_count": "2954312706550833698644",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 8,
+        "special_prefix_length_T_l": "4307387926151115532621497",
+        "abstract_nonzero_symbol_length": "4307387926151115532621496",
+        "alternating_plus_count": "2153693963075557766310748",
+        "alternating_minus_count": "2153693963075557766310748",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 9,
+        "special_prefix_length_T_l": "3140085798164163223281069129",
+        "abstract_nonzero_symbol_length": "3140085798164163223281069128",
+        "alternating_plus_count": "1570042899082081611640534564",
+        "alternating_minus_count": "1570042899082081611640534564",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 10,
+        "special_prefix_length_T_l": "2289122546861674989771899392857",
+        "abstract_nonzero_symbol_length": "2289122546861674989771899392856",
+        "alternating_plus_count": "1144561273430837494885949696428",
+        "alternating_minus_count": "1144561273430837494885949696428",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 11,
+        "special_prefix_length_T_l": "1668770336662161067543714657390569",
+        "abstract_nonzero_symbol_length": "1668770336662161067543714657390568",
+        "alternating_plus_count": "834385168331080533771857328695284",
+        "alternating_minus_count": "834385168331080533771857328695284",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 12,
+        "special_prefix_length_T_l": "1216533575426715418239367985237722617",
+        "abstract_nonzero_symbol_length": "1216533575426715418239367985237722616",
+        "alternating_plus_count": "608266787713357709119683992618861308",
+        "alternating_minus_count": "608266787713357709119683992618861308",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 13,
+        "special_prefix_length_T_l": "886852976486075539896499261238299785609",
+        "abstract_nonzero_symbol_length": "886852976486075539896499261238299785608",
+        "alternating_plus_count": "443426488243037769948249630619149892804",
+        "alternating_minus_count": "443426488243037769948249630619149892804",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 14,
+        "special_prefix_length_T_l": "646515819858349068584547961442720543706777",
+        "abstract_nonzero_symbol_length": "646515819858349068584547961442720543706776",
+        "alternating_plus_count": "323257909929174534292273980721360271853388",
+        "alternating_minus_count": "323257909929174534292273980721360271853388",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      },
+      {
+        "level_l": 15,
+        "special_prefix_length_T_l": "471310032676736470998135463891743276362238249",
+        "abstract_nonzero_symbol_length": "471310032676736470998135463891743276362238248",
+        "alternating_plus_count": "235655016338368235499067731945871638181119124",
+        "alternating_minus_count": "235655016338368235499067731945871638181119124",
+        "prefix_difference": 0,
+        "abstract_product_mod_3": 1,
+        "all_prefix_discrepancies_at_most_one": true,
+        "special_tie_verified": true
+      }
+    ],
+    "algorithm": "exact parity arithmetic applied to two independently reproduced mod-3 prime-prefix counts, plus a closed-form alternating countermodel",
+    "complexity": "O(1) parity work per level after the TICKET-260 exact residue certificates; the symbolic countermodel is unrestricted",
+    "random_seed": null,
+    "input_range": {
+      "actual_certificate_level_min": 0,
+      "actual_certificate_level_max": 2,
+      "abstract_replay_level_min": 0,
+      "abstract_replay_level_max": 15
+    },
+    "transcript_sha256": "7c01ec5d388159c3ba032b8f87459f71cbd4bc339f2f181ef6bc6113075d810c",
+    "aggregate": {
+      "tie_forces_product_plus_one_mod_3_proved": true,
+      "product_minus_one_excludes_tie_proved": true,
+      "actual_product_minus_one_certificate_count": 3,
+      "density_balance_alone_excludes_special_ties_refuted": true,
+      "all_special_prime_prefix_products_minus_one_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "3 actual levels are certified; the parity implication and alternating countermodel hold for all levels.",
+  "logical_limit": "Product minus one is a sufficient parity certificate, but no theorem establishes it at every special prime prefix.",
+  "route_decision": {
+    "discard": "using asymptotic or even uniformly bounded residue-density discrepancy alone to exclude exact ties at the special q=3 indices",
+    "parked": [
+      "an all-level arithmetic proof that every special q=3 prime-prefix product is minus one modulo three"
+    ],
+    "retain": "the exact tie-to-product parity implication, three actual product certificates, and the density-only alternating no-go",
+    "next_single_lemma": "Q3SpecialPrimePrefixProductIsMinusOneModuloThree"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T260",
+        "label": "Q3CompatibleFamilyPrimeRaceEquivalence",
+        "status": "proved"
+      },
+      {
+        "id": "GB-T261",
+        "label": "Q3PrimePrefixProductParityObstruction",
+        "status": "proved"
+      },
+      {
+        "id": "GB-CERT261",
+        "label": "Q3PrimePrefixProductParityObstructionExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "GB-REJECT261",
+        "label": "DensityBalanceAloneExcludesEveryQ3SpecialPrimeRaceTie",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN261",
+        "label": "Q3SpecialPrimePrefixProductIsMinusOneModuloThree",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T260",
+        "GB-T261"
+      ],
+      [
+        "GB-T261",
+        "GB-CERT261"
+      ],
+      [
+        "GB-T261",
+        "GB-REJECT261"
+      ],
+      [
+        "GB-T261",
+        "GB-OPEN261"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T260",
+      "GB-T261",
+      "GB-OPEN261"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; three finite levels pass the new parity certificate and the density-only route is rigorously blocked."
+}

@@ -15,7 +15,20 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-260
+## Current research boundary: TICKET-261
+
+The current machine-readable boundary is
+`data/open-problem/ticket261-sharpness-weyl-ties-dualcongruence.json`.
+TICKET-261 proves two exact route no-gos and two partial theorems while resolving none of the parent conjectures:
+
+- `E_n=L+c/n` has positive lag `S_n=L` but divergent scaled downward variation, so TICKET-260 summability is not necessary;
+- first-harmonic Weyl cancellation can coexist with angular star-discrepancy liminf at least `1/6`;
+- a tie in the special q=3 prime race forces the nonzero prime-prefix product to be `+1 mod 3`, while three reproduced actual prefixes have product `-1`;
+- a Twin unit coefficient forces simultaneous second-order congruences modulo `v^2` and `u^2`, and both signs fail jointly on 1,024 certified convergents.
+
+The next single lemmas are the actual-Weil scaled-downward-jump limsup bound, vanishing of every nonzero canonical Fermat-quotient Weyl harmonic, special prime-prefix product `-1 mod 3` at every level, and exclusion of both second-order congruences on every Twin root convergent. All statuses remain `open_not_proven`. Reports: [English](sharpness-weyl-ties-dualcongruence.md) and [한국어](sharpness-weyl-ties-dualcongruence.ko.md).
+
+## Preserved research boundary: TICKET-260
 
 The current machine-readable boundary is
 `data/open-problem/ticket260-weighted-equidistribution-primerace-variablemod.json`.

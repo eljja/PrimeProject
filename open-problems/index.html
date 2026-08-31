@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260831-ticket260-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260831-ticket261-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,21 +31,21 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-260</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-261</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-260 actually changed</h2>
-          <p>TICKET-260 did not solve a parent conjecture. It proves a weighted one-sided RH packet criterion, shows that fixed-modulus exponent equidistribution can still yield aligned Collatz phases, reduces the q=3 Goldbach-compatible family to a special mod-3 prime race, and derives a scale-dependent modulo-v-squared sieve for the remaining Twin exponent-17 convergents.</p>
-          <p class="proof-boundary">TICKET-260은 상위 난제를 해결하지 않았습니다. RH 가중 단측 충분조건, Collatz 고정 모듈러스 균등분포 no-go, Goldbach q=3 소수경주 환원, Twin 가변 분모 mod v² 필요조건을 확정했습니다.</p>
+          <h2>What TICKET-261 actually changed</h2>
+          <p>TICKET-261 did not solve a parent conjecture. It proves the TICKET-260 RH summability condition is not necessary, constructs first-harmonic cancellation with persistent Collatz angular discrepancy, derives a mod-3 Goldbach prefix-product obstruction, and strengthens the Twin sieve to simultaneous second-order congruences modulo v² and u².</p>
+          <p class="proof-boundary">TICKET-261은 상위 난제를 해결하지 않았습니다. RH 합 가능성 조건의 비필요성, Collatz 첫 조화파 no-go, Goldbach mod-3 prefix-product 장애물, Twin 양방향 2차 합동식을 확정했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
-          <div><dt>Exact no-go results</dt><dd>1</dd></div>
-          <div><dt>Partial theorems</dt><dd>3</dd></div>
+          <div><dt>Exact no-go results</dt><dd>2</dd></div>
+          <div><dt>Partial theorems</dt><dd>2</dd></div>
           <div><dt>Resolution count</dt><dd>0</dd></div>
         </dl>
       </section>
@@ -54,58 +54,58 @@
           <header><span>01 · SIGNED CANCELLATION</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>SummableScaledDownwardVariationForcesEventualLagPositivity</code>: summable n-weighted downward variation forces liminf S_n at least the positive energy limit.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Ordinary bounded total variation remains insufficient without the weighted one-sided hypothesis.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ActualWeilPacketScaledDownwardVariationIsSummable</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>SummableScaledVariationNecessityNoGo</code>: E_n=L+c/n has S_n=L exactly but divergent scaled downward variation.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Summable scaled downward variation is sufficient but cannot be treated as necessary for lag positivity.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ActualWeilPacketScaledDownwardJumpLimsupBelowLimit</code></dd></div>
           </dl>
-          <p class="workbench-ko">가중 하강변동의 합 가능성은 lag 양성의 충분조건입니다. 실제 Weil packet에서 이 합 가능성을 증명하는 간극이 남습니다.</p>
+          <p class="workbench-ko">TICKET-260 충분조건의 필요성은 정확한 반례족으로 폐기했습니다. 실제 Weil packet의 scaled jump limsup가 남습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · CYCLOTOMIC PHASE</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>FixedModulusExponentEquidistributionPhaseAlignmentNoGo</code>: every fixed-modulus residue statistic can be balanced while the moving-modulus phases align at one.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Fixed-modulus exponent equidistribution does not imply growing-prime-modulus phase cancellation.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CanonicalFermatQuotientAngularDiscrepancyTendsToZero</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>FirstHarmonicCancellationAngularDiscrepancyNoGo</code>: the first Weyl harmonic can vanish while star discrepancy has liminf at least 1/6.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>First-harmonic cancellation alone does not imply angular discrepancy tends to zero.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CanonicalFermatQuotientWeylSumsVanishForEveryNonzeroH</code></dd></div>
           </dl>
-          <p class="workbench-ko">모든 고정 모듈러스에서 균등한 지수도 가변 소수 모듈러스 위상에서는 정렬될 수 있습니다. canonical 각도 discrepancy가 남습니다.</p>
+          <p class="workbench-ko">첫 조화파 상쇄 하나로는 각도 균등분포를 얻을 수 없습니다. canonical 모든 비영 조화파의 소멸이 남습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · CHARACTER REFLECTION</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>Q3CompatibleFamilyPrimeRaceEquivalence</code>: every q=3 compatible case is exactly a mod-3 prime-race tie question at T=6·3^(6l+2)+3.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The q=3 family does not require the full higher-dimensional odd-character detector.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>Q3SpecialPrimeRaceNeverTiesAtSixTimesPowerOfThreePlusThree</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>Q3PrimePrefixProductParityObstruction</code>: a special mod-3 race tie forces the nonzero prefix product to be +1; the three reproduced prime prefixes are -1.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Density-one-half balance alone cannot exclude special-prefix ties; an alternating abstract sequence ties at every target index.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>Q3SpecialPrimePrefixProductIsMinusOneModuloThree</code></dd></div>
           </dl>
-          <p class="workbench-ko">q=3 호환 무한족을 하나의 소수경주 비소멸 명제로 환원하고 세 prefix를 두 독립 체로 배제했습니다.</p>
+          <p class="workbench-ko">tie가 prefix product +1을 강제한다는 parity 장애물을 얻었고, 실제 세 prefix의 -1을 재현했습니다. 무한 전칭은 남습니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · ROOT CONVERGENTS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>SecondOrderDenominatorCongruenceAnd256ConvergentCertificate</code>: a unit coefficient forces a scale-dependent congruence modulo v²; 256 convergents fail it.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Two exact convergents pass the first-order modulo-v condition, so that weaker filter is incomplete.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>NoUniqueRootConvergentSatisfiesSecondOrderDenominatorCongruence</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>BidirectionalSecondOrderCongruenceAnd1024ConvergentCertificate</code>: a unit coefficient forces congruences modulo v² and u²; 1,024 certified convergents fail them jointly.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The bidirectional first-order pair is incomplete; exact convergents pass it while failing second order.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>NoUniqueRootConvergentSatisfiesBothSecondOrderCongruences</code></dd></div>
           </dl>
-          <p class="workbench-ko">실제 분모 v에 의존하는 mod v² 필요조건을 얻었고 121자리 분모까지 배제했습니다. 모든 이후 수렴분수가 남습니다.</p>
+          <p class="workbench-ko">분모·분자 양쪽 2차 필요조건을 얻고 519자리 분모까지 1,024개를 배제했습니다. 모든 이후 수렴분수가 남습니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>260 tickets reduced to four meaningful eras</h2>
+          <h2>261 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–260 · Signed transfer barriers and scale-dependent correction</strong><p>가중 단측 변동, 가변 모듈러스 각도, 특수 소수경주, 분모 의존 체로 다음 무한 추정의 정확한 대상을 다시 설정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–261 · Signed transfer barriers and sharpness audits</strong><p>가중 변동의 sharpness, 모든 조화파, 특수 prefix product, 양방향 2차 합동식으로 다음 무한 추정의 정확한 대상을 다시 설정했습니다.</p></li>
         </ol>
       </section>
 
@@ -115,6 +115,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/sharpness-weyl-ties-dualcongruence.ko.md">TICKET-261 한국어 보고서</a>
+          <a href="../docs/sharpness-weyl-ties-dualcongruence.md">TICKET-261 English report</a>
+          <a href="../data/open-problem/ticket261-sharpness-weyl-ties-dualcongruence.json">TICKET-261 machine JSON</a>
           <a href="../docs/weighted-equidistribution-primerace-variablemod.ko.md">TICKET-260 한국어 보고서</a>
           <a href="../docs/weighted-equidistribution-primerace-variablemod.md">TICKET-260 English report</a>
           <a href="../data/open-problem/ticket260-weighted-equidistribution-primerace-variablemod.json">TICKET-260 machine JSON</a>
@@ -260,7 +263,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260831-ticket260"></script>
+    <script src="../assets/i18n.js?v=20260831-ticket261"></script>
   </body>
 </html>
 
