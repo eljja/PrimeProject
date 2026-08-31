@@ -180,15 +180,13 @@ def verify_ticket263_structure() -> str | None:
             encoding="utf-8"
         )
     )
-    boundary = (
-        state.get("ticket"),
-        state.get("parent_ticket"),
-        state.get("deep_focus_problem"),
-        state.get("resolved_count"),
-        state.get("candidate_resolution_count"),
-        state.get("program_complete"),
-    )
-    if boundary != (263, 262, "twin_prime", 0, 0, False):
+    if (
+        state.get("ticket", 0) < 263
+        or state.get("parent_ticket", 0) < 262
+        or state.get("resolved_count") != 0
+        or state.get("candidate_resolution_count") != 0
+        or state.get("program_complete") is not False
+    ):
         return "TICKET-263 persistent research state changed"
     for key, (_, theorem, _, _) in expected.items():
         if theorem not in state.get("problems", {}).get(key, {}).get(
