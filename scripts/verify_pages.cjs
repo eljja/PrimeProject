@@ -3927,10 +3927,10 @@ async function main() {
     !metrics.atlasPanel.includes("Evidence ladder") ||
     !metrics.atlasPanel.includes("Proof workbench") ||
     !metrics.atlasPanel.includes("TICKET-264") ||
-    !metrics.atlasPanel.includes("ActualWeilPacketReciprocalEnvelopeBelowHalfLimit") ||
-    !metrics.atlasPanel.includes("CanonicalFermatQuotientGrowingCutoffUniformWeylCancellation") ||
-    !metrics.atlasPanel.includes("Q3SpecialMinusOneResidueCountAvoidsLevelPhasedModuloThirtyTwo") ||
-    !metrics.atlasPanel.includes("NoUniqueRootConvergentSatisfiesJointNinthOrderCongruences") ||
+    !metrics.atlasPanel.includes("ActualWeilPacketOneSidedReciprocalEnvelopeSumBelowLimit") ||
+    !metrics.atlasPanel.includes("CanonicalFermatQuotientThresholdCutoffDiverges") ||
+    !metrics.atlasPanel.includes("Q3SpecialPrimeRaceAbsoluteGapAtLeastTwo") ||
+    !metrics.atlasPanel.includes("NoLaterUniqueRootConvergentSatisfiesJointNinthOrderCongruences") ||
     !metrics.atlasPanel.includes("Riemann Hypothesis") ||
     !metrics.atlasPanel.includes("Twin Prime Conjecture") ||
     !metrics.atlasPanel.includes("Next academic work")
