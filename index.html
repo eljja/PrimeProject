@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260901-ticket264-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260902-ticket265-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-264 · CURRENT RESEARCH BOUNDARY</p>
-                <h1 data-i18n="brief.title">Four open problems, three partial theorems and one route no-go</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-264 proves a sharp asymmetric RH envelope, an explicit Weyl threshold equivalence, a fixed two-adic Goldbach no-go, and complete Twin finite-head closure.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-264는 RH 비대칭 envelope, Collatz 명시적 threshold 동치, Goldbach 고정 2진 no-go, Twin 유한 머리 전체 폐쇄를 확정했습니다.</p>
+                <p class="brief-kicker">TICKET-265 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, two partial theorems and two route no-go results</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-265 proves sparse-envelope and unbounded-cutoff no-go theorems, a sharp growing two-adic tie test, and a necessary mod-32 Twin filter.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-265는 희박 envelope·비유계 cutoff no-go, 성장형 2-adic tie 판정, 필요한 mod-32 Twin 필터를 확정했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>264</strong><small>2026-09-01</small></div>
-              <div><span>Exact no-go</span><strong>1</strong><small>new this round</small></div>
-              <div><span>Partial theorems</span><strong>3</strong><small>new this round</small></div>
+              <div><span>Latest ticket</span><strong>265</strong><small>2026-09-02</small></div>
+              <div><span>Exact no-go</span><strong>2</strong><small>new this round</small></div>
+              <div><span>Partial theorems</span><strong>2</strong><small>new this round</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> one-sided envelope는 limsup J_n&lt;=A_++A_-와 liminf S_n&gt;=L-A_+-A_-를 주며 두 계수는 최적입니다.</p>
-                <p><strong>폐기:</strong> 대칭 max-envelope가 rate-only 조건의 최종형이라는 경로.</p>
+                <p><strong>확립:</strong> 밀도 1에서 reciprocal 오차가 정확히 0이어도 희박한 인접 스파이크가 lag를 무한히 자주 음수로 만들 수 있습니다.</p>
+                <p><strong>폐기:</strong> density-one 또는 sparse packet 제어가 all-index envelope를 대체한다는 경로.</p>
                 <p><strong>다음 핵심:</strong> <code>ActualWeilPacketOneSidedReciprocalEnvelopeSumBelowLimit</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 고정 비영 Weyl 조화파의 소멸은 명시적 finite-data threshold cutoff K_N의 발산과 동치입니다.</p>
-                <p><strong>폐기:</strong> diagonal cutoff를 유한 prefix에서 명시적으로 선택할 수 없다는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>CanonicalFermatQuotientThresholdCutoffDiverges</code>.</p>
+                <p><strong>확립:</strong> K_N이 비유계여도 liminf K_N&lt;=5일 수 있어, 비유계성과 발산은 엄격히 다릅니다.</p>
+                <p><strong>폐기:</strong> 임의로 큰 sparse good prefix만으로 Weyl 상쇄를 얻는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>CanonicalFermatQuotientThresholdCutoffHasNoBoundedSubsequence</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 모든 고정 2^m tie signature와 총합은 명시적 non-tie count 반모형을 허용합니다.</p>
-                <p><strong>폐기:</strong> 어떤 하나의 고정 2진 합동조건을 tie 충분조건으로 승격하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>Q3SpecialPrimeRaceAbsoluteGapAtLeastTwo</code>.</p>
+                <p><strong>확립:</strong> 총합 2M 아래에서 2^m&gt;M인 최소 성장형 modulus는 추상 tie를 필요충분하게 판정합니다.</p>
+                <p><strong>폐기:</strong> 고정-modulus no-go가 모든 성장형 2-adic signature까지 배제한다는 해석.</p>
+                <p><strong>다음 핵심:</strong> <code>Q3ActualMinusCountAvoidsLeastDecisiveTwoAdicTieResidue</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 명시적 문턱 이하의 unique-root convergent 38개 전체가 정확 계산으로 unit-free입니다.</p>
-                <p><strong>폐기:</strong> 인증한 머리 뒤에 추가 subthreshold convergent가 남을 수 있다는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>NoLaterUniqueRootConvergentSatisfiesJointNinthOrderCongruences</code>.</p>
+                <p><strong>확립:</strong> 원시 B_1=&plusmn;1 해는 v가 짝수이고 u+v=&plusmn;1 (mod 32)인 필요조건을 만족합니다.</p>
+                <p><strong>폐기:</strong> 이 국소 mod-32 필터가 충분조건이라는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>EveryLaterMod32FilterPassFailsJointNinthOrderCongruences</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>264개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-264는 asymmetric envelope, explicit threshold cutoff, fixed two-adic no-go, finite-head closure의 경계를 확정했습니다.</p>
+                <p>265개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-265는 sparse envelope·unbounded cutoff no-go, growing two-adic tie test, mod-32 Twin filter의 경계를 확정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -140,8 +140,8 @@
             </div>
             <div class="brief-actions">
               <a href="open-problems/index.html">Open Proof Workbench / 증명 워크벤치</a>
-              <a href="docs/asymmetric-threshold-fixed2adic-head.ko.md">최신 한국어 보고서</a>
-              <a href="docs/asymmetric-threshold-fixed2adic-head.md">Latest English report</a>
+              <a href="docs/sparse-cutoff-growing2adic-mod32.ko.md">최신 한국어 보고서</a>
+              <a href="docs/sparse-cutoff-growing2adic-mod32.md">Latest English report</a>
             </div>
           </section>          <section id="overview-panel" class="overview-grid">
             <section class="panel main-panel">
@@ -657,8 +657,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-264</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-264 proves three partial theorems and one exact no-go, with a resolution count of zero.</p>
+              <strong>TICKET-265</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-265 proves two partial theorems and two exact no-go results, with a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -794,8 +794,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260901-ticket264"></script>
-    <script src="assets/app.js?v=20260901-ticket264"></script>
+    <script src="assets/i18n.js?v=20260902-ticket265"></script>
+    <script src="assets/app.js?v=20260902-ticket265"></script>
   </body>
 </html>
 

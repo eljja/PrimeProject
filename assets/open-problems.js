@@ -48,6 +48,7 @@ let ticket249AttemptGlobal = null;
 let ticket250AttemptGlobal = null;
 let ticket251AttemptGlobal = null;
 let ticket252AttemptGlobal = null;
+let ticket265AttemptGlobal = null;
 let ticket264AttemptGlobal = null;
 let ticket263AttemptGlobal = null;
 let ticket262AttemptGlobal = null;
@@ -18055,7 +18056,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket264AsymmetricThresholdFixedTwoAdicHead(ticket264AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket265SparseCutoffGrowingTwoAdicMod32(ticket265AttemptGlobal) ||
+      renderTicket264AsymmetricThresholdFixedTwoAdicHead(ticket264AttemptGlobal) ||
       renderTicket263SharpEnvelopeDiagonalMod32NinthOrder(ticket263AttemptGlobal) ||
       renderTicket262LimsupFiniteHarmonicMod8ThirdOrder(ticket262AttemptGlobal) ||
       renderTicket261SharpnessWeylTiesDualCongruence(ticket261AttemptGlobal) ||
@@ -18642,6 +18644,26 @@ async function loadTicket219Attempt() {
     return false;
   }
 }
+async function loadTicket265Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket265-sparse-cutoff-growing2adic-mod32.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket265AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket265AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket265AttemptGlobal) {
+      ticket265AttemptGlobal.bounded_result = ticket265AttemptGlobal.bounded_result || {};
+      ticket265AttemptGlobal.bounded_result.sparse_cutoff_growing2adic_mod32_audit = payload.sparse_cutoff_growing2adic_mod32_audit || {};
+    }
+    return Boolean(ticket265AttemptGlobal);
+  } catch (_error) {
+    ticket265AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket264Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket264-asymmetric-threshold-fixed2adic-head.json", { cache: "no-store" });
@@ -21101,6 +21123,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket265Loaded = await loadTicket265Attempt();
   const ticket264Loaded = await loadTicket264Attempt();
   const ticket263Loaded = await loadTicket263Attempt();
   const ticket262Loaded = await loadTicket262Attempt();
@@ -21109,6 +21132,10 @@ async function main() {
   const ticket259Loaded = await loadTicket259Attempt();
   const ticket258Loaded = await loadTicket258Attempt();
   const ticket257Loaded = await loadTicket257Attempt();
+  if (!ticket265Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket265AttemptGlobal) await loadTicket265Attempt();
+  }
   if (!ticket264Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));
     if (!ticket264AttemptGlobal) await loadTicket264Attempt();

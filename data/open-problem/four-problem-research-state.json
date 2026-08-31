@@ -1,17 +1,17 @@
 {
   "schema": "primeproject.four-problem-research-state.v1",
-  "ticket": 264,
-  "parent_ticket": 263,
-  "generated_at": "2026-09-01T23:59:30+09:00",
+  "ticket": 265,
+  "parent_ticket": 264,
+  "generated_at": "2026-09-02T23:59:30+09:00",
   "iteration_complete": true,
   "program_complete": false,
   "resolved_count": 0,
   "candidate_resolution_count": 0,
-  "deep_focus_problem": "riemann",
+  "deep_focus_problem": "collatz",
   "problems": {
     "riemann": {
       "problem_status": "open_not_proven",
-      "current_target": "AsymmetricReciprocalEnvelopeForScaledJumpMargin",
+      "current_target": "DensityOneReciprocalControlCannotReplaceLimsupEnvelope",
       "established_results": [
         "PointwiseFiniteSectionMovingVectorNoGoAndCompactUniformTransfer",
         "BandlimitedEvenTestFamilyNoncompactnessAndFrequencyTightnessNoGo",
@@ -35,7 +35,8 @@
         "SummableScaledVariationNecessityNoGo",
         "PacketLagMarginIffScaledSignedJumpLimsupBelowLimit",
         "SharpReciprocalEnvelopeForScaledJumpMargin",
-        "AsymmetricReciprocalEnvelopeForScaledJumpMargin"
+        "AsymmetricReciprocalEnvelopeForScaledJumpMargin",
+        "DensityOneReciprocalControlCannotReplaceLimsupEnvelope"
       ],
       "retired_routes": [
         "frequency support or frequency tightness alone as compactness of a normalized even Weil-test family",
@@ -59,7 +60,8 @@
         "treating summable scaled downward variation as necessary for eventual packet-lag positivity",
         "treating any stronger summability hypothesis as the minimal abstract target for eventual packet-lag positivity",
         "replacing the factor two in a reciprocal convergence-rate-only argument by any smaller universal constant",
-        "treating the symmetric max-envelope threshold A<L/2 as the sharpest rate-only formulation"
+        "treating the symmetric max-envelope threshold A<L/2 as the sharpest rate-only formulation",
+        "using density-one or sparse packet-index reciprocal control as a sufficient substitute for the all-index envelope"
       ],
       "parked_routes": [
         "endpoint-only zero multipliers and strictly positive local floors",
@@ -76,13 +78,13 @@
         "an arithmetic proof that actual Guinand-Weil packet energies satisfy a reciprocal envelope strictly below half their positive limit",
         "an arithmetic proof that actual Guinand-Weil packet energies satisfy A_++A_-<L"
       ],
-      "remaining_gap": "The abstract criterion is now sharper, but neither one-sided reciprocal envelope is bounded for actual Guinand-Weil packets.",
+      "remaining_gap": "The sparse sequence is an exact abstract counterexample, but no theorem transfers its spikes to actual Guinand-Weil packet energies.",
       "next_single_lemma": "ActualWeilPacketOneSidedReciprocalEnvelopeSumBelowLimit",
       "stagnation_count": 0,
       "unresolved_dependencies": [
         "ActualWeilPacketOneSidedReciprocalEnvelopeSumBelowLimit"
       ],
-      "finite_computation_boundary": "Three abstract Fraction families and 192 rows are checked; none is an actual Weil packet.",
+      "finite_computation_boundary": "The Fraction replay checks 16 dyadic spike pairs k=2..17; the symbolic construction is infinite but is not an actual Weil packet.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -92,7 +94,7 @@
     },
     "collatz": {
       "problem_status": "open_not_proven",
-      "current_target": "PointwiseWeylCancellationIffExplicitThresholdCutoffDiverges",
+      "current_target": "UnboundedExplicitThresholdCutoffDoesNotImplyDivergence",
       "established_results": [
         "RationalWieferichOrderCoreReductionAndBoundedOrderNoGo",
         "UnboundedOrderPrincipalUnitTransferCountermodels",
@@ -116,7 +118,8 @@
         "FirstHarmonicCancellationAngularDiscrepancyNoGo",
         "EveryFixedFiniteWeylCutoffAngularDiscrepancyNoGo",
         "PointwiseWeylCancellationIffSomeGrowingCutoffUniformCancellation",
-        "PointwiseWeylCancellationIffExplicitThresholdCutoffDiverges"
+        "PointwiseWeylCancellationIffExplicitThresholdCutoffDiverges",
+        "UnboundedExplicitThresholdCutoffDoesNotImplyDivergence"
       ],
       "retired_routes": [
         "deducing the fixed-base 32/27 to 2/3 square-depth transfer from universal order, LTE, and principal-unit algebra",
@@ -137,7 +140,8 @@
         "deducing angular discrepancy decay from cancellation of only the first growing-modulus Weyl harmonic",
         "deducing angular discrepancy decay from cancellation of any one fixed finite set of growing-modulus Weyl harmonics",
         "treating countably many fixed-h harmonic limits as intrinsically impossible to package into one growing uniform cutoff",
-        "claiming that the TICKET-263 diagonal cutoff can only be existential and cannot be selected from the finite prefix data"
+        "claiming that the TICKET-263 diagonal cutoff can only be existential and cannot be selected from the finite prefix data",
+        "replacing K_N to infinity by the weaker assertion that K_N is merely unbounded or large on a sparse subsequence"
       ],
       "parked_routes": [
         "all-prime exclusion of separated generalized-Wieferich primes without a structural theorem",
@@ -154,15 +158,16 @@
         "angular discrepancy of the canonical fixed-base Fermat-quotient exponents on their varying prime moduli",
         "all-nonzero-harmonic Weyl cancellation for the canonical fixed-base Fermat-quotient exponents",
         "uniform moving-cutoff cancellation for the canonical fixed-base Fermat-quotient phases",
-        "a proof that the explicit threshold cutoff diverges for canonical fixed-base Fermat-quotient phases"
+        "a proof that the explicit threshold cutoff diverges for canonical fixed-base Fermat-quotient phases",
+        "a canonical fixed-base Fermat-quotient estimate ruling out every bounded subsequence of K_N"
       ],
-      "remaining_gap": "K_N is explicit and finite-data-defined, but its divergence is not proved for the canonical Fermat-quotient sequence.",
-      "next_single_lemma": "CanonicalFermatQuotientThresholdCutoffDiverges",
+      "remaining_gap": "The recursive dyadic-root sequence is exact but is not the canonical Fermat-quotient sequence arising from the Collatz reduction.",
+      "next_single_lemma": "CanonicalFermatQuotientThresholdCutoffHasNoBoundedSubsequence",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "CanonicalFermatQuotientThresholdCutoffDiverges"
+        "CanonicalFermatQuotientThresholdCutoffHasNoBoundedSubsequence"
       ],
-      "finite_computation_boundary": "Exact complete grids M=[4, 8, 16, 32, 64, 128] give 252 threshold checks; they are not canonical prefixes.",
+      "finite_computation_boundary": "The replay checks 9 powers q=8..2048 using exact integer structure and rational bounds; it certifies the construction, not canonical phases.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -172,7 +177,7 @@
     },
     "goldbach": {
       "problem_status": "open_not_proven",
-      "current_target": "EveryFixedTwoAdicTieSignatureHasNonTieCountModels",
+      "current_target": "GrowingTwoAdicTieSignatureIsSharpAndDecisive",
       "established_results": [
         "ParsevalScaleObstructionToL2OnlyBinaryMinorArcCertificates",
         "OmittedHalfFrequencyArcCarriesNaturalBinaryEnergy",
@@ -196,7 +201,8 @@
         "Q3PrimePrefixProductParityObstruction",
         "Q3TieForcesMinusCountFourModuloEight",
         "Q3TieForcesLevelPhasedModuloThirtyTwo",
-        "EveryFixedTwoAdicTieSignatureHasNonTieCountModels"
+        "EveryFixedTwoAdicTieSignatureHasNonTieCountModels",
+        "GrowingTwoAdicTieSignatureIsSharpAndDecisive"
       ],
       "retired_routes": [
         "placing the parity rational neighborhood around one half in a minor set while demanding an absolute-energy o(X/log^2 X) budget",
@@ -220,7 +226,8 @@
         "using asymptotic or even uniformly bounded residue-density discrepancy alone to exclude exact ties at the special q=3 indices",
         "treating the TICKET-261 product-minus-one certificate as a necessary characterization of q=3 special-prefix non-ties",
         "treating the phased modulo-thirty-two condition as sufficient for a q=3 special-prefix tie at every level",
-        "climbing to any one fixed power-of-two congruence and treating the tie residue plus total as sufficient"
+        "climbing to any one fixed power-of-two congruence and treating the tie residue plus total as sufficient",
+        "interpreting TICKET-264's fixed-modulus no-go as excluding every level-dependent growing two-adic tie signature"
       ],
       "parked_routes": [
         "zero-residue compatible tail exponents with c_0-min(c)<=1",
@@ -237,15 +244,16 @@
         "an all-level arithmetic proof that every special q=3 prime-prefix product is minus one modulo three",
         "an all-level arithmetic proof that the actual special q=3 minus-one count never equals four modulo eight",
         "an all-level arithmetic proof that actual q=3 special minus-one counts avoid their level-phased residue modulo thirty-two",
-        "noncongruential control of the q=3 special prime-race integer gap"
+        "noncongruential control of the q=3 special prime-race integer gap",
+        "an all-level proof that the actual q=3 residue count N_2(l) avoids M_l modulo 2^m_l"
       ],
-      "remaining_gap": "Every fixed two-adic congruence loses the integer displacement by a multiple of its modulus; an all-level nonzero prime-race estimate is still absent.",
-      "next_single_lemma": "Q3SpecialPrimeRaceAbsoluteGapAtLeastTwo",
+      "remaining_gap": "The criterion decides equality for abstract nonnegative count pairs, but it supplies no analytic control of the actual prime-residue displacement.",
+      "next_single_lemma": "Q3ActualMinusCountAvoidsLeastDecisiveTwoAdicTieResidue",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "Q3SpecialPrimeRaceAbsoluteGapAtLeastTwo"
+        "Q3ActualMinusCountAvoidsLeastDecisiveTwoAdicTieResidue"
       ],
-      "finite_computation_boundary": "Periods are replayed for m=1..16 and 242 valid (m,l) countermodels with l=0..15; the theorem itself is symbolic for all m,l.",
+      "finite_computation_boundary": "Levels l=0..31 receive exact threshold/countermodel checks; only 3 actual levels are hash-pinned from TICKET-260.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,
@@ -255,7 +263,7 @@
     },
     "twin_prime": {
       "problem_status": "open_not_proven",
-      "current_target": "AllSubthresholdUniqueRootConvergentsAreUnitFree",
+      "current_target": "PrimitiveTwinUnitSolutionsObeyMod32DiagonalFilter",
       "established_results": [
         "GrowingPeriodDiagonalCRTMimicryForShiftTwo",
         "FixedPeriodicMimicryInEverySufficientlyLargeDyadicBlock",
@@ -279,7 +287,8 @@
         "BidirectionalSecondOrderCongruenceAnd1024ConvergentCertificate",
         "BidirectionalThirdOrderCongruenceAnd1024ConvergentCertificate",
         "NinthOrderJointCongruenceExactOnRootCone",
-        "AllSubthresholdUniqueRootConvergentsAreUnitFree"
+        "AllSubthresholdUniqueRootConvergentsAreUnitFree",
+        "PrimitiveTwinUnitSolutionsObeyMod32DiagonalFilter"
       ],
       "retired_routes": [
         "using fixed periodic features even with eventual per-dyadic-scale sampling as a twin-prime certificate",
@@ -304,7 +313,8 @@
         "using the pair of first-order numerator and denominator congruences as a complete unique-root convergent filter",
         "treating the bidirectional second-order congruence pair as the sharpest available finite-jet necessary condition",
         "treating successively higher finite binomial jets as an endless source of independent necessary conditions beyond the degree-seventeen form",
-        "leaving the finitely many unique-root convergents below the TICKET-263 exactness threshold as an unresolved global subcase"
+        "leaving the finitely many unique-root convergents below the TICKET-263 exactness threshold as an unresolved global subcase",
+        "treating the primitive parity and mod-32 diagonal filter as sufficient for B_1(u,v)=+/-1"
       ],
       "parked_routes": [
         "the all-X Diophantine exclusion x^2-2=y^k for odd k>=3",
@@ -321,15 +331,16 @@
         "global exclusion of simultaneous second-order numerator and denominator congruences on every later unique-root convergent",
         "global exclusion of simultaneous third-order numerator and denominator congruences on every later unique-root convergent",
         "global exclusion of the joint ninth-order congruences on every unique-root continued-fraction convergent",
-        "global exclusion of joint ninth-order congruences on every later unique-root convergent"
+        "global exclusion of joint ninth-order congruences on every later unique-root convergent",
+        "joint ninth-order exclusion for every later unique-root convergent that survives the mod-32 filter"
       ],
-      "remaining_gap": "The finite q<=V_0 head is closed, but infinitely many q>V_0 convergents remain and no recurrence excludes all ninth-order passes.",
-      "next_single_lemma": "NoLaterUniqueRootConvergentSatisfiesJointNinthOrderCongruences",
+      "remaining_gap": "The congruence is only necessary; explicit infinite primitive countermodels pass it, and the later continued-fraction tail remains infinite.",
+      "next_single_lemma": "EveryLaterMod32FilterPassFailsJointNinthOrderCongruences",
       "stagnation_count": 0,
       "unresolved_dependencies": [
-        "NoLaterUniqueRootConvergentSatisfiesJointNinthOrderCongruences"
+        "EveryLaterMod32FilterPassFailsJointNinthOrderCongruences"
       ],
-      "finite_computation_boundary": "The first 39 certified convergents locate q_37<=V_0<q_38 and evaluate all 38 subthreshold B_1 values exactly.",
+      "finite_computation_boundary": "Exactly 1024 certified convergents and 32 paired countermodels are replayed; later filter survivors are not thereby excluded.",
       "proof_dag_status": "acyclic_with_one_open_frontier",
       "validation_status": {
         "generator_failure_count": 0,

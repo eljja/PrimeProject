@@ -87,7 +87,16 @@ def verify_ticket264_structure() -> str | None:
         if not paths[key].exists():
             return f"missing TICKET-264 track JSON: {key}"
     state = json.loads((ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8"))
-    if (state.get("ticket"), state.get("parent_ticket"), state.get("deep_focus_problem"), state.get("resolved_count"), state.get("candidate_resolution_count"), state.get("program_complete")) != (264, 263, "riemann", 0, 0, False):
+    ticket = state.get("ticket")
+    if (
+        not isinstance(ticket, int)
+        or ticket < 264
+        or state.get("parent_ticket") != ticket - 1
+        or state.get("deep_focus_problem") not in state.get("problems", {})
+        or state.get("resolved_count") != 0
+        or state.get("candidate_resolution_count") != 0
+        or state.get("program_complete") is not False
+    ):
         return "TICKET-264 persistent state changed"
     for report in (ROOT / "docs/asymmetric-threshold-fixed2adic-head.md", ROOT / "docs/asymmetric-threshold-fixed2adic-head.ko.md"):
         if not report.exists():

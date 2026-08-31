@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, three partial theorems and one route no-go",
-      ko: "네 미해결 문제, 부분정리 세 개와 경로 no-go 하나",
+      en: "Four open problems, two partial theorems and two route no-go results",
+      ko: "네 미해결 문제, 부분정리 두 개와 경로 no-go 두 개",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-264 proves three partial theorems and one exact route no-go: an RH asymmetric envelope, an explicit Weyl threshold equivalence, fixed two-adic Goldbach insufficiency, and Twin finite-head closure.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-264는 RH 비대칭 envelope, Collatz 명시적 threshold 동치, Goldbach 고정 2진 no-go, Twin 유한 머리 폐쇄를 확정합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-265 proves two partial theorems and two exact route no-go results: sparse-envelope and unbounded-cutoff no-go theorems, a growing two-adic Goldbach tie test, and a necessary mod-32 Twin filter.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-265는 희박 envelope·비유계 cutoff no-go, 성장형 2-adic Goldbach tie 판정, 필요한 mod-32 Twin 필터를 확정합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-264 proves three partial theorems and one exact route no-go, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-264는 부분정리 세 개와 exact no-go 하나를 확정하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-265 proves two partial theorems and two exact route no-go results, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-265는 부분정리 두 개와 exact no-go 두 개를 확정하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

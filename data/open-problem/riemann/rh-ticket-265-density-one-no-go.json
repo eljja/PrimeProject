@@ -1,0 +1,919 @@
+{
+  "schema": "primeproject.ticket265-sparse-cutoff-growing2adic-mod32.v1",
+  "generated_at": "2026-09-02T23:59:30+09:00",
+  "status": "open_not_proven",
+  "problem_id": "riemann",
+  "ticket_id": "RH-TICKET-265",
+  "theorem_name": "DensityOneReciprocalControlCannotReplaceLimsupEnvelope",
+  "declared_proposition": "Let L>0 and P,M>=0 satisfy P+M>L. Choose k_0 so that 2^k+1>M/L for k>=k_0. Define a_(2^k)=P/2^k, a_(2^k+1)=-M/(2^k+1) for k>=k_0, and a_n=0 otherwise; put E_n=L+a_n. Then E_n>0 and E_n tends to L, the exceptional set {n:a_n!=0} has natural density zero and arbitrarily long zero-error gaps, while A_+=limsup n a_n^+=P, A_-=limsup n a_n^-=M and S_(2^k)=(2^k+1)E_(2^k+1)-2^k E_(2^k)=L-P-M<0 for every k>=k_0. Hence reciprocal control on a density-one set, even with exact zero error there, cannot replace the all-index limsup envelope in TICKET-264.",
+  "mathematical_argument": "Positivity follows from the choice of k_0, and the two nonzero errors are O(1/n), so E_n tends to L. Up to X there are at most 2(log_2 X+1) exceptional indices, hence their natural density is zero; the gaps between consecutive spike pairs grow like 2^k. On the positive and negative spike subsequences the scaled errors are exactly P and M, and they vanish elsewhere, proving the two limsups. Direct substitution cancels the nL terms and gives S_(2^k)=L-P-M. Thus the displayed family is an exact counterexample to every density-one or sparse-sampling replacement of the uniform one-sided envelope condition. It is not an actual Weil packet.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let L>0 and P,M>=0 satisfy P+M>L. Choose k_0 so that 2^k+1>M/L for k>=k_0. Define a_(2^k)=P/2^k, a_(2^k+1)=-M/(2^k+1) for k>=k_0, and a_n=0 otherwise; put E_n=L+a_n. Then E_n>0 and E_n tends to L, the exceptional set {n:a_n!=0} has natural density zero and arbitrarily long zero-error gaps, while A_+=limsup n a_n^+=P, A_-=limsup n a_n^-=M and S_(2^k)=(2^k+1)E_(2^k+1)-2^k E_(2^k)=L-P-M<0 for every k>=k_0. Hence reciprocal control on a density-one set, even with exact zero error there, cannot replace the all-index limsup envelope in TICKET-264.",
+    "proof": "Positivity follows from the choice of k_0, and the two nonzero errors are O(1/n), so E_n tends to L. Up to X there are at most 2(log_2 X+1) exceptional indices, hence their natural density is zero; the gaps between consecutive spike pairs grow like 2^k. On the positive and negative spike subsequences the scaled errors are exactly P and M, and they vanish elsewhere, proving the two limsups. Direct substitution cancels the nL terms and gives S_(2^k)=L-P-M. Thus the displayed family is an exact counterexample to every density-one or sparse-sampling replacement of the uniform one-sided envelope condition. It is not an actual Weil packet.",
+    "exact_sparse_reciprocal_spike_rows": [
+      {
+        "spike_exponent_k": 2,
+        "positive_spike_index_n": 4,
+        "energy_E_n": {
+          "exact": "19/16",
+          "numerator": 19,
+          "denominator": 16,
+          "display_float": 1.1875
+        },
+        "energy_E_n_plus_1": {
+          "exact": "9/10",
+          "numerator": 9,
+          "denominator": 10,
+          "display_float": 0.9
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "23/20",
+          "numerator": 23,
+          "denominator": 20,
+          "display_float": 1.15
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 2,
+        "support_window_end": 7,
+        "support_density": {
+          "exact": "2/7",
+          "numerator": 2,
+          "denominator": 7,
+          "display_float": 0.2857142857142857
+        },
+        "zero_error_gap_before_next_pair": 2,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 3,
+        "positive_spike_index_n": 8,
+        "energy_E_n": {
+          "exact": "35/32",
+          "numerator": 35,
+          "denominator": 32,
+          "display_float": 1.09375
+        },
+        "energy_E_n_plus_1": {
+          "exact": "17/18",
+          "numerator": 17,
+          "denominator": 18,
+          "display_float": 0.9444444444444444
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "43/36",
+          "numerator": 43,
+          "denominator": 36,
+          "display_float": 1.1944444444444444
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 4,
+        "support_window_end": 15,
+        "support_density": {
+          "exact": "4/15",
+          "numerator": 4,
+          "denominator": 15,
+          "display_float": 0.26666666666666666
+        },
+        "zero_error_gap_before_next_pair": 6,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 4,
+        "positive_spike_index_n": 16,
+        "energy_E_n": {
+          "exact": "67/64",
+          "numerator": 67,
+          "denominator": 64,
+          "display_float": 1.046875
+        },
+        "energy_E_n_plus_1": {
+          "exact": "33/34",
+          "numerator": 33,
+          "denominator": 34,
+          "display_float": 0.9705882352941176
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "83/68",
+          "numerator": 83,
+          "denominator": 68,
+          "display_float": 1.2205882352941178
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 6,
+        "support_window_end": 31,
+        "support_density": {
+          "exact": "6/31",
+          "numerator": 6,
+          "denominator": 31,
+          "display_float": 0.1935483870967742
+        },
+        "zero_error_gap_before_next_pair": 14,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 5,
+        "positive_spike_index_n": 32,
+        "energy_E_n": {
+          "exact": "131/128",
+          "numerator": 131,
+          "denominator": 128,
+          "display_float": 1.0234375
+        },
+        "energy_E_n_plus_1": {
+          "exact": "65/66",
+          "numerator": 65,
+          "denominator": 66,
+          "display_float": 0.9848484848484849
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "163/132",
+          "numerator": 163,
+          "denominator": 132,
+          "display_float": 1.2348484848484849
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 8,
+        "support_window_end": 63,
+        "support_density": {
+          "exact": "8/63",
+          "numerator": 8,
+          "denominator": 63,
+          "display_float": 0.12698412698412698
+        },
+        "zero_error_gap_before_next_pair": 30,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 6,
+        "positive_spike_index_n": 64,
+        "energy_E_n": {
+          "exact": "259/256",
+          "numerator": 259,
+          "denominator": 256,
+          "display_float": 1.01171875
+        },
+        "energy_E_n_plus_1": {
+          "exact": "129/130",
+          "numerator": 129,
+          "denominator": 130,
+          "display_float": 0.9923076923076923
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "323/260",
+          "numerator": 323,
+          "denominator": 260,
+          "display_float": 1.2423076923076923
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 10,
+        "support_window_end": 127,
+        "support_density": {
+          "exact": "10/127",
+          "numerator": 10,
+          "denominator": 127,
+          "display_float": 0.07874015748031496
+        },
+        "zero_error_gap_before_next_pair": 62,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 7,
+        "positive_spike_index_n": 128,
+        "energy_E_n": {
+          "exact": "515/512",
+          "numerator": 515,
+          "denominator": 512,
+          "display_float": 1.005859375
+        },
+        "energy_E_n_plus_1": {
+          "exact": "257/258",
+          "numerator": 257,
+          "denominator": 258,
+          "display_float": 0.9961240310077519
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "643/516",
+          "numerator": 643,
+          "denominator": 516,
+          "display_float": 1.246124031007752
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 12,
+        "support_window_end": 255,
+        "support_density": {
+          "exact": "4/85",
+          "numerator": 4,
+          "denominator": 85,
+          "display_float": 0.047058823529411764
+        },
+        "zero_error_gap_before_next_pair": 126,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 8,
+        "positive_spike_index_n": 256,
+        "energy_E_n": {
+          "exact": "1027/1024",
+          "numerator": 1027,
+          "denominator": 1024,
+          "display_float": 1.0029296875
+        },
+        "energy_E_n_plus_1": {
+          "exact": "513/514",
+          "numerator": 513,
+          "denominator": 514,
+          "display_float": 0.9980544747081712
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "1283/1028",
+          "numerator": 1283,
+          "denominator": 1028,
+          "display_float": 1.2480544747081712
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 14,
+        "support_window_end": 511,
+        "support_density": {
+          "exact": "2/73",
+          "numerator": 2,
+          "denominator": 73,
+          "display_float": 0.0273972602739726
+        },
+        "zero_error_gap_before_next_pair": 254,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 9,
+        "positive_spike_index_n": 512,
+        "energy_E_n": {
+          "exact": "2051/2048",
+          "numerator": 2051,
+          "denominator": 2048,
+          "display_float": 1.00146484375
+        },
+        "energy_E_n_plus_1": {
+          "exact": "1025/1026",
+          "numerator": 1025,
+          "denominator": 1026,
+          "display_float": 0.9990253411306043
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "2563/2052",
+          "numerator": 2563,
+          "denominator": 2052,
+          "display_float": 1.2490253411306043
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 16,
+        "support_window_end": 1023,
+        "support_density": {
+          "exact": "16/1023",
+          "numerator": 16,
+          "denominator": 1023,
+          "display_float": 0.015640273704789834
+        },
+        "zero_error_gap_before_next_pair": 510,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 10,
+        "positive_spike_index_n": 1024,
+        "energy_E_n": {
+          "exact": "4099/4096",
+          "numerator": 4099,
+          "denominator": 4096,
+          "display_float": 1.000732421875
+        },
+        "energy_E_n_plus_1": {
+          "exact": "2049/2050",
+          "numerator": 2049,
+          "denominator": 2050,
+          "display_float": 0.9995121951219512
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "5123/4100",
+          "numerator": 5123,
+          "denominator": 4100,
+          "display_float": 1.2495121951219512
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 18,
+        "support_window_end": 2047,
+        "support_density": {
+          "exact": "18/2047",
+          "numerator": 18,
+          "denominator": 2047,
+          "display_float": 0.008793356130923302
+        },
+        "zero_error_gap_before_next_pair": 1022,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 11,
+        "positive_spike_index_n": 2048,
+        "energy_E_n": {
+          "exact": "8195/8192",
+          "numerator": 8195,
+          "denominator": 8192,
+          "display_float": 1.0003662109375
+        },
+        "energy_E_n_plus_1": {
+          "exact": "4097/4098",
+          "numerator": 4097,
+          "denominator": 4098,
+          "display_float": 0.9997559785261103
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "10243/8196",
+          "numerator": 10243,
+          "denominator": 8196,
+          "display_float": 1.2497559785261103
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 20,
+        "support_window_end": 4095,
+        "support_density": {
+          "exact": "4/819",
+          "numerator": 4,
+          "denominator": 819,
+          "display_float": 0.004884004884004884
+        },
+        "zero_error_gap_before_next_pair": 2046,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 12,
+        "positive_spike_index_n": 4096,
+        "energy_E_n": {
+          "exact": "16387/16384",
+          "numerator": 16387,
+          "denominator": 16384,
+          "display_float": 1.00018310546875
+        },
+        "energy_E_n_plus_1": {
+          "exact": "8193/8194",
+          "numerator": 8193,
+          "denominator": 8194,
+          "display_float": 0.9998779594825482
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "20483/16388",
+          "numerator": 20483,
+          "denominator": 16388,
+          "display_float": 1.2498779594825482
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 22,
+        "support_window_end": 8191,
+        "support_density": {
+          "exact": "22/8191",
+          "numerator": 22,
+          "denominator": 8191,
+          "display_float": 0.002685874740568917
+        },
+        "zero_error_gap_before_next_pair": 4094,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 13,
+        "positive_spike_index_n": 8192,
+        "energy_E_n": {
+          "exact": "32771/32768",
+          "numerator": 32771,
+          "denominator": 32768,
+          "display_float": 1.000091552734375
+        },
+        "energy_E_n_plus_1": {
+          "exact": "16385/16386",
+          "numerator": 16385,
+          "denominator": 16386,
+          "display_float": 0.9999389722934212
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "40963/32772",
+          "numerator": 40963,
+          "denominator": 32772,
+          "display_float": 1.249938972293421
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 24,
+        "support_window_end": 16383,
+        "support_density": {
+          "exact": "8/5461",
+          "numerator": 8,
+          "denominator": 5461,
+          "display_float": 0.0014649331624244644
+        },
+        "zero_error_gap_before_next_pair": 8190,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 14,
+        "positive_spike_index_n": 16384,
+        "energy_E_n": {
+          "exact": "65539/65536",
+          "numerator": 65539,
+          "denominator": 65536,
+          "display_float": 1.0000457763671875
+        },
+        "energy_E_n_plus_1": {
+          "exact": "32769/32770",
+          "numerator": 32769,
+          "denominator": 32770,
+          "display_float": 0.9999694842844065
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "81923/65540",
+          "numerator": 81923,
+          "denominator": 65540,
+          "display_float": 1.2499694842844065
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 26,
+        "support_window_end": 32767,
+        "support_density": {
+          "exact": "26/32767",
+          "numerator": 26,
+          "denominator": 32767,
+          "display_float": 0.000793481246375927
+        },
+        "zero_error_gap_before_next_pair": 16382,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 15,
+        "positive_spike_index_n": 32768,
+        "energy_E_n": {
+          "exact": "131075/131072",
+          "numerator": 131075,
+          "denominator": 131072,
+          "display_float": 1.0000228881835938
+        },
+        "energy_E_n_plus_1": {
+          "exact": "65537/65538",
+          "numerator": 65537,
+          "denominator": 65538,
+          "display_float": 0.9999847416765846
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "163843/131076",
+          "numerator": 163843,
+          "denominator": 131076,
+          "display_float": 1.2499847416765846
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 28,
+        "support_window_end": 65535,
+        "support_density": {
+          "exact": "28/65535",
+          "numerator": 28,
+          "denominator": 65535,
+          "display_float": 0.0004272526131074998
+        },
+        "zero_error_gap_before_next_pair": 32766,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 16,
+        "positive_spike_index_n": 65536,
+        "energy_E_n": {
+          "exact": "262147/262144",
+          "numerator": 262147,
+          "denominator": 262144,
+          "display_float": 1.0000114440917969
+        },
+        "energy_E_n_plus_1": {
+          "exact": "131073/131074",
+          "numerator": 131073,
+          "denominator": 131074,
+          "display_float": 0.9999923707218823
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "327683/262148",
+          "numerator": 327683,
+          "denominator": 262148,
+          "display_float": 1.2499923707218823
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 30,
+        "support_window_end": 131071,
+        "support_density": {
+          "exact": "30/131071",
+          "numerator": 30,
+          "denominator": 131071,
+          "display_float": 0.0002288835821806502
+        },
+        "zero_error_gap_before_next_pair": 65534,
+        "row_verified": true
+      },
+      {
+        "spike_exponent_k": 17,
+        "positive_spike_index_n": 131072,
+        "energy_E_n": {
+          "exact": "524291/524288",
+          "numerator": 524291,
+          "denominator": 524288,
+          "display_float": 1.0000057220458984
+        },
+        "energy_E_n_plus_1": {
+          "exact": "262145/262146",
+          "numerator": 262145,
+          "denominator": 262146,
+          "display_float": 0.999996185331838
+        },
+        "scaled_positive_error": {
+          "exact": "3/4",
+          "numerator": 3,
+          "denominator": 4,
+          "display_float": 0.75
+        },
+        "scaled_negative_error": {
+          "exact": "1/2",
+          "numerator": 1,
+          "denominator": 2,
+          "display_float": 0.5
+        },
+        "scaled_signed_jump_J_n": {
+          "exact": "655363/524292",
+          "numerator": 655363,
+          "denominator": 524292,
+          "display_float": 1.249996185331838
+        },
+        "lag_S_n": {
+          "exact": "-1/4",
+          "numerator": -1,
+          "denominator": 4,
+          "display_float": -0.25
+        },
+        "nonzero_support_count_through_2n_minus_1": 32,
+        "support_window_end": 262143,
+        "support_density": {
+          "exact": "32/262143",
+          "numerator": 32,
+          "denominator": 262143,
+          "display_float": 0.00012207077816306366
+        },
+        "zero_error_gap_before_next_pair": 131070,
+        "row_verified": true
+      }
+    ],
+    "algorithm": "closed-form Fraction evaluation at dyadic adjacent spike pairs",
+    "complexity": "O(K) exact rational operations for the replay; the density-zero no-go is symbolic",
+    "random_seed": null,
+    "input_range": {
+      "limit_L": "1",
+      "positive_spike_P": "3/4",
+      "negative_spike_M": "1/2",
+      "spike_exponents": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17
+      ]
+    },
+    "transcript_sha256": "5a346cdb311835e55975d7658b1300b4a63e330d092e9905a64d5b2b45a1154e",
+    "aggregate": {
+      "density_one_reciprocal_control_sufficiency_refuted": true,
+      "exceptional_support_density_zero_proved": true,
+      "negative_lag_infinitely_often_proved": true,
+      "replayed_spike_pair_count": 16,
+      "actual_weil_one_sided_envelope_sum_below_limit_proved": false,
+      "riemann_hypothesis_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "The Fraction replay checks 16 dyadic spike pairs k=2..17; the symbolic construction is infinite but is not an actual Weil packet.",
+  "logical_limit": "The sparse sequence is an exact abstract counterexample, but no theorem transfers its spikes to actual Guinand-Weil packet energies.",
+  "route_decision": {
+    "discard": "using density-one or sparse packet-index reciprocal control as a sufficient substitute for the all-index envelope",
+    "parked": [
+      "an arithmetic proof that actual Guinand-Weil packet energies satisfy A_++A_-<L"
+    ],
+    "retain": "TICKET-264's all-index one-sided reciprocal limsup envelope sum",
+    "next_single_lemma": "ActualWeilPacketOneSidedReciprocalEnvelopeSumBelowLimit"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "RH-T264",
+        "label": "AsymmetricReciprocalEnvelopeForScaledJumpMargin",
+        "status": "proved"
+      },
+      {
+        "id": "RH-T265",
+        "label": "DensityOneReciprocalControlCannotReplaceLimsupEnvelope",
+        "status": "proved"
+      },
+      {
+        "id": "RH-CERT265",
+        "label": "DensityOneReciprocalControlCannotReplaceLimsupEnvelopeExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "RH-REJECT265",
+        "label": "DensityOneReciprocalControlSufficesForPositiveScaledLag",
+        "status": "disproved"
+      },
+      {
+        "id": "RH-OPEN265",
+        "label": "ActualWeilPacketOneSidedReciprocalEnvelopeSumBelowLimit",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "RH-T264",
+        "RH-T265"
+      ],
+      [
+        "RH-T265",
+        "RH-CERT265"
+      ],
+      [
+        "RH-T265",
+        "RH-REJECT265"
+      ],
+      [
+        "RH-T265",
+        "RH-OPEN265"
+      ]
+    ],
+    "resolution_path": [
+      "RH-T264",
+      "RH-T265",
+      "RH-OPEN265"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No RH proof or disproof: the no-go eliminates a weakening, while the actual all-index arithmetic envelope remains unproved."
+}

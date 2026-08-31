@@ -15,7 +15,20 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-264
+## Current research boundary: TICKET-265
+
+The current machine-readable boundary is
+`data/open-problem/ticket265-sparse-cutoff-growing2adic-mod32.json`.
+TICKET-265 proves two exact route no-go theorems and two partial theorems while resolving none of the parent conjectures:
+
+- density-one reciprocal error control, even exact control off a density-zero set, cannot replace the all-index RH packet-envelope hypothesis;
+- an explicit Weyl threshold cutoff may be unbounded yet have infinitely many values at most five, so unboundedness cannot replace divergence;
+- for a count pair of total `2M`, the congruence `N_2=M mod 2^m` decides the tie for all pairs exactly when `2^m>M`, yielding the least growing q=3 tie modulus;
+- every primitive degree-17 Twin unit solution satisfies a mod-32 diagonal condition, but explicit infinite primitive families refute sufficiency.
+
+The next single lemmas are `ActualWeilPacketOneSidedReciprocalEnvelopeSumBelowLimit`, `CanonicalFermatQuotientThresholdCutoffHasNoBoundedSubsequence`, `Q3ActualMinusCountAvoidsLeastDecisiveTwoAdicTieResidue`, and `EveryLaterMod32FilterPassFailsJointNinthOrderCongruences`. All statuses remain `open_not_proven`. Reports: [English](sparse-cutoff-growing2adic-mod32.md) and [한국어](sparse-cutoff-growing2adic-mod32.ko.md).
+
+## Preserved research boundary: TICKET-264
 
 The current machine-readable boundary is
 `data/open-problem/ticket264-asymmetric-threshold-fixed2adic-head.json`.

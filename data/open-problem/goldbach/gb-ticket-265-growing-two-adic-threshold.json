@@ -1,0 +1,791 @@
+{
+  "schema": "primeproject.ticket265-sparse-cutoff-growing2adic-mod32.v1",
+  "generated_at": "2026-09-02T23:59:30+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-265",
+  "theorem_name": "GrowingTwoAdicTieSignatureIsSharpAndDecisive",
+  "declared_proposition": "Let M>=1 and let N_1,N_2 be nonnegative integers with N_1+N_2=2M. For a fixed m>=1, the congruence N_2 congruent to M modulo 2^m forces N_1=N_2=M for every such pair if and only if 2^m>M. Consequently, for M_l=3^(6l+3)+1 the least decisive exponent is m_l=bit_length(M_l): the total-count constraint together with N_2 congruent to M_l modulo 2^m_l is exactly equivalent to the tie, whereas exponent m_l-1 always admits the explicit non-tie pair (M_l-2^(m_l-1),M_l+2^(m_l-1)). This growing two-adic signature is sharp; it does not prove that the actual prime counts avoid the tie.",
+  "mathematical_argument": "The sum condition gives N_1=M-d and N_2=M+d for the integer d=N_2-M, and nonnegativity gives |d|<=M. The congruence says 2^m divides d. If 2^m>M, the only multiple in [-M,M] is d=0, proving the tie. If 2^m<=M, taking d=2^m gives a nonnegative non-tie pair with the same total and residue, proving necessity and sharpness. By definition 2^(m_l-1)<=M_l<2^m_l, so the specialization follows. The finite replay imports only three already certified actual q=3 levels from TICKET-260 and checks their decisive residues; no finite set of levels establishes the required all-level avoidance.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let M>=1 and let N_1,N_2 be nonnegative integers with N_1+N_2=2M. For a fixed m>=1, the congruence N_2 congruent to M modulo 2^m forces N_1=N_2=M for every such pair if and only if 2^m>M. Consequently, for M_l=3^(6l+3)+1 the least decisive exponent is m_l=bit_length(M_l): the total-count constraint together with N_2 congruent to M_l modulo 2^m_l is exactly equivalent to the tie, whereas exponent m_l-1 always admits the explicit non-tie pair (M_l-2^(m_l-1),M_l+2^(m_l-1)). This growing two-adic signature is sharp; it does not prove that the actual prime counts avoid the tie.",
+    "proof": "The sum condition gives N_1=M-d and N_2=M+d for the integer d=N_2-M, and nonnegativity gives |d|<=M. The congruence says 2^m divides d. If 2^m>M, the only multiple in [-M,M] is d=0, proving the tie. If 2^m<=M, taking d=2^m gives a nonnegative non-tie pair with the same total and residue, proving necessity and sharpness. By definition 2^(m_l-1)<=M_l<2^m_l, so the specialization follows. The finite replay imports only three already certified actual q=3 levels from TICKET-260 and checks their decisive residues; no finite set of levels establishes the required all-level avoidance.",
+    "exact_growing_modulus_threshold_rows": [
+      {
+        "level_l": 0,
+        "tie_count_M_l": "28",
+        "least_decisive_exponent_m_l": 5,
+        "least_decisive_modulus_two_to_m_l": "32",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "16",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 1,
+        "tie_count_M_l": "19684",
+        "least_decisive_exponent_m_l": 15,
+        "least_decisive_modulus_two_to_m_l": "32768",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "16384",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 2,
+        "tie_count_M_l": "14348908",
+        "least_decisive_exponent_m_l": 24,
+        "least_decisive_modulus_two_to_m_l": "16777216",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "8388608",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 3,
+        "tie_count_M_l": "10460353204",
+        "least_decisive_exponent_m_l": 34,
+        "least_decisive_modulus_two_to_m_l": "17179869184",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "8589934592",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 4,
+        "tie_count_M_l": "7625597484988",
+        "least_decisive_exponent_m_l": 43,
+        "least_decisive_modulus_two_to_m_l": "8796093022208",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "4398046511104",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 5,
+        "tie_count_M_l": "5559060566555524",
+        "least_decisive_exponent_m_l": 53,
+        "least_decisive_modulus_two_to_m_l": "9007199254740992",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "4503599627370496",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 6,
+        "tie_count_M_l": "4052555153018976268",
+        "least_decisive_exponent_m_l": 62,
+        "least_decisive_modulus_two_to_m_l": "4611686018427387904",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "2305843009213693952",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 7,
+        "tie_count_M_l": "2954312706550833698644",
+        "least_decisive_exponent_m_l": 72,
+        "least_decisive_modulus_two_to_m_l": "4722366482869645213696",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "2361183241434822606848",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 8,
+        "tie_count_M_l": "2153693963075557766310748",
+        "least_decisive_exponent_m_l": 81,
+        "least_decisive_modulus_two_to_m_l": "2417851639229258349412352",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "1208925819614629174706176",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 9,
+        "tie_count_M_l": "1570042899082081611640534564",
+        "least_decisive_exponent_m_l": 91,
+        "least_decisive_modulus_two_to_m_l": "2475880078570760549798248448",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "1237940039285380274899124224",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 10,
+        "tie_count_M_l": "1144561273430837494885949696428",
+        "least_decisive_exponent_m_l": 100,
+        "least_decisive_modulus_two_to_m_l": "1267650600228229401496703205376",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "633825300114114700748351602688",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 11,
+        "tie_count_M_l": "834385168331080533771857328695284",
+        "least_decisive_exponent_m_l": 110,
+        "least_decisive_modulus_two_to_m_l": "1298074214633706907132624082305024",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "649037107316853453566312041152512",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 12,
+        "tie_count_M_l": "608266787713357709119683992618861308",
+        "least_decisive_exponent_m_l": 119,
+        "least_decisive_modulus_two_to_m_l": "664613997892457936451903530140172288",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "332306998946228968225951765070086144",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 13,
+        "tie_count_M_l": "443426488243037769948249630619149892804",
+        "least_decisive_exponent_m_l": 129,
+        "least_decisive_modulus_two_to_m_l": "680564733841876926926749214863536422912",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "340282366920938463463374607431768211456",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 14,
+        "tie_count_M_l": "323257909929174534292273980721360271853388",
+        "least_decisive_exponent_m_l": 138,
+        "least_decisive_modulus_two_to_m_l": "348449143727040986586495598010130648530944",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "174224571863520493293247799005065324265472",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 15,
+        "tie_count_M_l": "235655016338368235499067731945871638181119124",
+        "least_decisive_exponent_m_l": 148,
+        "least_decisive_modulus_two_to_m_l": "356811923176489970264571492362373784095686656",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "178405961588244985132285746181186892047843328",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 16,
+        "tie_count_M_l": "171792506910670443678820376588540424234035840668",
+        "least_decisive_exponent_m_l": 157,
+        "least_decisive_modulus_two_to_m_l": "182687704666362864775460604089535377456991567872",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "91343852333181432387730302044767688728495783936",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 17,
+        "tie_count_M_l": "125236737537878753441860054533045969266612127846244",
+        "least_decisive_exponent_m_l": 167,
+        "least_decisive_modulus_two_to_m_l": "187072209578355573530071658587684226515959365500928",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "93536104789177786765035829293842113257979682750464",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 18,
+        "tie_count_M_l": "91297581665113611259115979754590511595360241199911148",
+        "least_decisive_exponent_m_l": 176,
+        "least_decisive_modulus_two_to_m_l": "95780971304118053647396689196894323976171195136475136",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "47890485652059026823698344598447161988085597568237568",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 19,
+        "tie_count_M_l": "66555937033867822607895549241096482953017615834735226164",
+        "least_decisive_exponent_m_l": 186,
+        "least_decisive_modulus_two_to_m_l": "98079714615416886934934209737619787751599303819750539264",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "49039857307708443467467104868809893875799651909875269632",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 20,
+        "tie_count_M_l": "48519278097689642681155855396759336072749841943521979872828",
+        "least_decisive_exponent_m_l": 195,
+        "least_decisive_modulus_two_to_m_l": "50216813883093446110686315385661331328818843555712276103168",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "25108406941546723055343157692830665664409421777856138051584",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 21,
+        "tie_count_M_l": "35370553733215749514562618584237555997034634776827523327290884",
+        "least_decisive_exponent_m_l": 205,
+        "least_decisive_modulus_two_to_m_l": "51422017416287688817342786954917203280710495801049370729644032",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "25711008708143844408671393477458601640355247900524685364822016",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 22,
+        "tie_count_M_l": "25785133671514281396116148947909178321838248752307264505595053708",
+        "least_decisive_exponent_m_l": 214,
+        "least_decisive_modulus_two_to_m_l": "26328072917139296674479506920917608079723773850137277813577744384",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "13164036458569648337239753460458804039861886925068638906788872192",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 23,
+        "tie_count_M_l": "18797362446533911137768672583025790996620083340431995824578794152404",
+        "least_decisive_exponent_m_l": 224,
+        "least_decisive_modulus_two_to_m_l": "26959946667150639794667015087019630673637144422540572481103610249216",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "13479973333575319897333507543509815336818572211270286240551805124608",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 24,
+        "tie_count_M_l": "13703277223523221219433362313025801636536040755174924956117940937101788",
+        "least_decisive_exponent_m_l": 233,
+        "least_decisive_modulus_two_to_m_l": "13803492693581127574869511724554050904902217944340773110325048447598592",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "6901746346790563787434755862277025452451108972170386555162524223799296",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 25,
+        "tie_count_M_l": "9989689095948428268966921126195809393034773710522520293009978943147202724",
+        "least_decisive_exponent_m_l": 243,
+        "least_decisive_modulus_two_to_m_l": "14134776518227074636666380005943348126619871175004951664972849610340958208",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "7067388259113537318333190002971674063309935587502475832486424805170479104",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 26,
+        "tie_count_M_l": "7282483350946404208076885500996745047522350034970917293604274649554310785068",
+        "least_decisive_exponent_m_l": 253,
+        "least_decisive_modulus_two_to_m_l": "14474011154664524427946373126085988481658748083205070504932198000989141204992",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 27,
+        "tie_count_M_l": "5308930362839928667688049530226627139643793175493798707037516219525092562313844",
+        "least_decisive_exponent_m_l": 262,
+        "least_decisive_modulus_two_to_m_l": "7410693711188236507108543040556026102609279018600996098525285376506440296955904",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "3705346855594118253554271520278013051304639509300498049262642688253220148477952",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 28,
+        "tie_count_M_l": "3870210234510307998744588107535211184800325224934979257430349324033792477926791548",
+        "least_decisive_exponent_m_l": 272,
+        "least_decisive_modulus_two_to_m_l": "7588550360256754183279148073529370729071901715047420004889892225542594864082845696",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "3794275180128377091639574036764685364535950857523710002444946112771297432041422848",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 29,
+        "tie_count_M_l": "2821383260958014531084804730393168953719437088977599878666724657220634716408631037764",
+        "least_decisive_exponent_m_l": 281,
+        "least_decisive_modulus_two_to_m_l": "3885337784451458141838923813647037813284813678104279042503624819477808570410416996352",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "1942668892225729070919461906823518906642406839052139521251812409738904285205208498176",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 30,
+        "tie_count_M_l": "2056788397238392593160822648456620167261469637864670311548042275113842708261892026529228",
+        "least_decisive_exponent_m_l": 291,
+        "least_decisive_modulus_two_to_m_l": "3978585891278293137243057985174566720803649206378781739523711815145275976100267004264448",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "1989292945639146568621528992587283360401824603189390869761855907572637988050133502132224",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 31,
+        "tie_count_M_l": "1499398741586788200414239710724876101933611366003344657118522818557991334322919287339806484",
+        "least_decisive_exponent_m_l": 300,
+        "least_decisive_modulus_two_to_m_l": "2037035976334486086268445688409378161051468393665936250636140449354381299763336706183397376",
+        "largest_insufficient_modulus_two_to_m_l_minus_1": "1018517988167243043134222844204689080525734196832968125318070224677190649881668353091698688",
+        "threshold_inequality_verified": true,
+        "row_verified": true
+      }
+    ],
+    "sharp_lower_exponent_nontie_countermodels": [
+      {
+        "level_l": 0,
+        "insufficient_exponent_m_l_minus_1": 4,
+        "tie_count_M_l": "28",
+        "abstract_N_1": "12",
+        "abstract_N_2": "44",
+        "common_residue_mod_two_to_m_l_minus_1": 12,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 1,
+        "insufficient_exponent_m_l_minus_1": 14,
+        "tie_count_M_l": "19684",
+        "abstract_N_1": "3300",
+        "abstract_N_2": "36068",
+        "common_residue_mod_two_to_m_l_minus_1": 3300,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 2,
+        "insufficient_exponent_m_l_minus_1": 23,
+        "tie_count_M_l": "14348908",
+        "abstract_N_1": "5960300",
+        "abstract_N_2": "22737516",
+        "common_residue_mod_two_to_m_l_minus_1": 5960300,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 3,
+        "insufficient_exponent_m_l_minus_1": 33,
+        "tie_count_M_l": "10460353204",
+        "abstract_N_1": "1870418612",
+        "abstract_N_2": "19050287796",
+        "common_residue_mod_two_to_m_l_minus_1": 1870418612,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 4,
+        "insufficient_exponent_m_l_minus_1": 42,
+        "tie_count_M_l": "7625597484988",
+        "abstract_N_1": "3227550973884",
+        "abstract_N_2": "12023643996092",
+        "common_residue_mod_two_to_m_l_minus_1": 3227550973884,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 5,
+        "insufficient_exponent_m_l_minus_1": 52,
+        "tie_count_M_l": "5559060566555524",
+        "abstract_N_1": "1055460939185028",
+        "abstract_N_2": "10062660193926020",
+        "common_residue_mod_two_to_m_l_minus_1": 1055460939185028,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 6,
+        "insufficient_exponent_m_l_minus_1": 61,
+        "tie_count_M_l": "4052555153018976268",
+        "abstract_N_1": "1746712143805282316",
+        "abstract_N_2": "6358398162232670220",
+        "common_residue_mod_two_to_m_l_minus_1": 1746712143805282316,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 7,
+        "insufficient_exponent_m_l_minus_1": 71,
+        "tie_count_M_l": "2954312706550833698644",
+        "abstract_N_1": "593129465116011091796",
+        "abstract_N_2": "5315495947985656305492",
+        "common_residue_mod_two_to_m_l_minus_1": 593129465116011091796,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 8,
+        "insufficient_exponent_m_l_minus_1": 80,
+        "tie_count_M_l": "2153693963075557766310748",
+        "abstract_N_1": "944768143460928591604572",
+        "abstract_N_2": "3362619782690186941016924",
+        "common_residue_mod_two_to_m_l_minus_1": 944768143460928591604572,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 9,
+        "insufficient_exponent_m_l_minus_1": 90,
+        "tie_count_M_l": "1570042899082081611640534564",
+        "abstract_N_1": "332102859796701336741410340",
+        "abstract_N_2": "2807982938367461886539658788",
+        "common_residue_mod_two_to_m_l_minus_1": 332102859796701336741410340,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 10,
+        "insufficient_exponent_m_l_minus_1": 99,
+        "tie_count_M_l": "1144561273430837494885949696428",
+        "abstract_N_1": "510735973316722794137598093740",
+        "abstract_N_2": "1778386573544952195634301299116",
+        "common_residue_mod_two_to_m_l_minus_1": 510735973316722794137598093740,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 11,
+        "insufficient_exponent_m_l_minus_1": 109,
+        "tie_count_M_l": "834385168331080533771857328695284",
+        "abstract_N_1": "185348061014227080205545287542772",
+        "abstract_N_2": "1483422275647933987338169369847796",
+        "common_residue_mod_two_to_m_l_minus_1": 185348061014227080205545287542772,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 12,
+        "insufficient_exponent_m_l_minus_1": 118,
+        "tie_count_M_l": "608266787713357709119683992618861308",
+        "abstract_N_1": "275959788767128740893732227548775164",
+        "abstract_N_2": "940573786659586677345635757688947452",
+        "common_residue_mod_two_to_m_l_minus_1": 275959788767128740893732227548775164,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 13,
+        "insufficient_exponent_m_l_minus_1": 128,
+        "tie_count_M_l": "443426488243037769948249630619149892804",
+        "abstract_N_1": "103144121322099306484875023187381681348",
+        "abstract_N_2": "783708855163976233411624238050918104260",
+        "common_residue_mod_two_to_m_l_minus_1": 103144121322099306484875023187381681348,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 14,
+        "insufficient_exponent_m_l_minus_1": 137,
+        "tie_count_M_l": "323257909929174534292273980721360271853388",
+        "abstract_N_1": "149033338065654040999026181716294947587916",
+        "abstract_N_2": "497482481792695027585521779726425596118860",
+        "common_residue_mod_two_to_m_l_minus_1": 149033338065654040999026181716294947587916,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 15,
+        "insufficient_exponent_m_l_minus_1": 147,
+        "tie_count_M_l": "235655016338368235499067731945871638181119124",
+        "abstract_N_1": "57249054750123250366781985764684746133275796",
+        "abstract_N_2": "414060977926613220631353478127058530228962452",
+        "common_residue_mod_two_to_m_l_minus_1": 57249054750123250366781985764684746133275796,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 16,
+        "insufficient_exponent_m_l_minus_1": 156,
+        "tie_count_M_l": "171792506910670443678820376588540424234035840668",
+        "abstract_N_1": "80448654577489011291090074543772735505540056732",
+        "abstract_N_2": "263136359243851876066550678633308112962531624604",
+        "common_residue_mod_two_to_m_l_minus_1": 80448654577489011291090074543772735505540056732,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 17,
+        "insufficient_exponent_m_l_minus_1": 166,
+        "tie_count_M_l": "125236737537878753441860054533045969266612127846244",
+        "abstract_N_1": "31700632748700966676824225239203856008632445095780",
+        "abstract_N_2": "218772842327056540206895883826888082524591810596708",
+        "common_residue_mod_two_to_m_l_minus_1": 31700632748700966676824225239203856008632445095780,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 18,
+        "insufficient_exponent_m_l_minus_1": 175,
+        "tie_count_M_l": "91297581665113611259115979754590511595360241199911148",
+        "abstract_N_1": "43407096013054584435417635156143349607274643631673580",
+        "abstract_N_2": "139188067317172638082814324353037673583445838768148716",
+        "common_residue_mod_two_to_m_l_minus_1": 43407096013054584435417635156143349607274643631673580,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 19,
+        "insufficient_exponent_m_l_minus_1": 185,
+        "tie_count_M_l": "66555937033867822607895549241096482953017615834735226164",
+        "abstract_N_1": "17516079726159379140428444372286589077217963924859956532",
+        "abstract_N_2": "115595794341576266075362654109906376828817267744610495796",
+        "common_residue_mod_two_to_m_l_minus_1": 17516079726159379140428444372286589077217963924859956532,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 20,
+        "insufficient_exponent_m_l_minus_1": 194,
+        "tie_count_M_l": "48519278097689642681155855396759336072749841943521979872828",
+        "abstract_N_1": "23410871156142919625812697703928670408340420165665841821244",
+        "abstract_N_2": "73627685039236365736499013089590001737159263721378117924412",
+        "common_residue_mod_two_to_m_l_minus_1": 23410871156142919625812697703928670408340420165665841821244,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 21,
+        "insufficient_exponent_m_l_minus_1": 204,
+        "tie_count_M_l": "35370553733215749514562618584237555997034634776827523327290884",
+        "abstract_N_1": "9659545025071905105891225106778954356679386876302837962468868",
+        "abstract_N_2": "61081562441359593923234012061696157637389882677352208692112900",
+        "common_residue_mod_two_to_m_l_minus_1": 9659545025071905105891225106778954356679386876302837962468868,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 22,
+        "insufficient_exponent_m_l_minus_1": 213,
+        "tie_count_M_l": "25785133671514281396116148947909178321838248752307264505595053708",
+        "abstract_N_1": "12621097212944633058876395487450374281976361827238625598806181516",
+        "abstract_N_2": "38949170130083929733355902408367982361700135677375903412383925900",
+        "common_residue_mod_two_to_m_l_minus_1": 12621097212944633058876395487450374281976361827238625598806181516,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 23,
+        "insufficient_exponent_m_l_minus_1": 223,
+        "tie_count_M_l": "18797362446533911137768672583025790996620083340431995824578794152404",
+        "abstract_N_1": "5317389112958591240435165039515975659801511129161709584026989027796",
+        "abstract_N_2": "32277335780109231035102180126535606333438655551702282065130599277012",
+        "common_residue_mod_two_to_m_l_minus_1": 5317389112958591240435165039515975659801511129161709584026989027796,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 24,
+        "insufficient_exponent_m_l_minus_1": 232,
+        "tie_count_M_l": "13703277223523221219433362313025801636536040755174924956117940937101788",
+        "abstract_N_1": "6801530876732657431998606450748776184084931783004538400955416713302492",
+        "abstract_N_2": "20605023570313785006868118175302827088987149727345311511280465160901084",
+        "common_residue_mod_two_to_m_l_minus_1": 6801530876732657431998606450748776184084931783004538400955416713302492,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 25,
+        "insufficient_exponent_m_l_minus_1": 242,
+        "tie_count_M_l": "9989689095948428268966921126195809393034773710522520293009978943147202724",
+        "abstract_N_1": "2922300836834890950633731123224135329724838123020044460523554137976723620",
+        "abstract_N_2": "17057077355061965587300111129167483456344709298024996125496403748317681828",
+        "common_residue_mod_two_to_m_l_minus_1": 2922300836834890950633731123224135329724838123020044460523554137976723620,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 26,
+        "insufficient_exponent_m_l_minus_1": 252,
+        "tie_count_M_l": "7282483350946404208076885500996745047522350034970917293604274649554310785068",
+        "abstract_N_1": "45477773614141994103698937953750806692975993368382041138175649059740182572",
+        "abstract_N_2": "14519488928278666422050072064039739288351724076573452546070373650048881387564",
+        "common_residue_mod_two_to_m_l_minus_1": 45477773614141994103698937953750806692975993368382041138175649059740182572,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 27,
+        "insufficient_exponent_m_l_minus_1": 261,
+        "tie_count_M_l": "5308930362839928667688049530226627139643793175493798707037516219525092562313844",
+        "abstract_N_1": "1603583507245810414133778009948614088339153666193300657774873531271872413835892",
+        "abstract_N_2": "9014277218434046921242321050504640190948432684794296756300158907778312710791796",
+        "common_residue_mod_two_to_m_l_minus_1": 1603583507245810414133778009948614088339153666193300657774873531271872413835892,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 28,
+        "insufficient_exponent_m_l_minus_1": 271,
+        "tie_count_M_l": "3870210234510307998744588107535211184800325224934979257430349324033792477926791548",
+        "abstract_N_1": "75935054381930907105014070770525820264374367411269254985403211262495045885368700",
+        "abstract_N_2": "7664485414638685090384162144299896549336276082458689259875295436805089909968214396",
+        "common_residue_mod_two_to_m_l_minus_1": 75935054381930907105014070770525820264374367411269254985403211262495045885368700,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 29,
+        "insufficient_exponent_m_l_minus_1": 280,
+        "tie_count_M_l": "2821383260958014531084804730393168953719437088977599878666724657220634716408631037764",
+        "abstract_N_1": "878714368732285460165342823569650047077030249925460357414912247481730431203422539588",
+        "abstract_N_2": "4764052153183743602004266637216687860361843928029739399918537066959539001613839535940",
+        "common_residue_mod_two_to_m_l_minus_1": 878714368732285460165342823569650047077030249925460357414912247481730431203422539588,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 30,
+        "insufficient_exponent_m_l_minus_1": 290,
+        "tie_count_M_l": "2056788397238392593160822648456620167261469637864670311548042275113842708261892026529228",
+        "abstract_N_1": "67495451599246024539293655869336806859645034675279441786186367541204720211758524397004",
+        "abstract_N_2": "4046081342877539161782351641043903527663294241054061181309898182686480696312025528661452",
+        "common_residue_mod_two_to_m_l_minus_1": 67495451599246024539293655869336806859645034675279441786186367541204720211758524397004,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 31,
+        "insufficient_exponent_m_l_minus_1": 299,
+        "tie_count_M_l": "1499398741586788200414239710724876101933611366003344657118522818557991334322919287339806484",
+        "abstract_N_1": "480880753419545157280016866520187021407877169170376531800452593880800684441250934248107796",
+        "abstract_N_2": "2517916729754031243548462554929565182459345562836312782436593043235181984204587640431505172",
+        "common_residue_mod_two_to_m_l_minus_1": 480880753419545157280016866520187021407877169170376531800452593880800684441250934248107796,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      }
+    ],
+    "inherited_actual_decisive_residue_rows": [
+      {
+        "level_l": 0,
+        "least_decisive_exponent_m_l": 5,
+        "least_decisive_modulus_two_to_m_l": "32",
+        "actual_N_1": 25,
+        "actual_N_2": 31,
+        "actual_minus_tie": 3,
+        "actual_N_2_residue": 31,
+        "tie_residue": 28,
+        "decisive_residue_mismatch": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 1,
+        "least_decisive_exponent_m_l": 15,
+        "least_decisive_modulus_two_to_m_l": "32768",
+        "actual_N_1": 19663,
+        "actual_N_2": 19705,
+        "actual_minus_tie": 21,
+        "actual_N_2_residue": 19705,
+        "tie_residue": 19684,
+        "decisive_residue_mismatch": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 2,
+        "least_decisive_exponent_m_l": 24,
+        "least_decisive_modulus_two_to_m_l": "16777216",
+        "actual_N_1": 14347849,
+        "actual_N_2": 14349967,
+        "actual_minus_tie": 1059,
+        "actual_N_2_residue": 14349967,
+        "tie_residue": 14348908,
+        "decisive_residue_mismatch": true,
+        "row_verified": true
+      }
+    ],
+    "inherited_source": {
+      "path": "data/open-problem/goldbach/gb-ticket-260-q3-prime-race-reduction.json",
+      "sha256": "3335bcd26c373153b055a2bdb5c59eb7f58cb2845c35eb37eb510ef38ccda491",
+      "ticket": 260
+    },
+    "algorithm": "exact bit-length threshold construction plus hash-pinned replay of three TICKET-260 prime-count certificates",
+    "complexity": "O(L) exact integer operations for L declared symbolic levels; no new prime sieve",
+    "random_seed": null,
+    "input_range": {
+      "symbolic_level_min": 0,
+      "symbolic_level_max": 31,
+      "inherited_actual_levels": [
+        0,
+        1,
+        2
+      ]
+    },
+    "transcript_sha256": "226b63fbf8d4a6e057a54aa9a2d33bdd957809975781e5e7ff5e49275fcdb82c",
+    "aggregate": {
+      "sharp_growing_modulus_threshold_proved": true,
+      "least_decisive_exponent_proved": true,
+      "symbolic_threshold_replay_count": 32,
+      "lower_exponent_countermodel_count": 32,
+      "inherited_actual_decisive_certificate_count": 3,
+      "actual_q3_special_prime_race_nonvanishing_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Levels l=0..31 receive exact threshold/countermodel checks; only 3 actual levels are hash-pinned from TICKET-260.",
+  "logical_limit": "The criterion decides equality for abstract nonnegative count pairs, but it supplies no analytic control of the actual prime-residue displacement.",
+  "route_decision": {
+    "discard": "interpreting TICKET-264's fixed-modulus no-go as excluding every level-dependent growing two-adic tie signature",
+    "parked": [
+      "an all-level proof that the actual q=3 residue count N_2(l) avoids M_l modulo 2^m_l"
+    ],
+    "retain": "the least level-dependent modulus 2^m_l>M_l, which decides the abstract tie exactly",
+    "next_single_lemma": "Q3ActualMinusCountAvoidsLeastDecisiveTwoAdicTieResidue"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T264",
+        "label": "EveryFixedTwoAdicTieSignatureHasNonTieCountModels",
+        "status": "proved"
+      },
+      {
+        "id": "GB-T265",
+        "label": "GrowingTwoAdicTieSignatureIsSharpAndDecisive",
+        "status": "proved"
+      },
+      {
+        "id": "GB-CERT265",
+        "label": "GrowingTwoAdicTieSignatureIsSharpAndDecisiveExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "GB-REJECT265",
+        "label": "NoGrowingTwoAdicSignatureCanDecideTheTieFromTheTotal",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN265",
+        "label": "Q3ActualMinusCountAvoidsLeastDecisiveTwoAdicTieResidue",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T264",
+        "GB-T265"
+      ],
+      [
+        "GB-T265",
+        "GB-CERT265"
+      ],
+      [
+        "GB-T265",
+        "GB-REJECT265"
+      ],
+      [
+        "GB-T265",
+        "GB-OPEN265"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T264",
+      "GB-T265",
+      "GB-OPEN265"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample: exact decisiveness is established, while actual avoidance of the decisive residue remains an all-level prime-race problem."
+}

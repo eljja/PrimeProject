@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260901-ticket264-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260902-ticket265-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,21 +31,21 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-264</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-265</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-264 actually changed</h2>
-          <p>TICKET-264 did not solve a parent conjecture. It sharpens the RH-style lag criterion to an asymmetric envelope sum, makes the Collatz threshold cutoff explicit from finite data, eliminates every fixed two-adic Goldbach sufficiency route, and closes the complete Twin subthreshold convergent head.</p>
-          <p class="proof-boundary">TICKET-264는 상위 난제를 해결하지 않았습니다. RH 비대칭 envelope 합, Collatz finite-data threshold cutoff, Goldbach 고정 2진 no-go, Twin subthreshold convergent 전체 폐쇄를 확정했습니다.</p>
+          <h2>What TICKET-265 actually changed</h2>
+          <p>TICKET-265 did not solve a parent conjecture. It refutes density-one replacement of the RH all-index envelope, separates unbounded Collatz cutoffs from divergence, proves the sharp growing two-adic Goldbach tie threshold, and adds a necessary but insufficient mod-32 Twin filter.</p>
+          <p class="proof-boundary">TICKET-265는 상위 난제를 해결하지 않았습니다. RH density-one 대체와 Collatz 비유계 cutoff 충분성을 폐기하고, Goldbach 성장형 2-adic tie 임계치와 필요한 mod-32 Twin 필터를 확정했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
-          <div><dt>Exact no-go results</dt><dd>1</dd></div>
-          <div><dt>Partial theorems</dt><dd>3</dd></div>
+          <div><dt>Exact no-go results</dt><dd>2</dd></div>
+          <div><dt>Partial theorems</dt><dd>2</dd></div>
           <div><dt>Resolution count</dt><dd>0</dd></div>
         </dl>
       </section>
@@ -54,58 +54,58 @@
           <header><span>01 · SIGNED CANCELLATION</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>AsymmetricReciprocalEnvelopeForScaledJumpMargin</code>: one-sided envelopes give limsup J_n&lt;=A_++A_- and liminf S_n&gt;=L-A_+-A_-, with sharp coefficients.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The symmetric max-envelope is not the sharpest rate-only formulation.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>DensityOneReciprocalControlCannotReplaceLimsupEnvelope</code>: sparse adjacent spikes defeat every density-one replacement of the all-index bound.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Density-one or sparse packet control is not a sufficient replacement.</dd></div>
             <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ActualWeilPacketOneSidedReciprocalEnvelopeSumBelowLimit</code></dd></div>
           </dl>
-          <p class="workbench-ko">비대칭 envelope 합의 sharp bound를 얻었습니다. 실제 Weil packet에서 A_++A_-&lt;L이 남습니다.</p>
+          <p class="workbench-ko">밀도 1 제어의 충분성을 반례로 폐기했습니다. 실제 Weil packet에서 A_++A_-&lt;L이 남습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · CYCLOTOMIC PHASE</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>PointwiseWeylCancellationIffExplicitThresholdCutoffDiverges</code>: all fixed harmonic limits vanish iff the explicit finite-data threshold cutoff diverges.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The diagonal cutoff need not remain a merely existential selector.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CanonicalFermatQuotientThresholdCutoffDiverges</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>UnboundedExplicitThresholdCutoffDoesNotImplyDivergence</code>: explicit dyadic prefixes have limsup K_N infinite but liminf K_N at most five.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Sparse arbitrarily large cutoff certificates do not imply Weyl cancellation.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CanonicalFermatQuotientThresholdCutoffHasNoBoundedSubsequence</code></dd></div>
           </dl>
-          <p class="workbench-ko">고정 조화파별 소멸과 명시적 threshold cutoff 발산이 동치입니다. canonical 수열에서의 발산이 남습니다.</p>
+          <p class="workbench-ko">비유계성과 발산을 정확히 분리했습니다. canonical 수열에 유계 부분수열이 없다는 명제가 남습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · CHARACTER REFLECTION</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>EveryFixedTwoAdicTieSignatureHasNonTieCountModels</code>: every fixed two-adic tie signature plus total admits explicit shifted non-tie pairs.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>No one fixed power-of-two congruence can be a sufficient tie decision rule.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>Q3SpecialPrimeRaceAbsoluteGapAtLeastTwo</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>GrowingTwoAdicTieSignatureIsSharpAndDecisive</code>: under total 2M, the residue decides every tie iff 2^m&gt;M.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The fixed-modulus no-go does not exclude all level-dependent growing signatures.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>Q3ActualMinusCountAvoidsLeastDecisiveTwoAdicTieResidue</code></dd></div>
           </dl>
-          <p class="workbench-ko">고정 2진 합동정보 전체의 불충분성을 증명했습니다. 실제 prime-race의 무한 비소멸은 남습니다.</p>
+          <p class="workbench-ko">성장형 최소 modulus의 sharp 판정을 증명했습니다. 실제 count의 전 수준 residue 회피는 남습니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · ROOT CONVERGENTS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>AllSubthresholdUniqueRootConvergentsAreUnitFree</code>: every one of the 38 root convergents below the explicit threshold is unit-free.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>There is no unexamined subthreshold convergent beyond the certified head.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>NoLaterUniqueRootConvergentSatisfiesJointNinthOrderCongruences</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>PrimitiveTwinUnitSolutionsObeyMod32DiagonalFilter</code>: primitive unit solutions require v even and u+v=&plusmn;1 mod 32.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Explicit primitive counterfamilies refute sufficiency of the local filter.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>EveryLaterMod32FilterPassFailsJointNinthOrderCongruences</code></dd></div>
           </dl>
-          <p class="workbench-ko">명시적 문턱 이하 연분수 머리 전체를 닫았습니다. 문턱 뒤의 무한 tail은 남습니다.</p>
+          <p class="workbench-ko">필요 mod-32 필터와 불충분성 반례를 확정했습니다. 생존자의 9차 합동 배제는 남습니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>264 tickets reduced to four meaningful eras</h2>
+          <h2>265 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–264 · Signed transfer barriers and sharpness audits</strong><p>asymmetric reciprocal rate, explicit harmonic threshold, fixed two-adic no-go, finite-head closure로 다음 무한 추정의 대상을 다시 설정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–265 · Signed transfer barriers and sharpness audits</strong><p>sparse-envelope와 cutoff no-go, growing two-adic tie test, mod-32 filter로 다음 무한 추정의 대상을 다시 설정했습니다.</p></li>
         </ol>
       </section>
 
@@ -115,9 +115,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
-          <a href="../docs/asymmetric-threshold-fixed2adic-head.ko.md">TICKET-264 한국어 보고서</a>
-          <a href="../docs/asymmetric-threshold-fixed2adic-head.md">TICKET-264 English report</a>
-          <a href="../data/open-problem/ticket264-asymmetric-threshold-fixed2adic-head.json">TICKET-264 machine JSON</a>
+          <a href="../docs/sparse-cutoff-growing2adic-mod32.ko.md">TICKET-265 한국어 보고서</a>
+          <a href="../docs/sparse-cutoff-growing2adic-mod32.md">TICKET-265 English report</a>
+          <a href="../data/open-problem/ticket265-sparse-cutoff-growing2adic-mod32.json">TICKET-265 machine JSON</a>
           <a href="../docs/limsup-finiteharmonic-mod8-thirdorder.ko.md">TICKET-262 한국어 보고서</a>
           <a href="../docs/limsup-finiteharmonic-mod8-thirdorder.md">TICKET-262 English report</a>
           <a href="../data/open-problem/ticket262-limsup-finiteharmonic-mod8-thirdorder.json">TICKET-262 machine JSON</a>
@@ -269,7 +269,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260901-ticket264"></script>
+    <script src="../assets/i18n.js?v=20260902-ticket265"></script>
   </body>
 </html>
 

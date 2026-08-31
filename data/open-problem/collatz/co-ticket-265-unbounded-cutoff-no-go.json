@@ -1,0 +1,334 @@
+{
+  "schema": "primeproject.ticket265-sparse-cutoff-growing2adic-mod32.v1",
+  "generated_at": "2026-09-02T23:59:30+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-265",
+  "theorem_name": "UnboundedExplicitThresholdCutoffDoesNotImplyDivergence",
+  "declared_proposition": "There is an explicit sequence x_j in R/Z whose TICKET-264 cutoff K_N is unbounded but does not tend to infinity. Start with a complete four-point grid. For each dyadic q=2^r, r>=3, regard the preceding q/2-grid as the even q-th roots, append first the q/4 odd q-th roots with arguments in (-pi/2,pi/2), and then append the remaining odd roots. At N=q the prefix is the complete q-grid and K_q=q-1. At N=3q/4, |W_N(1)|=1/[N sin(2*pi/q)]>7/33>1/6, so H=6 is not admissible and K_N<=5. Consequently limsup K_N=infinity while liminf K_N<=5. Arbitrarily large finite cutoff certificates therefore do not imply divergence or pointwise Weyl cancellation.",
+  "mathematical_argument": "The recursive enumeration is consistent because a complete q/2-grid is exactly the even part of the q-grid. Thus each power-of-two endpoint is a complete grid, and the root-sum dichotomy gives K_q=q-1. For the intermediate prefix the previous grid has first-harmonic sum zero. The appended odd residues form a symmetric geometric progression of q/4 terms whose sum has magnitude csc(2*pi/q). Since sin x<x and pi<22/7, this magnitude is greater than 7q/44; division by N=3q/4 gives |W_N(1)|>7/33>1/6. Hence E_N(6)>1/6 and, because admissible cutoffs form an initial segment, K_N<=5. This exact construction refutes only the weakening 'K_N is unbounded'; it is not a canonical Fermat-quotient sequence.",
+  "result_classification": "exact_no_go",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "There is an explicit sequence x_j in R/Z whose TICKET-264 cutoff K_N is unbounded but does not tend to infinity. Start with a complete four-point grid. For each dyadic q=2^r, r>=3, regard the preceding q/2-grid as the even q-th roots, append first the q/4 odd q-th roots with arguments in (-pi/2,pi/2), and then append the remaining odd roots. At N=q the prefix is the complete q-grid and K_q=q-1. At N=3q/4, |W_N(1)|=1/[N sin(2*pi/q)]>7/33>1/6, so H=6 is not admissible and K_N<=5. Consequently limsup K_N=infinity while liminf K_N<=5. Arbitrarily large finite cutoff certificates therefore do not imply divergence or pointwise Weyl cancellation.",
+    "proof": "The recursive enumeration is consistent because a complete q/2-grid is exactly the even part of the q-grid. Thus each power-of-two endpoint is a complete grid, and the root-sum dichotomy gives K_q=q-1. For the intermediate prefix the previous grid has first-harmonic sum zero. The appended odd residues form a symmetric geometric progression of q/4 terms whose sum has magnitude csc(2*pi/q). Since sin x<x and pi<22/7, this magnitude is greater than 7q/44; division by N=3q/4 gives |W_N(1)|>7/33>1/6. Hence E_N(6)>1/6 and, because admissible cutoffs form an initial segment, K_N<=5. This exact construction refutes only the weakening 'K_N is unbounded'; it is not a canonical Fermat-quotient sequence.",
+    "exact_dyadic_good_bad_prefix_rows": [
+      {
+        "dyadic_grid_modulus_q": 8,
+        "complete_grid_good_prefix_N": 8,
+        "exact_good_cutoff_K_N": 7,
+        "positive_arc_bad_prefix_N": 6,
+        "positive_arc_new_odd_root_count": 2,
+        "first_positive_arc_odd_residue": -1,
+        "last_positive_arc_odd_residue": 1,
+        "root_sum_magnitude_identity": "csc(2*pi/q)",
+        "exact_rational_lower_bound_for_abs_W_N_1": {
+          "exact": "7/33",
+          "numerator": 7,
+          "denominator": 33,
+          "display_float": 0.21212121212121213
+        },
+        "harmonic_six_threshold": {
+          "exact": "1/6",
+          "numerator": 1,
+          "denominator": 6,
+          "display_float": 0.16666666666666666
+        },
+        "harmonic_six_fails": true,
+        "bad_prefix_cutoff_upper_bound": 5,
+        "row_verified": true
+      },
+      {
+        "dyadic_grid_modulus_q": 16,
+        "complete_grid_good_prefix_N": 16,
+        "exact_good_cutoff_K_N": 15,
+        "positive_arc_bad_prefix_N": 12,
+        "positive_arc_new_odd_root_count": 4,
+        "first_positive_arc_odd_residue": -3,
+        "last_positive_arc_odd_residue": 3,
+        "root_sum_magnitude_identity": "csc(2*pi/q)",
+        "exact_rational_lower_bound_for_abs_W_N_1": {
+          "exact": "7/33",
+          "numerator": 7,
+          "denominator": 33,
+          "display_float": 0.21212121212121213
+        },
+        "harmonic_six_threshold": {
+          "exact": "1/6",
+          "numerator": 1,
+          "denominator": 6,
+          "display_float": 0.16666666666666666
+        },
+        "harmonic_six_fails": true,
+        "bad_prefix_cutoff_upper_bound": 5,
+        "row_verified": true
+      },
+      {
+        "dyadic_grid_modulus_q": 32,
+        "complete_grid_good_prefix_N": 32,
+        "exact_good_cutoff_K_N": 31,
+        "positive_arc_bad_prefix_N": 24,
+        "positive_arc_new_odd_root_count": 8,
+        "first_positive_arc_odd_residue": -7,
+        "last_positive_arc_odd_residue": 7,
+        "root_sum_magnitude_identity": "csc(2*pi/q)",
+        "exact_rational_lower_bound_for_abs_W_N_1": {
+          "exact": "7/33",
+          "numerator": 7,
+          "denominator": 33,
+          "display_float": 0.21212121212121213
+        },
+        "harmonic_six_threshold": {
+          "exact": "1/6",
+          "numerator": 1,
+          "denominator": 6,
+          "display_float": 0.16666666666666666
+        },
+        "harmonic_six_fails": true,
+        "bad_prefix_cutoff_upper_bound": 5,
+        "row_verified": true
+      },
+      {
+        "dyadic_grid_modulus_q": 64,
+        "complete_grid_good_prefix_N": 64,
+        "exact_good_cutoff_K_N": 63,
+        "positive_arc_bad_prefix_N": 48,
+        "positive_arc_new_odd_root_count": 16,
+        "first_positive_arc_odd_residue": -15,
+        "last_positive_arc_odd_residue": 15,
+        "root_sum_magnitude_identity": "csc(2*pi/q)",
+        "exact_rational_lower_bound_for_abs_W_N_1": {
+          "exact": "7/33",
+          "numerator": 7,
+          "denominator": 33,
+          "display_float": 0.21212121212121213
+        },
+        "harmonic_six_threshold": {
+          "exact": "1/6",
+          "numerator": 1,
+          "denominator": 6,
+          "display_float": 0.16666666666666666
+        },
+        "harmonic_six_fails": true,
+        "bad_prefix_cutoff_upper_bound": 5,
+        "row_verified": true
+      },
+      {
+        "dyadic_grid_modulus_q": 128,
+        "complete_grid_good_prefix_N": 128,
+        "exact_good_cutoff_K_N": 127,
+        "positive_arc_bad_prefix_N": 96,
+        "positive_arc_new_odd_root_count": 32,
+        "first_positive_arc_odd_residue": -31,
+        "last_positive_arc_odd_residue": 31,
+        "root_sum_magnitude_identity": "csc(2*pi/q)",
+        "exact_rational_lower_bound_for_abs_W_N_1": {
+          "exact": "7/33",
+          "numerator": 7,
+          "denominator": 33,
+          "display_float": 0.21212121212121213
+        },
+        "harmonic_six_threshold": {
+          "exact": "1/6",
+          "numerator": 1,
+          "denominator": 6,
+          "display_float": 0.16666666666666666
+        },
+        "harmonic_six_fails": true,
+        "bad_prefix_cutoff_upper_bound": 5,
+        "row_verified": true
+      },
+      {
+        "dyadic_grid_modulus_q": 256,
+        "complete_grid_good_prefix_N": 256,
+        "exact_good_cutoff_K_N": 255,
+        "positive_arc_bad_prefix_N": 192,
+        "positive_arc_new_odd_root_count": 64,
+        "first_positive_arc_odd_residue": -63,
+        "last_positive_arc_odd_residue": 63,
+        "root_sum_magnitude_identity": "csc(2*pi/q)",
+        "exact_rational_lower_bound_for_abs_W_N_1": {
+          "exact": "7/33",
+          "numerator": 7,
+          "denominator": 33,
+          "display_float": 0.21212121212121213
+        },
+        "harmonic_six_threshold": {
+          "exact": "1/6",
+          "numerator": 1,
+          "denominator": 6,
+          "display_float": 0.16666666666666666
+        },
+        "harmonic_six_fails": true,
+        "bad_prefix_cutoff_upper_bound": 5,
+        "row_verified": true
+      },
+      {
+        "dyadic_grid_modulus_q": 512,
+        "complete_grid_good_prefix_N": 512,
+        "exact_good_cutoff_K_N": 511,
+        "positive_arc_bad_prefix_N": 384,
+        "positive_arc_new_odd_root_count": 128,
+        "first_positive_arc_odd_residue": -127,
+        "last_positive_arc_odd_residue": 127,
+        "root_sum_magnitude_identity": "csc(2*pi/q)",
+        "exact_rational_lower_bound_for_abs_W_N_1": {
+          "exact": "7/33",
+          "numerator": 7,
+          "denominator": 33,
+          "display_float": 0.21212121212121213
+        },
+        "harmonic_six_threshold": {
+          "exact": "1/6",
+          "numerator": 1,
+          "denominator": 6,
+          "display_float": 0.16666666666666666
+        },
+        "harmonic_six_fails": true,
+        "bad_prefix_cutoff_upper_bound": 5,
+        "row_verified": true
+      },
+      {
+        "dyadic_grid_modulus_q": 1024,
+        "complete_grid_good_prefix_N": 1024,
+        "exact_good_cutoff_K_N": 1023,
+        "positive_arc_bad_prefix_N": 768,
+        "positive_arc_new_odd_root_count": 256,
+        "first_positive_arc_odd_residue": -255,
+        "last_positive_arc_odd_residue": 255,
+        "root_sum_magnitude_identity": "csc(2*pi/q)",
+        "exact_rational_lower_bound_for_abs_W_N_1": {
+          "exact": "7/33",
+          "numerator": 7,
+          "denominator": 33,
+          "display_float": 0.21212121212121213
+        },
+        "harmonic_six_threshold": {
+          "exact": "1/6",
+          "numerator": 1,
+          "denominator": 6,
+          "display_float": 0.16666666666666666
+        },
+        "harmonic_six_fails": true,
+        "bad_prefix_cutoff_upper_bound": 5,
+        "row_verified": true
+      },
+      {
+        "dyadic_grid_modulus_q": 2048,
+        "complete_grid_good_prefix_N": 2048,
+        "exact_good_cutoff_K_N": 2047,
+        "positive_arc_bad_prefix_N": 1536,
+        "positive_arc_new_odd_root_count": 512,
+        "first_positive_arc_odd_residue": -511,
+        "last_positive_arc_odd_residue": 511,
+        "root_sum_magnitude_identity": "csc(2*pi/q)",
+        "exact_rational_lower_bound_for_abs_W_N_1": {
+          "exact": "7/33",
+          "numerator": 7,
+          "denominator": 33,
+          "display_float": 0.21212121212121213
+        },
+        "harmonic_six_threshold": {
+          "exact": "1/6",
+          "numerator": 1,
+          "denominator": 6,
+          "display_float": 0.16666666666666666
+        },
+        "harmonic_six_fails": true,
+        "bad_prefix_cutoff_upper_bound": 5,
+        "row_verified": true
+      }
+    ],
+    "algorithm": "exact dyadic residue enumeration plus rational bounds sin(x)<x and pi<22/7",
+    "complexity": "O(sum q) integer checks in the replay; the infinite construction and geometric-sum identity are symbolic",
+    "random_seed": null,
+    "input_range": {
+      "dyadic_grid_moduli": [
+        8,
+        16,
+        32,
+        64,
+        128,
+        256,
+        512,
+        1024,
+        2048
+      ]
+    },
+    "transcript_sha256": "d59a4440065a0be5da37bb2fd930a5961bb4da94505c4d35498f793d6a513ae0",
+    "aggregate": {
+      "unbounded_cutoff_sufficiency_refuted": true,
+      "cutoff_limsup_infinite_proved": true,
+      "cutoff_liminf_at_most_five_proved": true,
+      "dyadic_good_bad_prefix_replay_count": 9,
+      "canonical_fermat_quotient_threshold_cutoff_diverges_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "The replay checks 9 powers q=8..2048 using exact integer structure and rational bounds; it certifies the construction, not canonical phases.",
+  "logical_limit": "The recursive dyadic-root sequence is exact but is not the canonical Fermat-quotient sequence arising from the Collatz reduction.",
+  "route_decision": {
+    "discard": "replacing K_N to infinity by the weaker assertion that K_N is merely unbounded or large on a sparse subsequence",
+    "parked": [
+      "a canonical fixed-base Fermat-quotient estimate ruling out every bounded subsequence of K_N"
+    ],
+    "retain": "TICKET-264's exact equivalence requiring full-sequence divergence K_N to infinity",
+    "next_single_lemma": "CanonicalFermatQuotientThresholdCutoffHasNoBoundedSubsequence"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T264",
+        "label": "PointwiseWeylCancellationIffExplicitThresholdCutoffDiverges",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T265",
+        "label": "UnboundedExplicitThresholdCutoffDoesNotImplyDivergence",
+        "status": "proved"
+      },
+      {
+        "id": "CO-CERT265",
+        "label": "UnboundedExplicitThresholdCutoffDoesNotImplyDivergenceExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "CO-REJECT265",
+        "label": "UnboundedExplicitThresholdCutoffImpliesPointwiseWeylCancellation",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN265",
+        "label": "CanonicalFermatQuotientThresholdCutoffHasNoBoundedSubsequence",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T264",
+        "CO-T265"
+      ],
+      [
+        "CO-T265",
+        "CO-CERT265"
+      ],
+      [
+        "CO-T265",
+        "CO-REJECT265"
+      ],
+      [
+        "CO-T265",
+        "CO-OPEN265"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T264",
+      "CO-T265",
+      "CO-OPEN265"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz proof or counterexample: limsup K_N=infinity is separated sharply from K_N to infinity, and the canonical no-bounded-subsequence estimate is open."
+}

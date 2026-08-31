@@ -44,7 +44,25 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-264
+## Latest handoff: TICKET-265
+
+Canonical artifact: `data/open-problem/ticket265-sparse-cutoff-growing2adic-mod32.json`.
+
+TICKET-265 establishes `DensityOneReciprocalControlCannotReplaceLimsupEnvelope`, `UnboundedExplicitThresholdCutoffDoesNotImplyDivergence`, `GrowingTwoAdicTieSignatureIsSharpAndDecisive`, and `PrimitiveTwinUnitSolutionsObeyMod32DiagonalFilter`. Collatz is the deep-focus track. Exact replay covers 16 sparse RH spike pairs, nine dyadic Collatz good/bad prefixes, 32 sharp growing-modulus Goldbach levels plus three hash-pinned actual prefixes, and 1,024 Twin convergents with 35 mod-32 survivors. All conjecture and candidate-resolution counters remain zero.
+
+Continue only from the four `next_single_lemma` fields in `data/open-problem/four-problem-research-state.json`. Do not infer an actual-Weil packet bound from the abstract sparse no-go, canonical Fermat-quotient cancellation from the dyadic-root counterexample, all-level actual Goldbach residue avoidance from three inherited levels, or all-convergent Twin exclusion from a necessary mod-32 filter.
+
+Reproduce with:
+
+```text
+python scripts/ticket265_sparse_cutoff_growing2adic_mod32.py
+python -m unittest tests.test_ticket265_sparse_cutoff_growing2adic_mod32 -v
+python scripts/verify_ticket265_structure.py
+```
+
+Reports: [English](sparse-cutoff-growing2adic-mod32.md) and [한국어](sparse-cutoff-growing2adic-mod32.ko.md).
+
+## Preserved handoff: TICKET-264
 
 Canonical artifact: `data/open-problem/ticket264-asymmetric-threshold-fixed2adic-head.json`.
 

@@ -164,9 +164,10 @@ class Ticket264Tests(unittest.TestCase):
         integrated = ROOT / "data/open-problem/ticket264-asymmetric-threshold-fixed2adic-head.json"
         self.assertEqual(json.loads(integrated.read_text(encoding="utf-8")), build_audit())
         state = json.loads((ROOT / "data/open-problem/four-problem-research-state.json").read_text(encoding="utf-8"))
-        self.assertEqual((state["ticket"], state["parent_ticket"]), (264, 263))
+        self.assertGreaterEqual(state["ticket"], 264)
+        self.assertEqual(state["parent_ticket"], state["ticket"] - 1)
         self.assertEqual((state["resolved_count"], state["candidate_resolution_count"]), (0, 0))
-        self.assertEqual(state["deep_focus_problem"], "riemann")
+        self.assertIn(state["deep_focus_problem"], state["problems"])
         self.assertFalse(state["program_complete"])
 
 
