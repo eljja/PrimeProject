@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, two no-gos and two partial theorems sharpened",
-      ko: "네 미해결 문제, 두 no-go와 두 부분정리를 더 날카롭게 하다",
+      en: "Four open problems, one no-go and three partial theorems sharpened",
+      ko: "네 미해결 문제, 한 no-go와 세 부분정리를 더 날카롭게 하다",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-261 proves two exact no-gos and two partial theorems: RH summability sharpness, a first-harmonic Collatz obstruction, Goldbach product parity, and dual Twin congruences.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-261은 RH 합 가능성 sharpness, Collatz 첫 조화파 장애물, Goldbach 곱 parity, Twin 양방향 합동식을 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-262 proves one exact no-go and three partial theorems: an RH limsup threshold, every-fixed-finite-harmonic Collatz obstruction, Goldbach mod-8 tie obstruction, and dual third-order Twin congruences.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-262는 RH limsup 문턱, Collatz 모든 고정 유한 조화파 장애물, Goldbach mod-8 동률 장애물, Twin 양방향 3차 합동식을 증명합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-261 proves two exact no-gos and two partial theorems, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-261은 정확한 no-go 두 개와 부분정리 두 개를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-262 proves one exact no-go and three partial theorems, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-262는 정확한 no-go 한 개와 부분정리 세 개를 증명하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

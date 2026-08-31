@@ -44,7 +44,25 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-261
+## Latest handoff: TICKET-262
+
+Canonical artifact: `data/open-problem/ticket262-limsup-finiteharmonic-mod8-thirdorder.json`.
+
+TICKET-262 establishes `PacketLagMarginIffScaledSignedJumpLimsupBelowLimit`, `EveryFixedFiniteWeylCutoffAngularDiscrepancyNoGo`, `Q3TieForcesMinusCountFourModuloEight`, and `BidirectionalThirdOrderCongruenceAnd1024ConvergentCertificate`. Collatz is the deep-focus track. Exact replay covers 64 strict and 12 critical RH boundary rows, five finite-harmonic cutoffs with 1,152 prime-modulus phases, three actual q=3 Goldbach prefixes plus 16 symbolic sharpness models, and both signs on 1,024 certified Twin convergents through a 519-digit denominator. All conjecture and candidate-resolution counters remain zero.
+
+Continue only from the four `next_single_lemma` fields in `data/open-problem/four-problem-research-state.json`. Do not infer an actual-Weil bound from the abstract RH equivalence, canonical all-harmonic cancellation from the noncanonical Collatz counterfamily, all-level Goldbach non-tie from three mod-8 certificates, or all-convergent exclusion from the finite Twin certificate.
+
+Reproduce with:
+
+```text
+python scripts/ticket262_limsup_finiteharmonic_mod8_thirdorder.py
+python -m unittest tests.test_ticket262_limsup_finiteharmonic_mod8_thirdorder -v
+python scripts/verify_ticket262_structure.py
+```
+
+Reports: [English](limsup-finiteharmonic-mod8-thirdorder.md) and [한국어](limsup-finiteharmonic-mod8-thirdorder.ko.md).
+
+## Preserved handoff: TICKET-261
 
 Canonical artifact: `data/open-problem/ticket261-sharpness-weyl-ties-dualcongruence.json`.
 

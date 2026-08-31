@@ -152,6 +152,10 @@ jobs:
         run: |
           python -m unittest tests.test_ticket261_sharpness_weyl_ties_dualcongruence
           python scripts/verify_ticket261_structure.py
+      - name: Unit and structure check TICKET-262
+        run: |
+          python -m unittest tests.test_ticket262_limsup_finiteharmonic_mod8_thirdorder
+          python scripts/verify_ticket262_structure.py
 
       - name: Verify open problem structure
         run: python scripts/verify_open_problem_structure.py
@@ -186,6 +190,7 @@ jobs:
           node --check assets/ticket259-open-problem.js
           node --check assets/ticket260-open-problem.js
           node --check assets/ticket261-open-problem.js
+          node --check assets/ticket262-open-problem.js
 
       - name: Verify GitHub Pages surface
         run: node scripts/verify_pages.cjs

@@ -31,16 +31,15 @@ For transferring the open-problem workbench to another LLM, see [LLM Open-Proble
 For the canonical keep/discard audit of all four open-problem tracks, see [Four-Problem Research Consolidation](docs/open-problem-research-consolidation-2026-07-10.md). This bilingual document separates problem-specific computation from methodological transfer artifacts and names the exact infinite theorem still missing in each problem.
 
 The latest four-problem continuation is
-[TICKET-261: Sharpness, Weyl Harmonics, Prime-Prefix Parity, and Bidirectional Congruences](docs/sharpness-weyl-ties-dualcongruence.md),
-with a separate [Korean report](docs/sharpness-weyl-ties-dualcongruence.ko.md).
-It proves two exact route no-gos and two partial theorems. The TICKET-260 RH
-summability condition is sufficient but not necessary; first-harmonic Weyl
-cancellation alone does not force Collatz angular discrepancy to vanish; a
-special mod-3 Goldbach race tie forces prime-prefix product +1; and a Twin
-unit coefficient forces simultaneous second-order congruences modulo v
-squared and u squared, whose joint failure is certified on 1,024 convergents
-through a 519-digit denominator. All four parent conjectures remain
-open_not_proven.
+[TICKET-262: Limsup Threshold, Every Finite Harmonic Cutoff, Mod-8 Tie Obstruction, and Third-Order Congruences](docs/limsup-finiteharmonic-mod8-thirdorder.md),
+with a separate [Korean report](docs/limsup-finiteharmonic-mod8-thirdorder.ko.md).
+It proves one exact route no-go and three partial theorems. An RH-style
+positive packet-lag margin has the exact abstract threshold `limsup J_n<L`;
+no fixed finite Weyl cutoff forces Collatz angular discrepancy to vanish; a
+special mod-3 Goldbach race tie forces `N_2=4 mod 8`; and a Twin unit
+coefficient forces simultaneous third-order congruences modulo `v^3` and
+`u^3`, whose joint failure is certified on 1,024 convergents through a
+519-digit denominator. All four parent conjectures remain `open_not_proven`.
 
 The preserved preceding continuation is
 [TICKET-260: Weighted Variation, Fixed-Modulus Equidistribution, a Mod-3 Prime Race, and a Variable-Denominator Sieve](docs/weighted-equidistribution-primerace-variablemod.md),
@@ -696,13 +695,13 @@ See [TICKET236 EN](docs/contraction-order-phase-degree2.md),
 [TICKET144](docs/schur-rank-equivalence-variation-adverse-walsh.md), and
 [TICKET143](docs/form-core-period-floor-martingale-walsh.md).
 
-한국어 최신 요약: 최신 탐색은 TICKET-261입니다. 리만 트랙은 TICKET-260
-합 가능성 조건이 필요조건이 아님을 정확한 반례족으로 증명했고, 콜라츠
-트랙은 첫 Weyl 조화파 소멸만으로 각도 discrepancy를 제어할 수 없음을
-증명했습니다. 골드바흐 트랙은 특수 mod-3 tie의 prefix-product parity
-장애물을 얻고 실제 세 prefix를 독립 계산으로 재현했습니다. 쌍둥이 소수
-트랙은 mod v²와 mod u² 양방향 필요조건을 증명하고 처음 1,024개 인증
-수렴분수를 배제했습니다.
+한국어 최신 요약: 최신 탐색은 TICKET-262입니다. 리만 트랙은 양의 lag
+margin의 정확한 추상 limsup 문턱을 증명했고, 콜라츠 트랙은 모든 고정
+유한 Weyl cutoff가 각도 discrepancy를 제어하지 못함을 증명했습니다.
+골드바흐 트랙은 특수 mod-3 tie가 `N_2=4 mod 8`을 강제함을 보였고 실제
+세 prefix를 독립 계산으로 재현했습니다. 쌍둥이 소수 트랙은 mod `v^3`와
+mod `u^3` 양방향 필요조건을 증명하고 처음 1,024개 인증 수렴분수를
+배제했습니다.
 네 원 추측의 해결 수는 0이며 모두 미해결입니다.The bundled Crypto-Classifier panel is intentionally scoped to `controlled_synthetic_only`: it proves the feature-vector and classifier plumbing on synthetic generator fingerprints, then keeps real-world attribution blocked until OpenSSL, BoringSSL, Go, and suspicious labelled baselines are collected with provenance.
 
 The Attribution Grid panel displays a bundled paired benchmark from `data/attribution_confound_grid.json`, `data/null_calibration.json`, and `data/replication_audit.json`, highlighting which fingerprint profiles survive bit-length control, which ones are likely range confounds, whether the strongest controlled profiles survive random-label null simulation after family-wise profile selection, and whether those profiles replicate across settings.
@@ -721,17 +720,17 @@ The Evidence Pack panel reads `data/evidence_pack.json`, `data/claim_language_au
 
 핵심 경계: 이 프로젝트는 안전한 암호 소수를 예측했다거나, accepted real-world baseline 없이 실제 키의 생성 라이브러리를 단정했다거나, 리만가설/콜라츠/골드바흐/Twin Prime을 증명했다고 주장하지 않습니다. 현재 강하게 말할 수 있는 범위는 bounded certificate, 통제된 합성 generator fingerprint, 공개 안전 수집 계약, claim-language audit, evidence pack, publication consistency audit입니다.
 
-최신 난제 연구 트랙은 TICKET-261입니다.
-[sharpness·Weyl 조화파·prefix-product parity·양방향 합동식 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/sharpness-weyl-ties-dualcongruence.ko.md)와
-[영문 보고서](docs/sharpness-weyl-ties-dualcongruence.md)는 네 트랙의 정확 명제,
+최신 난제 연구 트랙은 TICKET-262입니다.
+[limsup 문턱·유한 조화파 no-go·mod-8 tie·3차 합동식 한국어 보고서 (parent conjecture claims blocked · open_not_proven)](docs/limsup-finiteharmonic-mod8-thirdorder.ko.md)와
+[영문 보고서](docs/limsup-finiteharmonic-mod8-thirdorder.md)는 네 트랙의 정확 명제,
 증명, 재현 계산, 폐기 경로와 남은 무한 간극을 분리합니다. 현재 결정적
-미해결 보조정리는 actual Weil packet의 scaled jump limsup, canonical
-Fermat-quotient의 모든 비영 Weyl 합 소멸, 특수 지수에서 mod-3
-prime-prefix product -1, 모든 unique-root convergent에서 양방향 2차
-합동식의 동시 실패입니다.주요 진입점:
+미해결 보조정리는 actual Weil packet의 strict scaled jump limsup,
+canonical Fermat-quotient의 모든 비영 Weyl 합 소멸, 특수 지수에서
+`N_2 != 4 mod 8`, 모든 unique-root convergent에서 양방향 3차 합동식의
+동시 실패입니다. 주요 진입점:
 
-- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-261의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
-- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 261개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
+- [메인 연구실](https://eljja.github.io/PrimeProject/?lang=ko): TICKET-262의 현재 연구 경계, 네 문제의 부분정리·폐기 경로·남은 간극을 먼저 보고 소수 탐색기와 암호 fingerprint 실험으로 이동합니다.
+- [Proof Workbench](https://eljja.github.io/PrimeProject/open-problems/index.html): 네 문제의 현재 보조정리를 한 화면에서 비교하며, 262개 티켓은 네 연구 시대와 재현 기록으로 압축해 탐색합니다.
 - [Riemann Workbench](https://eljja.github.io/PrimeProject/open-problems/riemann.html), [Collatz Workbench](https://eljja.github.io/PrimeProject/open-problems/collatz.html), [Goldbach Workbench](https://eljja.github.io/PrimeProject/open-problems/goldbach.html), [Twin Prime Workbench](https://eljja.github.io/PrimeProject/open-problems/twin-prime.html): 각 난제의 `open_not_proven` 상태와 필요한 무한 논증을 확인합니다.
 - [Publication-Ready Document Review](docs/publication-ready-review.md): 모든 공개 문서의 허용 주장과 차단 주장을 한글/영문 기준으로 검토합니다.
 

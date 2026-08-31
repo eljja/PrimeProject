@@ -182,16 +182,23 @@ def verify_ticket261_structure() -> str | None:
             encoding="utf-8"
         )
     )
-    boundary = (
-        state.get("ticket"),
-        state.get("parent_ticket"),
-        state.get("deep_focus_problem"),
-        state.get("resolved_count"),
-        state.get("candidate_resolution_count"),
-        state.get("program_complete"),
-    )
-    if boundary != (261, 260, "twin_prime", 0, 0, False):
+    if (
+        state.get("ticket", 0) < 261
+        or state.get("resolved_count") != 0
+        or state.get("candidate_resolution_count") != 0
+        or state.get("program_complete")
+    ):
         return "TICKET-261 persistent research state changed"
+    if state.get("ticket") == 261 and (
+        state.get("parent_ticket") != 260
+        or state.get("deep_focus_problem") != "twin_prime"
+    ):
+        return "TICKET-261 persistent research state changed"
+    for key, (_, theorem, _, _, _) in expected.items():
+        if theorem not in state.get("problems", {}).get(key, {}).get(
+            "established_results", []
+        ):
+            return f"TICKET-261 theorem missing from successor state: {key}"
     for report in (
         ROOT / "docs/sharpness-weyl-ties-dualcongruence.md",
         ROOT / "docs/sharpness-weyl-ties-dualcongruence.ko.md",

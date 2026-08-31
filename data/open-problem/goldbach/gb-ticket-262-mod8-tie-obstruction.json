@@ -1,0 +1,482 @@
+{
+  "schema": "primeproject.ticket262-limsup-finiteharmonic-mod8-thirdorder.v1",
+  "generated_at": "2026-08-31T23:59:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-262",
+  "theorem_name": "Q3TieForcesMinusCountFourModuloEight",
+  "declared_proposition": "For every l>=0 put T_l=6*3^(6l+2)+3. If the mod-3 prime race among the first T_l primes ties after omitting the prime 3, then the number N_2 of primes congruent to -1 modulo 3 satisfies N_2=3^(6l+3)+1, hence N_2 is congruent to 4 modulo 8 and has 2-adic valuation exactly two. Therefore N_2 not congruent to 4 modulo 8 is an exact certificate excluding the tie. The congruence is necessary, not sufficient.",
+  "mathematical_argument": "A tie forces N_1=N_2=(T_l-1)/2=3^(6l+3)+1. Since 6l+3 is odd, 3^(6l+3) is congruent to 3 modulo 8, proving N_2 congruent to 4 modulo 8; the same congruence gives exact 2-adic valuation two. The contrapositive excludes a tie whenever the actual N_2 has a different residue. To audit sharpness, replace the two tied counts m,m by m-2,m+2: the product sign remains +1 but the race is not a tie, so the earlier product-minus-one certificate was not necessary. Replacing them by m-8,m+8 preserves N_2 congruent to 4 modulo 8 but is still not a tie, so the new congruence is not sufficient.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For every l>=0 put T_l=6*3^(6l+2)+3. If the mod-3 prime race among the first T_l primes ties after omitting the prime 3, then the number N_2 of primes congruent to -1 modulo 3 satisfies N_2=3^(6l+3)+1, hence N_2 is congruent to 4 modulo 8 and has 2-adic valuation exactly two. Therefore N_2 not congruent to 4 modulo 8 is an exact certificate excluding the tie. The congruence is necessary, not sufficient.",
+    "proof": "A tie forces N_1=N_2=(T_l-1)/2=3^(6l+3)+1. Since 6l+3 is odd, 3^(6l+3) is congruent to 3 modulo 8, proving N_2 congruent to 4 modulo 8; the same congruence gives exact 2-adic valuation two. The contrapositive excludes a tie whenever the actual N_2 has a different residue. To audit sharpness, replace the two tied counts m,m by m-2,m+2: the product sign remains +1 but the race is not a tie, so the earlier product-minus-one certificate was not necessary. Replacing them by m-8,m+8 preserves N_2 congruent to 4 modulo 8 but is still not a tie, so the new congruence is not sufficient.",
+    "exact_q3_mod8_certificate_rows": [
+      {
+        "level_l": 0,
+        "scale_A": "9",
+        "special_prime_prefix_length_T_l": 57,
+        "exact_nth_prime_endpoint": 269,
+        "actual_residue_counts_mod_3": [
+          1,
+          25,
+          31
+        ],
+        "minus_one_residue_count_N_2": 31,
+        "minus_one_residue_count_mod_8": 7,
+        "tie_would_force_each_nonzero_count": 28,
+        "tie_forced_count_closed_form": "28",
+        "tie_forced_count_mod_8": 4,
+        "tie_excluded_by_mod_8_contrapositive": true,
+        "independent_residue_algorithms_agree": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 1,
+        "scale_A": "6561",
+        "special_prime_prefix_length_T_l": 39369,
+        "exact_nth_prime_endpoint": 471749,
+        "actual_residue_counts_mod_3": [
+          1,
+          19663,
+          19705
+        ],
+        "minus_one_residue_count_N_2": 19705,
+        "minus_one_residue_count_mod_8": 1,
+        "tie_would_force_each_nonzero_count": 19684,
+        "tie_forced_count_closed_form": "19684",
+        "tie_forced_count_mod_8": 4,
+        "tie_excluded_by_mod_8_contrapositive": true,
+        "independent_residue_algorithms_agree": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 2,
+        "scale_A": "4782969",
+        "special_prime_prefix_length_T_l": 28697817,
+        "exact_nth_prime_endpoint": 547035959,
+        "actual_residue_counts_mod_3": [
+          1,
+          14347849,
+          14349967
+        ],
+        "minus_one_residue_count_N_2": 14349967,
+        "minus_one_residue_count_mod_8": 7,
+        "tie_would_force_each_nonzero_count": 14348908,
+        "tie_forced_count_closed_form": "14348908",
+        "tie_forced_count_mod_8": 4,
+        "tie_excluded_by_mod_8_contrapositive": true,
+        "independent_residue_algorithms_agree": true,
+        "row_verified": true
+      }
+    ],
+    "exact_sharpness_countermodel_rows": [
+      {
+        "level_l": 0,
+        "special_prefix_length_T_l": "57",
+        "tie_count": "28",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "26",
+          "N_2": "30",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "20",
+          "N_2": "36",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 1,
+        "special_prefix_length_T_l": "39369",
+        "tie_count": "19684",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "19682",
+          "N_2": "19686",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "19676",
+          "N_2": "19692",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 2,
+        "special_prefix_length_T_l": "28697817",
+        "tie_count": "14348908",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "14348906",
+          "N_2": "14348910",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "14348900",
+          "N_2": "14348916",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 3,
+        "special_prefix_length_T_l": "20920706409",
+        "tie_count": "10460353204",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "10460353202",
+          "N_2": "10460353206",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "10460353196",
+          "N_2": "10460353212",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 4,
+        "special_prefix_length_T_l": "15251194969977",
+        "tie_count": "7625597484988",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "7625597484986",
+          "N_2": "7625597484990",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "7625597484980",
+          "N_2": "7625597484996",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 5,
+        "special_prefix_length_T_l": "11118121133111049",
+        "tie_count": "5559060566555524",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "5559060566555522",
+          "N_2": "5559060566555526",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "5559060566555516",
+          "N_2": "5559060566555532",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 6,
+        "special_prefix_length_T_l": "8105110306037952537",
+        "tie_count": "4052555153018976268",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "4052555153018976266",
+          "N_2": "4052555153018976270",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "4052555153018976260",
+          "N_2": "4052555153018976276",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 7,
+        "special_prefix_length_T_l": "5908625413101667397289",
+        "tie_count": "2954312706550833698644",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "2954312706550833698642",
+          "N_2": "2954312706550833698646",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "2954312706550833698636",
+          "N_2": "2954312706550833698652",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 8,
+        "special_prefix_length_T_l": "4307387926151115532621497",
+        "tie_count": "2153693963075557766310748",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "2153693963075557766310746",
+          "N_2": "2153693963075557766310750",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "2153693963075557766310740",
+          "N_2": "2153693963075557766310756",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 9,
+        "special_prefix_length_T_l": "3140085798164163223281069129",
+        "tie_count": "1570042899082081611640534564",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "1570042899082081611640534562",
+          "N_2": "1570042899082081611640534566",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "1570042899082081611640534556",
+          "N_2": "1570042899082081611640534572",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 10,
+        "special_prefix_length_T_l": "2289122546861674989771899392857",
+        "tie_count": "1144561273430837494885949696428",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "1144561273430837494885949696426",
+          "N_2": "1144561273430837494885949696430",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "1144561273430837494885949696420",
+          "N_2": "1144561273430837494885949696436",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 11,
+        "special_prefix_length_T_l": "1668770336662161067543714657390569",
+        "tie_count": "834385168331080533771857328695284",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "834385168331080533771857328695282",
+          "N_2": "834385168331080533771857328695286",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "834385168331080533771857328695276",
+          "N_2": "834385168331080533771857328695292",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 12,
+        "special_prefix_length_T_l": "1216533575426715418239367985237722617",
+        "tie_count": "608266787713357709119683992618861308",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "608266787713357709119683992618861306",
+          "N_2": "608266787713357709119683992618861310",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "608266787713357709119683992618861300",
+          "N_2": "608266787713357709119683992618861316",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 13,
+        "special_prefix_length_T_l": "886852976486075539896499261238299785609",
+        "tie_count": "443426488243037769948249630619149892804",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "443426488243037769948249630619149892802",
+          "N_2": "443426488243037769948249630619149892806",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "443426488243037769948249630619149892796",
+          "N_2": "443426488243037769948249630619149892812",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 14,
+        "special_prefix_length_T_l": "646515819858349068584547961442720543706777",
+        "tie_count": "323257909929174534292273980721360271853388",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "323257909929174534292273980721360271853386",
+          "N_2": "323257909929174534292273980721360271853390",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "323257909929174534292273980721360271853380",
+          "N_2": "323257909929174534292273980721360271853396",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      },
+      {
+        "level_l": 15,
+        "special_prefix_length_T_l": "471310032676736470998135463891743276362238249",
+        "tie_count": "235655016338368235499067731945871638181119124",
+        "tie_count_mod_8": 4,
+        "product_plus_one_but_non_tie_counts": {
+          "N_1": "235655016338368235499067731945871638181119122",
+          "N_2": "235655016338368235499067731945871638181119126",
+          "N_2_mod_8": 6,
+          "product_mod_3": 1,
+          "verified": true
+        },
+        "N_2_congruent_four_but_non_tie_counts": {
+          "N_1": "235655016338368235499067731945871638181119116",
+          "N_2": "235655016338368235499067731945871638181119132",
+          "N_2_mod_8": 4,
+          "verified": true
+        },
+        "row_verified": true
+      }
+    ],
+    "algorithm": "exact integer congruence arithmetic over independently reproduced mod-3 prime-prefix counts, plus closed-form count-vector countermodels",
+    "complexity": "O(1) congruence work per level after the TICKET-260 exact residue certificates; the symbolic implications hold for every l",
+    "random_seed": null,
+    "input_range": {
+      "actual_certificate_level_min": 0,
+      "actual_certificate_level_max": 2,
+      "abstract_replay_level_min": 0,
+      "abstract_replay_level_max": 15
+    },
+    "transcript_sha256": "7c60dd5c0e26f01fcd138fba2088f29872ee60b43e25efe5fc6dbad0cce5e00f",
+    "aggregate": {
+      "tie_forces_minus_count_four_mod_8_proved": true,
+      "tie_forces_exact_two_adic_valuation_two_proved": true,
+      "actual_mod8_non_tie_certificate_count": 3,
+      "product_minus_one_is_necessary_for_non_tie_refuted": true,
+      "minus_count_four_mod_8_is_sufficient_for_tie_refuted": true,
+      "all_special_minus_counts_not_four_mod_8_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "3 actual levels are certified; the implication and countermodels are symbolic for all levels.",
+  "logical_limit": "The tie obstruction is necessary but not sufficient, and no theorem excludes residue four modulo eight at every actual special prime prefix.",
+  "route_decision": {
+    "discard": "treating the TICKET-261 product-minus-one certificate as a necessary characterization of q=3 special-prefix non-ties",
+    "parked": [
+      "an all-level arithmetic proof that the actual special q=3 minus-one count never equals four modulo eight"
+    ],
+    "retain": "the weaker exact modulo-eight necessary condition, actual finite certificates, and two sharpness count models",
+    "next_single_lemma": "Q3SpecialMinusOneResidueCountNeverFourModuloEight"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T261",
+        "label": "Q3PrimePrefixProductParityObstruction",
+        "status": "proved"
+      },
+      {
+        "id": "GB-T262",
+        "label": "Q3TieForcesMinusCountFourModuloEight",
+        "status": "proved"
+      },
+      {
+        "id": "GB-CERT262",
+        "label": "Q3TieForcesMinusCountFourModuloEightExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "GB-REJECT262",
+        "label": "ProductMinusOneIsNecessaryForQ3SpecialNonTie",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN262",
+        "label": "Q3SpecialMinusOneResidueCountNeverFourModuloEight",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T261",
+        "GB-T262"
+      ],
+      [
+        "GB-T262",
+        "GB-CERT262"
+      ],
+      [
+        "GB-T262",
+        "GB-REJECT262"
+      ],
+      [
+        "GB-T262",
+        "GB-OPEN262"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T261",
+      "GB-T262",
+      "GB-OPEN262"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; three actual finite levels are excluded by the weaker exact congruence."
+}

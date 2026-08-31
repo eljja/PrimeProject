@@ -6,7 +6,7 @@
     <title>PrimeProject Proof Workbench</title>
     <meta name="description" content="Current PrimeProject proof boundary for the Riemann, Collatz, Goldbach, and Twin Prime conjectures." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E" />
-    <link rel="stylesheet" href="../assets/styles.css?v=20260831-ticket261-layout" />
+    <link rel="stylesheet" href="../assets/styles.css?v=20260831-ticket262-layout" />
   </head>
   <body class="proof-page">
     <main class="proof-shell">
@@ -31,21 +31,21 @@
         <div class="proof-status-strip">
           <span><span data-i18n="proof.hub.status">status</span> <strong>open_not_proven</strong></span>
           <span><span data-i18n="proof.hub.claimLevel">claim level</span> <strong>exact reductions · no full proof</strong></span>
-          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-261</strong></span>
+          <span><span data-i18n="proof.hub.pages">pages</span> <strong>4 · TICKET-262</strong></span>
         </div>
       </header>
 
       <section class="workbench-boundary">
         <div>
           <p class="brief-kicker">CURRENT RESEARCH BOUNDARY / 현재 연구 경계</p>
-          <h2>What TICKET-261 actually changed</h2>
-          <p>TICKET-261 did not solve a parent conjecture. It proves the TICKET-260 RH summability condition is not necessary, constructs first-harmonic cancellation with persistent Collatz angular discrepancy, derives a mod-3 Goldbach prefix-product obstruction, and strengthens the Twin sieve to simultaneous second-order congruences modulo v² and u².</p>
-          <p class="proof-boundary">TICKET-261은 상위 난제를 해결하지 않았습니다. RH 합 가능성 조건의 비필요성, Collatz 첫 조화파 no-go, Goldbach mod-3 prefix-product 장애물, Twin 양방향 2차 합동식을 확정했습니다.</p>
+          <h2>What TICKET-262 actually changed</h2>
+          <p>TICKET-262 did not solve a parent conjecture. It isolates the exact RH-style limsup threshold, rules out every fixed finite Weyl cutoff for Collatz angular discrepancy, derives a mod-8 Goldbach tie obstruction, and strengthens the Twin sieve to simultaneous third-order congruences modulo v³ and u³.</p>
+          <p class="proof-boundary">TICKET-262는 상위 난제를 해결하지 않았습니다. RH limsup 문턱의 필요충분조건, Collatz 모든 고정 유한 조화파 no-go, Goldbach mod-8 동률 장애물, Twin 양방향 3차 합동식을 확정했습니다.</p>
         </div>
         <dl>
           <div><dt>Conjectures</dt><dd>4 open</dd></div>
-          <div><dt>Exact no-go results</dt><dd>2</dd></div>
-          <div><dt>Partial theorems</dt><dd>2</dd></div>
+          <div><dt>Exact no-go results</dt><dd>1</dd></div>
+          <div><dt>Partial theorems</dt><dd>3</dd></div>
           <div><dt>Resolution count</dt><dd>0</dd></div>
         </dl>
       </section>
@@ -54,58 +54,58 @@
           <header><span>01 · SIGNED CANCELLATION</span><b>OPEN</b></header>
           <h2>Riemann Hypothesis <small>리만 가설</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>SummableScaledVariationNecessityNoGo</code>: E_n=L+c/n has S_n=L exactly but divergent scaled downward variation.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Summable scaled downward variation is sufficient but cannot be treated as necessary for lag positivity.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>PacketLagMarginIffScaledSignedJumpLimsupBelowLimit</code>: liminf S_n=L-limsup J_n, so a positive lag margin is equivalent to limsup J_n&lt;L.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Stronger summability conditions are not the minimal abstract target; the exact limsup threshold is.</dd></div>
             <div><dt>Next lemma / 다음 보조정리</dt><dd><code>ActualWeilPacketScaledDownwardJumpLimsupBelowLimit</code></dd></div>
           </dl>
-          <p class="workbench-ko">TICKET-260 충분조건의 필요성은 정확한 반례족으로 폐기했습니다. 실제 Weil packet의 scaled jump limsup가 남습니다.</p>
+          <p class="workbench-ko">양의 lag margin의 정확한 추상 문턱을 얻었습니다. 실제 Weil packet의 strict scaled-jump limsup가 남습니다.</p>
           <a class="proof-card-link" href="riemann.html">Open current Riemann page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>02 · CYCLOTOMIC PHASE</span><b>OPEN</b></header>
           <h2>Collatz Conjecture <small>콜라츠 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>FirstHarmonicCancellationAngularDiscrepancyNoGo</code>: the first Weyl harmonic can vanish while star discrepancy has liminf at least 1/6.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>First-harmonic cancellation alone does not imply angular discrepancy tends to zero.</dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>EveryFixedFiniteWeylCutoffAngularDiscrepancyNoGo</code>: every fixed finite harmonic cutoff can vanish while star discrepancy stays positive.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>No fixed finite Weyl truncation implies angular discrepancy tends to zero.</dd></div>
             <div><dt>Next lemma / 다음 보조정리</dt><dd><code>CanonicalFermatQuotientWeylSumsVanishForEveryNonzeroH</code></dd></div>
           </dl>
-          <p class="workbench-ko">첫 조화파 상쇄 하나로는 각도 균등분포를 얻을 수 없습니다. canonical 모든 비영 조화파의 소멸이 남습니다.</p>
+          <p class="workbench-ko">어떤 고정 유한 조화파 집합으로도 각도 균등분포를 얻을 수 없습니다. canonical 모든 비영 조화파의 소멸이 남습니다.</p>
           <a class="proof-card-link" href="collatz.html">Open current Collatz page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>03 · CHARACTER REFLECTION</span><b>OPEN</b></header>
           <h2>Strong Goldbach <small>강한 골드바흐 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>Q3PrimePrefixProductParityObstruction</code>: a special mod-3 race tie forces the nonzero prefix product to be +1; the three reproduced prime prefixes are -1.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>Density-one-half balance alone cannot exclude special-prefix ties; an alternating abstract sequence ties at every target index.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>Q3SpecialPrimePrefixProductIsMinusOneModuloThree</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>Q3TieForcesMinusCountFourModuloEight</code>: a special mod-3 race tie forces N_2=4 mod 8 and v_2(N_2)=2.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>Product -1 is sufficient but not necessary for non-tie; the new mod-8 condition is necessary but not sufficient.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>Q3SpecialMinusOneResidueCountNeverFourModuloEight</code></dd></div>
           </dl>
-          <p class="workbench-ko">tie가 prefix product +1을 강제한다는 parity 장애물을 얻었고, 실제 세 prefix의 -1을 재현했습니다. 무한 전칭은 남습니다.</p>
+          <p class="workbench-ko">tie가 N_2=4 mod 8을 강제함을 증명했고 실제 세 prefix는 7,1,7입니다. 무한 전칭은 남습니다.</p>
           <a class="proof-card-link" href="goldbach.html">Open current Goldbach page / 현재 페이지</a>
         </article>
         <article class="workbench-problem-card">
           <header><span>04 · ROOT CONVERGENTS</span><b>OPEN</b></header>
           <h2>Twin Prime <small>쌍둥이 소수 추측</small></h2>
           <dl>
-            <div><dt>Exact result / 확립</dt><dd><code>BidirectionalSecondOrderCongruenceAnd1024ConvergentCertificate</code>: a unit coefficient forces congruences modulo v² and u²; 1,024 certified convergents fail them jointly.</dd></div>
-            <div><dt>No-go / 폐기</dt><dd>The bidirectional first-order pair is incomplete; exact convergents pass it while failing second order.</dd></div>
-            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>NoUniqueRootConvergentSatisfiesBothSecondOrderCongruences</code></dd></div>
+            <div><dt>Exact result / 확립</dt><dd><code>BidirectionalThirdOrderCongruenceAnd1024ConvergentCertificate</code>: a unit coefficient forces congruences modulo v³ and u³; 1,024 certified convergents fail them jointly.</dd></div>
+            <div><dt>No-go / 폐기</dt><dd>The second-order pair is not the sharpest available finite jet; the third-order terms are exact.</dd></div>
+            <div><dt>Next lemma / 다음 보조정리</dt><dd><code>NoUniqueRootConvergentSatisfiesBothThirdOrderCongruences</code></dd></div>
           </dl>
-          <p class="workbench-ko">분모·분자 양쪽 2차 필요조건을 얻고 519자리 분모까지 1,024개를 배제했습니다. 모든 이후 수렴분수가 남습니다.</p>
+          <p class="workbench-ko">분모·분자 양쪽 3차 필요조건을 얻고 519자리 분모까지 1,024개를 배제했습니다. 모든 이후 수렴분수가 남습니다.</p>
           <a class="proof-card-link" href="twin-prime.html">Open current Twin Prime page / 현재 페이지</a>
         </article>
       </section>
       <section class="workbench-progression">
         <div class="workbench-section-heading">
           <p class="brief-kicker">RESEARCH PROGRESSION / 연구 진행</p>
-          <h2>261 tickets reduced to four meaningful eras</h2>
+          <h2>262 tickets reduced to four meaningful eras</h2>
           <p>과거 산출물은 삭제하지 않고, 현재 결론에 기여한 역할로 압축합니다.</p>
         </div>
         <ol>
           <li><span>01</span><strong>TICKET-1–45 · Foundation</strong><p>계산 파이프라인, 반례 탐색, 증명 상태 게이트와 재현 계약을 구축했습니다.</p></li>
           <li><span>02</span><strong>TICKET-46–99 · Route falsification</strong><p>고정 유한상태·고정 지평·단순 스칼라 랭크 등 반복적으로 실패하는 경로를 반례로 분리했습니다.</p></li>
           <li><span>03</span><strong>TICKET-100–160 · Analytic audits</strong><p>스펙트럼, 원방법, 2-adic cylinder, Haar/Type-II 도구의 정확한 역할과 양화사 간극을 정리했습니다.</p></li>
-          <li><span>04</span><strong>TICKET-161–261 · Signed transfer barriers and sharpness audits</strong><p>가중 변동의 sharpness, 모든 조화파, 특수 prefix product, 양방향 2차 합동식으로 다음 무한 추정의 정확한 대상을 다시 설정했습니다.</p></li>
+          <li><span>04</span><strong>TICKET-161–262 · Signed transfer barriers and sharpness audits</strong><p>정확한 limsup 문턱, 고정 유한 조화파 no-go, 특수 mod-8 count, 양방향 3차 합동식으로 다음 무한 추정의 대상을 다시 설정했습니다.</p></li>
         </ol>
       </section>
 
@@ -115,6 +115,9 @@
           <p data-i18n="proof.boundary.body">PrimeProject can make failed proof routes visible, reproduce finite evidence, and rank obligations. It must not present a conjecture as solved until an infinite argument survives formal and peer review.</p>
         </div>
         <nav aria-label="Current research documents">
+          <a href="../docs/limsup-finiteharmonic-mod8-thirdorder.ko.md">TICKET-262 한국어 보고서</a>
+          <a href="../docs/limsup-finiteharmonic-mod8-thirdorder.md">TICKET-262 English report</a>
+          <a href="../data/open-problem/ticket262-limsup-finiteharmonic-mod8-thirdorder.json">TICKET-262 machine JSON</a>
           <a href="../docs/sharpness-weyl-ties-dualcongruence.ko.md">TICKET-261 한국어 보고서</a>
           <a href="../docs/sharpness-weyl-ties-dualcongruence.md">TICKET-261 English report</a>
           <a href="../data/open-problem/ticket261-sharpness-weyl-ties-dualcongruence.json">TICKET-261 machine JSON</a>
@@ -263,7 +266,7 @@
         </nav>
       </section>
     </main>
-    <script src="../assets/i18n.js?v=20260831-ticket261"></script>
+    <script src="../assets/i18n.js?v=20260831-ticket262"></script>
   </body>
 </html>
 
