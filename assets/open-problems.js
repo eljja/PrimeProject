@@ -48,6 +48,7 @@ let ticket249AttemptGlobal = null;
 let ticket250AttemptGlobal = null;
 let ticket251AttemptGlobal = null;
 let ticket252AttemptGlobal = null;
+let ticket264AttemptGlobal = null;
 let ticket263AttemptGlobal = null;
 let ticket262AttemptGlobal = null;
 let ticket261AttemptGlobal = null;
@@ -18054,7 +18055,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket263SharpEnvelopeDiagonalMod32NinthOrder(ticket263AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket264AsymmetricThresholdFixedTwoAdicHead(ticket264AttemptGlobal) ||
+      renderTicket263SharpEnvelopeDiagonalMod32NinthOrder(ticket263AttemptGlobal) ||
       renderTicket262LimsupFiniteHarmonicMod8ThirdOrder(ticket262AttemptGlobal) ||
       renderTicket261SharpnessWeylTiesDualCongruence(ticket261AttemptGlobal) ||
       renderTicket260WeightedEquidistributionPrimeRaceVariableMod(ticket260AttemptGlobal) ||
@@ -18640,6 +18642,26 @@ async function loadTicket219Attempt() {
     return false;
   }
 }
+async function loadTicket264Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket264-asymmetric-threshold-fixed2adic-head.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket264AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket264AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket264AttemptGlobal) {
+      ticket264AttemptGlobal.bounded_result = ticket264AttemptGlobal.bounded_result || {};
+      ticket264AttemptGlobal.bounded_result.asymmetric_threshold_fixed2adic_head_audit = payload.asymmetric_threshold_fixed2adic_head_audit || {};
+    }
+    return Boolean(ticket264AttemptGlobal);
+  } catch (_error) {
+    ticket264AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket263Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket263-sharp-envelope-diagonal-mod32-ninthorder.json", { cache: "no-store" });
@@ -21079,6 +21101,7 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket264Loaded = await loadTicket264Attempt();
   const ticket263Loaded = await loadTicket263Attempt();
   const ticket262Loaded = await loadTicket262Attempt();
   const ticket261Loaded = await loadTicket261Attempt();
@@ -21086,6 +21109,10 @@ async function main() {
   const ticket259Loaded = await loadTicket259Attempt();
   const ticket258Loaded = await loadTicket258Attempt();
   const ticket257Loaded = await loadTicket257Attempt();
+  if (!ticket264Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket264AttemptGlobal) await loadTicket264Attempt();
+  }
   if (!ticket263Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));
     if (!ticket263AttemptGlobal) await loadTicket263Attempt();

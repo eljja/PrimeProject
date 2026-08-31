@@ -58,16 +58,16 @@
     "nav.logs": { en: "Logs", ko: "로그" },
     "nav.notes": { en: "Conjecture Notes", ko: "추측 노트" },
     "brief.title": {
-      en: "Four open problems, four exact partial theorems sharpened",
-      ko: "네 미해결 문제, 네 정확한 부분정리를 더 날카롭게 하다",
+      en: "Four open problems, three partial theorems and one route no-go",
+      ko: "네 미해결 문제, 부분정리 세 개와 경로 no-go 하나",
     },
     "brief.subtitle": {
-      en: "PrimeProject has not solved any conjecture. TICKET-263 proves four partial theorems: an RH sharp reciprocal envelope, a growing-cutoff Weyl equivalence, a Goldbach mod-32 phase obstruction, and Twin ninth-order tail exactness.",
-      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-263은 RH sharp reciprocal envelope, Collatz growing-cutoff Weyl 동치, Goldbach mod-32 위상 장애물, Twin 9차 tail 필요충분 판정을 증명합니다.",
+      en: "PrimeProject has not solved any conjecture. TICKET-264 proves three partial theorems and one exact route no-go: an RH asymmetric envelope, an explicit Weyl threshold equivalence, fixed two-adic Goldbach insufficiency, and Twin finite-head closure.",
+      ko: "PrimeProject는 아직 어떤 추측도 해결하지 못했습니다. TICKET-264는 RH 비대칭 envelope, Collatz 명시적 threshold 동치, Goldbach 고정 2진 no-go, Twin 유한 머리 폐쇄를 확정합니다.",
     },
     "rail.researchStatus": {
-      en: "All four conjectures remain open_not_proven. TICKET-263 proves four partial theorems, with a resolution count of zero.",
-      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-263은 부분정리 네 개를 증명하며, 해결된 난제는 0개입니다.",
+      en: "All four conjectures remain open_not_proven. TICKET-264 proves three partial theorems and one exact route no-go, with a resolution count of zero.",
+      ko: "네 난제 모두 open_not_proven, 즉 미해결입니다. TICKET-264는 부분정리 세 개와 exact no-go 하나를 확정하며, 해결된 난제는 0개입니다.",
     },
     "rail.researchLink": {
       en: "Four-problem status",

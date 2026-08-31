@@ -1,0 +1,604 @@
+{
+  "schema": "primeproject.ticket264-asymmetric-threshold-fixed2adic-head.v1",
+  "generated_at": "2026-09-01T23:59:30+09:00",
+  "status": "open_not_proven",
+  "problem_id": "twin-prime",
+  "ticket_id": "TP-TICKET-264",
+  "theorem_name": "AllSubthresholdUniqueRootConvergentsAreUnitFree",
+  "declared_proposition": "Let p_n/q_n be the certified continued-fraction convergents to the unique real root used by the degree-17 Twin branch, and put V_0=188580743973175296. Every convergent with q_n<=V_0 is among n=0,...,37, and none satisfies B_1(p_n,q_n)=+1 or -1. The next denominator is q_38=309742427372962732>V_0. Thus the entire finite subthreshold head is closed; only the infinite n>=38 tail remains.",
+  "mathematical_argument": "The certified rational root bracket fixes the first 39 continued-fraction terms. Exact recurrence gives nondecreasing denominators and strict increase after the initial modulus-one duplication. Direct integer evaluation of B_1 on indices 0 through 37 gives no unit value. Since q_37=110221790993960069<=V_0<q_38 and all later continued-fraction denominators strictly increase, there can be no additional subthreshold convergent. TICKET-263's ninth-order equivalence applies in the later root-cone tail, but this theorem does not exclude infinitely many later congruence passes.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Let p_n/q_n be the certified continued-fraction convergents to the unique real root used by the degree-17 Twin branch, and put V_0=188580743973175296. Every convergent with q_n<=V_0 is among n=0,...,37, and none satisfies B_1(p_n,q_n)=+1 or -1. The next denominator is q_38=309742427372962732>V_0. Thus the entire finite subthreshold head is closed; only the infinite n>=38 tail remains.",
+    "proof": "The certified rational root bracket fixes the first 39 continued-fraction terms. Exact recurrence gives nondecreasing denominators and strict increase after the initial modulus-one duplication. Direct integer evaluation of B_1 on indices 0 through 37 gives no unit value. Since q_37=110221790993960069<=V_0<q_38 and all later continued-fraction denominators strictly increase, there can be no additional subthreshold convergent. TICKET-263's ninth-order equivalence applies in the later root-cone tail, but this theorem does not exclude infinitely many later congruence passes.",
+    "coefficient_vector_a_0_through_a_17": [
+      1,
+      17,
+      272,
+      1360,
+      9520,
+      24752,
+      99008,
+      155584,
+      388960,
+      388960,
+      622336,
+      396032,
+      396032,
+      152320,
+      87040,
+      17408,
+      4352,
+      256
+    ],
+    "ninth_order_exactness_threshold_V_0": "188580743973175296",
+    "exact_head_and_crossing_rows": [
+      {
+        "term_index": 0,
+        "partial_quotient": -1,
+        "convergent_numerator": "-1",
+        "convergent_denominator": "1",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-470832",
+        "B_1_value_sha256": "37cd749aa7544b5aecda1f8b5904354a08bee08661acd94de750d41fd91ac8cd",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 1,
+        "partial_quotient": 1,
+        "convergent_numerator": "0",
+        "convergent_denominator": "1",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "256",
+        "B_1_value_sha256": "51e8ea280b44e16934d4d611901f3d3afc41789840acdff81942c2f65009cd52",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 2,
+        "partial_quotient": 12,
+        "convergent_numerator": "-1",
+        "convergent_denominator": "13",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-95516898540708139236",
+        "B_1_value_sha256": "5f327a07c9bee56b74b0476ff8d57b413b8963d5ed3e064e826c5c11f5488462",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 3,
+        "partial_quotient": 1,
+        "convergent_numerator": "-1",
+        "convergent_denominator": "14",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "168149422466766035245",
+        "B_1_value_sha256": "731fe43b7811858cc6302d132360f6b420a9aee98a74006af066769603e0a293",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 4,
+        "partial_quotient": 1,
+        "convergent_numerator": "-2",
+        "convergent_denominator": "27",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-5317780037859021548021504",
+        "B_1_value_sha256": "a394eb58e547148a6f8cbde149849e1ad062a7b91200a4799e4bbe2316c15254",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 5,
+        "partial_quotient": 1,
+        "convergent_numerator": "-3",
+        "convergent_denominator": "41",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "664350061251749956902087734",
+        "B_1_value_sha256": "515325a18c0f4e863010d5c00c70103ec0bff886ba7b3817e060ba9c6beb6e34",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 6,
+        "partial_quotient": 6,
+        "convergent_numerator": "-20",
+        "convergent_denominator": "273",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-3981861731931740333055927154302061052672",
+        "B_1_value_sha256": "6cbb2bf4fd993da8710673eb64755fc1a78f4550de5c4eea61605a9fd8a1845d",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 7,
+        "partial_quotient": 2,
+        "convergent_numerator": "-43",
+        "convergent_denominator": "587",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "407989483964181760920089327004517667352401680",
+        "B_1_value_sha256": "b914b65dcba60e9765482ed2c38d1245b628561b10b793f3042b47bf2d23c7f2",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 8,
+        "partial_quotient": 2,
+        "convergent_numerator": "-106",
+        "convergent_denominator": "1447",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-28259009449119050100864135306221384770736069935872",
+        "B_1_value_sha256": "8334091152ae53cee9d31252c7c9846e5389a13d1352a274c77da3143ffcafd9",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 9,
+        "partial_quotient": 26,
+        "convergent_numerator": "-2799",
+        "convergent_denominator": "38209",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "1325762886864157262514134964419083136121865027443651322004806983086582242",
+        "B_1_value_sha256": "1ccf15d03f85e0636e11526116cc282e27d28c491f3914a5b829e55c12ec9044",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 10,
+        "partial_quotient": 1,
+        "convergent_numerator": "-2905",
+        "convergent_denominator": "39656",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-458539296643307656152956367089440886816897181042517928810315909833011569",
+        "B_1_value_sha256": "6668f24fc21977e2a226458b55721fb659077f6647f4ec499516f7ec76218193",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 11,
+        "partial_quotient": 5,
+        "convergent_numerator": "-17324",
+        "convergent_denominator": "236489",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "282296530838376579679602352045816082559345361759406345146252097818825175178026556672",
+        "B_1_value_sha256": "2ba84187d0699dd2863020fcf36708f9a970c9a21ecdda6077676d350d01b53e",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 12,
+        "partial_quotient": 4,
+        "convergent_numerator": "-72201",
+        "convergent_denominator": "985612",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-365509642134664884936105017173852588346198722733016227463769636711468038816946071295164274877",
+        "B_1_value_sha256": "0c9c25a96e7b706222c1aa1211eb013213358432c6b6a149d0b6c5b81613b3ef",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 13,
+        "partial_quotient": 6,
+        "convergent_numerator": "-450530",
+        "convergent_denominator": "6150161",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "770909490972783528843133857567609941768547274448773275651382553726601307117041091934080317255043179753216",
+        "B_1_value_sha256": "13e338a92a8e41f05ef0cef6e42622f03560de7036785790de3a6d979c7dc93a",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 14,
+        "partial_quotient": 2,
+        "convergent_numerator": "-973261",
+        "convergent_denominator": "13285934",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-87551619924507233768071826552613692469236305498499700007571126791977739655731819750175111319769509966004274495",
+        "B_1_value_sha256": "8a74772a71baae8000ffbe00b4ab41773f854e73f5e52be5aed1ff5d380dc04c",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 15,
+        "partial_quotient": 1,
+        "convergent_numerator": "-1423791",
+        "convergent_denominator": "19436095",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "37782588994945433942494494426320795597330831770306712965347635176348279853584623828180157897582562678459629480384",
+        "B_1_value_sha256": "4244b1e6f4ef22ada9a29d0a050a5d28cc03b842b81abfe4de97beea22facca8",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 16,
+        "partial_quotient": 1,
+        "convergent_numerator": "-2397052",
+        "convergent_denominator": "32722029",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-3089896592966453501927450540874038565593674197828851729423072586668501658122940016518807343600229568271458738851584",
+        "B_1_value_sha256": "b96003b43660e552c6bae3be025055dd63aa11be8c71b52144221bfa441e70e0",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 17,
+        "partial_quotient": 50,
+        "convergent_numerator": "-121276391",
+        "convergent_denominator": "1655537545",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "5345815276161077011001651342506957110817867038203985721844278275793672363024235227579856188715860703346198060488654830649405500859112357446834",
+        "B_1_value_sha256": "89540ba9b7174bd9f5cdc56b314de02380a6148c092c8401873415d304a1363d",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 18,
+        "partial_quotient": 1,
+        "convergent_numerator": "-123673443",
+        "convergent_denominator": "1688259574",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-478152243460032438641303756390012889065763917151659594329633119543484958275919186721935581279715102921257074498437645243865776537205016865933",
+        "B_1_value_sha256": "6900f45858730bcb56a9799afb4f50a0ef341125bfb3762015a19a3905ebf08f",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 19,
+        "partial_quotient": 15,
+        "convergent_numerator": "-1976378036",
+        "convergent_denominator": "26979431155",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "2521947398169090751647534976871931041902785697360371816292217022615126340000729857264270832940972155570017905426388544585858984093912441486397690935140965252864",
+        "B_1_value_sha256": "1a67fba9c691e1573fef31a65086601b4f6e67bb3ac76f4a49ab9f44fbee6501",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 20,
+        "partial_quotient": 3,
+        "convergent_numerator": "-6052807551",
+        "convergent_denominator": "82626553039",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-64991751277976765898304605989331194512608297770742545901950285200545916811528105377706136152925226044682000711734315793223066439253039683811349992819138099616001380480",
+        "B_1_value_sha256": "13b731160ff3c07e9a89025e197cf669ec6ea835ba0e470e09c682ab33e3c78f",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 21,
+        "partial_quotient": 2,
+        "convergent_numerator": "-14081993138",
+        "convergent_denominator": "192232537233",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "15521842630655226296698202229469736670582714472186610185109308468427378630673976746393314487035345710392349157333888584991469587724644618395526054636095161560525509936209664",
+        "B_1_value_sha256": "6e11e5edece9f95b9db1804a3aceca40d0fd0930dce2f2d3824c0fa58172f28e",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 22,
+        "partial_quotient": 3,
+        "convergent_numerator": "-48298786965",
+        "convergent_denominator": "659324164738",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-482884996071548159355276222516574562554156187547401453227355673667000518359961396602045231313304336628277256888287450699755631013927795293268510239555950104249070977748790978885107",
+        "B_1_value_sha256": "8baf367e377a51ce5014a48a8200a4c4bf274515fc75ce2b2a0b50709352b510",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 23,
+        "partial_quotient": 11,
+        "convergent_numerator": "-545368649753",
+        "convergent_denominator": "7444798349351",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "26584401275943150519586768665151223077083212542380794764223548039236481722756596666245848536623222322682731918112126855636380459774044321226865531327538910375676900325511392356071693695172816377854",
+        "B_1_value_sha256": "47043b550ac94c63274112d6bd1f15222196d2236805bb1fd89491fbe3a2d62e",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 24,
+        "partial_quotient": 1,
+        "convergent_numerator": "-593667436718",
+        "convergent_denominator": "8104122514089",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-27744087407725839066444735391591420633236125751141291086038912709386527367809070237980257956613024069921015519430036351188213383353511445850134970954248848120950188317773592094715457674594708800768",
+        "B_1_value_sha256": "6fc1bdadf32cce5408894ae93432d92194afae5ad620d212d9079e338b94a5a8",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 25,
+        "partial_quotient": 3,
+        "convergent_numerator": "-2326370959907",
+        "convergent_denominator": "31757165891618",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "62168862995638394413478669368541303204014231889386732975294735816567887690493198284759820276037961861868314048687120252022472955071884876613237050887249092319226002031103629809194873820807165000799873687455",
+        "B_1_value_sha256": "a19d6ad0d5175b297cba47ccfb985179de040cd3b626b584430f2db4e4d95ba9",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 26,
+        "partial_quotient": 1,
+        "convergent_numerator": "-2920038396625",
+        "convergent_denominator": "39861288405707",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-896007006127701492182894641006889565423851589914205899429411370212724158617957655393348233025330136643937112185069260774751912010956645736193594292543407888478071807904221451018810564686311449939486628214358",
+        "B_1_value_sha256": "59e0b0d975bec0a51659016e82c47b54dece3ea743130acb3a4a0896b25d8dc4",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 27,
+        "partial_quotient": 2,
+        "convergent_numerator": "-8166447753157",
+        "convergent_denominator": "111479742703032",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "7956308001082848538695263984948747623592472276754673712531616034185585962459186614274309882030552646782631362509908578045925162968474379491529619561051997776651204526342417613835472727874760805884567324237440720051",
+        "B_1_value_sha256": "79eb6cbb9d7564051dbf934836d327ae8483df064ce8b16bba54e67327d8158e",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 28,
+        "partial_quotient": 1,
+        "convergent_numerator": "-11086486149782",
+        "convergent_denominator": "151341031108739",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-611341031924468929933022965229711475744774780003930342164028293071070030234517504138209170840193040904647727313552065333580588575842722000150246888214785333670861142674096443540151727927666908958366999803031349416704",
+        "B_1_value_sha256": "cc8171da9f883e5a90731e819ec5e3a5ffb7e7fd363d0c547a9ab232000e062e",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 29,
+        "partial_quotient": 1,
+        "convergent_numerator": "-19252933902939",
+        "convergent_denominator": "262820773811771",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "3063129173434221201377475718439924919581503958991355834833920378651588502873950535576769078153093373640010488510735240036305511626607170429179698566946010624787427519575094767952530070136719816849993057419773337508758480",
+        "B_1_value_sha256": "cfbd5fcf28b3339b2dc7bb05ca6c09043c8e2a57d2353f588180daa1c08aa4f0",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 30,
+        "partial_quotient": 1,
+        "convergent_numerator": "-30339420052721",
+        "convergent_denominator": "414161804920510",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-1619932107644917488113300633373131148392630887506034367942716628710442171215548764401005395437026414080773776778543145479500615847504288919542127442424868041677965694364806691948143174411665271658436113320710292757280938771",
+        "B_1_value_sha256": "48a8ff89f2207fe2d99126e28eb5b2526b5c091bf99347fec3766787c59c56d3",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 31,
+        "partial_quotient": 2,
+        "convergent_numerator": "-79931774008381",
+        "convergent_denominator": "1091144383652791",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "6407971119628177763751945175373336316707506071466872709126021451569057034462274464072222512521072221830911160807264895085101184747806443716246261780800896847205376675375650059759746493541833023154473726705717342327034964155217258",
+        "B_1_value_sha256": "4b35d9e271b4a88549b9aca0d1e228d6a69a58d89779a9018e47b32c9ce96ec9",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 32,
+        "partial_quotient": 1,
+        "convergent_numerator": "-110271194061102",
+        "convergent_denominator": "1505306188573301",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-399290076726950685113150774935032872331755814286019945480223333331036441304989846496904654822868578828856644387284068270945680392929969263952844906273920612918077744535042374254670195820910896286237993788569078776288415919108110592",
+        "B_1_value_sha256": "05a1d03e06c8c855252baee2a175e1db7ddbc8257f5fd585843ea714f80f3647",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 33,
+        "partial_quotient": 2,
+        "convergent_numerator": "-300474162130585",
+        "convergent_denominator": "4101756760799393",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "2812495399789488633626439309966311153588140379965543500792619611821704497488885697932840240191416435196446880212138192421212665042233525100440119060852880244858782018187970765885346753107919524843184181456821433918030938000370422653974488",
+        "B_1_value_sha256": "a3b878b043942bce71d5f0a6f3716a599fe88a2bef1fc89a2f40b1c7b4319b50",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 34,
+        "partial_quotient": 1,
+        "convergent_numerator": "-410745356191687",
+        "convergent_denominator": "5607062949372694",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-130192148788707984271833533102568587826227464360300393741781346481111727010135438880341193942699832942942062635539224269479620141456105121254040078043645380128694802811920160689871883110369995388733314055406968036548513848636656421221358609",
+        "B_1_value_sha256": "d8f73b1ee60970a7ba61dbf7b5181f7c43b304b0b4fa0359f73a2a947f2fc19d",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 35,
+        "partial_quotient": 3,
+        "convergent_numerator": "-1532710230705646",
+        "convergent_denominator": "20922945608917475",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "38977609413707186637659222500300981914198611851682604980561241329529345108323185600725074406267299237789139996417936010684098488844053214786166665712536686864660193964545064338200220699963120662023629406263437144334631799083213712649217727426147584",
+        "B_1_value_sha256": "03f70e499156f49c61bedf8928f70c78df84be280e15e807c74767e3b5f492f3",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 36,
+        "partial_quotient": 4,
+        "convergent_numerator": "-6541586279014271",
+        "convergent_denominator": "89298845385042594",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "-340318661959896358366932700318757008074359200861410857733054452085892291087720382733390297764501856731274291425446769198175332408060584074372955558580696786872627945849256928057420196056034078777700321632822135231776940282486722335565723332356807525841316605",
+        "B_1_value_sha256": "9e65fd21cccf3d855004c8bd10ffabb1c4c5b86a5b01ad4865269239a176f58c",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 37,
+        "partial_quotient": 1,
+        "convergent_numerator": "-8074296509719917",
+        "convergent_denominator": "110221790993960069",
+        "at_or_below_exactness_threshold": true,
+        "B_1_value": "3835752051870560635438266318876390394715265895404483074865462182033488606430996272424425379468293659109357746979001324589920816036989912506698194624208536914722303062268605630917275180291968295601722328951439523334395094752740949665115517533552661219476455976",
+        "B_1_value_sha256": "00f184448eed67a2911d46d4ec9b24f6613069ace882ea4d3c463673aa60cc92",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      },
+      {
+        "term_index": 38,
+        "partial_quotient": 2,
+        "convergent_numerator": "-22690179298454105",
+        "convergent_denominator": "309742427372962732",
+        "at_or_below_exactness_threshold": false,
+        "B_1_value": "-33363199559382030028715575988942244874950604817498985306659508573696759998664822324545193699895421602200287786004780202224549091811981455307213886797658918557426949205972409541547191398215262163450958842433994259340960166235940360970968598267590279832088240594845293",
+        "B_1_value_sha256": "5fc2f80d549bf34408536b369e457f9a2bf9a6cd42178878843d72320692dbd4",
+        "direct_unit_free": true,
+        "denominator_nondecreasing": true,
+        "row_verified": true
+      }
+    ],
+    "final_exact_root_bracket": {
+      "lower": {
+        "exact": "-2267132217755429090728180696977771/30948500982134506872478105600000000",
+        "numerator": -2267132217755429090728180696977771,
+        "denominator": 30948500982134506872478105600000000,
+        "display_float": -0.07325499283678281
+      },
+      "upper": {
+        "exact": "-7254823096817373090330178230328867/99035203142830421991929937920000000",
+        "numerator": -7254823096817373090330178230328867,
+        "denominator": 99035203142830421991929937920000000,
+        "display_float": -0.07325499283678281
+      }
+    },
+    "algorithm": "certified rational continued fraction plus exact degree-17 integer evaluation through the first threshold crossing",
+    "complexity": "O(K*17) exact big-integer terms for K=39",
+    "random_seed": null,
+    "input_range": {
+      "certified_convergent_count": 39
+    },
+    "transcript_sha256": "53b7d19352a60fad2e2c26ec11b6f4d9cf5b3e3a879620251b024171657ccaf6",
+    "aggregate": {
+      "all_subthreshold_unique_root_convergents_unit_free_proved": true,
+      "subthreshold_convergent_count": 38,
+      "first_above_threshold_term_index": 38,
+      "last_subthreshold_denominator": "110221790993960069",
+      "first_above_threshold_denominator": "309742427372962732",
+      "crossing_verified": true,
+      "all_unique_root_convergents_excluded": false,
+      "twin_prime_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "The first 39 certified convergents locate q_37<=V_0<q_38 and evaluate all 38 subthreshold B_1 values exactly.",
+  "logical_limit": "The finite q<=V_0 head is closed, but infinitely many q>V_0 convergents remain and no recurrence excludes all ninth-order passes.",
+  "route_decision": {
+    "discard": "leaving the finitely many unique-root convergents below the TICKET-263 exactness threshold as an unresolved global subcase",
+    "parked": [
+      "global exclusion of joint ninth-order congruences on every later unique-root convergent"
+    ],
+    "retain": "the certified first threshold crossing and exact unit-free evaluation of the complete finite head",
+    "next_single_lemma": "NoLaterUniqueRootConvergentSatisfiesJointNinthOrderCongruences"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "TP-T263",
+        "label": "NinthOrderJointCongruenceExactOnRootCone",
+        "status": "proved"
+      },
+      {
+        "id": "TP-T264",
+        "label": "AllSubthresholdUniqueRootConvergentsAreUnitFree",
+        "status": "proved"
+      },
+      {
+        "id": "TP-CERT264",
+        "label": "AllSubthresholdUniqueRootConvergentsAreUnitFreeExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "TP-REJECT264",
+        "label": "SomeAdditionalSubthresholdUniqueRootConvergentMayRemainBeyondTheCertifiedHead",
+        "status": "disproved"
+      },
+      {
+        "id": "TP-OPEN264",
+        "label": "NoLaterUniqueRootConvergentSatisfiesJointNinthOrderCongruences",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "TP-T263",
+        "TP-T264"
+      ],
+      [
+        "TP-T264",
+        "TP-CERT264"
+      ],
+      [
+        "TP-T264",
+        "TP-REJECT264"
+      ],
+      [
+        "TP-T264",
+        "TP-OPEN264"
+      ]
+    ],
+    "resolution_path": [
+      "TP-T263",
+      "TP-T264",
+      "TP-OPEN264"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No twin-prime proof or counterexample; only one degree-17 branch's finite continued-fraction head is completely closed."
+}

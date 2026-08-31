@@ -162,6 +162,11 @@ jobs:
           python -m unittest tests.test_ticket263_sharp_envelope_diagonal_mod32_ninthorder
           python scripts/verify_ticket263_structure.py
 
+      - name: Unit and structure check TICKET-264
+        run: |
+          python -m unittest tests.test_ticket264_asymmetric_threshold_fixed2adic_head
+          python scripts/verify_ticket264_structure.py
+
       - name: Verify open problem structure
         run: python scripts/verify_open_problem_structure.py
 
@@ -197,6 +202,7 @@ jobs:
           node --check assets/ticket261-open-problem.js
           node --check assets/ticket262-open-problem.js
           node --check assets/ticket263-open-problem.js
+          node --check assets/ticket264-open-problem.js
 
       - name: Verify GitHub Pages surface
         run: node scripts/verify_pages.cjs

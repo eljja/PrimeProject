@@ -44,23 +44,27 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-263
+## Latest handoff: TICKET-264
 
-Canonical artifact: `data/open-problem/ticket263-sharp-envelope-diagonal-mod32-ninthorder.json`.
+Canonical artifact: `data/open-problem/ticket264-asymmetric-threshold-fixed2adic-head.json`.
 
-TICKET-263 establishes `SharpReciprocalEnvelopeForScaledJumpMargin`, `PointwiseWeylCancellationIffSomeGrowingCutoffUniformCancellation`, `Q3TieForcesLevelPhasedModuloThirtyTwo`, and `NinthOrderJointCongruenceExactOnRootCone`. Twin Prime is the deep-focus track. Exact replay covers 192 reciprocal-envelope rows, five complete root grids with 119 harmonic identities, three actual q=3 Goldbach prefixes plus 15 symbolic mod-32 countermodels, and both signs on 1,024 certified Twin convergents through ninth order and a 519-digit denominator. The two apparent Twin ninth-order passes are the separately recorded modulus-one row `(u,v)=(-1,1)`, so the nontrivial pass count is zero. All conjecture and candidate-resolution counters remain zero.
+TICKET-264 establishes `AsymmetricReciprocalEnvelopeForScaledJumpMargin`, `PointwiseWeylCancellationIffExplicitThresholdCutoffDiverges`, `EveryFixedTwoAdicTieSignatureHasNonTieCountModels`, and `AllSubthresholdUniqueRootConvergentsAreUnitFree`. RH is the deep-focus track. Exact replay covers 192 asymmetric reciprocal rows, six complete grids with 252 threshold checks, 16 two-adic phase periods plus 242 valid shifted-count countermodels, and 39 certified Twin convergents through the first exactness-threshold crossing. All conjecture and candidate-resolution counters remain zero.
 
-Continue only from the four `next_single_lemma` fields in `data/open-problem/four-problem-research-state.json`. Do not infer an actual-Weil reciprocal-envelope bound from the abstract RH theorem, a canonical Fermat-quotient cutoff schedule from the diagonal Collatz equivalence, all-level Goldbach non-tie from three actual mod-32 certificates, or all-convergent Twin exclusion from the finite ninth-order certificate and root-cone exactness theorem.
+Continue only from the four `next_single_lemma` fields in `data/open-problem/four-problem-research-state.json`. Do not infer an actual-Weil one-sided envelope bound from the abstract RH theorem, canonical Fermat-quotient cancellation from the explicit cutoff equivalence, actual prime-count realizability from Goldbach's abstract shifted models, or all-convergent Twin exclusion from the complete subthreshold certificate.
 
 Reproduce with:
 
 ```text
-python scripts/ticket263_sharp_envelope_diagonal_mod32_ninthorder.py
-python -m unittest tests.test_ticket263_sharp_envelope_diagonal_mod32_ninthorder -v
-python scripts/verify_ticket263_structure.py
+python scripts/ticket264_asymmetric_threshold_fixed2adic_head.py
+python -m unittest tests.test_ticket264_asymmetric_threshold_fixed2adic_head -v
+python scripts/verify_ticket264_structure.py
 ```
 
-Reports: [English](sharp-envelope-diagonal-mod32-ninthorder.md) and [한국어](sharp-envelope-diagonal-mod32-ninthorder.ko.md).
+Reports: [English](asymmetric-threshold-fixed2adic-head.md) and [한국어](asymmetric-threshold-fixed2adic-head.ko.md).
+
+## Preserved handoff: TICKET-263
+
+Canonical artifact: `data/open-problem/ticket263-sharp-envelope-diagonal-mod32-ninthorder.json`. Its four partial theorems, 1,024-convergent certificate, and conservative claim boundary remain preserved.
 
 ## Preserved handoff: TICKET-262
 

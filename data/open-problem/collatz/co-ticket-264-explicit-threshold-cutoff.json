@@ -1,0 +1,2925 @@
+{
+  "schema": "primeproject.ticket264-asymmetric-threshold-fixed2adic-head.v1",
+  "generated_at": "2026-09-01T23:59:30+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-264",
+  "theorem_name": "PointwiseWeylCancellationIffExplicitThresholdCutoffDiverges",
+  "declared_proposition": "For any sequence x_j in R/Z put W_N(h)=N^(-1)sum_(j<=N) exp(2*pi*i*h*x_j), E_N(H)=max_(1<=|h|<=H)|W_N(h)|, and K_N=max({0} union {1<=H<=N:E_N(H)<=1/H}). Then W_N(h)->0 for every fixed nonzero integer h if and only if K_N->infinity. When K_N>=1 one has E_N(K_N)<=1/K_N by construction.",
+  "mathematical_argument": "The admissible H form an initial segment because E_N(H) is nondecreasing while 1/H is decreasing. If every fixed harmonic vanishes, then for each fixed H the maximum of its finitely many harmonics tends to zero, so eventually E_N(H)<=1/H and K_N>=H. Conversely, if K_N tends to infinity, every fixed h is eventually inside the cutoff and |W_N(h)|<=E_N(K_N)<=1/K_N->0. The complete M-point grids have exact zero sums for 1<=|h|<M and magnitude one at h=M, hence K_M=M-1. No canonical Fermat-quotient cancellation estimate follows from this logical equivalence.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For any sequence x_j in R/Z put W_N(h)=N^(-1)sum_(j<=N) exp(2*pi*i*h*x_j), E_N(H)=max_(1<=|h|<=H)|W_N(h)|, and K_N=max({0} union {1<=H<=N:E_N(H)<=1/H}). Then W_N(h)->0 for every fixed nonzero integer h if and only if K_N->infinity. When K_N>=1 one has E_N(K_N)<=1/K_N by construction.",
+    "proof": "The admissible H form an initial segment because E_N(H) is nondecreasing while 1/H is decreasing. If every fixed harmonic vanishes, then for each fixed H the maximum of its finitely many harmonics tends to zero, so eventually E_N(H)<=1/H and K_N>=H. Conversely, if K_N tends to infinity, every fixed h is eventually inside the cutoff and |W_N(h)|<=E_N(K_N)<=1/K_N->0. The complete M-point grids have exact zero sums for 1<=|h|<M and magnitude one at h=M, hence K_M=M-1. No canonical Fermat-quotient cancellation estimate follows from this logical equivalence.",
+    "exact_complete_grid_threshold_replays": [
+      {
+        "complete_grid_size_N": 4,
+        "canonical_threshold_cutoff_K_N": 3,
+        "next_harmonic_fails": true,
+        "harmonic_tests": [
+          {
+            "harmonic_h": 1,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 2,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 3,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 4,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "threshold_one_over_h_squared_pass": false,
+            "row_verified": true
+          }
+        ],
+        "case_verified": true
+      },
+      {
+        "complete_grid_size_N": 8,
+        "canonical_threshold_cutoff_K_N": 7,
+        "next_harmonic_fails": true,
+        "harmonic_tests": [
+          {
+            "harmonic_h": 1,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 2,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 3,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 4,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 5,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 6,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 7,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 8,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "threshold_one_over_h_squared_pass": false,
+            "row_verified": true
+          }
+        ],
+        "case_verified": true
+      },
+      {
+        "complete_grid_size_N": 16,
+        "canonical_threshold_cutoff_K_N": 15,
+        "next_harmonic_fails": true,
+        "harmonic_tests": [
+          {
+            "harmonic_h": 1,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 2,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 3,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 4,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 5,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 6,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 7,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 8,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 9,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 10,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 11,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 12,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 13,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 14,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 15,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 16,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "threshold_one_over_h_squared_pass": false,
+            "row_verified": true
+          }
+        ],
+        "case_verified": true
+      },
+      {
+        "complete_grid_size_N": 32,
+        "canonical_threshold_cutoff_K_N": 31,
+        "next_harmonic_fails": true,
+        "harmonic_tests": [
+          {
+            "harmonic_h": 1,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 2,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 3,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 4,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 5,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 6,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 7,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 8,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 9,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 10,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 11,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 12,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 13,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 14,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 15,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 16,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 17,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 18,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 19,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 20,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 21,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 22,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 23,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 24,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 25,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 26,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 27,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 28,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 29,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 30,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 31,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 32,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "threshold_one_over_h_squared_pass": false,
+            "row_verified": true
+          }
+        ],
+        "case_verified": true
+      },
+      {
+        "complete_grid_size_N": 64,
+        "canonical_threshold_cutoff_K_N": 63,
+        "next_harmonic_fails": true,
+        "harmonic_tests": [
+          {
+            "harmonic_h": 1,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 2,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 3,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 4,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 5,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 6,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 7,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 8,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 9,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 10,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 11,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 12,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 13,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 14,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 15,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 16,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 17,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 18,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 19,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 20,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 21,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 22,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 23,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 24,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 25,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 26,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 27,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 28,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 29,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 30,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 31,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 32,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 33,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 34,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 35,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 36,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 37,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 38,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 39,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 40,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 41,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 42,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 43,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 44,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 45,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 46,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 47,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 48,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 49,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 50,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 51,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 52,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 53,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 54,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 55,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 56,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 57,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 58,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 59,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 60,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 61,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 62,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 63,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 64,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "threshold_one_over_h_squared_pass": false,
+            "row_verified": true
+          }
+        ],
+        "case_verified": true
+      },
+      {
+        "complete_grid_size_N": 128,
+        "canonical_threshold_cutoff_K_N": 127,
+        "next_harmonic_fails": true,
+        "harmonic_tests": [
+          {
+            "harmonic_h": 1,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 2,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 3,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 4,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 5,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 6,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 7,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 8,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 9,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 10,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 11,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 12,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 13,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 14,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 15,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 16,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 17,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 18,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 19,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 20,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 21,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 22,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 23,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 24,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 25,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 26,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 27,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 28,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 29,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 30,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 31,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 32,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 33,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 34,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 35,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 36,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 37,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 38,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 39,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 40,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 41,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 42,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 43,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 44,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 45,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 46,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 47,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 48,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 49,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 50,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 51,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 52,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 53,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 54,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 55,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 56,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 57,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 58,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 59,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 60,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 61,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 62,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 63,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 64,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 65,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 66,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 67,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 68,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 69,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 70,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 71,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 72,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 73,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 74,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 75,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 76,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 77,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 78,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 79,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 80,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 81,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 82,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 83,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 84,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 85,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 86,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 87,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 88,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 89,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 90,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 91,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 92,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 93,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 94,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 95,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 96,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 97,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 98,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 99,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 100,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 101,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 102,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 103,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 104,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 105,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 106,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 107,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 108,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 109,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 110,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 111,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 112,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 113,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 114,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 115,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 116,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 117,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 118,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 119,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 120,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 121,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 122,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 123,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 124,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 125,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 126,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 127,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "threshold_one_over_h_squared_pass": true,
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 128,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "1/1",
+              "numerator": 1,
+              "denominator": 1,
+              "display_float": 1.0
+            },
+            "threshold_one_over_h_squared_pass": false,
+            "row_verified": true
+          }
+        ],
+        "case_verified": true
+      }
+    ],
+    "algorithm": "exact complete-root sum dichotomy and rational threshold comparisons",
+    "complexity": "O(sum M) exact integer/rational checks; the equivalence is symbolic",
+    "random_seed": null,
+    "input_range": {
+      "complete_grid_sizes": [
+        4,
+        8,
+        16,
+        32,
+        64,
+        128
+      ]
+    },
+    "transcript_sha256": "eff593194a2fdaa1dc70665a18cfe69598bde8468da4135f2d41e6195e5902eb",
+    "aggregate": {
+      "pointwise_weyl_iff_explicit_threshold_cutoff_diverges_proved": true,
+      "complete_grid_replay_count": 6,
+      "harmonic_threshold_case_count": 252,
+      "canonical_fermat_quotient_threshold_cutoff_diverges_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Exact complete grids M=[4, 8, 16, 32, 64, 128] give 252 threshold checks; they are not canonical prefixes.",
+  "logical_limit": "K_N is explicit and finite-data-defined, but its divergence is not proved for the canonical Fermat-quotient sequence.",
+  "route_decision": {
+    "discard": "claiming that the TICKET-263 diagonal cutoff can only be existential and cannot be selected from the finite prefix data",
+    "parked": [
+      "a proof that the explicit threshold cutoff diverges for canonical fixed-base Fermat-quotient phases"
+    ],
+    "retain": "the exact maximal threshold functional K_N, equivalent to all fixed-h cancellation",
+    "next_single_lemma": "CanonicalFermatQuotientThresholdCutoffDiverges"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T263",
+        "label": "PointwiseWeylCancellationIffSomeGrowingCutoffUniformCancellation",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T264",
+        "label": "PointwiseWeylCancellationIffExplicitThresholdCutoffDiverges",
+        "status": "proved"
+      },
+      {
+        "id": "CO-CERT264",
+        "label": "PointwiseWeylCancellationIffExplicitThresholdCutoffDivergesExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "CO-REJECT264",
+        "label": "EveryDataDefinedGrowingCutoffFailsToEncodePointwiseWeylCancellation",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN264",
+        "label": "CanonicalFermatQuotientThresholdCutoffDiverges",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T263",
+        "CO-T264"
+      ],
+      [
+        "CO-T264",
+        "CO-CERT264"
+      ],
+      [
+        "CO-T264",
+        "CO-REJECT264"
+      ],
+      [
+        "CO-T264",
+        "CO-OPEN264"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T263",
+      "CO-T264",
+      "CO-OPEN264"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz proof or counterexample; this is a computable quantifier reformulation without a canonical arithmetic estimate."
+}
