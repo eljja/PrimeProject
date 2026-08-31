@@ -247,10 +247,17 @@ class Ticket262Tests(unittest.TestCase):
                 encoding="utf-8"
             )
         )
-        self.assertEqual((state["ticket"], state["parent_ticket"]), (262, 261))
+        self.assertGreaterEqual(state["ticket"], 262)
         self.assertEqual((state["resolved_count"], state["candidate_resolution_count"]), (0, 0))
         self.assertFalse(state["program_complete"])
-        self.assertEqual(state["deep_focus_problem"], "collatz")
+        if state["ticket"] == 262:
+            self.assertEqual(state["parent_ticket"], 261)
+            self.assertEqual(state["deep_focus_problem"], "collatz")
+        for key in ("riemann", "collatz", "goldbach", "twin_prime"):
+            self.assertIn(
+                self.root[key]["theorem_name"],
+                state["problems"][key]["established_results"],
+            )
 
 
 if __name__ == "__main__":

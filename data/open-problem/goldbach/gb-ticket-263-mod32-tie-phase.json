@@ -1,0 +1,423 @@
+{
+  "schema": "primeproject.ticket263-sharp-envelope-diagonal-mod32-ninthorder.v1",
+  "generated_at": "2026-09-01T23:59:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "goldbach",
+  "ticket_id": "GB-TICKET-263",
+  "theorem_name": "Q3TieForcesLevelPhasedModuloThirtyTwo",
+  "declared_proposition": "Put T_l=6*3^(6l+2)+3. If the nonzero modulo-three residue counts among the first T_l primes tie, then N_2=3^(6l+3)+1 and, according to l modulo four, N_2 is congruent modulo 32 to 28, 4, 12, or 20. Thus an actual N_2 outside the corresponding phase excludes the tie. For every l>=1 this phased congruence is not sufficient: the exact count pair (N_1,N_2)=(M-32,M+32), M=3^(6l+3)+1, has the same total and the required N_2 residue but is not tied.",
+  "mathematical_argument": "A tie splits the T_l-1 nonzero residues equally, giving M=3^(6l+3)+1. The powers of 3 modulo 32 have period eight. The exponent 6l+3 has residues 3,1,7,5 modulo eight as l has residues 0,1,2,3 modulo four, which yields 28,4,12,20 after adding one. The displayed shifted counts are nonnegative for l>=1, preserve the total 2M and N_2 modulo 32, but differ by 64. Therefore the condition is necessary and sharply non-sufficient beyond level zero.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "Put T_l=6*3^(6l+2)+3. If the nonzero modulo-three residue counts among the first T_l primes tie, then N_2=3^(6l+3)+1 and, according to l modulo four, N_2 is congruent modulo 32 to 28, 4, 12, or 20. Thus an actual N_2 outside the corresponding phase excludes the tie. For every l>=1 this phased congruence is not sufficient: the exact count pair (N_1,N_2)=(M-32,M+32), M=3^(6l+3)+1, has the same total and the required N_2 residue but is not tied.",
+    "proof": "A tie splits the T_l-1 nonzero residues equally, giving M=3^(6l+3)+1. The powers of 3 modulo 32 have period eight. The exponent 6l+3 has residues 3,1,7,5 modulo eight as l has residues 0,1,2,3 modulo four, which yields 28,4,12,20 after adding one. The displayed shifted counts are nonnegative for l>=1, preserve the total 2M and N_2 modulo 32, but differ by 64. Therefore the condition is necessary and sharply non-sufficient beyond level zero.",
+    "exact_actual_q3_mod32_certificate_rows": [
+      {
+        "level_l": 0,
+        "special_prime_prefix_length_T_l": 57,
+        "exact_nth_prime_endpoint": 269,
+        "actual_residue_counts_mod_3": [
+          1,
+          25,
+          31
+        ],
+        "actual_minus_one_count_N_2": 31,
+        "actual_N_2_mod_32": 31,
+        "tie_forced_count": 28,
+        "tie_forced_mod_32": 28,
+        "tie_excluded_by_mod_32_contrapositive": true,
+        "independent_residue_algorithms_agree": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 1,
+        "special_prime_prefix_length_T_l": 39369,
+        "exact_nth_prime_endpoint": 471749,
+        "actual_residue_counts_mod_3": [
+          1,
+          19663,
+          19705
+        ],
+        "actual_minus_one_count_N_2": 19705,
+        "actual_N_2_mod_32": 25,
+        "tie_forced_count": 19684,
+        "tie_forced_mod_32": 4,
+        "tie_excluded_by_mod_32_contrapositive": true,
+        "independent_residue_algorithms_agree": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 2,
+        "special_prime_prefix_length_T_l": 28697817,
+        "exact_nth_prime_endpoint": 547035959,
+        "actual_residue_counts_mod_3": [
+          1,
+          14347849,
+          14349967
+        ],
+        "actual_minus_one_count_N_2": 14349967,
+        "actual_N_2_mod_32": 15,
+        "tie_forced_count": 14348908,
+        "tie_forced_mod_32": 12,
+        "tie_excluded_by_mod_32_contrapositive": true,
+        "independent_residue_algorithms_agree": true,
+        "row_verified": true
+      }
+    ],
+    "exact_symbolic_mod32_phase_rows": [
+      {
+        "level_l": 0,
+        "level_phase_mod_4": 0,
+        "tie_forced_count": "28",
+        "tie_forced_mod_32": 28,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 1,
+        "level_phase_mod_4": 1,
+        "tie_forced_count": "19684",
+        "tie_forced_mod_32": 4,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 2,
+        "level_phase_mod_4": 2,
+        "tie_forced_count": "14348908",
+        "tie_forced_mod_32": 12,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 3,
+        "level_phase_mod_4": 3,
+        "tie_forced_count": "10460353204",
+        "tie_forced_mod_32": 20,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 4,
+        "level_phase_mod_4": 0,
+        "tie_forced_count": "7625597484988",
+        "tie_forced_mod_32": 28,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 5,
+        "level_phase_mod_4": 1,
+        "tie_forced_count": "5559060566555524",
+        "tie_forced_mod_32": 4,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 6,
+        "level_phase_mod_4": 2,
+        "tie_forced_count": "4052555153018976268",
+        "tie_forced_mod_32": 12,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 7,
+        "level_phase_mod_4": 3,
+        "tie_forced_count": "2954312706550833698644",
+        "tie_forced_mod_32": 20,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 8,
+        "level_phase_mod_4": 0,
+        "tie_forced_count": "2153693963075557766310748",
+        "tie_forced_mod_32": 28,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 9,
+        "level_phase_mod_4": 1,
+        "tie_forced_count": "1570042899082081611640534564",
+        "tie_forced_mod_32": 4,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 10,
+        "level_phase_mod_4": 2,
+        "tie_forced_count": "1144561273430837494885949696428",
+        "tie_forced_mod_32": 12,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 11,
+        "level_phase_mod_4": 3,
+        "tie_forced_count": "834385168331080533771857328695284",
+        "tie_forced_mod_32": 20,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 12,
+        "level_phase_mod_4": 0,
+        "tie_forced_count": "608266787713357709119683992618861308",
+        "tie_forced_mod_32": 28,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 13,
+        "level_phase_mod_4": 1,
+        "tie_forced_count": "443426488243037769948249630619149892804",
+        "tie_forced_mod_32": 4,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 14,
+        "level_phase_mod_4": 2,
+        "tie_forced_count": "323257909929174534292273980721360271853388",
+        "tie_forced_mod_32": 12,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 15,
+        "level_phase_mod_4": 3,
+        "tie_forced_count": "235655016338368235499067731945871638181119124",
+        "tie_forced_mod_32": 20,
+        "exact_two_adic_valuation_two": true,
+        "row_verified": true
+      }
+    ],
+    "exact_mod32_nonsufficiency_countermodels": [
+      {
+        "level_l": 1,
+        "N_1": "19652",
+        "N_2": "19716",
+        "N_2_mod_32": 4,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 2,
+        "N_1": "14348876",
+        "N_2": "14348940",
+        "N_2_mod_32": 12,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 3,
+        "N_1": "10460353172",
+        "N_2": "10460353236",
+        "N_2_mod_32": 20,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 4,
+        "N_1": "7625597484956",
+        "N_2": "7625597485020",
+        "N_2_mod_32": 28,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 5,
+        "N_1": "5559060566555492",
+        "N_2": "5559060566555556",
+        "N_2_mod_32": 4,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 6,
+        "N_1": "4052555153018976236",
+        "N_2": "4052555153018976300",
+        "N_2_mod_32": 12,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 7,
+        "N_1": "2954312706550833698612",
+        "N_2": "2954312706550833698676",
+        "N_2_mod_32": 20,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 8,
+        "N_1": "2153693963075557766310716",
+        "N_2": "2153693963075557766310780",
+        "N_2_mod_32": 28,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 9,
+        "N_1": "1570042899082081611640534532",
+        "N_2": "1570042899082081611640534596",
+        "N_2_mod_32": 4,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 10,
+        "N_1": "1144561273430837494885949696396",
+        "N_2": "1144561273430837494885949696460",
+        "N_2_mod_32": 12,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 11,
+        "N_1": "834385168331080533771857328695252",
+        "N_2": "834385168331080533771857328695316",
+        "N_2_mod_32": 20,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 12,
+        "N_1": "608266787713357709119683992618861276",
+        "N_2": "608266787713357709119683992618861340",
+        "N_2_mod_32": 28,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 13,
+        "N_1": "443426488243037769948249630619149892772",
+        "N_2": "443426488243037769948249630619149892836",
+        "N_2_mod_32": 4,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 14,
+        "N_1": "323257909929174534292273980721360271853356",
+        "N_2": "323257909929174534292273980721360271853420",
+        "N_2_mod_32": 12,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      },
+      {
+        "level_l": 15,
+        "N_1": "235655016338368235499067731945871638181119092",
+        "N_2": "235655016338368235499067731945871638181119156",
+        "N_2_mod_32": 20,
+        "same_total_as_tie": true,
+        "non_tie": true,
+        "row_verified": true
+      }
+    ],
+    "algorithm": "two independent exact prime-residue counts inherited from TICKET-260 plus integer modular exponentiation modulo 32",
+    "complexity": "O(pi endpoint) for the three inherited actual prefixes and O(L log exponent) modular operations for symbolic levels",
+    "random_seed": null,
+    "input_range": {
+      "actual_levels": [
+        0,
+        1,
+        2
+      ],
+      "symbolic_level_min": 0,
+      "symbolic_level_max": 15
+    },
+    "transcript_sha256": "56e7343267be9727182a5823af00472ac99896a1cdda8a6a381005135aebfd42",
+    "aggregate": {
+      "tie_forces_level_phased_mod32_proved": true,
+      "actual_mod32_non_tie_certificate_count": 3,
+      "mod32_sufficiency_refuted_for_every_level_at_least_one": true,
+      "mod32_countermodel_count": 15,
+      "all_actual_special_counts_avoid_phased_mod32_proved": false,
+      "strong_goldbach_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "3 actual levels are certified; symbolic phase and countermodels cover the declared level ranges only.",
+  "logical_limit": "The phased residue is necessary but not sufficient for l>=1, and no theorem excludes it at every actual special prime prefix.",
+  "route_decision": {
+    "discard": "treating the phased modulo-thirty-two condition as sufficient for a q=3 special-prefix tie at every level",
+    "parked": [
+      "an all-level arithmetic proof that actual q=3 special minus-one counts avoid their level-phased residue modulo thirty-two"
+    ],
+    "retain": "the exact four-phase modulo-thirty-two necessary condition, three actual certificates, and all-level-above-zero nonsufficiency countermodels",
+    "next_single_lemma": "Q3SpecialMinusOneResidueCountAvoidsLevelPhasedModuloThirtyTwo"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "GB-T262",
+        "label": "Q3TieForcesMinusCountFourModuloEight",
+        "status": "proved"
+      },
+      {
+        "id": "GB-T263",
+        "label": "Q3TieForcesLevelPhasedModuloThirtyTwo",
+        "status": "proved"
+      },
+      {
+        "id": "GB-CERT263",
+        "label": "Q3TieForcesLevelPhasedModuloThirtyTwoExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "GB-REJECT263",
+        "label": "Q3LevelPhasedModuloThirtyTwoConditionIsSufficientForTie",
+        "status": "disproved"
+      },
+      {
+        "id": "GB-OPEN263",
+        "label": "Q3SpecialMinusOneResidueCountAvoidsLevelPhasedModuloThirtyTwo",
+        "status": "open"
+      }
+    ],
+    "edges": [
+      [
+        "GB-T262",
+        "GB-T263"
+      ],
+      [
+        "GB-T263",
+        "GB-CERT263"
+      ],
+      [
+        "GB-T263",
+        "GB-REJECT263"
+      ],
+      [
+        "GB-T263",
+        "GB-OPEN263"
+      ]
+    ],
+    "resolution_path": [
+      "GB-T262",
+      "GB-T263",
+      "GB-OPEN263"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No strong Goldbach proof or counterexample; only the first three actual special levels are certified non-ties."
+}

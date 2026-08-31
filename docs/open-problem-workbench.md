@@ -15,7 +15,20 @@ PrimeProject now has four GitHub Pages subpages for:
 
 The purpose is not to publish a fake proof. The workbench is a disciplined proof lab: each page shows a proof verdict, actual proof attempt runner, candidate lemma workbench, machine proof search trials, formal upgrade matrix, proof kernel roadmap, formal kernel contract audit, invalid proof shortcut suite, AI solver frontier, AI breakthrough program, AI proof forge, proof-route triage, a decisive theorem spec, decisive theorem subgoals, decisive theorem attack tickets, a breakthrough agenda, finite evidence, a bounded certificate, a proof-attempt ledger, a proof attack map, a machine proof-status gate, a proof execution protocol, a proof frontier probe, a known-barrier audit, a formal replay package, a proof review docket, a proof reduction contract, proof candidate intake rules, proof attempt execution logs, a proof obligation DAG, formal skeleton audits, a Lean-oriented formal proof contract, a proof milestone queue, a decisive lemma lab with certified automated falsification probes, a proof-gap taxonomy, the missing infinite proof gates, candidate strategies, and blocked claim language. The public claim level is `proof_workbench_only`.
 
-## Current research boundary: TICKET-262
+## Current research boundary: TICKET-263
+
+The current machine-readable boundary is
+`data/open-problem/ticket263-sharp-envelope-diagonal-mod32-ninthorder.json`.
+TICKET-263 proves four partial theorems while resolving none of the parent conjectures:
+
+- an RH-style reciprocal error envelope gives the sharp jump bound `limsup J_n <= 2A` and lag margin `liminf S_n >= L-2A`; the factor two and critical threshold are exact;
+- pointwise cancellation of every fixed nonzero Weyl harmonic is equivalent to uniform cancellation on some nondecreasing cutoff `H_N` tending to infinity, with discrepancy transfer using the external classical Weyl criterion;
+- a tie in the special q=3 prime race forces a level-dependent residue modulo 32, while all three reproduced actual prefixes miss that residue;
+- on the stated primitive root cone and beyond the explicit height threshold, simultaneous ninth-order endpoint congruences are equivalent to the Twin form taking the unit value.
+
+The next single lemmas are `ActualWeilPacketReciprocalEnvelopeBelowHalfLimit`, `CanonicalFermatQuotientGrowingCutoffUniformWeylCancellation`, `Q3SpecialMinusOneResidueCountAvoidsLevelPhasedModuloThirtyTwo`, and `NoUniqueRootConvergentSatisfiesJointNinthOrderCongruences`. All statuses remain `open_not_proven`. Reports: [English](sharp-envelope-diagonal-mod32-ninthorder.md) and [한국어](sharp-envelope-diagonal-mod32-ninthorder.ko.md).
+
+## Preserved research boundary: TICKET-262
 
 The current machine-readable boundary is
 `data/open-problem/ticket262-limsup-finiteharmonic-mod8-thirdorder.json`.

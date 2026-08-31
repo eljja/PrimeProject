@@ -44,7 +44,25 @@ python -m unittest discover -s tests -p "test_*.py"
 python scripts/reproduce_publication.py
 ```
 
-## Latest handoff: TICKET-262
+## Latest handoff: TICKET-263
+
+Canonical artifact: `data/open-problem/ticket263-sharp-envelope-diagonal-mod32-ninthorder.json`.
+
+TICKET-263 establishes `SharpReciprocalEnvelopeForScaledJumpMargin`, `PointwiseWeylCancellationIffSomeGrowingCutoffUniformCancellation`, `Q3TieForcesLevelPhasedModuloThirtyTwo`, and `NinthOrderJointCongruenceExactOnRootCone`. Twin Prime is the deep-focus track. Exact replay covers 192 reciprocal-envelope rows, five complete root grids with 119 harmonic identities, three actual q=3 Goldbach prefixes plus 15 symbolic mod-32 countermodels, and both signs on 1,024 certified Twin convergents through ninth order and a 519-digit denominator. The two apparent Twin ninth-order passes are the separately recorded modulus-one row `(u,v)=(-1,1)`, so the nontrivial pass count is zero. All conjecture and candidate-resolution counters remain zero.
+
+Continue only from the four `next_single_lemma` fields in `data/open-problem/four-problem-research-state.json`. Do not infer an actual-Weil reciprocal-envelope bound from the abstract RH theorem, a canonical Fermat-quotient cutoff schedule from the diagonal Collatz equivalence, all-level Goldbach non-tie from three actual mod-32 certificates, or all-convergent Twin exclusion from the finite ninth-order certificate and root-cone exactness theorem.
+
+Reproduce with:
+
+```text
+python scripts/ticket263_sharp_envelope_diagonal_mod32_ninthorder.py
+python -m unittest tests.test_ticket263_sharp_envelope_diagonal_mod32_ninthorder -v
+python scripts/verify_ticket263_structure.py
+```
+
+Reports: [English](sharp-envelope-diagonal-mod32-ninthorder.md) and [한국어](sharp-envelope-diagonal-mod32-ninthorder.ko.md).
+
+## Preserved handoff: TICKET-262
 
 Canonical artifact: `data/open-problem/ticket262-limsup-finiteharmonic-mod8-thirdorder.json`.
 

@@ -48,6 +48,7 @@ let ticket249AttemptGlobal = null;
 let ticket250AttemptGlobal = null;
 let ticket251AttemptGlobal = null;
 let ticket252AttemptGlobal = null;
+let ticket263AttemptGlobal = null;
 let ticket262AttemptGlobal = null;
 let ticket261AttemptGlobal = null;
 let ticket260AttemptGlobal = null;
@@ -18053,7 +18054,8 @@ function render(payload, problem, proofOrCounterexampleTicket, ticket17Attempt, 
   if (existingGuide) existingGuide.innerHTML = problemKoGuide(problem);
   const currentResearch = document.querySelector("#currentResearch");
   if (currentResearch) {
-    currentResearch.innerHTML = renderTicket262LimsupFiniteHarmonicMod8ThirdOrder(ticket262AttemptGlobal) ||
+    currentResearch.innerHTML = renderTicket263SharpEnvelopeDiagonalMod32NinthOrder(ticket263AttemptGlobal) ||
+      renderTicket262LimsupFiniteHarmonicMod8ThirdOrder(ticket262AttemptGlobal) ||
       renderTicket261SharpnessWeylTiesDualCongruence(ticket261AttemptGlobal) ||
       renderTicket260WeightedEquidistributionPrimeRaceVariableMod(ticket260AttemptGlobal) ||
       renderTicket259CriticalAlignmentCompatibilityLocal(ticket259AttemptGlobal) ||
@@ -18638,6 +18640,26 @@ async function loadTicket219Attempt() {
     return false;
   }
 }
+async function loadTicket263Attempt() {
+  try {
+    const response = await fetch("../data/open-problem/ticket263-sharp-envelope-diagonal-mod32-ninthorder.json", { cache: "no-store" });
+    if (!response.ok) {
+      ticket263AttemptGlobal = null;
+      return false;
+    }
+    const payload = await response.json();
+    ticket263AttemptGlobal = (payload.attempts || []).find((item) => item.problem_id === problemId) || null;
+    if (ticket263AttemptGlobal) {
+      ticket263AttemptGlobal.bounded_result = ticket263AttemptGlobal.bounded_result || {};
+      ticket263AttemptGlobal.bounded_result.sharp_envelope_diagonal_mod32_ninthorder_audit = payload.sharp_envelope_diagonal_mod32_ninthorder_audit || {};
+    }
+    return Boolean(ticket263AttemptGlobal);
+  } catch (_error) {
+    ticket263AttemptGlobal = null;
+    return false;
+  }
+}
+
 async function loadTicket262Attempt() {
   try {
     const response = await fetch("../data/open-problem/ticket262-limsup-finiteharmonic-mod8-thirdorder.json", { cache: "no-store" });
@@ -21057,12 +21079,17 @@ async function main() {
   let ticket116Attempt = null;
   let ticket117Attempt = null;
   let ticket118Attempt = null;
+  const ticket263Loaded = await loadTicket263Attempt();
   const ticket262Loaded = await loadTicket262Attempt();
   const ticket261Loaded = await loadTicket261Attempt();
   const ticket260Loaded = await loadTicket260Attempt();
   const ticket259Loaded = await loadTicket259Attempt();
   const ticket258Loaded = await loadTicket258Attempt();
   const ticket257Loaded = await loadTicket257Attempt();
+  if (!ticket263Loaded) {
+    await new Promise((resolve) => setTimeout(resolve, 250));
+    if (!ticket263AttemptGlobal) await loadTicket263Attempt();
+  }
   if (!ticket262Loaded) {
     await new Promise((resolve) => setTimeout(resolve, 250));
     if (!ticket262AttemptGlobal) await loadTicket262Attempt();

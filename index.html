@@ -12,7 +12,7 @@
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230f141b'/%3E%3Cpath d='M14 44V14h36v36H20' fill='none' stroke='%23087f7a' stroke-width='5'/%3E%3Cpath d='M18 38l12-12 9 8 9-12' fill='none' stroke='%23d78a11' stroke-width='5' stroke-linecap='square'/%3E%3C/svg%3E"
     />
-    <link rel="stylesheet" href="assets/styles.css?v=20260831-ticket262-layout" />
+    <link rel="stylesheet" href="assets/styles.css?v=20260901-ticket263-layout" />
   </head>
   <body>
     <div class="app-shell">
@@ -76,10 +76,10 @@
           <section id="research-brief-panel" class="panel research-brief-panel">
             <div class="brief-heading">
               <div>
-                <p class="brief-kicker">TICKET-262 · CURRENT RESEARCH BOUNDARY</p>
-                <h1 data-i18n="brief.title">Four open problems, one route no-go and three partial theorems sharpened</h1>
-                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-262 isolates an exact RH limsup threshold, refutes every fixed finite Collatz Weyl cutoff, derives a Goldbach mod-8 tie obstruction, and proves dual third-order Twin congruences.</p>
-                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-262는 RH의 정확한 limsup 문턱, Collatz 모든 고정 유한 조화파 no-go, Goldbach mod-8 동률 장애물, Twin 양방향 3차 합동식을 확정했습니다.</p>
+                <p class="brief-kicker">TICKET-263 · CURRENT RESEARCH BOUNDARY</p>
+                <h1 data-i18n="brief.title">Four open problems, four exact partial theorems sharpened</h1>
+                <p data-i18n="brief.subtitle">PrimeProject has not solved any conjecture. TICKET-263 proves a sharp RH reciprocal envelope, a growing-cutoff Weyl equivalence, a Goldbach mod-32 phase obstruction, and Twin ninth-order tail exactness.</p>
+                <p class="brief-ko">네 난제 중 해결된 문제는 없습니다. TICKET-263은 RH sharp reciprocal envelope, Collatz growing-cutoff Weyl 동치, Goldbach mod-32 위상 장애물, Twin 9차 tail 필요충분 판정을 확정했습니다.</p>
               </div>
               <div class="brief-verdict" aria-label="Current proof verdict">
                 <span>CLAIM STATUS / 주장 상태</span>
@@ -89,39 +89,39 @@
             </div>
 
             <div class="brief-metrics" aria-label="Current research metrics">
-              <div><span>Latest ticket</span><strong>262</strong><small>2026-08-31</small></div>
-              <div><span>Exact no-go</span><strong>1</strong><small>Collatz route</small></div>
-              <div><span>Partial theorems</span><strong>3</strong><small>RH · Goldbach · Twin</small></div>
+              <div><span>Latest ticket</span><strong>263</strong><small>2026-09-01</small></div>
+              <div><span>Exact no-go</span><strong>0</strong><small>new this round</small></div>
+              <div><span>Partial theorems</span><strong>4</strong><small>all four tracks</small></div>
               <div><span>Machine failures</span><strong>0</strong><small>재현 검사</small></div>
             </div>
 
             <div class="brief-problem-grid">
               <article class="brief-problem-card">
                 <header><span>01</span><h2>Riemann Hypothesis<br /><small>리만 가설</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> liminf S_n=L-limsup J_n이며 eventual positive margin은 limsup J_n&lt;L과 동치입니다.</p>
-                <p><strong>폐기:</strong> 더 강한 합 가능성 조건을 최소 추상 목표로 취급하는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>ActualWeilPacketScaledDownwardJumpLimsupBelowLimit</code>.</p>
+                <p><strong>확립:</strong> reciprocal envelope A는 limsup J_n&lt;=2A와 liminf S_n&gt;=L-2A를 주며 상수 2는 최적입니다.</p>
+                <p><strong>폐기:</strong> 임계 A=L/2만으로 양의 lag margin을 얻는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>ActualWeilPacketReciprocalEnvelopeBelowHalfLimit</code>.</p>
                 <a href="open-problems/riemann.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>02</span><h2>Collatz Conjecture<br /><small>콜라츠 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 어떤 고정 유한 Weyl cutoff가 모두 0으로 가도 각도 star discrepancy는 양의 liminf를 가질 수 있습니다.</p>
-                <p><strong>폐기:</strong> 고정 유한 개 조화파 상쇄로 canonical 각도 discrepancy 소멸을 결론내리는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>CanonicalFermatQuotientWeylSumsVanishForEveryNonzeroH</code>.</p>
+                <p><strong>확립:</strong> 모든 고정 비영 Weyl 조화파의 점별 소멸은 어떤 증가 cutoff 위 균일 소멸과 동치입니다.</p>
+                <p><strong>폐기:</strong> complete-root grid 계산을 canonical Fermat-quotient prefix의 추정으로 보는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>CanonicalFermatQuotientGrowingCutoffUniformWeylCancellation</code>.</p>
                 <a href="open-problems/collatz.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>03</span><h2>Strong Goldbach<br /><small>강한 골드바흐 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> 특수 q=3 소수경주 tie는 N_2=4 mod 8과 v_2(N_2)=2를 강제하며, 계산된 세 prefix는 7,1,7입니다.</p>
-                <p><strong>폐기:</strong> product -1을 비동률의 필요조건으로 보는 경로; mod-8 조건도 충분조건은 아닙니다.</p>
-                <p><strong>다음 핵심:</strong> <code>Q3SpecialMinusOneResidueCountNeverFourModuloEight</code>.</p>
+                <p><strong>확립:</strong> 특수 q=3 tie는 level mod 4에 따라 N_2 mod 32를 28,4,12,20으로 강제하며 실제 첫 세 prefix는 이를 피합니다.</p>
+                <p><strong>폐기:</strong> level-phased mod-32 조건을 tie의 충분조건으로 보는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>Q3SpecialMinusOneResidueCountAvoidsLevelPhasedModuloThirtyTwo</code>.</p>
                 <a href="open-problems/goldbach.html">Current proof page / 현재 증명 페이지</a>
               </article>
               <article class="brief-problem-card">
                 <header><span>04</span><h2>Twin Prime<br /><small>쌍둥이 소수 추측</small></h2><b>OPEN</b></header>
-                <p><strong>확립:</strong> unit coefficient는 mod v³와 mod u³의 양방향 조건을 강제하며 처음 1,024개 인증 수렴분수는 둘을 함께 통과하지 못합니다.</p>
-                <p><strong>폐기:</strong> 양방향 2차 합동식을 가장 날카로운 finite jet으로 보는 경로.</p>
-                <p><strong>다음 핵심:</strong> <code>NoUniqueRootConvergentSatisfiesBothThirdOrderCongruences</code>.</p>
+                <p><strong>확립:</strong> 명시적 root-cone 문턱 뒤에서 mod v⁹와 mod u⁹의 양방향 조건은 원래 unit 방정식과 동치입니다.</p>
+                <p><strong>폐기:</strong> (-1,1)의 modulus-one 통과를 비자명한 후보로 보는 경로.</p>
+                <p><strong>다음 핵심:</strong> <code>NoUniqueRootConvergentSatisfiesJointNinthOrderCongruences</code>.</p>
                 <a href="open-problems/twin-prime.html">Current proof page / 현재 증명 페이지</a>
               </article>
             </div>
@@ -130,7 +130,7 @@
               <section>
                 <span>PURE MATHEMATICS / 순수수학</span>
                 <h2>Proof route audit</h2>
-                <p>262개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-262는 limsup 문턱, finite-harmonic no-go, mod-8 tie obstruction, third-order congruences의 정확한 경계를 확정했습니다.</p>
+                <p>263개 티켓을 “확립 / 폐기 / 남은 간극”으로 분리합니다. TICKET-263은 reciprocal-rate sharpness, growing-cutoff diagonalization, mod-32 phase, ninth-order tail exactness의 경계를 확정했습니다.</p>
               </section>
               <section>
                 <span>APPLIED CRYPTOGRAPHY / 응용 암호학</span>
@@ -657,8 +657,8 @@
             <h2 class="rail-title">Experiment Control</h2>
             <section class="rail-research-status" aria-label="Current research status">
               <span>CURRENT / 현재</span>
-              <strong>TICKET-262</strong>
-              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-262 proves one exact no-go and three partial theorems, with a resolution count of zero.</p>
+              <strong>TICKET-263</strong>
+              <p data-i18n="rail.researchStatus">All four conjectures remain open_not_proven. TICKET-263 proves four partial theorems, with a resolution count of zero.</p>
               <a href="open-problems/index.html" data-i18n="rail.researchLink">Four-problem status</a>
             </section>
             <section class="control-group">
@@ -794,8 +794,8 @@
       </main>
     </div>
 
-    <script src="assets/i18n.js?v=20260831-ticket262"></script>
-    <script src="assets/app.js?v=20260831-ticket262"></script>
+    <script src="assets/i18n.js?v=20260901-ticket263"></script>
+    <script src="assets/app.js?v=20260901-ticket263"></script>
   </body>
 </html>
 

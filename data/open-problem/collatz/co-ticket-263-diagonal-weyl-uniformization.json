@@ -1,0 +1,1627 @@
+{
+  "schema": "primeproject.ticket263-sharp-envelope-diagonal-mod32-ninthorder.v1",
+  "generated_at": "2026-09-01T23:59:00+09:00",
+  "status": "open_not_proven",
+  "problem_id": "collatz",
+  "ticket_id": "CO-TICKET-263",
+  "theorem_name": "PointwiseWeylCancellationIffSomeGrowingCutoffUniformCancellation",
+  "declared_proposition": "For any sequence x_j in R/Z, write W_N(h)=N^(-1) sum_(j<=N) exp(2*pi*i*h*x_j). The following are equivalent: (i) W_N(h) tends to zero for every nonzero integer h; (ii) there is a nondecreasing integer sequence H_N tending to infinity such that max_(1<=|h|<=H_N)|W_N(h)| tends to zero. Consequently either condition implies star discrepancy tending to zero by the classical Weyl criterion.",
+  "mathematical_argument": "Condition (ii) immediately implies (i), since every fixed h is eventually below H_N. Conversely, under (i), for each m choose an integer N_m larger than N_(m-1) such that for every N>=N_m and 1<=|h|<=m one has |W_N(h)|<=1/m. Define H_N as the largest m with N_m<=N (and one before N_1). Then H_N is nondecreasing, tends to infinity, and the moving maximum is at most 1/H_N. The discrepancy conclusion is exactly the classical Weyl criterion, not a new arithmetic estimate. The complete rational grids replay simultaneous finite cancellation symbolically through the geometric root-sum identity; they contain no canonical Fermat-quotient data.",
+  "result_classification": "partial_theorem",
+  "problem_status": "open_not_proven",
+  "reproducible_computation": {
+    "theorem": "For any sequence x_j in R/Z, write W_N(h)=N^(-1) sum_(j<=N) exp(2*pi*i*h*x_j). The following are equivalent: (i) W_N(h) tends to zero for every nonzero integer h; (ii) there is a nondecreasing integer sequence H_N tending to infinity such that max_(1<=|h|<=H_N)|W_N(h)| tends to zero. Consequently either condition implies star discrepancy tending to zero by the classical Weyl criterion.",
+    "proof": "Condition (ii) immediately implies (i), since every fixed h is eventually below H_N. Conversely, under (i), for each m choose an integer N_m larger than N_(m-1) such that for every N>=N_m and 1<=|h|<=m one has |W_N(h)|<=1/m. Define H_N as the largest m with N_m<=N (and one before N_1). Then H_N is nondecreasing, tends to infinity, and the moving maximum is at most 1/H_N. The discrepancy conclusion is exactly the classical Weyl criterion, not a new arithmetic estimate. The complete rational grids replay simultaneous finite cancellation symbolically through the geometric root-sum identity; they contain no canonical Fermat-quotient data.",
+    "exact_complete_grid_replays": [
+      {
+        "grid_modulus_M": 4,
+        "point_count_N": 4,
+        "uniform_cutoff_H": 3,
+        "residue_counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "exact_star_discrepancy": {
+          "exact": "1/4",
+          "numerator": 1,
+          "denominator": 4,
+          "display_float": 0.25
+        },
+        "harmonic_rows": [
+          {
+            "harmonic_h": 1,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 2,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 3,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          }
+        ],
+        "case_verified": true
+      },
+      {
+        "grid_modulus_M": 8,
+        "point_count_N": 8,
+        "uniform_cutoff_H": 7,
+        "residue_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "exact_star_discrepancy": {
+          "exact": "1/8",
+          "numerator": 1,
+          "denominator": 8,
+          "display_float": 0.125
+        },
+        "harmonic_rows": [
+          {
+            "harmonic_h": 1,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 2,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 3,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 4,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 5,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 6,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 7,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          }
+        ],
+        "case_verified": true
+      },
+      {
+        "grid_modulus_M": 16,
+        "point_count_N": 16,
+        "uniform_cutoff_H": 15,
+        "residue_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "exact_star_discrepancy": {
+          "exact": "1/16",
+          "numerator": 1,
+          "denominator": 16,
+          "display_float": 0.0625
+        },
+        "harmonic_rows": [
+          {
+            "harmonic_h": 1,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 2,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 3,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 4,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 5,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 6,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 7,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 8,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 9,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 10,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 11,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 12,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 13,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 14,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 15,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          }
+        ],
+        "case_verified": true
+      },
+      {
+        "grid_modulus_M": 32,
+        "point_count_N": 32,
+        "uniform_cutoff_H": 31,
+        "residue_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "exact_star_discrepancy": {
+          "exact": "1/32",
+          "numerator": 1,
+          "denominator": 32,
+          "display_float": 0.03125
+        },
+        "harmonic_rows": [
+          {
+            "harmonic_h": 1,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 2,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 3,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 4,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 5,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 6,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 7,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 8,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 9,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 10,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 11,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 12,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 13,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 14,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 15,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 16,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 17,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 18,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 19,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 20,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 21,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 22,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 23,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 24,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 25,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 26,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 27,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 28,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 29,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 30,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 31,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          }
+        ],
+        "case_verified": true
+      },
+      {
+        "grid_modulus_M": 64,
+        "point_count_N": 64,
+        "uniform_cutoff_H": 63,
+        "residue_counts": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "exact_star_discrepancy": {
+          "exact": "1/64",
+          "numerator": 1,
+          "denominator": 64,
+          "display_float": 0.015625
+        },
+        "harmonic_rows": [
+          {
+            "harmonic_h": 1,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 2,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 3,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 4,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 5,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 6,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 7,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 8,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 9,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 10,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 11,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 12,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 13,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 14,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 15,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 16,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 17,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 18,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 19,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 20,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 21,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 22,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 23,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 24,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 25,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 26,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 27,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 28,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 29,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 30,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 31,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 32,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 33,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 34,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 35,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 36,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 37,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 38,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 39,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 40,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 41,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 42,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 43,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 44,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 45,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 46,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 47,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 48,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 49,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 50,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 51,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 52,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 53,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 54,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 55,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 56,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 57,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 58,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 59,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 60,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 61,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 62,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          },
+          {
+            "harmonic_h": 63,
+            "complete_root_sum_zero": true,
+            "normalized_weyl_magnitude_squared": {
+              "exact": "0/1",
+              "numerator": 0,
+              "denominator": 1,
+              "display_float": 0.0
+            },
+            "row_verified": true
+          }
+        ],
+        "case_verified": true
+      }
+    ],
+    "algorithm": "integer residue counts and the exact complete-root geometric-sum criterion h mod M != 0",
+    "complexity": "O(sum M) integer checks for the replay; the diagonal equivalence is nonquantitative and symbolic",
+    "random_seed": null,
+    "input_range": {
+      "complete_grid_moduli": [
+        4,
+        8,
+        16,
+        32,
+        64
+      ]
+    },
+    "transcript_sha256": "22e5034bb28e5a95a31566c5c5d2b39817d88920c3cdb56add478f8b4364707e",
+    "aggregate": {
+      "pointwise_all_harmonics_iff_some_growing_uniform_cutoff_proved": true,
+      "weyl_criterion_external_transfer_used": true,
+      "complete_grid_replay_count": 5,
+      "complete_grid_harmonic_case_count": 119,
+      "canonical_growing_cutoff_uniform_cancellation_proved": false,
+      "collatz_conjecture_resolved": false
+    },
+    "failure_count": 0
+  },
+  "finite_computation_boundary": "Exact complete-grid replays use M=[4, 8, 16, 32, 64] and are triangular models, not canonical Fermat-quotient prefixes.",
+  "logical_limit": "The diagonal schedule exists abstractly if every canonical fixed harmonic cancels, but neither the fixed-h limits nor a quantitative canonical schedule is proved.",
+  "route_decision": {
+    "discard": "treating countably many fixed-h harmonic limits as intrinsically impossible to package into one growing uniform cutoff",
+    "parked": [
+      "uniform moving-cutoff cancellation for the canonical fixed-base Fermat-quotient phases"
+    ],
+    "retain": "the exact diagonal quantifier reduction from all fixed harmonics to one data-dependent growing cutoff",
+    "next_single_lemma": "CanonicalFermatQuotientGrowingCutoffUniformWeylCancellation"
+  },
+  "stagnation_count": 0,
+  "proof_dag": {
+    "nodes": [
+      {
+        "id": "CO-T262",
+        "label": "EveryFixedFiniteWeylCutoffAngularDiscrepancyNoGo",
+        "status": "proved"
+      },
+      {
+        "id": "CO-T263",
+        "label": "PointwiseWeylCancellationIffSomeGrowingCutoffUniformCancellation",
+        "status": "proved"
+      },
+      {
+        "id": "CO-CERT263",
+        "label": "PointwiseWeylCancellationIffSomeGrowingCutoffUniformCancellationExactReplay",
+        "status": "computed_finite"
+      },
+      {
+        "id": "CO-REJECT263",
+        "label": "NoGrowingUniformCutoffCanRepresentAllPointwiseWeylLimits",
+        "status": "disproved"
+      },
+      {
+        "id": "CO-OPEN263",
+        "label": "CanonicalFermatQuotientGrowingCutoffUniformWeylCancellation",
+        "status": "open"
+      },
+      {
+        "id": "CO-EXT263",
+        "label": "ClassicalWeylEquidistributionCriterion",
+        "status": "external_theorem"
+      }
+    ],
+    "edges": [
+      [
+        "CO-T262",
+        "CO-T263"
+      ],
+      [
+        "CO-T263",
+        "CO-CERT263"
+      ],
+      [
+        "CO-T263",
+        "CO-REJECT263"
+      ],
+      [
+        "CO-T263",
+        "CO-OPEN263"
+      ],
+      [
+        "CO-EXT263",
+        "CO-T263"
+      ]
+    ],
+    "resolution_path": [
+      "CO-T262",
+      "CO-T263",
+      "CO-OPEN263"
+    ],
+    "acyclic": true
+  },
+  "claim_boundary": "No Collatz proof or counterexample; this is a quantifier-equivalent reformulation plus classical Weyl transfer."
+}

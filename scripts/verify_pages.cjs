@@ -21,6 +21,7 @@ async function main() {
   const ticket248Load = openProblemSource.indexOf("const ticket248Loaded = await loadTicket248Attempt();");
   const ticket249Load = openProblemSource.indexOf("const ticket249Loaded = await loadTicket249Attempt();");
   const ticket250Load = openProblemSource.indexOf("const ticket250Loaded = await loadTicket250Attempt();");
+  const ticket263Load = openProblemSource.indexOf("const ticket263Loaded = await loadTicket263Attempt();");
   const ticket262Load = openProblemSource.indexOf("const ticket262Loaded = await loadTicket262Attempt();");
   const ticket261Load = openProblemSource.indexOf("const ticket261Loaded = await loadTicket261Attempt();");
   const ticket260Load = openProblemSource.indexOf("const ticket260Loaded = await loadTicket260Attempt();");
@@ -136,6 +137,9 @@ async function main() {
   if (!(ticket250Load >= 0 && ticket250Load < ticket249Load)) {
     errors.push("TICKET250 must load before TICKET249");
   }
+  if (!(ticket263Load >= 0 && ticket263Load < ticket262Load)) {
+    errors.push("TICKET263 must load before TICKET262");
+  }
   if (!(ticket262Load >= 0 && ticket262Load < ticket261Load)) {
     errors.push("TICKET262 must load before TICKET261");
   }
@@ -174,10 +178,10 @@ async function main() {
   }
   for (const page of ["riemann", "collatz", "goldbach", "twin-prime"]) {
     const source = fs.readFileSync(path.join(root, "open-problems", `${page}.html`), "utf8");
-    if (!source.includes("open-problems.js?v=20260831-ticket262") || !source.includes("ticket262-open-problem.js?v=20260831-ticket262") || !source.includes("ticket261-open-problem.js?v=20260831-ticket261") || !source.includes("ticket260-open-problem.js?v=20260831-ticket260") || !source.includes("ticket259-open-problem.js?v=20260831-ticket259") || !source.includes("ticket258-open-problem.js?v=20260831-ticket258") || !source.includes("ticket257-open-problem.js?v=20260831-ticket257") || !source.includes("ticket256-open-problem.js?v=20260829-ticket256") || !source.includes("ticket255-open-problem.js?v=20260829-ticket255") || !source.includes("ticket254-open-problem.js?v=20260829-ticket254") || !source.includes("ticket253-open-problem.js?v=20260829-ticket253") || !source.includes("ticket252-open-problem.js?v=20260829-ticket252") || !source.includes("ticket251-open-problem.js?v=20260827-ticket251") || !source.includes("ticket250-open-problem.js?v=20260827-ticket250") || !source.includes("ticket249-open-problem.js?v=20260826-ticket249") || !source.includes("ticket248-open-problem.js?v=20260826-ticket248") || !source.includes("ticket247-open-problem.js?v=20260826-ticket247") || !source.includes("ticket246-open-problem.js?v=20260826-ticket246") || !source.includes("ticket245-open-problem.js?v=20260826-ticket245") || !source.includes("ticket244-open-problem.js?v=20260826-ticket244") || !source.includes("ticket243-open-problem.js?v=20260826-ticket243") || !source.includes("ticket242-open-problem.js?v=20260825-ticket242")) {
+    if (!source.includes("open-problems.js?v=20260901-ticket263") || !source.includes("ticket263-open-problem.js?v=20260901-ticket263") || !source.includes("ticket262-open-problem.js?v=20260831-ticket262") || !source.includes("ticket261-open-problem.js?v=20260831-ticket261") || !source.includes("ticket260-open-problem.js?v=20260831-ticket260") || !source.includes("ticket259-open-problem.js?v=20260831-ticket259") || !source.includes("ticket258-open-problem.js?v=20260831-ticket258") || !source.includes("ticket257-open-problem.js?v=20260831-ticket257") || !source.includes("ticket256-open-problem.js?v=20260829-ticket256") || !source.includes("ticket255-open-problem.js?v=20260829-ticket255") || !source.includes("ticket254-open-problem.js?v=20260829-ticket254") || !source.includes("ticket253-open-problem.js?v=20260829-ticket253") || !source.includes("ticket252-open-problem.js?v=20260829-ticket252") || !source.includes("ticket251-open-problem.js?v=20260827-ticket251") || !source.includes("ticket250-open-problem.js?v=20260827-ticket250") || !source.includes("ticket249-open-problem.js?v=20260826-ticket249") || !source.includes("ticket248-open-problem.js?v=20260826-ticket248") || !source.includes("ticket247-open-problem.js?v=20260826-ticket247") || !source.includes("ticket246-open-problem.js?v=20260826-ticket246") || !source.includes("ticket245-open-problem.js?v=20260826-ticket245") || !source.includes("ticket244-open-problem.js?v=20260826-ticket244") || !source.includes("ticket243-open-problem.js?v=20260826-ticket243") || !source.includes("ticket242-open-problem.js?v=20260825-ticket242")) {
       errors.push(`${page}: missing evidence-first proof-page cache key`);
     }
-    if (!source.includes("styles.css?v=20260831-ticket262-layout")) {
+    if (!source.includes("styles.css?v=20260901-ticket263-layout")) {
       errors.push(`${page}: missing evidence-first style cache key`);
     }
   }
@@ -488,7 +492,7 @@ async function main() {
       try {
         await problemPage.waitForFunction(() => document.querySelectorAll(".proof-metric").length >= 3);
         await problemPage.waitForFunction(
-          () => document.querySelector("#currentResearch")?.textContent.includes("TICKET-262")
+          () => document.querySelector("#currentResearch")?.textContent.includes("TICKET-263")
             && document.querySelector("#proofOrCounterexampleLab")?.textContent.includes("Ticket 71"),
           null,
           { timeout: 120000 },
@@ -587,6 +591,12 @@ async function main() {
           milestoneCount: document.querySelectorAll("#milestoneQueue .milestone-card").length,
           decisiveLemmaText: document.querySelector("#decisiveLemmaLab").textContent,
           blockedClaimCount: document.querySelectorAll("#blockedClaims span").length,
+          ticket263AuditOverflow: (() => {
+            const wrapper = document.querySelector(
+              "#ticket263-sharp-envelope-diagonal-mod32-ninthorder .ticket263-audit-table .proof-table-wrap",
+            );
+            return !wrapper || wrapper.scrollWidth > wrapper.clientWidth;
+          })(),
           ticket262AuditOverflow: (() => {
             const wrapper = document.querySelector(
               "#ticket262-limsup-finiteharmonic-mod8-thirdorder .ticket262-audit-table .proof-table-wrap",
@@ -883,15 +893,15 @@ async function main() {
     !metrics.desktopWorkspaceFits ||
     !metrics.desktopColumnsDoNotOverlap ||
     metrics.currentBriefOverflow ||
-    !metrics.currentBriefText.includes("TICKET-262") ||
-    !metrics.currentBriefText.includes("ActualWeilPacketScaledDownwardJumpLimsupBelowLimit") ||
-    !metrics.currentBriefText.includes("CanonicalFermatQuotientWeylSumsVanishForEveryNonzeroH") ||
-    !metrics.currentBriefText.includes("Q3SpecialMinusOneResidueCountNeverFourModuloEight") ||
-    !metrics.currentBriefText.includes("NoUniqueRootConvergentSatisfiesBothThirdOrderCongruences") ||
+    !metrics.currentBriefText.includes("TICKET-263") ||
+    !metrics.currentBriefText.includes("ActualWeilPacketReciprocalEnvelopeBelowHalfLimit") ||
+    !metrics.currentBriefText.includes("CanonicalFermatQuotientGrowingCutoffUniformWeylCancellation") ||
+    !metrics.currentBriefText.includes("Q3SpecialMinusOneResidueCountAvoidsLevelPhasedModuloThirtyTwo") ||
+    !metrics.currentBriefText.includes("NoUniqueRootConvergentSatisfiesJointNinthOrderCongruences") ||
     !metrics.currentBriefText.includes("0 / 4 resolved") ||
     !metrics.currentBriefText.includes("OpenSSL") ||
-    metrics.railResearchTicket.trim() !== "TICKET-262" ||
-    !metrics.railResearchText.includes("TICKET-262") ||
+    metrics.railResearchTicket.trim() !== "TICKET-263" ||
+    !metrics.railResearchText.includes("TICKET-263") ||
     !metrics.railResearchText.includes("resolution count of zero") ||
     metrics.mobileHorizontalOverflow ||
     !metrics.mobileNavigationCollapsed
@@ -908,13 +918,13 @@ async function main() {
     ["Collatz link", metrics.proofHub?.links.includes("collatz.html")],
     ["Goldbach link", metrics.proofHub?.links.includes("goldbach.html")],
     ["Twin link", metrics.proofHub?.links.includes("twin-prime.html")],
-    ["TICKET-262 boundary", metrics.proofHub?.boundary.includes("What TICKET-262 actually changed")],
+    ["TICKET-263 boundary", metrics.proofHub?.boundary.includes("What TICKET-263 actually changed")],
     ["TICKET-260 preserved", metrics.proofHub?.boundary.includes("TICKET-260 machine JSON")],
-    ["Riemann next lemma", metrics.proofHub?.boundary.includes("ActualWeilPacketScaledDownwardJumpLimsupBelowLimit")],
-    ["Collatz next lemma", metrics.proofHub?.boundary.includes("CanonicalFermatQuotientWeylSumsVanishForEveryNonzeroH")],
-    ["Goldbach next lemma", metrics.proofHub?.boundary.includes("Q3SpecialMinusOneResidueCountNeverFourModuloEight")],
-    ["Twin next lemma", metrics.proofHub?.boundary.includes("NoUniqueRootConvergentSatisfiesBothThirdOrderCongruences")],
-    ["progression range", metrics.proofHub?.boundary.includes("TICKET-161–262")],
+    ["Riemann next lemma", metrics.proofHub?.boundary.includes("ActualWeilPacketReciprocalEnvelopeBelowHalfLimit")],
+    ["Collatz next lemma", metrics.proofHub?.boundary.includes("CanonicalFermatQuotientGrowingCutoffUniformWeylCancellation")],
+    ["Goldbach next lemma", metrics.proofHub?.boundary.includes("Q3SpecialMinusOneResidueCountAvoidsLevelPhasedModuloThirtyTwo")],
+    ["Twin next lemma", metrics.proofHub?.boundary.includes("NoUniqueRootConvergentSatisfiesJointNinthOrderCongruences")],
+    ["progression range", metrics.proofHub?.boundary.includes("TICKET-161–263")],
     ["resolution count label", metrics.proofHub?.boundary.includes("Resolution count")],
     ["zero resolution count", metrics.proofHub?.boundary.includes("0")],
     ["claim boundary", metrics.proofHub?.boundary.includes("not present a conjecture as solved")],
@@ -928,8 +938,8 @@ async function main() {
     const failures = [];
     if (page.proofSectionGroups !== 5) failures.push(`${page.problemId}: expected five semantic proof groups`);
     if (page.openProofSectionGroups !== 1) failures.push(`${page.problemId}: expected only core proof status open`);
-    if (!page.currentBoundaryLabel.includes("TICKET-262 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-262 boundary label missing`);
-    if (!page.currentResearchText.includes("TICKET-262 limsup threshold, every finite harmonic cutoff, q=3 mod-8 tie obstruction, and third-order congruences")) failures.push(`${page.problemId}: current TICKET-262 boundary missing`);
+    if (!page.currentBoundaryLabel.includes("TICKET-263 · CURRENT RESEARCH BOUNDARY")) failures.push(`${page.problemId}: static TICKET-263 boundary label missing`);
+    if (!page.currentResearchText.includes("TICKET-263 sharp reciprocal envelope, diagonal Weyl cutoff, q=3 mod-32 phase, and ninth-order tail exactness")) failures.push(`${page.problemId}: current TICKET-263 boundary missing`);
     if (!page.currentResearchText.includes("Remaining proof gap / 남은 증명 간극")) failures.push(`${page.problemId}: current remaining gap missing`);
     return failures;
   });
@@ -1799,41 +1809,41 @@ async function main() {
       requireText("ticket124 Goldbach route", "JointResidualCutoffContract");
       requireText("ticket124 Goldbach target", "ExplicitJointBalancedGoldbachCutoff");
     }
-    requireCurrentText("ticket262 title", "TICKET-262 limsup threshold, every finite harmonic cutoff, q=3 mod-8 tie obstruction, and third-order congruences");
-    requireCurrentText("ticket262 table", "TICKET262 audit");
-    requireCurrentText("ticket262 latest", "LATEST / 최신 연구 경계");
-    requireCurrentText("ticket262 resolutions", "Resolution count0");
-    requireCurrentText("ticket262 proof DAG", "Proof DAG / 증명 의존성");
-    requireCurrentText("ticket262 completion guard", "TICKET-262 resolves none of the four parent conjectures");
-    if (page.ticket262AuditOverflow) checks.push(`${page.problemId}: ticket262 audit table overflow`);
+    requireCurrentText("ticket263 title", "TICKET-263 sharp reciprocal envelope, diagonal Weyl cutoff, q=3 mod-32 phase, and ninth-order tail exactness");
+    requireCurrentText("ticket263 table", "TICKET263 audit");
+    requireCurrentText("ticket263 latest", "LATEST / 최신 연구 경계");
+    requireCurrentText("ticket263 resolutions", "Resolution count0");
+    requireCurrentText("ticket263 proof DAG", "Proof DAG / 증명 의존성");
+    requireCurrentText("ticket263 completion guard", "TICKET-263 resolves none of the four parent conjectures");
+    if (page.ticket263AuditOverflow) checks.push(`${page.problemId}: ticket263 audit table overflow`);
     if (page.problemId === "riemann") {
-      requireCurrentText("ticket262 RH theorem", "PacketLagMarginIffScaledSignedJumpLimsupBelowLimit");
-      requireCurrentText("ticket262 RH target", "ActualWeilPacketScaledDownwardJumpLimsupBelowLimit");
-      requireCurrentText("ticket262 RH iff", "Exact limsup iffproved");
-      requireCurrentText("ticket262 RH open", "Actual Weil boundopen");
-      requireCurrentText("ticket262 RH status", "RHopen");
+      requireCurrentText("ticket263 RH theorem", "SharpReciprocalEnvelopeForScaledJumpMargin");
+      requireCurrentText("ticket263 RH target", "ActualWeilPacketReciprocalEnvelopeBelowHalfLimit");
+      requireCurrentText("ticket263 RH sharp", "Sharp factor twoproved");
+      requireCurrentText("ticket263 RH critical", "Critical marginrefuted");
+      requireCurrentText("ticket263 RH open", "Actual Weil rateopen");
     } else if (page.problemId === "collatz") {
-      requireCurrentText("ticket262 Collatz theorem", "EveryFixedFiniteWeylCutoffAngularDiscrepancyNoGo");
-      requireCurrentText("ticket262 Collatz target", "CanonicalFermatQuotientWeylSumsVanishForEveryNonzeroH");
-      requireCurrentText("ticket262 Collatz rows", "1,152 prime-modulus phase cases");
-      requireCurrentText("ticket262 Collatz exact", "Every finite cutoff insufficientproved");
-      requireCurrentText("ticket262 Collatz largest", "Largest replay H16");
-      requireCurrentText("ticket262 Collatz open", "Canonical all-h theoremopen");
+      requireCurrentText("ticket263 Collatz theorem", "PointwiseWeylCancellationIffSomeGrowingCutoffUniformCancellation");
+      requireCurrentText("ticket263 Collatz target", "CanonicalFermatQuotientGrowingCutoffUniformWeylCancellation");
+      requireCurrentText("ticket263 Collatz rows", "119 complete-root harmonic identities");
+      requireCurrentText("ticket263 Collatz exact", "Diagonal equivalenceproved");
+      requireCurrentText("ticket263 Collatz transfer", "Weyl transferexternal theorem");
+      requireCurrentText("ticket263 Collatz open", "Canonical scheduleopen");
     } else if (page.problemId === "goldbach") {
-      requireCurrentText("ticket262 Goldbach theorem", "Q3TieForcesMinusCountFourModuloEight");
-      requireCurrentText("ticket262 Goldbach target", "Q3SpecialMinusOneResidueCountNeverFourModuloEight");
-      requireCurrentText("ticket262 Goldbach mod8", "Tie => N_2=4 mod 8proved");
-      requireCurrentText("ticket262 Goldbach maximum", "28,697,817");
-      requireCurrentText("ticket262 Goldbach certificates", "Actual certificates3");
-      requireCurrentText("ticket262 Goldbach open", "All special countsopen");
+      requireCurrentText("ticket263 Goldbach theorem", "Q3TieForcesLevelPhasedModuloThirtyTwo");
+      requireCurrentText("ticket263 Goldbach target", "Q3SpecialMinusOneResidueCountAvoidsLevelPhasedModuloThirtyTwo");
+      requireCurrentText("ticket263 Goldbach mod32", "Four-phase necessityproved");
+      requireCurrentText("ticket263 Goldbach maximum", "28,697,817");
+      requireCurrentText("ticket263 Goldbach certificates", "Actual certificates3");
+      requireCurrentText("ticket263 Goldbach open", "All actual levelsopen");
     } else {
-      requireCurrentText("ticket262 Twin theorem", "BidirectionalThirdOrderCongruenceAnd1024ConvergentCertificate");
-      requireCurrentText("ticket262 Twin target", "NoUniqueRootConvergentSatisfiesBothThirdOrderCongruences");
-      requireCurrentText("ticket262 Twin digits", "maximum denominator has 519 digits");
-      requireCurrentText("ticket262 Twin third order", "Joint third-order passes: 0");
-      requireCurrentText("ticket262 Twin necessity", "Dual mod u^3/v^3 necessityproved");
-      requireCurrentText("ticket262 Twin prefix", "Prefix excluded1,024");
-      requireCurrentText("ticket262 Twin open", "All convergentsopen");
+      requireCurrentText("ticket263 Twin theorem", "NinthOrderJointCongruenceExactOnRootCone");
+      requireCurrentText("ticket263 Twin target", "NoUniqueRootConvergentSatisfiesJointNinthOrderCongruences");
+      requireCurrentText("ticket263 Twin tail rows", "986 in the exact tail domain");
+      requireCurrentText("ticket263 Twin ninth order", "Nontrivial joint ninth-order passes: 0");
+      requireCurrentText("ticket263 Twin exactness", "Ninth-order tail iffproved");
+      requireCurrentText("ticket263 Twin digits", "Maximum denominator519 digits");
+      requireCurrentText("ticket263 Twin open", "All convergentsopen");
     }
     requireText("ticket194 historical title", "Ticket 194 dense-core extension, ten-one cycles, and theta layers");
     requireText("ticket194 historical table", "TICKET194 audit");
@@ -3864,8 +3874,8 @@ async function main() {
     ["panel", metrics.evolutionPanel, "Evidence pack"],
     ["panel", metrics.evolutionPanel, "Publication consistency"],
     ["panel", metrics.evolutionPanel, "TICKET-245"],
-    ["panel", metrics.evolutionPanel, "TICKET-262"],
-    ["panel", metrics.evolutionPanel, "4 current cards / 262 tickets"],
+    ["panel", metrics.evolutionPanel, "TICKET-263"],
+    ["panel", metrics.evolutionPanel, "4 current cards / 263 tickets"],
     ["panel", metrics.evolutionPanel, "TICKET-247"],
     ["panel", metrics.evolutionPanel, "TICKET-249"],
     ["panel", metrics.evolutionPanel, "TICKET-248"],
@@ -3915,11 +3925,11 @@ async function main() {
     !metrics.atlasPanel.includes("Publication claims governed") ||
     !metrics.atlasPanel.includes("Evidence ladder") ||
     !metrics.atlasPanel.includes("Proof workbench") ||
-    !metrics.atlasPanel.includes("TICKET-262") ||
-    !metrics.atlasPanel.includes("ActualWeilPacketScaledDownwardJumpLimsupBelowLimit") ||
-    !metrics.atlasPanel.includes("CanonicalFermatQuotientWeylSumsVanishForEveryNonzeroH") ||
-    !metrics.atlasPanel.includes("Q3SpecialMinusOneResidueCountNeverFourModuloEight") ||
-    !metrics.atlasPanel.includes("NoUniqueRootConvergentSatisfiesBothThirdOrderCongruences") ||
+    !metrics.atlasPanel.includes("TICKET-263") ||
+    !metrics.atlasPanel.includes("ActualWeilPacketReciprocalEnvelopeBelowHalfLimit") ||
+    !metrics.atlasPanel.includes("CanonicalFermatQuotientGrowingCutoffUniformWeylCancellation") ||
+    !metrics.atlasPanel.includes("Q3SpecialMinusOneResidueCountAvoidsLevelPhasedModuloThirtyTwo") ||
+    !metrics.atlasPanel.includes("NoUniqueRootConvergentSatisfiesJointNinthOrderCongruences") ||
     !metrics.atlasPanel.includes("Riemann Hypothesis") ||
     !metrics.atlasPanel.includes("Twin Prime Conjecture") ||
     !metrics.atlasPanel.includes("Next academic work")
